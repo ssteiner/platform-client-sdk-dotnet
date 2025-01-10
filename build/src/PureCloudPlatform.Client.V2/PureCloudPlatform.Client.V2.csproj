@@ -3,6 +3,9 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <OutputType>Library</OutputType>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <VersionPrefix>224.0.0</VersionPrefix>
+    <VersionSuffix />
+    <PackageId>PureCloudPlatform.Client.V2.nxodev</PackageId>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DocumentationFile>bin\Debug\PureCloudPlatform.Client.V2.xml</DocumentationFile>
