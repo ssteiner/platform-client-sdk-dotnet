@@ -20,6 +20,7 @@ extends:
   # Calling template on the reference repository
   template: Templates/build-nugetstd-searchplugin-template.yml@DevOpsTools
   parameters:
+    dotNetVersion: 'netstandard2.0'
     projectDisplayName: 'PureCloudPlatform.Client.V2'
     projectPathFolder: /build/src/PureCloudPlatform.Client.V2
     projectPathFull: 'build/src/PureCloudPlatform.Client.V2/PureCloudPlatform.Client.V2.csproj'
