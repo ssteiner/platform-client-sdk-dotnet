@@ -194,6 +194,8 @@ namespace PureCloudPlatform.Client.V2.Client
         public string ClientId { get; set; }
         public string ClientSecret { get; set; }
 
+        public bool UsingClientCredentials { get; set; }
+
         // Creates and sets up a RestRequest prior to a call.
         private RestRequest PrepareRequest(
             String path, RestSharp.Method method, List<Tuple<String, String>> queryParams, Object postBody,
@@ -246,7 +248,10 @@ namespace PureCloudPlatform.Client.V2.Client
             {
                 try
                 {
-                    Extensions.AuthExtensions.PostToken(this, ClientId, ClientSecret, authorizationCode: Configuration.AuthTokenInfo.RefreshToken, isRefreshRequest: true);
+                    if (UsingCodeAuth)
+                        Extensions.AuthExtensions.PostToken(this, ClientId, ClientSecret, authorizationCode: Configuration.AuthTokenInfo.RefreshToken, isRefreshRequest: true);
+                    else // Client Credentials
+                        Extensions.AuthExtensions.PostToken(this, ClientId, ClientSecret);
                 }
                 catch (Exception e)
                 {
@@ -345,7 +350,7 @@ namespace PureCloudPlatform.Client.V2.Client
 
             }while(retry.ShouldRetry(response));
 
-            if (UsingCodeAuth && Configuration.ShouldRefreshAccessToken)
+            if ((UsingCodeAuth || UsingClientCredentials) && Configuration.ShouldRefreshAccessToken)
             {
                 int statusCode = (int) response.StatusCode;
                 if (statusCode == 401)
@@ -439,7 +444,7 @@ namespace PureCloudPlatform.Client.V2.Client
                                                         ?? new Dictionary<string, string>());
             }while(retry.ShouldRetry(response));
 
-            if (UsingCodeAuth && Configuration.ShouldRefreshAccessToken)
+            if ((UsingCodeAuth || UsingClientCredentials) && Configuration.ShouldRefreshAccessToken)
             {
                 int statusCode = (int) response.StatusCode;
                 if (statusCode == 401)
