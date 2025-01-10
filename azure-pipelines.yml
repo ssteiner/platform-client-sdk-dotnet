@@ -1,0 +1,25 @@
+# azure-pipelines.yml
+resources:
+ repositories:
+    - repository: DevOpsTools
+      type: git
+      name: Tools\AzureDevOpsTools
+      ref: 'refs/heads/main'
+trigger:
+  branches:
+    include:
+      - main
+      - feat/*
+  paths:
+    exclude:
+      - README.md
+    include:
+      - 'build/*'
+
+extends:
+  # Calling template on the reference repository
+  template: Templates/build-nugetstd-searchplugin-template.yml@DevOpsTools
+  parameters:
+    projectDisplayName: 'PureCloudPlatform.Client.V2'
+    projectPathFolder: /build/src/PureCloudPlatform.Client.V2
+    projectPathFull: 'build/src/PureCloudPlatform.Client.V2/PureCloudPlatform.Client.V2.csproj'
