@@ -249,7 +249,21 @@ namespace PureCloudPlatform.Client.V2.Client
         /// Gets or sets the default Configuration.
         /// </summary>
         /// <value>Configuration.</value>
-        public static Configuration Default = new Configuration();
+        public static Configuration Default
+        {
+            get
+            {
+                lock (defaultConfigLock)
+                {
+                    if (defaultConfig == null)
+                        defaultConfig = new Configuration();
+                }
+                return defaultConfig;
+            }
+        }
+
+        private static Configuration defaultConfig;
+        private static readonly ReaderWriterLockSlim defaultConfigLock = new ReaderWriterLockSlim();
 
         /// <summary>
         /// Gets or sets the HTTP timeout (milliseconds) of ApiClient. Default to 100000 milliseconds.
@@ -273,15 +287,15 @@ namespace PureCloudPlatform.Client.V2.Client
             AuthTokenInfo = new AuthTokenInfo();
             if (apiClient == null)
             {
-                if (Default != null && Default.ApiClient == null)
-                    Default.ApiClient = new ApiClient(this);
+                if (defaultConfig != null && defaultConfig.ApiClient == null)
+                    defaultConfig.ApiClient = new ApiClient(this);
 
-                ApiClient = Default != null ? Default.ApiClient : new ApiClient(this);
+                ApiClient = defaultConfig != null ? defaultConfig.ApiClient : new ApiClient(this);
             }
             else
             {
-                if (Default != null && Default.ApiClient == null)
-                    Default.ApiClient = apiClient;
+                if (defaultConfig != null && defaultConfig.ApiClient == null)
+                    defaultConfig.ApiClient = apiClient;
 
                 ApiClient = apiClient;
             }
