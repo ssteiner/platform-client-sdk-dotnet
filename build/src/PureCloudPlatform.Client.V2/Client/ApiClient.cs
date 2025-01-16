@@ -457,11 +457,12 @@ namespace PureCloudPlatform.Client.V2.Client
 
             if ((int)response.StatusCode < 200 || (int)response.StatusCode >= 300)
                 Configuration.Logger.Error(method.ToString(), url, postBody, response.Content, (int)response.StatusCode, headerParams, response.Headers?
+                                                             .GroupBy(header => header?.Name)
                                                              .Select(header => new
                                                              {
-                                                                 Name = header.GetType().GetProperty("Name")?.GetValue(header),
-                                                                 Value = header.GetType().GetProperty("Value")?.GetValue(header)
-                                                             }).ToDictionary(header => header?.Name?.ToString(), header => header?.Value?.ToString())
+                                                                 Name = header?.FirstOrDefault()?.Name,
+                                                                 Value = header.Select(x => x?.Value)?.ToList()
+                                                             }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray()))
                                                         ?? new Dictionary<string, string>());
 
             return (Object)response;
