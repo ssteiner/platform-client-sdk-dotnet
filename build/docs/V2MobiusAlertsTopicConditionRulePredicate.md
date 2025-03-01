@@ -14,8 +14,9 @@
 | **Value** | **double?** |  | [optional] |
 | **Status** | **string** |  | [optional] |
 | **MediaType** | **string** |  | [optional] |
+| **Topic** | **string** |  | [optional] |
 | **ComparisonOperator** | **string** |  | [optional] |
 
 
 
-_PureCloudPlatform.Client.V2 224.1.0_
+_PureCloudPlatform.Client.V2 227.0.0_

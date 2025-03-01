@@ -13,7 +13,8 @@
 | **From** | [**CollaborateChatAdhocMessageEventTopicCollaborateChatEntity**](CollaborateChatAdhocMessageEventTopicCollaborateChatEntity) |  | [optional] |
 | **To** | [**CollaborateChatAdhocMessageEventTopicCollaborateChatEntity**](CollaborateChatAdhocMessageEventTopicCollaborateChatEntity) |  | [optional] |
 | **Mentions** | [**List&lt;CollaborateChatAdhocMessageEventTopicCollaborateChatEntity&gt;**](CollaborateChatAdhocMessageEventTopicCollaborateChatEntity) |  | [optional] |
+| **NotifyAll** | **bool?** |  | [optional] |
 
 
 
-_PureCloudPlatform.Client.V2 224.1.0_
+_PureCloudPlatform.Client.V2 227.0.0_

@@ -280,22 +280,10 @@ namespace PureCloudPlatform.Client.V2.Model
             OutdatedSdkVersion,
             
             /// <summary>
-            /// Enum Unknown for "unknown"
+            /// Enum Apple for "apple"
             /// </summary>
-            [EnumMember(Value = "unknown")]
-            Unknown,
-            
-            /// <summary>
-            /// Enum Sms for "sms"
-            /// </summary>
-            [EnumMember(Value = "sms")]
-            Sms,
-            
-            /// <summary>
-            /// Enum Twitter for "twitter"
-            /// </summary>
-            [EnumMember(Value = "twitter")]
-            Twitter,
+            [EnumMember(Value = "apple")]
+            Apple,
             
             /// <summary>
             /// Enum Facebook for "facebook"
@@ -304,22 +292,10 @@ namespace PureCloudPlatform.Client.V2.Model
             Facebook,
             
             /// <summary>
-            /// Enum Line for "line"
+            /// Enum Instagram for "instagram"
             /// </summary>
-            [EnumMember(Value = "line")]
-            Line,
-            
-            /// <summary>
-            /// Enum Whatsapp for "whatsapp"
-            /// </summary>
-            [EnumMember(Value = "whatsapp")]
-            Whatsapp,
-            
-            /// <summary>
-            /// Enum Telegram for "telegram"
-            /// </summary>
-            [EnumMember(Value = "telegram")]
-            Telegram,
+            [EnumMember(Value = "instagram")]
+            Instagram,
             
             /// <summary>
             /// Enum Kakao for "kakao"
@@ -328,10 +304,10 @@ namespace PureCloudPlatform.Client.V2.Model
             Kakao,
             
             /// <summary>
-            /// Enum Webmessaging for "webmessaging"
+            /// Enum Line for "line"
             /// </summary>
-            [EnumMember(Value = "webmessaging")]
-            Webmessaging,
+            [EnumMember(Value = "line")]
+            Line,
             
             /// <summary>
             /// Enum Open for "open"
@@ -340,10 +316,40 @@ namespace PureCloudPlatform.Client.V2.Model
             Open,
             
             /// <summary>
-            /// Enum Instagram for "instagram"
+            /// Enum Sms for "sms"
             /// </summary>
-            [EnumMember(Value = "instagram")]
-            Instagram
+            [EnumMember(Value = "sms")]
+            Sms,
+            
+            /// <summary>
+            /// Enum Telegram for "telegram"
+            /// </summary>
+            [EnumMember(Value = "telegram")]
+            Telegram,
+            
+            /// <summary>
+            /// Enum Twitter for "twitter"
+            /// </summary>
+            [EnumMember(Value = "twitter")]
+            Twitter,
+            
+            /// <summary>
+            /// Enum Webmessaging for "webmessaging"
+            /// </summary>
+            [EnumMember(Value = "webmessaging")]
+            Webmessaging,
+            
+            /// <summary>
+            /// Enum Whatsapp for "whatsapp"
+            /// </summary>
+            [EnumMember(Value = "whatsapp")]
+            Whatsapp,
+            
+            /// <summary>
+            /// Enum Unknown for "unknown"
+            /// </summary>
+            [EnumMember(Value = "unknown")]
+            Unknown
         }
         /// <summary>
         /// The participant's state.  Values can be: 'alerting', 'connected', 'disconnected', 'dialing', 'contacting
@@ -413,6 +419,7 @@ namespace PureCloudPlatform.Client.V2.Model
         /// <param name="StartAcwTime">The timestamp when this participant started after-call work. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z.</param>
         /// <param name="EndAcwTime">The timestamp when this participant ended after-call work. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z.</param>
         /// <param name="ParkTime">The time when this participant's communication was last parked.  Does not reset on resume. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z.</param>
+        /// <param name="ResumeTime">The time when this participant's communications will resume. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z.</param>
         /// <param name="ToAddress">Address for the participant on receiving side of the message conversation. If the address is a phone number, E.164 format is recommended..</param>
         /// <param name="FromAddress">Address for the participant on the sending side of the message conversation. If the address is a phone number, E.164 format is recommended..</param>
         /// <param name="Messages">Message instance details on the communication..</param>
@@ -422,7 +429,7 @@ namespace PureCloudPlatform.Client.V2.Model
         /// <param name="Authenticated">If true, the participant member is authenticated..</param>
         /// <param name="MonitoredParticipantId">The ID of the participant being monitored when performing a message monitor..</param>
         /// <param name="MonitoredParticipant">The participant being monitored when performing a message monitor..</param>
-        public MessageMediaParticipant(string Id = null, string Name = null, string Address = null, DateTime? StartTime = null, DateTime? ConnectedTime = null, DateTime? EndTime = null, DateTime? StartHoldTime = null, string Purpose = null, StateEnum? State = null, DirectionEnum? Direction = null, DisconnectTypeEnum? DisconnectType = null, bool? Held = null, bool? WrapupRequired = null, string WrapupPrompt = null, List<string> MediaRoles = null, DomainEntityRef User = null, DomainEntityRef Queue = null, DomainEntityRef Team = null, Dictionary<string, string> Attributes = null, ErrorInfo ErrorInfo = null, DomainEntityRef Script = null, int? WrapupTimeoutMs = null, bool? WrapupSkipped = null, int? AlertingTimeoutMs = null, string Provider = null, DomainEntityRef ExternalContact = null, DomainEntityRef ExternalOrganization = null, Wrapup Wrapup = null, string Peer = null, FlaggedReasonEnum? FlaggedReason = null, JourneyContext JourneyContext = null, ConversationRoutingData ConversationRoutingData = null, DateTime? StartAcwTime = null, DateTime? EndAcwTime = null, DateTime? ParkTime = null, Address ToAddress = null, Address FromAddress = null, List<MessageDetails> Messages = null, TypeEnum? Type = null, string RecipientCountry = null, string RecipientType = null, bool? Authenticated = null, string MonitoredParticipantId = null, AddressableEntityRef MonitoredParticipant = null)
+        public MessageMediaParticipant(string Id = null, string Name = null, string Address = null, DateTime? StartTime = null, DateTime? ConnectedTime = null, DateTime? EndTime = null, DateTime? StartHoldTime = null, string Purpose = null, StateEnum? State = null, DirectionEnum? Direction = null, DisconnectTypeEnum? DisconnectType = null, bool? Held = null, bool? WrapupRequired = null, string WrapupPrompt = null, List<string> MediaRoles = null, DomainEntityRef User = null, DomainEntityRef Queue = null, DomainEntityRef Team = null, Dictionary<string, string> Attributes = null, ErrorInfo ErrorInfo = null, DomainEntityRef Script = null, int? WrapupTimeoutMs = null, bool? WrapupSkipped = null, int? AlertingTimeoutMs = null, string Provider = null, DomainEntityRef ExternalContact = null, DomainEntityRef ExternalOrganization = null, Wrapup Wrapup = null, string Peer = null, FlaggedReasonEnum? FlaggedReason = null, JourneyContext JourneyContext = null, ConversationRoutingData ConversationRoutingData = null, DateTime? StartAcwTime = null, DateTime? EndAcwTime = null, DateTime? ParkTime = null, DateTime? ResumeTime = null, Address ToAddress = null, Address FromAddress = null, List<MessageDetails> Messages = null, TypeEnum? Type = null, string RecipientCountry = null, string RecipientType = null, bool? Authenticated = null, string MonitoredParticipantId = null, AddressableEntityRef MonitoredParticipant = null)
         {
             this.Id = Id;
             this.Name = Name;
@@ -459,6 +466,7 @@ namespace PureCloudPlatform.Client.V2.Model
             this.StartAcwTime = StartAcwTime;
             this.EndAcwTime = EndAcwTime;
             this.ParkTime = ParkTime;
+            this.ResumeTime = ResumeTime;
             this.ToAddress = ToAddress;
             this.FromAddress = FromAddress;
             this.Messages = Messages;
@@ -761,6 +769,15 @@ namespace PureCloudPlatform.Client.V2.Model
 
 
         /// <summary>
+        /// The time when this participant's communications will resume. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
+        /// </summary>
+        /// <value>The time when this participant's communications will resume. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z</value>
+        [DataMember(Name="resumeTime", EmitDefaultValue=false)]
+        public DateTime? ResumeTime { get; set; }
+
+
+
+        /// <summary>
         /// Address for the participant on receiving side of the message conversation. If the address is a phone number, E.164 format is recommended.
         /// </summary>
         /// <value>Address for the participant on receiving side of the message conversation. If the address is a phone number, E.164 format is recommended.</value>
@@ -877,6 +894,7 @@ namespace PureCloudPlatform.Client.V2.Model
             sb.Append("  StartAcwTime: ").Append(StartAcwTime).Append("\n");
             sb.Append("  EndAcwTime: ").Append(EndAcwTime).Append("\n");
             sb.Append("  ParkTime: ").Append(ParkTime).Append("\n");
+            sb.Append("  ResumeTime: ").Append(ResumeTime).Append("\n");
             sb.Append("  ToAddress: ").Append(ToAddress).Append("\n");
             sb.Append("  FromAddress: ").Append(FromAddress).Append("\n");
             sb.Append("  Messages: ").Append(Messages).Append("\n");
@@ -1102,6 +1120,11 @@ namespace PureCloudPlatform.Client.V2.Model
                     this.ParkTime.Equals(other.ParkTime)
                 ) &&
                 (
+                    this.ResumeTime == other.ResumeTime ||
+                    this.ResumeTime != null &&
+                    this.ResumeTime.Equals(other.ResumeTime)
+                ) &&
+                (
                     this.ToAddress == other.ToAddress ||
                     this.ToAddress != null &&
                     this.ToAddress.Equals(other.ToAddress)
@@ -1263,6 +1286,9 @@ namespace PureCloudPlatform.Client.V2.Model
 
                 if (this.ParkTime != null)
                     hash = hash * 59 + this.ParkTime.GetHashCode();
+
+                if (this.ResumeTime != null)
+                    hash = hash * 59 + this.ResumeTime.GetHashCode();
 
                 if (this.ToAddress != null)
                     hash = hash * 59 + this.ToAddress.GetHashCode();
