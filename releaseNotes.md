@@ -1,382 +1,426 @@
-Platform API version: 8752
+Platform API version: 8887
 
 
 
 
-# Major Changes (0 changes)
+# Major Changes (13 changes)
 
+**/api/v2/recordings/screensessions/{recordingSessionId}** (1 change)
 
-# Minor Changes (112 changes)
+* Path /api/v2/recordings/screensessions/{recordingSessionId} was removed
 
-**/api/v2/analytics/resolutions/aggregates/query** (2 changes)
+**GET /api/v2/externalcontacts/import/jobs/{jobId}** (1 change)
 
-* Path was added
-* Operation POST was added
+* Parameter expand was added
 
-**/api/v2/gamification/insights/rankings** (2 changes)
+**GET /api/v2/externalcontacts/import/jobs** (1 change)
 
-* Path was added
-* Operation GET was added
+* Parameter expand was added
 
-**/api/v2/taskmanagement/workitems/bulk/jobs/users/me** (2 changes)
+**ScreenRecordingSessionRequest** (1 change)
 
-* Path was added
-* Operation GET was added
-
-**/api/v2/taskmanagement/workitems/bulk/add/jobs/{bulkJobId}** (4 changes)
-
-* Path was added
-* Operation GET was added
-* Operation DELETE was added
-* Operation PATCH was added
-
-**/api/v2/taskmanagement/workitems/bulk/add/jobs/{bulkJobId}/results** (2 changes)
-
-* Path was added
-* Operation GET was added
-
-**/api/v2/taskmanagement/workitems/bulk/add/jobs** (2 changes)
-
-* Path was added
-* Operation POST was added
-
-**/api/v2/taskmanagement/workitems/bulk/terminate/jobs/{bulkJobId}/results** (2 changes)
-
-* Path was added
-* Operation GET was added
-
-**/api/v2/taskmanagement/workitems/bulk/terminate/jobs/{bulkJobId}** (4 changes)
-
-* Path was added
-* Operation GET was added
-* Operation DELETE was added
-* Operation PATCH was added
-
-**/api/v2/taskmanagement/workitems/bulk/terminate/jobs** (2 changes)
-
-* Path was added
-* Operation POST was added
-
-**/api/v2/workforcemanagement/businessunits/{businessUnitId}/mainforecast/continuousforecast/session** (2 changes)
-
-* Path was added
-* Operation GET was added
-
-**/api/v2/workforcemanagement/businessunits/{businessUnitId}/mainforecast/continuousforecast/session/{sessionId}** (2 changes)
-
-* Path was added
-* Operation GET was added
-
-**/api/v2/workforcemanagement/businessunits/{businessUnitId}/mainforecast/continuousforecast/session/{sessionId}/snapshot/{snapshotId}** (2 changes)
-
-* Path was added
-* Operation GET was added
-
-**ResolutionAggregateQueryResponse** (1 change)
-
-* Model was added
-
-**ResolutionAggregationQuery** (1 change)
-
-* Model was added
-
-**ViewFilter** (3 changes)
-
-* Optional property video was added
-* Optional property linkedInteraction was added
-* Optional property recommendationSources was added
-
-**DataSchema** (1 change)
-
-* Enum value DECISION_TABLE was added to property appliesTo
-
-**Limit** (2 changes)
-
-* Enum value analytics.agents was added to property namespace
-* Enum value micro.frontend was added to property namespace
-
-**CommonCampaignDivisionView** (1 change)
-
-* Enum value whatsapp was added to property mediaType
-
-**CommonCampaign** (1 change)
-
-* Enum value whatsapp was added to property mediaType
+* Model ScreenRecordingSessionRequest was removed
 
 **WhatsAppColumn** (1 change)
 
+* Property contactableTimeColumn was removed
+
+**OpenDataIngestionRuleResponse** (2 changes)
+
+* dateCreated has been made readonly
+* dateModified has been made readonly
+
+**OpenDataIngestionRuleVersionResponse** (2 changes)
+
+* dateCreated has been made readonly
+* dateModified has been made readonly
+
+**TwitterDataIngestionRuleResponse** (2 changes)
+
+* dateCreated has been made readonly
+* dateModified has been made readonly
+
+**TwitterDataIngestionRuleVersionResponse** (2 changes)
+
+* dateCreated has been made readonly
+* dateModified has been made readonly
+
+
+# Minor Changes (111 changes)
+
+**/api/v2/journey/views/data/details** (2 changes)
+
+* Path was added
+* Operation GET was added
+
+**GET /api/v2/conversations/{conversationId}/recordings/{recordingId}** (1 change)
+
+* Response 200 was added
+
+**/api/v2/workforcemanagement/historicaldata/bulk/remove/jobs/{jobId}** (2 changes)
+
+* Path was added
+* Operation GET was added
+
+**/api/v2/workforcemanagement/historicaldata/bulk/remove/jobs** (3 changes)
+
+* Path was added
+* Operation GET was added
+* Operation POST was added
+
+**/api/v2/authorization/policies/targets/{targetName}** (4 changes)
+
+* Path was added
+* Operation GET was added
+* Operation POST was added
+* Operation PUT was added
+
+**/api/v2/authorization/policies** (2 changes)
+
+* Path was added
+* Operation GET was added
+
+**/api/v2/authorization/policies/subject/{subjectId}** (2 changes)
+
+* Path was added
+* Operation GET was added
+
+**/api/v2/authorization/policies/targets/{targetName}/subject/{subjectId}** (3 changes)
+
+* Path was added
+* Operation GET was added
+* Operation DELETE was added
+
+**/api/v2/authorization/policies/{policyId}** (3 changes)
+
+* Path was added
+* Operation GET was added
+* Operation PUT was added
+
+**/api/v2/authorization/policies/{policyId}/attributes** (2 changes)
+
+* Path was added
+* Operation GET was added
+
+**/api/v2/authorization/policies/{policyId}/simulate** (2 changes)
+
+* Path was added
+* Operation POST was added
+
+**/api/v2/authorization/policies/targets** (2 changes)
+
+* Path was added
+* Operation GET was added
+
+**/api/v2/authorization/policies/targets/{targetName}/validate** (2 changes)
+
+* Path was added
+* Operation POST was added
+
+**SummaryAggregateQueryPredicate** (1 change)
+
+* Enum value userId was added to property dimension
+
+**SummaryAggregationQuery** (1 change)
+
+* Enum value userId was added to property groupBy
+
+**ViewFilter** (3 changes)
+
+* Optional property dashboardState was added
+* Optional property viewMetrics was added
+* Optional property timelineCategories was added
+
+**Queue** (1 change)
+
+* Optional property lastAgentRoutingMode was added
+
+**ContactIdentifier** (1 change)
+
+* Optional property externalSource was added
+
+**ExternalOrganizationIdentifier** (1 change)
+
+* Optional property externalSource was added
+
+**CallMediaParticipant** (1 change)
+
+* Optional property resumeTime was added
+
+**CallbackMediaParticipant** (1 change)
+
+* Optional property resumeTime was added
+
+**ChatMediaParticipant** (1 change)
+
+* Optional property resumeTime was added
+
+**CobrowseMediaParticipant** (1 change)
+
+* Optional property resumeTime was added
+
+**EmailMediaParticipant** (1 change)
+
+* Optional property resumeTime was added
+
+**MessageMediaParticipant** (1 change)
+
+* Optional property resumeTime was added
+
+**DataRange** (1 change)
+
 * Model was added
 
-**MessageEvaluation** (1 change)
+**IpAddressRange** (3 changes)
 
-* Enum value WhatsApp was added to property messageType
+* Enum value imap was added to property service
+* Enum value graphapi was added to property service
+* Enum value tts-connector was added to property service
 
-**DncListDivisionView** (1 change)
+**Annotation** (1 change)
 
-* Enum value WhatsApp was added to property contactMethod
+* id is no longer readonly
 
-**DncList** (1 change)
-
-* Enum value WhatsApp was added to property contactMethod
-
-**DncListCreate** (1 change)
-
-* Enum value WhatsApp was added to property contactMethod
-
-**LastAttemptOverallConditionSettings** (1 change)
-
-* Enum value WhatsApp was added to property mediaTypes
-
-**MarkContactUncontactableActionSettings** (1 change)
-
-* Enum value WhatsApp was added to property mediaTypes
-
-**InsightsRankings** (1 change)
+**DatePicker** (1 change)
 
 * Model was added
 
-**JourneyViewElementFilter** (1 change)
-
-* Optional property numberPredicates was added
-
-**ApprovalNamespace** (2 changes)
-
-* Enum value analytics.agents was added to property namespace
-* Enum value micro.frontend was added to property namespace
-
-**LimitChangeRequestDetails** (2 changes)
-
-* Enum value analytics.agents was added to property namespace
-* Enum value micro.frontend was added to property namespace
-
-**StatusChange** (2 changes)
-
-* Enum value analytics.agents was added to property namespace
-* Enum value micro.frontend was added to property namespace
-
-**EventCoBrowse** (1 change)
+**DatePickerAvailableDateTime** (1 change)
 
 * Model was added
 
-**EventPresence** (1 change)
+**RecordingMessagingMessage** (1 change)
+
+* Enum value DatePicker was added to property contentType
+
+**AlertRuleProperties** (1 change)
+
+* Enum value OperationalConsole was added to property type
+
+**CommonRulePredicate** (2 changes)
+
+* Optional property topic was added
+* Enum value nEvents was added to property metric
+
+**CommonRule** (1 change)
+
+* Enum value OperationalConsole was added to property type
+
+**QueueRequest** (1 change)
+
+* Optional property lastAgentRoutingMode was added
+
+**UserQueue** (1 change)
+
+* Optional property lastAgentRoutingMode was added
+
+**CreateQueueRequest** (1 change)
+
+* Optional property lastAgentRoutingMode was added
+
+**ConversationInsight** (1 change)
 
 * Model was added
 
-**EventTyping** (1 change)
+**DependencyStatus** (1 change)
+
+* Enum value BUILDINCOMPLETE was added to property status
+
+**WebDeploymentConfigurationVersion** (1 change)
+
+* Optional property video was added
+
+**WebDeploymentConfigurationVersionResponse** (1 change)
+
+* Optional property video was added
+
+**BusinessUnitSettingsResponse** (1 change)
+
+* Optional property notifications was added
+
+**UpdateBusinessUnitSettingsRequest** (1 change)
+
+* Optional property notifications was added
+
+**CreateBusinessUnitSettingsRequest** (1 change)
+
+* Optional property notifications was added
+
+**UserNextActivityReminder** (2 changes)
+
+* Optional property activityCategory was added
+* Optional property startDate was added
+
+**UserScheduleAdherence** (2 changes)
+
+* Optional property nextActivityReminders was added
+* Optional property suppressOnTimeReminder was added
+
+**HistoricalDataDeleteEntity** (1 change)
 
 * Model was added
 
-**EventVideo** (1 change)
+**HistoricalDataDisallowedDeleteEntity** (1 change)
 
 * Model was added
 
-**MessageEvent** (1 change)
+**HistoricalImportDeleteFilesJobResponse** (1 change)
 
 * Model was added
 
-**TextBotPromptSegment** (1 change)
-
-* Enum value MessageEvent was added to property type
-
-**BulkJob** (1 change)
+**HistoricalImportDeleteFilesJobRequest** (1 change)
 
 * Model was added
 
-**BulkJobsListing** (1 change)
+**HistoricalDataJobEntityStatus** (1 change)
 
 * Model was added
 
-**BulkJobAddResponse** (1 change)
+**HistoricalImportOverallDeleteStatusResponse** (1 change)
 
 * Model was added
 
-**BulkJobAddResult** (1 change)
+**HistoricalImportStatus** (2 changes)
 
-* Model was added
+* Optional property fileName was added
+* Optional property fileSize was added
 
-**BulkJobAddWorkitemSummary** (1 change)
+**HistoricalImportStatusListing** (1 change)
 
-* Model was added
-
-**BulkJobError** (1 change)
-
-* Model was added
-
-**BulkJobUpdate** (1 change)
-
-* Model was added
-
-**BulkJobAddRequest** (1 change)
-
-* Model was added
+* Optional property downloadUrl was added
 
 **WorkitemCommonCreate** (1 change)
 
-* Model was added
+* Optional property scriptId was added
 
-**BulkJobTerminateResult** (1 change)
+**Workitem** (1 change)
 
-* Model was added
+* Optional property script was added
 
-**BulkJobTerminateResultEntity** (1 change)
+**WorkitemCreate** (1 change)
 
-* Model was added
+* Optional property scriptId was added
 
-**BulkJobTerminateResultsResponse** (1 change)
+**WorkitemUpdate** (1 change)
 
-* Model was added
+* Optional property scriptId was added
 
-**BulkJobEntity** (1 change)
+**Worktype** (1 change)
 
-* Model was added
+* Optional property defaultScript was added
 
-**BulkJobTerminateRequest** (1 change)
+**WorktypeUpdate** (1 change)
 
-* Model was added
+* Optional property defaultScriptId was added
 
-**Celebration** (1 change)
+**WorktypeCreate** (1 change)
 
-* Enum value ContestComplete was added to property type
+* Optional property defaultScriptId was added
 
-**ContestCompleteData** (1 change)
-
-* Model was added
-
-**ContestCompleteDataScore** (1 change)
+**AuthorizationPolicy** (1 change)
 
 * Model was added
 
-**ContestDataMetrics** (1 change)
+**Subject** (1 change)
 
 * Model was added
 
-**ContestDataPrizes** (1 change)
+**TypedAttribute** (1 change)
 
 * Model was added
 
-**ContestDataWinners** (1 change)
+**AuthorizationPolicyEntityListing** (1 change)
 
 * Model was added
 
-**ContestDataWinnersUsers** (1 change)
+**PolicyAttribute** (1 change)
 
 * Model was added
 
-**SourceEntity** (5 changes)
+**PolicyAttributeSet** (1 change)
 
-* Enum value Competition was added to property type
-* Enum value Race was added to property type
-* Enum value Raffle was added to property type
-* Enum value TeamGoal was added to property type
-* Optional property contestCompleteData was added
+* Model was added
+
+**PolicyConditionResult** (1 change)
+
+* Model was added
+
+**PolicyTestResult** (1 change)
+
+* Model was added
+
+**PolicyTestPayload** (1 change)
+
+* Model was added
+
+**TargetAttributeValue** (1 change)
+
+* Model was added
+
+**TargetAttributes** (1 change)
+
+* Model was added
+
+**ValidationErrorListing** (1 change)
+
+* Model was added
+
+**ValidationErrorResponse** (1 change)
+
+* Model was added
+
+**SummaryAsyncAggregationQuery** (1 change)
+
+* Enum value userId was added to property groupBy
+
+**FacebookDataIngestionRuleResponse** (1 change)
+
+* Optional property platform was added
+
+**FacebookDataIngestionRuleVersionResponse** (1 change)
+
+* Optional property platform was added
+
+**GoogleBusinessProfileDataIngestionRuleResponse** (1 change)
+
+* Model was added
 
 **InstagramDataIngestionRuleResponse** (1 change)
 
-* Model was added
+* Optional property platform was added
 
-**ContinuousForecastGetSessionResponse** (1 change)
+**OpenDataIngestionRuleResponse** (1 change)
 
-* Model was added
+* Optional property platform was added
 
-**AggregateHistoricalAvailability** (1 change)
+**OpenDataIngestionRuleVersionResponse** (1 change)
 
-* Model was added
+* Optional property platform was added
 
-**ComputedData** (1 change)
+**TwitterDataIngestionRuleResponse** (1 change)
 
-* Model was added
+* Optional property platform was added
 
-**ContinuousForecastSessionResponse** (1 change)
+**TwitterDataIngestionRuleVersionResponse** (1 change)
 
-* Model was added
+* Optional property platform was added
 
-**Daily** (1 change)
-
-* Model was added
-
-**HistoricalData** (1 change)
+**DataIngestionRulesMetadata** (1 change)
 
 * Model was added
 
-**ModelData** (1 change)
+**WorkitemVersion** (1 change)
 
-* Model was added
+* Optional property script was added
 
-**ModelMetaData** (1 change)
+**WorktypeVersion** (1 change)
 
-* Model was added
-
-**ModelMetaDataResult** (1 change)
-
-* Model was added
-
-**PlanningGroupModel** (1 change)
-
-* Model was added
-
-**QuarterHourly** (1 change)
-
-* Model was added
-
-**SessionFiles** (1 change)
-
-* Model was added
-
-**SessionInfo** (1 change)
-
-* Model was added
-
-**SessionMetaData** (1 change)
-
-* Model was added
-
-**SessionMetaDataResult** (1 change)
-
-* Model was added
-
-**SessionMetricData** (1 change)
-
-* Model was added
-
-**Snapshots** (1 change)
-
-* Model was added
-
-**Timeseries** (1 change)
-
-* Model was added
-
-**Weekly** (1 change)
-
-* Model was added
-
-**Weeks** (1 change)
-
-* Model was added
-
-**ContinuousForecastSnapshotResponse** (1 change)
-
-* Model was added
-
-**SnapshotFiles** (1 change)
-
-* Model was added
-
-**SnapshotInfo** (1 change)
-
-* Model was added
-
-**SnapshotMetaData** (1 change)
-
-* Model was added
-
-**SnapshotMetaDataResult** (1 change)
-
-* Model was added
-
-**SnapshotMetricData** (1 change)
-
-* Model was added
+* Optional property defaultScript was added
 
 
-# Point Changes (0 changes)
+# Point Changes (2 changes)
+
+**GET /api/v2/speechandtextanalytics/categories** (2 changes)
+
+* Description was changed for parameter pageSize
+* Description was changed for parameter ids

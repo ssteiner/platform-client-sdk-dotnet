@@ -43,6 +43,12 @@ namespace PureCloudPlatform.Client.V2.Extensions
                 apiClient.ClientId = clientId;
                 apiClient.ClientSecret = clientSecret;
             }
+            else if (string.IsNullOrEmpty(redirectUri) && string.IsNullOrEmpty(authorizationCode))
+            {
+                apiClient.UsingClientCredentials = true;
+                apiClient.ClientId = clientId;
+                apiClient.ClientSecret = clientSecret;
+            }
 
             var pathParams = new Dictionary<String, String>();
             var queryParams = new Dictionary<String, String>();

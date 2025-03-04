@@ -7,6 +7,7 @@
 |Name | Type | Description | Notes|
 |------------ | ------------- | ------------- | -------------|
 | **ConversationId** | **Guid?** |  | [optional] |
+| **QueueId** | **Guid?** |  | [optional] |
 | **Participants** | [**List&lt;ConversationSummaryTopicVirtualAgentsConversationSummaryParticipant&gt;**](ConversationSummaryTopicVirtualAgentsConversationSummaryParticipant) |  | [optional] |
 | **CommunicationIds** | **List&lt;string&gt;** |  | [optional] |
 | **CreatedDate** | **DateTime?** |  | [optional] |
@@ -26,4 +27,4 @@
 
 
 
-_PureCloudPlatform.Client.V2 224.1.0_
+_PureCloudPlatform.Client.V2 227.0.0_

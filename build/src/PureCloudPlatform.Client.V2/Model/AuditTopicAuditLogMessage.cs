@@ -273,6 +273,12 @@ namespace PureCloudPlatform.Client.V2.Model
             Gdpr,
             
             /// <summary>
+            /// Enum Externalcontactsexport for "ExternalContactsExport"
+            /// </summary>
+            [EnumMember(Value = "ExternalContactsExport")]
+            Externalcontactsexport,
+            
+            /// <summary>
             /// Enum Agentconfig for "AgentConfig"
             /// </summary>
             [EnumMember(Value = "AgentConfig")]
@@ -324,7 +330,13 @@ namespace PureCloudPlatform.Client.V2.Model
             /// Enum Businessrules for "BusinessRules"
             /// </summary>
             [EnumMember(Value = "BusinessRules")]
-            Businessrules
+            Businessrules,
+            
+            /// <summary>
+            /// Enum Socialescalationrules for "SocialEscalationRules"
+            /// </summary>
+            [EnumMember(Value = "SocialEscalationRules")]
+            Socialescalationrules
         }
         /// <summary>
         /// Gets or Sets Action
@@ -1019,6 +1031,18 @@ namespace PureCloudPlatform.Client.V2.Model
             Downloadcapture,
             
             /// <summary>
+            /// Enum Succeeded for "Succeeded"
+            /// </summary>
+            [EnumMember(Value = "Succeeded")]
+            Succeeded,
+            
+            /// <summary>
+            /// Enum Failed for "Failed"
+            /// </summary>
+            [EnumMember(Value = "Failed")]
+            Failed,
+            
+            /// <summary>
             /// Enum Initiate for "Initiate"
             /// </summary>
             [EnumMember(Value = "Initiate")]
@@ -1029,6 +1053,12 @@ namespace PureCloudPlatform.Client.V2.Model
             /// </summary>
             [EnumMember(Value = "ReverseManually")]
             Reversemanually,
+            
+            /// <summary>
+            /// Enum Calculate for "Calculate"
+            /// </summary>
+            [EnumMember(Value = "Calculate")]
+            Calculate,
             
             /// <summary>
             /// Enum Provisioned for "Provisioned"
@@ -1345,6 +1375,12 @@ namespace PureCloudPlatform.Client.V2.Model
             Dictionaryfeedback,
             
             /// <summary>
+            /// Enum Interactionreprocessingjob for "InteractionReprocessingJob"
+            /// </summary>
+            [EnumMember(Value = "InteractionReprocessingJob")]
+            Interactionreprocessingjob,
+            
+            /// <summary>
             /// Enum Segment for "Segment"
             /// </summary>
             [EnumMember(Value = "Segment")]
@@ -1637,6 +1673,12 @@ namespace PureCloudPlatform.Client.V2.Model
             /// </summary>
             [EnumMember(Value = "Response")]
             Response,
+            
+            /// <summary>
+            /// Enum Responselibrary for "ResponseLibrary"
+            /// </summary>
+            [EnumMember(Value = "ResponseLibrary")]
+            Responselibrary,
             
             /// <summary>
             /// Enum Responseasset for "ResponseAsset"
@@ -2017,6 +2059,12 @@ namespace PureCloudPlatform.Client.V2.Model
             Exports,
             
             /// <summary>
+            /// Enum Exportpdftemplates for "ExportPdfTemplates"
+            /// </summary>
+            [EnumMember(Value = "ExportPdfTemplates")]
+            Exportpdftemplates,
+            
+            /// <summary>
             /// Enum Changerequest for "ChangeRequest"
             /// </summary>
             [EnumMember(Value = "ChangeRequest")]
@@ -2269,6 +2317,12 @@ namespace PureCloudPlatform.Client.V2.Model
             Gdprrequest,
             
             /// <summary>
+            /// Enum Exportrequest for "ExportRequest"
+            /// </summary>
+            [EnumMember(Value = "ExportRequest")]
+            Exportrequest,
+            
+            /// <summary>
             /// Enum Defaultpanelsettings for "DefaultPanelSettings"
             /// </summary>
             [EnumMember(Value = "DefaultPanelSettings")]
@@ -2392,7 +2446,13 @@ namespace PureCloudPlatform.Client.V2.Model
             /// Enum Decisiontablerow for "DecisionTableRow"
             /// </summary>
             [EnumMember(Value = "DecisionTableRow")]
-            Decisiontablerow
+            Decisiontablerow,
+            
+            /// <summary>
+            /// Enum Escalationrule for "EscalationRule"
+            /// </summary>
+            [EnumMember(Value = "EscalationRule")]
+            Escalationrule
         }
         /// <summary>
         /// Gets or Sets ServiceName

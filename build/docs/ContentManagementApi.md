@@ -2369,4 +2369,4 @@ namespace Example
 [**TagValue**](TagValue)
 
 
-_PureCloudPlatform.Client.V2 224.1.0_
+_PureCloudPlatform.Client.V2 227.0.0_

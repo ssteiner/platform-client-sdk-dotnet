@@ -2217,6 +2217,52 @@ namespace PureCloudPlatform.Client.V2.Api
         ApiResponse<CalendarUrlResponse> GetWorkforcemanagementCalendarUrlIcsWithHttpInfo ();
 
         /// <summary>
+        /// Retrieves delete job status for historical data imports associated with the job id
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jobId">The job ID of the historical data delete request</param>
+        /// <returns>HistoricalImportDeleteFilesJobResponse</returns>
+        
+        HistoricalImportDeleteFilesJobResponse GetWorkforcemanagementHistoricaldataBulkRemoveJob (string jobId);
+
+        /// <summary>
+        /// Retrieves delete job status for historical data imports associated with the job id
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jobId">The job ID of the historical data delete request</param>
+        /// <returns>ApiResponse of HistoricalImportDeleteFilesJobResponse</returns>
+        
+        ApiResponse<HistoricalImportDeleteFilesJobResponse> GetWorkforcemanagementHistoricaldataBulkRemoveJobWithHttpInfo (string jobId);
+
+        /// <summary>
+        /// Retrieves all delete job status for historical data
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>HistoricalImportOverallDeleteStatusResponse</returns>
+        
+        HistoricalImportOverallDeleteStatusResponse GetWorkforcemanagementHistoricaldataBulkRemoveJobs ();
+
+        /// <summary>
+        /// Retrieves all delete job status for historical data
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of HistoricalImportOverallDeleteStatusResponse</returns>
+        
+        ApiResponse<HistoricalImportOverallDeleteStatusResponse> GetWorkforcemanagementHistoricaldataBulkRemoveJobsWithHttpInfo ();
+
+        /// <summary>
         /// Retrieves delete job status for historical data imports of the organization
         /// </summary>
         /// <remarks>
@@ -2259,6 +2305,30 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <returns>ApiResponse of HistoricalImportStatusListing</returns>
         
         ApiResponse<HistoricalImportStatusListing> GetWorkforcemanagementHistoricaldataImportstatusWithHttpInfo ();
+
+        /// <summary>
+        /// Retrieves status of the historical data imports associated with job id
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jobId">The job Id of the historical data import request</param>
+        /// <returns>HistoricalImportStatusJobResponse</returns>
+        
+        HistoricalImportStatusJobResponse GetWorkforcemanagementHistoricaldataImportstatusJobId (string jobId);
+
+        /// <summary>
+        /// Retrieves status of the historical data imports associated with job id
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jobId">The job Id of the historical data import request</param>
+        /// <returns>ApiResponse of HistoricalImportStatusJobResponse</returns>
+        
+        ApiResponse<HistoricalImportStatusJobResponse> GetWorkforcemanagementHistoricaldataImportstatusJobIdWithHttpInfo (string jobId);
 
         /// <summary>
         /// Get integrations
@@ -5303,6 +5373,30 @@ namespace PureCloudPlatform.Client.V2.Api
         ApiResponse<CalendarUrlResponse> PostWorkforcemanagementCalendarUrlIcsWithHttpInfo (string language = null);
 
         /// <summary>
+        /// Delete the list of the historical data import entries
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">body (optional)</param>
+        /// <returns>HistoricalImportDeleteFilesJobResponse</returns>
+        
+        HistoricalImportDeleteFilesJobResponse PostWorkforcemanagementHistoricaldataBulkRemoveJobs (HistoricalImportDeleteFilesJobRequest body = null);
+
+        /// <summary>
+        /// Delete the list of the historical data import entries
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">body (optional)</param>
+        /// <returns>ApiResponse of HistoricalImportDeleteFilesJobResponse</returns>
+        
+        ApiResponse<HistoricalImportDeleteFilesJobResponse> PostWorkforcemanagementHistoricaldataBulkRemoveJobsWithHttpInfo (HistoricalImportDeleteFilesJobRequest body = null);
+
+        /// <summary>
         /// Delete the entries of the historical data imports in the organization
         /// </summary>
         /// <remarks>
@@ -5332,9 +5426,9 @@ namespace PureCloudPlatform.Client.V2.Api
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body (optional)</param>
-        /// <returns></returns>
+        /// <returns>ValidationServiceAsyncResponse</returns>
         
-        void PostWorkforcemanagementHistoricaldataValidate (ValidationServiceRequest body = null);
+        ValidationServiceAsyncResponse PostWorkforcemanagementHistoricaldataValidate (ValidationServiceRequest body = null);
 
         /// <summary>
         /// Trigger validation process for historical import
@@ -5344,9 +5438,9 @@ namespace PureCloudPlatform.Client.V2.Api
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body (optional)</param>
-        /// <returns>ApiResponse of Object(void)</returns>
+        /// <returns>ApiResponse of ValidationServiceAsyncResponse</returns>
         
-        ApiResponse<Object> PostWorkforcemanagementHistoricaldataValidateWithHttpInfo (ValidationServiceRequest body = null);
+        ApiResponse<ValidationServiceAsyncResponse> PostWorkforcemanagementHistoricaldataValidateWithHttpInfo (ValidationServiceRequest body = null);
 
         /// <summary>
         /// Get list of time off types configured in integration
@@ -8591,6 +8685,52 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task<ApiResponse<CalendarUrlResponse>> GetWorkforcemanagementCalendarUrlIcsAsyncWithHttpInfo ();
 
         /// <summary>
+        /// Retrieves delete job status for historical data imports associated with the job id
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jobId">The job ID of the historical data delete request</param>
+        /// <returns>Task of HistoricalImportDeleteFilesJobResponse</returns>
+        
+        System.Threading.Tasks.Task<HistoricalImportDeleteFilesJobResponse> GetWorkforcemanagementHistoricaldataBulkRemoveJobAsync (string jobId);
+
+        /// <summary>
+        /// Retrieves delete job status for historical data imports associated with the job id
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jobId">The job ID of the historical data delete request</param>
+        /// <returns>Task of ApiResponse (HistoricalImportDeleteFilesJobResponse)</returns>
+        
+        System.Threading.Tasks.Task<ApiResponse<HistoricalImportDeleteFilesJobResponse>> GetWorkforcemanagementHistoricaldataBulkRemoveJobAsyncWithHttpInfo (string jobId);
+
+        /// <summary>
+        /// Retrieves all delete job status for historical data
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of HistoricalImportOverallDeleteStatusResponse</returns>
+        
+        System.Threading.Tasks.Task<HistoricalImportOverallDeleteStatusResponse> GetWorkforcemanagementHistoricaldataBulkRemoveJobsAsync ();
+
+        /// <summary>
+        /// Retrieves all delete job status for historical data
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (HistoricalImportOverallDeleteStatusResponse)</returns>
+        
+        System.Threading.Tasks.Task<ApiResponse<HistoricalImportOverallDeleteStatusResponse>> GetWorkforcemanagementHistoricaldataBulkRemoveJobsAsyncWithHttpInfo ();
+
+        /// <summary>
         /// Retrieves delete job status for historical data imports of the organization
         /// </summary>
         /// <remarks>
@@ -8633,6 +8773,30 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <returns>Task of ApiResponse (HistoricalImportStatusListing)</returns>
         
         System.Threading.Tasks.Task<ApiResponse<HistoricalImportStatusListing>> GetWorkforcemanagementHistoricaldataImportstatusAsyncWithHttpInfo ();
+
+        /// <summary>
+        /// Retrieves status of the historical data imports associated with job id
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jobId">The job Id of the historical data import request</param>
+        /// <returns>Task of HistoricalImportStatusJobResponse</returns>
+        
+        System.Threading.Tasks.Task<HistoricalImportStatusJobResponse> GetWorkforcemanagementHistoricaldataImportstatusJobIdAsync (string jobId);
+
+        /// <summary>
+        /// Retrieves status of the historical data imports associated with job id
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jobId">The job Id of the historical data import request</param>
+        /// <returns>Task of ApiResponse (HistoricalImportStatusJobResponse)</returns>
+        
+        System.Threading.Tasks.Task<ApiResponse<HistoricalImportStatusJobResponse>> GetWorkforcemanagementHistoricaldataImportstatusJobIdAsyncWithHttpInfo (string jobId);
 
         /// <summary>
         /// Get integrations
@@ -11677,6 +11841,30 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task<ApiResponse<CalendarUrlResponse>> PostWorkforcemanagementCalendarUrlIcsAsyncWithHttpInfo (string language = null);
 
         /// <summary>
+        /// Delete the list of the historical data import entries
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">body (optional)</param>
+        /// <returns>Task of HistoricalImportDeleteFilesJobResponse</returns>
+        
+        System.Threading.Tasks.Task<HistoricalImportDeleteFilesJobResponse> PostWorkforcemanagementHistoricaldataBulkRemoveJobsAsync (HistoricalImportDeleteFilesJobRequest body = null);
+
+        /// <summary>
+        /// Delete the list of the historical data import entries
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">body (optional)</param>
+        /// <returns>Task of ApiResponse (HistoricalImportDeleteFilesJobResponse)</returns>
+        
+        System.Threading.Tasks.Task<ApiResponse<HistoricalImportDeleteFilesJobResponse>> PostWorkforcemanagementHistoricaldataBulkRemoveJobsAsyncWithHttpInfo (HistoricalImportDeleteFilesJobRequest body = null);
+
+        /// <summary>
         /// Delete the entries of the historical data imports in the organization
         /// </summary>
         /// <remarks>
@@ -11706,9 +11894,9 @@ namespace PureCloudPlatform.Client.V2.Api
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body (optional)</param>
-        /// <returns>Task of void</returns>
+        /// <returns>Task of ValidationServiceAsyncResponse</returns>
         
-        System.Threading.Tasks.Task PostWorkforcemanagementHistoricaldataValidateAsync (ValidationServiceRequest body = null);
+        System.Threading.Tasks.Task<ValidationServiceAsyncResponse> PostWorkforcemanagementHistoricaldataValidateAsync (ValidationServiceRequest body = null);
 
         /// <summary>
         /// Trigger validation process for historical import
@@ -11718,9 +11906,9 @@ namespace PureCloudPlatform.Client.V2.Api
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body (optional)</param>
-        /// <returns>Task of ApiResponse</returns>
+        /// <returns>Task of ApiResponse (ValidationServiceAsyncResponse)</returns>
         
-        System.Threading.Tasks.Task<ApiResponse<Object>> PostWorkforcemanagementHistoricaldataValidateAsyncWithHttpInfo (ValidationServiceRequest body = null);
+        System.Threading.Tasks.Task<ApiResponse<ValidationServiceAsyncResponse>> PostWorkforcemanagementHistoricaldataValidateAsyncWithHttpInfo (ValidationServiceRequest body = null);
 
         /// <summary>
         /// Get list of time off types configured in integration
@@ -31698,6 +31886,419 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
+        /// Retrieves delete job status for historical data imports associated with the job id 
+        /// 
+        /// </summary>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jobId">The job ID of the historical data delete request</param>
+        /// <returns>HistoricalImportDeleteFilesJobResponse</returns>
+        
+        public HistoricalImportDeleteFilesJobResponse GetWorkforcemanagementHistoricaldataBulkRemoveJob (string jobId)
+        {
+             ApiResponse<HistoricalImportDeleteFilesJobResponse> localVarResponse = GetWorkforcemanagementHistoricaldataBulkRemoveJobWithHttpInfo(jobId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieves delete job status for historical data imports associated with the job id 
+        /// 
+        /// </summary>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jobId">The job ID of the historical data delete request</param>
+        /// <returns>ApiResponse of HistoricalImportDeleteFilesJobResponse</returns>
+        
+        public ApiResponse< HistoricalImportDeleteFilesJobResponse > GetWorkforcemanagementHistoricaldataBulkRemoveJobWithHttpInfo (string jobId)
+        { 
+            // verify the required parameter 'jobId' is set
+            if (jobId == null)
+                throw new ApiException(400, "Missing required parameter 'jobId' when calling WorkforceManagementApi->GetWorkforcemanagementHistoricaldataBulkRemoveJob");
+
+            var localVarPath = "/api/v2/workforcemanagement/historicaldata/bulk/remove/jobs/{jobId}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<Tuple<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+
+                "application/json"
+                
+
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+
+            // Path params
+            if (jobId != null) localVarPathParams.Add("jobId", this.Configuration.ApiClient.ParameterToString(jobId));
+
+            // Query params
+
+            // Header params
+
+            // Form params
+            
+            // Body param
+
+
+            // authentication (PureCloud OAuth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
+                                                             .GroupBy(header => header?.Name)
+                                                             .Select(header => new
+                                                         {
+                                                            Name = header?.FirstOrDefault()?.Name,
+                                                            Value = header.Select(x => x?.Value)?.ToList()
+                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
+                                                        ?? new Dictionary<string, string>();
+
+            if (localVarStatusCode >= 400)
+                throw new ApiException (localVarStatusCode, "Error calling GetWorkforcemanagementHistoricaldataBulkRemoveJob: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
+            else if (localVarStatusCode == 0)
+                throw new ApiException (localVarStatusCode, "Error calling GetWorkforcemanagementHistoricaldataBulkRemoveJob: " + localVarResponse.ErrorMessage, localVarResponse.ErrorMessage);
+
+            return new ApiResponse<HistoricalImportDeleteFilesJobResponse>(localVarStatusCode,
+                localVarHeaders,
+                (HistoricalImportDeleteFilesJobResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(HistoricalImportDeleteFilesJobResponse)),
+                localVarResponse.Content,
+                localVarResponse.StatusDescription);
+        }
+
+
+        /// <summary>
+        /// Retrieves delete job status for historical data imports associated with the job id 
+        /// 
+        /// </summary>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jobId">The job ID of the historical data delete request</param>
+        /// <returns>Task of HistoricalImportDeleteFilesJobResponse</returns>
+        
+        public async System.Threading.Tasks.Task<HistoricalImportDeleteFilesJobResponse> GetWorkforcemanagementHistoricaldataBulkRemoveJobAsync (string jobId)
+        {
+             ApiResponse<HistoricalImportDeleteFilesJobResponse> localVarResponse = await GetWorkforcemanagementHistoricaldataBulkRemoveJobAsyncWithHttpInfo(jobId);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Retrieves delete job status for historical data imports associated with the job id 
+        /// 
+        /// </summary>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jobId">The job ID of the historical data delete request</param>
+        /// <returns>Task of ApiResponse (HistoricalImportDeleteFilesJobResponse)</returns>
+        
+        public async System.Threading.Tasks.Task<ApiResponse<HistoricalImportDeleteFilesJobResponse>> GetWorkforcemanagementHistoricaldataBulkRemoveJobAsyncWithHttpInfo (string jobId)
+        { 
+            // verify the required parameter 'jobId' is set
+            if (jobId == null)
+                throw new ApiException(400, "Missing required parameter 'jobId' when calling WorkforceManagementApi->GetWorkforcemanagementHistoricaldataBulkRemoveJob");
+            
+
+            var localVarPath = "/api/v2/workforcemanagement/historicaldata/bulk/remove/jobs/{jobId}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<Tuple<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+
+                "application/json"
+
+                
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+
+            // Path params
+            if (jobId != null) localVarPathParams.Add("jobId", this.Configuration.ApiClient.ParameterToString(jobId));
+
+            // Query params
+
+            // Header params
+
+            // Form params
+            
+            // Body param
+
+
+            // authentication (PureCloud OAuth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
+                                                             .GroupBy(header => header?.Name)
+                                                             .Select(header => new
+                                                         {
+                                                            Name = header?.FirstOrDefault()?.Name,
+                                                            Value = header.Select(x => x?.Value)?.ToList()
+                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
+                                                        ?? new Dictionary<string, string>();
+
+            if (localVarStatusCode >= 400)
+                throw new ApiException (localVarStatusCode, "Error calling GetWorkforcemanagementHistoricaldataBulkRemoveJob: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
+            else if (localVarStatusCode == 0)
+                throw new ApiException (localVarStatusCode, "Error calling GetWorkforcemanagementHistoricaldataBulkRemoveJob: " + localVarResponse.ErrorMessage, localVarResponse.ErrorMessage);
+
+            return new ApiResponse<HistoricalImportDeleteFilesJobResponse>(localVarStatusCode,
+                localVarHeaders,
+                (HistoricalImportDeleteFilesJobResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(HistoricalImportDeleteFilesJobResponse)),
+                localVarResponse.Content,
+                localVarResponse.StatusDescription);
+        }
+
+
+
+        /// <summary>
+        /// Retrieves all delete job status for historical data 
+        /// 
+        /// </summary>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>HistoricalImportOverallDeleteStatusResponse</returns>
+        
+        public HistoricalImportOverallDeleteStatusResponse GetWorkforcemanagementHistoricaldataBulkRemoveJobs ()
+        {
+             ApiResponse<HistoricalImportOverallDeleteStatusResponse> localVarResponse = GetWorkforcemanagementHistoricaldataBulkRemoveJobsWithHttpInfo();
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieves all delete job status for historical data 
+        /// 
+        /// </summary>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of HistoricalImportOverallDeleteStatusResponse</returns>
+        
+        public ApiResponse< HistoricalImportOverallDeleteStatusResponse > GetWorkforcemanagementHistoricaldataBulkRemoveJobsWithHttpInfo ()
+        { 
+
+            var localVarPath = "/api/v2/workforcemanagement/historicaldata/bulk/remove/jobs";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<Tuple<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+
+                "application/json"
+                
+
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+
+            // Path params
+
+            // Query params
+
+            // Header params
+
+            // Form params
+            
+            // Body param
+
+
+            // authentication (PureCloud OAuth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
+                                                             .GroupBy(header => header?.Name)
+                                                             .Select(header => new
+                                                         {
+                                                            Name = header?.FirstOrDefault()?.Name,
+                                                            Value = header.Select(x => x?.Value)?.ToList()
+                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
+                                                        ?? new Dictionary<string, string>();
+
+            if (localVarStatusCode >= 400)
+                throw new ApiException (localVarStatusCode, "Error calling GetWorkforcemanagementHistoricaldataBulkRemoveJobs: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
+            else if (localVarStatusCode == 0)
+                throw new ApiException (localVarStatusCode, "Error calling GetWorkforcemanagementHistoricaldataBulkRemoveJobs: " + localVarResponse.ErrorMessage, localVarResponse.ErrorMessage);
+
+            return new ApiResponse<HistoricalImportOverallDeleteStatusResponse>(localVarStatusCode,
+                localVarHeaders,
+                (HistoricalImportOverallDeleteStatusResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(HistoricalImportOverallDeleteStatusResponse)),
+                localVarResponse.Content,
+                localVarResponse.StatusDescription);
+        }
+
+
+        /// <summary>
+        /// Retrieves all delete job status for historical data 
+        /// 
+        /// </summary>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of HistoricalImportOverallDeleteStatusResponse</returns>
+        
+        public async System.Threading.Tasks.Task<HistoricalImportOverallDeleteStatusResponse> GetWorkforcemanagementHistoricaldataBulkRemoveJobsAsync ()
+        {
+             ApiResponse<HistoricalImportOverallDeleteStatusResponse> localVarResponse = await GetWorkforcemanagementHistoricaldataBulkRemoveJobsAsyncWithHttpInfo();
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Retrieves all delete job status for historical data 
+        /// 
+        /// </summary>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (HistoricalImportOverallDeleteStatusResponse)</returns>
+        
+        public async System.Threading.Tasks.Task<ApiResponse<HistoricalImportOverallDeleteStatusResponse>> GetWorkforcemanagementHistoricaldataBulkRemoveJobsAsyncWithHttpInfo ()
+        { 
+
+            var localVarPath = "/api/v2/workforcemanagement/historicaldata/bulk/remove/jobs";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<Tuple<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+
+                "application/json"
+
+                
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+
+            // Path params
+
+            // Query params
+
+            // Header params
+
+            // Form params
+            
+            // Body param
+
+
+            // authentication (PureCloud OAuth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
+                                                             .GroupBy(header => header?.Name)
+                                                             .Select(header => new
+                                                         {
+                                                            Name = header?.FirstOrDefault()?.Name,
+                                                            Value = header.Select(x => x?.Value)?.ToList()
+                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
+                                                        ?? new Dictionary<string, string>();
+
+            if (localVarStatusCode >= 400)
+                throw new ApiException (localVarStatusCode, "Error calling GetWorkforcemanagementHistoricaldataBulkRemoveJobs: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
+            else if (localVarStatusCode == 0)
+                throw new ApiException (localVarStatusCode, "Error calling GetWorkforcemanagementHistoricaldataBulkRemoveJobs: " + localVarResponse.ErrorMessage, localVarResponse.ErrorMessage);
+
+            return new ApiResponse<HistoricalImportOverallDeleteStatusResponse>(localVarStatusCode,
+                localVarHeaders,
+                (HistoricalImportOverallDeleteStatusResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(HistoricalImportOverallDeleteStatusResponse)),
+                localVarResponse.Content,
+                localVarResponse.StatusDescription);
+        }
+
+
+
+        /// <summary>
         /// Retrieves delete job status for historical data imports of the organization 
         /// 
         /// </summary>
@@ -32091,6 +32692,219 @@ namespace PureCloudPlatform.Client.V2.Api
             return new ApiResponse<HistoricalImportStatusListing>(localVarStatusCode,
                 localVarHeaders,
                 (HistoricalImportStatusListing) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(HistoricalImportStatusListing)),
+                localVarResponse.Content,
+                localVarResponse.StatusDescription);
+        }
+
+
+
+        /// <summary>
+        /// Retrieves status of the historical data imports associated with job id 
+        /// 
+        /// </summary>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jobId">The job Id of the historical data import request</param>
+        /// <returns>HistoricalImportStatusJobResponse</returns>
+        
+        public HistoricalImportStatusJobResponse GetWorkforcemanagementHistoricaldataImportstatusJobId (string jobId)
+        {
+             ApiResponse<HistoricalImportStatusJobResponse> localVarResponse = GetWorkforcemanagementHistoricaldataImportstatusJobIdWithHttpInfo(jobId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieves status of the historical data imports associated with job id 
+        /// 
+        /// </summary>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jobId">The job Id of the historical data import request</param>
+        /// <returns>ApiResponse of HistoricalImportStatusJobResponse</returns>
+        
+        public ApiResponse< HistoricalImportStatusJobResponse > GetWorkforcemanagementHistoricaldataImportstatusJobIdWithHttpInfo (string jobId)
+        { 
+            // verify the required parameter 'jobId' is set
+            if (jobId == null)
+                throw new ApiException(400, "Missing required parameter 'jobId' when calling WorkforceManagementApi->GetWorkforcemanagementHistoricaldataImportstatusJobId");
+
+            var localVarPath = "/api/v2/workforcemanagement/historicaldata/importstatus/{jobId}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<Tuple<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+
+                "application/json"
+                
+
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+
+            // Path params
+            if (jobId != null) localVarPathParams.Add("jobId", this.Configuration.ApiClient.ParameterToString(jobId));
+
+            // Query params
+
+            // Header params
+
+            // Form params
+            
+            // Body param
+
+
+            // authentication (PureCloud OAuth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
+                                                             .GroupBy(header => header?.Name)
+                                                             .Select(header => new
+                                                         {
+                                                            Name = header?.FirstOrDefault()?.Name,
+                                                            Value = header.Select(x => x?.Value)?.ToList()
+                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
+                                                        ?? new Dictionary<string, string>();
+
+            if (localVarStatusCode >= 400)
+                throw new ApiException (localVarStatusCode, "Error calling GetWorkforcemanagementHistoricaldataImportstatusJobId: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
+            else if (localVarStatusCode == 0)
+                throw new ApiException (localVarStatusCode, "Error calling GetWorkforcemanagementHistoricaldataImportstatusJobId: " + localVarResponse.ErrorMessage, localVarResponse.ErrorMessage);
+
+            return new ApiResponse<HistoricalImportStatusJobResponse>(localVarStatusCode,
+                localVarHeaders,
+                (HistoricalImportStatusJobResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(HistoricalImportStatusJobResponse)),
+                localVarResponse.Content,
+                localVarResponse.StatusDescription);
+        }
+
+
+        /// <summary>
+        /// Retrieves status of the historical data imports associated with job id 
+        /// 
+        /// </summary>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jobId">The job Id of the historical data import request</param>
+        /// <returns>Task of HistoricalImportStatusJobResponse</returns>
+        
+        public async System.Threading.Tasks.Task<HistoricalImportStatusJobResponse> GetWorkforcemanagementHistoricaldataImportstatusJobIdAsync (string jobId)
+        {
+             ApiResponse<HistoricalImportStatusJobResponse> localVarResponse = await GetWorkforcemanagementHistoricaldataImportstatusJobIdAsyncWithHttpInfo(jobId);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Retrieves status of the historical data imports associated with job id 
+        /// 
+        /// </summary>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jobId">The job Id of the historical data import request</param>
+        /// <returns>Task of ApiResponse (HistoricalImportStatusJobResponse)</returns>
+        
+        public async System.Threading.Tasks.Task<ApiResponse<HistoricalImportStatusJobResponse>> GetWorkforcemanagementHistoricaldataImportstatusJobIdAsyncWithHttpInfo (string jobId)
+        { 
+            // verify the required parameter 'jobId' is set
+            if (jobId == null)
+                throw new ApiException(400, "Missing required parameter 'jobId' when calling WorkforceManagementApi->GetWorkforcemanagementHistoricaldataImportstatusJobId");
+            
+
+            var localVarPath = "/api/v2/workforcemanagement/historicaldata/importstatus/{jobId}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<Tuple<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+
+                "application/json"
+
+                
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+
+            // Path params
+            if (jobId != null) localVarPathParams.Add("jobId", this.Configuration.ApiClient.ParameterToString(jobId));
+
+            // Query params
+
+            // Header params
+
+            // Form params
+            
+            // Body param
+
+
+            // authentication (PureCloud OAuth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
+                                                             .GroupBy(header => header?.Name)
+                                                             .Select(header => new
+                                                         {
+                                                            Name = header?.FirstOrDefault()?.Name,
+                                                            Value = header.Select(x => x?.Value)?.ToList()
+                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
+                                                        ?? new Dictionary<string, string>();
+
+            if (localVarStatusCode >= 400)
+                throw new ApiException (localVarStatusCode, "Error calling GetWorkforcemanagementHistoricaldataImportstatusJobId: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
+            else if (localVarStatusCode == 0)
+                throw new ApiException (localVarStatusCode, "Error calling GetWorkforcemanagementHistoricaldataImportstatusJobId: " + localVarResponse.ErrorMessage, localVarResponse.ErrorMessage);
+
+            return new ApiResponse<HistoricalImportStatusJobResponse>(localVarStatusCode,
+                localVarHeaders,
+                (HistoricalImportStatusJobResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(HistoricalImportStatusJobResponse)),
                 localVarResponse.Content,
                 localVarResponse.StatusDescription);
         }
@@ -58538,6 +59352,222 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
+        /// Delete the list of the historical data import entries 
+        /// 
+        /// </summary>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">body (optional)</param>
+        /// <returns>HistoricalImportDeleteFilesJobResponse</returns>
+        
+        public HistoricalImportDeleteFilesJobResponse PostWorkforcemanagementHistoricaldataBulkRemoveJobs (HistoricalImportDeleteFilesJobRequest body = null)
+        {
+             ApiResponse<HistoricalImportDeleteFilesJobResponse> localVarResponse = PostWorkforcemanagementHistoricaldataBulkRemoveJobsWithHttpInfo(body);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Delete the list of the historical data import entries 
+        /// 
+        /// </summary>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">body (optional)</param>
+        /// <returns>ApiResponse of HistoricalImportDeleteFilesJobResponse</returns>
+        
+        public ApiResponse< HistoricalImportDeleteFilesJobResponse > PostWorkforcemanagementHistoricaldataBulkRemoveJobsWithHttpInfo (HistoricalImportDeleteFilesJobRequest body = null)
+        { 
+
+            var localVarPath = "/api/v2/workforcemanagement/historicaldata/bulk/remove/jobs";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<Tuple<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+                
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+
+                "application/json"
+                
+
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+
+            // Path params
+
+            // Query params
+
+            // Header params
+
+            // Form params
+            
+            // Body param
+            if (body != null && body.GetType() != typeof(byte[]))
+                localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
+            else
+                localVarPostBody = body; // byte array
+
+
+
+            // authentication (PureCloud OAuth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
+                                                             .GroupBy(header => header?.Name)
+                                                             .Select(header => new
+                                                         {
+                                                            Name = header?.FirstOrDefault()?.Name,
+                                                            Value = header.Select(x => x?.Value)?.ToList()
+                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
+                                                        ?? new Dictionary<string, string>();
+
+            if (localVarStatusCode >= 400)
+                throw new ApiException (localVarStatusCode, "Error calling PostWorkforcemanagementHistoricaldataBulkRemoveJobs: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
+            else if (localVarStatusCode == 0)
+                throw new ApiException (localVarStatusCode, "Error calling PostWorkforcemanagementHistoricaldataBulkRemoveJobs: " + localVarResponse.ErrorMessage, localVarResponse.ErrorMessage);
+
+            return new ApiResponse<HistoricalImportDeleteFilesJobResponse>(localVarStatusCode,
+                localVarHeaders,
+                (HistoricalImportDeleteFilesJobResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(HistoricalImportDeleteFilesJobResponse)),
+                localVarResponse.Content,
+                localVarResponse.StatusDescription);
+        }
+
+
+        /// <summary>
+        /// Delete the list of the historical data import entries 
+        /// 
+        /// </summary>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">body (optional)</param>
+        /// <returns>Task of HistoricalImportDeleteFilesJobResponse</returns>
+        
+        public async System.Threading.Tasks.Task<HistoricalImportDeleteFilesJobResponse> PostWorkforcemanagementHistoricaldataBulkRemoveJobsAsync (HistoricalImportDeleteFilesJobRequest body = null)
+        {
+             ApiResponse<HistoricalImportDeleteFilesJobResponse> localVarResponse = await PostWorkforcemanagementHistoricaldataBulkRemoveJobsAsyncWithHttpInfo(body);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Delete the list of the historical data import entries 
+        /// 
+        /// </summary>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">body (optional)</param>
+        /// <returns>Task of ApiResponse (HistoricalImportDeleteFilesJobResponse)</returns>
+        
+        public async System.Threading.Tasks.Task<ApiResponse<HistoricalImportDeleteFilesJobResponse>> PostWorkforcemanagementHistoricaldataBulkRemoveJobsAsyncWithHttpInfo (HistoricalImportDeleteFilesJobRequest body = null)
+        { 
+
+            var localVarPath = "/api/v2/workforcemanagement/historicaldata/bulk/remove/jobs";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<Tuple<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+                
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+
+                "application/json"
+
+                
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+
+            // Path params
+
+            // Query params
+
+            // Header params
+
+            // Form params
+            
+            // Body param
+            if (body != null && body.GetType() != typeof(byte[]))
+                localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
+            else
+                localVarPostBody = body; // byte array
+
+
+
+            // authentication (PureCloud OAuth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
+                                                             .GroupBy(header => header?.Name)
+                                                             .Select(header => new
+                                                         {
+                                                            Name = header?.FirstOrDefault()?.Name,
+                                                            Value = header.Select(x => x?.Value)?.ToList()
+                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
+                                                        ?? new Dictionary<string, string>();
+
+            if (localVarStatusCode >= 400)
+                throw new ApiException (localVarStatusCode, "Error calling PostWorkforcemanagementHistoricaldataBulkRemoveJobs: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
+            else if (localVarStatusCode == 0)
+                throw new ApiException (localVarStatusCode, "Error calling PostWorkforcemanagementHistoricaldataBulkRemoveJobs: " + localVarResponse.ErrorMessage, localVarResponse.ErrorMessage);
+
+            return new ApiResponse<HistoricalImportDeleteFilesJobResponse>(localVarStatusCode,
+                localVarHeaders,
+                (HistoricalImportDeleteFilesJobResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(HistoricalImportDeleteFilesJobResponse)),
+                localVarResponse.Content,
+                localVarResponse.StatusDescription);
+        }
+
+
+
+        /// <summary>
         /// Delete the entries of the historical data imports in the organization 
         /// 
         /// </summary>
@@ -58743,11 +59773,12 @@ namespace PureCloudPlatform.Client.V2.Api
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body (optional)</param>
-        /// <returns></returns>
+        /// <returns>ValidationServiceAsyncResponse</returns>
         
-        public void PostWorkforcemanagementHistoricaldataValidate (ValidationServiceRequest body = null)
+        public ValidationServiceAsyncResponse PostWorkforcemanagementHistoricaldataValidate (ValidationServiceRequest body = null)
         {
-             PostWorkforcemanagementHistoricaldataValidateWithHttpInfo(body);
+             ApiResponse<ValidationServiceAsyncResponse> localVarResponse = PostWorkforcemanagementHistoricaldataValidateWithHttpInfo(body);
+             return localVarResponse.Data;
         }
 
         /// <summary>
@@ -58756,9 +59787,9 @@ namespace PureCloudPlatform.Client.V2.Api
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body (optional)</param>
-        /// <returns>ApiResponse of Object(void)</returns>
+        /// <returns>ApiResponse of ValidationServiceAsyncResponse</returns>
         
-        public ApiResponse<Object> PostWorkforcemanagementHistoricaldataValidateWithHttpInfo (ValidationServiceRequest body = null)
+        public ApiResponse< ValidationServiceAsyncResponse > PostWorkforcemanagementHistoricaldataValidateWithHttpInfo (ValidationServiceRequest body = null)
         { 
 
             var localVarPath = "/api/v2/workforcemanagement/historicaldata/validate";
@@ -58835,9 +59866,9 @@ namespace PureCloudPlatform.Client.V2.Api
             else if (localVarStatusCode == 0)
                 throw new ApiException (localVarStatusCode, "Error calling PostWorkforcemanagementHistoricaldataValidate: " + localVarResponse.ErrorMessage, localVarResponse.ErrorMessage);
 
-            return new ApiResponse<Object>(localVarStatusCode,
+            return new ApiResponse<ValidationServiceAsyncResponse>(localVarStatusCode,
                 localVarHeaders,
-                null,
+                (ValidationServiceAsyncResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ValidationServiceAsyncResponse)),
                 localVarResponse.Content,
                 localVarResponse.StatusDescription);
         }
@@ -58849,11 +59880,12 @@ namespace PureCloudPlatform.Client.V2.Api
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body (optional)</param>
-        /// <returns>Task of void</returns>
+        /// <returns>Task of ValidationServiceAsyncResponse</returns>
         
-        public async System.Threading.Tasks.Task PostWorkforcemanagementHistoricaldataValidateAsync (ValidationServiceRequest body = null)
+        public async System.Threading.Tasks.Task<ValidationServiceAsyncResponse> PostWorkforcemanagementHistoricaldataValidateAsync (ValidationServiceRequest body = null)
         {
-             await PostWorkforcemanagementHistoricaldataValidateAsyncWithHttpInfo(body);
+             ApiResponse<ValidationServiceAsyncResponse> localVarResponse = await PostWorkforcemanagementHistoricaldataValidateAsyncWithHttpInfo(body);
+             return localVarResponse.Data;
 
         }
 
@@ -58863,9 +59895,9 @@ namespace PureCloudPlatform.Client.V2.Api
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body (optional)</param>
-        /// <returns>Task of ApiResponse</returns>
+        /// <returns>Task of ApiResponse (ValidationServiceAsyncResponse)</returns>
         
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> PostWorkforcemanagementHistoricaldataValidateAsyncWithHttpInfo (ValidationServiceRequest body = null)
+        public async System.Threading.Tasks.Task<ApiResponse<ValidationServiceAsyncResponse>> PostWorkforcemanagementHistoricaldataValidateAsyncWithHttpInfo (ValidationServiceRequest body = null)
         { 
 
             var localVarPath = "/api/v2/workforcemanagement/historicaldata/validate";
@@ -58942,9 +59974,9 @@ namespace PureCloudPlatform.Client.V2.Api
             else if (localVarStatusCode == 0)
                 throw new ApiException (localVarStatusCode, "Error calling PostWorkforcemanagementHistoricaldataValidate: " + localVarResponse.ErrorMessage, localVarResponse.ErrorMessage);
 
-            return new ApiResponse<Object>(localVarStatusCode,
+            return new ApiResponse<ValidationServiceAsyncResponse>(localVarStatusCode,
                 localVarHeaders,
-                null,
+                (ValidationServiceAsyncResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ValidationServiceAsyncResponse)),
                 localVarResponse.Content,
                 localVarResponse.StatusDescription);
         }
