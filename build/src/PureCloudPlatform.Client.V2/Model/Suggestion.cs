@@ -67,7 +67,13 @@ namespace PureCloudPlatform.Client.V2.Model
             /// Enum Script for "Script"
             /// </summary>
             [EnumMember(Value = "Script")]
-            Script
+            Script,
+            
+            /// <summary>
+            /// Enum Suggestedknowledgeanswer for "SuggestedKnowledgeAnswer"
+            /// </summary>
+            [EnumMember(Value = "SuggestedKnowledgeAnswer")]
+            Suggestedknowledgeanswer
         }
         /// <summary>
         /// The trigger type of the suggestion.
@@ -202,6 +208,24 @@ namespace PureCloudPlatform.Client.V2.Model
 
 
 
+        /// <summary>
+        /// The conversation that the suggestions correspond to.
+        /// </summary>
+        /// <value>The conversation that the suggestions correspond to.</value>
+        [DataMember(Name="conversation", EmitDefaultValue=false)]
+        public AddressableEntityRef Conversation { get; private set; }
+
+
+
+        /// <summary>
+        /// The assistant that was used to provide the suggestions.
+        /// </summary>
+        /// <value>The assistant that was used to provide the suggestions.</value>
+        [DataMember(Name="assistant", EmitDefaultValue=false)]
+        public AddressableEntityRef Assistant { get; private set; }
+
+
+
 
 
         /// <summary>
@@ -297,24 +321,6 @@ namespace PureCloudPlatform.Client.V2.Model
         public string SelfUri { get; private set; }
 
 
-
-        /// <summary>
-        /// The conversation that the suggestions correspond to.
-        /// </summary>
-        /// <value>The conversation that the suggestions correspond to.</value>
-        [DataMember(Name="conversation", EmitDefaultValue=false)]
-        public AddressableEntityRef Conversation { get; private set; }
-
-
-
-        /// <summary>
-        /// The assistant that was used to provide the suggestions.
-        /// </summary>
-        /// <value>The assistant that was used to provide the suggestions.</value>
-        [DataMember(Name="assistant", EmitDefaultValue=false)]
-        public AddressableEntityRef Assistant { get; private set; }
-
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -325,6 +331,8 @@ namespace PureCloudPlatform.Client.V2.Model
             sb.Append("class Suggestion {\n");
 
             sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  Conversation: ").Append(Conversation).Append("\n");
+            sb.Append("  Assistant: ").Append(Assistant).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Faq: ").Append(Faq).Append("\n");
             sb.Append("  Article: ").Append(Article).Append("\n");
@@ -338,8 +346,6 @@ namespace PureCloudPlatform.Client.V2.Model
             sb.Append("  CannedResponse: ").Append(CannedResponse).Append("\n");
             sb.Append("  Script: ").Append(Script).Append("\n");
             sb.Append("  SelfUri: ").Append(SelfUri).Append("\n");
-            sb.Append("  Conversation: ").Append(Conversation).Append("\n");
-            sb.Append("  Assistant: ").Append(Assistant).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -384,6 +390,16 @@ namespace PureCloudPlatform.Client.V2.Model
                     this.Id == other.Id ||
                     this.Id != null &&
                     this.Id.Equals(other.Id)
+                ) &&
+                (
+                    this.Conversation == other.Conversation ||
+                    this.Conversation != null &&
+                    this.Conversation.Equals(other.Conversation)
+                ) &&
+                (
+                    this.Assistant == other.Assistant ||
+                    this.Assistant != null &&
+                    this.Assistant.Equals(other.Assistant)
                 ) &&
                 (
                     this.Type == other.Type ||
@@ -449,16 +465,6 @@ namespace PureCloudPlatform.Client.V2.Model
                     this.SelfUri == other.SelfUri ||
                     this.SelfUri != null &&
                     this.SelfUri.Equals(other.SelfUri)
-                ) &&
-                (
-                    this.Conversation == other.Conversation ||
-                    this.Conversation != null &&
-                    this.Conversation.Equals(other.Conversation)
-                ) &&
-                (
-                    this.Assistant == other.Assistant ||
-                    this.Assistant != null &&
-                    this.Assistant.Equals(other.Assistant)
                 );
         }
 
@@ -475,6 +481,12 @@ namespace PureCloudPlatform.Client.V2.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.Id != null)
                     hash = hash * 59 + this.Id.GetHashCode();
+
+                if (this.Conversation != null)
+                    hash = hash * 59 + this.Conversation.GetHashCode();
+
+                if (this.Assistant != null)
+                    hash = hash * 59 + this.Assistant.GetHashCode();
 
                 if (this.Type != null)
                     hash = hash * 59 + this.Type.GetHashCode();
@@ -514,12 +526,6 @@ namespace PureCloudPlatform.Client.V2.Model
 
                 if (this.SelfUri != null)
                     hash = hash * 59 + this.SelfUri.GetHashCode();
-
-                if (this.Conversation != null)
-                    hash = hash * 59 + this.Conversation.GetHashCode();
-
-                if (this.Assistant != null)
-                    hash = hash * 59 + this.Assistant.GetHashCode();
 
                 return hash;
             }

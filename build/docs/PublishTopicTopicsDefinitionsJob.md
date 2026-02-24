@@ -8,7 +8,9 @@
 |------------ | ------------- | ------------- | -------------|
 | **Id** | **string** |  | [optional] |
 | **State** | **string** |  | [optional] |
+| **TestTopicPhraseResults** | [**List&lt;PublishTopicTestTopicPhraseResults&gt;**](PublishTopicTestTopicPhraseResults) |  | [optional] |
+| **GenAIPhrasesResults** | **List&lt;string&gt;** |  | [optional] |
 
 
 
-_PureCloudPlatform.Client.V2 227.0.0_
+_PureCloudPlatform.Client.V2 257.0.0_

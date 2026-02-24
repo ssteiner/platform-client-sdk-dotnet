@@ -13,8 +13,10 @@ All URIs are relative to *https://api.mypurecloud.com*
 | [**GetAuthorizationDivision**](#GetAuthorizationDivision) | **Get** /api/v2/authorization/divisions/{divisionId} | Returns an authorization division. |
 | [**GetAuthorizationDivisionGrants**](#GetAuthorizationDivisionGrants) | **Get** /api/v2/authorization/divisions/{divisionId}/grants | Gets all grants for a given division. |
 | [**GetAuthorizationDivisions**](#GetAuthorizationDivisions) | **Get** /api/v2/authorization/divisions | Retrieve a list of all divisions defined for the organization |
+| [**GetAuthorizationDivisionsDeleted**](#GetAuthorizationDivisionsDeleted) | **Get** /api/v2/authorization/divisions/deleted | Get a list of soft deleted divisions for the org |
 | [**GetAuthorizationDivisionsHome**](#GetAuthorizationDivisionsHome) | **Get** /api/v2/authorization/divisions/home | Retrieve the home division for the organization. |
 | [**GetAuthorizationDivisionsLimit**](#GetAuthorizationDivisionsLimit) | **Get** /api/v2/authorization/divisions/limit | Returns the maximum allowed number of divisions. |
+| [**GetAuthorizationDivisionsQuery**](#GetAuthorizationDivisionsQuery) | **Get** /api/v2/authorization/divisions/query | Retrieve a list of all divisions defined for the organization with cursor |
 | [**GetAuthorizationDivisionspermittedMe**](#GetAuthorizationDivisionspermittedMe) | **Get** /api/v2/authorization/divisionspermitted/me | Returns which divisions the current user has the given permission in. |
 | [**GetAuthorizationDivisionspermittedPagedMe**](#GetAuthorizationDivisionspermittedPagedMe) | **Get** /api/v2/authorization/divisionspermitted/paged/me | Returns which divisions the current user has the given permission in. |
 | [**GetAuthorizationDivisionspermittedPagedSubjectId**](#GetAuthorizationDivisionspermittedPagedSubjectId) | **Get** /api/v2/authorization/divisionspermitted/paged/{subjectId} | Returns which divisions the specified user has the given permission in. |
@@ -100,7 +102,7 @@ namespace Example
 
             var apiInstance = new AuthorizationApi();
             var divisionId = divisionId_example;  // string | Division ID
-            var force = true;  // bool? | Force delete this division as well as the grants and objects associated with it (optional)  (default to false)
+            var force = true;  // bool? | DEPRECATED -  Force delete this division. Warning: This option may cause any remaining objects in this division to be inaccessible. (optional)  (default to false)
 
             try
             { 
@@ -122,7 +124,7 @@ namespace Example
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **divisionId** | **string**| Division ID |  |
-| **force** | **bool?**| Force delete this division as well as the grants and objects associated with it | [optional] [default to false] |
+| **force** | **bool?**| DEPRECATED -  Force delete this division. Warning: This option may cause any remaining objects in this division to be inaccessible. | [optional] [default to false] |
 
 ### Return type
 
@@ -135,8 +137,6 @@ void (empty response body)
 
 
 Delete an access control policy
-
-DeleteAuthorizationPoliciesTargetSubjectSubjectId is a preview method and is subject to both breaking and non-breaking changes at any time without notice
 
 Requires ANY permissions: 
 
@@ -530,6 +530,70 @@ namespace Example
 [**AuthzDivisionEntityListing**](AuthzDivisionEntityListing)
 
 
+## GetAuthorizationDivisionsDeleted
+
+> [**AuthzDivisionEntityListing**](AuthzDivisionEntityListing) GetAuthorizationDivisionsDeleted (int? pageNumber = null, int? pageSize = null)
+
+
+Get a list of soft deleted divisions for the org
+
+Requires ANY permissions: 
+
+* authorization:divisionDeleted:view
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class GetAuthorizationDivisionsDeletedExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new AuthorizationApi();
+            var pageNumber = 56;  // int? | Page number (optional)  (default to 1)
+            var pageSize = 56;  // int? | Page size (optional)  (default to 25)
+
+            try
+            { 
+                // Get a list of soft deleted divisions for the org
+                AuthzDivisionEntityListing result = apiInstance.GetAuthorizationDivisionsDeleted(pageNumber, pageSize);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling AuthorizationApi.GetAuthorizationDivisionsDeleted: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **pageNumber** | **int?**| Page number | [optional] [default to 1] |
+| **pageSize** | **int?**| Page size | [optional] [default to 25] |
+
+### Return type
+
+[**AuthzDivisionEntityListing**](AuthzDivisionEntityListing)
+
+
 ## GetAuthorizationDivisionsHome
 
 > [**AuthzDivision**](AuthzDivision) GetAuthorizationDivisionsHome ()
@@ -642,6 +706,77 @@ This endpoint does require any parameters.
 ### Return type
 
 **int?**
+
+
+## GetAuthorizationDivisionsQuery
+
+> [**AuthzDivisionCursorListing**](AuthzDivisionCursorListing) GetAuthorizationDivisionsQuery (string before = null, string after = null, string pageSize = null, List<string> id = null, string name = null)
+
+
+Retrieve a list of all divisions defined for the organization with cursor
+
+Use \"after\" and \"before\" param to fetch next/previous page}
+
+Requires NO permissions: 
+
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class GetAuthorizationDivisionsQueryExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new AuthorizationApi();
+            var before = before_example;  // string | The cursor that points to the start of the set of entities that has been returned. (optional) 
+            var after = after_example;  // string | The cursor that points to the end of the set of entities that has been returned. (optional) 
+            var pageSize = pageSize_example;  // string | Page size (max 200, default 25) (optional)  (default to "25")
+            var id = new List<string>(); // List<string> | Optionally request specific divisions by their IDs (optional) 
+            var name = name_example;  // string | Optionally request specific divisions by division name (optional) 
+
+            try
+            { 
+                // Retrieve a list of all divisions defined for the organization with cursor
+                AuthzDivisionCursorListing result = apiInstance.GetAuthorizationDivisionsQuery(before, after, pageSize, id, name);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling AuthorizationApi.GetAuthorizationDivisionsQuery: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **before** | **string**| The cursor that points to the start of the set of entities that has been returned. | [optional]  |
+| **after** | **string**| The cursor that points to the end of the set of entities that has been returned. | [optional]  |
+| **pageSize** | **string**| Page size (max 200, default 25) | [optional] [default to "25"] |
+| **id** | [**List<string>**](string)| Optionally request specific divisions by their IDs | [optional]  |
+| **name** | **string**| Optionally request specific divisions by division name | [optional]  |
+
+### Return type
+
+[**AuthzDivisionCursorListing**](AuthzDivisionCursorListing)
 
 
 ## GetAuthorizationDivisionspermittedMe
@@ -925,8 +1060,6 @@ namespace Example
 
 Get a page of access policies for an organization
 
-GetAuthorizationPolicies is a preview method and is subject to both breaking and non-breaking changes at any time without notice
-
 Requires ANY permissions: 
 
 * authorization:policy:view
@@ -990,8 +1123,6 @@ namespace Example
 
 
 Get a page of access policies for a given subject
-
-GetAuthorizationPoliciesSubjectSubjectId is a preview method and is subject to both breaking and non-breaking changes at any time without notice
 
 Requires ANY permissions: 
 
@@ -1059,8 +1190,6 @@ namespace Example
 
 Get a page of access policies for a given policy target
 
-GetAuthorizationPoliciesTarget is a preview method and is subject to both breaking and non-breaking changes at any time without notice
-
 Requires ANY permissions: 
 
 * authorization:policy:view
@@ -1127,8 +1256,6 @@ namespace Example
 
 Get an access control policy for a specified resource target and subject
 
-GetAuthorizationPoliciesTargetSubjectSubjectId is a preview method and is subject to both breaking and non-breaking changes at any time without notice
-
 Requires ANY permissions: 
 
 * authorization:policy:view
@@ -1193,8 +1320,6 @@ namespace Example
 
 Get a map of policy targets to valid attributes for those targets
 
-GetAuthorizationPoliciesTargets is a preview method and is subject to both breaking and non-breaking changes at any time without notice
-
 Requires ANY permissions: 
 
 * authorization:policy:view
@@ -1251,8 +1376,6 @@ This endpoint does require any parameters.
 
 
 Get an access control policy with the specified policy ID
-
-GetAuthorizationPolicy is a preview method and is subject to both breaking and non-breaking changes at any time without notice
 
 Requires ANY permissions: 
 
@@ -1315,8 +1438,6 @@ namespace Example
 
 
 Get the list of attributes used to evaluate an access control policy with the specified policy ID
-
-GetAuthorizationPolicyAttributes is a preview method and is subject to both breaking and non-breaking changes at any time without notice
 
 Requires ANY permissions: 
 
@@ -2344,7 +2465,7 @@ namespace Example
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **divisionId** | **string**| Division ID |  |
-| **objectType** | **string**| The type of the objects. Must be one of the valid object types | <br />**Values**: QUEUE, CAMPAIGN, CONTACTLIST, DNCLIST, EMAILCAMPAIGN, MESSAGINGCAMPAIGN, MANAGEMENTUNIT, BUSINESSUNIT, FLOW, FLOWMILESTONE, FLOWOUTCOME, USER, CALLROUTE, EMERGENCYGROUPS, ROUTINGSCHEDULES, ROUTINGSCHEDULEGROUPS, DATATABLES, TEAM, WORKBIN, WORKTYPE, EXTENSIONPOOL, SKILLGROUP, SCRIPT |
+| **objectType** | **string**| The type of the objects. Must be one of the valid object types | <br />**Values**: QUEUE, CAMPAIGN, CONTACTLIST, DNCLIST, EMAILCAMPAIGN, MESSAGINGCAMPAIGN, MANAGEMENTUNIT, BUSINESSUNIT, FLOW, FLOWMILESTONE, FLOWOUTCOME, USER, CALLROUTE, EMERGENCYGROUPS, ROUTINGSCHEDULES, ROUTINGSCHEDULEGROUPS, DATATABLES, TEAM, WORKBIN, WORKTYPE, EXTENSIONPOOL, SKILLGROUP, SCRIPT, LIBRARY |
 | **body** | [**List<string>**](string)| Object Id List |  |
 
 ### Return type
@@ -2354,7 +2475,7 @@ void (empty response body)
 
 ## PostAuthorizationDivisionRestore
 
-> [**AuthzDivision**](AuthzDivision) PostAuthorizationDivisionRestore (string divisionId, AuthzDivision body = null)
+> [**AuthzDivision**](AuthzDivision) PostAuthorizationDivisionRestore (string divisionId, AuthzDivision body)
 
 
 Recreate a previously deleted division.
@@ -2386,7 +2507,7 @@ namespace Example
 
             var apiInstance = new AuthorizationApi();
             var divisionId = divisionId_example;  // string | Division ID
-            var body = new AuthzDivision(); // AuthzDivision | Recreated division data (optional) 
+            var body = new AuthzDivision(); // AuthzDivision | Recreated division data
 
             try
             { 
@@ -2409,7 +2530,7 @@ namespace Example
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **divisionId** | **string**| Division ID |  |
-| **body** | [**AuthzDivision**](AuthzDivision)| Recreated division data | [optional]  |
+| **body** | [**AuthzDivision**](AuthzDivision)| Recreated division data |  |
 
 ### Return type
 
@@ -2481,12 +2602,10 @@ namespace Example
 
 ## PostAuthorizationPoliciesTarget
 
-> [**AuthorizationPolicy**](AuthorizationPolicy) PostAuthorizationPoliciesTarget (string targetName, AuthorizationPolicy body)
+> [**AuthorizationPolicy**](AuthorizationPolicy) PostAuthorizationPoliciesTarget (string targetName, AuthorizationPolicy body, bool? skipLockoutCheck = null)
 
 
 Add an access control policy for a specified resource target and subject
-
-PostAuthorizationPoliciesTarget is a preview method and is subject to both breaking and non-breaking changes at any time without notice
 
 Requires ANY permissions: 
 
@@ -2516,11 +2635,12 @@ namespace Example
             var apiInstance = new AuthorizationApi();
             var targetName = targetName_example;  // string | The domain:entity:action target to which the policy will be applied
             var body = new AuthorizationPolicy(); // AuthorizationPolicy | Access control policy
+            var skipLockoutCheck = true;  // bool? | Skip lockout check; if true, policy will not be evaluated against current context for lockout risk (optional)  (default to false)
 
             try
             { 
                 // Add an access control policy for a specified resource target and subject
-                AuthorizationPolicy result = apiInstance.PostAuthorizationPoliciesTarget(targetName, body);
+                AuthorizationPolicy result = apiInstance.PostAuthorizationPoliciesTarget(targetName, body, skipLockoutCheck);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -2539,6 +2659,7 @@ namespace Example
 |------------- | ------------- | ------------- | -------------|
 | **targetName** | **string**| The domain:entity:action target to which the policy will be applied |  |
 | **body** | [**AuthorizationPolicy**](AuthorizationPolicy)| Access control policy |  |
+| **skipLockoutCheck** | **bool?**| Skip lockout check; if true, policy will not be evaluated against current context for lockout risk | [optional] [default to false] |
 
 ### Return type
 
@@ -2551,8 +2672,6 @@ namespace Example
 
 
 Validate the conditions and attributes of an access control policy for a specified resource target
-
-PostAuthorizationPoliciesTargetValidate is a preview method and is subject to both breaking and non-breaking changes at any time without notice
 
 Requires ANY permissions: 
 
@@ -2617,8 +2736,6 @@ namespace Example
 
 
 Simulate a request and evaluate the specified policy ID against the provided values
-
-PostAuthorizationPolicySimulate is a preview method and is subject to both breaking and non-breaking changes at any time without notice
 
 Requires ANY permissions: 
 
@@ -3265,12 +3382,10 @@ namespace Example
 
 ## PutAuthorizationPoliciesTarget
 
-> [**AuthorizationPolicy**](AuthorizationPolicy) PutAuthorizationPoliciesTarget (string targetName, AuthorizationPolicy body)
+> [**AuthorizationPolicy**](AuthorizationPolicy) PutAuthorizationPoliciesTarget (string targetName, AuthorizationPolicy body, bool? skipLockoutCheck = null)
 
 
 Add an access control policy for a specified resource target and subject, overwriting any existing policy
-
-PutAuthorizationPoliciesTarget is a preview method and is subject to both breaking and non-breaking changes at any time without notice
 
 Requires ANY permissions: 
 
@@ -3301,11 +3416,12 @@ namespace Example
             var apiInstance = new AuthorizationApi();
             var targetName = targetName_example;  // string | The domain:entity:action target to which the policy will be applied
             var body = new AuthorizationPolicy(); // AuthorizationPolicy | Access control policy
+            var skipLockoutCheck = true;  // bool? | Skip lockout check; if true, policy will not be evaluated against current context for lockout risk (optional)  (default to false)
 
             try
             { 
                 // Add an access control policy for a specified resource target and subject, overwriting any existing policy
-                AuthorizationPolicy result = apiInstance.PutAuthorizationPoliciesTarget(targetName, body);
+                AuthorizationPolicy result = apiInstance.PutAuthorizationPoliciesTarget(targetName, body, skipLockoutCheck);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -3324,6 +3440,7 @@ namespace Example
 |------------- | ------------- | ------------- | -------------|
 | **targetName** | **string**| The domain:entity:action target to which the policy will be applied |  |
 | **body** | [**AuthorizationPolicy**](AuthorizationPolicy)| Access control policy |  |
+| **skipLockoutCheck** | **bool?**| Skip lockout check; if true, policy will not be evaluated against current context for lockout risk | [optional] [default to false] |
 
 ### Return type
 
@@ -3332,12 +3449,10 @@ namespace Example
 
 ## PutAuthorizationPolicy
 
-> [**AuthorizationPolicy**](AuthorizationPolicy) PutAuthorizationPolicy (string policyId, AuthorizationPolicy body)
+> [**AuthorizationPolicy**](AuthorizationPolicy) PutAuthorizationPolicy (string policyId, AuthorizationPolicy body, bool? skipLockoutCheck = null)
 
 
 Update an access control policy with a given ID
-
-PutAuthorizationPolicy is a preview method and is subject to both breaking and non-breaking changes at any time without notice
 
 Requires ANY permissions: 
 
@@ -3367,11 +3482,12 @@ namespace Example
             var apiInstance = new AuthorizationApi();
             var policyId = policyId_example;  // string | The ID of the policy to update
             var body = new AuthorizationPolicy(); // AuthorizationPolicy | Access control policy
+            var skipLockoutCheck = true;  // bool? | Skip lockout check; if true, policy will not be evaluated against current context for lockout risk (optional)  (default to false)
 
             try
             { 
                 // Update an access control policy with a given ID
-                AuthorizationPolicy result = apiInstance.PutAuthorizationPolicy(policyId, body);
+                AuthorizationPolicy result = apiInstance.PutAuthorizationPolicy(policyId, body, skipLockoutCheck);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -3390,6 +3506,7 @@ namespace Example
 |------------- | ------------- | ------------- | -------------|
 | **policyId** | **string**| The ID of the policy to update |  |
 | **body** | [**AuthorizationPolicy**](AuthorizationPolicy)| Access control policy |  |
+| **skipLockoutCheck** | **bool?**| Skip lockout check; if true, policy will not be evaluated against current context for lockout risk | [optional] [default to false] |
 
 ### Return type
 
@@ -3781,4 +3898,4 @@ namespace Example
 [**UserAuthorization**](UserAuthorization)
 
 
-_PureCloudPlatform.Client.V2 227.0.0_
+_PureCloudPlatform.Client.V2 257.0.0_

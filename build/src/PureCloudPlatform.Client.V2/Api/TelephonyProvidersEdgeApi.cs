@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using RestSharp;
 using PureCloudPlatform.Client.V2.Client;
 using PureCloudPlatform.Client.V2.Model;
 
@@ -753,7 +752,7 @@ namespace PureCloudPlatform.Client.V2.Api
         ApiResponse<EdgeEntityListing> GetTelephonyProvidersEdgesWithHttpInfo (int? pageSize = null, int? pageNumber = null, string name = null, string siteId = null, string edgeGroupId = null, string sortBy = null, bool? managed = null, bool? showCloudMedia = null);
 
         /// <summary>
-        /// Get the list alertable presences. The 'type' query parameter can be used to If there are any overrides, this is the list of overrides; if there are no overrides, it is the default list.
+        /// Get the list alertable presences. The &#39;type&#39; query parameter can be used to If there are any overrides, this is the list of overrides; if there are no overrides, it is the default list.
         /// </summary>
         /// <remarks>
         /// 
@@ -765,7 +764,7 @@ namespace PureCloudPlatform.Client.V2.Api
         AlertablePresences GetTelephonyProvidersEdgesAlertablepresences (string type = null);
 
         /// <summary>
-        /// Get the list alertable presences. The 'type' query parameter can be used to If there are any overrides, this is the list of overrides; if there are no overrides, it is the default list.
+        /// Get the list alertable presences. The &#39;type&#39; query parameter can be used to If there are any overrides, this is the list of overrides; if there are no overrides, it is the default list.
         /// </summary>
         /// <remarks>
         /// 
@@ -1159,9 +1158,10 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <param name="pageNumber">Page number (optional, default to 1)</param>
         /// <param name="sortBy">Sort by (optional)</param>
         /// <param name="number">Deprecated, filtering by number not supported (optional)</param>
+        /// <param name="divisionId">List of divisionIds on which to filter. (optional)</param>
         /// <returns>ExtensionPoolEntityListing</returns>
         
-        ExtensionPoolEntityListing GetTelephonyProvidersEdgesExtensionpools (int? pageSize = null, int? pageNumber = null, string sortBy = null, string number = null);
+        ExtensionPoolEntityListing GetTelephonyProvidersEdgesExtensionpools (int? pageSize = null, int? pageNumber = null, string sortBy = null, string number = null, List<string> divisionId = null);
 
         /// <summary>
         /// Get a listing of extension pools
@@ -1174,15 +1174,16 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <param name="pageNumber">Page number (optional, default to 1)</param>
         /// <param name="sortBy">Sort by (optional)</param>
         /// <param name="number">Deprecated, filtering by number not supported (optional)</param>
+        /// <param name="divisionId">List of divisionIds on which to filter. (optional)</param>
         /// <returns>ApiResponse of ExtensionPoolEntityListing</returns>
         
-        ApiResponse<ExtensionPoolEntityListing> GetTelephonyProvidersEdgesExtensionpoolsWithHttpInfo (int? pageSize = null, int? pageNumber = null, string sortBy = null, string number = null);
+        ApiResponse<ExtensionPoolEntityListing> GetTelephonyProvidersEdgesExtensionpoolsWithHttpInfo (int? pageSize = null, int? pageNumber = null, string sortBy = null, string number = null, List<string> divisionId = null);
 
         /// <summary>
         /// Get a pageable list of basic extension pool objects filterable by query parameters.
         /// </summary>
         /// <remarks>
-        /// This returns extension pools consisting of name and division. If one or more IDs are specified, the search will fetch flow outcomes that match the given ID(s) and not use any additional supplied query parameters in the search.
+        /// This returns extension pools consisting of name and division. If one or more IDs are specified, the search will fetch extension pools that match the given ID(s) and not use any additional supplied query parameters in the search.
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageNumber">Page number (optional, default to 1)</param>
@@ -1200,7 +1201,7 @@ namespace PureCloudPlatform.Client.V2.Api
         /// Get a pageable list of basic extension pool objects filterable by query parameters.
         /// </summary>
         /// <remarks>
-        /// This returns extension pools consisting of name and division. If one or more IDs are specified, the search will fetch flow outcomes that match the given ID(s) and not use any additional supplied query parameters in the search.
+        /// This returns extension pools consisting of name and division. If one or more IDs are specified, the search will fetch extension pools that match the given ID(s) and not use any additional supplied query parameters in the search.
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageNumber">Page number (optional, default to 1)</param>
@@ -2737,6 +2738,38 @@ namespace PureCloudPlatform.Client.V2.Api
         ApiResponse<ExtensionPool> PostTelephonyProvidersEdgesExtensionpoolsWithHttpInfo (ExtensionPool body);
 
         /// <summary>
+        /// Post media endpoint statistics event.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// PostTelephonyProvidersEdgesMediastatisticsConversationCommunicationMediaresource is a preview method and is subject to both breaking and non-breaking changes at any time without notice
+        /// </remarks>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationId">Identifier of the conversation</param>
+        /// <param name="communicationId">Identifier of the media session</param>
+        /// <param name="mediaResourceId">Identifier of the media resource of the endpoint</param>
+        /// <param name="body">MediaStatisticsPostRequest</param>
+        /// <returns>MediaStatistics</returns>
+        
+        MediaStatistics PostTelephonyProvidersEdgesMediastatisticsConversationCommunicationMediaresource (string conversationId, string communicationId, string mediaResourceId, MediaStatisticsPostRequest body);
+
+        /// <summary>
+        /// Post media endpoint statistics event.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// PostTelephonyProvidersEdgesMediastatisticsConversationCommunicationMediaresource is a preview method and is subject to both breaking and non-breaking changes at any time without notice
+        /// </remarks>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationId">Identifier of the conversation</param>
+        /// <param name="communicationId">Identifier of the media session</param>
+        /// <param name="mediaResourceId">Identifier of the media resource of the endpoint</param>
+        /// <param name="body">MediaStatisticsPostRequest</param>
+        /// <returns>ApiResponse of MediaStatistics</returns>
+        
+        ApiResponse<MediaStatistics> PostTelephonyProvidersEdgesMediastatisticsConversationCommunicationMediaresourceWithHttpInfo (string conversationId, string communicationId, string mediaResourceId, MediaStatisticsPostRequest body);
+
+        /// <summary>
         /// Reboot a Phone
         /// </summary>
         /// <remarks>
@@ -4065,7 +4098,7 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task<ApiResponse<EdgeEntityListing>> GetTelephonyProvidersEdgesAsyncWithHttpInfo (int? pageSize = null, int? pageNumber = null, string name = null, string siteId = null, string edgeGroupId = null, string sortBy = null, bool? managed = null, bool? showCloudMedia = null);
 
         /// <summary>
-        /// Get the list alertable presences. The 'type' query parameter can be used to If there are any overrides, this is the list of overrides; if there are no overrides, it is the default list.
+        /// Get the list alertable presences. The &#39;type&#39; query parameter can be used to If there are any overrides, this is the list of overrides; if there are no overrides, it is the default list.
         /// </summary>
         /// <remarks>
         /// 
@@ -4077,7 +4110,7 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task<AlertablePresences> GetTelephonyProvidersEdgesAlertablepresencesAsync (string type = null);
 
         /// <summary>
-        /// Get the list alertable presences. The 'type' query parameter can be used to If there are any overrides, this is the list of overrides; if there are no overrides, it is the default list.
+        /// Get the list alertable presences. The &#39;type&#39; query parameter can be used to If there are any overrides, this is the list of overrides; if there are no overrides, it is the default list.
         /// </summary>
         /// <remarks>
         /// 
@@ -4471,9 +4504,10 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <param name="pageNumber">Page number (optional, default to 1)</param>
         /// <param name="sortBy">Sort by (optional)</param>
         /// <param name="number">Deprecated, filtering by number not supported (optional)</param>
+        /// <param name="divisionId">List of divisionIds on which to filter. (optional)</param>
         /// <returns>Task of ExtensionPoolEntityListing</returns>
         
-        System.Threading.Tasks.Task<ExtensionPoolEntityListing> GetTelephonyProvidersEdgesExtensionpoolsAsync (int? pageSize = null, int? pageNumber = null, string sortBy = null, string number = null);
+        System.Threading.Tasks.Task<ExtensionPoolEntityListing> GetTelephonyProvidersEdgesExtensionpoolsAsync (int? pageSize = null, int? pageNumber = null, string sortBy = null, string number = null, List<string> divisionId = null);
 
         /// <summary>
         /// Get a listing of extension pools
@@ -4486,15 +4520,16 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <param name="pageNumber">Page number (optional, default to 1)</param>
         /// <param name="sortBy">Sort by (optional)</param>
         /// <param name="number">Deprecated, filtering by number not supported (optional)</param>
+        /// <param name="divisionId">List of divisionIds on which to filter. (optional)</param>
         /// <returns>Task of ApiResponse (ExtensionPoolEntityListing)</returns>
         
-        System.Threading.Tasks.Task<ApiResponse<ExtensionPoolEntityListing>> GetTelephonyProvidersEdgesExtensionpoolsAsyncWithHttpInfo (int? pageSize = null, int? pageNumber = null, string sortBy = null, string number = null);
+        System.Threading.Tasks.Task<ApiResponse<ExtensionPoolEntityListing>> GetTelephonyProvidersEdgesExtensionpoolsAsyncWithHttpInfo (int? pageSize = null, int? pageNumber = null, string sortBy = null, string number = null, List<string> divisionId = null);
 
         /// <summary>
         /// Get a pageable list of basic extension pool objects filterable by query parameters.
         /// </summary>
         /// <remarks>
-        /// This returns extension pools consisting of name and division. If one or more IDs are specified, the search will fetch flow outcomes that match the given ID(s) and not use any additional supplied query parameters in the search.
+        /// This returns extension pools consisting of name and division. If one or more IDs are specified, the search will fetch extension pools that match the given ID(s) and not use any additional supplied query parameters in the search.
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageNumber">Page number (optional, default to 1)</param>
@@ -4512,7 +4547,7 @@ namespace PureCloudPlatform.Client.V2.Api
         /// Get a pageable list of basic extension pool objects filterable by query parameters.
         /// </summary>
         /// <remarks>
-        /// This returns extension pools consisting of name and division. If one or more IDs are specified, the search will fetch flow outcomes that match the given ID(s) and not use any additional supplied query parameters in the search.
+        /// This returns extension pools consisting of name and division. If one or more IDs are specified, the search will fetch extension pools that match the given ID(s) and not use any additional supplied query parameters in the search.
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageNumber">Page number (optional, default to 1)</param>
@@ -6049,6 +6084,38 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task<ApiResponse<ExtensionPool>> PostTelephonyProvidersEdgesExtensionpoolsAsyncWithHttpInfo (ExtensionPool body);
 
         /// <summary>
+        /// Post media endpoint statistics event.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// PostTelephonyProvidersEdgesMediastatisticsConversationCommunicationMediaresource is a preview method and is subject to both breaking and non-breaking changes at any time without notice
+        /// </remarks>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationId">Identifier of the conversation</param>
+        /// <param name="communicationId">Identifier of the media session</param>
+        /// <param name="mediaResourceId">Identifier of the media resource of the endpoint</param>
+        /// <param name="body">MediaStatisticsPostRequest</param>
+        /// <returns>Task of MediaStatistics</returns>
+        
+        System.Threading.Tasks.Task<MediaStatistics> PostTelephonyProvidersEdgesMediastatisticsConversationCommunicationMediaresourceAsync (string conversationId, string communicationId, string mediaResourceId, MediaStatisticsPostRequest body);
+
+        /// <summary>
+        /// Post media endpoint statistics event.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// PostTelephonyProvidersEdgesMediastatisticsConversationCommunicationMediaresource is a preview method and is subject to both breaking and non-breaking changes at any time without notice
+        /// </remarks>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationId">Identifier of the conversation</param>
+        /// <param name="communicationId">Identifier of the media session</param>
+        /// <param name="mediaResourceId">Identifier of the media resource of the endpoint</param>
+        /// <param name="body">MediaStatisticsPostRequest</param>
+        /// <returns>Task of ApiResponse (MediaStatistics)</returns>
+        
+        System.Threading.Tasks.Task<ApiResponse<MediaStatistics>> PostTelephonyProvidersEdgesMediastatisticsConversationCommunicationMediaresourceAsyncWithHttpInfo (string conversationId, string communicationId, string mediaResourceId, MediaStatisticsPostRequest body);
+
+        /// <summary>
         /// Reboot a Phone
         /// </summary>
         /// <remarks>
@@ -6756,11 +6823,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'edgeId' when calling TelephonyProvidersEdgeApi->DeleteTelephonyProvidersEdge");
 
             var localVarPath = "/api/v2/telephony/providers/edges/{edgeId}";
+            var localVarHttpMethod = "Delete";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -6804,20 +6872,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling DeleteTelephonyProvidersEdge: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -6862,11 +6923,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/{edgeId}";
+            var localVarHttpMethod = "Delete";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -6910,20 +6972,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling DeleteTelephonyProvidersEdge: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -6972,11 +7027,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'interfaceId' when calling TelephonyProvidersEdgeApi->DeleteTelephonyProvidersEdgeLogicalinterface");
 
             var localVarPath = "/api/v2/telephony/providers/edges/{edgeId}/logicalinterfaces/{interfaceId}";
+            var localVarHttpMethod = "Delete";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -7021,20 +7077,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling DeleteTelephonyProvidersEdgeLogicalinterface: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -7085,11 +7134,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/{edgeId}/logicalinterfaces/{interfaceId}";
+            var localVarHttpMethod = "Delete";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -7134,20 +7184,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling DeleteTelephonyProvidersEdgeLogicalinterface: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -7191,11 +7234,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'edgeId' when calling TelephonyProvidersEdgeApi->DeleteTelephonyProvidersEdgeSoftwareupdate");
 
             var localVarPath = "/api/v2/telephony/providers/edges/{edgeId}/softwareupdate";
+            var localVarHttpMethod = "Delete";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -7239,20 +7283,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling DeleteTelephonyProvidersEdgeSoftwareupdate: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -7297,11 +7334,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/{edgeId}/softwareupdate";
+            var localVarHttpMethod = "Delete";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -7345,20 +7383,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling DeleteTelephonyProvidersEdgeSoftwareupdate: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -7397,11 +7428,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/telephony/providers/edges/alertablepresences";
+            var localVarHttpMethod = "Delete";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -7444,20 +7476,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling DeleteTelephonyProvidersEdgesAlertablepresences: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -7496,11 +7521,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/telephony/providers/edges/alertablepresences";
+            var localVarHttpMethod = "Delete";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -7543,20 +7569,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling DeleteTelephonyProvidersEdgesAlertablepresences: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -7600,11 +7619,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'certificateId' when calling TelephonyProvidersEdgeApi->DeleteTelephonyProvidersEdgesCertificateauthority");
 
             var localVarPath = "/api/v2/telephony/providers/edges/certificateauthorities/{certificateId}";
+            var localVarHttpMethod = "Delete";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -7648,20 +7668,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling DeleteTelephonyProvidersEdgesCertificateauthority: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -7706,11 +7719,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/certificateauthorities/{certificateId}";
+            var localVarHttpMethod = "Delete";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -7754,20 +7768,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling DeleteTelephonyProvidersEdgesCertificateauthority: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -7811,11 +7818,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'didPoolId' when calling TelephonyProvidersEdgeApi->DeleteTelephonyProvidersEdgesDidpool");
 
             var localVarPath = "/api/v2/telephony/providers/edges/didpools/{didPoolId}";
+            var localVarHttpMethod = "Delete";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -7859,20 +7867,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling DeleteTelephonyProvidersEdgesDidpool: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -7917,11 +7918,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/didpools/{didPoolId}";
+            var localVarHttpMethod = "Delete";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -7965,20 +7967,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling DeleteTelephonyProvidersEdgesDidpool: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -8022,11 +8017,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'edgeGroupId' when calling TelephonyProvidersEdgeApi->DeleteTelephonyProvidersEdgesEdgegroup");
 
             var localVarPath = "/api/v2/telephony/providers/edges/edgegroups/{edgeGroupId}";
+            var localVarHttpMethod = "Delete";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -8070,20 +8066,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling DeleteTelephonyProvidersEdgesEdgegroup: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -8128,11 +8117,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/edgegroups/{edgeGroupId}";
+            var localVarHttpMethod = "Delete";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -8176,20 +8166,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling DeleteTelephonyProvidersEdgesEdgegroup: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -8233,11 +8216,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'extensionPoolId' when calling TelephonyProvidersEdgeApi->DeleteTelephonyProvidersEdgesExtensionpool");
 
             var localVarPath = "/api/v2/telephony/providers/edges/extensionpools/{extensionPoolId}";
+            var localVarHttpMethod = "Delete";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -8281,20 +8265,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling DeleteTelephonyProvidersEdgesExtensionpool: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -8339,11 +8316,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/extensionpools/{extensionPoolId}";
+            var localVarHttpMethod = "Delete";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -8387,20 +8365,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling DeleteTelephonyProvidersEdgesExtensionpool: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -8444,11 +8415,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'phoneId' when calling TelephonyProvidersEdgeApi->DeleteTelephonyProvidersEdgesPhone");
 
             var localVarPath = "/api/v2/telephony/providers/edges/phones/{phoneId}";
+            var localVarHttpMethod = "Delete";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -8492,20 +8464,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling DeleteTelephonyProvidersEdgesPhone: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -8550,11 +8515,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/phones/{phoneId}";
+            var localVarHttpMethod = "Delete";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -8598,20 +8564,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling DeleteTelephonyProvidersEdgesPhone: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -8655,11 +8614,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'phoneBaseId' when calling TelephonyProvidersEdgeApi->DeleteTelephonyProvidersEdgesPhonebasesetting");
 
             var localVarPath = "/api/v2/telephony/providers/edges/phonebasesettings/{phoneBaseId}";
+            var localVarHttpMethod = "Delete";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -8703,20 +8663,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling DeleteTelephonyProvidersEdgesPhonebasesetting: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -8761,11 +8714,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/phonebasesettings/{phoneBaseId}";
+            var localVarHttpMethod = "Delete";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -8809,20 +8763,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling DeleteTelephonyProvidersEdgesPhonebasesetting: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -8866,11 +8813,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'siteId' when calling TelephonyProvidersEdgeApi->DeleteTelephonyProvidersEdgesSite");
 
             var localVarPath = "/api/v2/telephony/providers/edges/sites/{siteId}";
+            var localVarHttpMethod = "Delete";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -8914,20 +8862,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling DeleteTelephonyProvidersEdgesSite: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -8972,11 +8913,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/sites/{siteId}";
+            var localVarHttpMethod = "Delete";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -9020,20 +8962,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling DeleteTelephonyProvidersEdgesSite: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -9082,11 +9017,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'outboundRouteId' when calling TelephonyProvidersEdgeApi->DeleteTelephonyProvidersEdgesSiteOutboundroute");
 
             var localVarPath = "/api/v2/telephony/providers/edges/sites/{siteId}/outboundroutes/{outboundRouteId}";
+            var localVarHttpMethod = "Delete";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -9131,20 +9067,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling DeleteTelephonyProvidersEdgesSiteOutboundroute: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -9195,11 +9124,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/sites/{siteId}/outboundroutes/{outboundRouteId}";
+            var localVarHttpMethod = "Delete";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -9244,20 +9174,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling DeleteTelephonyProvidersEdgesSiteOutboundroute: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -9301,11 +9224,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'trunkBaseSettingsId' when calling TelephonyProvidersEdgeApi->DeleteTelephonyProvidersEdgesTrunkbasesetting");
 
             var localVarPath = "/api/v2/telephony/providers/edges/trunkbasesettings/{trunkBaseSettingsId}";
+            var localVarHttpMethod = "Delete";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -9349,20 +9273,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling DeleteTelephonyProvidersEdgesTrunkbasesetting: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -9407,11 +9324,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/trunkbasesettings/{trunkBaseSettingsId}";
+            var localVarHttpMethod = "Delete";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -9455,20 +9373,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling DeleteTelephonyProvidersEdgesTrunkbasesetting: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -9515,11 +9426,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'edgeId' when calling TelephonyProvidersEdgeApi->GetTelephonyProvidersEdge");
 
             var localVarPath = "/api/v2/telephony/providers/edges/{edgeId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -9564,20 +9476,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdge: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -9625,11 +9530,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/{edgeId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -9674,20 +9580,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdge: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -9732,11 +9631,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'edgeId' when calling TelephonyProvidersEdgeApi->GetTelephonyProvidersEdgeDiagnosticNslookup");
 
             var localVarPath = "/api/v2/telephony/providers/edges/{edgeId}/diagnostic/nslookup";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -9780,20 +9680,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgeDiagnosticNslookup: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -9839,11 +9732,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/{edgeId}/diagnostic/nslookup";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -9887,20 +9781,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgeDiagnosticNslookup: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -9945,11 +9832,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'edgeId' when calling TelephonyProvidersEdgeApi->GetTelephonyProvidersEdgeDiagnosticPing");
 
             var localVarPath = "/api/v2/telephony/providers/edges/{edgeId}/diagnostic/ping";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -9993,20 +9881,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgeDiagnosticPing: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -10052,11 +9933,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/{edgeId}/diagnostic/ping";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -10100,20 +9982,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgeDiagnosticPing: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -10158,11 +10033,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'edgeId' when calling TelephonyProvidersEdgeApi->GetTelephonyProvidersEdgeDiagnosticRoute");
 
             var localVarPath = "/api/v2/telephony/providers/edges/{edgeId}/diagnostic/route";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -10206,20 +10082,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgeDiagnosticRoute: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -10265,11 +10134,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/{edgeId}/diagnostic/route";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -10313,20 +10183,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgeDiagnosticRoute: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -10371,11 +10234,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'edgeId' when calling TelephonyProvidersEdgeApi->GetTelephonyProvidersEdgeDiagnosticTracepath");
 
             var localVarPath = "/api/v2/telephony/providers/edges/{edgeId}/diagnostic/tracepath";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -10419,20 +10283,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgeDiagnosticTracepath: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -10478,11 +10335,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/{edgeId}/diagnostic/tracepath";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -10526,20 +10384,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgeDiagnosticTracepath: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -10591,11 +10442,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'interfaceId' when calling TelephonyProvidersEdgeApi->GetTelephonyProvidersEdgeLogicalinterface");
 
             var localVarPath = "/api/v2/telephony/providers/edges/{edgeId}/logicalinterfaces/{interfaceId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -10641,20 +10493,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgeLogicalinterface: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -10708,11 +10553,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/{edgeId}/logicalinterfaces/{interfaceId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -10758,20 +10604,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgeLogicalinterface: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -10818,11 +10657,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'edgeId' when calling TelephonyProvidersEdgeApi->GetTelephonyProvidersEdgeLogicalinterfaces");
 
             var localVarPath = "/api/v2/telephony/providers/edges/{edgeId}/logicalinterfaces";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -10867,20 +10707,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgeLogicalinterfaces: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -10928,11 +10761,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/{edgeId}/logicalinterfaces";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -10977,20 +10811,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgeLogicalinterfaces: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -11040,11 +10867,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'jobId' when calling TelephonyProvidersEdgeApi->GetTelephonyProvidersEdgeLogsJob");
 
             var localVarPath = "/api/v2/telephony/providers/edges/{edgeId}/logs/jobs/{jobId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -11089,20 +10917,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgeLogsJob: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -11154,11 +10975,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/{edgeId}/logs/jobs/{jobId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -11203,20 +11025,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgeLogsJob: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -11261,11 +11076,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'edgeId' when calling TelephonyProvidersEdgeApi->GetTelephonyProvidersEdgeMetrics");
 
             var localVarPath = "/api/v2/telephony/providers/edges/{edgeId}/metrics";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -11309,20 +11125,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgeMetrics: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -11368,11 +11177,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/{edgeId}/metrics";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -11416,20 +11226,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgeMetrics: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -11479,11 +11282,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'interfaceId' when calling TelephonyProvidersEdgeApi->GetTelephonyProvidersEdgePhysicalinterface");
 
             var localVarPath = "/api/v2/telephony/providers/edges/{edgeId}/physicalinterfaces/{interfaceId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -11528,20 +11332,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgePhysicalinterface: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -11593,11 +11390,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/{edgeId}/physicalinterfaces/{interfaceId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -11642,20 +11440,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgePhysicalinterface: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -11700,11 +11491,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'edgeId' when calling TelephonyProvidersEdgeApi->GetTelephonyProvidersEdgePhysicalinterfaces");
 
             var localVarPath = "/api/v2/telephony/providers/edges/{edgeId}/physicalinterfaces";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -11748,20 +11540,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgePhysicalinterfaces: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -11807,11 +11592,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/{edgeId}/physicalinterfaces";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -11855,20 +11641,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgePhysicalinterfaces: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -11913,11 +11692,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'edgeId' when calling TelephonyProvidersEdgeApi->GetTelephonyProvidersEdgeSetuppackage");
 
             var localVarPath = "/api/v2/telephony/providers/edges/{edgeId}/setuppackage";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -11961,20 +11741,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgeSetuppackage: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -12020,11 +11793,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/{edgeId}/setuppackage";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -12068,20 +11842,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgeSetuppackage: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -12126,11 +11893,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'edgeId' when calling TelephonyProvidersEdgeApi->GetTelephonyProvidersEdgeSoftwareupdate");
 
             var localVarPath = "/api/v2/telephony/providers/edges/{edgeId}/softwareupdate";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -12174,20 +11942,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgeSoftwareupdate: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -12233,11 +11994,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/{edgeId}/softwareupdate";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -12281,20 +12043,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgeSoftwareupdate: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -12339,11 +12094,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'edgeId' when calling TelephonyProvidersEdgeApi->GetTelephonyProvidersEdgeSoftwareversions");
 
             var localVarPath = "/api/v2/telephony/providers/edges/{edgeId}/softwareversions";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -12387,20 +12143,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgeSoftwareversions: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -12446,11 +12195,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/{edgeId}/softwareversions";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -12494,20 +12244,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgeSoftwareversions: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -12564,11 +12307,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'edgeId' when calling TelephonyProvidersEdgeApi->GetTelephonyProvidersEdgeTrunks");
 
             var localVarPath = "/api/v2/telephony/providers/edges/{edgeId}/trunks";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -12618,20 +12362,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgeTrunks: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -12689,11 +12426,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/{edgeId}/trunks";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -12743,20 +12481,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgeTrunks: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -12812,11 +12543,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/telephony/providers/edges";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -12867,20 +12599,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdges: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -12936,11 +12661,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/telephony/providers/edges";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -12991,20 +12717,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdges: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -13021,7 +12740,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Get the list alertable presences. The 'type' query parameter can be used to If there are any overrides, this is the list of overrides; if there are no overrides, it is the default list. 
+        /// Get the list alertable presences. The &#39;type&#39; query parameter can be used to If there are any overrides, this is the list of overrides; if there are no overrides, it is the default list. 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -13035,7 +12754,7 @@ namespace PureCloudPlatform.Client.V2.Api
         }
 
         /// <summary>
-        /// Get the list alertable presences. The 'type' query parameter can be used to If there are any overrides, this is the list of overrides; if there are no overrides, it is the default list. 
+        /// Get the list alertable presences. The &#39;type&#39; query parameter can be used to If there are any overrides, this is the list of overrides; if there are no overrides, it is the default list. 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -13046,11 +12765,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/telephony/providers/edges/alertablepresences";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -13094,20 +12814,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesAlertablepresences: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -13123,7 +12836,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Get the list alertable presences. The 'type' query parameter can be used to If there are any overrides, this is the list of overrides; if there are no overrides, it is the default list. 
+        /// Get the list alertable presences. The &#39;type&#39; query parameter can be used to If there are any overrides, this is the list of overrides; if there are no overrides, it is the default list. 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -13138,7 +12851,7 @@ namespace PureCloudPlatform.Client.V2.Api
         }
 
         /// <summary>
-        /// Get the list alertable presences. The 'type' query parameter can be used to If there are any overrides, this is the list of overrides; if there are no overrides, it is the default list. 
+        /// Get the list alertable presences. The &#39;type&#39; query parameter can be used to If there are any overrides, this is the list of overrides; if there are no overrides, it is the default list. 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -13149,11 +12862,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/telephony/providers/edges/alertablepresences";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -13197,20 +12911,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesAlertablepresences: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -13250,11 +12957,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/telephony/providers/edges/certificateauthorities";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -13297,20 +13005,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesCertificateauthorities: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -13350,11 +13051,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/telephony/providers/edges/certificateauthorities";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -13397,20 +13099,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesCertificateauthorities: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -13455,11 +13150,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'certificateId' when calling TelephonyProvidersEdgeApi->GetTelephonyProvidersEdgesCertificateauthority");
 
             var localVarPath = "/api/v2/telephony/providers/edges/certificateauthorities/{certificateId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -13503,20 +13199,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesCertificateauthority: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -13562,11 +13251,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/certificateauthorities/{certificateId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -13610,20 +13300,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesCertificateauthority: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -13668,11 +13351,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'didId' when calling TelephonyProvidersEdgeApi->GetTelephonyProvidersEdgesDid");
 
             var localVarPath = "/api/v2/telephony/providers/edges/dids/{didId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -13716,20 +13400,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesDid: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -13775,11 +13452,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/dids/{didId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -13823,20 +13501,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesDid: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -13881,11 +13552,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'didPoolId' when calling TelephonyProvidersEdgeApi->GetTelephonyProvidersEdgesDidpool");
 
             var localVarPath = "/api/v2/telephony/providers/edges/didpools/{didPoolId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -13929,20 +13601,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesDidpool: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -13988,11 +13653,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/didpools/{didPoolId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -14036,20 +13702,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesDidpool: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -14097,11 +13756,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/telephony/providers/edges/didpools";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -14148,20 +13808,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesDidpools: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -14209,11 +13862,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/telephony/providers/edges/didpools";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -14260,20 +13914,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesDidpools: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -14328,11 +13975,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'type' when calling TelephonyProvidersEdgeApi->GetTelephonyProvidersEdgesDidpoolsDids");
 
             var localVarPath = "/api/v2/telephony/providers/edges/didpools/dids";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -14381,20 +14029,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesDidpoolsDids: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -14450,11 +14091,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/didpools/dids";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -14503,20 +14145,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesDidpoolsDids: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -14572,11 +14207,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/telephony/providers/edges/dids";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -14627,20 +14263,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesDids: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -14696,11 +14325,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/telephony/providers/edges/dids";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -14751,20 +14381,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesDids: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -14811,11 +14434,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'edgeGroupId' when calling TelephonyProvidersEdgeApi->GetTelephonyProvidersEdgesEdgegroup");
 
             var localVarPath = "/api/v2/telephony/providers/edges/edgegroups/{edgeGroupId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -14860,20 +14484,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesEdgegroup: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -14921,11 +14538,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/edgegroups/{edgeGroupId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -14970,20 +14588,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesEdgegroup: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -15033,11 +14644,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'edgetrunkbaseId' when calling TelephonyProvidersEdgeApi->GetTelephonyProvidersEdgesEdgegroupEdgetrunkbase");
 
             var localVarPath = "/api/v2/telephony/providers/edges/edgegroups/{edgegroupId}/edgetrunkbases/{edgetrunkbaseId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -15082,20 +14694,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesEdgegroupEdgetrunkbase: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -15147,11 +14752,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/edgegroups/{edgegroupId}/edgetrunkbases/{edgetrunkbaseId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -15196,20 +14802,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesEdgegroupEdgetrunkbase: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -15259,11 +14858,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/telephony/providers/edges/edgegroups";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -15311,20 +14911,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesEdgegroups: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -15374,11 +14967,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/telephony/providers/edges/edgegroups";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -15426,20 +15020,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesEdgegroups: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -15479,11 +15066,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/telephony/providers/edges/edgeversionreport";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -15526,20 +15114,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesEdgeversionreport: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -15579,11 +15160,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/telephony/providers/edges/edgeversionreport";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -15626,20 +15208,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesEdgeversionreport: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -15679,11 +15254,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/telephony/providers/edges/expired";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -15726,20 +15302,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesExpired: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -15779,11 +15348,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/telephony/providers/edges/expired";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -15826,20 +15396,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesExpired: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -15884,11 +15447,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'extensionId' when calling TelephonyProvidersEdgeApi->GetTelephonyProvidersEdgesExtension");
 
             var localVarPath = "/api/v2/telephony/providers/edges/extensions/{extensionId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -15932,20 +15496,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesExtension: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -15991,11 +15548,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/extensions/{extensionId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -16039,20 +15597,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesExtension: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -16097,11 +15648,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'extensionPoolId' when calling TelephonyProvidersEdgeApi->GetTelephonyProvidersEdgesExtensionpool");
 
             var localVarPath = "/api/v2/telephony/providers/edges/extensionpools/{extensionPoolId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -16145,20 +15697,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesExtensionpool: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -16204,11 +15749,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/extensionpools/{extensionPoolId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -16252,20 +15798,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesExtensionpool: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -16290,11 +15829,12 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <param name="pageNumber">Page number (optional, default to 1)</param>
         /// <param name="sortBy">Sort by (optional)</param>
         /// <param name="number">Deprecated, filtering by number not supported (optional)</param>
+        /// <param name="divisionId">List of divisionIds on which to filter. (optional)</param>
         /// <returns>ExtensionPoolEntityListing</returns>
         
-        public ExtensionPoolEntityListing GetTelephonyProvidersEdgesExtensionpools (int? pageSize = null, int? pageNumber = null, string sortBy = null, string number = null)
+        public ExtensionPoolEntityListing GetTelephonyProvidersEdgesExtensionpools (int? pageSize = null, int? pageNumber = null, string sortBy = null, string number = null, List<string> divisionId = null)
         {
-             ApiResponse<ExtensionPoolEntityListing> localVarResponse = GetTelephonyProvidersEdgesExtensionpoolsWithHttpInfo(pageSize, pageNumber, sortBy, number);
+             ApiResponse<ExtensionPoolEntityListing> localVarResponse = GetTelephonyProvidersEdgesExtensionpoolsWithHttpInfo(pageSize, pageNumber, sortBy, number, divisionId);
              return localVarResponse.Data;
         }
 
@@ -16307,17 +15847,19 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <param name="pageNumber">Page number (optional, default to 1)</param>
         /// <param name="sortBy">Sort by (optional)</param>
         /// <param name="number">Deprecated, filtering by number not supported (optional)</param>
+        /// <param name="divisionId">List of divisionIds on which to filter. (optional)</param>
         /// <returns>ApiResponse of ExtensionPoolEntityListing</returns>
         
-        public ApiResponse< ExtensionPoolEntityListing > GetTelephonyProvidersEdgesExtensionpoolsWithHttpInfo (int? pageSize = null, int? pageNumber = null, string sortBy = null, string number = null)
+        public ApiResponse< ExtensionPoolEntityListing > GetTelephonyProvidersEdgesExtensionpoolsWithHttpInfo (int? pageSize = null, int? pageNumber = null, string sortBy = null, string number = null, List<string> divisionId = null)
         { 
 
             var localVarPath = "/api/v2/telephony/providers/edges/extensionpools";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -16348,6 +15890,7 @@ namespace PureCloudPlatform.Client.V2.Api
             if (pageNumber != null) localVarQueryParams.Add(new Tuple<string, string>("pageNumber", this.Configuration.ApiClient.ParameterToString(pageNumber)));
             if (sortBy != null) localVarQueryParams.Add(new Tuple<string, string>("sortBy", this.Configuration.ApiClient.ParameterToString(sortBy)));
             if (number != null) localVarQueryParams.Add(new Tuple<string, string>("number", this.Configuration.ApiClient.ParameterToString(number)));
+            if (divisionId != null) divisionId.ForEach(obj => { localVarQueryParams.Add(new Tuple<string, string>("divisionId", this.Configuration.ApiClient.ParameterToString(obj))); });
 
             // Header params
 
@@ -16364,20 +15907,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesExtensionpools: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -16401,11 +15937,12 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <param name="pageNumber">Page number (optional, default to 1)</param>
         /// <param name="sortBy">Sort by (optional)</param>
         /// <param name="number">Deprecated, filtering by number not supported (optional)</param>
+        /// <param name="divisionId">List of divisionIds on which to filter. (optional)</param>
         /// <returns>Task of ExtensionPoolEntityListing</returns>
         
-        public async System.Threading.Tasks.Task<ExtensionPoolEntityListing> GetTelephonyProvidersEdgesExtensionpoolsAsync (int? pageSize = null, int? pageNumber = null, string sortBy = null, string number = null)
+        public async System.Threading.Tasks.Task<ExtensionPoolEntityListing> GetTelephonyProvidersEdgesExtensionpoolsAsync (int? pageSize = null, int? pageNumber = null, string sortBy = null, string number = null, List<string> divisionId = null)
         {
-             ApiResponse<ExtensionPoolEntityListing> localVarResponse = await GetTelephonyProvidersEdgesExtensionpoolsAsyncWithHttpInfo(pageSize, pageNumber, sortBy, number);
+             ApiResponse<ExtensionPoolEntityListing> localVarResponse = await GetTelephonyProvidersEdgesExtensionpoolsAsyncWithHttpInfo(pageSize, pageNumber, sortBy, number, divisionId);
              return localVarResponse.Data;
 
         }
@@ -16419,17 +15956,19 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <param name="pageNumber">Page number (optional, default to 1)</param>
         /// <param name="sortBy">Sort by (optional)</param>
         /// <param name="number">Deprecated, filtering by number not supported (optional)</param>
+        /// <param name="divisionId">List of divisionIds on which to filter. (optional)</param>
         /// <returns>Task of ApiResponse (ExtensionPoolEntityListing)</returns>
         
-        public async System.Threading.Tasks.Task<ApiResponse<ExtensionPoolEntityListing>> GetTelephonyProvidersEdgesExtensionpoolsAsyncWithHttpInfo (int? pageSize = null, int? pageNumber = null, string sortBy = null, string number = null)
+        public async System.Threading.Tasks.Task<ApiResponse<ExtensionPoolEntityListing>> GetTelephonyProvidersEdgesExtensionpoolsAsyncWithHttpInfo (int? pageSize = null, int? pageNumber = null, string sortBy = null, string number = null, List<string> divisionId = null)
         { 
 
             var localVarPath = "/api/v2/telephony/providers/edges/extensionpools";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -16460,6 +15999,7 @@ namespace PureCloudPlatform.Client.V2.Api
             if (pageNumber != null) localVarQueryParams.Add(new Tuple<string, string>("pageNumber", this.Configuration.ApiClient.ParameterToString(pageNumber)));
             if (sortBy != null) localVarQueryParams.Add(new Tuple<string, string>("sortBy", this.Configuration.ApiClient.ParameterToString(sortBy)));
             if (number != null) localVarQueryParams.Add(new Tuple<string, string>("number", this.Configuration.ApiClient.ParameterToString(number)));
+            if (divisionId != null) divisionId.ForEach(obj => { localVarQueryParams.Add(new Tuple<string, string>("divisionId", this.Configuration.ApiClient.ParameterToString(obj))); });
 
             // Header params
 
@@ -16476,20 +16016,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesExtensionpools: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -16507,7 +16040,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
         /// <summary>
         /// Get a pageable list of basic extension pool objects filterable by query parameters. 
-        /// This returns extension pools consisting of name and division. If one or more IDs are specified, the search will fetch flow outcomes that match the given ID(s) and not use any additional supplied query parameters in the search.
+        /// This returns extension pools consisting of name and division. If one or more IDs are specified, the search will fetch extension pools that match the given ID(s) and not use any additional supplied query parameters in the search.
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageNumber">Page number (optional, default to 1)</param>
@@ -16527,7 +16060,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
         /// <summary>
         /// Get a pageable list of basic extension pool objects filterable by query parameters. 
-        /// This returns extension pools consisting of name and division. If one or more IDs are specified, the search will fetch flow outcomes that match the given ID(s) and not use any additional supplied query parameters in the search.
+        /// This returns extension pools consisting of name and division. If one or more IDs are specified, the search will fetch extension pools that match the given ID(s) and not use any additional supplied query parameters in the search.
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageNumber">Page number (optional, default to 1)</param>
@@ -16543,11 +16076,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/telephony/providers/edges/extensionpools/divisionviews";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -16597,20 +16131,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesExtensionpoolsDivisionviews: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -16627,7 +16154,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
         /// <summary>
         /// Get a pageable list of basic extension pool objects filterable by query parameters. 
-        /// This returns extension pools consisting of name and division. If one or more IDs are specified, the search will fetch flow outcomes that match the given ID(s) and not use any additional supplied query parameters in the search.
+        /// This returns extension pools consisting of name and division. If one or more IDs are specified, the search will fetch extension pools that match the given ID(s) and not use any additional supplied query parameters in the search.
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageNumber">Page number (optional, default to 1)</param>
@@ -16648,7 +16175,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
         /// <summary>
         /// Get a pageable list of basic extension pool objects filterable by query parameters. 
-        /// This returns extension pools consisting of name and division. If one or more IDs are specified, the search will fetch flow outcomes that match the given ID(s) and not use any additional supplied query parameters in the search.
+        /// This returns extension pools consisting of name and division. If one or more IDs are specified, the search will fetch extension pools that match the given ID(s) and not use any additional supplied query parameters in the search.
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageNumber">Page number (optional, default to 1)</param>
@@ -16664,11 +16191,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/telephony/providers/edges/extensionpools/divisionviews";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -16718,20 +16246,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesExtensionpoolsDivisionviews: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -16781,11 +16302,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/telephony/providers/edges/extensions";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -16833,20 +16355,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesExtensions: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -16896,11 +16411,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/telephony/providers/edges/extensions";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -16948,20 +16464,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesExtensions: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -17006,11 +16515,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'lineId' when calling TelephonyProvidersEdgeApi->GetTelephonyProvidersEdgesLine");
 
             var localVarPath = "/api/v2/telephony/providers/edges/lines/{lineId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -17054,20 +16564,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesLine: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -17113,11 +16616,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/lines/{lineId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -17161,20 +16665,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesLine: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -17219,11 +16716,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'lineBaseId' when calling TelephonyProvidersEdgeApi->GetTelephonyProvidersEdgesLinebasesetting");
 
             var localVarPath = "/api/v2/telephony/providers/edges/linebasesettings/{lineBaseId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -17267,20 +16765,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesLinebasesetting: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -17326,11 +16817,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/linebasesettings/{lineBaseId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -17374,20 +16866,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesLinebasesetting: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -17437,11 +16922,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/telephony/providers/edges/linebasesettings";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -17489,20 +16975,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesLinebasesettings: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -17552,11 +17031,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/telephony/providers/edges/linebasesettings";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -17604,20 +17084,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesLinebasesettings: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -17667,11 +17140,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/telephony/providers/edges/lines";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -17719,20 +17193,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesLines: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -17782,11 +17249,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/telephony/providers/edges/lines";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -17834,20 +17302,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesLines: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -17892,11 +17353,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'lineBaseSettingsId' when calling TelephonyProvidersEdgeApi->GetTelephonyProvidersEdgesLinesTemplate");
 
             var localVarPath = "/api/v2/telephony/providers/edges/lines/template";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -17940,20 +17402,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesLinesTemplate: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -17999,11 +17454,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/lines/template";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -18047,20 +17503,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesLinesTemplate: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -18107,11 +17556,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'edgeIds' when calling TelephonyProvidersEdgeApi->GetTelephonyProvidersEdgesLogicalinterfaces");
 
             var localVarPath = "/api/v2/telephony/providers/edges/logicalinterfaces";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -18156,20 +17606,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesLogicalinterfaces: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -18217,11 +17660,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/logicalinterfaces";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -18266,20 +17710,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesLogicalinterfaces: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -18326,11 +17763,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'conversationId' when calling TelephonyProvidersEdgeApi->GetTelephonyProvidersEdgesMediastatisticsConversation");
 
             var localVarPath = "/api/v2/telephony/providers/edges/mediastatistics/conversations/{conversationId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -18374,20 +17812,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesMediastatisticsConversation: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -18435,11 +17866,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/mediastatistics/conversations/{conversationId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -18483,20 +17915,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesMediastatisticsConversation: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -18548,11 +17973,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'communicationId' when calling TelephonyProvidersEdgeApi->GetTelephonyProvidersEdgesMediastatisticsConversationCommunication");
 
             var localVarPath = "/api/v2/telephony/providers/edges/mediastatistics/conversations/{conversationId}/communications/{communicationId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -18597,20 +18023,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesMediastatisticsConversationCommunication: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -18664,11 +18083,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/mediastatistics/conversations/{conversationId}/communications/{communicationId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -18713,20 +18133,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesMediastatisticsConversationCommunication: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -18771,11 +18184,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'edgeIds' when calling TelephonyProvidersEdgeApi->GetTelephonyProvidersEdgesMetrics");
 
             var localVarPath = "/api/v2/telephony/providers/edges/metrics";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -18819,20 +18233,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesMetrics: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -18878,11 +18285,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/metrics";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -18926,20 +18334,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesMetrics: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -18991,11 +18392,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/telephony/providers/edges/outboundroutes";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -19044,20 +18446,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesOutboundroutes: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -19109,11 +18504,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/telephony/providers/edges/outboundroutes";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -19162,20 +18558,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesOutboundroutes: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -19220,11 +18609,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'phoneId' when calling TelephonyProvidersEdgeApi->GetTelephonyProvidersEdgesPhone");
 
             var localVarPath = "/api/v2/telephony/providers/edges/phones/{phoneId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -19268,20 +18658,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesPhone: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -19327,11 +18710,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/phones/{phoneId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -19375,20 +18759,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesPhone: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -19433,11 +18810,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'phoneBaseId' when calling TelephonyProvidersEdgeApi->GetTelephonyProvidersEdgesPhonebasesetting");
 
             var localVarPath = "/api/v2/telephony/providers/edges/phonebasesettings/{phoneBaseId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -19481,20 +18859,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesPhonebasesetting: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -19540,11 +18911,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/phonebasesettings/{phoneBaseId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -19588,20 +18960,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesPhonebasesetting: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -19653,11 +19018,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/telephony/providers/edges/phonebasesettings";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -19706,20 +19072,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesPhonebasesettings: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -19771,11 +19130,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/telephony/providers/edges/phonebasesettings";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -19824,20 +19184,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesPhonebasesettings: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -19881,11 +19234,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/telephony/providers/edges/phonebasesettings/availablemetabases";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -19930,20 +19284,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesPhonebasesettingsAvailablemetabases: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -19987,11 +19334,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/telephony/providers/edges/phonebasesettings/availablemetabases";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -20036,20 +19384,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesPhonebasesettingsAvailablemetabases: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -20094,11 +19435,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'phoneMetabaseId' when calling TelephonyProvidersEdgeApi->GetTelephonyProvidersEdgesPhonebasesettingsTemplate");
 
             var localVarPath = "/api/v2/telephony/providers/edges/phonebasesettings/template";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -20142,20 +19484,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesPhonebasesettingsTemplate: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -20201,11 +19536,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/phonebasesettings/template";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -20249,20 +19585,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesPhonebasesettingsTemplate: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -20336,11 +19665,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/telephony/providers/edges/phones";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -20400,20 +19730,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesPhones: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -20487,11 +19810,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/telephony/providers/edges/phones";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -20551,20 +19875,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesPhones: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -20609,11 +19926,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'phoneBaseSettingsId' when calling TelephonyProvidersEdgeApi->GetTelephonyProvidersEdgesPhonesTemplate");
 
             var localVarPath = "/api/v2/telephony/providers/edges/phones/template";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -20657,20 +19975,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesPhonesTemplate: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -20716,11 +20027,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/phones/template";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -20764,20 +20076,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesPhonesTemplate: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -20822,11 +20127,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'edgeIds' when calling TelephonyProvidersEdgeApi->GetTelephonyProvidersEdgesPhysicalinterfaces");
 
             var localVarPath = "/api/v2/telephony/providers/edges/physicalinterfaces";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -20870,20 +20176,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesPhysicalinterfaces: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -20929,11 +20228,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/physicalinterfaces";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -20977,20 +20277,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesPhysicalinterfaces: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -21035,11 +20328,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'siteId' when calling TelephonyProvidersEdgeApi->GetTelephonyProvidersEdgesSite");
 
             var localVarPath = "/api/v2/telephony/providers/edges/sites/{siteId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -21083,20 +20377,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesSite: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -21142,11 +20429,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/sites/{siteId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -21190,20 +20478,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesSite: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -21253,11 +20534,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'numberPlanId' when calling TelephonyProvidersEdgeApi->GetTelephonyProvidersEdgesSiteNumberplan");
 
             var localVarPath = "/api/v2/telephony/providers/edges/sites/{siteId}/numberplans/{numberPlanId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -21302,20 +20584,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesSiteNumberplan: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -21367,11 +20642,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/sites/{siteId}/numberplans/{numberPlanId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -21416,20 +20692,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesSiteNumberplan: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -21474,11 +20743,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'siteId' when calling TelephonyProvidersEdgeApi->GetTelephonyProvidersEdgesSiteNumberplans");
 
             var localVarPath = "/api/v2/telephony/providers/edges/sites/{siteId}/numberplans";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -21522,20 +20792,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesSiteNumberplans: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -21581,11 +20844,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/sites/{siteId}/numberplans";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -21629,20 +20893,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesSiteNumberplans: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -21689,11 +20946,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'siteId' when calling TelephonyProvidersEdgeApi->GetTelephonyProvidersEdgesSiteNumberplansClassifications");
 
             var localVarPath = "/api/v2/telephony/providers/edges/sites/{siteId}/numberplans/classifications";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -21738,20 +20996,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesSiteNumberplansClassifications: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -21799,11 +21050,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/sites/{siteId}/numberplans/classifications";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -21848,20 +21100,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesSiteNumberplansClassifications: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -21911,11 +21156,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'outboundRouteId' when calling TelephonyProvidersEdgeApi->GetTelephonyProvidersEdgesSiteOutboundroute");
 
             var localVarPath = "/api/v2/telephony/providers/edges/sites/{siteId}/outboundroutes/{outboundRouteId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -21960,20 +21206,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesSiteOutboundroute: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -22025,11 +21264,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/sites/{siteId}/outboundroutes/{outboundRouteId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -22074,20 +21314,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesSiteOutboundroute: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -22142,11 +21375,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'siteId' when calling TelephonyProvidersEdgeApi->GetTelephonyProvidersEdgesSiteOutboundroutes");
 
             var localVarPath = "/api/v2/telephony/providers/edges/sites/{siteId}/outboundroutes";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -22195,20 +21429,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesSiteOutboundroutes: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -22264,11 +21491,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/sites/{siteId}/outboundroutes";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -22317,20 +21545,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesSiteOutboundroutes: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -22375,11 +21596,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'siteId' when calling TelephonyProvidersEdgeApi->GetTelephonyProvidersEdgesSiteSiteconnections");
 
             var localVarPath = "/api/v2/telephony/providers/edges/sites/{siteId}/siteconnections";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -22423,20 +21645,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesSiteSiteconnections: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -22482,11 +21697,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/sites/{siteId}/siteconnections";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -22530,20 +21746,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesSiteSiteconnections: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -22599,11 +21808,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/telephony/providers/edges/sites";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -22654,20 +21864,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesSites: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -22723,11 +21926,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/telephony/providers/edges/sites";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -22778,20 +21982,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesSites: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -22838,11 +22035,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'q64' when calling TelephonyProvidersEdgeApi->GetTelephonyProvidersEdgesSitesSearch");
 
             var localVarPath = "/api/v2/telephony/providers/edges/sites/search";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -22887,20 +22085,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesSitesSearch: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -22948,11 +22139,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/sites/search";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -22997,20 +22189,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesSitesSearch: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -23054,11 +22239,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/telephony/providers/edges/timezones";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -23103,20 +22289,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesTimezones: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -23160,11 +22339,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/telephony/providers/edges/timezones";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -23209,20 +22389,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesTimezones: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -23267,11 +22440,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'trunkId' when calling TelephonyProvidersEdgeApi->GetTelephonyProvidersEdgesTrunk");
 
             var localVarPath = "/api/v2/telephony/providers/edges/trunks/{trunkId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -23315,20 +22489,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesTrunk: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -23374,11 +22541,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/trunks/{trunkId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -23422,20 +22590,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesTrunk: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -23480,11 +22641,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'trunkId' when calling TelephonyProvidersEdgeApi->GetTelephonyProvidersEdgesTrunkMetrics");
 
             var localVarPath = "/api/v2/telephony/providers/edges/trunks/{trunkId}/metrics";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -23528,20 +22690,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesTrunkMetrics: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -23587,11 +22742,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/trunks/{trunkId}/metrics";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -23635,20 +22791,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesTrunkMetrics: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -23695,11 +22844,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'trunkBaseSettingsId' when calling TelephonyProvidersEdgeApi->GetTelephonyProvidersEdgesTrunkbasesetting");
 
             var localVarPath = "/api/v2/telephony/providers/edges/trunkbasesettings/{trunkBaseSettingsId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -23744,20 +22894,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesTrunkbasesetting: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -23805,11 +22948,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/trunkbasesettings/{trunkBaseSettingsId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -23854,20 +22998,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesTrunkbasesetting: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -23925,11 +23062,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/telephony/providers/edges/trunkbasesettings";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -23981,20 +23119,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesTrunkbasesettings: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -24052,11 +23183,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/telephony/providers/edges/trunkbasesettings";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -24108,20 +23240,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesTrunkbasesettings: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -24167,11 +23292,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/telephony/providers/edges/trunkbasesettings/availablemetabases";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -24217,20 +23343,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabases: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -24276,11 +23395,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/telephony/providers/edges/trunkbasesettings/availablemetabases";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -24326,20 +23446,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabases: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -24384,11 +23497,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'trunkMetabaseId' when calling TelephonyProvidersEdgeApi->GetTelephonyProvidersEdgesTrunkbasesettingsTemplate");
 
             var localVarPath = "/api/v2/telephony/providers/edges/trunkbasesettings/template";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -24432,20 +23546,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesTrunkbasesettingsTemplate: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -24491,11 +23598,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/trunkbasesettings/template";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -24539,20 +23647,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesTrunkbasesettingsTemplate: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -24606,11 +23707,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/telephony/providers/edges/trunks";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -24660,20 +23762,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesTrunks: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -24727,11 +23822,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/telephony/providers/edges/trunks";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -24781,20 +23877,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesTrunks: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -24839,11 +23928,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'trunkIds' when calling TelephonyProvidersEdgeApi->GetTelephonyProvidersEdgesTrunksMetrics");
 
             var localVarPath = "/api/v2/telephony/providers/edges/trunks/metrics";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -24887,20 +23977,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesTrunksMetrics: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -24946,11 +24029,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/trunks/metrics";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -24994,20 +24078,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesTrunksMetrics: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -25049,11 +24126,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/telephony/providers/edges/trunkswithrecording";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -25097,20 +24175,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesTrunkswithrecording: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -25152,11 +24223,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/telephony/providers/edges/trunkswithrecording";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -25200,20 +24272,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetTelephonyProvidersEdgesTrunkswithrecording: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -25263,11 +24328,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling TelephonyProvidersEdgeApi->PatchTelephonyProvidersEdgesSiteSiteconnections");
 
             var localVarPath = "/api/v2/telephony/providers/edges/sites/{siteId}/siteconnections";
+            var localVarHttpMethod = "Patch";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -25317,20 +24383,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Patch, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PatchTelephonyProvidersEdgesSiteSiteconnections: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -25382,11 +24441,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/sites/{siteId}/siteconnections";
+            var localVarHttpMethod = "Patch";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -25436,20 +24496,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Patch, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PatchTelephonyProvidersEdgesSiteSiteconnections: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -25499,11 +24552,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling TelephonyProvidersEdgeApi->PostTelephonyProvidersEdgeDiagnosticNslookup");
 
             var localVarPath = "/api/v2/telephony/providers/edges/{edgeId}/diagnostic/nslookup";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -25553,20 +24607,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostTelephonyProvidersEdgeDiagnosticNslookup: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -25618,11 +24665,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/{edgeId}/diagnostic/nslookup";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -25672,20 +24720,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostTelephonyProvidersEdgeDiagnosticNslookup: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -25735,11 +24776,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling TelephonyProvidersEdgeApi->PostTelephonyProvidersEdgeDiagnosticPing");
 
             var localVarPath = "/api/v2/telephony/providers/edges/{edgeId}/diagnostic/ping";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -25789,20 +24831,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostTelephonyProvidersEdgeDiagnosticPing: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -25854,11 +24889,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/{edgeId}/diagnostic/ping";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -25908,20 +24944,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostTelephonyProvidersEdgeDiagnosticPing: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -25971,11 +25000,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling TelephonyProvidersEdgeApi->PostTelephonyProvidersEdgeDiagnosticRoute");
 
             var localVarPath = "/api/v2/telephony/providers/edges/{edgeId}/diagnostic/route";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -26025,20 +25055,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostTelephonyProvidersEdgeDiagnosticRoute: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -26090,11 +25113,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/{edgeId}/diagnostic/route";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -26144,20 +25168,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostTelephonyProvidersEdgeDiagnosticRoute: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -26207,11 +25224,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling TelephonyProvidersEdgeApi->PostTelephonyProvidersEdgeDiagnosticTracepath");
 
             var localVarPath = "/api/v2/telephony/providers/edges/{edgeId}/diagnostic/tracepath";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -26261,20 +25279,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostTelephonyProvidersEdgeDiagnosticTracepath: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -26326,11 +25337,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/{edgeId}/diagnostic/tracepath";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -26380,20 +25392,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostTelephonyProvidersEdgeDiagnosticTracepath: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -26443,11 +25448,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling TelephonyProvidersEdgeApi->PostTelephonyProvidersEdgeLogicalinterfaces");
 
             var localVarPath = "/api/v2/telephony/providers/edges/{edgeId}/logicalinterfaces";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -26497,20 +25503,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostTelephonyProvidersEdgeLogicalinterfaces: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -26562,11 +25561,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/{edgeId}/logicalinterfaces";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -26616,20 +25616,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostTelephonyProvidersEdgeLogicalinterfaces: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -26683,11 +25676,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling TelephonyProvidersEdgeApi->PostTelephonyProvidersEdgeLogsJobUpload");
 
             var localVarPath = "/api/v2/telephony/providers/edges/{edgeId}/logs/jobs/{jobId}/upload";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -26738,20 +25732,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostTelephonyProvidersEdgeLogsJobUpload: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -26808,11 +25795,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/{edgeId}/logs/jobs/{jobId}/upload";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -26863,20 +25851,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostTelephonyProvidersEdgeLogsJobUpload: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -26926,11 +25907,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling TelephonyProvidersEdgeApi->PostTelephonyProvidersEdgeLogsJobs");
 
             var localVarPath = "/api/v2/telephony/providers/edges/{edgeId}/logs/jobs";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -26980,20 +25962,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostTelephonyProvidersEdgeLogsJobs: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -27045,11 +26020,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/{edgeId}/logs/jobs";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -27099,20 +26075,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostTelephonyProvidersEdgeLogsJobs: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -27159,11 +26128,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'edgeId' when calling TelephonyProvidersEdgeApi->PostTelephonyProvidersEdgeReboot");
 
             var localVarPath = "/api/v2/telephony/providers/edges/{edgeId}/reboot";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -27213,20 +26183,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostTelephonyProvidersEdgeReboot: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -27274,11 +26237,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/{edgeId}/reboot";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -27328,20 +26292,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostTelephonyProvidersEdgeReboot: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -27391,11 +26348,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling TelephonyProvidersEdgeApi->PostTelephonyProvidersEdgeSoftwareupdate");
 
             var localVarPath = "/api/v2/telephony/providers/edges/{edgeId}/softwareupdate";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -27445,20 +26403,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostTelephonyProvidersEdgeSoftwareupdate: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -27510,11 +26461,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/{edgeId}/softwareupdate";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -27564,20 +26516,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostTelephonyProvidersEdgeSoftwareupdate: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -27624,11 +26569,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'edgeId' when calling TelephonyProvidersEdgeApi->PostTelephonyProvidersEdgeStatuscode");
 
             var localVarPath = "/api/v2/telephony/providers/edges/{edgeId}/statuscode";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -27678,20 +26624,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostTelephonyProvidersEdgeStatuscode: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -27739,11 +26678,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/{edgeId}/statuscode";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -27793,20 +26733,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostTelephonyProvidersEdgeStatuscode: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -27851,11 +26784,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'edgeId' when calling TelephonyProvidersEdgeApi->PostTelephonyProvidersEdgeUnpair");
 
             var localVarPath = "/api/v2/telephony/providers/edges/{edgeId}/unpair";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -27899,20 +26833,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostTelephonyProvidersEdgeUnpair: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -27958,11 +26885,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/{edgeId}/unpair";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -28006,20 +26934,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostTelephonyProvidersEdgeUnpair: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -28064,11 +26985,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling TelephonyProvidersEdgeApi->PostTelephonyProvidersEdges");
 
             var localVarPath = "/api/v2/telephony/providers/edges";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -28117,20 +27039,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostTelephonyProvidersEdges: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -28176,11 +27091,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -28229,20 +27145,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostTelephonyProvidersEdges: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -28287,11 +27196,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling TelephonyProvidersEdgeApi->PostTelephonyProvidersEdgesAddressvalidation");
 
             var localVarPath = "/api/v2/telephony/providers/edges/addressvalidation";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -28340,20 +27250,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostTelephonyProvidersEdgesAddressvalidation: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -28399,11 +27302,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/addressvalidation";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -28452,20 +27356,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostTelephonyProvidersEdgesAddressvalidation: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -28510,11 +27407,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling TelephonyProvidersEdgeApi->PostTelephonyProvidersEdgesCertificateauthorities");
 
             var localVarPath = "/api/v2/telephony/providers/edges/certificateauthorities";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -28563,20 +27461,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostTelephonyProvidersEdgesCertificateauthorities: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -28622,11 +27513,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/certificateauthorities";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -28675,20 +27567,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostTelephonyProvidersEdgesCertificateauthorities: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -28733,11 +27618,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling TelephonyProvidersEdgeApi->PostTelephonyProvidersEdgesDidpools");
 
             var localVarPath = "/api/v2/telephony/providers/edges/didpools";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -28786,20 +27672,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostTelephonyProvidersEdgesDidpools: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -28845,11 +27724,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/didpools";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -28898,20 +27778,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostTelephonyProvidersEdgesDidpools: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -28956,11 +27829,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling TelephonyProvidersEdgeApi->PostTelephonyProvidersEdgesEdgegroups");
 
             var localVarPath = "/api/v2/telephony/providers/edges/edgegroups";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -29009,20 +27883,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostTelephonyProvidersEdgesEdgegroups: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -29068,11 +27935,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/edgegroups";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -29121,20 +27989,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostTelephonyProvidersEdgesEdgegroups: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -29179,11 +28040,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling TelephonyProvidersEdgeApi->PostTelephonyProvidersEdgesExtensionpools");
 
             var localVarPath = "/api/v2/telephony/providers/edges/extensionpools";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -29232,20 +28094,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostTelephonyProvidersEdgesExtensionpools: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -29291,11 +28146,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/extensionpools";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -29344,20 +28200,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostTelephonyProvidersEdgesExtensionpools: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -29367,6 +28216,260 @@ namespace PureCloudPlatform.Client.V2.Api
             return new ApiResponse<ExtensionPool>(localVarStatusCode,
                 localVarHeaders,
                 (ExtensionPool) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ExtensionPool)),
+                localVarResponse.Content,
+                localVarResponse.StatusDescription);
+        }
+
+
+
+        /// <summary>
+        /// Post media endpoint statistics event. 
+        /// 
+        /// PostTelephonyProvidersEdgesMediastatisticsConversationCommunicationMediaresource is a preview method and is subject to both breaking and non-breaking changes at any time without notice
+        /// </summary>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationId">Identifier of the conversation</param>
+        /// <param name="communicationId">Identifier of the media session</param>
+        /// <param name="mediaResourceId">Identifier of the media resource of the endpoint</param>
+        /// <param name="body">MediaStatisticsPostRequest</param>
+        /// <returns>MediaStatistics</returns>
+        
+        public MediaStatistics PostTelephonyProvidersEdgesMediastatisticsConversationCommunicationMediaresource (string conversationId, string communicationId, string mediaResourceId, MediaStatisticsPostRequest body)
+        {
+             ApiResponse<MediaStatistics> localVarResponse = PostTelephonyProvidersEdgesMediastatisticsConversationCommunicationMediaresourceWithHttpInfo(conversationId, communicationId, mediaResourceId, body);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Post media endpoint statistics event. 
+        /// 
+        /// PostTelephonyProvidersEdgesMediastatisticsConversationCommunicationMediaresource is a preview method and is subject to both breaking and non-breaking changes at any time without notice
+        /// </summary>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationId">Identifier of the conversation</param>
+        /// <param name="communicationId">Identifier of the media session</param>
+        /// <param name="mediaResourceId">Identifier of the media resource of the endpoint</param>
+        /// <param name="body">MediaStatisticsPostRequest</param>
+        /// <returns>ApiResponse of MediaStatistics</returns>
+        
+        public ApiResponse< MediaStatistics > PostTelephonyProvidersEdgesMediastatisticsConversationCommunicationMediaresourceWithHttpInfo (string conversationId, string communicationId, string mediaResourceId, MediaStatisticsPostRequest body)
+        { 
+            // verify the required parameter 'conversationId' is set
+            if (conversationId == null)
+                throw new ApiException(400, "Missing required parameter 'conversationId' when calling TelephonyProvidersEdgeApi->PostTelephonyProvidersEdgesMediastatisticsConversationCommunicationMediaresource");
+            // verify the required parameter 'communicationId' is set
+            if (communicationId == null)
+                throw new ApiException(400, "Missing required parameter 'communicationId' when calling TelephonyProvidersEdgeApi->PostTelephonyProvidersEdgesMediastatisticsConversationCommunicationMediaresource");
+            // verify the required parameter 'mediaResourceId' is set
+            if (mediaResourceId == null)
+                throw new ApiException(400, "Missing required parameter 'mediaResourceId' when calling TelephonyProvidersEdgeApi->PostTelephonyProvidersEdgesMediastatisticsConversationCommunicationMediaresource");
+            // verify the required parameter 'body' is set
+            if (body == null)
+                throw new ApiException(400, "Missing required parameter 'body' when calling TelephonyProvidersEdgeApi->PostTelephonyProvidersEdgesMediastatisticsConversationCommunicationMediaresource");
+
+            var localVarPath = "/api/v2/telephony/providers/edges/mediastatistics/conversations/{conversationId}/communications/{communicationId}/mediaresources/{mediaResourceId}";
+            var localVarHttpMethod = "Post";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<Tuple<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+                
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+
+                "application/json"
+                
+
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+
+            // Path params
+            if (conversationId != null) localVarPathParams.Add("conversationId", this.Configuration.ApiClient.ParameterToString(conversationId));
+            if (communicationId != null) localVarPathParams.Add("communicationId", this.Configuration.ApiClient.ParameterToString(communicationId));
+            if (mediaResourceId != null) localVarPathParams.Add("mediaResourceId", this.Configuration.ApiClient.ParameterToString(mediaResourceId));
+
+            // Query params
+
+            // Header params
+
+            // Form params
+            
+            // Body param
+            if (body != null && body.GetType() != typeof(byte[]))
+                localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
+            else
+                localVarPostBody = body; // byte array
+
+
+
+            // authentication (PureCloud OAuth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
+
+            if (localVarStatusCode >= 400)
+                throw new ApiException (localVarStatusCode, "Error calling PostTelephonyProvidersEdgesMediastatisticsConversationCommunicationMediaresource: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
+            else if (localVarStatusCode == 0)
+                throw new ApiException (localVarStatusCode, "Error calling PostTelephonyProvidersEdgesMediastatisticsConversationCommunicationMediaresource: " + localVarResponse.ErrorMessage, localVarResponse.ErrorMessage);
+
+            return new ApiResponse<MediaStatistics>(localVarStatusCode,
+                localVarHeaders,
+                (MediaStatistics) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(MediaStatistics)),
+                localVarResponse.Content,
+                localVarResponse.StatusDescription);
+        }
+
+
+        /// <summary>
+        /// Post media endpoint statistics event. 
+        /// 
+        /// PostTelephonyProvidersEdgesMediastatisticsConversationCommunicationMediaresource is a preview method and is subject to both breaking and non-breaking changes at any time without notice
+        /// </summary>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationId">Identifier of the conversation</param>
+        /// <param name="communicationId">Identifier of the media session</param>
+        /// <param name="mediaResourceId">Identifier of the media resource of the endpoint</param>
+        /// <param name="body">MediaStatisticsPostRequest</param>
+        /// <returns>Task of MediaStatistics</returns>
+        
+        public async System.Threading.Tasks.Task<MediaStatistics> PostTelephonyProvidersEdgesMediastatisticsConversationCommunicationMediaresourceAsync (string conversationId, string communicationId, string mediaResourceId, MediaStatisticsPostRequest body)
+        {
+             ApiResponse<MediaStatistics> localVarResponse = await PostTelephonyProvidersEdgesMediastatisticsConversationCommunicationMediaresourceAsyncWithHttpInfo(conversationId, communicationId, mediaResourceId, body);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Post media endpoint statistics event. 
+        /// 
+        /// PostTelephonyProvidersEdgesMediastatisticsConversationCommunicationMediaresource is a preview method and is subject to both breaking and non-breaking changes at any time without notice
+        /// </summary>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationId">Identifier of the conversation</param>
+        /// <param name="communicationId">Identifier of the media session</param>
+        /// <param name="mediaResourceId">Identifier of the media resource of the endpoint</param>
+        /// <param name="body">MediaStatisticsPostRequest</param>
+        /// <returns>Task of ApiResponse (MediaStatistics)</returns>
+        
+        public async System.Threading.Tasks.Task<ApiResponse<MediaStatistics>> PostTelephonyProvidersEdgesMediastatisticsConversationCommunicationMediaresourceAsyncWithHttpInfo (string conversationId, string communicationId, string mediaResourceId, MediaStatisticsPostRequest body)
+        { 
+            // verify the required parameter 'conversationId' is set
+            if (conversationId == null)
+                throw new ApiException(400, "Missing required parameter 'conversationId' when calling TelephonyProvidersEdgeApi->PostTelephonyProvidersEdgesMediastatisticsConversationCommunicationMediaresource");
+            
+            // verify the required parameter 'communicationId' is set
+            if (communicationId == null)
+                throw new ApiException(400, "Missing required parameter 'communicationId' when calling TelephonyProvidersEdgeApi->PostTelephonyProvidersEdgesMediastatisticsConversationCommunicationMediaresource");
+            
+            // verify the required parameter 'mediaResourceId' is set
+            if (mediaResourceId == null)
+                throw new ApiException(400, "Missing required parameter 'mediaResourceId' when calling TelephonyProvidersEdgeApi->PostTelephonyProvidersEdgesMediastatisticsConversationCommunicationMediaresource");
+            
+            // verify the required parameter 'body' is set
+            if (body == null)
+                throw new ApiException(400, "Missing required parameter 'body' when calling TelephonyProvidersEdgeApi->PostTelephonyProvidersEdgesMediastatisticsConversationCommunicationMediaresource");
+            
+
+            var localVarPath = "/api/v2/telephony/providers/edges/mediastatistics/conversations/{conversationId}/communications/{communicationId}/mediaresources/{mediaResourceId}";
+            var localVarHttpMethod = "Post";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<Tuple<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+                
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+
+                "application/json"
+
+                
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+
+            // Path params
+            if (conversationId != null) localVarPathParams.Add("conversationId", this.Configuration.ApiClient.ParameterToString(conversationId));
+            if (communicationId != null) localVarPathParams.Add("communicationId", this.Configuration.ApiClient.ParameterToString(communicationId));
+            if (mediaResourceId != null) localVarPathParams.Add("mediaResourceId", this.Configuration.ApiClient.ParameterToString(mediaResourceId));
+
+            // Query params
+
+            // Header params
+
+            // Form params
+            
+            // Body param
+            if (body != null && body.GetType() != typeof(byte[]))
+                localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
+            else
+                localVarPostBody = body; // byte array
+
+
+
+            // authentication (PureCloud OAuth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
+
+            if (localVarStatusCode >= 400)
+                throw new ApiException (localVarStatusCode, "Error calling PostTelephonyProvidersEdgesMediastatisticsConversationCommunicationMediaresource: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
+            else if (localVarStatusCode == 0)
+                throw new ApiException (localVarStatusCode, "Error calling PostTelephonyProvidersEdgesMediastatisticsConversationCommunicationMediaresource: " + localVarResponse.ErrorMessage, localVarResponse.ErrorMessage);
+
+            return new ApiResponse<MediaStatistics>(localVarStatusCode,
+                localVarHeaders,
+                (MediaStatistics) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(MediaStatistics)),
                 localVarResponse.Content,
                 localVarResponse.StatusDescription);
         }
@@ -29401,11 +28504,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'phoneId' when calling TelephonyProvidersEdgeApi->PostTelephonyProvidersEdgesPhoneReboot");
 
             var localVarPath = "/api/v2/telephony/providers/edges/phones/{phoneId}/reboot";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -29449,20 +28553,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostTelephonyProvidersEdgesPhoneReboot: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -29507,11 +28604,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/phones/{phoneId}/reboot";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -29555,20 +28653,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostTelephonyProvidersEdgesPhoneReboot: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -29613,11 +28704,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling TelephonyProvidersEdgeApi->PostTelephonyProvidersEdgesPhonebasesettings");
 
             var localVarPath = "/api/v2/telephony/providers/edges/phonebasesettings";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -29666,20 +28758,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostTelephonyProvidersEdgesPhonebasesettings: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -29725,11 +28810,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/phonebasesettings";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -29778,20 +28864,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostTelephonyProvidersEdgesPhonebasesettings: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -29836,11 +28915,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling TelephonyProvidersEdgeApi->PostTelephonyProvidersEdgesPhones");
 
             var localVarPath = "/api/v2/telephony/providers/edges/phones";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -29889,20 +28969,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostTelephonyProvidersEdgesPhones: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -29948,11 +29021,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/phones";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -30001,20 +29075,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostTelephonyProvidersEdgesPhones: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -30058,11 +29125,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling TelephonyProvidersEdgeApi->PostTelephonyProvidersEdgesPhonesReboot");
 
             var localVarPath = "/api/v2/telephony/providers/edges/phones/reboot";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -30111,20 +29179,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostTelephonyProvidersEdgesPhonesReboot: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -30169,11 +29230,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/phones/reboot";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -30222,20 +29284,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostTelephonyProvidersEdgesPhonesReboot: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -30285,11 +29340,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling TelephonyProvidersEdgeApi->PostTelephonyProvidersEdgesSiteOutboundroutes");
 
             var localVarPath = "/api/v2/telephony/providers/edges/sites/{siteId}/outboundroutes";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -30339,20 +29395,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostTelephonyProvidersEdgesSiteOutboundroutes: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -30404,11 +29453,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/sites/{siteId}/outboundroutes";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -30458,20 +29508,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostTelephonyProvidersEdgesSiteOutboundroutes: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -30516,11 +29559,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling TelephonyProvidersEdgeApi->PostTelephonyProvidersEdgesSites");
 
             var localVarPath = "/api/v2/telephony/providers/edges/sites";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -30569,20 +29613,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostTelephonyProvidersEdgesSites: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -30628,11 +29665,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/sites";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -30681,20 +29719,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostTelephonyProvidersEdgesSites: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -30739,11 +29770,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling TelephonyProvidersEdgeApi->PostTelephonyProvidersEdgesSitesSearch");
 
             var localVarPath = "/api/v2/telephony/providers/edges/sites/search";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -30792,20 +29824,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostTelephonyProvidersEdgesSitesSearch: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -30851,11 +29876,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/sites/search";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -30904,20 +29930,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostTelephonyProvidersEdgesSitesSearch: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -30962,11 +29981,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling TelephonyProvidersEdgeApi->PostTelephonyProvidersEdgesTrunkbasesettings");
 
             var localVarPath = "/api/v2/telephony/providers/edges/trunkbasesettings";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -31015,20 +30035,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostTelephonyProvidersEdgesTrunkbasesettings: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -31074,11 +30087,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/trunkbasesettings";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -31127,20 +30141,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostTelephonyProvidersEdgesTrunkbasesettings: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -31190,11 +30197,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling TelephonyProvidersEdgeApi->PutTelephonyProvidersEdge");
 
             var localVarPath = "/api/v2/telephony/providers/edges/{edgeId}";
+            var localVarHttpMethod = "Put";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -31244,20 +30252,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PutTelephonyProvidersEdge: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -31309,11 +30310,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/{edgeId}";
+            var localVarHttpMethod = "Put";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -31363,20 +30365,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PutTelephonyProvidersEdge: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -31431,11 +30426,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling TelephonyProvidersEdgeApi->PutTelephonyProvidersEdgeLogicalinterface");
 
             var localVarPath = "/api/v2/telephony/providers/edges/{edgeId}/logicalinterfaces/{interfaceId}";
+            var localVarHttpMethod = "Put";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -31486,20 +30482,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PutTelephonyProvidersEdgeLogicalinterface: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -31557,11 +30546,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/{edgeId}/logicalinterfaces/{interfaceId}";
+            var localVarHttpMethod = "Put";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -31612,20 +30602,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PutTelephonyProvidersEdgeLogicalinterface: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -31669,11 +30652,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling TelephonyProvidersEdgeApi->PutTelephonyProvidersEdgesAlertablepresences");
 
             var localVarPath = "/api/v2/telephony/providers/edges/alertablepresences";
+            var localVarHttpMethod = "Put";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -31722,20 +30706,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PutTelephonyProvidersEdgesAlertablepresences: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -31780,11 +30757,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/alertablepresences";
+            var localVarHttpMethod = "Put";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -31833,20 +30811,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PutTelephonyProvidersEdgesAlertablepresences: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -31896,11 +30867,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling TelephonyProvidersEdgeApi->PutTelephonyProvidersEdgesCertificateauthority");
 
             var localVarPath = "/api/v2/telephony/providers/edges/certificateauthorities/{certificateId}";
+            var localVarHttpMethod = "Put";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -31950,20 +30922,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PutTelephonyProvidersEdgesCertificateauthority: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -32015,11 +30980,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/certificateauthorities/{certificateId}";
+            var localVarHttpMethod = "Put";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -32069,20 +31035,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PutTelephonyProvidersEdgesCertificateauthority: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -32132,11 +31091,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling TelephonyProvidersEdgeApi->PutTelephonyProvidersEdgesDidpool");
 
             var localVarPath = "/api/v2/telephony/providers/edges/didpools/{didPoolId}";
+            var localVarHttpMethod = "Put";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -32186,20 +31146,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PutTelephonyProvidersEdgesDidpool: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -32251,11 +31204,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/didpools/{didPoolId}";
+            var localVarHttpMethod = "Put";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -32305,20 +31259,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PutTelephonyProvidersEdgesDidpool: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -32368,11 +31315,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling TelephonyProvidersEdgeApi->PutTelephonyProvidersEdgesEdgegroup");
 
             var localVarPath = "/api/v2/telephony/providers/edges/edgegroups/{edgeGroupId}";
+            var localVarHttpMethod = "Put";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -32422,20 +31370,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PutTelephonyProvidersEdgesEdgegroup: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -32487,11 +31428,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/edgegroups/{edgeGroupId}";
+            var localVarHttpMethod = "Put";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -32541,20 +31483,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PutTelephonyProvidersEdgesEdgegroup: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -32609,11 +31544,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling TelephonyProvidersEdgeApi->PutTelephonyProvidersEdgesEdgegroupEdgetrunkbase");
 
             var localVarPath = "/api/v2/telephony/providers/edges/edgegroups/{edgegroupId}/edgetrunkbases/{edgetrunkbaseId}";
+            var localVarHttpMethod = "Put";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -32664,20 +31600,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PutTelephonyProvidersEdgesEdgegroupEdgetrunkbase: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -32735,11 +31664,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/edgegroups/{edgegroupId}/edgetrunkbases/{edgetrunkbaseId}";
+            var localVarHttpMethod = "Put";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -32790,20 +31720,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PutTelephonyProvidersEdgesEdgegroupEdgetrunkbase: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -32853,11 +31776,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling TelephonyProvidersEdgeApi->PutTelephonyProvidersEdgesExtensionpool");
 
             var localVarPath = "/api/v2/telephony/providers/edges/extensionpools/{extensionPoolId}";
+            var localVarHttpMethod = "Put";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -32907,20 +31831,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PutTelephonyProvidersEdgesExtensionpool: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -32972,11 +31889,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/extensionpools/{extensionPoolId}";
+            var localVarHttpMethod = "Put";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -33026,20 +31944,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PutTelephonyProvidersEdgesExtensionpool: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -33089,11 +32000,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling TelephonyProvidersEdgeApi->PutTelephonyProvidersEdgesPhone");
 
             var localVarPath = "/api/v2/telephony/providers/edges/phones/{phoneId}";
+            var localVarHttpMethod = "Put";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -33143,20 +32055,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PutTelephonyProvidersEdgesPhone: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -33208,11 +32113,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/phones/{phoneId}";
+            var localVarHttpMethod = "Put";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -33262,20 +32168,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PutTelephonyProvidersEdgesPhone: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -33325,11 +32224,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling TelephonyProvidersEdgeApi->PutTelephonyProvidersEdgesPhonebasesetting");
 
             var localVarPath = "/api/v2/telephony/providers/edges/phonebasesettings/{phoneBaseId}";
+            var localVarHttpMethod = "Put";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -33379,20 +32279,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PutTelephonyProvidersEdgesPhonebasesetting: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -33444,11 +32337,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/phonebasesettings/{phoneBaseId}";
+            var localVarHttpMethod = "Put";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -33498,20 +32392,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PutTelephonyProvidersEdgesPhonebasesetting: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -33561,11 +32448,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling TelephonyProvidersEdgeApi->PutTelephonyProvidersEdgesSite");
 
             var localVarPath = "/api/v2/telephony/providers/edges/sites/{siteId}";
+            var localVarHttpMethod = "Put";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -33615,20 +32503,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PutTelephonyProvidersEdgesSite: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -33680,11 +32561,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/sites/{siteId}";
+            var localVarHttpMethod = "Put";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -33734,20 +32616,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PutTelephonyProvidersEdgesSite: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -33797,11 +32672,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling TelephonyProvidersEdgeApi->PutTelephonyProvidersEdgesSiteNumberplans");
 
             var localVarPath = "/api/v2/telephony/providers/edges/sites/{siteId}/numberplans";
+            var localVarHttpMethod = "Put";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -33851,20 +32727,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PutTelephonyProvidersEdgesSiteNumberplans: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -33916,11 +32785,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/sites/{siteId}/numberplans";
+            var localVarHttpMethod = "Put";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -33970,20 +32840,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PutTelephonyProvidersEdgesSiteNumberplans: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -34038,11 +32901,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling TelephonyProvidersEdgeApi->PutTelephonyProvidersEdgesSiteOutboundroute");
 
             var localVarPath = "/api/v2/telephony/providers/edges/sites/{siteId}/outboundroutes/{outboundRouteId}";
+            var localVarHttpMethod = "Put";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -34093,20 +32957,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PutTelephonyProvidersEdgesSiteOutboundroute: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -34164,11 +33021,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/sites/{siteId}/outboundroutes/{outboundRouteId}";
+            var localVarHttpMethod = "Put";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -34219,20 +33077,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PutTelephonyProvidersEdgesSiteOutboundroute: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -34282,11 +33133,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling TelephonyProvidersEdgeApi->PutTelephonyProvidersEdgesSiteSiteconnections");
 
             var localVarPath = "/api/v2/telephony/providers/edges/sites/{siteId}/siteconnections";
+            var localVarHttpMethod = "Put";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -34336,20 +33188,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PutTelephonyProvidersEdgesSiteSiteconnections: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -34401,11 +33246,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/sites/{siteId}/siteconnections";
+            var localVarHttpMethod = "Put";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -34455,20 +33301,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PutTelephonyProvidersEdgesSiteSiteconnections: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -34518,11 +33357,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling TelephonyProvidersEdgeApi->PutTelephonyProvidersEdgesTrunkbasesetting");
 
             var localVarPath = "/api/v2/telephony/providers/edges/trunkbasesettings/{trunkBaseSettingsId}";
+            var localVarHttpMethod = "Put";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -34572,20 +33412,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PutTelephonyProvidersEdgesTrunkbasesetting: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -34637,11 +33470,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/telephony/providers/edges/trunkbasesettings/{trunkBaseSettingsId}";
+            var localVarHttpMethod = "Put";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -34691,20 +33525,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PutTelephonyProvidersEdgesTrunkbasesetting: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);

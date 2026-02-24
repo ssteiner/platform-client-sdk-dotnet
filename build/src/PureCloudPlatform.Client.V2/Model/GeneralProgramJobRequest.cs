@@ -241,7 +241,37 @@ namespace PureCloudPlatform.Client.V2.Model
             /// Enum Svse for "sv-SE"
             /// </summary>
             [EnumMember(Value = "sv-SE")]
-            Svse
+            Svse,
+            
+            /// <summary>
+            /// Enum Trtr for "tr-TR"
+            /// </summary>
+            [EnumMember(Value = "tr-TR")]
+            Trtr,
+            
+            /// <summary>
+            /// Enum Zhcn for "zh-CN"
+            /// </summary>
+            [EnumMember(Value = "zh-CN")]
+            Zhcn,
+            
+            /// <summary>
+            /// Enum Zhhk for "zh-HK"
+            /// </summary>
+            [EnumMember(Value = "zh-HK")]
+            Zhhk,
+            
+            /// <summary>
+            /// Enum Zhtw for "zh-TW"
+            /// </summary>
+            [EnumMember(Value = "zh-TW")]
+            Zhtw,
+            
+            /// <summary>
+            /// Enum Zuza for "zu-ZA"
+            /// </summary>
+            [EnumMember(Value = "zu-ZA")]
+            Zuza
         }
         /// <summary>
         /// The mode to use for the general program job, default value is Skip

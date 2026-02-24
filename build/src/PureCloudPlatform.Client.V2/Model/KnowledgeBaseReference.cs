@@ -307,7 +307,37 @@ namespace PureCloudPlatform.Client.V2.Model
             /// Enum Ukua for "uk-UA"
             /// </summary>
             [EnumMember(Value = "uk-UA")]
-            Ukua
+            Ukua,
+            
+            /// <summary>
+            /// Enum Cscz for "cs-CZ"
+            /// </summary>
+            [EnumMember(Value = "cs-CZ")]
+            Cscz,
+            
+            /// <summary>
+            /// Enum Filph for "fil-PH"
+            /// </summary>
+            [EnumMember(Value = "fil-PH")]
+            Filph,
+            
+            /// <summary>
+            /// Enum Msmy for "ms-MY"
+            /// </summary>
+            [EnumMember(Value = "ms-MY")]
+            Msmy,
+            
+            /// <summary>
+            /// Enum Heil for "he-IL"
+            /// </summary>
+            [EnumMember(Value = "he-IL")]
+            Heil,
+            
+            /// <summary>
+            /// Enum Elgr for "el-GR"
+            /// </summary>
+            [EnumMember(Value = "el-GR")]
+            Elgr
         }
         /// <summary>
         /// Language of the knowledge base

@@ -20,12 +20,15 @@
 | **AssigneeApplicable** | **bool?** | Indicates whether an assignee is applicable for the evaluation. Set to false when assignee is not applicable. | [optional] |
 | **ReleaseDate** | **DateTime?** | Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z | [optional] |
 | **AssignedDate** | **DateTime?** | Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z | [optional] |
+| **CreatedDate** | **DateTime?** | Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z | [optional] |
 | **ChangedDate** | **DateTime?** | Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z | [optional] |
+| **SubmittedDate** | **DateTime?** | Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z | [optional] |
 | **RevisionCreatedDate** | **DateTime?** | Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z | [optional] |
 | **Queue** | [**Queue**](Queue) |  | [optional] |
 | **MediaType** | **List&lt;string&gt;** | List of different communication types used in conversation. | [optional] |
+| **DivisionIds** | **List&lt;string&gt;** | Evaluation is assigned in the following division(s). | [optional] |
 | **Rescore** | **bool?** | Is only true when evaluation is re-scored. | [optional] |
-| **ConversationDate** | **DateTime?** | Date of conversation. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z | [optional] |
+| **ConversationDate** | **DateTime?** | Creation date of the conversation. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z | [optional] |
 | **ConversationEndDate** | **DateTime?** | End date of conversation if it had completed before evaluation creation. Null if created before the conversation ended. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z | [optional] |
 | **NeverRelease** | **bool?** | Signifies if the evaluation is never to be released. This cannot be set true if release date is also set. | [optional] |
 | **Assigned** | **bool?** | Set to false to unassign the evaluation. This cannot be set to false when assignee is also set. | [optional] |
@@ -38,8 +41,9 @@
 | **AuthorizedActions** | **List&lt;string&gt;** | List of user authorized actions on evaluation. Possible values: assign, edit, editScore, editAgentSignoff, delete, release, viewAudit | [optional] |
 | **HasAssistanceFailed** | **bool?** | Is true when evaluation assistance didn&#39;t execute successfully | [optional] |
 | **EvaluationSource** | [**EvaluationSource**](EvaluationSource) | The source that created the evaluation. | [optional] |
+| **AiScoring** | [**AiScoring**](AiScoring) | AI scoring details for the evaluation. | [optional] |
 | **SelfUri** | **string** | The URI for this object | [optional] |
 
 
 
-_PureCloudPlatform.Client.V2 227.0.0_
+_PureCloudPlatform.Client.V2 257.0.0_

@@ -8,8 +8,8 @@
 |------------ | ------------- | ------------- | -------------|
 | **StartState** | **string** |  | [optional] |
 | **EndState** | **string** |  | [optional] |
-| **DurationMs** | **int?** |  | [optional] |
+| **DurationMs** | **long?** |  | [optional] |
 
 
 
-_PureCloudPlatform.Client.V2 227.0.0_
+_PureCloudPlatform.Client.V2 257.0.0_

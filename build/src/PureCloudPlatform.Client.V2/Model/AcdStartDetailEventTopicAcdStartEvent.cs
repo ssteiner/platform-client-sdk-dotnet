@@ -90,7 +90,13 @@ namespace PureCloudPlatform.Client.V2.Model
             /// Enum Internalmessage for "INTERNALMESSAGE"
             /// </summary>
             [EnumMember(Value = "INTERNALMESSAGE")]
-            Internalmessage
+            Internalmessage,
+            
+            /// <summary>
+            /// Enum Screenmonitoring for "SCREENMONITORING"
+            /// </summary>
+            [EnumMember(Value = "SCREENMONITORING")]
+            Screenmonitoring
         }
         /// <summary>
         /// Gets or Sets Direction
@@ -239,7 +245,8 @@ namespace PureCloudPlatform.Client.V2.Model
         /// <param name="UtilizationLabel">UtilizationLabel.</param>
         /// <param name="RoutingPriority">RoutingPriority.</param>
         /// <param name="RequestedRoutingSkillIds">RequestedRoutingSkillIds.</param>
-        public AcdStartDetailEventTopicAcdStartEvent(int? EventTime = null, string ConversationId = null, string ParticipantId = null, string SessionId = null, MediaTypeEnum? MediaType = null, string Provider = null, DirectionEnum? Direction = null, string Ani = null, string Dnis = null, string AddressTo = null, string AddressFrom = null, string CallbackUserName = null, List<string> CallbackNumbers = null, int? CallbackScheduledTime = null, string Subject = null, MessageTypeEnum? MessageType = null, string QueueId = null, string DivisionId = null, List<string> ConversationExternalContactIds = null, List<string> ConversationExternalOrganizationIds = null, string UtilizationLabel = null, int? RoutingPriority = null, List<Guid?> RequestedRoutingSkillIds = null)
+        /// <param name="SkillExpressionApplied">SkillExpressionApplied.</param>
+        public AcdStartDetailEventTopicAcdStartEvent(long? EventTime = null, string ConversationId = null, string ParticipantId = null, string SessionId = null, MediaTypeEnum? MediaType = null, string Provider = null, DirectionEnum? Direction = null, string Ani = null, string Dnis = null, string AddressTo = null, string AddressFrom = null, string CallbackUserName = null, List<string> CallbackNumbers = null, long? CallbackScheduledTime = null, string Subject = null, MessageTypeEnum? MessageType = null, string QueueId = null, string DivisionId = null, List<string> ConversationExternalContactIds = null, List<string> ConversationExternalOrganizationIds = null, string UtilizationLabel = null, long? RoutingPriority = null, List<Guid?> RequestedRoutingSkillIds = null, bool? SkillExpressionApplied = null)
         {
             this.EventTime = EventTime;
             this.ConversationId = ConversationId;
@@ -264,6 +271,7 @@ namespace PureCloudPlatform.Client.V2.Model
             this.UtilizationLabel = UtilizationLabel;
             this.RoutingPriority = RoutingPriority;
             this.RequestedRoutingSkillIds = RequestedRoutingSkillIds;
+            this.SkillExpressionApplied = SkillExpressionApplied;
             
         }
         
@@ -273,7 +281,7 @@ namespace PureCloudPlatform.Client.V2.Model
         /// Gets or Sets EventTime
         /// </summary>
         [DataMember(Name="eventTime", EmitDefaultValue=false)]
-        public int? EventTime { get; set; }
+        public long? EventTime { get; set; }
 
 
 
@@ -365,7 +373,7 @@ namespace PureCloudPlatform.Client.V2.Model
         /// Gets or Sets CallbackScheduledTime
         /// </summary>
         [DataMember(Name="callbackScheduledTime", EmitDefaultValue=false)]
-        public int? CallbackScheduledTime { get; set; }
+        public long? CallbackScheduledTime { get; set; }
 
 
 
@@ -423,7 +431,7 @@ namespace PureCloudPlatform.Client.V2.Model
         /// Gets or Sets RoutingPriority
         /// </summary>
         [DataMember(Name="routingPriority", EmitDefaultValue=false)]
-        public int? RoutingPriority { get; set; }
+        public long? RoutingPriority { get; set; }
 
 
 
@@ -432,6 +440,14 @@ namespace PureCloudPlatform.Client.V2.Model
         /// </summary>
         [DataMember(Name="requestedRoutingSkillIds", EmitDefaultValue=false)]
         public List<Guid?> RequestedRoutingSkillIds { get; set; }
+
+
+
+        /// <summary>
+        /// Gets or Sets SkillExpressionApplied
+        /// </summary>
+        [DataMember(Name="skillExpressionApplied", EmitDefaultValue=false)]
+        public bool? SkillExpressionApplied { get; set; }
 
 
         /// <summary>
@@ -466,6 +482,7 @@ namespace PureCloudPlatform.Client.V2.Model
             sb.Append("  UtilizationLabel: ").Append(UtilizationLabel).Append("\n");
             sb.Append("  RoutingPriority: ").Append(RoutingPriority).Append("\n");
             sb.Append("  RequestedRoutingSkillIds: ").Append(RequestedRoutingSkillIds).Append("\n");
+            sb.Append("  SkillExpressionApplied: ").Append(SkillExpressionApplied).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -620,6 +637,11 @@ namespace PureCloudPlatform.Client.V2.Model
                     this.RequestedRoutingSkillIds == other.RequestedRoutingSkillIds ||
                     this.RequestedRoutingSkillIds != null &&
                     this.RequestedRoutingSkillIds.SequenceEqual(other.RequestedRoutingSkillIds)
+                ) &&
+                (
+                    this.SkillExpressionApplied == other.SkillExpressionApplied ||
+                    this.SkillExpressionApplied != null &&
+                    this.SkillExpressionApplied.Equals(other.SkillExpressionApplied)
                 );
         }
 
@@ -702,6 +724,9 @@ namespace PureCloudPlatform.Client.V2.Model
 
                 if (this.RequestedRoutingSkillIds != null)
                     hash = hash * 59 + this.RequestedRoutingSkillIds.GetHashCode();
+
+                if (this.SkillExpressionApplied != null)
+                    hash = hash * 59 + this.SkillExpressionApplied.GetHashCode();
 
                 return hash;
             }

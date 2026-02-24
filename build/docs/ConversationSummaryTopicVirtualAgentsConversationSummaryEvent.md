@@ -19,12 +19,14 @@
 | **Headline** | [**ConversationSummaryTopicVirtualAgentsConversationHeadline**](ConversationSummaryTopicVirtualAgentsConversationHeadline) |  | [optional] |
 | **Reason** | [**ConversationSummaryTopicVirtualAgentsConversationReason**](ConversationSummaryTopicVirtualAgentsConversationReason) |  | [optional] |
 | **Resolution** | [**ConversationSummaryTopicVirtualAgentsConversationResolution**](ConversationSummaryTopicVirtualAgentsConversationResolution) |  | [optional] |
+| **FollowupActions** | [**List&lt;ConversationSummaryTopicVirtualAgentsConversationFollowupAction&gt;**](ConversationSummaryTopicVirtualAgentsConversationFollowupAction) |  | [optional] |
+| **ExtractedEntities** | [**List&lt;ConversationSummaryTopicVirtualAgentsSummaryExtractedCustomEntity&gt;**](ConversationSummaryTopicVirtualAgentsSummaryExtractedCustomEntity) |  | [optional] |
 | **WrapUpCodes** | [**List&lt;ConversationSummaryTopicVirtualAgentsConversationWrapUpCode&gt;**](ConversationSummaryTopicVirtualAgentsConversationWrapUpCode) |  | [optional] |
 | **TriggerSource** | [**ConversationSummaryTopicVirtualAgentsTriggerSource**](ConversationSummaryTopicVirtualAgentsTriggerSource) |  | [optional] |
 | **LastEditedBy** | [**ConversationSummaryTopicVirtualAgentsConversationSummaryParticipant**](ConversationSummaryTopicVirtualAgentsConversationSummaryParticipant) |  | [optional] |
 | **ErrorType** | **string** |  | [optional] |
-| **DurationMs** | **int?** |  | [optional] |
+| **DurationMs** | **long?** |  | [optional] |
 
 
 
-_PureCloudPlatform.Client.V2 227.0.0_
+_PureCloudPlatform.Client.V2 257.0.0_

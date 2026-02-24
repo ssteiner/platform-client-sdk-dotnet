@@ -7,7 +7,8 @@
 |Name | Type | Description | Notes|
 |------------ | ------------- | ------------- | -------------|
 | **SettingsId** | **string** | Settings id | |
+| **Division** | [**WritableStarrableDivision**](WritableStarrableDivision) | The division to import into | [optional] |
 
 
 
-_PureCloudPlatform.Client.V2 227.0.0_
+_PureCloudPlatform.Client.V2 257.0.0_

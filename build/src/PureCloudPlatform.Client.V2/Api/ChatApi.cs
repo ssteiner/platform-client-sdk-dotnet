@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using RestSharp;
 using PureCloudPlatform.Client.V2.Client;
 using PureCloudPlatform.Client.V2.Model;
 
@@ -125,7 +124,6 @@ namespace PureCloudPlatform.Client.V2.Api
         /// </summary>
         /// <remarks>
         /// 
-        /// DeleteChatsUserMessagesPin is a preview method and is subject to both breaking and non-breaking changes at any time without notice
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">userId</param>
@@ -139,7 +137,6 @@ namespace PureCloudPlatform.Client.V2.Api
         /// </summary>
         /// <remarks>
         /// 
-        /// DeleteChatsUserMessagesPin is a preview method and is subject to both breaking and non-breaking changes at any time without notice
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">userId</param>
@@ -147,6 +144,28 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <returns>ApiResponse of Object(void)</returns>
         
         ApiResponse<Object> DeleteChatsUserMessagesPinWithHttpInfo (string userId, string pinnedMessageId);
+
+        /// <summary>
+        /// Delete a user&#39;s chat settings
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns></returns>
+        
+        void DeleteChatsUsersMeSettings ();
+
+        /// <summary>
+        /// Delete a user&#39;s chat settings
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of Object(void)</returns>
+        
+        ApiResponse<Object> DeleteChatsUsersMeSettingsWithHttpInfo ();
 
         /// <summary>
         /// Get a message
@@ -223,7 +242,7 @@ namespace PureCloudPlatform.Client.V2.Api
         ApiResponse<ChatMessageEntityListing> GetChatsRoomMessageWithHttpInfo (string roomJid, string messageIds);
 
         /// <summary>
-        /// Get a room's message history
+        /// Get a room&#39;s message history
         /// </summary>
         /// <remarks>
         /// 
@@ -233,12 +252,13 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <param name="limit">The maximum number of messages to retrieve (optional)</param>
         /// <param name="before">The cutoff date for messages to retrieve (optional)</param>
         /// <param name="after">The beginning date for messages to retrieve (optional)</param>
+        /// <param name="excludeMetadata">Whether to exclude metadata for messages (optional)</param>
         /// <returns>ChatMessageEntityListing</returns>
         
-        ChatMessageEntityListing GetChatsRoomMessages (string roomJid, string limit = null, string before = null, string after = null);
+        ChatMessageEntityListing GetChatsRoomMessages (string roomJid, string limit = null, string before = null, string after = null, bool? excludeMetadata = null);
 
         /// <summary>
-        /// Get a room's message history
+        /// Get a room&#39;s message history
         /// </summary>
         /// <remarks>
         /// 
@@ -248,9 +268,10 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <param name="limit">The maximum number of messages to retrieve (optional)</param>
         /// <param name="before">The cutoff date for messages to retrieve (optional)</param>
         /// <param name="after">The beginning date for messages to retrieve (optional)</param>
+        /// <param name="excludeMetadata">Whether to exclude metadata for messages (optional)</param>
         /// <returns>ApiResponse of ChatMessageEntityListing</returns>
         
-        ApiResponse<ChatMessageEntityListing> GetChatsRoomMessagesWithHttpInfo (string roomJid, string limit = null, string before = null, string after = null);
+        ApiResponse<ChatMessageEntityListing> GetChatsRoomMessagesWithHttpInfo (string roomJid, string limit = null, string before = null, string after = null, bool? excludeMetadata = null);
 
         /// <summary>
         /// Get a room participant
@@ -286,9 +307,10 @@ namespace PureCloudPlatform.Client.V2.Api
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="roomJid">roomJid</param>
+        /// <param name="notify">Whether to get users to notify (optional)</param>
         /// <returns>RoomParticipantsResponse</returns>
         
-        RoomParticipantsResponse GetChatsRoomParticipants (string roomJid);
+        RoomParticipantsResponse GetChatsRoomParticipants (string roomJid, bool? notify = null);
 
         /// <summary>
         /// Get room participants in a room
@@ -298,9 +320,10 @@ namespace PureCloudPlatform.Client.V2.Api
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="roomJid">roomJid</param>
+        /// <param name="notify">Whether to get users to notify (optional)</param>
         /// <returns>ApiResponse of RoomParticipantsResponse</returns>
         
-        ApiResponse<RoomParticipantsResponse> GetChatsRoomParticipantsWithHttpInfo (string roomJid);
+        ApiResponse<RoomParticipantsResponse> GetChatsRoomParticipantsWithHttpInfo (string roomJid, bool? notify = null);
 
         /// <summary>
         /// Get Chat Settings.
@@ -335,9 +358,10 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <param name="limit">The maximum number of messages to retrieve (optional)</param>
         /// <param name="before">The cutoff date for messages to retrieve (optional)</param>
         /// <param name="after">The beginning date for messages to retrieve (optional)</param>
+        /// <param name="excludeMetadata">Whether to exclude metadata for messages (optional)</param>
         /// <returns>ChatMessageEntityListing</returns>
         
-        ChatMessageEntityListing GetChatsThreadMessages (string threadId, string limit = null, string before = null, string after = null);
+        ChatMessageEntityListing GetChatsThreadMessages (string threadId, string limit = null, string before = null, string after = null, bool? excludeMetadata = null);
 
         /// <summary>
         /// Get history by thread
@@ -350,16 +374,16 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <param name="limit">The maximum number of messages to retrieve (optional)</param>
         /// <param name="before">The cutoff date for messages to retrieve (optional)</param>
         /// <param name="after">The beginning date for messages to retrieve (optional)</param>
+        /// <param name="excludeMetadata">Whether to exclude metadata for messages (optional)</param>
         /// <returns>ApiResponse of ChatMessageEntityListing</returns>
         
-        ApiResponse<ChatMessageEntityListing> GetChatsThreadMessagesWithHttpInfo (string threadId, string limit = null, string before = null, string after = null);
+        ApiResponse<ChatMessageEntityListing> GetChatsThreadMessagesWithHttpInfo (string threadId, string limit = null, string before = null, string after = null, bool? excludeMetadata = null);
 
         /// <summary>
         /// Get information for a 1on1
         /// </summary>
         /// <remarks>
         /// 
-        /// GetChatsUser is a preview method and is subject to both breaking and non-breaking changes at any time without notice
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">userId</param>
@@ -372,7 +396,6 @@ namespace PureCloudPlatform.Client.V2.Api
         /// </summary>
         /// <remarks>
         /// 
-        /// GetChatsUser is a preview method and is subject to both breaking and non-breaking changes at any time without notice
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">userId</param>
@@ -417,9 +440,10 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <param name="limit">The maximum number of messages to retrieve (optional)</param>
         /// <param name="before">The cutoff date for messages to retrieve (optional)</param>
         /// <param name="after">The beginning date for messages to retrieve (optional)</param>
+        /// <param name="excludeMetadata">Whether to exclude metadata for messages (optional)</param>
         /// <returns>ChatMessageResponse</returns>
         
-        ChatMessageResponse GetChatsUserMessages (string userId, string limit = null, string before = null, string after = null);
+        ChatMessageResponse GetChatsUserMessages (string userId, string limit = null, string before = null, string after = null, bool? excludeMetadata = null);
 
         /// <summary>
         /// Get 1on1 History between a user
@@ -432,16 +456,16 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <param name="limit">The maximum number of messages to retrieve (optional)</param>
         /// <param name="before">The cutoff date for messages to retrieve (optional)</param>
         /// <param name="after">The beginning date for messages to retrieve (optional)</param>
+        /// <param name="excludeMetadata">Whether to exclude metadata for messages (optional)</param>
         /// <returns>ApiResponse of ChatMessageResponse</returns>
         
-        ApiResponse<ChatMessageResponse> GetChatsUserMessagesWithHttpInfo (string userId, string limit = null, string before = null, string after = null);
+        ApiResponse<ChatMessageResponse> GetChatsUserMessagesWithHttpInfo (string userId, string limit = null, string before = null, string after = null, bool? excludeMetadata = null);
 
         /// <summary>
-        /// Get a user's chat settings
+        /// Get a user&#39;s chat settings
         /// </summary>
         /// <remarks>
         /// 
-        /// GetChatsUserSettings is a preview method and is subject to both breaking and non-breaking changes at any time without notice
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">User ID</param>
@@ -450,11 +474,10 @@ namespace PureCloudPlatform.Client.V2.Api
         ChatUserSettings GetChatsUserSettings (string userId);
 
         /// <summary>
-        /// Get a user's chat settings
+        /// Get a user&#39;s chat settings
         /// </summary>
         /// <remarks>
         /// 
-        /// GetChatsUserSettings is a preview method and is subject to both breaking and non-breaking changes at any time without notice
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">User ID</param>
@@ -463,28 +486,26 @@ namespace PureCloudPlatform.Client.V2.Api
         ApiResponse<ChatUserSettings> GetChatsUserSettingsWithHttpInfo (string userId);
 
         /// <summary>
-        /// Get a user's chat settings
+        /// Get a user&#39;s chat settings
         /// </summary>
         /// <remarks>
         /// 
-        /// GetChatsUsersMeSettings is a preview method and is subject to both breaking and non-breaking changes at any time without notice
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ChatUserSettings</returns>
+        /// <returns>UserSettingsForChat</returns>
         
-        ChatUserSettings GetChatsUsersMeSettings ();
+        UserSettingsForChat GetChatsUsersMeSettings ();
 
         /// <summary>
-        /// Get a user's chat settings
+        /// Get a user&#39;s chat settings
         /// </summary>
         /// <remarks>
         /// 
-        /// GetChatsUsersMeSettings is a preview method and is subject to both breaking and non-breaking changes at any time without notice
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of ChatUserSettings</returns>
+        /// <returns>ApiResponse of UserSettingsForChat</returns>
         
-        ApiResponse<ChatUserSettings> GetChatsUsersMeSettingsWithHttpInfo ();
+        ApiResponse<UserSettingsForChat> GetChatsUsersMeSettingsWithHttpInfo ();
 
         /// <summary>
         /// Set properties for a room
@@ -593,11 +614,10 @@ namespace PureCloudPlatform.Client.V2.Api
         ApiResponse<ChatSendMessageResponse> PatchChatsUserMessageWithHttpInfo (string userId, string messageId, SendMessageBody body);
 
         /// <summary>
-        /// Update a user's chat settings
+        /// Update a user&#39;s chat settings
         /// </summary>
         /// <remarks>
         /// 
-        /// PatchChatsUserSettings is a preview method and is subject to both breaking and non-breaking changes at any time without notice
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">User ID</param>
@@ -607,11 +627,10 @@ namespace PureCloudPlatform.Client.V2.Api
         ChatUserSettings PatchChatsUserSettings (string userId, ChatUserSettings body);
 
         /// <summary>
-        /// Update a user's chat settings
+        /// Update a user&#39;s chat settings
         /// </summary>
         /// <remarks>
         /// 
-        /// PatchChatsUserSettings is a preview method and is subject to both breaking and non-breaking changes at any time without notice
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">User ID</param>
@@ -621,30 +640,28 @@ namespace PureCloudPlatform.Client.V2.Api
         ApiResponse<ChatUserSettings> PatchChatsUserSettingsWithHttpInfo (string userId, ChatUserSettings body);
 
         /// <summary>
-        /// Update a user's chat settings
+        /// Update a user&#39;s chat settings
         /// </summary>
         /// <remarks>
         /// 
-        /// PatchChatsUsersMeSettings is a preview method and is subject to both breaking and non-breaking changes at any time without notice
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
-        /// <returns>ChatUserSettings</returns>
+        /// <returns>UserSettingsForChat</returns>
         
-        ChatUserSettings PatchChatsUsersMeSettings (ChatUserSettings body);
+        UserSettingsForChat PatchChatsUsersMeSettings (UserSettingsForChat body);
 
         /// <summary>
-        /// Update a user's chat settings
+        /// Update a user&#39;s chat settings
         /// </summary>
         /// <remarks>
         /// 
-        /// PatchChatsUsersMeSettings is a preview method and is subject to both breaking and non-breaking changes at any time without notice
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
-        /// <returns>ApiResponse of ChatUserSettings</returns>
+        /// <returns>ApiResponse of UserSettingsForChat</returns>
         
-        ApiResponse<ChatUserSettings> PatchChatsUsersMeSettingsWithHttpInfo (ChatUserSettings body);
+        ApiResponse<UserSettingsForChat> PatchChatsUsersMeSettingsWithHttpInfo (UserSettingsForChat body);
 
         /// <summary>
         /// Send a message to a room
@@ -779,7 +796,6 @@ namespace PureCloudPlatform.Client.V2.Api
         /// </summary>
         /// <remarks>
         /// 
-        /// PostChatsUserMessagesPins is a preview method and is subject to both breaking and non-breaking changes at any time without notice
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">userId</param>
@@ -793,7 +809,6 @@ namespace PureCloudPlatform.Client.V2.Api
         /// </summary>
         /// <remarks>
         /// 
-        /// PostChatsUserMessagesPins is a preview method and is subject to both breaking and non-breaking changes at any time without notice
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">userId</param>
@@ -801,6 +816,30 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <returns>ApiResponse of Object(void)</returns>
         
         ApiResponse<Object> PostChatsUserMessagesPinsWithHttpInfo (string userId, PinnedMessageRequest body);
+
+        /// <summary>
+        /// Create a user&#39;s chat settings
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body"></param>
+        /// <returns></returns>
+        
+        void PostChatsUsersMeSettings (UserChatSettingsPost body);
+
+        /// <summary>
+        /// Create a user&#39;s chat settings
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body"></param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        
+        ApiResponse<Object> PostChatsUsersMeSettingsWithHttpInfo (UserChatSettingsPost body);
 
         /// <summary>
         /// Update reactions to a message
@@ -965,7 +1004,6 @@ namespace PureCloudPlatform.Client.V2.Api
         /// </summary>
         /// <remarks>
         /// 
-        /// DeleteChatsUserMessagesPin is a preview method and is subject to both breaking and non-breaking changes at any time without notice
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">userId</param>
@@ -979,7 +1017,6 @@ namespace PureCloudPlatform.Client.V2.Api
         /// </summary>
         /// <remarks>
         /// 
-        /// DeleteChatsUserMessagesPin is a preview method and is subject to both breaking and non-breaking changes at any time without notice
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">userId</param>
@@ -987,6 +1024,28 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <returns>Task of ApiResponse</returns>
         
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteChatsUserMessagesPinAsyncWithHttpInfo (string userId, string pinnedMessageId);
+
+        /// <summary>
+        /// Delete a user&#39;s chat settings
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of void</returns>
+        
+        System.Threading.Tasks.Task DeleteChatsUsersMeSettingsAsync ();
+
+        /// <summary>
+        /// Delete a user&#39;s chat settings
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse</returns>
+        
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteChatsUsersMeSettingsAsyncWithHttpInfo ();
 
         /// <summary>
         /// Get a message
@@ -1063,7 +1122,7 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task<ApiResponse<ChatMessageEntityListing>> GetChatsRoomMessageAsyncWithHttpInfo (string roomJid, string messageIds);
 
         /// <summary>
-        /// Get a room's message history
+        /// Get a room&#39;s message history
         /// </summary>
         /// <remarks>
         /// 
@@ -1073,12 +1132,13 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <param name="limit">The maximum number of messages to retrieve (optional)</param>
         /// <param name="before">The cutoff date for messages to retrieve (optional)</param>
         /// <param name="after">The beginning date for messages to retrieve (optional)</param>
+        /// <param name="excludeMetadata">Whether to exclude metadata for messages (optional)</param>
         /// <returns>Task of ChatMessageEntityListing</returns>
         
-        System.Threading.Tasks.Task<ChatMessageEntityListing> GetChatsRoomMessagesAsync (string roomJid, string limit = null, string before = null, string after = null);
+        System.Threading.Tasks.Task<ChatMessageEntityListing> GetChatsRoomMessagesAsync (string roomJid, string limit = null, string before = null, string after = null, bool? excludeMetadata = null);
 
         /// <summary>
-        /// Get a room's message history
+        /// Get a room&#39;s message history
         /// </summary>
         /// <remarks>
         /// 
@@ -1088,9 +1148,10 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <param name="limit">The maximum number of messages to retrieve (optional)</param>
         /// <param name="before">The cutoff date for messages to retrieve (optional)</param>
         /// <param name="after">The beginning date for messages to retrieve (optional)</param>
+        /// <param name="excludeMetadata">Whether to exclude metadata for messages (optional)</param>
         /// <returns>Task of ApiResponse (ChatMessageEntityListing)</returns>
         
-        System.Threading.Tasks.Task<ApiResponse<ChatMessageEntityListing>> GetChatsRoomMessagesAsyncWithHttpInfo (string roomJid, string limit = null, string before = null, string after = null);
+        System.Threading.Tasks.Task<ApiResponse<ChatMessageEntityListing>> GetChatsRoomMessagesAsyncWithHttpInfo (string roomJid, string limit = null, string before = null, string after = null, bool? excludeMetadata = null);
 
         /// <summary>
         /// Get a room participant
@@ -1126,9 +1187,10 @@ namespace PureCloudPlatform.Client.V2.Api
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="roomJid">roomJid</param>
+        /// <param name="notify">Whether to get users to notify (optional)</param>
         /// <returns>Task of RoomParticipantsResponse</returns>
         
-        System.Threading.Tasks.Task<RoomParticipantsResponse> GetChatsRoomParticipantsAsync (string roomJid);
+        System.Threading.Tasks.Task<RoomParticipantsResponse> GetChatsRoomParticipantsAsync (string roomJid, bool? notify = null);
 
         /// <summary>
         /// Get room participants in a room
@@ -1138,9 +1200,10 @@ namespace PureCloudPlatform.Client.V2.Api
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="roomJid">roomJid</param>
+        /// <param name="notify">Whether to get users to notify (optional)</param>
         /// <returns>Task of ApiResponse (RoomParticipantsResponse)</returns>
         
-        System.Threading.Tasks.Task<ApiResponse<RoomParticipantsResponse>> GetChatsRoomParticipantsAsyncWithHttpInfo (string roomJid);
+        System.Threading.Tasks.Task<ApiResponse<RoomParticipantsResponse>> GetChatsRoomParticipantsAsyncWithHttpInfo (string roomJid, bool? notify = null);
 
         /// <summary>
         /// Get Chat Settings.
@@ -1175,9 +1238,10 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <param name="limit">The maximum number of messages to retrieve (optional)</param>
         /// <param name="before">The cutoff date for messages to retrieve (optional)</param>
         /// <param name="after">The beginning date for messages to retrieve (optional)</param>
+        /// <param name="excludeMetadata">Whether to exclude metadata for messages (optional)</param>
         /// <returns>Task of ChatMessageEntityListing</returns>
         
-        System.Threading.Tasks.Task<ChatMessageEntityListing> GetChatsThreadMessagesAsync (string threadId, string limit = null, string before = null, string after = null);
+        System.Threading.Tasks.Task<ChatMessageEntityListing> GetChatsThreadMessagesAsync (string threadId, string limit = null, string before = null, string after = null, bool? excludeMetadata = null);
 
         /// <summary>
         /// Get history by thread
@@ -1190,16 +1254,16 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <param name="limit">The maximum number of messages to retrieve (optional)</param>
         /// <param name="before">The cutoff date for messages to retrieve (optional)</param>
         /// <param name="after">The beginning date for messages to retrieve (optional)</param>
+        /// <param name="excludeMetadata">Whether to exclude metadata for messages (optional)</param>
         /// <returns>Task of ApiResponse (ChatMessageEntityListing)</returns>
         
-        System.Threading.Tasks.Task<ApiResponse<ChatMessageEntityListing>> GetChatsThreadMessagesAsyncWithHttpInfo (string threadId, string limit = null, string before = null, string after = null);
+        System.Threading.Tasks.Task<ApiResponse<ChatMessageEntityListing>> GetChatsThreadMessagesAsyncWithHttpInfo (string threadId, string limit = null, string before = null, string after = null, bool? excludeMetadata = null);
 
         /// <summary>
         /// Get information for a 1on1
         /// </summary>
         /// <remarks>
         /// 
-        /// GetChatsUser is a preview method and is subject to both breaking and non-breaking changes at any time without notice
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">userId</param>
@@ -1212,7 +1276,6 @@ namespace PureCloudPlatform.Client.V2.Api
         /// </summary>
         /// <remarks>
         /// 
-        /// GetChatsUser is a preview method and is subject to both breaking and non-breaking changes at any time without notice
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">userId</param>
@@ -1257,9 +1320,10 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <param name="limit">The maximum number of messages to retrieve (optional)</param>
         /// <param name="before">The cutoff date for messages to retrieve (optional)</param>
         /// <param name="after">The beginning date for messages to retrieve (optional)</param>
+        /// <param name="excludeMetadata">Whether to exclude metadata for messages (optional)</param>
         /// <returns>Task of ChatMessageResponse</returns>
         
-        System.Threading.Tasks.Task<ChatMessageResponse> GetChatsUserMessagesAsync (string userId, string limit = null, string before = null, string after = null);
+        System.Threading.Tasks.Task<ChatMessageResponse> GetChatsUserMessagesAsync (string userId, string limit = null, string before = null, string after = null, bool? excludeMetadata = null);
 
         /// <summary>
         /// Get 1on1 History between a user
@@ -1272,16 +1336,16 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <param name="limit">The maximum number of messages to retrieve (optional)</param>
         /// <param name="before">The cutoff date for messages to retrieve (optional)</param>
         /// <param name="after">The beginning date for messages to retrieve (optional)</param>
+        /// <param name="excludeMetadata">Whether to exclude metadata for messages (optional)</param>
         /// <returns>Task of ApiResponse (ChatMessageResponse)</returns>
         
-        System.Threading.Tasks.Task<ApiResponse<ChatMessageResponse>> GetChatsUserMessagesAsyncWithHttpInfo (string userId, string limit = null, string before = null, string after = null);
+        System.Threading.Tasks.Task<ApiResponse<ChatMessageResponse>> GetChatsUserMessagesAsyncWithHttpInfo (string userId, string limit = null, string before = null, string after = null, bool? excludeMetadata = null);
 
         /// <summary>
-        /// Get a user's chat settings
+        /// Get a user&#39;s chat settings
         /// </summary>
         /// <remarks>
         /// 
-        /// GetChatsUserSettings is a preview method and is subject to both breaking and non-breaking changes at any time without notice
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">User ID</param>
@@ -1290,11 +1354,10 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task<ChatUserSettings> GetChatsUserSettingsAsync (string userId);
 
         /// <summary>
-        /// Get a user's chat settings
+        /// Get a user&#39;s chat settings
         /// </summary>
         /// <remarks>
         /// 
-        /// GetChatsUserSettings is a preview method and is subject to both breaking and non-breaking changes at any time without notice
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">User ID</param>
@@ -1303,28 +1366,26 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task<ApiResponse<ChatUserSettings>> GetChatsUserSettingsAsyncWithHttpInfo (string userId);
 
         /// <summary>
-        /// Get a user's chat settings
+        /// Get a user&#39;s chat settings
         /// </summary>
         /// <remarks>
         /// 
-        /// GetChatsUsersMeSettings is a preview method and is subject to both breaking and non-breaking changes at any time without notice
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ChatUserSettings</returns>
+        /// <returns>Task of UserSettingsForChat</returns>
         
-        System.Threading.Tasks.Task<ChatUserSettings> GetChatsUsersMeSettingsAsync ();
+        System.Threading.Tasks.Task<UserSettingsForChat> GetChatsUsersMeSettingsAsync ();
 
         /// <summary>
-        /// Get a user's chat settings
+        /// Get a user&#39;s chat settings
         /// </summary>
         /// <remarks>
         /// 
-        /// GetChatsUsersMeSettings is a preview method and is subject to both breaking and non-breaking changes at any time without notice
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse (ChatUserSettings)</returns>
+        /// <returns>Task of ApiResponse (UserSettingsForChat)</returns>
         
-        System.Threading.Tasks.Task<ApiResponse<ChatUserSettings>> GetChatsUsersMeSettingsAsyncWithHttpInfo ();
+        System.Threading.Tasks.Task<ApiResponse<UserSettingsForChat>> GetChatsUsersMeSettingsAsyncWithHttpInfo ();
 
         /// <summary>
         /// Set properties for a room
@@ -1433,11 +1494,10 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task<ApiResponse<ChatSendMessageResponse>> PatchChatsUserMessageAsyncWithHttpInfo (string userId, string messageId, SendMessageBody body);
 
         /// <summary>
-        /// Update a user's chat settings
+        /// Update a user&#39;s chat settings
         /// </summary>
         /// <remarks>
         /// 
-        /// PatchChatsUserSettings is a preview method and is subject to both breaking and non-breaking changes at any time without notice
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">User ID</param>
@@ -1447,11 +1507,10 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task<ChatUserSettings> PatchChatsUserSettingsAsync (string userId, ChatUserSettings body);
 
         /// <summary>
-        /// Update a user's chat settings
+        /// Update a user&#39;s chat settings
         /// </summary>
         /// <remarks>
         /// 
-        /// PatchChatsUserSettings is a preview method and is subject to both breaking and non-breaking changes at any time without notice
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">User ID</param>
@@ -1461,30 +1520,28 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task<ApiResponse<ChatUserSettings>> PatchChatsUserSettingsAsyncWithHttpInfo (string userId, ChatUserSettings body);
 
         /// <summary>
-        /// Update a user's chat settings
+        /// Update a user&#39;s chat settings
         /// </summary>
         /// <remarks>
         /// 
-        /// PatchChatsUsersMeSettings is a preview method and is subject to both breaking and non-breaking changes at any time without notice
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
-        /// <returns>Task of ChatUserSettings</returns>
+        /// <returns>Task of UserSettingsForChat</returns>
         
-        System.Threading.Tasks.Task<ChatUserSettings> PatchChatsUsersMeSettingsAsync (ChatUserSettings body);
+        System.Threading.Tasks.Task<UserSettingsForChat> PatchChatsUsersMeSettingsAsync (UserSettingsForChat body);
 
         /// <summary>
-        /// Update a user's chat settings
+        /// Update a user&#39;s chat settings
         /// </summary>
         /// <remarks>
         /// 
-        /// PatchChatsUsersMeSettings is a preview method and is subject to both breaking and non-breaking changes at any time without notice
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
-        /// <returns>Task of ApiResponse (ChatUserSettings)</returns>
+        /// <returns>Task of ApiResponse (UserSettingsForChat)</returns>
         
-        System.Threading.Tasks.Task<ApiResponse<ChatUserSettings>> PatchChatsUsersMeSettingsAsyncWithHttpInfo (ChatUserSettings body);
+        System.Threading.Tasks.Task<ApiResponse<UserSettingsForChat>> PatchChatsUsersMeSettingsAsyncWithHttpInfo (UserSettingsForChat body);
 
         /// <summary>
         /// Send a message to a room
@@ -1619,7 +1676,6 @@ namespace PureCloudPlatform.Client.V2.Api
         /// </summary>
         /// <remarks>
         /// 
-        /// PostChatsUserMessagesPins is a preview method and is subject to both breaking and non-breaking changes at any time without notice
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">userId</param>
@@ -1633,7 +1689,6 @@ namespace PureCloudPlatform.Client.V2.Api
         /// </summary>
         /// <remarks>
         /// 
-        /// PostChatsUserMessagesPins is a preview method and is subject to both breaking and non-breaking changes at any time without notice
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">userId</param>
@@ -1641,6 +1696,30 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <returns>Task of ApiResponse</returns>
         
         System.Threading.Tasks.Task<ApiResponse<Object>> PostChatsUserMessagesPinsAsyncWithHttpInfo (string userId, PinnedMessageRequest body);
+
+        /// <summary>
+        /// Create a user&#39;s chat settings
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body"></param>
+        /// <returns>Task of void</returns>
+        
+        System.Threading.Tasks.Task PostChatsUsersMeSettingsAsync (UserChatSettingsPost body);
+
+        /// <summary>
+        /// Create a user&#39;s chat settings
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body"></param>
+        /// <returns>Task of ApiResponse</returns>
+        
+        System.Threading.Tasks.Task<ApiResponse<Object>> PostChatsUsersMeSettingsAsyncWithHttpInfo (UserChatSettingsPost body);
 
         /// <summary>
         /// Update reactions to a message
@@ -1817,11 +1896,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'messageId' when calling ChatApi->DeleteChatsRoomMessage");
 
             var localVarPath = "/api/v2/chats/rooms/{roomJid}/messages/{messageId}";
+            var localVarHttpMethod = "Delete";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -1866,20 +1946,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling DeleteChatsRoomMessage: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -1930,11 +2003,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/chats/rooms/{roomJid}/messages/{messageId}";
+            var localVarHttpMethod = "Delete";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -1979,20 +2053,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling DeleteChatsRoomMessage: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -2041,11 +2108,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'pinnedMessageId' when calling ChatApi->DeleteChatsRoomMessagesPin");
 
             var localVarPath = "/api/v2/chats/rooms/{roomJid}/messages/pins/{pinnedMessageId}";
+            var localVarHttpMethod = "Delete";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -2090,20 +2158,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling DeleteChatsRoomMessagesPin: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -2154,11 +2215,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/chats/rooms/{roomJid}/messages/pins/{pinnedMessageId}";
+            var localVarHttpMethod = "Delete";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -2203,20 +2265,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling DeleteChatsRoomMessagesPin: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -2265,11 +2320,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'userId' when calling ChatApi->DeleteChatsRoomParticipant");
 
             var localVarPath = "/api/v2/chats/rooms/{roomJid}/participants/{userId}";
+            var localVarHttpMethod = "Delete";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -2314,20 +2370,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling DeleteChatsRoomParticipant: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -2378,11 +2427,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/chats/rooms/{roomJid}/participants/{userId}";
+            var localVarHttpMethod = "Delete";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -2427,20 +2477,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling DeleteChatsRoomParticipant: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -2489,11 +2532,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'messageId' when calling ChatApi->DeleteChatsUserMessage");
 
             var localVarPath = "/api/v2/chats/users/{userId}/messages/{messageId}";
+            var localVarHttpMethod = "Delete";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -2538,20 +2582,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling DeleteChatsUserMessage: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -2602,11 +2639,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/chats/users/{userId}/messages/{messageId}";
+            var localVarHttpMethod = "Delete";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -2651,20 +2689,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling DeleteChatsUserMessage: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -2683,7 +2714,6 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <summary>
         /// Remove a pinned message from a 1on1 
         /// 
-        /// DeleteChatsUserMessagesPin is a preview method and is subject to both breaking and non-breaking changes at any time without notice
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">userId</param>
@@ -2698,7 +2728,6 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <summary>
         /// Remove a pinned message from a 1on1 
         /// 
-        /// DeleteChatsUserMessagesPin is a preview method and is subject to both breaking and non-breaking changes at any time without notice
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">userId</param>
@@ -2715,11 +2744,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'pinnedMessageId' when calling ChatApi->DeleteChatsUserMessagesPin");
 
             var localVarPath = "/api/v2/chats/users/{userId}/messages/pins/{pinnedMessageId}";
+            var localVarHttpMethod = "Delete";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -2764,20 +2794,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling DeleteChatsUserMessagesPin: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -2795,7 +2818,6 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <summary>
         /// Remove a pinned message from a 1on1 
         /// 
-        /// DeleteChatsUserMessagesPin is a preview method and is subject to both breaking and non-breaking changes at any time without notice
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">userId</param>
@@ -2811,7 +2833,6 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <summary>
         /// Remove a pinned message from a 1on1 
         /// 
-        /// DeleteChatsUserMessagesPin is a preview method and is subject to both breaking and non-breaking changes at any time without notice
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">userId</param>
@@ -2830,11 +2851,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/chats/users/{userId}/messages/pins/{pinnedMessageId}";
+            var localVarHttpMethod = "Delete";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -2879,25 +2901,204 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling DeleteChatsUserMessagesPin: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
             else if (localVarStatusCode == 0)
                 throw new ApiException (localVarStatusCode, "Error calling DeleteChatsUserMessagesPin: " + localVarResponse.ErrorMessage, localVarResponse.ErrorMessage);
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarHeaders,
+                null,
+                localVarResponse.Content,
+                localVarResponse.StatusDescription);
+        }
+
+
+
+        /// <summary>
+        /// Delete a user&#39;s chat settings 
+        /// 
+        /// </summary>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns></returns>
+        
+        public void DeleteChatsUsersMeSettings ()
+        {
+             DeleteChatsUsersMeSettingsWithHttpInfo();
+        }
+
+        /// <summary>
+        /// Delete a user&#39;s chat settings 
+        /// 
+        /// </summary>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of Object(void)</returns>
+        
+        public ApiResponse<Object> DeleteChatsUsersMeSettingsWithHttpInfo ()
+        { 
+
+            var localVarPath = "/api/v2/chats/users/me/settings";
+            var localVarHttpMethod = "Delete";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<Tuple<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+
+                "application/json"
+                
+
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+
+            // Path params
+
+            // Query params
+
+            // Header params
+
+            // Form params
+            
+            // Body param
+
+
+            // authentication (PureCloud OAuth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
+
+            if (localVarStatusCode >= 400)
+                throw new ApiException (localVarStatusCode, "Error calling DeleteChatsUsersMeSettings: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
+            else if (localVarStatusCode == 0)
+                throw new ApiException (localVarStatusCode, "Error calling DeleteChatsUsersMeSettings: " + localVarResponse.ErrorMessage, localVarResponse.ErrorMessage);
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarHeaders,
+                null,
+                localVarResponse.Content,
+                localVarResponse.StatusDescription);
+        }
+
+
+        /// <summary>
+        /// Delete a user&#39;s chat settings 
+        /// 
+        /// </summary>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of void</returns>
+        
+        public async System.Threading.Tasks.Task DeleteChatsUsersMeSettingsAsync ()
+        {
+             await DeleteChatsUsersMeSettingsAsyncWithHttpInfo();
+
+        }
+
+        /// <summary>
+        /// Delete a user&#39;s chat settings 
+        /// 
+        /// </summary>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse</returns>
+        
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteChatsUsersMeSettingsAsyncWithHttpInfo ()
+        { 
+
+            var localVarPath = "/api/v2/chats/users/me/settings";
+            var localVarHttpMethod = "Delete";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<Tuple<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+
+                "application/json"
+
+                
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+
+            // Path params
+
+            // Query params
+
+            // Header params
+
+            // Form params
+            
+            // Body param
+
+
+            // authentication (PureCloud OAuth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
+
+            if (localVarStatusCode >= 400)
+                throw new ApiException (localVarStatusCode, "Error calling DeleteChatsUsersMeSettings: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
+            else if (localVarStatusCode == 0)
+                throw new ApiException (localVarStatusCode, "Error calling DeleteChatsUsersMeSettings: " + localVarResponse.ErrorMessage, localVarResponse.ErrorMessage);
 
             return new ApiResponse<Object>(localVarStatusCode,
                 localVarHeaders,
@@ -2937,11 +3138,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'messageId' when calling ChatApi->GetChatsMessage");
 
             var localVarPath = "/api/v2/chats/messages/{messageId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -2985,20 +3187,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetChatsMessage: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -3044,11 +3239,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/chats/messages/{messageId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -3092,20 +3288,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetChatsMessage: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -3150,11 +3339,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'roomJid' when calling ChatApi->GetChatsRoom");
 
             var localVarPath = "/api/v2/chats/rooms/{roomJid}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -3198,20 +3388,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetChatsRoom: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -3257,11 +3440,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/chats/rooms/{roomJid}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -3305,20 +3489,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetChatsRoom: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -3368,11 +3545,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'messageIds' when calling ChatApi->GetChatsRoomMessage");
 
             var localVarPath = "/api/v2/chats/rooms/{roomJid}/messages/{messageIds}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -3417,20 +3595,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetChatsRoomMessage: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -3482,11 +3653,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/chats/rooms/{roomJid}/messages/{messageIds}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -3531,20 +3703,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetChatsRoomMessage: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -3561,7 +3726,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Get a room's message history 
+        /// Get a room&#39;s message history 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -3569,16 +3734,17 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <param name="limit">The maximum number of messages to retrieve (optional)</param>
         /// <param name="before">The cutoff date for messages to retrieve (optional)</param>
         /// <param name="after">The beginning date for messages to retrieve (optional)</param>
+        /// <param name="excludeMetadata">Whether to exclude metadata for messages (optional)</param>
         /// <returns>ChatMessageEntityListing</returns>
         
-        public ChatMessageEntityListing GetChatsRoomMessages (string roomJid, string limit = null, string before = null, string after = null)
+        public ChatMessageEntityListing GetChatsRoomMessages (string roomJid, string limit = null, string before = null, string after = null, bool? excludeMetadata = null)
         {
-             ApiResponse<ChatMessageEntityListing> localVarResponse = GetChatsRoomMessagesWithHttpInfo(roomJid, limit, before, after);
+             ApiResponse<ChatMessageEntityListing> localVarResponse = GetChatsRoomMessagesWithHttpInfo(roomJid, limit, before, after, excludeMetadata);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get a room's message history 
+        /// Get a room&#39;s message history 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -3586,20 +3752,22 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <param name="limit">The maximum number of messages to retrieve (optional)</param>
         /// <param name="before">The cutoff date for messages to retrieve (optional)</param>
         /// <param name="after">The beginning date for messages to retrieve (optional)</param>
+        /// <param name="excludeMetadata">Whether to exclude metadata for messages (optional)</param>
         /// <returns>ApiResponse of ChatMessageEntityListing</returns>
         
-        public ApiResponse< ChatMessageEntityListing > GetChatsRoomMessagesWithHttpInfo (string roomJid, string limit = null, string before = null, string after = null)
+        public ApiResponse< ChatMessageEntityListing > GetChatsRoomMessagesWithHttpInfo (string roomJid, string limit = null, string before = null, string after = null, bool? excludeMetadata = null)
         { 
             // verify the required parameter 'roomJid' is set
             if (roomJid == null)
                 throw new ApiException(400, "Missing required parameter 'roomJid' when calling ChatApi->GetChatsRoomMessages");
 
             var localVarPath = "/api/v2/chats/rooms/{roomJid}/messages";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -3630,6 +3798,7 @@ namespace PureCloudPlatform.Client.V2.Api
             if (limit != null) localVarQueryParams.Add(new Tuple<string, string>("limit", this.Configuration.ApiClient.ParameterToString(limit)));
             if (before != null) localVarQueryParams.Add(new Tuple<string, string>("before", this.Configuration.ApiClient.ParameterToString(before)));
             if (after != null) localVarQueryParams.Add(new Tuple<string, string>("after", this.Configuration.ApiClient.ParameterToString(after)));
+            if (excludeMetadata != null) localVarQueryParams.Add(new Tuple<string, string>("excludeMetadata", this.Configuration.ApiClient.ParameterToString(excludeMetadata)));
 
             // Header params
 
@@ -3646,20 +3815,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetChatsRoomMessages: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -3675,7 +3837,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Get a room's message history 
+        /// Get a room&#39;s message history 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -3683,17 +3845,18 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <param name="limit">The maximum number of messages to retrieve (optional)</param>
         /// <param name="before">The cutoff date for messages to retrieve (optional)</param>
         /// <param name="after">The beginning date for messages to retrieve (optional)</param>
+        /// <param name="excludeMetadata">Whether to exclude metadata for messages (optional)</param>
         /// <returns>Task of ChatMessageEntityListing</returns>
         
-        public async System.Threading.Tasks.Task<ChatMessageEntityListing> GetChatsRoomMessagesAsync (string roomJid, string limit = null, string before = null, string after = null)
+        public async System.Threading.Tasks.Task<ChatMessageEntityListing> GetChatsRoomMessagesAsync (string roomJid, string limit = null, string before = null, string after = null, bool? excludeMetadata = null)
         {
-             ApiResponse<ChatMessageEntityListing> localVarResponse = await GetChatsRoomMessagesAsyncWithHttpInfo(roomJid, limit, before, after);
+             ApiResponse<ChatMessageEntityListing> localVarResponse = await GetChatsRoomMessagesAsyncWithHttpInfo(roomJid, limit, before, after, excludeMetadata);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Get a room's message history 
+        /// Get a room&#39;s message history 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -3701,9 +3864,10 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <param name="limit">The maximum number of messages to retrieve (optional)</param>
         /// <param name="before">The cutoff date for messages to retrieve (optional)</param>
         /// <param name="after">The beginning date for messages to retrieve (optional)</param>
+        /// <param name="excludeMetadata">Whether to exclude metadata for messages (optional)</param>
         /// <returns>Task of ApiResponse (ChatMessageEntityListing)</returns>
         
-        public async System.Threading.Tasks.Task<ApiResponse<ChatMessageEntityListing>> GetChatsRoomMessagesAsyncWithHttpInfo (string roomJid, string limit = null, string before = null, string after = null)
+        public async System.Threading.Tasks.Task<ApiResponse<ChatMessageEntityListing>> GetChatsRoomMessagesAsyncWithHttpInfo (string roomJid, string limit = null, string before = null, string after = null, bool? excludeMetadata = null)
         { 
             // verify the required parameter 'roomJid' is set
             if (roomJid == null)
@@ -3711,11 +3875,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/chats/rooms/{roomJid}/messages";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -3746,6 +3911,7 @@ namespace PureCloudPlatform.Client.V2.Api
             if (limit != null) localVarQueryParams.Add(new Tuple<string, string>("limit", this.Configuration.ApiClient.ParameterToString(limit)));
             if (before != null) localVarQueryParams.Add(new Tuple<string, string>("before", this.Configuration.ApiClient.ParameterToString(before)));
             if (after != null) localVarQueryParams.Add(new Tuple<string, string>("after", this.Configuration.ApiClient.ParameterToString(after)));
+            if (excludeMetadata != null) localVarQueryParams.Add(new Tuple<string, string>("excludeMetadata", this.Configuration.ApiClient.ParameterToString(excludeMetadata)));
 
             // Header params
 
@@ -3762,20 +3928,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetChatsRoomMessages: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -3825,11 +3984,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'participantJid' when calling ChatApi->GetChatsRoomParticipant");
 
             var localVarPath = "/api/v2/chats/rooms/{roomJid}/participants/{participantJid}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -3874,20 +4034,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetChatsRoomParticipant: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -3939,11 +4092,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/chats/rooms/{roomJid}/participants/{participantJid}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -3988,20 +4142,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetChatsRoomParticipant: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -4023,11 +4170,12 @@ namespace PureCloudPlatform.Client.V2.Api
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="roomJid">roomJid</param>
+        /// <param name="notify">Whether to get users to notify (optional)</param>
         /// <returns>RoomParticipantsResponse</returns>
         
-        public RoomParticipantsResponse GetChatsRoomParticipants (string roomJid)
+        public RoomParticipantsResponse GetChatsRoomParticipants (string roomJid, bool? notify = null)
         {
-             ApiResponse<RoomParticipantsResponse> localVarResponse = GetChatsRoomParticipantsWithHttpInfo(roomJid);
+             ApiResponse<RoomParticipantsResponse> localVarResponse = GetChatsRoomParticipantsWithHttpInfo(roomJid, notify);
              return localVarResponse.Data;
         }
 
@@ -4037,20 +4185,22 @@ namespace PureCloudPlatform.Client.V2.Api
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="roomJid">roomJid</param>
+        /// <param name="notify">Whether to get users to notify (optional)</param>
         /// <returns>ApiResponse of RoomParticipantsResponse</returns>
         
-        public ApiResponse< RoomParticipantsResponse > GetChatsRoomParticipantsWithHttpInfo (string roomJid)
+        public ApiResponse< RoomParticipantsResponse > GetChatsRoomParticipantsWithHttpInfo (string roomJid, bool? notify = null)
         { 
             // verify the required parameter 'roomJid' is set
             if (roomJid == null)
                 throw new ApiException(400, "Missing required parameter 'roomJid' when calling ChatApi->GetChatsRoomParticipants");
 
             var localVarPath = "/api/v2/chats/rooms/{roomJid}/participants";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -4078,6 +4228,7 @@ namespace PureCloudPlatform.Client.V2.Api
             if (roomJid != null) localVarPathParams.Add("roomJid", this.Configuration.ApiClient.ParameterToString(roomJid));
 
             // Query params
+            if (notify != null) localVarQueryParams.Add(new Tuple<string, string>("notify", this.Configuration.ApiClient.ParameterToString(notify)));
 
             // Header params
 
@@ -4094,20 +4245,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetChatsRoomParticipants: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -4128,11 +4272,12 @@ namespace PureCloudPlatform.Client.V2.Api
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="roomJid">roomJid</param>
+        /// <param name="notify">Whether to get users to notify (optional)</param>
         /// <returns>Task of RoomParticipantsResponse</returns>
         
-        public async System.Threading.Tasks.Task<RoomParticipantsResponse> GetChatsRoomParticipantsAsync (string roomJid)
+        public async System.Threading.Tasks.Task<RoomParticipantsResponse> GetChatsRoomParticipantsAsync (string roomJid, bool? notify = null)
         {
-             ApiResponse<RoomParticipantsResponse> localVarResponse = await GetChatsRoomParticipantsAsyncWithHttpInfo(roomJid);
+             ApiResponse<RoomParticipantsResponse> localVarResponse = await GetChatsRoomParticipantsAsyncWithHttpInfo(roomJid, notify);
              return localVarResponse.Data;
 
         }
@@ -4143,9 +4288,10 @@ namespace PureCloudPlatform.Client.V2.Api
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="roomJid">roomJid</param>
+        /// <param name="notify">Whether to get users to notify (optional)</param>
         /// <returns>Task of ApiResponse (RoomParticipantsResponse)</returns>
         
-        public async System.Threading.Tasks.Task<ApiResponse<RoomParticipantsResponse>> GetChatsRoomParticipantsAsyncWithHttpInfo (string roomJid)
+        public async System.Threading.Tasks.Task<ApiResponse<RoomParticipantsResponse>> GetChatsRoomParticipantsAsyncWithHttpInfo (string roomJid, bool? notify = null)
         { 
             // verify the required parameter 'roomJid' is set
             if (roomJid == null)
@@ -4153,11 +4299,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/chats/rooms/{roomJid}/participants";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -4185,6 +4332,7 @@ namespace PureCloudPlatform.Client.V2.Api
             if (roomJid != null) localVarPathParams.Add("roomJid", this.Configuration.ApiClient.ParameterToString(roomJid));
 
             // Query params
+            if (notify != null) localVarQueryParams.Add(new Tuple<string, string>("notify", this.Configuration.ApiClient.ParameterToString(notify)));
 
             // Header params
 
@@ -4201,20 +4349,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetChatsRoomParticipants: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -4254,11 +4395,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/chats/settings";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -4301,20 +4443,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetChatsSettings: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -4354,11 +4489,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/chats/settings";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -4401,20 +4537,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetChatsSettings: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -4439,11 +4568,12 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <param name="limit">The maximum number of messages to retrieve (optional)</param>
         /// <param name="before">The cutoff date for messages to retrieve (optional)</param>
         /// <param name="after">The beginning date for messages to retrieve (optional)</param>
+        /// <param name="excludeMetadata">Whether to exclude metadata for messages (optional)</param>
         /// <returns>ChatMessageEntityListing</returns>
         
-        public ChatMessageEntityListing GetChatsThreadMessages (string threadId, string limit = null, string before = null, string after = null)
+        public ChatMessageEntityListing GetChatsThreadMessages (string threadId, string limit = null, string before = null, string after = null, bool? excludeMetadata = null)
         {
-             ApiResponse<ChatMessageEntityListing> localVarResponse = GetChatsThreadMessagesWithHttpInfo(threadId, limit, before, after);
+             ApiResponse<ChatMessageEntityListing> localVarResponse = GetChatsThreadMessagesWithHttpInfo(threadId, limit, before, after, excludeMetadata);
              return localVarResponse.Data;
         }
 
@@ -4456,20 +4586,22 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <param name="limit">The maximum number of messages to retrieve (optional)</param>
         /// <param name="before">The cutoff date for messages to retrieve (optional)</param>
         /// <param name="after">The beginning date for messages to retrieve (optional)</param>
+        /// <param name="excludeMetadata">Whether to exclude metadata for messages (optional)</param>
         /// <returns>ApiResponse of ChatMessageEntityListing</returns>
         
-        public ApiResponse< ChatMessageEntityListing > GetChatsThreadMessagesWithHttpInfo (string threadId, string limit = null, string before = null, string after = null)
+        public ApiResponse< ChatMessageEntityListing > GetChatsThreadMessagesWithHttpInfo (string threadId, string limit = null, string before = null, string after = null, bool? excludeMetadata = null)
         { 
             // verify the required parameter 'threadId' is set
             if (threadId == null)
                 throw new ApiException(400, "Missing required parameter 'threadId' when calling ChatApi->GetChatsThreadMessages");
 
             var localVarPath = "/api/v2/chats/threads/{threadId}/messages";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -4500,6 +4632,7 @@ namespace PureCloudPlatform.Client.V2.Api
             if (limit != null) localVarQueryParams.Add(new Tuple<string, string>("limit", this.Configuration.ApiClient.ParameterToString(limit)));
             if (before != null) localVarQueryParams.Add(new Tuple<string, string>("before", this.Configuration.ApiClient.ParameterToString(before)));
             if (after != null) localVarQueryParams.Add(new Tuple<string, string>("after", this.Configuration.ApiClient.ParameterToString(after)));
+            if (excludeMetadata != null) localVarQueryParams.Add(new Tuple<string, string>("excludeMetadata", this.Configuration.ApiClient.ParameterToString(excludeMetadata)));
 
             // Header params
 
@@ -4516,20 +4649,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetChatsThreadMessages: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -4553,11 +4679,12 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <param name="limit">The maximum number of messages to retrieve (optional)</param>
         /// <param name="before">The cutoff date for messages to retrieve (optional)</param>
         /// <param name="after">The beginning date for messages to retrieve (optional)</param>
+        /// <param name="excludeMetadata">Whether to exclude metadata for messages (optional)</param>
         /// <returns>Task of ChatMessageEntityListing</returns>
         
-        public async System.Threading.Tasks.Task<ChatMessageEntityListing> GetChatsThreadMessagesAsync (string threadId, string limit = null, string before = null, string after = null)
+        public async System.Threading.Tasks.Task<ChatMessageEntityListing> GetChatsThreadMessagesAsync (string threadId, string limit = null, string before = null, string after = null, bool? excludeMetadata = null)
         {
-             ApiResponse<ChatMessageEntityListing> localVarResponse = await GetChatsThreadMessagesAsyncWithHttpInfo(threadId, limit, before, after);
+             ApiResponse<ChatMessageEntityListing> localVarResponse = await GetChatsThreadMessagesAsyncWithHttpInfo(threadId, limit, before, after, excludeMetadata);
              return localVarResponse.Data;
 
         }
@@ -4571,9 +4698,10 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <param name="limit">The maximum number of messages to retrieve (optional)</param>
         /// <param name="before">The cutoff date for messages to retrieve (optional)</param>
         /// <param name="after">The beginning date for messages to retrieve (optional)</param>
+        /// <param name="excludeMetadata">Whether to exclude metadata for messages (optional)</param>
         /// <returns>Task of ApiResponse (ChatMessageEntityListing)</returns>
         
-        public async System.Threading.Tasks.Task<ApiResponse<ChatMessageEntityListing>> GetChatsThreadMessagesAsyncWithHttpInfo (string threadId, string limit = null, string before = null, string after = null)
+        public async System.Threading.Tasks.Task<ApiResponse<ChatMessageEntityListing>> GetChatsThreadMessagesAsyncWithHttpInfo (string threadId, string limit = null, string before = null, string after = null, bool? excludeMetadata = null)
         { 
             // verify the required parameter 'threadId' is set
             if (threadId == null)
@@ -4581,11 +4709,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/chats/threads/{threadId}/messages";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -4616,6 +4745,7 @@ namespace PureCloudPlatform.Client.V2.Api
             if (limit != null) localVarQueryParams.Add(new Tuple<string, string>("limit", this.Configuration.ApiClient.ParameterToString(limit)));
             if (before != null) localVarQueryParams.Add(new Tuple<string, string>("before", this.Configuration.ApiClient.ParameterToString(before)));
             if (after != null) localVarQueryParams.Add(new Tuple<string, string>("after", this.Configuration.ApiClient.ParameterToString(after)));
+            if (excludeMetadata != null) localVarQueryParams.Add(new Tuple<string, string>("excludeMetadata", this.Configuration.ApiClient.ParameterToString(excludeMetadata)));
 
             // Header params
 
@@ -4632,20 +4762,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetChatsThreadMessages: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -4664,7 +4787,6 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <summary>
         /// Get information for a 1on1 
         /// 
-        /// GetChatsUser is a preview method and is subject to both breaking and non-breaking changes at any time without notice
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">userId</param>
@@ -4679,7 +4801,6 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <summary>
         /// Get information for a 1on1 
         /// 
-        /// GetChatsUser is a preview method and is subject to both breaking and non-breaking changes at any time without notice
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">userId</param>
@@ -4692,11 +4813,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'userId' when calling ChatApi->GetChatsUser");
 
             var localVarPath = "/api/v2/chats/users/{userId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -4740,20 +4862,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetChatsUser: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -4771,7 +4886,6 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <summary>
         /// Get information for a 1on1 
         /// 
-        /// GetChatsUser is a preview method and is subject to both breaking and non-breaking changes at any time without notice
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">userId</param>
@@ -4787,7 +4901,6 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <summary>
         /// Get information for a 1on1 
         /// 
-        /// GetChatsUser is a preview method and is subject to both breaking and non-breaking changes at any time without notice
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">userId</param>
@@ -4801,11 +4914,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/chats/users/{userId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -4849,20 +4963,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetChatsUser: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -4912,11 +5019,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'messageIds' when calling ChatApi->GetChatsUserMessage");
 
             var localVarPath = "/api/v2/chats/users/{userId}/messages/{messageIds}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -4961,20 +5069,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetChatsUserMessage: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -5026,11 +5127,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/chats/users/{userId}/messages/{messageIds}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -5075,20 +5177,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetChatsUserMessage: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -5113,11 +5208,12 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <param name="limit">The maximum number of messages to retrieve (optional)</param>
         /// <param name="before">The cutoff date for messages to retrieve (optional)</param>
         /// <param name="after">The beginning date for messages to retrieve (optional)</param>
+        /// <param name="excludeMetadata">Whether to exclude metadata for messages (optional)</param>
         /// <returns>ChatMessageResponse</returns>
         
-        public ChatMessageResponse GetChatsUserMessages (string userId, string limit = null, string before = null, string after = null)
+        public ChatMessageResponse GetChatsUserMessages (string userId, string limit = null, string before = null, string after = null, bool? excludeMetadata = null)
         {
-             ApiResponse<ChatMessageResponse> localVarResponse = GetChatsUserMessagesWithHttpInfo(userId, limit, before, after);
+             ApiResponse<ChatMessageResponse> localVarResponse = GetChatsUserMessagesWithHttpInfo(userId, limit, before, after, excludeMetadata);
              return localVarResponse.Data;
         }
 
@@ -5130,20 +5226,22 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <param name="limit">The maximum number of messages to retrieve (optional)</param>
         /// <param name="before">The cutoff date for messages to retrieve (optional)</param>
         /// <param name="after">The beginning date for messages to retrieve (optional)</param>
+        /// <param name="excludeMetadata">Whether to exclude metadata for messages (optional)</param>
         /// <returns>ApiResponse of ChatMessageResponse</returns>
         
-        public ApiResponse< ChatMessageResponse > GetChatsUserMessagesWithHttpInfo (string userId, string limit = null, string before = null, string after = null)
+        public ApiResponse< ChatMessageResponse > GetChatsUserMessagesWithHttpInfo (string userId, string limit = null, string before = null, string after = null, bool? excludeMetadata = null)
         { 
             // verify the required parameter 'userId' is set
             if (userId == null)
                 throw new ApiException(400, "Missing required parameter 'userId' when calling ChatApi->GetChatsUserMessages");
 
             var localVarPath = "/api/v2/chats/users/{userId}/messages";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -5174,6 +5272,7 @@ namespace PureCloudPlatform.Client.V2.Api
             if (limit != null) localVarQueryParams.Add(new Tuple<string, string>("limit", this.Configuration.ApiClient.ParameterToString(limit)));
             if (before != null) localVarQueryParams.Add(new Tuple<string, string>("before", this.Configuration.ApiClient.ParameterToString(before)));
             if (after != null) localVarQueryParams.Add(new Tuple<string, string>("after", this.Configuration.ApiClient.ParameterToString(after)));
+            if (excludeMetadata != null) localVarQueryParams.Add(new Tuple<string, string>("excludeMetadata", this.Configuration.ApiClient.ParameterToString(excludeMetadata)));
 
             // Header params
 
@@ -5190,20 +5289,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetChatsUserMessages: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -5227,11 +5319,12 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <param name="limit">The maximum number of messages to retrieve (optional)</param>
         /// <param name="before">The cutoff date for messages to retrieve (optional)</param>
         /// <param name="after">The beginning date for messages to retrieve (optional)</param>
+        /// <param name="excludeMetadata">Whether to exclude metadata for messages (optional)</param>
         /// <returns>Task of ChatMessageResponse</returns>
         
-        public async System.Threading.Tasks.Task<ChatMessageResponse> GetChatsUserMessagesAsync (string userId, string limit = null, string before = null, string after = null)
+        public async System.Threading.Tasks.Task<ChatMessageResponse> GetChatsUserMessagesAsync (string userId, string limit = null, string before = null, string after = null, bool? excludeMetadata = null)
         {
-             ApiResponse<ChatMessageResponse> localVarResponse = await GetChatsUserMessagesAsyncWithHttpInfo(userId, limit, before, after);
+             ApiResponse<ChatMessageResponse> localVarResponse = await GetChatsUserMessagesAsyncWithHttpInfo(userId, limit, before, after, excludeMetadata);
              return localVarResponse.Data;
 
         }
@@ -5245,9 +5338,10 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <param name="limit">The maximum number of messages to retrieve (optional)</param>
         /// <param name="before">The cutoff date for messages to retrieve (optional)</param>
         /// <param name="after">The beginning date for messages to retrieve (optional)</param>
+        /// <param name="excludeMetadata">Whether to exclude metadata for messages (optional)</param>
         /// <returns>Task of ApiResponse (ChatMessageResponse)</returns>
         
-        public async System.Threading.Tasks.Task<ApiResponse<ChatMessageResponse>> GetChatsUserMessagesAsyncWithHttpInfo (string userId, string limit = null, string before = null, string after = null)
+        public async System.Threading.Tasks.Task<ApiResponse<ChatMessageResponse>> GetChatsUserMessagesAsyncWithHttpInfo (string userId, string limit = null, string before = null, string after = null, bool? excludeMetadata = null)
         { 
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -5255,11 +5349,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/chats/users/{userId}/messages";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -5290,6 +5385,7 @@ namespace PureCloudPlatform.Client.V2.Api
             if (limit != null) localVarQueryParams.Add(new Tuple<string, string>("limit", this.Configuration.ApiClient.ParameterToString(limit)));
             if (before != null) localVarQueryParams.Add(new Tuple<string, string>("before", this.Configuration.ApiClient.ParameterToString(before)));
             if (after != null) localVarQueryParams.Add(new Tuple<string, string>("after", this.Configuration.ApiClient.ParameterToString(after)));
+            if (excludeMetadata != null) localVarQueryParams.Add(new Tuple<string, string>("excludeMetadata", this.Configuration.ApiClient.ParameterToString(excludeMetadata)));
 
             // Header params
 
@@ -5306,20 +5402,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetChatsUserMessages: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -5336,9 +5425,8 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Get a user's chat settings 
+        /// Get a user&#39;s chat settings 
         /// 
-        /// GetChatsUserSettings is a preview method and is subject to both breaking and non-breaking changes at any time without notice
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">User ID</param>
@@ -5351,9 +5439,8 @@ namespace PureCloudPlatform.Client.V2.Api
         }
 
         /// <summary>
-        /// Get a user's chat settings 
+        /// Get a user&#39;s chat settings 
         /// 
-        /// GetChatsUserSettings is a preview method and is subject to both breaking and non-breaking changes at any time without notice
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">User ID</param>
@@ -5366,11 +5453,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'userId' when calling ChatApi->GetChatsUserSettings");
 
             var localVarPath = "/api/v2/chats/users/{userId}/settings";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -5414,20 +5502,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetChatsUserSettings: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -5443,9 +5524,8 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Get a user's chat settings 
+        /// Get a user&#39;s chat settings 
         /// 
-        /// GetChatsUserSettings is a preview method and is subject to both breaking and non-breaking changes at any time without notice
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">User ID</param>
@@ -5459,9 +5539,8 @@ namespace PureCloudPlatform.Client.V2.Api
         }
 
         /// <summary>
-        /// Get a user's chat settings 
+        /// Get a user&#39;s chat settings 
         /// 
-        /// GetChatsUserSettings is a preview method and is subject to both breaking and non-breaking changes at any time without notice
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">User ID</param>
@@ -5475,11 +5554,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/chats/users/{userId}/settings";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -5523,20 +5603,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetChatsUserSettings: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -5553,36 +5626,35 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Get a user's chat settings 
+        /// Get a user&#39;s chat settings 
         /// 
-        /// GetChatsUsersMeSettings is a preview method and is subject to both breaking and non-breaking changes at any time without notice
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ChatUserSettings</returns>
+        /// <returns>UserSettingsForChat</returns>
         
-        public ChatUserSettings GetChatsUsersMeSettings ()
+        public UserSettingsForChat GetChatsUsersMeSettings ()
         {
-             ApiResponse<ChatUserSettings> localVarResponse = GetChatsUsersMeSettingsWithHttpInfo();
+             ApiResponse<UserSettingsForChat> localVarResponse = GetChatsUsersMeSettingsWithHttpInfo();
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get a user's chat settings 
+        /// Get a user&#39;s chat settings 
         /// 
-        /// GetChatsUsersMeSettings is a preview method and is subject to both breaking and non-breaking changes at any time without notice
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of ChatUserSettings</returns>
+        /// <returns>ApiResponse of UserSettingsForChat</returns>
         
-        public ApiResponse< ChatUserSettings > GetChatsUsersMeSettingsWithHttpInfo ()
+        public ApiResponse< UserSettingsForChat > GetChatsUsersMeSettingsWithHttpInfo ()
         { 
 
             var localVarPath = "/api/v2/chats/users/me/settings";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -5625,66 +5697,58 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetChatsUsersMeSettings: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
             else if (localVarStatusCode == 0)
                 throw new ApiException (localVarStatusCode, "Error calling GetChatsUsersMeSettings: " + localVarResponse.ErrorMessage, localVarResponse.ErrorMessage);
 
-            return new ApiResponse<ChatUserSettings>(localVarStatusCode,
+            return new ApiResponse<UserSettingsForChat>(localVarStatusCode,
                 localVarHeaders,
-                (ChatUserSettings) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ChatUserSettings)),
+                (UserSettingsForChat) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(UserSettingsForChat)),
                 localVarResponse.Content,
                 localVarResponse.StatusDescription);
         }
 
 
         /// <summary>
-        /// Get a user's chat settings 
+        /// Get a user&#39;s chat settings 
         /// 
-        /// GetChatsUsersMeSettings is a preview method and is subject to both breaking and non-breaking changes at any time without notice
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ChatUserSettings</returns>
+        /// <returns>Task of UserSettingsForChat</returns>
         
-        public async System.Threading.Tasks.Task<ChatUserSettings> GetChatsUsersMeSettingsAsync ()
+        public async System.Threading.Tasks.Task<UserSettingsForChat> GetChatsUsersMeSettingsAsync ()
         {
-             ApiResponse<ChatUserSettings> localVarResponse = await GetChatsUsersMeSettingsAsyncWithHttpInfo();
+             ApiResponse<UserSettingsForChat> localVarResponse = await GetChatsUsersMeSettingsAsyncWithHttpInfo();
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Get a user's chat settings 
+        /// Get a user&#39;s chat settings 
         /// 
-        /// GetChatsUsersMeSettings is a preview method and is subject to both breaking and non-breaking changes at any time without notice
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse (ChatUserSettings)</returns>
+        /// <returns>Task of ApiResponse (UserSettingsForChat)</returns>
         
-        public async System.Threading.Tasks.Task<ApiResponse<ChatUserSettings>> GetChatsUsersMeSettingsAsyncWithHttpInfo ()
+        public async System.Threading.Tasks.Task<ApiResponse<UserSettingsForChat>> GetChatsUsersMeSettingsAsyncWithHttpInfo ()
         { 
 
             var localVarPath = "/api/v2/chats/users/me/settings";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -5727,29 +5791,22 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetChatsUsersMeSettings: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
             else if (localVarStatusCode == 0)
                 throw new ApiException (localVarStatusCode, "Error calling GetChatsUsersMeSettings: " + localVarResponse.ErrorMessage, localVarResponse.ErrorMessage);
 
-            return new ApiResponse<ChatUserSettings>(localVarStatusCode,
+            return new ApiResponse<UserSettingsForChat>(localVarStatusCode,
                 localVarHeaders,
-                (ChatUserSettings) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ChatUserSettings)),
+                (UserSettingsForChat) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(UserSettingsForChat)),
                 localVarResponse.Content,
                 localVarResponse.StatusDescription);
         }
@@ -5789,11 +5846,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling ChatApi->PatchChatsRoom");
 
             var localVarPath = "/api/v2/chats/rooms/{roomJid}";
+            var localVarHttpMethod = "Patch";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -5843,20 +5901,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Patch, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PatchChatsRoom: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -5907,11 +5958,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/chats/rooms/{roomJid}";
+            var localVarHttpMethod = "Patch";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -5961,20 +6013,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Patch, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PatchChatsRoom: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -6029,11 +6074,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling ChatApi->PatchChatsRoomMessage");
 
             var localVarPath = "/api/v2/chats/rooms/{roomJid}/messages/{messageId}";
+            var localVarHttpMethod = "Patch";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -6084,20 +6130,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Patch, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PatchChatsRoomMessage: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -6155,11 +6194,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/chats/rooms/{roomJid}/messages/{messageId}";
+            var localVarHttpMethod = "Patch";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -6210,20 +6250,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Patch, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PatchChatsRoomMessage: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -6268,11 +6301,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling ChatApi->PatchChatsSettings");
 
             var localVarPath = "/api/v2/chats/settings";
+            var localVarHttpMethod = "Patch";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -6321,20 +6355,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Patch, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PatchChatsSettings: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -6380,11 +6407,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/chats/settings";
+            var localVarHttpMethod = "Patch";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -6433,20 +6461,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Patch, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PatchChatsSettings: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -6501,11 +6522,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling ChatApi->PatchChatsUserMessage");
 
             var localVarPath = "/api/v2/chats/users/{userId}/messages/{messageId}";
+            var localVarHttpMethod = "Patch";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -6556,20 +6578,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Patch, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PatchChatsUserMessage: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -6627,11 +6642,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/chats/users/{userId}/messages/{messageId}";
+            var localVarHttpMethod = "Patch";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -6682,20 +6698,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Patch, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PatchChatsUserMessage: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -6712,9 +6721,8 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Update a user's chat settings 
+        /// Update a user&#39;s chat settings 
         /// 
-        /// PatchChatsUserSettings is a preview method and is subject to both breaking and non-breaking changes at any time without notice
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">User ID</param>
@@ -6728,9 +6736,8 @@ namespace PureCloudPlatform.Client.V2.Api
         }
 
         /// <summary>
-        /// Update a user's chat settings 
+        /// Update a user&#39;s chat settings 
         /// 
-        /// PatchChatsUserSettings is a preview method and is subject to both breaking and non-breaking changes at any time without notice
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">User ID</param>
@@ -6747,11 +6754,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling ChatApi->PatchChatsUserSettings");
 
             var localVarPath = "/api/v2/chats/users/{userId}/settings";
+            var localVarHttpMethod = "Patch";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -6801,20 +6809,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Patch, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PatchChatsUserSettings: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -6830,9 +6831,8 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Update a user's chat settings 
+        /// Update a user&#39;s chat settings 
         /// 
-        /// PatchChatsUserSettings is a preview method and is subject to both breaking and non-breaking changes at any time without notice
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">User ID</param>
@@ -6847,9 +6847,8 @@ namespace PureCloudPlatform.Client.V2.Api
         }
 
         /// <summary>
-        /// Update a user's chat settings 
+        /// Update a user&#39;s chat settings 
         /// 
-        /// PatchChatsUserSettings is a preview method and is subject to both breaking and non-breaking changes at any time without notice
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">User ID</param>
@@ -6868,11 +6867,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/chats/users/{userId}/settings";
+            var localVarHttpMethod = "Patch";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -6922,20 +6922,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Patch, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PatchChatsUserSettings: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -6952,41 +6945,40 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Update a user's chat settings 
+        /// Update a user&#39;s chat settings 
         /// 
-        /// PatchChatsUsersMeSettings is a preview method and is subject to both breaking and non-breaking changes at any time without notice
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
-        /// <returns>ChatUserSettings</returns>
+        /// <returns>UserSettingsForChat</returns>
         
-        public ChatUserSettings PatchChatsUsersMeSettings (ChatUserSettings body)
+        public UserSettingsForChat PatchChatsUsersMeSettings (UserSettingsForChat body)
         {
-             ApiResponse<ChatUserSettings> localVarResponse = PatchChatsUsersMeSettingsWithHttpInfo(body);
+             ApiResponse<UserSettingsForChat> localVarResponse = PatchChatsUsersMeSettingsWithHttpInfo(body);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Update a user's chat settings 
+        /// Update a user&#39;s chat settings 
         /// 
-        /// PatchChatsUsersMeSettings is a preview method and is subject to both breaking and non-breaking changes at any time without notice
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
-        /// <returns>ApiResponse of ChatUserSettings</returns>
+        /// <returns>ApiResponse of UserSettingsForChat</returns>
         
-        public ApiResponse< ChatUserSettings > PatchChatsUsersMeSettingsWithHttpInfo (ChatUserSettings body)
+        public ApiResponse< UserSettingsForChat > PatchChatsUsersMeSettingsWithHttpInfo (UserSettingsForChat body)
         { 
             // verify the required parameter 'body' is set
             if (body == null)
                 throw new ApiException(400, "Missing required parameter 'body' when calling ChatApi->PatchChatsUsersMeSettings");
 
             var localVarPath = "/api/v2/chats/users/me/settings";
+            var localVarHttpMethod = "Patch";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -7035,60 +7027,51 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Patch, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PatchChatsUsersMeSettings: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
             else if (localVarStatusCode == 0)
                 throw new ApiException (localVarStatusCode, "Error calling PatchChatsUsersMeSettings: " + localVarResponse.ErrorMessage, localVarResponse.ErrorMessage);
 
-            return new ApiResponse<ChatUserSettings>(localVarStatusCode,
+            return new ApiResponse<UserSettingsForChat>(localVarStatusCode,
                 localVarHeaders,
-                (ChatUserSettings) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ChatUserSettings)),
+                (UserSettingsForChat) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(UserSettingsForChat)),
                 localVarResponse.Content,
                 localVarResponse.StatusDescription);
         }
 
 
         /// <summary>
-        /// Update a user's chat settings 
+        /// Update a user&#39;s chat settings 
         /// 
-        /// PatchChatsUsersMeSettings is a preview method and is subject to both breaking and non-breaking changes at any time without notice
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
-        /// <returns>Task of ChatUserSettings</returns>
+        /// <returns>Task of UserSettingsForChat</returns>
         
-        public async System.Threading.Tasks.Task<ChatUserSettings> PatchChatsUsersMeSettingsAsync (ChatUserSettings body)
+        public async System.Threading.Tasks.Task<UserSettingsForChat> PatchChatsUsersMeSettingsAsync (UserSettingsForChat body)
         {
-             ApiResponse<ChatUserSettings> localVarResponse = await PatchChatsUsersMeSettingsAsyncWithHttpInfo(body);
+             ApiResponse<UserSettingsForChat> localVarResponse = await PatchChatsUsersMeSettingsAsyncWithHttpInfo(body);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Update a user's chat settings 
+        /// Update a user&#39;s chat settings 
         /// 
-        /// PatchChatsUsersMeSettings is a preview method and is subject to both breaking and non-breaking changes at any time without notice
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
-        /// <returns>Task of ApiResponse (ChatUserSettings)</returns>
+        /// <returns>Task of ApiResponse (UserSettingsForChat)</returns>
         
-        public async System.Threading.Tasks.Task<ApiResponse<ChatUserSettings>> PatchChatsUsersMeSettingsAsyncWithHttpInfo (ChatUserSettings body)
+        public async System.Threading.Tasks.Task<ApiResponse<UserSettingsForChat>> PatchChatsUsersMeSettingsAsyncWithHttpInfo (UserSettingsForChat body)
         { 
             // verify the required parameter 'body' is set
             if (body == null)
@@ -7096,11 +7079,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/chats/users/me/settings";
+            var localVarHttpMethod = "Patch";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -7149,29 +7133,22 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Patch, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PatchChatsUsersMeSettings: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
             else if (localVarStatusCode == 0)
                 throw new ApiException (localVarStatusCode, "Error calling PatchChatsUsersMeSettings: " + localVarResponse.ErrorMessage, localVarResponse.ErrorMessage);
 
-            return new ApiResponse<ChatUserSettings>(localVarStatusCode,
+            return new ApiResponse<UserSettingsForChat>(localVarStatusCode,
                 localVarHeaders,
-                (ChatUserSettings) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ChatUserSettings)),
+                (UserSettingsForChat) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(UserSettingsForChat)),
                 localVarResponse.Content,
                 localVarResponse.StatusDescription);
         }
@@ -7212,11 +7189,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling ChatApi->PostChatsRoomMessages");
 
             var localVarPath = "/api/v2/chats/rooms/{roomJid}/messages";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -7266,20 +7244,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostChatsRoomMessages: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -7331,11 +7302,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/chats/rooms/{roomJid}/messages";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -7385,20 +7357,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostChatsRoomMessages: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -7447,11 +7412,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling ChatApi->PostChatsRoomMessagesPins");
 
             var localVarPath = "/api/v2/chats/rooms/{roomJid}/messages/pins";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -7501,20 +7467,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostChatsRoomMessagesPins: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -7565,11 +7524,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/chats/rooms/{roomJid}/messages/pins";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -7619,20 +7579,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostChatsRoomMessagesPins: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -7681,11 +7634,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'userId' when calling ChatApi->PostChatsRoomParticipant");
 
             var localVarPath = "/api/v2/chats/rooms/{roomJid}/participants/{userId}";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -7730,20 +7684,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostChatsRoomParticipant: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -7794,11 +7741,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/chats/rooms/{roomJid}/participants/{userId}";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -7843,20 +7791,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostChatsRoomParticipant: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -7901,11 +7842,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling ChatApi->PostChatsRooms");
 
             var localVarPath = "/api/v2/chats/rooms";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -7954,20 +7896,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostChatsRooms: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -8013,11 +7948,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/chats/rooms";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -8066,20 +8002,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostChatsRooms: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -8129,11 +8058,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling ChatApi->PostChatsUserMessages");
 
             var localVarPath = "/api/v2/chats/users/{userId}/messages";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -8183,20 +8113,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostChatsUserMessages: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -8248,11 +8171,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/chats/users/{userId}/messages";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -8302,20 +8226,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostChatsUserMessages: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -8334,7 +8251,6 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <summary>
         /// Add pinned messages for a 1on1, up to a maximum of 5 pinned messages 
         /// 
-        /// PostChatsUserMessagesPins is a preview method and is subject to both breaking and non-breaking changes at any time without notice
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">userId</param>
@@ -8349,7 +8265,6 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <summary>
         /// Add pinned messages for a 1on1, up to a maximum of 5 pinned messages 
         /// 
-        /// PostChatsUserMessagesPins is a preview method and is subject to both breaking and non-breaking changes at any time without notice
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">userId</param>
@@ -8366,11 +8281,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling ChatApi->PostChatsUserMessagesPins");
 
             var localVarPath = "/api/v2/chats/users/{userId}/messages/pins";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -8420,20 +8336,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostChatsUserMessagesPins: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -8451,7 +8360,6 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <summary>
         /// Add pinned messages for a 1on1, up to a maximum of 5 pinned messages 
         /// 
-        /// PostChatsUserMessagesPins is a preview method and is subject to both breaking and non-breaking changes at any time without notice
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">userId</param>
@@ -8467,7 +8375,6 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <summary>
         /// Add pinned messages for a 1on1, up to a maximum of 5 pinned messages 
         /// 
-        /// PostChatsUserMessagesPins is a preview method and is subject to both breaking and non-breaking changes at any time without notice
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">userId</param>
@@ -8486,11 +8393,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/chats/users/{userId}/messages/pins";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -8540,25 +8448,227 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostChatsUserMessagesPins: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
             else if (localVarStatusCode == 0)
                 throw new ApiException (localVarStatusCode, "Error calling PostChatsUserMessagesPins: " + localVarResponse.ErrorMessage, localVarResponse.ErrorMessage);
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarHeaders,
+                null,
+                localVarResponse.Content,
+                localVarResponse.StatusDescription);
+        }
+
+
+
+        /// <summary>
+        /// Create a user&#39;s chat settings 
+        /// 
+        /// </summary>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body"></param>
+        /// <returns></returns>
+        
+        public void PostChatsUsersMeSettings (UserChatSettingsPost body)
+        {
+             PostChatsUsersMeSettingsWithHttpInfo(body);
+        }
+
+        /// <summary>
+        /// Create a user&#39;s chat settings 
+        /// 
+        /// </summary>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body"></param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        
+        public ApiResponse<Object> PostChatsUsersMeSettingsWithHttpInfo (UserChatSettingsPost body)
+        { 
+            // verify the required parameter 'body' is set
+            if (body == null)
+                throw new ApiException(400, "Missing required parameter 'body' when calling ChatApi->PostChatsUsersMeSettings");
+
+            var localVarPath = "/api/v2/chats/users/me/settings";
+            var localVarHttpMethod = "Post";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<Tuple<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+                
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+
+                "application/json"
+                
+
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+
+            // Path params
+
+            // Query params
+
+            // Header params
+
+            // Form params
+            
+            // Body param
+            if (body != null && body.GetType() != typeof(byte[]))
+                localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
+            else
+                localVarPostBody = body; // byte array
+
+
+
+            // authentication (PureCloud OAuth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
+
+            if (localVarStatusCode >= 400)
+                throw new ApiException (localVarStatusCode, "Error calling PostChatsUsersMeSettings: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
+            else if (localVarStatusCode == 0)
+                throw new ApiException (localVarStatusCode, "Error calling PostChatsUsersMeSettings: " + localVarResponse.ErrorMessage, localVarResponse.ErrorMessage);
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarHeaders,
+                null,
+                localVarResponse.Content,
+                localVarResponse.StatusDescription);
+        }
+
+
+        /// <summary>
+        /// Create a user&#39;s chat settings 
+        /// 
+        /// </summary>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body"></param>
+        /// <returns>Task of void</returns>
+        
+        public async System.Threading.Tasks.Task PostChatsUsersMeSettingsAsync (UserChatSettingsPost body)
+        {
+             await PostChatsUsersMeSettingsAsyncWithHttpInfo(body);
+
+        }
+
+        /// <summary>
+        /// Create a user&#39;s chat settings 
+        /// 
+        /// </summary>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body"></param>
+        /// <returns>Task of ApiResponse</returns>
+        
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> PostChatsUsersMeSettingsAsyncWithHttpInfo (UserChatSettingsPost body)
+        { 
+            // verify the required parameter 'body' is set
+            if (body == null)
+                throw new ApiException(400, "Missing required parameter 'body' when calling ChatApi->PostChatsUsersMeSettings");
+            
+
+            var localVarPath = "/api/v2/chats/users/me/settings";
+            var localVarHttpMethod = "Post";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<Tuple<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+                
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+
+                "application/json"
+
+                
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+
+            // Path params
+
+            // Query params
+
+            // Header params
+
+            // Form params
+            
+            // Body param
+            if (body != null && body.GetType() != typeof(byte[]))
+                localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
+            else
+                localVarPostBody = body; // byte array
+
+
+
+            // authentication (PureCloud OAuth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
+
+            if (localVarStatusCode >= 400)
+                throw new ApiException (localVarStatusCode, "Error calling PostChatsUsersMeSettings: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
+            else if (localVarStatusCode == 0)
+                throw new ApiException (localVarStatusCode, "Error calling PostChatsUsersMeSettings: " + localVarResponse.ErrorMessage, localVarResponse.ErrorMessage);
 
             return new ApiResponse<Object>(localVarStatusCode,
                 localVarHeaders,
@@ -8602,11 +8712,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling ChatApi->PutChatsMessageReactions");
 
             var localVarPath = "/api/v2/chats/messages/{messageId}/reactions";
+            var localVarHttpMethod = "Put";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -8656,20 +8767,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PutChatsMessageReactions: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -8720,11 +8824,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/chats/messages/{messageId}/reactions";
+            var localVarHttpMethod = "Put";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -8774,20 +8879,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PutChatsMessageReactions: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -8832,11 +8930,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling ChatApi->PutChatsSettings");
 
             var localVarPath = "/api/v2/chats/settings";
+            var localVarHttpMethod = "Put";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -8885,20 +8984,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PutChatsSettings: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -8944,11 +9036,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/chats/settings";
+            var localVarHttpMethod = "Put";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -8997,20 +9090,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PutChatsSettings: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);

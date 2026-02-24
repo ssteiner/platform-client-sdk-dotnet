@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using RestSharp;
 using PureCloudPlatform.Client.V2.Client;
 using PureCloudPlatform.Client.V2.Model;
 
@@ -15,6 +14,32 @@ namespace PureCloudPlatform.Client.V2.Api
     public interface IFlowsApi : IApiAccessor
     {
         #region Synchronous Operations
+
+        /// <summary>
+        /// Delete/cancel an async request for flow aggregates
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// DeleteAnalyticsFlowsAggregatesJob is a preview method and is subject to both breaking and non-breaking changes at any time without notice
+        /// </remarks>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jobId">jobId</param>
+        /// <returns></returns>
+        
+        void DeleteAnalyticsFlowsAggregatesJob (string jobId);
+
+        /// <summary>
+        /// Delete/cancel an async request for flow aggregates
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// DeleteAnalyticsFlowsAggregatesJob is a preview method and is subject to both breaking and non-breaking changes at any time without notice
+        /// </remarks>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jobId">jobId</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        
+        ApiResponse<Object> DeleteAnalyticsFlowsAggregatesJobWithHttpInfo (string jobId);
 
         /// <summary>
         /// Get status for async query for Flow aggregates
@@ -175,6 +200,32 @@ namespace PureCloudPlatform.Client.V2.Api
         #endregion Synchronous Operations
 
         #region Asynchronous Operations
+
+        /// <summary>
+        /// Delete/cancel an async request for flow aggregates
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// DeleteAnalyticsFlowsAggregatesJob is a preview method and is subject to both breaking and non-breaking changes at any time without notice
+        /// </remarks>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jobId">jobId</param>
+        /// <returns>Task of void</returns>
+        
+        System.Threading.Tasks.Task DeleteAnalyticsFlowsAggregatesJobAsync (string jobId);
+
+        /// <summary>
+        /// Delete/cancel an async request for flow aggregates
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// DeleteAnalyticsFlowsAggregatesJob is a preview method and is subject to both breaking and non-breaking changes at any time without notice
+        /// </remarks>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jobId">jobId</param>
+        /// <returns>Task of ApiResponse</returns>
+        
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteAnalyticsFlowsAggregatesJobAsyncWithHttpInfo (string jobId);
 
         /// <summary>
         /// Get status for async query for Flow aggregates
@@ -425,41 +476,41 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Get status for async query for Flow aggregates 
+        /// Delete/cancel an async request for flow aggregates 
         /// 
-        /// GetAnalyticsFlowsAggregatesJob is a preview method and is subject to both breaking and non-breaking changes at any time without notice
+        /// DeleteAnalyticsFlowsAggregatesJob is a preview method and is subject to both breaking and non-breaking changes at any time without notice
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="jobId">jobId</param>
-        /// <returns>AsyncQueryStatus</returns>
+        /// <returns></returns>
         
-        public AsyncQueryStatus GetAnalyticsFlowsAggregatesJob (string jobId)
+        public void DeleteAnalyticsFlowsAggregatesJob (string jobId)
         {
-             ApiResponse<AsyncQueryStatus> localVarResponse = GetAnalyticsFlowsAggregatesJobWithHttpInfo(jobId);
-             return localVarResponse.Data;
+             DeleteAnalyticsFlowsAggregatesJobWithHttpInfo(jobId);
         }
 
         /// <summary>
-        /// Get status for async query for Flow aggregates 
+        /// Delete/cancel an async request for flow aggregates 
         /// 
-        /// GetAnalyticsFlowsAggregatesJob is a preview method and is subject to both breaking and non-breaking changes at any time without notice
+        /// DeleteAnalyticsFlowsAggregatesJob is a preview method and is subject to both breaking and non-breaking changes at any time without notice
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="jobId">jobId</param>
-        /// <returns>ApiResponse of AsyncQueryStatus</returns>
+        /// <returns>ApiResponse of Object(void)</returns>
         
-        public ApiResponse< AsyncQueryStatus > GetAnalyticsFlowsAggregatesJobWithHttpInfo (string jobId)
+        public ApiResponse<Object> DeleteAnalyticsFlowsAggregatesJobWithHttpInfo (string jobId)
         { 
             // verify the required parameter 'jobId' is set
             if (jobId == null)
-                throw new ApiException(400, "Missing required parameter 'jobId' when calling FlowsApi->GetAnalyticsFlowsAggregatesJob");
+                throw new ApiException(400, "Missing required parameter 'jobId' when calling FlowsApi->DeleteAnalyticsFlowsAggregatesJob");
 
             var localVarPath = "/api/v2/analytics/flows/aggregates/jobs/{jobId}";
+            var localVarHttpMethod = "Delete";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -503,20 +554,217 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
+
+            if (localVarStatusCode >= 400)
+                throw new ApiException (localVarStatusCode, "Error calling DeleteAnalyticsFlowsAggregatesJob: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
+            else if (localVarStatusCode == 0)
+                throw new ApiException (localVarStatusCode, "Error calling DeleteAnalyticsFlowsAggregatesJob: " + localVarResponse.ErrorMessage, localVarResponse.ErrorMessage);
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarHeaders,
+                null,
+                localVarResponse.Content,
+                localVarResponse.StatusDescription);
+        }
+
+
+        /// <summary>
+        /// Delete/cancel an async request for flow aggregates 
+        /// 
+        /// DeleteAnalyticsFlowsAggregatesJob is a preview method and is subject to both breaking and non-breaking changes at any time without notice
+        /// </summary>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jobId">jobId</param>
+        /// <returns>Task of void</returns>
+        
+        public async System.Threading.Tasks.Task DeleteAnalyticsFlowsAggregatesJobAsync (string jobId)
+        {
+             await DeleteAnalyticsFlowsAggregatesJobAsyncWithHttpInfo(jobId);
+
+        }
+
+        /// <summary>
+        /// Delete/cancel an async request for flow aggregates 
+        /// 
+        /// DeleteAnalyticsFlowsAggregatesJob is a preview method and is subject to both breaking and non-breaking changes at any time without notice
+        /// </summary>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jobId">jobId</param>
+        /// <returns>Task of ApiResponse</returns>
+        
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteAnalyticsFlowsAggregatesJobAsyncWithHttpInfo (string jobId)
+        { 
+            // verify the required parameter 'jobId' is set
+            if (jobId == null)
+                throw new ApiException(400, "Missing required parameter 'jobId' when calling FlowsApi->DeleteAnalyticsFlowsAggregatesJob");
+            
+
+            var localVarPath = "/api/v2/analytics/flows/aggregates/jobs/{jobId}";
+            var localVarHttpMethod = "Delete";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<Tuple<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+
+                "application/json"
+
+                
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+
+            // Path params
+            if (jobId != null) localVarPathParams.Add("jobId", this.Configuration.ApiClient.ParameterToString(jobId));
+
+            // Query params
+
+            // Header params
+
+            // Form params
+            
+            // Body param
+
+
+            // authentication (PureCloud OAuth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
+
+            if (localVarStatusCode >= 400)
+                throw new ApiException (localVarStatusCode, "Error calling DeleteAnalyticsFlowsAggregatesJob: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
+            else if (localVarStatusCode == 0)
+                throw new ApiException (localVarStatusCode, "Error calling DeleteAnalyticsFlowsAggregatesJob: " + localVarResponse.ErrorMessage, localVarResponse.ErrorMessage);
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarHeaders,
+                null,
+                localVarResponse.Content,
+                localVarResponse.StatusDescription);
+        }
+
+
+
+        /// <summary>
+        /// Get status for async query for Flow aggregates 
+        /// 
+        /// GetAnalyticsFlowsAggregatesJob is a preview method and is subject to both breaking and non-breaking changes at any time without notice
+        /// </summary>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jobId">jobId</param>
+        /// <returns>AsyncQueryStatus</returns>
+        
+        public AsyncQueryStatus GetAnalyticsFlowsAggregatesJob (string jobId)
+        {
+             ApiResponse<AsyncQueryStatus> localVarResponse = GetAnalyticsFlowsAggregatesJobWithHttpInfo(jobId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get status for async query for Flow aggregates 
+        /// 
+        /// GetAnalyticsFlowsAggregatesJob is a preview method and is subject to both breaking and non-breaking changes at any time without notice
+        /// </summary>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jobId">jobId</param>
+        /// <returns>ApiResponse of AsyncQueryStatus</returns>
+        
+        public ApiResponse< AsyncQueryStatus > GetAnalyticsFlowsAggregatesJobWithHttpInfo (string jobId)
+        { 
+            // verify the required parameter 'jobId' is set
+            if (jobId == null)
+                throw new ApiException(400, "Missing required parameter 'jobId' when calling FlowsApi->GetAnalyticsFlowsAggregatesJob");
+
+            var localVarPath = "/api/v2/analytics/flows/aggregates/jobs/{jobId}";
+            var localVarHttpMethod = "Get";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<Tuple<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+
+                "application/json"
+                
+
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+
+            // Path params
+            if (jobId != null) localVarPathParams.Add("jobId", this.Configuration.ApiClient.ParameterToString(jobId));
+
+            // Query params
+
+            // Header params
+
+            // Form params
+            
+            // Body param
+
+
+            // authentication (PureCloud OAuth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetAnalyticsFlowsAggregatesJob: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -564,11 +812,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/analytics/flows/aggregates/jobs/{jobId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -612,20 +861,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetAnalyticsFlowsAggregatesJob: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -674,11 +916,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'jobId' when calling FlowsApi->GetAnalyticsFlowsAggregatesJobResults");
 
             var localVarPath = "/api/v2/analytics/flows/aggregates/jobs/{jobId}/results";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -723,20 +966,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetAnalyticsFlowsAggregatesJobResults: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -786,11 +1022,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/analytics/flows/aggregates/jobs/{jobId}/results";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -835,20 +1072,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetAnalyticsFlowsAggregatesJobResults: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -897,11 +1127,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling FlowsApi->PostAnalyticsFlowsActivityQuery");
 
             var localVarPath = "/api/v2/analytics/flows/activity/query";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -952,20 +1183,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostAnalyticsFlowsActivityQuery: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -1015,11 +1239,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/analytics/flows/activity/query";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -1070,20 +1295,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostAnalyticsFlowsActivityQuery: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -1130,11 +1348,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling FlowsApi->PostAnalyticsFlowsAggregatesJobs");
 
             var localVarPath = "/api/v2/analytics/flows/aggregates/jobs";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -1183,20 +1402,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostAnalyticsFlowsAggregatesJobs: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -1244,11 +1456,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/analytics/flows/aggregates/jobs";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -1297,20 +1510,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostAnalyticsFlowsAggregatesJobs: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -1355,11 +1561,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling FlowsApi->PostAnalyticsFlowsAggregatesQuery");
 
             var localVarPath = "/api/v2/analytics/flows/aggregates/query";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -1408,20 +1615,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostAnalyticsFlowsAggregatesQuery: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -1467,11 +1667,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/analytics/flows/aggregates/query";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -1520,20 +1721,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostAnalyticsFlowsAggregatesQuery: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -1578,11 +1772,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling FlowsApi->PostAnalyticsFlowsObservationsQuery");
 
             var localVarPath = "/api/v2/analytics/flows/observations/query";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -1631,20 +1826,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostAnalyticsFlowsObservationsQuery: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -1690,11 +1878,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/analytics/flows/observations/query";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -1743,20 +1932,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostAnalyticsFlowsObservationsQuery: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);

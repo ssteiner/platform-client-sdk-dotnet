@@ -15,14 +15,14 @@
 | **OptimizationObjective** | **string** | The optimization objective of this activity plan | |
 | **RecurrenceSettings** | [**RecurrenceSettings**](RecurrenceSettings) | Recurrence settings for this activity plan | [optional] |
 | **State** | **string** | The state of this activity plan | |
-| **LastRunDate** | **DateTime?** | The date the activity plan was last run, in ISO-8601 format | [optional] |
+| **LastRunDate** | **DateTime?** | The date on which the activity plan was last manually run, in ISO-8601 format | [optional] |
 | **LastRunBy** | [**UserReference**](UserReference) | The last user to run this activity plan | [optional] |
 | **CreatedDate** | **DateTime?** | The date the activity plan was created, in ISO-8601 format | |
 | **CreatedBy** | [**UserReference**](UserReference) | The user who created this activity plan | |
 | **ModifiedDate** | **DateTime?** | The date the activity plan was modified, in ISO-8601 format | |
-| **ModifiedBy** | [**UserReference**](UserReference) | The last user to modify this activity plan | |
+| **ModifiedBy** | [**UserReference**](UserReference) | The last user to modify this activity plan. The id may be &#39;System&#39; if it was an automated process | |
 | **SelfUri** | **string** | The URI for this object | [optional] |
 
 
 
-_PureCloudPlatform.Client.V2 227.0.0_
+_PureCloudPlatform.Client.V2 257.0.0_

@@ -19,9 +19,9 @@ namespace PureCloudPlatform.Client.V2.Model
     public partial class ReplacementTerm :  IEquatable<ReplacementTerm>
     {
         /// <summary>
-        /// Social Handle Type
+        /// Replacement term type
         /// </summary>
-        /// <value>Social Handle Type</value>
+        /// <value>Replacement term type</value>
         [JsonConverter(typeof(UpgradeSdkEnumConverter))]
         public enum TypeEnum
         {
@@ -61,18 +61,42 @@ namespace PureCloudPlatform.Client.V2.Model
             /// Enum Twitter for "TWITTER"
             /// </summary>
             [EnumMember(Value = "TWITTER")]
-            Twitter
+            Twitter,
+            
+            /// <summary>
+            /// Enum Instagram for "INSTAGRAM"
+            /// </summary>
+            [EnumMember(Value = "INSTAGRAM")]
+            Instagram,
+            
+            /// <summary>
+            /// Enum Facebook for "FACEBOOK"
+            /// </summary>
+            [EnumMember(Value = "FACEBOOK")]
+            Facebook,
+            
+            /// <summary>
+            /// Enum AppleMessages for "APPLE_MESSAGES"
+            /// </summary>
+            [EnumMember(Value = "APPLE_MESSAGES")]
+            AppleMessages,
+            
+            /// <summary>
+            /// Enum ExternalId for "EXTERNAL_ID"
+            /// </summary>
+            [EnumMember(Value = "EXTERNAL_ID")]
+            ExternalId
         }
         /// <summary>
-        /// Social Handle Type
+        /// Replacement term type
         /// </summary>
-        /// <value>Social Handle Type</value>
+        /// <value>Replacement term type</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public TypeEnum? Type { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="ReplacementTerm" /> class.
         /// </summary>
-        /// <param name="Type">Social Handle Type.</param>
+        /// <param name="Type">Replacement term type.</param>
         /// <param name="ExistingValue">ExistingValue.</param>
         /// <param name="UpdatedValue">UpdatedValue.</param>
         public ReplacementTerm(TypeEnum? Type = null, string ExistingValue = null, string UpdatedValue = null)

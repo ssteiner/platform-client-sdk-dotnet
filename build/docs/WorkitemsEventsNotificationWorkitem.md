@@ -11,14 +11,14 @@
 | **TypeId** | **string** |  | [optional] |
 | **Description** | **string** |  | [optional] |
 | **LanguageId** | **string** |  | [optional] |
-| **Priority** | **int?** |  | [optional] |
+| **Priority** | **long?** |  | [optional] |
 | **DateCreated** | **string** |  | [optional] |
 | **DateModified** | **string** |  | [optional] |
 | **DateDue** | **string** |  | [optional] |
 | **DateExpires** | **string** |  | [optional] |
 | **DateAssignmentStateChanged** | **string** |  | [optional] |
-| **DurationSeconds** | **int?** |  | [optional] |
-| **Ttl** | **int?** |  | [optional] |
+| **DurationSeconds** | **long?** |  | [optional] |
+| **Ttl** | **long?** |  | [optional] |
 | **StatusId** | **string** |  | [optional] |
 | **StatusCategory** | **string** |  | [optional] |
 | **DateClosed** | **string** |  | [optional] |
@@ -31,16 +31,24 @@
 | **ModifiedBy** | **string** |  | [optional] |
 | **Operation** | **string** |  | [optional] |
 | **Changes** | [**List&lt;WorkitemsEventsNotificationDelta&gt;**](WorkitemsEventsNotificationDelta) |  | [optional] |
+| **PropertyChanges** | [**List&lt;WorkitemsEventsNotificationPropertyChange&gt;**](WorkitemsEventsNotificationPropertyChange) |  | [optional] |
 | **AssignmentState** | **string** |  | [optional] |
 | **AssignmentId** | **string** |  | [optional] |
-| **AlertTimeoutSeconds** | **int?** |  | [optional] |
+| **AlertTimeoutSeconds** | **long?** |  | [optional] |
 | **QueueId** | **string** |  | [optional] |
 | **CustomFields** | [**Dictionary&lt;string, WorkitemsEventsNotificationCustomAttribute&gt;**](WorkitemsEventsNotificationCustomAttribute) |  | [optional] |
 | **Wrapup** | [**WorkitemsEventsNotificationWrapup**](WorkitemsEventsNotificationWrapup) |  | [optional] |
 | **Sessions** | [**List&lt;WorkitemsEventsNotificationSession&gt;**](WorkitemsEventsNotificationSession) |  | [optional] |
 | **SkillIds** | **List&lt;Guid?&gt;** |  | [optional] |
 | **ScriptId** | **string** |  | [optional] |
+| **WorkbinName** | **string** |  | [optional] |
+| **TypeName** | **string** |  | [optional] |
+| **PreferredAgentIds** | **List&lt;Guid?&gt;** |  | [optional] |
+| **DivisionId** | **string** |  | [optional] |
+| **ScoredAgents** | [**List&lt;WorkitemsEventsNotificationScoredAgent&gt;**](WorkitemsEventsNotificationScoredAgent) |  | [optional] |
+| **UtilizationLabelId** | **string** |  | [optional] |
+| **CaseId** | **string** |  | [optional] |
 
 
 
-_PureCloudPlatform.Client.V2 227.0.0_
+_PureCloudPlatform.Client.V2 257.0.0_

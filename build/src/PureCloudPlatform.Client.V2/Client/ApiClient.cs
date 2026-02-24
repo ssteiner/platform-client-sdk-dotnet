@@ -11,9 +11,9 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using Newtonsoft.Json;
-using RestSharp;
 using PureCloudPlatform.Client.V2.Extensions;
 using System.Net.Http;
+using System.Security.Cryptography.X509Certificates;
 
 namespace PureCloudPlatform.Client.V2.Client
 {
@@ -27,6 +27,13 @@ namespace PureCloudPlatform.Client.V2.Client
             ConstructorHandling = ConstructorHandling.AllowNonPublicDefaultConstructor,
             MetadataPropertyHandling = MetadataPropertyHandling.Ignore
         };
+
+        // Future - To enable for serialization (currently unused)
+        // private JsonSerializerSettings apiSerializerSettings = new JsonSerializerSettings
+        // {
+        //     ConstructorHandling = ConstructorHandling.AllowNonPublicDefaultConstructor,
+        //     MetadataPropertyHandling = MetadataPropertyHandling.Ignore
+        // };
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiClient" /> class
@@ -92,6 +99,9 @@ namespace PureCloudPlatform.Client.V2.Client
         {
             serializerSettings.Converters.Add(new Iso8601DateTimeConverter());
             serializerSettings.Converters.Add(new UpgradeSdkEnumConverter());
+            serializerSettings.Converters.Add(new YearMonthConverter());
+            // Future - To enable for serialization (currently unused)
+            // apiSerializerSettings.Converters.Add(new YearMonthConverter());
         }
 
         /// <summary>
@@ -107,17 +117,26 @@ namespace PureCloudPlatform.Client.V2.Client
         /// <value>An instance of the Configuration.</value>
         public Configuration Configuration { get; set; }
 
-        /// <summary>
-        /// Gets or sets the RestClient.
-        /// </summary>
-        /// <value>An instance of the RestClient</value>
-        private RestClient RestClient { get; set; }
-
         private RetryConfiguration retryConfig;
-        public RetryConfiguration RetryConfig { get; set; }
+        ///<Summary>
+        /// Gets or Sets the Retry Configuration
+        ///</Summary>
+        public RetryConfiguration RetryConfig {
+            get
+            {
+                return this.retryConfig;
+            }
+            set
+            {
+                this.retryConfig = value;
+            }
+        }
         private static readonly RetryConfiguration DEFAULT_RETRY_CONFIG = new RetryConfiguration();
 
         private GatewayConfiguration gatewayConfig;
+        ///<Summary>
+        /// Gets or Sets the Gateway Configuration
+        ///</Summary>
         public GatewayConfiguration GatewayConfig {
             get
             {
@@ -134,6 +153,47 @@ namespace PureCloudPlatform.Client.V2.Client
             }
         }
 
+        private AbstractHttpClient httpClient;
+        ///<Summary>
+        /// Gets or Sets the HttpClient
+        ///</Summary>
+        public AbstractHttpClient HttpClient {
+            get
+            {
+                if (httpClient != null) {
+                    return this.httpClient;
+                } else {
+                    httpClient = new DefaultHttpClient(ClientOptions, Configuration);
+                    return this.httpClient;
+                }
+            }
+            set
+            {
+                if (!(value is AbstractHttpClient)) {
+                    throw new ArgumentException("httpclient must be an instance of AbstractHttpClient. See DefaultltHttpClient for a prototype");
+                }
+                httpClient = value;
+            }
+        }
+
+        ///<Summary>
+        /// Sets the ApiClients X509 certificate
+        ///</Summary>
+        public void SetMTLSCertificates(string certPath, string certPass)
+        {
+            var cert = new X509Certificate2(
+                certPath,
+                certPass,
+                X509KeyStorageFlags.MachineKeySet | X509KeyStorageFlags.PersistKeySet | X509KeyStorageFlags.Exportable
+            );
+
+            ClientOptions.LocalClientCertificates = new X509CertificateCollection();
+            ClientOptions.LocalClientCertificates.Add(cert);
+        }
+
+        ///<Summary>
+        /// Gets the Login or the API Uri based on Configuration and Gateway Configuration
+        ///</Summary>
         public Uri GetConfUri(String pathType, Uri baseUri) {
             if (pathType.Equals("login")) {
                 if (this.GatewayConfig == null || String.IsNullOrEmpty(this.GatewayConfig.Host)) {
@@ -170,6 +230,9 @@ namespace PureCloudPlatform.Client.V2.Client
             }
         }
 
+        ///<Summary>
+        /// Set Gateway Configuration and credentials
+        ///</Summary>
         public void SetGateway(String host,
             String protocol,
             int port,
@@ -180,6 +243,9 @@ namespace PureCloudPlatform.Client.V2.Client
             this.GatewayConfig = new GatewayConfiguration(host, protocol, port, pathParamsLogin, pathParamsApi, username, password);
         }
 
+        ///<Summary>
+        /// Set Gateway Configuration
+        ///</Summary>
         public void SetGateway(String host,
             String protocol,
             int port,
@@ -190,57 +256,18 @@ namespace PureCloudPlatform.Client.V2.Client
         
 
         // These fields are only applicable to the Code Authorization OAuth flow:
+        ///<Summary>
+        /// Defines if Code Authorization is used
+        ///</Summary>
         public bool UsingCodeAuth { get; set; }
+        ///<Summary>
+        /// OAuth Client Id
+        ///</Summary>
         public string ClientId { get; set; }
+        ///<Summary>
+        /// OUuth Client Secret
+        ///</Summary>
         public string ClientSecret { get; set; }
-
-        public bool UsingClientCredentials { get; set; }
-
-        // Creates and sets up a RestRequest prior to a call.
-        private RestRequest PrepareRequest(
-            String path, RestSharp.Method method, List<Tuple<String, String>> queryParams, Object postBody,
-            Dictionary<String, String> headerParams, Dictionary<String, String> formParams,
-            Dictionary<String, FileParameter> fileParams, Dictionary<String, String> pathParams,
-            String contentType)
-        {
-            var request = new RestRequest(path, method);
-
-            // add path parameter, if any
-            foreach(var param in pathParams)
-                request.AddParameter(param.Key, param.Value, ParameterType.UrlSegment);
-
-            // add header parameter, if any
-            foreach(var param in headerParams)
-                request.AddHeader(param.Key, param.Value);
-
-            // add query parameter, if any
-            foreach(var param in queryParams)
-                request.AddQueryParameter(param.Item1, param.Item2);
-
-            // add form parameter, if any
-            foreach(var param in formParams)
-                request.AddParameter(param.Key, param.Value);
-
-            // add file parameter, if any
-            foreach(var param in fileParams)
-            {
-                request.AddFile(param.Value.Name, param.Value.GetFile, param.Value.FileName, param.Value.ContentType);
-            }
-
-            if (postBody != null) // http body (model or byte[]) parameter
-            {
-                if (postBody.GetType() == typeof(String))
-                {
-                    request.AddParameter("application/json", postBody, ParameterType.RequestBody);
-                }
-                else if (postBody.GetType() == typeof(byte[]))
-                {
-                    request.AddParameter(contentType, postBody, ParameterType.RequestBody);
-                }
-            }
-
-            return request;
-        }
 
         private void HandleExpiredAccessToken()
         {
@@ -289,66 +316,39 @@ namespace PureCloudPlatform.Client.V2.Client
         /// <param name="contentType">Content Type of the request</param>
         /// <returns>Object</returns>
         public Object CallApi(
-            String path, RestSharp.Method method, List<Tuple<String, String>> queryParams, Object postBody,
+            String path, String method, List<Tuple<String, String>> queryParams, Object postBody,
             Dictionary<String, String> headerParams, Dictionary<String, String> formParams,
-            Dictionary<String, FileParameter> fileParams, Dictionary<String, String> pathParams,
+            Dictionary<String, IFileParameter> fileParams, Dictionary<String, String> pathParams,
             String contentType)
         {
-            var request = PrepareRequest(
-                path, method, queryParams, postBody, headerParams, formParams, fileParams,
-                pathParams, contentType);
+            var requestOptions = new HttpRequestOptions(
+                url: path,
+                method: method,
+                queryParams: queryParams,
+                headerParams: headerParams,
+                formParams: formParams,
+                fileParams: fileParams,
+                pathParams: pathParams,
+                postBody: postBody,
+                contentType: contentType
+            );
 
             // Set SDK version
-            request.AddHeader("purecloud-sdk", "227.0.0");
+            requestOptions.AddHeaderParam("purecloud-sdk", "257.0.0");
 
             Retry retry = new Retry(this.RetryConfig);
-            RestResponse response;
-
-
-            var options = new RestClientOptions(GetConfUri("api", ClientOptions.BaseUrl)){};
             
-            if (ClientOptions.HttpMessageHandler != null)
-            {
-                options = new RestClientOptions(GetConfUri("api", ClientOptions.BaseUrl))
-                {
-                    ConfigureMessageHandler = _ => ClientOptions.HttpMessageHandler 
-                };
-               
-            }
+            ClientOptions.Prefix = "api";
 
-            if (Configuration.UserAgent != null)
-            {
-               options.UserAgent = Configuration.UserAgent;   
-            }
+            IHttpResponse response;
 
-            if (Configuration.Timeout > 0)
-            {
-                options.MaxTimeout = Configuration.Timeout;   
-            }
-
-            if (ClientOptions.Proxy != null)
-            {
-                options.Proxy = ClientOptions.Proxy;   
-            }
-
-            RestClient = new RestClient(options);
-
-            var fullUrl = RestClient.BuildUri(request);
-            string url = fullUrl == null ? path : fullUrl.ToString();
             do
             {
-                response = RestClient.Execute(request);
-                Configuration.Logger.Debug(method.ToString(), url, postBody, (int)response.StatusCode, headerParams);
-                Configuration.Logger.Trace(method.ToString(), url, postBody, (int)response.StatusCode, headerParams, response.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>());
+                response = HttpClient.Execute(requestOptions);
+                Configuration.Logger.Debug(method, path, postBody, (int)response.StatusCode, headerParams);
+                Configuration.Logger.Trace(method, path, postBody, (int)response.StatusCode, headerParams, response.Headers ?? new Dictionary<string, string>());
 
-            }while(retry.ShouldRetry(response));
+            } while(retry.ShouldRetry(response));
 
             if ((UsingCodeAuth || UsingClientCredentials) && Configuration.ShouldRefreshAccessToken)
             {
@@ -362,15 +362,7 @@ namespace PureCloudPlatform.Client.V2.Client
             }
 
             if ((int)response.StatusCode < 200 || (int)response.StatusCode >= 300)
-                Configuration.Logger.Error(method.ToString(), url, postBody, response.Content, (int)response.StatusCode, headerParams, response.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>());
-
+                Configuration.Logger.Error(method, path, postBody, response.Content, (int)response.StatusCode, headerParams, response.Headers ?? new Dictionary<string, string>());
 
             return (Object) response;
         }
@@ -388,61 +380,36 @@ namespace PureCloudPlatform.Client.V2.Client
         /// <param name="contentType">Content type.</param>
         /// <returns>The Task instance.</returns>
         public async System.Threading.Tasks.Task<Object> CallApiAsync(
-            String path, RestSharp.Method method, List<Tuple<String, String>> queryParams, Object postBody,
+            String path, String method, List<Tuple<String, String>> queryParams, Object postBody,
             Dictionary<String, String> headerParams, Dictionary<String, String> formParams,
-            Dictionary<String, FileParameter> fileParams, Dictionary<String, String> pathParams,
+            Dictionary<String, IFileParameter> fileParams, Dictionary<String, String> pathParams,
             String contentType)
         {
-            var request = PrepareRequest(
-                path, method, queryParams, postBody, headerParams, formParams, fileParams,
-                pathParams, contentType);
+            var requestOptions = new HttpRequestOptions(
+                url: path,
+                method: method,
+                queryParams: queryParams,
+                headerParams: headerParams,
+                formParams: formParams,
+                fileParams: fileParams,
+                pathParams: pathParams,
+                postBody: postBody,
+                contentType: contentType
+            );
 
-             Retry retry = new Retry(this.RetryConfig);
-             RestResponse response;
-
-             var options = new RestClientOptions(GetConfUri("api", ClientOptions.BaseUrl)){};
+            Retry retry = new Retry(this.RetryConfig);
             
-            if (ClientOptions.HttpMessageHandler != null)
-            {
-                options = new RestClientOptions(GetConfUri("api", ClientOptions.BaseUrl))
-                {
-                    ConfigureMessageHandler = _ => ClientOptions.HttpMessageHandler 
-                };
-               
-            }
+            ClientOptions.Prefix = "api";
 
-            if (Configuration.UserAgent != null)
-            {
-               options.UserAgent = Configuration.UserAgent;   
-            }
+            IHttpResponse response;
 
-            if (ClientOptions.Proxy != null)
-            {
-                options.Proxy = ClientOptions.Proxy;   
-            }
-
-            if (Configuration.Timeout > 0)
-            {
-                options.MaxTimeout = Configuration.Timeout;   
-            }
-
-            RestClient = new RestClient(options);
-
-            var fullUrl = RestClient.BuildUri(request);
-            string url = fullUrl == null ? path : fullUrl.ToString();
             do
             {
-                response = await RestClient.ExecuteAsync(request);
-                Configuration.Logger.Debug(method.ToString(), url, postBody, (int)response.StatusCode, headerParams);
-                Configuration.Logger.Trace(method.ToString(), url, postBody, (int)response.StatusCode, headerParams, response.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>());
-            }while(retry.ShouldRetry(response));
+                response = await HttpClient.ExecuteAsync(requestOptions);
+                Configuration.Logger.Debug(method, path, postBody, (int)response.StatusCode, headerParams);
+                Configuration.Logger.Trace(method, path, postBody, (int)response.StatusCode, headerParams, response.Headers ?? new Dictionary<string, string>());
+            
+            } while(retry.ShouldRetry(response));
 
             if ((UsingCodeAuth || UsingClientCredentials) && Configuration.ShouldRefreshAccessToken)
             {
@@ -455,16 +422,6 @@ namespace PureCloudPlatform.Client.V2.Client
                 }
             }
 
-            if ((int)response.StatusCode < 200 || (int)response.StatusCode >= 300)
-                Configuration.Logger.Error(method.ToString(), url, postBody, response.Content, (int)response.StatusCode, headerParams, response.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                             {
-                                                                 Name = header?.FirstOrDefault()?.Name,
-                                                                 Value = header.Select(x => x?.Value)?.ToList()
-                                                             }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray()))
-                                                        ?? new Dictionary<string, string>());
-
             return (Object)response;
         }
 
@@ -476,20 +433,6 @@ namespace PureCloudPlatform.Client.V2.Client
         public string EscapeString(string str)
         {
             return UrlEncode(str);
-        }
-
-        /// <summary>
-        /// Create FileParameter based on Stream.
-        /// </summary>
-        /// <param name="name">Parameter name.</param>
-        /// <param name="stream">Input stream.</param>
-        /// <returns>FileParameter.</returns>
-        public FileParameter ParameterToFile(string name, Stream stream)
-        {
-            if (stream is FileStream)
-                return FileParameter.Create(name, ReadAsBytes(stream), Path.GetFileName(((FileStream)stream).Name));
-            else
-                return FileParameter.Create(name, ReadAsBytes(stream), "no_file_name_provided");
         }
 
         /// <summary>
@@ -528,6 +471,11 @@ namespace PureCloudPlatform.Client.V2.Client
             {
                 return Convert.ToString(obj).ToLower();
             }
+            else if (obj is YearMonth)
+            {
+                YearMonth ym = (YearMonth) obj;
+                return String.Format("{0:0000}", ym.Year) + "-" + String.Format("{0:00}", ym.Month);
+            }
             else
                 return Convert.ToString (obj);
         }
@@ -560,9 +508,9 @@ namespace PureCloudPlatform.Client.V2.Client
         /// <param name="response">The HTTP response.</param>
         /// <param name="type">Object type.</param>
         /// <returns>Object representation of the JSON string.</returns>
-        public object Deserialize(RestResponse response, Type type)
+        public object Deserialize(IHttpResponse response, Type type)
         {
-            IReadOnlyCollection<RestSharp.HeaderParameter> headers = response.Headers;
+            Dictionary<string, string> headers = response.Headers;
             if (type == typeof(byte[])) // return byte array
             {
                 return response.RawBytes;
@@ -623,6 +571,8 @@ namespace PureCloudPlatform.Client.V2.Client
             {
                 if (obj != null){
                     return obj is string str ? str : JsonConvert.SerializeObject(obj);
+                    // Future - To enable for serialization (currently unused)
+                    // return obj is string str ? str : JsonConvert.SerializeObject(obj, apiSerializerSettings);
                 } else {
                     return null;
                 }
@@ -765,6 +715,9 @@ namespace PureCloudPlatform.Client.V2.Client
             }
         }
 
+        ///<Summary>
+        /// Retry Configuration class
+        ///</Summary>
         public class RetryConfiguration
         {
             private long backoffIntervalMs = 300000L;
@@ -772,6 +725,9 @@ namespace PureCloudPlatform.Client.V2.Client
             private int maxRetryTimeSec = 0;
             private int retryMax = 5;
 
+            ///<Summary>
+            /// BackOff Interval (Ms)
+            ///</Summary>
             public long BackOffIntervalMs
             {
                 get
@@ -789,6 +745,9 @@ namespace PureCloudPlatform.Client.V2.Client
                 }
             }
 
+            ///<Summary>
+            /// RetryAfter Default (Ms)
+            ///</Summary>
             public long RetryAfterDefaultMs
             {
                 get
@@ -805,7 +764,10 @@ namespace PureCloudPlatform.Client.V2.Client
                 }
             }
 
-            public int MaxRetryTimeSec
+            ///<Summary>
+            /// Max RetryTime (Sec)
+            ///</Summary>
+           public int MaxRetryTimeSec
             {
                 get
                 {
@@ -821,6 +783,9 @@ namespace PureCloudPlatform.Client.V2.Client
                 }
             }
 
+            ///<Summary>
+            /// Retry Max
+            ///</Summary>
             public int RetryMax
             {
                 get
@@ -838,6 +803,9 @@ namespace PureCloudPlatform.Client.V2.Client
             }
         }
 
+        ///<Summary>
+        /// Gateway Configuration class
+        ///</Summary>
         public class GatewayConfiguration
         {
 
@@ -862,6 +830,9 @@ namespace PureCloudPlatform.Client.V2.Client
             // Gateway Password (future)
             private String password = null;
 
+            ///<Summary>
+            /// GatewayConfiguration default constructor
+            ///</Summary>
             public GatewayConfiguration()
             {
                 this.protocol = "https";
@@ -870,6 +841,9 @@ namespace PureCloudPlatform.Client.V2.Client
                 this.pathParamsApi = "";
             }
 
+            ///<Summary>
+            /// GatewayConfiguration constructor with configuration and credentials
+            ///</Summary>
             public GatewayConfiguration(String host,
                 String protocol,
                 int port,
@@ -887,6 +861,9 @@ namespace PureCloudPlatform.Client.V2.Client
                 this.Password = password;
             }
 
+            ///<Summary>
+            /// GatewayConfiguration constructor with configuration
+            ///</Summary>
             public GatewayConfiguration(String host,
                 String protocol,
                 int port,
@@ -900,6 +877,9 @@ namespace PureCloudPlatform.Client.V2.Client
                 this.PathParamsApi = pathParamsApi;
             }
 
+            ///<Summary>
+            /// Gateway Host
+            ///</Summary>
             public String Host
             {
                 get
@@ -914,6 +894,9 @@ namespace PureCloudPlatform.Client.V2.Client
                 }
             }
 
+            ///<Summary>
+            /// Gateway Protocol
+            ///</Summary>
             public String Protocol
             {
                 get
@@ -930,6 +913,9 @@ namespace PureCloudPlatform.Client.V2.Client
                 }
             }
 
+            ///<Summary>
+            /// Gateway Port
+            ///</Summary>
             public int Port
             {
                 get
@@ -946,6 +932,9 @@ namespace PureCloudPlatform.Client.V2.Client
                 }
             }
 
+            ///<Summary>
+            /// Gateway Path Params for Login
+            ///</Summary>
             public String PathParamsLogin
             {
                 get
@@ -965,6 +954,9 @@ namespace PureCloudPlatform.Client.V2.Client
                 }
             }
 
+            ///<Summary>
+            /// Gateway Path Params for Api
+            ///</Summary>
             public String PathParamsApi
             {
                 get
@@ -984,6 +976,9 @@ namespace PureCloudPlatform.Client.V2.Client
                 }
             }
 
+            ///<Summary>
+            /// Username
+            ///</Summary>
             public String Username
             {
                 get
@@ -998,6 +993,9 @@ namespace PureCloudPlatform.Client.V2.Client
                 }
             }
 
+            ///<Summary>
+            /// Password
+            ///</Summary>
             public String Password
             {
                 get
@@ -1013,39 +1011,11 @@ namespace PureCloudPlatform.Client.V2.Client
             }
         }
 
+        ///<Summary>
+        /// ClientOptions
+        ///</Summary>
         public ClientRestOptions ClientOptions { get; set; }
-        public class ClientRestOptions
-        {
-            public Uri BaseUrl { get; set; }
-            private System.Net.IWebProxy proxy;
-            private HttpMessageHandler httpMessageHandler;
-
-            public HttpMessageHandler HttpMessageHandler
-            {
-                get
-                {
-                    return httpMessageHandler;
-                }
-                set
-                {
-                    this.httpMessageHandler = value;
-                }
-            }
-
-            public System.Net.IWebProxy Proxy
-            {
-                get
-                {
-                    return proxy;
-                }
-                set
-                {
-                    this.proxy = value;
-                }
-            }
-            
-        }
-
+        
         private class Retry
         {
             private long backoffIntervalMs;
@@ -1073,21 +1043,21 @@ namespace PureCloudPlatform.Client.V2.Client
             /// <summary>
             /// Check if retryable
             /// </summary>
-            /// <param name="response">RestResponse</param>
+            /// <param name="response">IHttpResponse</param>
             /// <returns>bool</returns>
-            public bool ShouldRetry(RestResponse response)
+            public bool ShouldRetry(IHttpResponse response)
             {
                 if (stopwatch.ElapsedMilliseconds < maxRetryTimeSec * 1000L && statusCodes.Contains((int)response.StatusCode) && retryCount <= retryMax)
                 {
                    var retryAfterHeader = response.Headers
     .Select(header => new 
     { 
-        Name = header?.Name, 
-        Value = header?.Value, 
+        Key = header.Key,
+        Value = header.Value,
     })
-    .FirstOrDefault(header => header.Name.ToString().Equals("Retry-After"));
+    .FirstOrDefault(header => header.Key.Equals("Retry-After"));
 
-                    if (retryAfterHeader != null && Int32.TryParse(retryAfterHeader.Value.ToString(), out int retryAfterSec))
+                    if (retryAfterHeader != null && Int32.TryParse(retryAfterHeader.Value, out int retryAfterSec))
                     {
                         retryAfterMs =  retryAfterSec * 1000;
                     }

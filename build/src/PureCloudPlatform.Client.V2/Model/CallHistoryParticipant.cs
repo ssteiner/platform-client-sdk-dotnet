@@ -154,7 +154,25 @@ namespace PureCloudPlatform.Client.V2.Model
             /// Enum Spam for "spam"
             /// </summary>
             [EnumMember(Value = "spam")]
-            Spam
+            Spam,
+            
+            /// <summary>
+            /// Enum Inactivity for "inactivity"
+            /// </summary>
+            [EnumMember(Value = "inactivity")]
+            Inactivity,
+            
+            /// <summary>
+            /// Enum Sessionexpired for "session.expired"
+            /// </summary>
+            [EnumMember(Value = "session.expired")]
+            Sessionexpired,
+            
+            /// <summary>
+            /// Enum Takeover for "takeover"
+            /// </summary>
+            [EnumMember(Value = "takeover")]
+            Takeover
         }
         /// <summary>
         /// The reason specifying why participant flagged the conversation.
@@ -203,8 +221,8 @@ namespace PureCloudPlatform.Client.V2.Model
         /// <param name="Address">The participant address..</param>
         /// <param name="StartTime">The time when this participant first joined the conversation. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z.</param>
         /// <param name="EndTime">The time when this participant went disconnected for this media (eg: video disconnected time). Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z.</param>
-        /// <param name="Purpose">The participant's purpose.  Values can be: 'agent', 'user', 'customer', 'external', 'acd', 'ivr.</param>
-        /// <param name="Direction">The participant's direction.  Values can be: 'inbound' or 'outbound'.</param>
+        /// <param name="Purpose">The participant&#39;s purpose.  Values can be: &#39;agent&#39;, &#39;user&#39;, &#39;customer&#39;, &#39;external&#39;, &#39;acd&#39;, &#39;ivr.</param>
+        /// <param name="Direction">The participant&#39;s direction.  Values can be: &#39;inbound&#39; or &#39;outbound&#39;.</param>
         /// <param name="Ani">The call ANI..</param>
         /// <param name="Dnis">The call DNIS..</param>
         /// <param name="User">The PureCloud user for this participant..</param>
@@ -289,9 +307,9 @@ namespace PureCloudPlatform.Client.V2.Model
 
 
         /// <summary>
-        /// The participant's purpose.  Values can be: 'agent', 'user', 'customer', 'external', 'acd', 'ivr
+        /// The participant&#39;s purpose.  Values can be: &#39;agent&#39;, &#39;user&#39;, &#39;customer&#39;, &#39;external&#39;, &#39;acd&#39;, &#39;ivr
         /// </summary>
-        /// <value>The participant's purpose.  Values can be: 'agent', 'user', 'customer', 'external', 'acd', 'ivr</value>
+        /// <value>The participant&#39;s purpose.  Values can be: &#39;agent&#39;, &#39;user&#39;, &#39;customer&#39;, &#39;external&#39;, &#39;acd&#39;, &#39;ivr</value>
         [DataMember(Name="purpose", EmitDefaultValue=false)]
         public string Purpose { get; set; }
 

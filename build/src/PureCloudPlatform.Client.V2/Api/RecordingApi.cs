@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using RestSharp;
 using PureCloudPlatform.Client.V2.Client;
 using PureCloudPlatform.Client.V2.Model;
 
@@ -203,7 +202,7 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <param name="messageFormatId">The desired media format when downloading a message recording. Valid values:ZIP,NONE (optional, default to ZIP)</param>
         /// <param name="download">requesting a download format of the recording. Valid values:true,false (optional, default to false)</param>
         /// <param name="fileName">the name of the downloaded fileName (optional)</param>
-        /// <param name="locale">The locale for the requested file when downloading, as an ISO 639-1 code (optional)</param>
+        /// <param name="locale">The locale for the requested file when downloading or for redacting sensitive information in requested files, as an ISO 639-1 code (optional)</param>
         /// <param name="mediaFormats">All acceptable media formats. Overrides formatId. Valid values:WAV,WEBM,WAV_ULAW,OGG_VORBIS,OGG_OPUS,MP3 (optional)</param>
         /// <returns>Recording</returns>
         
@@ -224,7 +223,7 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <param name="messageFormatId">The desired media format when downloading a message recording. Valid values:ZIP,NONE (optional, default to ZIP)</param>
         /// <param name="download">requesting a download format of the recording. Valid values:true,false (optional, default to false)</param>
         /// <param name="fileName">the name of the downloaded fileName (optional)</param>
-        /// <param name="locale">The locale for the requested file when downloading, as an ISO 639-1 code (optional)</param>
+        /// <param name="locale">The locale for the requested file when downloading or for redacting sensitive information in requested files, as an ISO 639-1 code (optional)</param>
         /// <param name="mediaFormats">All acceptable media formats. Overrides formatId. Valid values:WAV,WEBM,WAV_ULAW,OGG_VORBIS,OGG_OPUS,MP3 (optional)</param>
         /// <returns>ApiResponse of Recording</returns>
         
@@ -285,7 +284,7 @@ namespace PureCloudPlatform.Client.V2.Api
         ApiResponse<List<Annotation>> GetConversationRecordingAnnotationsWithHttpInfo (string conversationId, string recordingId);
 
         /// <summary>
-        /// Get recording metadata for a conversation. Does not return playable media. Annotations won't be included in the response if either recording:recording:view or recording:annotation:view permission is missing.
+        /// Get recording metadata for a conversation. Does not return playable media nor system annotations. Bookmark annotations will be excluded if either recording:recording:view or recording:annotation:view permission is missing.
         /// </summary>
         /// <remarks>
         /// 
@@ -297,7 +296,7 @@ namespace PureCloudPlatform.Client.V2.Api
         List<RecordingMetadata> GetConversationRecordingmetadata (string conversationId);
 
         /// <summary>
-        /// Get recording metadata for a conversation. Does not return playable media. Annotations won't be included in the response if either recording:recording:view or recording:annotation:view permission is missing.
+        /// Get recording metadata for a conversation. Does not return playable media nor system annotations. Bookmark annotations will be excluded if either recording:recording:view or recording:annotation:view permission is missing.
         /// </summary>
         /// <remarks>
         /// 
@@ -335,7 +334,7 @@ namespace PureCloudPlatform.Client.V2.Api
         ApiResponse<RecordingMetadata> GetConversationRecordingmetadataRecordingIdWithHttpInfo (string conversationId, string recordingId);
 
         /// <summary>
-        /// Get all of a Conversation's Recordings.
+        /// Get all of a Conversation&#39;s Recordings.
         /// </summary>
         /// <remarks>
         /// 
@@ -345,12 +344,14 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <param name="maxWaitMs">The maximum number of milliseconds to wait for the recording to be ready. Must be a positive value. (optional, default to 5000)</param>
         /// <param name="formatId">The desired media format. Valid values:WAV,WEBM,WAV_ULAW,OGG_VORBIS,OGG_OPUS,MP3,NONE. (optional, default to WEBM)</param>
         /// <param name="mediaFormats">All acceptable media formats. Overrides formatId. Valid values:WAV,WEBM,WAV_ULAW,OGG_VORBIS,OGG_OPUS,MP3. (optional)</param>
+        /// <param name="locale">The locale used for redacting sensitive information in requested files, as an ISO 639-1 code (optional)</param>
+        /// <param name="includePauseAnnotationsForScreenRecordings">Include applicable Secure Pause annotations from all audio recordings to all screen recordings (optional, default to false)</param>
         /// <returns>List&lt;Recording&gt;</returns>
         
-        List<Recording> GetConversationRecordings (string conversationId, int? maxWaitMs = null, string formatId = null, List<string> mediaFormats = null);
+        List<Recording> GetConversationRecordings (string conversationId, int? maxWaitMs = null, string formatId = null, List<string> mediaFormats = null, string locale = null, bool? includePauseAnnotationsForScreenRecordings = null);
 
         /// <summary>
-        /// Get all of a Conversation's Recordings.
+        /// Get all of a Conversation&#39;s Recordings.
         /// </summary>
         /// <remarks>
         /// 
@@ -360,9 +361,11 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <param name="maxWaitMs">The maximum number of milliseconds to wait for the recording to be ready. Must be a positive value. (optional, default to 5000)</param>
         /// <param name="formatId">The desired media format. Valid values:WAV,WEBM,WAV_ULAW,OGG_VORBIS,OGG_OPUS,MP3,NONE. (optional, default to WEBM)</param>
         /// <param name="mediaFormats">All acceptable media formats. Overrides formatId. Valid values:WAV,WEBM,WAV_ULAW,OGG_VORBIS,OGG_OPUS,MP3. (optional)</param>
+        /// <param name="locale">The locale used for redacting sensitive information in requested files, as an ISO 639-1 code (optional)</param>
+        /// <param name="includePauseAnnotationsForScreenRecordings">Include applicable Secure Pause annotations from all audio recordings to all screen recordings (optional, default to false)</param>
         /// <returns>ApiResponse of List&lt;Recording&gt;</returns>
         
-        ApiResponse<List<Recording>> GetConversationRecordingsWithHttpInfo (string conversationId, int? maxWaitMs = null, string formatId = null, List<string> mediaFormats = null);
+        ApiResponse<List<Recording>> GetConversationRecordingsWithHttpInfo (string conversationId, int? maxWaitMs = null, string formatId = null, List<string> mediaFormats = null, string locale = null, bool? includePauseAnnotationsForScreenRecordings = null);
 
         /// <summary>
         /// Gets a single orphan recording
@@ -592,7 +595,7 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <param name="jobId">jobId</param>
         /// <param name="pageSize">Page size. Maximum is 100. (optional, default to 25)</param>
         /// <param name="pageNumber">Page number (optional, default to 1)</param>
-        /// <param name="includeTotal">If false, cursor will be used to locate the page instead of pageNumber. (optional)</param>
+        /// <param name="includeTotal">If false, cursor will be used to locate the page instead of pageNumber. It is recommended to set it to false for improved performance. (optional)</param>
         /// <param name="cursor">Indicates where to resume query results (not required for first page) (optional)</param>
         /// <returns>FailedRecordingEntityListing</returns>
         
@@ -608,14 +611,14 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <param name="jobId">jobId</param>
         /// <param name="pageSize">Page size. Maximum is 100. (optional, default to 25)</param>
         /// <param name="pageNumber">Page number (optional, default to 1)</param>
-        /// <param name="includeTotal">If false, cursor will be used to locate the page instead of pageNumber. (optional)</param>
+        /// <param name="includeTotal">If false, cursor will be used to locate the page instead of pageNumber. It is recommended to set it to false for improved performance. (optional)</param>
         /// <param name="cursor">Indicates where to resume query results (not required for first page) (optional)</param>
         /// <returns>ApiResponse of FailedRecordingEntityListing</returns>
         
         ApiResponse<FailedRecordingEntityListing> GetRecordingJobFailedrecordingsWithHttpInfo (string jobId, int? pageSize = null, int? pageNumber = null, bool? includeTotal = null, string cursor = null);
 
         /// <summary>
-        /// Get the status of all jobs within the user's organization
+        /// Get the status of all jobs within the user&#39;s organization
         /// </summary>
         /// <remarks>
         /// 
@@ -627,14 +630,14 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <param name="state">Filter by state (optional)</param>
         /// <param name="showOnlyMyJobs">Show only my jobs (optional)</param>
         /// <param name="jobType">Job Type (Can be left empty for both) (optional)</param>
-        /// <param name="includeTotal">If false, cursor will be used to locate the page instead of pageNumber. (optional)</param>
+        /// <param name="includeTotal">If false, cursor will be used to locate the page instead of pageNumber. It is recommended to set it to false for improved performance. (optional)</param>
         /// <param name="cursor">Indicates where to resume query results (not required for first page) (optional)</param>
         /// <returns>RecordingJobEntityListing</returns>
         
         RecordingJobEntityListing GetRecordingJobs (int? pageSize = null, int? pageNumber = null, string sortBy = null, string state = null, bool? showOnlyMyJobs = null, string jobType = null, bool? includeTotal = null, string cursor = null);
 
         /// <summary>
-        /// Get the status of all jobs within the user's organization
+        /// Get the status of all jobs within the user&#39;s organization
         /// </summary>
         /// <remarks>
         /// 
@@ -646,7 +649,7 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <param name="state">Filter by state (optional)</param>
         /// <param name="showOnlyMyJobs">Show only my jobs (optional)</param>
         /// <param name="jobType">Job Type (Can be left empty for both) (optional)</param>
-        /// <param name="includeTotal">If false, cursor will be used to locate the page instead of pageNumber. (optional)</param>
+        /// <param name="includeTotal">If false, cursor will be used to locate the page instead of pageNumber. It is recommended to set it to false for improved performance. (optional)</param>
         /// <param name="cursor">Indicates where to resume query results (not required for first page) (optional)</param>
         /// <returns>ApiResponse of RecordingJobEntityListing</returns>
         
@@ -891,32 +894,6 @@ namespace PureCloudPlatform.Client.V2.Api
         ApiResponse<RecordingRetentionCursorEntityListing> GetRecordingsRetentionQueryWithHttpInfo (int? retentionThresholdDays, string cursor = null, int? pageSize = null);
 
         /// <summary>
-        /// Retrieves a paged listing of screen recording sessions
-        /// </summary>
-        /// <remarks>
-        /// Coming soon: This API is deprecated and will be replaced by /api/v2/recordings/screensessions/details
-        /// </remarks>
-        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="pageSize">Page size (optional, default to 25)</param>
-        /// <param name="pageNumber">Page number (optional, default to 1)</param>
-        /// <returns>ScreenRecordingSessionListing</returns>
-        [Obsolete]
-        ScreenRecordingSessionListing GetRecordingsScreensessions (int? pageSize = null, int? pageNumber = null);
-
-        /// <summary>
-        /// Retrieves a paged listing of screen recording sessions
-        /// </summary>
-        /// <remarks>
-        /// Coming soon: This API is deprecated and will be replaced by /api/v2/recordings/screensessions/details
-        /// </remarks>
-        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="pageSize">Page size (optional, default to 25)</param>
-        /// <param name="pageNumber">Page number (optional, default to 1)</param>
-        /// <returns>ApiResponse of ScreenRecordingSessionListing</returns>
-        [Obsolete]
-        ApiResponse<ScreenRecordingSessionListing> GetRecordingsScreensessionsWithHttpInfo (int? pageSize = null, int? pageNumber = null);
-
-        /// <summary>
         /// Retrieves an object containing the total number of concurrent active screen recordings
         /// </summary>
         /// <remarks>
@@ -1070,7 +1047,7 @@ namespace PureCloudPlatform.Client.V2.Api
         /// Create a recording bulk job.
         /// </summary>
         /// <remarks>
-        /// Each organization can run up to a maximum of two concurrent jobs that are either in pending or processing state. Furthermore, the recording:recording:viewSensitiveData permission is required to access recordings with PCI DSS and/or PII data when redaction is enabled for their organization. If the requester does not have that permission and includeRecordingsWithSensitiveData is set to true, then their request will be rejected.
+        /// Each organization can run up to a maximum of two concurrent jobs that are either in pending or processing state. Furthermore, the recording:recording:viewSensitiveData permission is required to access recordings with PCI DSS and/or PII data when redaction is enabled for their organization. If the requester does not have that permission and includeRecordingsWithSensitiveData is set to true, then their request will be rejected. It is recommended to query over smaller time periods so your request does not time out.
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">query</param>
@@ -1082,7 +1059,7 @@ namespace PureCloudPlatform.Client.V2.Api
         /// Create a recording bulk job.
         /// </summary>
         /// <remarks>
-        /// Each organization can run up to a maximum of two concurrent jobs that are either in pending or processing state. Furthermore, the recording:recording:viewSensitiveData permission is required to access recordings with PCI DSS and/or PII data when redaction is enabled for their organization. If the requester does not have that permission and includeRecordingsWithSensitiveData is set to true, then their request will be rejected.
+        /// Each organization can run up to a maximum of two concurrent jobs that are either in pending or processing state. Furthermore, the recording:recording:viewSensitiveData permission is required to access recordings with PCI DSS and/or PII data when redaction is enabled for their organization. If the requester does not have that permission and includeRecordingsWithSensitiveData is set to true, then their request will be rejected. It is recommended to query over smaller time periods so your request does not time out.
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">query</param>
@@ -1420,7 +1397,7 @@ namespace PureCloudPlatform.Client.V2.Api
         /// Execute the recording bulk job.
         /// </summary>
         /// <remarks>
-        /// A job must be executed by the same user whom originally created the job.  In addition, the user must have permission to update the recording's retention.
+        /// Each organization can run up to a maximum of two concurrent jobs that are either in pending or processing state. A job must be executed by the same user whom originally created the job.  In addition, the user must have permission to update the recording's retention.
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="jobId">jobId</param>
@@ -1433,7 +1410,7 @@ namespace PureCloudPlatform.Client.V2.Api
         /// Execute the recording bulk job.
         /// </summary>
         /// <remarks>
-        /// A job must be executed by the same user whom originally created the job.  In addition, the user must have permission to update the recording's retention.
+        /// Each organization can run up to a maximum of two concurrent jobs that are either in pending or processing state. A job must be executed by the same user whom originally created the job.  In addition, the user must have permission to update the recording's retention.
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="jobId">jobId</param>
@@ -1472,7 +1449,7 @@ namespace PureCloudPlatform.Client.V2.Api
         /// Update a media retention policy
         /// </summary>
         /// <remarks>
-        /// Policy does not work retroactively
+        /// Policy does not work retroactively. In the conditions.forUsers section, each user object can include the 'id' field containing the user's unique identifier. Example: [{\"id\":\"<userId>\"}].
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyId">Policy ID</param>
@@ -1485,7 +1462,7 @@ namespace PureCloudPlatform.Client.V2.Api
         /// Update a media retention policy
         /// </summary>
         /// <remarks>
-        /// Policy does not work retroactively
+        /// Policy does not work retroactively. In the conditions.forUsers section, each user object can include the 'id' field containing the user's unique identifier. Example: [{\"id\":\"<userId>\"}].
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyId">Policy ID</param>
@@ -1759,7 +1736,7 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <param name="messageFormatId">The desired media format when downloading a message recording. Valid values:ZIP,NONE (optional, default to ZIP)</param>
         /// <param name="download">requesting a download format of the recording. Valid values:true,false (optional, default to false)</param>
         /// <param name="fileName">the name of the downloaded fileName (optional)</param>
-        /// <param name="locale">The locale for the requested file when downloading, as an ISO 639-1 code (optional)</param>
+        /// <param name="locale">The locale for the requested file when downloading or for redacting sensitive information in requested files, as an ISO 639-1 code (optional)</param>
         /// <param name="mediaFormats">All acceptable media formats. Overrides formatId. Valid values:WAV,WEBM,WAV_ULAW,OGG_VORBIS,OGG_OPUS,MP3 (optional)</param>
         /// <returns>Task of Recording</returns>
         
@@ -1780,7 +1757,7 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <param name="messageFormatId">The desired media format when downloading a message recording. Valid values:ZIP,NONE (optional, default to ZIP)</param>
         /// <param name="download">requesting a download format of the recording. Valid values:true,false (optional, default to false)</param>
         /// <param name="fileName">the name of the downloaded fileName (optional)</param>
-        /// <param name="locale">The locale for the requested file when downloading, as an ISO 639-1 code (optional)</param>
+        /// <param name="locale">The locale for the requested file when downloading or for redacting sensitive information in requested files, as an ISO 639-1 code (optional)</param>
         /// <param name="mediaFormats">All acceptable media formats. Overrides formatId. Valid values:WAV,WEBM,WAV_ULAW,OGG_VORBIS,OGG_OPUS,MP3 (optional)</param>
         /// <returns>Task of ApiResponse (Recording)</returns>
         
@@ -1841,7 +1818,7 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task<ApiResponse<List<Annotation>>> GetConversationRecordingAnnotationsAsyncWithHttpInfo (string conversationId, string recordingId);
 
         /// <summary>
-        /// Get recording metadata for a conversation. Does not return playable media. Annotations won't be included in the response if either recording:recording:view or recording:annotation:view permission is missing.
+        /// Get recording metadata for a conversation. Does not return playable media nor system annotations. Bookmark annotations will be excluded if either recording:recording:view or recording:annotation:view permission is missing.
         /// </summary>
         /// <remarks>
         /// 
@@ -1853,7 +1830,7 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task<List<RecordingMetadata>> GetConversationRecordingmetadataAsync (string conversationId);
 
         /// <summary>
-        /// Get recording metadata for a conversation. Does not return playable media. Annotations won't be included in the response if either recording:recording:view or recording:annotation:view permission is missing.
+        /// Get recording metadata for a conversation. Does not return playable media nor system annotations. Bookmark annotations will be excluded if either recording:recording:view or recording:annotation:view permission is missing.
         /// </summary>
         /// <remarks>
         /// 
@@ -1891,7 +1868,7 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task<ApiResponse<RecordingMetadata>> GetConversationRecordingmetadataRecordingIdAsyncWithHttpInfo (string conversationId, string recordingId);
 
         /// <summary>
-        /// Get all of a Conversation's Recordings.
+        /// Get all of a Conversation&#39;s Recordings.
         /// </summary>
         /// <remarks>
         /// 
@@ -1901,12 +1878,14 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <param name="maxWaitMs">The maximum number of milliseconds to wait for the recording to be ready. Must be a positive value. (optional, default to 5000)</param>
         /// <param name="formatId">The desired media format. Valid values:WAV,WEBM,WAV_ULAW,OGG_VORBIS,OGG_OPUS,MP3,NONE. (optional, default to WEBM)</param>
         /// <param name="mediaFormats">All acceptable media formats. Overrides formatId. Valid values:WAV,WEBM,WAV_ULAW,OGG_VORBIS,OGG_OPUS,MP3. (optional)</param>
+        /// <param name="locale">The locale used for redacting sensitive information in requested files, as an ISO 639-1 code (optional)</param>
+        /// <param name="includePauseAnnotationsForScreenRecordings">Include applicable Secure Pause annotations from all audio recordings to all screen recordings (optional, default to false)</param>
         /// <returns>Task of List&lt;Recording&gt;</returns>
         
-        System.Threading.Tasks.Task<List<Recording>> GetConversationRecordingsAsync (string conversationId, int? maxWaitMs = null, string formatId = null, List<string> mediaFormats = null);
+        System.Threading.Tasks.Task<List<Recording>> GetConversationRecordingsAsync (string conversationId, int? maxWaitMs = null, string formatId = null, List<string> mediaFormats = null, string locale = null, bool? includePauseAnnotationsForScreenRecordings = null);
 
         /// <summary>
-        /// Get all of a Conversation's Recordings.
+        /// Get all of a Conversation&#39;s Recordings.
         /// </summary>
         /// <remarks>
         /// 
@@ -1916,9 +1895,11 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <param name="maxWaitMs">The maximum number of milliseconds to wait for the recording to be ready. Must be a positive value. (optional, default to 5000)</param>
         /// <param name="formatId">The desired media format. Valid values:WAV,WEBM,WAV_ULAW,OGG_VORBIS,OGG_OPUS,MP3,NONE. (optional, default to WEBM)</param>
         /// <param name="mediaFormats">All acceptable media formats. Overrides formatId. Valid values:WAV,WEBM,WAV_ULAW,OGG_VORBIS,OGG_OPUS,MP3. (optional)</param>
+        /// <param name="locale">The locale used for redacting sensitive information in requested files, as an ISO 639-1 code (optional)</param>
+        /// <param name="includePauseAnnotationsForScreenRecordings">Include applicable Secure Pause annotations from all audio recordings to all screen recordings (optional, default to false)</param>
         /// <returns>Task of ApiResponse (List&lt;Recording&gt;)</returns>
         
-        System.Threading.Tasks.Task<ApiResponse<List<Recording>>> GetConversationRecordingsAsyncWithHttpInfo (string conversationId, int? maxWaitMs = null, string formatId = null, List<string> mediaFormats = null);
+        System.Threading.Tasks.Task<ApiResponse<List<Recording>>> GetConversationRecordingsAsyncWithHttpInfo (string conversationId, int? maxWaitMs = null, string formatId = null, List<string> mediaFormats = null, string locale = null, bool? includePauseAnnotationsForScreenRecordings = null);
 
         /// <summary>
         /// Gets a single orphan recording
@@ -2148,7 +2129,7 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <param name="jobId">jobId</param>
         /// <param name="pageSize">Page size. Maximum is 100. (optional, default to 25)</param>
         /// <param name="pageNumber">Page number (optional, default to 1)</param>
-        /// <param name="includeTotal">If false, cursor will be used to locate the page instead of pageNumber. (optional)</param>
+        /// <param name="includeTotal">If false, cursor will be used to locate the page instead of pageNumber. It is recommended to set it to false for improved performance. (optional)</param>
         /// <param name="cursor">Indicates where to resume query results (not required for first page) (optional)</param>
         /// <returns>Task of FailedRecordingEntityListing</returns>
         
@@ -2164,14 +2145,14 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <param name="jobId">jobId</param>
         /// <param name="pageSize">Page size. Maximum is 100. (optional, default to 25)</param>
         /// <param name="pageNumber">Page number (optional, default to 1)</param>
-        /// <param name="includeTotal">If false, cursor will be used to locate the page instead of pageNumber. (optional)</param>
+        /// <param name="includeTotal">If false, cursor will be used to locate the page instead of pageNumber. It is recommended to set it to false for improved performance. (optional)</param>
         /// <param name="cursor">Indicates where to resume query results (not required for first page) (optional)</param>
         /// <returns>Task of ApiResponse (FailedRecordingEntityListing)</returns>
         
         System.Threading.Tasks.Task<ApiResponse<FailedRecordingEntityListing>> GetRecordingJobFailedrecordingsAsyncWithHttpInfo (string jobId, int? pageSize = null, int? pageNumber = null, bool? includeTotal = null, string cursor = null);
 
         /// <summary>
-        /// Get the status of all jobs within the user's organization
+        /// Get the status of all jobs within the user&#39;s organization
         /// </summary>
         /// <remarks>
         /// 
@@ -2183,14 +2164,14 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <param name="state">Filter by state (optional)</param>
         /// <param name="showOnlyMyJobs">Show only my jobs (optional)</param>
         /// <param name="jobType">Job Type (Can be left empty for both) (optional)</param>
-        /// <param name="includeTotal">If false, cursor will be used to locate the page instead of pageNumber. (optional)</param>
+        /// <param name="includeTotal">If false, cursor will be used to locate the page instead of pageNumber. It is recommended to set it to false for improved performance. (optional)</param>
         /// <param name="cursor">Indicates where to resume query results (not required for first page) (optional)</param>
         /// <returns>Task of RecordingJobEntityListing</returns>
         
         System.Threading.Tasks.Task<RecordingJobEntityListing> GetRecordingJobsAsync (int? pageSize = null, int? pageNumber = null, string sortBy = null, string state = null, bool? showOnlyMyJobs = null, string jobType = null, bool? includeTotal = null, string cursor = null);
 
         /// <summary>
-        /// Get the status of all jobs within the user's organization
+        /// Get the status of all jobs within the user&#39;s organization
         /// </summary>
         /// <remarks>
         /// 
@@ -2202,7 +2183,7 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <param name="state">Filter by state (optional)</param>
         /// <param name="showOnlyMyJobs">Show only my jobs (optional)</param>
         /// <param name="jobType">Job Type (Can be left empty for both) (optional)</param>
-        /// <param name="includeTotal">If false, cursor will be used to locate the page instead of pageNumber. (optional)</param>
+        /// <param name="includeTotal">If false, cursor will be used to locate the page instead of pageNumber. It is recommended to set it to false for improved performance. (optional)</param>
         /// <param name="cursor">Indicates where to resume query results (not required for first page) (optional)</param>
         /// <returns>Task of ApiResponse (RecordingJobEntityListing)</returns>
         
@@ -2447,32 +2428,6 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task<ApiResponse<RecordingRetentionCursorEntityListing>> GetRecordingsRetentionQueryAsyncWithHttpInfo (int? retentionThresholdDays, string cursor = null, int? pageSize = null);
 
         /// <summary>
-        /// Retrieves a paged listing of screen recording sessions
-        /// </summary>
-        /// <remarks>
-        /// Coming soon: This API is deprecated and will be replaced by /api/v2/recordings/screensessions/details
-        /// </remarks>
-        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="pageSize">Page size (optional, default to 25)</param>
-        /// <param name="pageNumber">Page number (optional, default to 1)</param>
-        /// <returns>Task of ScreenRecordingSessionListing</returns>
-        [Obsolete]
-        System.Threading.Tasks.Task<ScreenRecordingSessionListing> GetRecordingsScreensessionsAsync (int? pageSize = null, int? pageNumber = null);
-
-        /// <summary>
-        /// Retrieves a paged listing of screen recording sessions
-        /// </summary>
-        /// <remarks>
-        /// Coming soon: This API is deprecated and will be replaced by /api/v2/recordings/screensessions/details
-        /// </remarks>
-        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="pageSize">Page size (optional, default to 25)</param>
-        /// <param name="pageNumber">Page number (optional, default to 1)</param>
-        /// <returns>Task of ApiResponse (ScreenRecordingSessionListing)</returns>
-        [Obsolete]
-        System.Threading.Tasks.Task<ApiResponse<ScreenRecordingSessionListing>> GetRecordingsScreensessionsAsyncWithHttpInfo (int? pageSize = null, int? pageNumber = null);
-
-        /// <summary>
         /// Retrieves an object containing the total number of concurrent active screen recordings
         /// </summary>
         /// <remarks>
@@ -2626,7 +2581,7 @@ namespace PureCloudPlatform.Client.V2.Api
         /// Create a recording bulk job.
         /// </summary>
         /// <remarks>
-        /// Each organization can run up to a maximum of two concurrent jobs that are either in pending or processing state. Furthermore, the recording:recording:viewSensitiveData permission is required to access recordings with PCI DSS and/or PII data when redaction is enabled for their organization. If the requester does not have that permission and includeRecordingsWithSensitiveData is set to true, then their request will be rejected.
+        /// Each organization can run up to a maximum of two concurrent jobs that are either in pending or processing state. Furthermore, the recording:recording:viewSensitiveData permission is required to access recordings with PCI DSS and/or PII data when redaction is enabled for their organization. If the requester does not have that permission and includeRecordingsWithSensitiveData is set to true, then their request will be rejected. It is recommended to query over smaller time periods so your request does not time out.
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">query</param>
@@ -2638,7 +2593,7 @@ namespace PureCloudPlatform.Client.V2.Api
         /// Create a recording bulk job.
         /// </summary>
         /// <remarks>
-        /// Each organization can run up to a maximum of two concurrent jobs that are either in pending or processing state. Furthermore, the recording:recording:viewSensitiveData permission is required to access recordings with PCI DSS and/or PII data when redaction is enabled for their organization. If the requester does not have that permission and includeRecordingsWithSensitiveData is set to true, then their request will be rejected.
+        /// Each organization can run up to a maximum of two concurrent jobs that are either in pending or processing state. Furthermore, the recording:recording:viewSensitiveData permission is required to access recordings with PCI DSS and/or PII data when redaction is enabled for their organization. If the requester does not have that permission and includeRecordingsWithSensitiveData is set to true, then their request will be rejected. It is recommended to query over smaller time periods so your request does not time out.
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">query</param>
@@ -2976,7 +2931,7 @@ namespace PureCloudPlatform.Client.V2.Api
         /// Execute the recording bulk job.
         /// </summary>
         /// <remarks>
-        /// A job must be executed by the same user whom originally created the job.  In addition, the user must have permission to update the recording's retention.
+        /// Each organization can run up to a maximum of two concurrent jobs that are either in pending or processing state. A job must be executed by the same user whom originally created the job.  In addition, the user must have permission to update the recording's retention.
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="jobId">jobId</param>
@@ -2989,7 +2944,7 @@ namespace PureCloudPlatform.Client.V2.Api
         /// Execute the recording bulk job.
         /// </summary>
         /// <remarks>
-        /// A job must be executed by the same user whom originally created the job.  In addition, the user must have permission to update the recording's retention.
+        /// Each organization can run up to a maximum of two concurrent jobs that are either in pending or processing state. A job must be executed by the same user whom originally created the job.  In addition, the user must have permission to update the recording's retention.
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="jobId">jobId</param>
@@ -3028,7 +2983,7 @@ namespace PureCloudPlatform.Client.V2.Api
         /// Update a media retention policy
         /// </summary>
         /// <remarks>
-        /// Policy does not work retroactively
+        /// Policy does not work retroactively. In the conditions.forUsers section, each user object can include the 'id' field containing the user's unique identifier. Example: [{\"id\":\"<userId>\"}].
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyId">Policy ID</param>
@@ -3041,7 +2996,7 @@ namespace PureCloudPlatform.Client.V2.Api
         /// Update a media retention policy
         /// </summary>
         /// <remarks>
-        /// Policy does not work retroactively
+        /// Policy does not work retroactively. In the conditions.forUsers section, each user object can include the 'id' field containing the user's unique identifier. Example: [{\"id\":\"<userId>\"}].
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyId">Policy ID</param>
@@ -3254,11 +3209,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'annotationId' when calling RecordingApi->DeleteConversationRecordingAnnotation");
 
             var localVarPath = "/api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations/{annotationId}";
+            var localVarHttpMethod = "Delete";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -3304,20 +3260,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling DeleteConversationRecordingAnnotation: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -3374,11 +3323,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations/{annotationId}";
+            var localVarHttpMethod = "Delete";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -3424,20 +3374,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling DeleteConversationRecordingAnnotation: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -3482,11 +3425,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'orphanId' when calling RecordingApi->DeleteOrphanrecording");
 
             var localVarPath = "/api/v2/orphanrecordings/{orphanId}";
+            var localVarHttpMethod = "Delete";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -3530,20 +3474,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling DeleteOrphanrecording: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -3589,11 +3526,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/orphanrecordings/{orphanId}";
+            var localVarHttpMethod = "Delete";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -3637,20 +3575,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling DeleteOrphanrecording: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -3694,11 +3625,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'ids' when calling RecordingApi->DeleteRecordingCrossplatformMediaretentionpolicies");
 
             var localVarPath = "/api/v2/recording/crossplatform/mediaretentionpolicies";
+            var localVarHttpMethod = "Delete";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -3742,20 +3674,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling DeleteRecordingCrossplatformMediaretentionpolicies: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -3800,11 +3725,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/recording/crossplatform/mediaretentionpolicies";
+            var localVarHttpMethod = "Delete";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -3848,20 +3774,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling DeleteRecordingCrossplatformMediaretentionpolicies: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -3905,11 +3824,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'policyId' when calling RecordingApi->DeleteRecordingCrossplatformMediaretentionpolicy");
 
             var localVarPath = "/api/v2/recording/crossplatform/mediaretentionpolicies/{policyId}";
+            var localVarHttpMethod = "Delete";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -3953,20 +3873,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling DeleteRecordingCrossplatformMediaretentionpolicy: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -4011,11 +3924,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/recording/crossplatform/mediaretentionpolicies/{policyId}";
+            var localVarHttpMethod = "Delete";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -4059,20 +3973,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling DeleteRecordingCrossplatformMediaretentionpolicy: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -4116,11 +4023,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'jobId' when calling RecordingApi->DeleteRecordingJob");
 
             var localVarPath = "/api/v2/recording/jobs/{jobId}";
+            var localVarHttpMethod = "Delete";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -4164,20 +4072,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling DeleteRecordingJob: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -4222,11 +4123,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/recording/jobs/{jobId}";
+            var localVarHttpMethod = "Delete";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -4270,20 +4172,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling DeleteRecordingJob: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -4327,11 +4222,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'ids' when calling RecordingApi->DeleteRecordingMediaretentionpolicies");
 
             var localVarPath = "/api/v2/recording/mediaretentionpolicies";
+            var localVarHttpMethod = "Delete";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -4375,20 +4271,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling DeleteRecordingMediaretentionpolicies: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -4433,11 +4322,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/recording/mediaretentionpolicies";
+            var localVarHttpMethod = "Delete";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -4481,20 +4371,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling DeleteRecordingMediaretentionpolicies: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -4538,11 +4421,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'policyId' when calling RecordingApi->DeleteRecordingMediaretentionpolicy");
 
             var localVarPath = "/api/v2/recording/mediaretentionpolicies/{policyId}";
+            var localVarHttpMethod = "Delete";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -4586,20 +4470,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling DeleteRecordingMediaretentionpolicy: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -4644,11 +4521,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/recording/mediaretentionpolicies/{policyId}";
+            var localVarHttpMethod = "Delete";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -4692,20 +4570,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling DeleteRecordingMediaretentionpolicy: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -4734,7 +4605,7 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <param name="messageFormatId">The desired media format when downloading a message recording. Valid values:ZIP,NONE (optional, default to ZIP)</param>
         /// <param name="download">requesting a download format of the recording. Valid values:true,false (optional, default to false)</param>
         /// <param name="fileName">the name of the downloaded fileName (optional)</param>
-        /// <param name="locale">The locale for the requested file when downloading, as an ISO 639-1 code (optional)</param>
+        /// <param name="locale">The locale for the requested file when downloading or for redacting sensitive information in requested files, as an ISO 639-1 code (optional)</param>
         /// <param name="mediaFormats">All acceptable media formats. Overrides formatId. Valid values:WAV,WEBM,WAV_ULAW,OGG_VORBIS,OGG_OPUS,MP3 (optional)</param>
         /// <returns>Recording</returns>
         
@@ -4757,7 +4628,7 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <param name="messageFormatId">The desired media format when downloading a message recording. Valid values:ZIP,NONE (optional, default to ZIP)</param>
         /// <param name="download">requesting a download format of the recording. Valid values:true,false (optional, default to false)</param>
         /// <param name="fileName">the name of the downloaded fileName (optional)</param>
-        /// <param name="locale">The locale for the requested file when downloading, as an ISO 639-1 code (optional)</param>
+        /// <param name="locale">The locale for the requested file when downloading or for redacting sensitive information in requested files, as an ISO 639-1 code (optional)</param>
         /// <param name="mediaFormats">All acceptable media formats. Overrides formatId. Valid values:WAV,WEBM,WAV_ULAW,OGG_VORBIS,OGG_OPUS,MP3 (optional)</param>
         /// <returns>ApiResponse of Recording</returns>
         
@@ -4771,11 +4642,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'recordingId' when calling RecordingApi->GetConversationRecording");
 
             var localVarPath = "/api/v2/conversations/{conversationId}/recordings/{recordingId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -4828,20 +4700,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetConversationRecording: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -4869,7 +4734,7 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <param name="messageFormatId">The desired media format when downloading a message recording. Valid values:ZIP,NONE (optional, default to ZIP)</param>
         /// <param name="download">requesting a download format of the recording. Valid values:true,false (optional, default to false)</param>
         /// <param name="fileName">the name of the downloaded fileName (optional)</param>
-        /// <param name="locale">The locale for the requested file when downloading, as an ISO 639-1 code (optional)</param>
+        /// <param name="locale">The locale for the requested file when downloading or for redacting sensitive information in requested files, as an ISO 639-1 code (optional)</param>
         /// <param name="mediaFormats">All acceptable media formats. Overrides formatId. Valid values:WAV,WEBM,WAV_ULAW,OGG_VORBIS,OGG_OPUS,MP3 (optional)</param>
         /// <returns>Task of Recording</returns>
         
@@ -4893,7 +4758,7 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <param name="messageFormatId">The desired media format when downloading a message recording. Valid values:ZIP,NONE (optional, default to ZIP)</param>
         /// <param name="download">requesting a download format of the recording. Valid values:true,false (optional, default to false)</param>
         /// <param name="fileName">the name of the downloaded fileName (optional)</param>
-        /// <param name="locale">The locale for the requested file when downloading, as an ISO 639-1 code (optional)</param>
+        /// <param name="locale">The locale for the requested file when downloading or for redacting sensitive information in requested files, as an ISO 639-1 code (optional)</param>
         /// <param name="mediaFormats">All acceptable media formats. Overrides formatId. Valid values:WAV,WEBM,WAV_ULAW,OGG_VORBIS,OGG_OPUS,MP3 (optional)</param>
         /// <returns>Task of ApiResponse (Recording)</returns>
         
@@ -4909,11 +4774,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/conversations/{conversationId}/recordings/{recordingId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -4966,20 +4832,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetConversationRecording: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -5034,11 +4893,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'annotationId' when calling RecordingApi->GetConversationRecordingAnnotation");
 
             var localVarPath = "/api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations/{annotationId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -5084,20 +4944,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetConversationRecordingAnnotation: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -5155,11 +5008,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations/{annotationId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -5205,20 +5059,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetConversationRecordingAnnotation: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -5268,11 +5115,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'recordingId' when calling RecordingApi->GetConversationRecordingAnnotations");
 
             var localVarPath = "/api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -5317,20 +5165,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetConversationRecordingAnnotations: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -5382,11 +5223,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -5431,20 +5273,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetConversationRecordingAnnotations: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -5461,7 +5296,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Get recording metadata for a conversation. Does not return playable media. Annotations won't be included in the response if either recording:recording:view or recording:annotation:view permission is missing. 
+        /// Get recording metadata for a conversation. Does not return playable media nor system annotations. Bookmark annotations will be excluded if either recording:recording:view or recording:annotation:view permission is missing. 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -5475,7 +5310,7 @@ namespace PureCloudPlatform.Client.V2.Api
         }
 
         /// <summary>
-        /// Get recording metadata for a conversation. Does not return playable media. Annotations won't be included in the response if either recording:recording:view or recording:annotation:view permission is missing. 
+        /// Get recording metadata for a conversation. Does not return playable media nor system annotations. Bookmark annotations will be excluded if either recording:recording:view or recording:annotation:view permission is missing. 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -5489,11 +5324,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'conversationId' when calling RecordingApi->GetConversationRecordingmetadata");
 
             var localVarPath = "/api/v2/conversations/{conversationId}/recordingmetadata";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -5537,20 +5373,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetConversationRecordingmetadata: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -5566,7 +5395,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Get recording metadata for a conversation. Does not return playable media. Annotations won't be included in the response if either recording:recording:view or recording:annotation:view permission is missing. 
+        /// Get recording metadata for a conversation. Does not return playable media nor system annotations. Bookmark annotations will be excluded if either recording:recording:view or recording:annotation:view permission is missing. 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -5581,7 +5410,7 @@ namespace PureCloudPlatform.Client.V2.Api
         }
 
         /// <summary>
-        /// Get recording metadata for a conversation. Does not return playable media. Annotations won't be included in the response if either recording:recording:view or recording:annotation:view permission is missing. 
+        /// Get recording metadata for a conversation. Does not return playable media nor system annotations. Bookmark annotations will be excluded if either recording:recording:view or recording:annotation:view permission is missing. 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -5596,11 +5425,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/conversations/{conversationId}/recordingmetadata";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -5644,20 +5474,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetConversationRecordingmetadata: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -5707,11 +5530,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'recordingId' when calling RecordingApi->GetConversationRecordingmetadataRecordingId");
 
             var localVarPath = "/api/v2/conversations/{conversationId}/recordingmetadata/{recordingId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -5756,20 +5580,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetConversationRecordingmetadataRecordingId: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -5821,11 +5638,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/conversations/{conversationId}/recordingmetadata/{recordingId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -5870,20 +5688,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetConversationRecordingmetadataRecordingId: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -5900,7 +5711,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Get all of a Conversation's Recordings. 
+        /// Get all of a Conversation&#39;s Recordings. 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -5908,16 +5719,18 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <param name="maxWaitMs">The maximum number of milliseconds to wait for the recording to be ready. Must be a positive value. (optional, default to 5000)</param>
         /// <param name="formatId">The desired media format. Valid values:WAV,WEBM,WAV_ULAW,OGG_VORBIS,OGG_OPUS,MP3,NONE. (optional, default to WEBM)</param>
         /// <param name="mediaFormats">All acceptable media formats. Overrides formatId. Valid values:WAV,WEBM,WAV_ULAW,OGG_VORBIS,OGG_OPUS,MP3. (optional)</param>
+        /// <param name="locale">The locale used for redacting sensitive information in requested files, as an ISO 639-1 code (optional)</param>
+        /// <param name="includePauseAnnotationsForScreenRecordings">Include applicable Secure Pause annotations from all audio recordings to all screen recordings (optional, default to false)</param>
         /// <returns>List&lt;Recording&gt;</returns>
         
-        public List<Recording> GetConversationRecordings (string conversationId, int? maxWaitMs = null, string formatId = null, List<string> mediaFormats = null)
+        public List<Recording> GetConversationRecordings (string conversationId, int? maxWaitMs = null, string formatId = null, List<string> mediaFormats = null, string locale = null, bool? includePauseAnnotationsForScreenRecordings = null)
         {
-             ApiResponse<List<Recording>> localVarResponse = GetConversationRecordingsWithHttpInfo(conversationId, maxWaitMs, formatId, mediaFormats);
+             ApiResponse<List<Recording>> localVarResponse = GetConversationRecordingsWithHttpInfo(conversationId, maxWaitMs, formatId, mediaFormats, locale, includePauseAnnotationsForScreenRecordings);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get all of a Conversation's Recordings. 
+        /// Get all of a Conversation&#39;s Recordings. 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -5925,20 +5738,23 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <param name="maxWaitMs">The maximum number of milliseconds to wait for the recording to be ready. Must be a positive value. (optional, default to 5000)</param>
         /// <param name="formatId">The desired media format. Valid values:WAV,WEBM,WAV_ULAW,OGG_VORBIS,OGG_OPUS,MP3,NONE. (optional, default to WEBM)</param>
         /// <param name="mediaFormats">All acceptable media formats. Overrides formatId. Valid values:WAV,WEBM,WAV_ULAW,OGG_VORBIS,OGG_OPUS,MP3. (optional)</param>
+        /// <param name="locale">The locale used for redacting sensitive information in requested files, as an ISO 639-1 code (optional)</param>
+        /// <param name="includePauseAnnotationsForScreenRecordings">Include applicable Secure Pause annotations from all audio recordings to all screen recordings (optional, default to false)</param>
         /// <returns>ApiResponse of List&lt;Recording&gt;</returns>
         
-        public ApiResponse< List<Recording> > GetConversationRecordingsWithHttpInfo (string conversationId, int? maxWaitMs = null, string formatId = null, List<string> mediaFormats = null)
+        public ApiResponse< List<Recording> > GetConversationRecordingsWithHttpInfo (string conversationId, int? maxWaitMs = null, string formatId = null, List<string> mediaFormats = null, string locale = null, bool? includePauseAnnotationsForScreenRecordings = null)
         { 
             // verify the required parameter 'conversationId' is set
             if (conversationId == null)
                 throw new ApiException(400, "Missing required parameter 'conversationId' when calling RecordingApi->GetConversationRecordings");
 
             var localVarPath = "/api/v2/conversations/{conversationId}/recordings";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -5969,6 +5785,8 @@ namespace PureCloudPlatform.Client.V2.Api
             if (maxWaitMs != null) localVarQueryParams.Add(new Tuple<string, string>("maxWaitMs", this.Configuration.ApiClient.ParameterToString(maxWaitMs)));
             if (formatId != null) localVarQueryParams.Add(new Tuple<string, string>("formatId", this.Configuration.ApiClient.ParameterToString(formatId)));
             if (mediaFormats != null) mediaFormats.ForEach(obj => { localVarQueryParams.Add(new Tuple<string, string>("mediaFormats", this.Configuration.ApiClient.ParameterToString(obj))); });
+            if (locale != null) localVarQueryParams.Add(new Tuple<string, string>("locale", this.Configuration.ApiClient.ParameterToString(locale)));
+            if (includePauseAnnotationsForScreenRecordings != null) localVarQueryParams.Add(new Tuple<string, string>("includePauseAnnotationsForScreenRecordings", this.Configuration.ApiClient.ParameterToString(includePauseAnnotationsForScreenRecordings)));
 
             // Header params
 
@@ -5985,20 +5803,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetConversationRecordings: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -6014,7 +5825,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Get all of a Conversation's Recordings. 
+        /// Get all of a Conversation&#39;s Recordings. 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -6022,17 +5833,19 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <param name="maxWaitMs">The maximum number of milliseconds to wait for the recording to be ready. Must be a positive value. (optional, default to 5000)</param>
         /// <param name="formatId">The desired media format. Valid values:WAV,WEBM,WAV_ULAW,OGG_VORBIS,OGG_OPUS,MP3,NONE. (optional, default to WEBM)</param>
         /// <param name="mediaFormats">All acceptable media formats. Overrides formatId. Valid values:WAV,WEBM,WAV_ULAW,OGG_VORBIS,OGG_OPUS,MP3. (optional)</param>
+        /// <param name="locale">The locale used for redacting sensitive information in requested files, as an ISO 639-1 code (optional)</param>
+        /// <param name="includePauseAnnotationsForScreenRecordings">Include applicable Secure Pause annotations from all audio recordings to all screen recordings (optional, default to false)</param>
         /// <returns>Task of List&lt;Recording&gt;</returns>
         
-        public async System.Threading.Tasks.Task<List<Recording>> GetConversationRecordingsAsync (string conversationId, int? maxWaitMs = null, string formatId = null, List<string> mediaFormats = null)
+        public async System.Threading.Tasks.Task<List<Recording>> GetConversationRecordingsAsync (string conversationId, int? maxWaitMs = null, string formatId = null, List<string> mediaFormats = null, string locale = null, bool? includePauseAnnotationsForScreenRecordings = null)
         {
-             ApiResponse<List<Recording>> localVarResponse = await GetConversationRecordingsAsyncWithHttpInfo(conversationId, maxWaitMs, formatId, mediaFormats);
+             ApiResponse<List<Recording>> localVarResponse = await GetConversationRecordingsAsyncWithHttpInfo(conversationId, maxWaitMs, formatId, mediaFormats, locale, includePauseAnnotationsForScreenRecordings);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Get all of a Conversation's Recordings. 
+        /// Get all of a Conversation&#39;s Recordings. 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -6040,9 +5853,11 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <param name="maxWaitMs">The maximum number of milliseconds to wait for the recording to be ready. Must be a positive value. (optional, default to 5000)</param>
         /// <param name="formatId">The desired media format. Valid values:WAV,WEBM,WAV_ULAW,OGG_VORBIS,OGG_OPUS,MP3,NONE. (optional, default to WEBM)</param>
         /// <param name="mediaFormats">All acceptable media formats. Overrides formatId. Valid values:WAV,WEBM,WAV_ULAW,OGG_VORBIS,OGG_OPUS,MP3. (optional)</param>
+        /// <param name="locale">The locale used for redacting sensitive information in requested files, as an ISO 639-1 code (optional)</param>
+        /// <param name="includePauseAnnotationsForScreenRecordings">Include applicable Secure Pause annotations from all audio recordings to all screen recordings (optional, default to false)</param>
         /// <returns>Task of ApiResponse (List&lt;Recording&gt;)</returns>
         
-        public async System.Threading.Tasks.Task<ApiResponse<List<Recording>>> GetConversationRecordingsAsyncWithHttpInfo (string conversationId, int? maxWaitMs = null, string formatId = null, List<string> mediaFormats = null)
+        public async System.Threading.Tasks.Task<ApiResponse<List<Recording>>> GetConversationRecordingsAsyncWithHttpInfo (string conversationId, int? maxWaitMs = null, string formatId = null, List<string> mediaFormats = null, string locale = null, bool? includePauseAnnotationsForScreenRecordings = null)
         { 
             // verify the required parameter 'conversationId' is set
             if (conversationId == null)
@@ -6050,11 +5865,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/conversations/{conversationId}/recordings";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -6085,6 +5901,8 @@ namespace PureCloudPlatform.Client.V2.Api
             if (maxWaitMs != null) localVarQueryParams.Add(new Tuple<string, string>("maxWaitMs", this.Configuration.ApiClient.ParameterToString(maxWaitMs)));
             if (formatId != null) localVarQueryParams.Add(new Tuple<string, string>("formatId", this.Configuration.ApiClient.ParameterToString(formatId)));
             if (mediaFormats != null) mediaFormats.ForEach(obj => { localVarQueryParams.Add(new Tuple<string, string>("mediaFormats", this.Configuration.ApiClient.ParameterToString(obj))); });
+            if (locale != null) localVarQueryParams.Add(new Tuple<string, string>("locale", this.Configuration.ApiClient.ParameterToString(locale)));
+            if (includePauseAnnotationsForScreenRecordings != null) localVarQueryParams.Add(new Tuple<string, string>("includePauseAnnotationsForScreenRecordings", this.Configuration.ApiClient.ParameterToString(includePauseAnnotationsForScreenRecordings)));
 
             // Header params
 
@@ -6101,20 +5919,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetConversationRecordings: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -6159,11 +5970,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'orphanId' when calling RecordingApi->GetOrphanrecording");
 
             var localVarPath = "/api/v2/orphanrecordings/{orphanId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -6207,20 +6019,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetOrphanrecording: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -6266,11 +6071,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/orphanrecordings/{orphanId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -6314,20 +6120,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetOrphanrecording: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -6388,11 +6187,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'orphanId' when calling RecordingApi->GetOrphanrecordingMedia");
 
             var localVarPath = "/api/v2/orphanrecordings/{orphanId}/media";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -6444,20 +6244,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetOrphanrecordingMedia: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -6519,11 +6312,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/orphanrecordings/{orphanId}/media";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -6575,20 +6369,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetOrphanrecordingMedia: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -6644,11 +6431,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/orphanrecordings";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -6699,20 +6487,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetOrphanrecordings: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -6768,11 +6549,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/orphanrecordings";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -6823,20 +6605,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetOrphanrecordings: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -6881,11 +6656,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'jobId' when calling RecordingApi->GetRecordingBatchrequest");
 
             var localVarPath = "/api/v2/recording/batchrequests/{jobId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -6929,20 +6705,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetRecordingBatchrequest: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -6988,11 +6757,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/recording/batchrequests/{jobId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -7036,20 +6806,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetRecordingBatchrequest: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -7111,11 +6874,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/recording/crossplatform/mediaretentionpolicies";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -7169,20 +6933,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetRecordingCrossplatformMediaretentionpolicies: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -7244,11 +7001,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/recording/crossplatform/mediaretentionpolicies";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -7302,20 +7060,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetRecordingCrossplatformMediaretentionpolicies: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -7360,11 +7111,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'policyId' when calling RecordingApi->GetRecordingCrossplatformMediaretentionpolicy");
 
             var localVarPath = "/api/v2/recording/crossplatform/mediaretentionpolicies/{policyId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -7408,20 +7160,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetRecordingCrossplatformMediaretentionpolicy: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -7467,11 +7212,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/recording/crossplatform/mediaretentionpolicies/{policyId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -7515,20 +7261,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetRecordingCrossplatformMediaretentionpolicy: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -7573,11 +7312,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'jobId' when calling RecordingApi->GetRecordingJob");
 
             var localVarPath = "/api/v2/recording/jobs/{jobId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -7621,20 +7361,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetRecordingJob: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -7680,11 +7413,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/recording/jobs/{jobId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -7728,20 +7462,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetRecordingJob: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -7765,7 +7492,7 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <param name="jobId">jobId</param>
         /// <param name="pageSize">Page size. Maximum is 100. (optional, default to 25)</param>
         /// <param name="pageNumber">Page number (optional, default to 1)</param>
-        /// <param name="includeTotal">If false, cursor will be used to locate the page instead of pageNumber. (optional)</param>
+        /// <param name="includeTotal">If false, cursor will be used to locate the page instead of pageNumber. It is recommended to set it to false for improved performance. (optional)</param>
         /// <param name="cursor">Indicates where to resume query results (not required for first page) (optional)</param>
         /// <returns>FailedRecordingEntityListing</returns>
         
@@ -7783,7 +7510,7 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <param name="jobId">jobId</param>
         /// <param name="pageSize">Page size. Maximum is 100. (optional, default to 25)</param>
         /// <param name="pageNumber">Page number (optional, default to 1)</param>
-        /// <param name="includeTotal">If false, cursor will be used to locate the page instead of pageNumber. (optional)</param>
+        /// <param name="includeTotal">If false, cursor will be used to locate the page instead of pageNumber. It is recommended to set it to false for improved performance. (optional)</param>
         /// <param name="cursor">Indicates where to resume query results (not required for first page) (optional)</param>
         /// <returns>ApiResponse of FailedRecordingEntityListing</returns>
         
@@ -7794,11 +7521,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'jobId' when calling RecordingApi->GetRecordingJobFailedrecordings");
 
             var localVarPath = "/api/v2/recording/jobs/{jobId}/failedrecordings";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -7846,20 +7574,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetRecordingJobFailedrecordings: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -7882,7 +7603,7 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <param name="jobId">jobId</param>
         /// <param name="pageSize">Page size. Maximum is 100. (optional, default to 25)</param>
         /// <param name="pageNumber">Page number (optional, default to 1)</param>
-        /// <param name="includeTotal">If false, cursor will be used to locate the page instead of pageNumber. (optional)</param>
+        /// <param name="includeTotal">If false, cursor will be used to locate the page instead of pageNumber. It is recommended to set it to false for improved performance. (optional)</param>
         /// <param name="cursor">Indicates where to resume query results (not required for first page) (optional)</param>
         /// <returns>Task of FailedRecordingEntityListing</returns>
         
@@ -7901,7 +7622,7 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <param name="jobId">jobId</param>
         /// <param name="pageSize">Page size. Maximum is 100. (optional, default to 25)</param>
         /// <param name="pageNumber">Page number (optional, default to 1)</param>
-        /// <param name="includeTotal">If false, cursor will be used to locate the page instead of pageNumber. (optional)</param>
+        /// <param name="includeTotal">If false, cursor will be used to locate the page instead of pageNumber. It is recommended to set it to false for improved performance. (optional)</param>
         /// <param name="cursor">Indicates where to resume query results (not required for first page) (optional)</param>
         /// <returns>Task of ApiResponse (FailedRecordingEntityListing)</returns>
         
@@ -7913,11 +7634,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/recording/jobs/{jobId}/failedrecordings";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -7965,20 +7687,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetRecordingJobFailedrecordings: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -7995,7 +7710,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Get the status of all jobs within the user's organization 
+        /// Get the status of all jobs within the user&#39;s organization 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -8005,7 +7720,7 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <param name="state">Filter by state (optional)</param>
         /// <param name="showOnlyMyJobs">Show only my jobs (optional)</param>
         /// <param name="jobType">Job Type (Can be left empty for both) (optional)</param>
-        /// <param name="includeTotal">If false, cursor will be used to locate the page instead of pageNumber. (optional)</param>
+        /// <param name="includeTotal">If false, cursor will be used to locate the page instead of pageNumber. It is recommended to set it to false for improved performance. (optional)</param>
         /// <param name="cursor">Indicates where to resume query results (not required for first page) (optional)</param>
         /// <returns>RecordingJobEntityListing</returns>
         
@@ -8016,7 +7731,7 @@ namespace PureCloudPlatform.Client.V2.Api
         }
 
         /// <summary>
-        /// Get the status of all jobs within the user's organization 
+        /// Get the status of all jobs within the user&#39;s organization 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -8026,7 +7741,7 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <param name="state">Filter by state (optional)</param>
         /// <param name="showOnlyMyJobs">Show only my jobs (optional)</param>
         /// <param name="jobType">Job Type (Can be left empty for both) (optional)</param>
-        /// <param name="includeTotal">If false, cursor will be used to locate the page instead of pageNumber. (optional)</param>
+        /// <param name="includeTotal">If false, cursor will be used to locate the page instead of pageNumber. It is recommended to set it to false for improved performance. (optional)</param>
         /// <param name="cursor">Indicates where to resume query results (not required for first page) (optional)</param>
         /// <returns>ApiResponse of RecordingJobEntityListing</returns>
         
@@ -8034,11 +7749,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/recording/jobs";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -8089,20 +7805,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetRecordingJobs: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -8118,7 +7827,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Get the status of all jobs within the user's organization 
+        /// Get the status of all jobs within the user&#39;s organization 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -8128,7 +7837,7 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <param name="state">Filter by state (optional)</param>
         /// <param name="showOnlyMyJobs">Show only my jobs (optional)</param>
         /// <param name="jobType">Job Type (Can be left empty for both) (optional)</param>
-        /// <param name="includeTotal">If false, cursor will be used to locate the page instead of pageNumber. (optional)</param>
+        /// <param name="includeTotal">If false, cursor will be used to locate the page instead of pageNumber. It is recommended to set it to false for improved performance. (optional)</param>
         /// <param name="cursor">Indicates where to resume query results (not required for first page) (optional)</param>
         /// <returns>Task of RecordingJobEntityListing</returns>
         
@@ -8140,7 +7849,7 @@ namespace PureCloudPlatform.Client.V2.Api
         }
 
         /// <summary>
-        /// Get the status of all jobs within the user's organization 
+        /// Get the status of all jobs within the user&#39;s organization 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -8150,7 +7859,7 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <param name="state">Filter by state (optional)</param>
         /// <param name="showOnlyMyJobs">Show only my jobs (optional)</param>
         /// <param name="jobType">Job Type (Can be left empty for both) (optional)</param>
-        /// <param name="includeTotal">If false, cursor will be used to locate the page instead of pageNumber. (optional)</param>
+        /// <param name="includeTotal">If false, cursor will be used to locate the page instead of pageNumber. It is recommended to set it to false for improved performance. (optional)</param>
         /// <param name="cursor">Indicates where to resume query results (not required for first page) (optional)</param>
         /// <returns>Task of ApiResponse (RecordingJobEntityListing)</returns>
         
@@ -8158,11 +7867,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/recording/jobs";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -8213,20 +7923,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetRecordingJobs: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -8271,11 +7974,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'keyConfigurationId' when calling RecordingApi->GetRecordingKeyconfiguration");
 
             var localVarPath = "/api/v2/recording/keyconfigurations/{keyConfigurationId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -8319,20 +8023,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetRecordingKeyconfiguration: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -8378,11 +8075,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/recording/keyconfigurations/{keyConfigurationId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -8426,20 +8124,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetRecordingKeyconfiguration: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -8479,11 +8170,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/recording/keyconfigurations";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -8526,20 +8218,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetRecordingKeyconfigurations: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -8579,11 +8264,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/recording/keyconfigurations";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -8626,20 +8312,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetRecordingKeyconfigurations: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -8701,11 +8380,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/recording/mediaretentionpolicies";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -8759,20 +8439,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetRecordingMediaretentionpolicies: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -8834,11 +8507,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/recording/mediaretentionpolicies";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -8892,20 +8566,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetRecordingMediaretentionpolicies: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -8950,11 +8617,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'policyId' when calling RecordingApi->GetRecordingMediaretentionpolicy");
 
             var localVarPath = "/api/v2/recording/mediaretentionpolicies/{policyId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -8998,20 +8666,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetRecordingMediaretentionpolicy: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -9057,11 +8718,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/recording/mediaretentionpolicies/{policyId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -9105,20 +8767,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetRecordingMediaretentionpolicy: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -9162,11 +8817,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/recording/recordingkeys";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -9211,20 +8867,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetRecordingRecordingkeys: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -9268,11 +8917,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/recording/recordingkeys";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -9317,20 +8967,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetRecordingRecordingkeys: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -9370,11 +9013,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/recording/recordingkeys/rotationschedule";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -9417,20 +9061,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetRecordingRecordingkeysRotationschedule: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -9470,11 +9107,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/recording/recordingkeys/rotationschedule";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -9517,20 +9155,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetRecordingRecordingkeysRotationschedule: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -9572,11 +9203,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/recording/settings";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -9620,20 +9252,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetRecordingSettings: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -9675,11 +9300,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/recording/settings";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -9723,20 +9349,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetRecordingSettings: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -9781,11 +9400,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'reportId' when calling RecordingApi->GetRecordingUploadsReport");
 
             var localVarPath = "/api/v2/recording/uploads/reports/{reportId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -9829,20 +9449,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetRecordingUploadsReport: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -9888,11 +9501,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/recording/uploads/reports/{reportId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -9936,20 +9550,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetRecordingUploadsReport: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -9998,11 +9605,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'retentionThresholdDays' when calling RecordingApi->GetRecordingsRetentionQuery");
 
             var localVarPath = "/api/v2/recordings/retention/query";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -10048,20 +9656,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetRecordingsRetentionQuery: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -10111,11 +9712,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/recordings/retention/query";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -10161,20 +9763,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetRecordingsRetentionQuery: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -10184,218 +9779,6 @@ namespace PureCloudPlatform.Client.V2.Api
             return new ApiResponse<RecordingRetentionCursorEntityListing>(localVarStatusCode,
                 localVarHeaders,
                 (RecordingRetentionCursorEntityListing) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(RecordingRetentionCursorEntityListing)),
-                localVarResponse.Content,
-                localVarResponse.StatusDescription);
-        }
-
-
-
-        /// <summary>
-        /// Retrieves a paged listing of screen recording sessions 
-        /// Coming soon: This API is deprecated and will be replaced by /api/v2/recordings/screensessions/details
-        /// </summary>
-        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="pageSize">Page size (optional, default to 25)</param>
-        /// <param name="pageNumber">Page number (optional, default to 1)</param>
-        /// <returns>ScreenRecordingSessionListing</returns>
-        [Obsolete]
-        public ScreenRecordingSessionListing GetRecordingsScreensessions (int? pageSize = null, int? pageNumber = null)
-        {
-             ApiResponse<ScreenRecordingSessionListing> localVarResponse = GetRecordingsScreensessionsWithHttpInfo(pageSize, pageNumber);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Retrieves a paged listing of screen recording sessions 
-        /// Coming soon: This API is deprecated and will be replaced by /api/v2/recordings/screensessions/details
-        /// </summary>
-        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="pageSize">Page size (optional, default to 25)</param>
-        /// <param name="pageNumber">Page number (optional, default to 1)</param>
-        /// <returns>ApiResponse of ScreenRecordingSessionListing</returns>
-        [Obsolete]
-        public ApiResponse< ScreenRecordingSessionListing > GetRecordingsScreensessionsWithHttpInfo (int? pageSize = null, int? pageNumber = null)
-        { 
-
-            var localVarPath = "/api/v2/recordings/screensessions";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<Tuple<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-
-                "application/json"
-                
-
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-
-            // Path params
-
-            // Query params
-            if (pageSize != null) localVarQueryParams.Add(new Tuple<string, string>("pageSize", this.Configuration.ApiClient.ParameterToString(pageSize)));
-            if (pageNumber != null) localVarQueryParams.Add(new Tuple<string, string>("pageNumber", this.Configuration.ApiClient.ParameterToString(pageNumber)));
-
-            // Header params
-
-            // Form params
-            
-            // Body param
-
-
-            // authentication (PureCloud OAuth) required
-            // oauth required
-            if (!String.IsNullOrEmpty(Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
-            }
-
-            // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
-
-            if (localVarStatusCode >= 400)
-                throw new ApiException (localVarStatusCode, "Error calling GetRecordingsScreensessions: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
-            else if (localVarStatusCode == 0)
-                throw new ApiException (localVarStatusCode, "Error calling GetRecordingsScreensessions: " + localVarResponse.ErrorMessage, localVarResponse.ErrorMessage);
-
-            return new ApiResponse<ScreenRecordingSessionListing>(localVarStatusCode,
-                localVarHeaders,
-                (ScreenRecordingSessionListing) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ScreenRecordingSessionListing)),
-                localVarResponse.Content,
-                localVarResponse.StatusDescription);
-        }
-
-
-        /// <summary>
-        /// Retrieves a paged listing of screen recording sessions 
-        /// Coming soon: This API is deprecated and will be replaced by /api/v2/recordings/screensessions/details
-        /// </summary>
-        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="pageSize">Page size (optional, default to 25)</param>
-        /// <param name="pageNumber">Page number (optional, default to 1)</param>
-        /// <returns>Task of ScreenRecordingSessionListing</returns>
-        [Obsolete]
-        public async System.Threading.Tasks.Task<ScreenRecordingSessionListing> GetRecordingsScreensessionsAsync (int? pageSize = null, int? pageNumber = null)
-        {
-             ApiResponse<ScreenRecordingSessionListing> localVarResponse = await GetRecordingsScreensessionsAsyncWithHttpInfo(pageSize, pageNumber);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Retrieves a paged listing of screen recording sessions 
-        /// Coming soon: This API is deprecated and will be replaced by /api/v2/recordings/screensessions/details
-        /// </summary>
-        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="pageSize">Page size (optional, default to 25)</param>
-        /// <param name="pageNumber">Page number (optional, default to 1)</param>
-        /// <returns>Task of ApiResponse (ScreenRecordingSessionListing)</returns>
-        [Obsolete]
-        public async System.Threading.Tasks.Task<ApiResponse<ScreenRecordingSessionListing>> GetRecordingsScreensessionsAsyncWithHttpInfo (int? pageSize = null, int? pageNumber = null)
-        { 
-
-            var localVarPath = "/api/v2/recordings/screensessions";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<Tuple<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-
-                "application/json"
-
-                
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-
-            // Path params
-
-            // Query params
-            if (pageSize != null) localVarQueryParams.Add(new Tuple<string, string>("pageSize", this.Configuration.ApiClient.ParameterToString(pageSize)));
-            if (pageNumber != null) localVarQueryParams.Add(new Tuple<string, string>("pageNumber", this.Configuration.ApiClient.ParameterToString(pageNumber)));
-
-            // Header params
-
-            // Form params
-            
-            // Body param
-
-
-            // authentication (PureCloud OAuth) required
-            // oauth required
-            if (!String.IsNullOrEmpty(Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
-            }
-
-            // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
-
-            if (localVarStatusCode >= 400)
-                throw new ApiException (localVarStatusCode, "Error calling GetRecordingsScreensessions: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
-            else if (localVarStatusCode == 0)
-                throw new ApiException (localVarStatusCode, "Error calling GetRecordingsScreensessions: " + localVarResponse.ErrorMessage, localVarResponse.ErrorMessage);
-
-            return new ApiResponse<ScreenRecordingSessionListing>(localVarStatusCode,
-                localVarHeaders,
-                (ScreenRecordingSessionListing) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ScreenRecordingSessionListing)),
                 localVarResponse.Content,
                 localVarResponse.StatusDescription);
         }
@@ -10426,11 +9809,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/recordings/screensessions/details";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -10473,20 +9857,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetRecordingsScreensessionsDetails: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -10526,11 +9903,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/recordings/screensessions/details";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -10573,20 +9951,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetRecordingsScreensessionsDetails: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -10636,11 +10007,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling RecordingApi->PatchRecordingCrossplatformMediaretentionpolicy");
 
             var localVarPath = "/api/v2/recording/crossplatform/mediaretentionpolicies/{policyId}";
+            var localVarHttpMethod = "Patch";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -10690,20 +10062,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Patch, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PatchRecordingCrossplatformMediaretentionpolicy: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -10755,11 +10120,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/recording/crossplatform/mediaretentionpolicies/{policyId}";
+            var localVarHttpMethod = "Patch";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -10809,20 +10175,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Patch, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PatchRecordingCrossplatformMediaretentionpolicy: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -10872,11 +10231,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling RecordingApi->PatchRecordingMediaretentionpolicy");
 
             var localVarPath = "/api/v2/recording/mediaretentionpolicies/{policyId}";
+            var localVarHttpMethod = "Patch";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -10926,20 +10286,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Patch, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PatchRecordingMediaretentionpolicy: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -10991,11 +10344,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/recording/mediaretentionpolicies/{policyId}";
+            var localVarHttpMethod = "Patch";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -11045,20 +10399,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Patch, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PatchRecordingMediaretentionpolicy: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -11113,11 +10460,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling RecordingApi->PostConversationRecordingAnnotations");
 
             var localVarPath = "/api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -11168,20 +10516,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostConversationRecordingAnnotations: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -11239,11 +10580,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -11294,20 +10636,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostConversationRecordingAnnotations: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -11352,11 +10687,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling RecordingApi->PostRecordingBatchrequests");
 
             var localVarPath = "/api/v2/recording/batchrequests";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -11405,20 +10741,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostRecordingBatchrequests: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -11464,11 +10793,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/recording/batchrequests";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -11517,20 +10847,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostRecordingBatchrequests: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -11575,11 +10898,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling RecordingApi->PostRecordingCrossplatformMediaretentionpolicies");
 
             var localVarPath = "/api/v2/recording/crossplatform/mediaretentionpolicies";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -11628,20 +10952,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostRecordingCrossplatformMediaretentionpolicies: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -11687,11 +11004,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/recording/crossplatform/mediaretentionpolicies";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -11740,20 +11058,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostRecordingCrossplatformMediaretentionpolicies: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -11771,7 +11082,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
         /// <summary>
         /// Create a recording bulk job. 
-        /// Each organization can run up to a maximum of two concurrent jobs that are either in pending or processing state. Furthermore, the recording:recording:viewSensitiveData permission is required to access recordings with PCI DSS and/or PII data when redaction is enabled for their organization. If the requester does not have that permission and includeRecordingsWithSensitiveData is set to true, then their request will be rejected.
+        /// Each organization can run up to a maximum of two concurrent jobs that are either in pending or processing state. Furthermore, the recording:recording:viewSensitiveData permission is required to access recordings with PCI DSS and/or PII data when redaction is enabled for their organization. If the requester does not have that permission and includeRecordingsWithSensitiveData is set to true, then their request will be rejected. It is recommended to query over smaller time periods so your request does not time out.
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">query</param>
@@ -11785,7 +11096,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
         /// <summary>
         /// Create a recording bulk job. 
-        /// Each organization can run up to a maximum of two concurrent jobs that are either in pending or processing state. Furthermore, the recording:recording:viewSensitiveData permission is required to access recordings with PCI DSS and/or PII data when redaction is enabled for their organization. If the requester does not have that permission and includeRecordingsWithSensitiveData is set to true, then their request will be rejected.
+        /// Each organization can run up to a maximum of two concurrent jobs that are either in pending or processing state. Furthermore, the recording:recording:viewSensitiveData permission is required to access recordings with PCI DSS and/or PII data when redaction is enabled for their organization. If the requester does not have that permission and includeRecordingsWithSensitiveData is set to true, then their request will be rejected. It is recommended to query over smaller time periods so your request does not time out.
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">query</param>
@@ -11798,11 +11109,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling RecordingApi->PostRecordingJobs");
 
             var localVarPath = "/api/v2/recording/jobs";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -11851,20 +11163,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostRecordingJobs: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -11881,7 +11186,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
         /// <summary>
         /// Create a recording bulk job. 
-        /// Each organization can run up to a maximum of two concurrent jobs that are either in pending or processing state. Furthermore, the recording:recording:viewSensitiveData permission is required to access recordings with PCI DSS and/or PII data when redaction is enabled for their organization. If the requester does not have that permission and includeRecordingsWithSensitiveData is set to true, then their request will be rejected.
+        /// Each organization can run up to a maximum of two concurrent jobs that are either in pending or processing state. Furthermore, the recording:recording:viewSensitiveData permission is required to access recordings with PCI DSS and/or PII data when redaction is enabled for their organization. If the requester does not have that permission and includeRecordingsWithSensitiveData is set to true, then their request will be rejected. It is recommended to query over smaller time periods so your request does not time out.
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">query</param>
@@ -11896,7 +11201,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
         /// <summary>
         /// Create a recording bulk job. 
-        /// Each organization can run up to a maximum of two concurrent jobs that are either in pending or processing state. Furthermore, the recording:recording:viewSensitiveData permission is required to access recordings with PCI DSS and/or PII data when redaction is enabled for their organization. If the requester does not have that permission and includeRecordingsWithSensitiveData is set to true, then their request will be rejected.
+        /// Each organization can run up to a maximum of two concurrent jobs that are either in pending or processing state. Furthermore, the recording:recording:viewSensitiveData permission is required to access recordings with PCI DSS and/or PII data when redaction is enabled for their organization. If the requester does not have that permission and includeRecordingsWithSensitiveData is set to true, then their request will be rejected. It is recommended to query over smaller time periods so your request does not time out.
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">query</param>
@@ -11910,11 +11215,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/recording/jobs";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -11963,20 +11269,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostRecordingJobs: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -12021,11 +11320,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling RecordingApi->PostRecordingKeyconfigurations");
 
             var localVarPath = "/api/v2/recording/keyconfigurations";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -12074,20 +11374,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostRecordingKeyconfigurations: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -12133,11 +11426,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/recording/keyconfigurations";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -12186,20 +11480,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostRecordingKeyconfigurations: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -12244,11 +11531,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling RecordingApi->PostRecordingKeyconfigurationsValidate");
 
             var localVarPath = "/api/v2/recording/keyconfigurations/validate";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -12297,20 +11585,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostRecordingKeyconfigurationsValidate: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -12356,11 +11637,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/recording/keyconfigurations/validate";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -12409,20 +11691,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostRecordingKeyconfigurationsValidate: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -12467,11 +11742,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling RecordingApi->PostRecordingLocalkeys");
 
             var localVarPath = "/api/v2/recording/localkeys";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -12520,20 +11796,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostRecordingLocalkeys: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -12579,11 +11848,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/recording/localkeys";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -12632,20 +11902,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostRecordingLocalkeys: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -12690,11 +11953,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling RecordingApi->PostRecordingMediaretentionpolicies");
 
             var localVarPath = "/api/v2/recording/mediaretentionpolicies";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -12743,20 +12007,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostRecordingMediaretentionpolicies: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -12802,11 +12059,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/recording/mediaretentionpolicies";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -12855,20 +12113,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostRecordingMediaretentionpolicies: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -12908,11 +12159,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/recording/recordingkeys";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -12955,20 +12207,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostRecordingRecordingkeys: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -13008,11 +12253,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/recording/recordingkeys";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -13055,20 +12301,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostRecordingRecordingkeys: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -13113,11 +12352,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling RecordingApi->PostRecordingUploadsReports");
 
             var localVarPath = "/api/v2/recording/uploads/reports";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -13166,20 +12406,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostRecordingUploadsReports: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -13225,11 +12458,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/recording/uploads/reports";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -13278,20 +12512,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostRecordingUploadsReports: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -13336,11 +12563,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling RecordingApi->PostRecordingsDeletionprotection");
 
             var localVarPath = "/api/v2/recordings/deletionprotection";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -13389,20 +12617,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostRecordingsDeletionprotection: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -13448,11 +12669,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/recordings/deletionprotection";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -13501,20 +12723,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostRecordingsDeletionprotection: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -13558,11 +12773,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling RecordingApi->PostRecordingsScreensessionsAcknowledge");
 
             var localVarPath = "/api/v2/recordings/screensessions/acknowledge";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -13611,20 +12827,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostRecordingsScreensessionsAcknowledge: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -13669,11 +12878,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/recordings/screensessions/acknowledge";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -13722,20 +12932,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostRecordingsScreensessionsAcknowledge: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -13779,11 +12982,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling RecordingApi->PostRecordingsScreensessionsMetadata");
 
             var localVarPath = "/api/v2/recordings/screensessions/metadata";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -13832,20 +13036,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostRecordingsScreensessionsMetadata: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -13890,11 +13087,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/recordings/screensessions/metadata";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -13943,20 +13141,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostRecordingsScreensessionsMetadata: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -14013,11 +13204,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling RecordingApi->PutConversationRecording");
 
             var localVarPath = "/api/v2/conversations/{conversationId}/recordings/{recordingId}";
+            var localVarHttpMethod = "Put";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -14069,20 +13261,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PutConversationRecording: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -14142,11 +13327,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/conversations/{conversationId}/recordings/{recordingId}";
+            var localVarHttpMethod = "Put";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -14198,20 +13384,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PutConversationRecording: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -14271,11 +13450,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling RecordingApi->PutConversationRecordingAnnotation");
 
             var localVarPath = "/api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations/{annotationId}";
+            var localVarHttpMethod = "Put";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -14327,20 +13507,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PutConversationRecordingAnnotation: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -14404,11 +13577,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations/{annotationId}";
+            var localVarHttpMethod = "Put";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -14460,20 +13634,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PutConversationRecordingAnnotation: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -14520,11 +13687,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'orphanId' when calling RecordingApi->PutOrphanrecording");
 
             var localVarPath = "/api/v2/orphanrecordings/{orphanId}";
+            var localVarHttpMethod = "Put";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -14574,20 +13742,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PutOrphanrecording: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -14635,11 +13796,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/orphanrecordings/{orphanId}";
+            var localVarHttpMethod = "Put";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -14689,20 +13851,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PutOrphanrecording: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -14752,11 +13907,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling RecordingApi->PutRecordingCrossplatformMediaretentionpolicy");
 
             var localVarPath = "/api/v2/recording/crossplatform/mediaretentionpolicies/{policyId}";
+            var localVarHttpMethod = "Put";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -14806,20 +13962,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PutRecordingCrossplatformMediaretentionpolicy: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -14871,11 +14020,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/recording/crossplatform/mediaretentionpolicies/{policyId}";
+            var localVarHttpMethod = "Put";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -14925,20 +14075,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PutRecordingCrossplatformMediaretentionpolicy: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -14956,7 +14099,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
         /// <summary>
         /// Execute the recording bulk job. 
-        /// A job must be executed by the same user whom originally created the job.  In addition, the user must have permission to update the recording's retention.
+        /// Each organization can run up to a maximum of two concurrent jobs that are either in pending or processing state. A job must be executed by the same user whom originally created the job.  In addition, the user must have permission to update the recording's retention.
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="jobId">jobId</param>
@@ -14971,7 +14114,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
         /// <summary>
         /// Execute the recording bulk job. 
-        /// A job must be executed by the same user whom originally created the job.  In addition, the user must have permission to update the recording's retention.
+        /// Each organization can run up to a maximum of two concurrent jobs that are either in pending or processing state. A job must be executed by the same user whom originally created the job.  In addition, the user must have permission to update the recording's retention.
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="jobId">jobId</param>
@@ -14988,11 +14131,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling RecordingApi->PutRecordingJob");
 
             var localVarPath = "/api/v2/recording/jobs/{jobId}";
+            var localVarHttpMethod = "Put";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -15042,20 +14186,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PutRecordingJob: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -15072,7 +14209,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
         /// <summary>
         /// Execute the recording bulk job. 
-        /// A job must be executed by the same user whom originally created the job.  In addition, the user must have permission to update the recording's retention.
+        /// Each organization can run up to a maximum of two concurrent jobs that are either in pending or processing state. A job must be executed by the same user whom originally created the job.  In addition, the user must have permission to update the recording's retention.
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="jobId">jobId</param>
@@ -15088,7 +14225,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
         /// <summary>
         /// Execute the recording bulk job. 
-        /// A job must be executed by the same user whom originally created the job.  In addition, the user must have permission to update the recording's retention.
+        /// Each organization can run up to a maximum of two concurrent jobs that are either in pending or processing state. A job must be executed by the same user whom originally created the job.  In addition, the user must have permission to update the recording's retention.
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="jobId">jobId</param>
@@ -15107,11 +14244,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/recording/jobs/{jobId}";
+            var localVarHttpMethod = "Put";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -15161,20 +14299,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PutRecordingJob: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -15224,11 +14355,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling RecordingApi->PutRecordingKeyconfiguration");
 
             var localVarPath = "/api/v2/recording/keyconfigurations/{keyConfigurationId}";
+            var localVarHttpMethod = "Put";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -15278,20 +14410,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PutRecordingKeyconfiguration: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -15343,11 +14468,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/recording/keyconfigurations/{keyConfigurationId}";
+            var localVarHttpMethod = "Put";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -15397,20 +14523,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PutRecordingKeyconfiguration: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -15428,7 +14547,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
         /// <summary>
         /// Update a media retention policy 
-        /// Policy does not work retroactively
+        /// Policy does not work retroactively. In the conditions.forUsers section, each user object can include the 'id' field containing the user's unique identifier. Example: [{\"id\":\"<userId>\"}].
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyId">Policy ID</param>
@@ -15443,7 +14562,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
         /// <summary>
         /// Update a media retention policy 
-        /// Policy does not work retroactively
+        /// Policy does not work retroactively. In the conditions.forUsers section, each user object can include the 'id' field containing the user's unique identifier. Example: [{\"id\":\"<userId>\"}].
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyId">Policy ID</param>
@@ -15460,11 +14579,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling RecordingApi->PutRecordingMediaretentionpolicy");
 
             var localVarPath = "/api/v2/recording/mediaretentionpolicies/{policyId}";
+            var localVarHttpMethod = "Put";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -15514,20 +14634,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PutRecordingMediaretentionpolicy: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -15544,7 +14657,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
         /// <summary>
         /// Update a media retention policy 
-        /// Policy does not work retroactively
+        /// Policy does not work retroactively. In the conditions.forUsers section, each user object can include the 'id' field containing the user's unique identifier. Example: [{\"id\":\"<userId>\"}].
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyId">Policy ID</param>
@@ -15560,7 +14673,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
         /// <summary>
         /// Update a media retention policy 
-        /// Policy does not work retroactively
+        /// Policy does not work retroactively. In the conditions.forUsers section, each user object can include the 'id' field containing the user's unique identifier. Example: [{\"id\":\"<userId>\"}].
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyId">Policy ID</param>
@@ -15579,11 +14692,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/recording/mediaretentionpolicies/{policyId}";
+            var localVarHttpMethod = "Put";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -15633,20 +14747,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PutRecordingMediaretentionpolicy: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -15691,11 +14798,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling RecordingApi->PutRecordingRecordingkeysRotationschedule");
 
             var localVarPath = "/api/v2/recording/recordingkeys/rotationschedule";
+            var localVarHttpMethod = "Put";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -15744,20 +14852,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PutRecordingRecordingkeysRotationschedule: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -15803,11 +14904,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/recording/recordingkeys/rotationschedule";
+            var localVarHttpMethod = "Put";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -15856,20 +14958,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PutRecordingRecordingkeysRotationschedule: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -15914,11 +15009,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling RecordingApi->PutRecordingSettings");
 
             var localVarPath = "/api/v2/recording/settings";
+            var localVarHttpMethod = "Put";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -15967,20 +15063,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PutRecordingSettings: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -16026,11 +15115,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/recording/settings";
+            var localVarHttpMethod = "Put";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -16079,20 +15169,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PutRecordingSettings: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -16135,11 +15218,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/recordings/deletionprotection";
+            var localVarHttpMethod = "Put";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -16189,20 +15273,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PutRecordingsDeletionprotection: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -16245,11 +15322,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/recordings/deletionprotection";
+            var localVarHttpMethod = "Put";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -16299,20 +15377,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PutRecordingsDeletionprotection: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);

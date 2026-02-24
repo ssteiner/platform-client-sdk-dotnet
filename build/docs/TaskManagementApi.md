@@ -37,6 +37,9 @@ All URIs are relative to *https://api.mypurecloud.com*
 | [**GetTaskmanagementWorkitemsSchemaVersion**](#GetTaskmanagementWorkitemsSchemaVersion) | **Get** /api/v2/taskmanagement/workitems/schemas/{schemaId}/versions/{versionId} | Get a specific version of a schema |
 | [**GetTaskmanagementWorkitemsSchemaVersions**](#GetTaskmanagementWorkitemsSchemaVersions) | **Get** /api/v2/taskmanagement/workitems/schemas/{schemaId}/versions | Get all versions of a schema |
 | [**GetTaskmanagementWorkitemsSchemas**](#GetTaskmanagementWorkitemsSchemas) | **Get** /api/v2/taskmanagement/workitems/schemas | Get a list of schemas. |
+| [**GetTaskmanagementWorkitemsSchemasCoretype**](#GetTaskmanagementWorkitemsSchemasCoretype) | **Get** /api/v2/taskmanagement/workitems/schemas/coretypes/{coreTypeName} | Get a specific named core type. |
+| [**GetTaskmanagementWorkitemsSchemasCoretypes**](#GetTaskmanagementWorkitemsSchemasCoretypes) | **Get** /api/v2/taskmanagement/workitems/schemas/coretypes | Get the core types from which all schemas are built. |
+| [**GetTaskmanagementWorkitemsSchemasLimits**](#GetTaskmanagementWorkitemsSchemasLimits) | **Get** /api/v2/taskmanagement/workitems/schemas/limits | Get quantitative limits on schemas |
 | [**GetTaskmanagementWorktype**](#GetTaskmanagementWorktype) | **Get** /api/v2/taskmanagement/worktypes/{worktypeId} | Get a worktype |
 | [**GetTaskmanagementWorktypeFlowsDatebasedRule**](#GetTaskmanagementWorktypeFlowsDatebasedRule) | **Get** /api/v2/taskmanagement/worktypes/{worktypeId}/flows/datebased/rules/{ruleId} | Get a date based rule |
 | [**GetTaskmanagementWorktypeFlowsDatebasedRules**](#GetTaskmanagementWorktypeFlowsDatebasedRules) | **Get** /api/v2/taskmanagement/worktypes/{worktypeId}/flows/datebased/rules | Get all date based rules for a worktype |
@@ -769,8 +772,6 @@ namespace Example
 
 Get a listing of a workbin's attribute change history
 
-GetTaskmanagementWorkbinHistory is a preview method and is subject to both breaking and non-breaking changes at any time without notice
-
 Requires ANY permissions: 
 
 * workitems:workbin:view
@@ -839,8 +840,6 @@ namespace Example
 
 Get a version of a workbin
 
-GetTaskmanagementWorkbinVersion is a preview method and is subject to both breaking and non-breaking changes at any time without notice
-
 Requires ANY permissions: 
 
 * workitems:workbin:view
@@ -905,8 +904,6 @@ namespace Example
 
 Get all versions of a workbin
 
-GetTaskmanagementWorkbinVersions is a preview method and is subject to both breaking and non-breaking changes at any time without notice
-
 Requires ANY permissions: 
 
 * workitems:workbin:view
@@ -970,7 +967,7 @@ namespace Example
 
 ## GetTaskmanagementWorkitem
 
-> [**Workitem**](Workitem) GetTaskmanagementWorkitem (string workitemId, string expands = null)
+> [**Workitem**](Workitem) GetTaskmanagementWorkitem (string workitemId, List<string> expands = null)
 
 
 Get a workitem
@@ -1002,7 +999,7 @@ namespace Example
 
             var apiInstance = new TaskManagementApi();
             var workitemId = workitemId_example;  // string | Workitem ID
-            var expands = expands_example;  // string | Which fields to expand. Comma separated if more than one. (optional) 
+            var expands = new List<string>(); // List<string> | Which fields to expand. Comma separated if more than one. (optional) 
 
             try
             { 
@@ -1025,7 +1022,7 @@ namespace Example
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **workitemId** | **string**| Workitem ID |  |
-| **expands** | **string**| Which fields to expand. Comma separated if more than one. | [optional] <br />**Values**: type, workbin, status, queue, assignee |
+| **expands** | [**List<string>**](string)| Which fields to expand. Comma separated if more than one. | [optional] <br />**Values**: type, workbin, status, queue, assignee |
 
 ### Return type
 
@@ -1038,8 +1035,6 @@ namespace Example
 
 
 Get a listing of a workitem's attribute change history
-
-GetTaskmanagementWorkitemHistory is a preview method and is subject to both breaking and non-breaking changes at any time without notice
 
 Requires ANY permissions: 
 
@@ -1104,7 +1099,7 @@ namespace Example
 
 ## GetTaskmanagementWorkitemUserWrapups
 
-> [**WorkitemWrapup**](WorkitemWrapup) GetTaskmanagementWorkitemUserWrapups (string workitemId, string userId, string expands = null, string after = null, int? pageSize = null, string sortOrder = null)
+> [**WorkitemWrapupEntityListing**](WorkitemWrapupEntityListing) GetTaskmanagementWorkitemUserWrapups (string workitemId, string userId, string expands = null, string after = null, int? pageSize = null, string sortOrder = null)
 
 
 Get all wrapup codes added for the given user for a workitem.
@@ -1145,7 +1140,7 @@ namespace Example
             try
             { 
                 // Get all wrapup codes added for the given user for a workitem.
-                WorkitemWrapup result = apiInstance.GetTaskmanagementWorkitemUserWrapups(workitemId, userId, expands, after, pageSize, sortOrder);
+                WorkitemWrapupEntityListing result = apiInstance.GetTaskmanagementWorkitemUserWrapups(workitemId, userId, expands, after, pageSize, sortOrder);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -1171,7 +1166,7 @@ namespace Example
 
 ### Return type
 
-[**WorkitemWrapup**](WorkitemWrapup)
+[**WorkitemWrapupEntityListing**](WorkitemWrapupEntityListing)
 
 
 ## GetTaskmanagementWorkitemVersion
@@ -1180,8 +1175,6 @@ namespace Example
 
 
 Get a version of a workitem
-
-GetTaskmanagementWorkitemVersion is a preview method and is subject to both breaking and non-breaking changes at any time without notice
 
 Requires ANY permissions: 
 
@@ -1246,8 +1239,6 @@ namespace Example
 
 
 Get all versions of a workitem
-
-GetTaskmanagementWorkitemVersions is a preview method and is subject to both breaking and non-breaking changes at any time without notice
 
 Requires ANY permissions: 
 
@@ -1948,7 +1939,7 @@ namespace Example
 
 ## GetTaskmanagementWorkitemsSchemaVersions
 
-> [**DataSchema**](DataSchema) GetTaskmanagementWorkitemsSchemaVersions (string schemaId)
+> [**DataSchemaListing**](DataSchemaListing) GetTaskmanagementWorkitemsSchemaVersions (string schemaId)
 
 
 Get all versions of a schema
@@ -1984,7 +1975,7 @@ namespace Example
             try
             { 
                 // Get all versions of a schema
-                DataSchema result = apiInstance.GetTaskmanagementWorkitemsSchemaVersions(schemaId);
+                DataSchemaListing result = apiInstance.GetTaskmanagementWorkitemsSchemaVersions(schemaId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -2005,7 +1996,7 @@ namespace Example
 
 ### Return type
 
-[**DataSchema**](DataSchema)
+[**DataSchemaListing**](DataSchemaListing)
 
 
 ## GetTaskmanagementWorkitemsSchemas
@@ -2063,6 +2054,182 @@ This endpoint does require any parameters.
 ### Return type
 
 [**DataSchemaListing**](DataSchemaListing)
+
+
+## GetTaskmanagementWorkitemsSchemasCoretype
+
+> [**Coretype**](Coretype) GetTaskmanagementWorkitemsSchemasCoretype (string coreTypeName)
+
+
+Get a specific named core type.
+
+Requires ANY permissions: 
+
+* workitems:workitemSchema:view
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class GetTaskmanagementWorkitemsSchemasCoretypeExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new TaskManagementApi();
+            var coreTypeName = coreTypeName_example;  // string | Name of the core type
+
+            try
+            { 
+                // Get a specific named core type.
+                Coretype result = apiInstance.GetTaskmanagementWorkitemsSchemasCoretype(coreTypeName);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling TaskManagementApi.GetTaskmanagementWorkitemsSchemasCoretype: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **coreTypeName** | **string**| Name of the core type |  |
+
+### Return type
+
+[**Coretype**](Coretype)
+
+
+## GetTaskmanagementWorkitemsSchemasCoretypes
+
+> [**CoretypeListing**](CoretypeListing) GetTaskmanagementWorkitemsSchemasCoretypes ()
+
+
+Get the core types from which all schemas are built.
+
+Requires ANY permissions: 
+
+* workitems:workitemSchema:view
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class GetTaskmanagementWorkitemsSchemasCoretypesExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new TaskManagementApi();
+
+            try
+            { 
+                // Get the core types from which all schemas are built.
+                CoretypeListing result = apiInstance.GetTaskmanagementWorkitemsSchemasCoretypes();
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling TaskManagementApi.GetTaskmanagementWorkitemsSchemasCoretypes: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+This endpoint does require any parameters.
+
+### Return type
+
+[**CoretypeListing**](CoretypeListing)
+
+
+## GetTaskmanagementWorkitemsSchemasLimits
+
+> [**SchemaQuantityLimits**](SchemaQuantityLimits) GetTaskmanagementWorkitemsSchemasLimits ()
+
+
+Get quantitative limits on schemas
+
+Requires ANY permissions: 
+
+* workitems:workitemSchema:view
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class GetTaskmanagementWorkitemsSchemasLimitsExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new TaskManagementApi();
+
+            try
+            { 
+                // Get quantitative limits on schemas
+                SchemaQuantityLimits result = apiInstance.GetTaskmanagementWorkitemsSchemasLimits();
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling TaskManagementApi.GetTaskmanagementWorkitemsSchemasLimits: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+This endpoint does require any parameters.
+
+### Return type
+
+[**SchemaQuantityLimits**](SchemaQuantityLimits)
 
 
 ## GetTaskmanagementWorktype
@@ -2526,8 +2693,6 @@ namespace Example
 
 Get a listing of a worktype's attribute change history
 
-GetTaskmanagementWorktypeHistory is a preview method and is subject to both breaking and non-breaking changes at any time without notice
-
 Requires ANY permissions: 
 
 * workitems:worktype:view
@@ -2724,8 +2889,6 @@ namespace Example
 
 Get a version of a worktype
 
-GetTaskmanagementWorktypeVersion is a preview method and is subject to both breaking and non-breaking changes at any time without notice
-
 Requires ANY permissions: 
 
 * workitems:worktype:view
@@ -2789,8 +2952,6 @@ namespace Example
 
 
 Get all versions of a worktype
-
-GetTaskmanagementWorktypeVersions is a preview method and is subject to both breaking and non-breaking changes at any time without notice
 
 Requires ANY permissions: 
 
@@ -3048,7 +3209,7 @@ void (empty response body)
 
 ## PatchTaskmanagementWorkitemUserWrapups
 
-> [**WorkitemWrapup**](WorkitemWrapup) PatchTaskmanagementWorkitemUserWrapups (string workitemId, string userId, WorkitemWrapupUpdate body)
+> void PatchTaskmanagementWorkitemUserWrapups (string workitemId, string userId, WorkitemWrapupUpdate body)
 
 
 Add/Remove a wrapup code for a given user in a workitem.
@@ -3086,8 +3247,7 @@ namespace Example
             try
             { 
                 // Add/Remove a wrapup code for a given user in a workitem.
-                WorkitemWrapup result = apiInstance.PatchTaskmanagementWorkitemUserWrapups(workitemId, userId, body);
-                Debug.WriteLine(result);
+                apiInstance.PatchTaskmanagementWorkitemUserWrapups(workitemId, userId, body);
             }
             catch (Exception e)
             {
@@ -3109,12 +3269,12 @@ namespace Example
 
 ### Return type
 
-[**WorkitemWrapup**](WorkitemWrapup)
+void (empty response body)
 
 
 ## PatchTaskmanagementWorkitemUsersMeWrapups
 
-> [**WorkitemWrapup**](WorkitemWrapup) PatchTaskmanagementWorkitemUsersMeWrapups (string workitemId, WorkitemWrapupUpdate body)
+> void PatchTaskmanagementWorkitemUsersMeWrapups (string workitemId, WorkitemWrapupUpdate body)
 
 
 Add/Remove a wrapup code for the current user in a workitem.
@@ -3151,8 +3311,7 @@ namespace Example
             try
             { 
                 // Add/Remove a wrapup code for the current user in a workitem.
-                WorkitemWrapup result = apiInstance.PatchTaskmanagementWorkitemUsersMeWrapups(workitemId, body);
-                Debug.WriteLine(result);
+                apiInstance.PatchTaskmanagementWorkitemUsersMeWrapups(workitemId, body);
             }
             catch (Exception e)
             {
@@ -3173,7 +3332,7 @@ namespace Example
 
 ### Return type
 
-[**WorkitemWrapup**](WorkitemWrapup)
+void (empty response body)
 
 
 ## PatchTaskmanagementWorkitemsBulkAddJob
@@ -4764,4 +4923,4 @@ namespace Example
 [**DataSchema**](DataSchema)
 
 
-_PureCloudPlatform.Client.V2 227.0.0_
+_PureCloudPlatform.Client.V2 257.0.0_

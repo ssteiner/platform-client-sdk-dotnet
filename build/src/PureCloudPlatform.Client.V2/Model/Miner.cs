@@ -121,7 +121,91 @@ namespace PureCloudPlatform.Client.V2.Model
             /// Enum Dech for "de-ch"
             /// </summary>
             [EnumMember(Value = "de-ch")]
-            Dech
+            Dech,
+            
+            /// <summary>
+            /// Enum Jajp for "ja-jp"
+            /// </summary>
+            [EnumMember(Value = "ja-jp")]
+            Jajp,
+            
+            /// <summary>
+            /// Enum Kokr for "ko-kr"
+            /// </summary>
+            [EnumMember(Value = "ko-kr")]
+            Kokr,
+            
+            /// <summary>
+            /// Enum Hiin for "hi-in"
+            /// </summary>
+            [EnumMember(Value = "hi-in")]
+            Hiin,
+            
+            /// <summary>
+            /// Enum Ar001 for "ar-001"
+            /// </summary>
+            [EnumMember(Value = "ar-001")]
+            Ar001,
+            
+            /// <summary>
+            /// Enum Arae for "ar-ae"
+            /// </summary>
+            [EnumMember(Value = "ar-ae")]
+            Arae,
+            
+            /// <summary>
+            /// Enum Arbh for "ar-bh"
+            /// </summary>
+            [EnumMember(Value = "ar-bh")]
+            Arbh,
+            
+            /// <summary>
+            /// Enum Areg for "ar-eg"
+            /// </summary>
+            [EnumMember(Value = "ar-eg")]
+            Areg,
+            
+            /// <summary>
+            /// Enum Aril for "ar-il"
+            /// </summary>
+            [EnumMember(Value = "ar-il")]
+            Aril,
+            
+            /// <summary>
+            /// Enum Arsa for "ar-sa"
+            /// </summary>
+            [EnumMember(Value = "ar-sa")]
+            Arsa,
+            
+            /// <summary>
+            /// Enum Artn for "ar-tn"
+            /// </summary>
+            [EnumMember(Value = "ar-tn")]
+            Artn,
+            
+            /// <summary>
+            /// Enum Dadk for "da-dk"
+            /// </summary>
+            [EnumMember(Value = "da-dk")]
+            Dadk,
+            
+            /// <summary>
+            /// Enum Fifi for "fi-fi"
+            /// </summary>
+            [EnumMember(Value = "fi-fi")]
+            Fifi,
+            
+            /// <summary>
+            /// Enum Svse for "sv-se"
+            /// </summary>
+            [EnumMember(Value = "sv-se")]
+            Svse,
+            
+            /// <summary>
+            /// Enum Nbno for "nb-no"
+            /// </summary>
+            [EnumMember(Value = "nb-no")]
+            Nbno
         }
         /// <summary>
         /// Type of the miner, intent or topic.
@@ -387,11 +471,13 @@ namespace PureCloudPlatform.Client.V2.Model
         /// <param name="Name">Chat Corpus Name. (required).</param>
         /// <param name="Language">Language Localization code..</param>
         /// <param name="MinerType">Type of the miner, intent or topic..</param>
-        public Miner(string Name = null, LanguageEnum? Language = null, MinerTypeEnum? MinerType = null)
+        /// <param name="Seeding">Flag to indicate whether seeding is supported for this miner..</param>
+        public Miner(string Name = null, LanguageEnum? Language = null, MinerTypeEnum? MinerType = null, bool? Seeding = null)
         {
             this.Name = Name;
             this.Language = Language;
             this.MinerType = MinerType;
+            this.Seeding = Seeding;
             
         }
         
@@ -416,6 +502,15 @@ namespace PureCloudPlatform.Client.V2.Model
 
 
 
+
+
+
+        /// <summary>
+        /// Flag to indicate whether seeding is supported for this miner.
+        /// </summary>
+        /// <value>Flag to indicate whether seeding is supported for this miner.</value>
+        [DataMember(Name="seeding", EmitDefaultValue=false)]
+        public bool? Seeding { get; set; }
 
 
 
@@ -581,6 +676,7 @@ namespace PureCloudPlatform.Client.V2.Model
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Language: ").Append(Language).Append("\n");
             sb.Append("  MinerType: ").Append(MinerType).Append("\n");
+            sb.Append("  Seeding: ").Append(Seeding).Append("\n");
             sb.Append("  DateCreated: ").Append(DateCreated).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  ConversationsDateRangeStart: ").Append(ConversationsDateRangeStart).Append("\n");
@@ -659,6 +755,11 @@ namespace PureCloudPlatform.Client.V2.Model
                     this.MinerType == other.MinerType ||
                     this.MinerType != null &&
                     this.MinerType.Equals(other.MinerType)
+                ) &&
+                (
+                    this.Seeding == other.Seeding ||
+                    this.Seeding != null &&
+                    this.Seeding.Equals(other.Seeding)
                 ) &&
                 (
                     this.DateCreated == other.DateCreated ||
@@ -779,6 +880,9 @@ namespace PureCloudPlatform.Client.V2.Model
 
                 if (this.MinerType != null)
                     hash = hash * 59 + this.MinerType.GetHashCode();
+
+                if (this.Seeding != null)
+                    hash = hash * 59 + this.Seeding.GetHashCode();
 
                 if (this.DateCreated != null)
                     hash = hash * 59 + this.DateCreated.GetHashCode();

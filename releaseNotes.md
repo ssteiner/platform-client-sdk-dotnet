@@ -1,426 +1,368 @@
-Platform API version: 8887
+Platform API version: 10068
 
 
 
 
 # Major Changes (13 changes)
 
-**/api/v2/recordings/screensessions/{recordingSessionId}** (1 change)
+**POST /api/v2/quality/surveys** (1 change)
 
-* Path /api/v2/recordings/screensessions/{recordingSessionId} was removed
+* Response 200 type was changed from Survey to CreateSurveyResponse
 
-**GET /api/v2/externalcontacts/import/jobs/{jobId}** (1 change)
+**GET /api/v2/webdeployments/configurations** (3 changes)
 
-* Parameter expand was added
+* Parameter pageSize was added
+* Parameter before was added
+* Parameter after was added
 
-**GET /api/v2/externalcontacts/import/jobs** (1 change)
+**GET /api/v2/webdeployments/configurations/{configurationId}/versions** (3 changes)
 
-* Parameter expand was added
+* Parameter pageSize was added
+* Parameter before was added
+* Parameter after was added
 
-**ScreenRecordingSessionRequest** (1 change)
+**GET /api/v2/webdeployments/deployments** (3 changes)
 
-* Model ScreenRecordingSessionRequest was removed
+* Parameter pageSize was added
+* Parameter before was added
+* Parameter after was added
 
-**WhatsAppColumn** (1 change)
+**ButtonQuickReplyPayload** (1 change)
 
-* Property contactableTimeColumn was removed
+* Model ButtonQuickReplyPayload was removed
 
-**OpenDataIngestionRuleResponse** (2 changes)
+**ViewFilter** (1 change)
 
-* dateCreated has been made readonly
-* dateModified has been made readonly
+* Property engagementSource was removed
 
-**OpenDataIngestionRuleVersionResponse** (2 changes)
+**CardParameters** (1 change)
 
-* dateCreated has been made readonly
-* dateModified has been made readonly
-
-**TwitterDataIngestionRuleResponse** (2 changes)
-
-* dateCreated has been made readonly
-* dateModified has been made readonly
-
-**TwitterDataIngestionRuleVersionResponse** (2 changes)
-
-* dateCreated has been made readonly
-* dateModified has been made readonly
+* Property buttonQuickReplyPayloads was removed
 
 
-# Minor Changes (111 changes)
+# Minor Changes (103 changes)
 
-**/api/v2/journey/views/data/details** (2 changes)
-
-* Path was added
-* Operation GET was added
-
-**GET /api/v2/conversations/{conversationId}/recordings/{recordingId}** (1 change)
-
-* Response 200 was added
-
-**/api/v2/workforcemanagement/historicaldata/bulk/remove/jobs/{jobId}** (2 changes)
-
-* Path was added
-* Operation GET was added
-
-**/api/v2/workforcemanagement/historicaldata/bulk/remove/jobs** (3 changes)
-
-* Path was added
-* Operation GET was added
-* Operation POST was added
-
-**/api/v2/authorization/policies/targets/{targetName}** (4 changes)
-
-* Path was added
-* Operation GET was added
-* Operation POST was added
-* Operation PUT was added
-
-**/api/v2/authorization/policies** (2 changes)
-
-* Path was added
-* Operation GET was added
-
-**/api/v2/authorization/policies/subject/{subjectId}** (2 changes)
-
-* Path was added
-* Operation GET was added
-
-**/api/v2/authorization/policies/targets/{targetName}/subject/{subjectId}** (3 changes)
+**/api/v2/conversations/{conversationId}/customattributes/{attributesId}** (3 changes)
 
 * Path was added
 * Operation GET was added
 * Operation DELETE was added
 
-**/api/v2/authorization/policies/{policyId}** (3 changes)
+**/api/v2/conversations/{conversationId}/customattributes** (4 changes)
+
+* Path was added
+* Operation GET was added
+* Operation PUT was added
+* Operation PATCH was added
+
+**/api/v2/conversations/{conversationId}/customattributes/bulk** (3 changes)
+
+* Path was added
+* Operation PUT was added
+* Operation PATCH was added
+
+**/api/v2/conversations/customattributes/search** (2 changes)
+
+* Path was added
+* Operation POST was added
+
+**/api/v2/conversations/customattributes/schemas/coretypes/{coreTypeName}** (2 changes)
+
+* Path was added
+* Operation GET was added
+
+**/api/v2/conversations/customattributes/schemas/coretypes** (2 changes)
+
+* Path was added
+* Operation GET was added
+
+**/api/v2/conversations/customattributes/schemas/limits** (2 changes)
+
+* Path was added
+* Operation GET was added
+
+**/api/v2/conversations/customattributes/schemas/{schemaId}** (3 changes)
 
 * Path was added
 * Operation GET was added
 * Operation PUT was added
 
-**/api/v2/authorization/policies/{policyId}/attributes** (2 changes)
+**/api/v2/conversations/customattributes/schemas/{schemaId}/versions** (2 changes)
 
 * Path was added
 * Operation GET was added
 
-**/api/v2/authorization/policies/{policyId}/simulate** (2 changes)
-
-* Path was added
-* Operation POST was added
-
-**/api/v2/authorization/policies/targets** (2 changes)
+**/api/v2/conversations/customattributes/schemas/{schemaId}/versions/{versionId}** (2 changes)
 
 * Path was added
 * Operation GET was added
 
-**/api/v2/authorization/policies/targets/{targetName}/validate** (2 changes)
+**/api/v2/conversations/customattributes/schemas** (3 changes)
+
+* Path was added
+* Operation GET was added
+* Operation POST was added
+
+**/api/v2/routing/skills/{skillId}** (1 change)
+
+* Operation patch was added. Summary: Update Routing Skill Division
+
+**/api/v2/conversations/messaging/integrations/open/extensions/googlebusinessprofile/{integrationId}** (4 changes)
+
+* Path was added
+* Operation GET was added
+* Operation DELETE was added
+* Operation PATCH was added
+
+**/api/v2/conversations/messaging/integrations/open/extensions/googlebusinessprofile** (2 changes)
 
 * Path was added
 * Operation POST was added
 
-**SummaryAggregateQueryPredicate** (1 change)
+**/api/v2/conversations/messaging/integrations/open/extensions/googlebusinessprofile/tokens/{tokenId}/accounts** (2 changes)
 
-* Enum value userId was added to property dimension
+* Path was added
+* Operation GET was added
 
-**SummaryAggregationQuery** (1 change)
+**/api/v2/conversations/messaging/integrations/open/extensions/googlebusinessprofile/oauth/settings** (2 changes)
 
-* Enum value userId was added to property groupBy
+* Path was added
+* Operation GET was added
 
-**ViewFilter** (3 changes)
+**/api/v2/conversations/messaging/integrations/open/extensions/googlebusinessprofile/tokens/{tokenId}** (2 changes)
 
-* Optional property dashboardState was added
-* Optional property viewMetrics was added
-* Optional property timelineCategories was added
+* Path was added
+* Operation GET was added
 
-**Queue** (1 change)
+**/api/v2/conversations/messaging/integrations/open/extensions/googlebusinessprofile/tokens** (2 changes)
 
-* Optional property lastAgentRoutingMode was added
+* Path was added
+* Operation POST was added
 
-**ContactIdentifier** (1 change)
+**/api/v2/socialmedia/topics/{topicId}/dataingestionrules/googlebusinessprofile/{googleBusinessProfileIngestionRuleId}** (5 changes)
 
-* Optional property externalSource was added
+* Path was added
+* Operation GET was added
+* Operation PUT was added
+* Operation DELETE was added
+* Operation PATCH was added
 
-**ExternalOrganizationIdentifier** (1 change)
+**/api/v2/socialmedia/topics/{topicId}/dataingestionrules/googlebusinessprofile/{googleBusinessProfileIngestionRuleId}/versions/{dataIngestionRuleVersion}** (2 changes)
 
-* Optional property externalSource was added
+* Path was added
+* Operation GET was added
 
-**CallMediaParticipant** (1 change)
+**/api/v2/socialmedia/topics/{topicId}/dataingestionrules/googlebusinessprofile/{googleBusinessProfileIngestionRuleId}/versions** (2 changes)
 
-* Optional property resumeTime was added
+* Path was added
+* Operation GET was added
 
-**CallbackMediaParticipant** (1 change)
+**/api/v2/socialmedia/topics/{topicId}/dataingestionrules/googlebusinessprofile** (2 changes)
 
-* Optional property resumeTime was added
+* Path was added
+* Operation POST was added
 
-**ChatMediaParticipant** (1 change)
+**TaskManagementAggregateQueryPredicate** (1 change)
 
-* Optional property resumeTime was added
+* Enum value caseId was added to property dimension
 
-**CobrowseMediaParticipant** (1 change)
+**TaskManagementAggregationQuery** (1 change)
 
-* Optional property resumeTime was added
+* Enum value caseId was added to property groupBy
 
-**EmailMediaParticipant** (1 change)
+**ReportingTurn** (1 change)
 
-* Optional property resumeTime was added
+* Enum value GuardrailsViolation was added to property askActionResult
 
-**MessageMediaParticipant** (1 change)
+**ReportingTurnAction** (1 change)
 
-* Optional property resumeTime was added
+* Enum value SendDigitalCarouselAction was added to property actionType
 
-**DataRange** (1 change)
+**ViewFilter** (2 changes)
 
-* Model was added
+* Optional property engagementSources was added
+* Optional property isSnippetRecorded was added
 
-**IpAddressRange** (3 changes)
+**Copilot** (2 changes)
 
-* Enum value imap was added to property service
-* Enum value graphapi was added to property service
-* Enum value tts-connector was added to property service
+* Optional property autoSearchConfig was added
+* Optional property manualSearchConfig was added
 
-**Annotation** (1 change)
-
-* id is no longer readonly
-
-**DatePicker** (1 change)
-
-* Model was added
-
-**DatePickerAvailableDateTime** (1 change)
-
-* Model was added
-
-**RecordingMessagingMessage** (1 change)
-
-* Enum value DatePicker was added to property contentType
-
-**AlertRuleProperties** (1 change)
-
-* Enum value OperationalConsole was added to property type
-
-**CommonRulePredicate** (2 changes)
-
-* Optional property topic was added
-* Enum value nEvents was added to property metric
-
-**CommonRule** (1 change)
-
-* Enum value OperationalConsole was added to property type
-
-**QueueRequest** (1 change)
-
-* Optional property lastAgentRoutingMode was added
-
-**UserQueue** (1 change)
-
-* Optional property lastAgentRoutingMode was added
-
-**CreateQueueRequest** (1 change)
-
-* Optional property lastAgentRoutingMode was added
-
-**ConversationInsight** (1 change)
+**HeaderEntry** (1 change)
 
 * Model was added
 
-**DependencyStatus** (1 change)
+**Message** (1 change)
 
-* Enum value BUILDINCOMPLETE was added to property status
+* Enum value takeover was added to property disconnectType
 
-**WebDeploymentConfigurationVersion** (1 change)
-
-* Optional property video was added
-
-**WebDeploymentConfigurationVersionResponse** (1 change)
-
-* Optional property video was added
-
-**BusinessUnitSettingsResponse** (1 change)
-
-* Optional property notifications was added
-
-**UpdateBusinessUnitSettingsRequest** (1 change)
-
-* Optional property notifications was added
-
-**CreateBusinessUnitSettingsRequest** (1 change)
-
-* Optional property notifications was added
-
-**UserNextActivityReminder** (2 changes)
-
-* Optional property activityCategory was added
-* Optional property startDate was added
-
-**UserScheduleAdherence** (2 changes)
-
-* Optional property nextActivityReminders was added
-* Optional property suppressOnTimeReminder was added
-
-**HistoricalDataDeleteEntity** (1 change)
+**ConversationDataSchema** (1 change)
 
 * Model was added
 
-**HistoricalDataDisallowedDeleteEntity** (1 change)
+**ConversationJsonSchemaDocument** (1 change)
 
 * Model was added
 
-**HistoricalImportDeleteFilesJobResponse** (1 change)
+**CustomAttributes** (1 change)
 
 * Model was added
 
-**HistoricalImportDeleteFilesJobRequest** (1 change)
+**CustomAttributesListing** (1 change)
 
 * Model was added
 
-**HistoricalDataJobEntityStatus** (1 change)
+**CustomAttributesPatchRequest** (1 change)
 
 * Model was added
 
-**HistoricalImportOverallDeleteStatusResponse** (1 change)
+**CustomAttributesBulkUpdateResponse** (1 change)
 
 * Model was added
 
-**HistoricalImportStatus** (2 changes)
-
-* Optional property fileName was added
-* Optional property fileSize was added
-
-**HistoricalImportStatusListing** (1 change)
-
-* Optional property downloadUrl was added
-
-**WorkitemCommonCreate** (1 change)
-
-* Optional property scriptId was added
-
-**Workitem** (1 change)
-
-* Optional property script was added
-
-**WorkitemCreate** (1 change)
-
-* Optional property scriptId was added
-
-**WorkitemUpdate** (1 change)
-
-* Optional property scriptId was added
-
-**Worktype** (1 change)
-
-* Optional property defaultScript was added
-
-**WorktypeUpdate** (1 change)
-
-* Optional property defaultScriptId was added
-
-**WorktypeCreate** (1 change)
-
-* Optional property defaultScriptId was added
-
-**AuthorizationPolicy** (1 change)
+**CustomAttributesBulkUpdateResponseMap** (1 change)
 
 * Model was added
 
-**Subject** (1 change)
+**CustomAttributesUpdateRequest** (1 change)
 
 * Model was added
 
-**TypedAttribute** (1 change)
+**CustomAttributesIdResponse** (1 change)
 
 * Model was added
 
-**AuthorizationPolicyEntityListing** (1 change)
+**ConversationCustomAttributesSearchCriteria** (1 change)
 
 * Model was added
 
-**PolicyAttribute** (1 change)
+**ConversationCustomAttributesSearchRequest** (1 change)
 
 * Model was added
 
-**PolicyAttributeSet** (1 change)
+**ConversationJsonSchemaRequest** (1 change)
 
 * Model was added
 
-**PolicyConditionResult** (1 change)
+**ConversationSchemaUpdateRequest** (1 change)
 
 * Model was added
 
-**PolicyTestResult** (1 change)
+**ConversationDataSchemaListing** (1 change)
 
 * Model was added
 
-**PolicyTestPayload** (1 change)
+**ConversationChannelMetadata** (1 change)
+
+* Optional property subType was added
+
+**MessagingIntegration** (1 change)
+
+* Optional property openExtensionType was added
+
+**ListPicker** (1 change)
+
+* Optional property header was added
+
+**CreateSurveyResponse** (1 change)
 
 * Model was added
 
-**TargetAttributeValue** (1 change)
+**UpdateSkillDivisionRequest** (1 change)
 
 * Model was added
 
-**TargetAttributes** (1 change)
+**DynamicUtilization** (1 change)
 
 * Model was added
 
-**ValidationErrorListing** (1 change)
+**DmarcResult** (1 change)
 
 * Model was added
 
-**ValidationErrorResponse** (1 change)
+**EscalationRuleResponse** (1 change)
+
+* Optional property googleBusinessProfileEscalation was added
+
+**FollowersFilter** (1 change)
 
 * Model was added
 
-**SummaryAsyncAggregationQuery** (1 change)
+**EscalationRuleRequest** (1 change)
 
-* Enum value userId was added to property groupBy
+* Optional property googleBusinessProfileEscalation was added
 
-**FacebookDataIngestionRuleResponse** (1 change)
+**TaskManagementAsyncAggregationQuery** (1 change)
 
-* Optional property platform was added
+* Enum value caseId was added to property groupBy
 
-**FacebookDataIngestionRuleVersionResponse** (1 change)
+**GoogleAuthTokenReference** (1 change)
 
-* Optional property platform was added
+* Model was added
+
+**GoogleBusinessProfileAccountReference** (1 change)
+
+* Model was added
+
+**GoogleBusinessProfileOpenIntegration** (1 change)
+
+* Model was added
+
+**GoogleBusinessProfileOpenIntegrationUpdateRequest** (1 change)
+
+* Model was added
+
+**GoogleBusinessProfileOpenIntegrationRequest** (1 change)
+
+* Model was added
+
+**GoogleBusinessProfileAccount** (1 change)
+
+* Model was added
+
+**GoogleBusinessProfileAccountListing** (1 change)
+
+* Model was added
+
+**GoogleOAuthSettingsResponse** (1 change)
+
+* Model was added
+
+**GoogleAuthToken** (1 change)
+
+* Model was added
+
+**GoogleAuthTokenRequest** (1 change)
+
+* Model was added
 
 **GoogleBusinessProfileDataIngestionRuleResponse** (1 change)
 
 * Model was added
 
-**InstagramDataIngestionRuleResponse** (1 change)
-
-* Optional property platform was added
-
-**OpenDataIngestionRuleResponse** (1 change)
-
-* Optional property platform was added
-
-**OpenDataIngestionRuleVersionResponse** (1 change)
-
-* Optional property platform was added
-
-**TwitterDataIngestionRuleResponse** (1 change)
-
-* Optional property platform was added
-
-**TwitterDataIngestionRuleVersionResponse** (1 change)
-
-* Optional property platform was added
-
-**DataIngestionRulesMetadata** (1 change)
+**GoogleBusinessProfileDataIngestionRuleRequest** (1 change)
 
 * Model was added
 
-**WorkitemVersion** (1 change)
+**GoogleBusinessProfileDataIngestionRuleVersionResponse** (1 change)
 
-* Optional property script was added
+* Model was added
 
-**WorktypeVersion** (1 change)
+**GoogleBusinessProfileDataIngestionRuleVersionResponseEntityListing** (1 change)
 
-* Optional property defaultScript was added
+* Model was added
 
 
-# Point Changes (2 changes)
+# Point Changes (3 changes)
 
-**GET /api/v2/speechandtextanalytics/categories** (2 changes)
+**POST /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages/media/uploads** (1 change)
 
-* Description was changed for parameter pageSize
-* Description was changed for parameter ids
+* Description was changed
+
+**GET /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages/media/{mediaId}** (1 change)
+
+* Description was changed
+
+**GET /api/v2/webdeployments/configurations/{configurationId}/versions** (1 change)
+
+* Description was changed

@@ -10,7 +10,8 @@
 | **Start** | **string** | the end date of an alteration range as an ISO-8601 string | [optional] |
 | **End** | **string** | the end date of an alteration range as an ISO-8601 string | [optional] |
 | **AdditionalProperties** | **Dictionary&lt;string, Object&gt;** |  | [optional] |
+| **GetAdditionalProperties** | **Dictionary&lt;string, Object&gt;** |  | [optional] |
 
 
 
-_PureCloudPlatform.Client.V2 227.0.0_
+_PureCloudPlatform.Client.V2 257.0.0_

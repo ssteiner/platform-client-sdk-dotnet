@@ -79,13 +79,7 @@ namespace PureCloudPlatform.Client.V2.Model
             /// Enum Unavailable for "Unavailable"
             /// </summary>
             [EnumMember(Value = "Unavailable")]
-            Unavailable,
-            
-            /// <summary>
-            /// Enum Unscheduled for "Unscheduled"
-            /// </summary>
-            [EnumMember(Value = "Unscheduled")]
-            Unscheduled
+            Unavailable
         }
         /// <summary>
         /// The activity code's category. Attempting to change the category of a default activity code will return an error
@@ -103,7 +97,7 @@ namespace PureCloudPlatform.Client.V2.Model
         /// Initializes a new instance of the <see cref="UpdateActivityCodeRequest" /> class.
         /// </summary>
         /// <param name="Name">The name of the activity code.</param>
-        /// <param name="Category">The activity code's category. Attempting to change the category of a default activity code will return an error.</param>
+        /// <param name="Category">The activity code&#39;s category. Attempting to change the category of a default activity code will return an error.</param>
         /// <param name="LengthInMinutes">The default length of the activity in minutes.</param>
         /// <param name="CountsAsPaidTime">Whether an agent is paid while performing this activity.</param>
         /// <param name="CountsAsWorkTime">Indicates whether or not the activity should be counted as work time.</param>
@@ -112,8 +106,9 @@ namespace PureCloudPlatform.Client.V2.Model
         /// <param name="PlannedShrinkage">Whether this activity code is considered planned or unplanned shrinkage.</param>
         /// <param name="Interruptible">Whether this activity code is considered interruptible.</param>
         /// <param name="SecondaryPresences">The secondary presences of this activity code.</param>
-        /// <param name="Metadata">Version metadata for the associated business unit's list of activity codes (required).</param>
-        public UpdateActivityCodeRequest(string Name = null, CategoryEnum? Category = null, int? LengthInMinutes = null, bool? CountsAsPaidTime = null, bool? CountsAsWorkTime = null, bool? AgentTimeOffSelectable = null, bool? CountsTowardShrinkage = null, bool? PlannedShrinkage = null, bool? Interruptible = null, ListWrapperSecondaryPresence SecondaryPresences = null, WfmVersionedEntityMetadata Metadata = null)
+        /// <param name="PlanningGroupIds">The planning group IDs associated with this activity code.</param>
+        /// <param name="Metadata">Version metadata for the associated business unit&#39;s list of activity codes (required).</param>
+        public UpdateActivityCodeRequest(string Name = null, CategoryEnum? Category = null, int? LengthInMinutes = null, bool? CountsAsPaidTime = null, bool? CountsAsWorkTime = null, bool? AgentTimeOffSelectable = null, bool? CountsTowardShrinkage = null, bool? PlannedShrinkage = null, bool? Interruptible = null, ListWrapperSecondaryPresence SecondaryPresences = null, ListWrapperString PlanningGroupIds = null, WfmVersionedEntityMetadata Metadata = null)
         {
             this.Name = Name;
             this.Category = Category;
@@ -125,6 +120,7 @@ namespace PureCloudPlatform.Client.V2.Model
             this.PlannedShrinkage = PlannedShrinkage;
             this.Interruptible = Interruptible;
             this.SecondaryPresences = SecondaryPresences;
+            this.PlanningGroupIds = PlanningGroupIds;
             this.Metadata = Metadata;
             
         }
@@ -215,9 +211,18 @@ namespace PureCloudPlatform.Client.V2.Model
 
 
         /// <summary>
-        /// Version metadata for the associated business unit's list of activity codes
+        /// The planning group IDs associated with this activity code
         /// </summary>
-        /// <value>Version metadata for the associated business unit's list of activity codes</value>
+        /// <value>The planning group IDs associated with this activity code</value>
+        [DataMember(Name="planningGroupIds", EmitDefaultValue=false)]
+        public ListWrapperString PlanningGroupIds { get; set; }
+
+
+
+        /// <summary>
+        /// Version metadata for the associated business unit&#39;s list of activity codes
+        /// </summary>
+        /// <value>Version metadata for the associated business unit&#39;s list of activity codes</value>
         [DataMember(Name="metadata", EmitDefaultValue=false)]
         public WfmVersionedEntityMetadata Metadata { get; set; }
 
@@ -241,6 +246,7 @@ namespace PureCloudPlatform.Client.V2.Model
             sb.Append("  PlannedShrinkage: ").Append(PlannedShrinkage).Append("\n");
             sb.Append("  Interruptible: ").Append(Interruptible).Append("\n");
             sb.Append("  SecondaryPresences: ").Append(SecondaryPresences).Append("\n");
+            sb.Append("  PlanningGroupIds: ").Append(PlanningGroupIds).Append("\n");
             sb.Append("  Metadata: ").Append(Metadata).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -333,6 +339,11 @@ namespace PureCloudPlatform.Client.V2.Model
                     this.SecondaryPresences.Equals(other.SecondaryPresences)
                 ) &&
                 (
+                    this.PlanningGroupIds == other.PlanningGroupIds ||
+                    this.PlanningGroupIds != null &&
+                    this.PlanningGroupIds.Equals(other.PlanningGroupIds)
+                ) &&
+                (
                     this.Metadata == other.Metadata ||
                     this.Metadata != null &&
                     this.Metadata.Equals(other.Metadata)
@@ -379,6 +390,9 @@ namespace PureCloudPlatform.Client.V2.Model
 
                 if (this.SecondaryPresences != null)
                     hash = hash * 59 + this.SecondaryPresences.GetHashCode();
+
+                if (this.PlanningGroupIds != null)
+                    hash = hash * 59 + this.PlanningGroupIds.GetHashCode();
 
                 if (this.Metadata != null)
                     hash = hash * 59 + this.Metadata.GetHashCode();

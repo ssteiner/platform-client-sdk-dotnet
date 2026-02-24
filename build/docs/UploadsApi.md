@@ -7,6 +7,8 @@ All URIs are relative to *https://api.mypurecloud.com*
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**GetKnowledgeKnowledgebaseUploadsUrlsJob**](#GetKnowledgeKnowledgebaseUploadsUrlsJob) | **Get** /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/uploads/urls/jobs/{jobId} | Get content upload from URL job status |
+| [**PostGamificationContestsUploadsPrizeimages**](#PostGamificationContestsUploadsPrizeimages) | **Post** /api/v2/gamification/contests/uploads/prizeimages | Generates pre-signed URL to upload a prize image for gamification contests |
+| [**PostGuidesUploads**](#PostGuidesUploads) | **Post** /api/v2/guides/uploads | Generate presigned URL for uploading a file content to generate guide |
 | [**PostIntegrationsActionDraftFunctionUpload**](#PostIntegrationsActionDraftFunctionUpload) | **Post** /api/v2/integrations/actions/{actionId}/draft/function/upload | Create upload presigned URL for draft function package file. |
 | [**PostKnowledgeDocumentuploads**](#PostKnowledgeDocumentuploads) | **Post** /api/v2/knowledge/documentuploads | Creates a presigned URL for uploading a knowledge import file with a set of documents |
 | [**PostKnowledgeKnowledgebaseUploadsUrlsJobs**](#PostKnowledgeKnowledgebaseUploadsUrlsJobs) | **Post** /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/uploads/urls/jobs | Create content upload from URL job |
@@ -24,8 +26,6 @@ All URIs are relative to *https://api.mypurecloud.com*
 
 
 Get content upload from URL job status
-
-GetKnowledgeKnowledgebaseUploadsUrlsJob is a preview method and is subject to both breaking and non-breaking changes at any time without notice
 
 Requires ALL permissions: 
 
@@ -82,6 +82,130 @@ namespace Example
 ### Return type
 
 [**GetUploadSourceUrlJobStatusResponse**](GetUploadSourceUrlJobStatusResponse)
+
+
+## PostGamificationContestsUploadsPrizeimages
+
+> [**UploadUrlResponse**](UploadUrlResponse) PostGamificationContestsUploadsPrizeimages (GamificationContestPrizeImageUploadUrlRequest body)
+
+
+Generates pre-signed URL to upload a prize image for gamification contests
+
+Requires ALL permissions: 
+
+* gamification:contestPrizeImage:upload
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class PostGamificationContestsUploadsPrizeimagesExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new UploadsApi();
+            var body = new GamificationContestPrizeImageUploadUrlRequest(); // GamificationContestPrizeImageUploadUrlRequest | query
+
+            try
+            { 
+                // Generates pre-signed URL to upload a prize image for gamification contests
+                UploadUrlResponse result = apiInstance.PostGamificationContestsUploadsPrizeimages(body);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling UploadsApi.PostGamificationContestsUploadsPrizeimages: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **body** | [**GamificationContestPrizeImageUploadUrlRequest**](GamificationContestPrizeImageUploadUrlRequest)| query |  |
+
+### Return type
+
+[**UploadUrlResponse**](UploadUrlResponse)
+
+
+## PostGuidesUploads
+
+> [**UploadUrlResponse**](UploadUrlResponse) PostGuidesUploads (UploadUrlRequest body)
+
+
+Generate presigned URL for uploading a file content to generate guide
+
+Requires ALL permissions: 
+
+* aiStudio:guide:upload
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class PostGuidesUploadsExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new UploadsApi();
+            var body = new UploadUrlRequest(); // UploadUrlRequest | query
+
+            try
+            { 
+                // Generate presigned URL for uploading a file content to generate guide
+                UploadUrlResponse result = apiInstance.PostGuidesUploads(body);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling UploadsApi.PostGuidesUploads: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **body** | [**UploadUrlRequest**](UploadUrlRequest)| query |  |
+
+### Return type
+
+[**UploadUrlResponse**](UploadUrlResponse)
 
 
 ## PostIntegrationsActionDraftFunctionUpload
@@ -216,8 +340,6 @@ namespace Example
 
 
 Create content upload from URL job
-
-PostKnowledgeKnowledgebaseUploadsUrlsJobs is a preview method and is subject to both breaking and non-breaking changes at any time without notice
 
 Requires ALL permissions: 
 
@@ -588,4 +710,4 @@ namespace Example
 [**UploadUrlResponse**](UploadUrlResponse)
 
 
-_PureCloudPlatform.Client.V2 227.0.0_
+_PureCloudPlatform.Client.V2 257.0.0_

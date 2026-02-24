@@ -115,6 +115,225 @@ namespace PureCloudPlatform.Client.V2.Model
             Outbound
         }
         /// <summary>
+        /// Open Messaging engagement source type
+        /// </summary>
+        /// <value>Open Messaging engagement source type</value>
+        [JsonConverter(typeof(UpgradeSdkEnumConverter))]
+        public enum EngagementSourceEnum
+        {
+            /// <summary>
+            /// Your SDK version is out of date and an unknown enum value was encountered. 
+            /// Please upgrade the SDK using the command "Upgrade-Package PureCloudApiSdk" 
+            /// in the Package Manager Console
+            /// </summary>
+            [EnumMember(Value = "OUTDATED_SDK_VERSION")]
+            OutdatedSdkVersion,
+            
+            /// <summary>
+            /// Enum Applemessagesforbusiness for "AppleMessagesForBusiness"
+            /// </summary>
+            [EnumMember(Value = "AppleMessagesForBusiness")]
+            Applemessagesforbusiness,
+            
+            /// <summary>
+            /// Enum Discord for "Discord"
+            /// </summary>
+            [EnumMember(Value = "Discord")]
+            Discord,
+            
+            /// <summary>
+            /// Enum Email for "Email"
+            /// </summary>
+            [EnumMember(Value = "Email")]
+            Email,
+            
+            /// <summary>
+            /// Enum Facebook for "Facebook"
+            /// </summary>
+            [EnumMember(Value = "Facebook")]
+            Facebook,
+            
+            /// <summary>
+            /// Enum Facebookmessenger for "FacebookMessenger"
+            /// </summary>
+            [EnumMember(Value = "FacebookMessenger")]
+            Facebookmessenger,
+            
+            /// <summary>
+            /// Enum Glassdoor for "Glassdoor"
+            /// </summary>
+            [EnumMember(Value = "Glassdoor")]
+            Glassdoor,
+            
+            /// <summary>
+            /// Enum Googlebusinessprofile for "GoogleBusinessProfile"
+            /// </summary>
+            [EnumMember(Value = "GoogleBusinessProfile")]
+            Googlebusinessprofile,
+            
+            /// <summary>
+            /// Enum Instagram for "Instagram"
+            /// </summary>
+            [EnumMember(Value = "Instagram")]
+            Instagram,
+            
+            /// <summary>
+            /// Enum Kakaotalk for "KakaoTalk"
+            /// </summary>
+            [EnumMember(Value = "KakaoTalk")]
+            Kakaotalk,
+            
+            /// <summary>
+            /// Enum Line for "Line"
+            /// </summary>
+            [EnumMember(Value = "Line")]
+            Line,
+            
+            /// <summary>
+            /// Enum Linkedin for "LinkedIn"
+            /// </summary>
+            [EnumMember(Value = "LinkedIn")]
+            Linkedin,
+            
+            /// <summary>
+            /// Enum Microsoftteams for "MicrosoftTeams"
+            /// </summary>
+            [EnumMember(Value = "MicrosoftTeams")]
+            Microsoftteams,
+            
+            /// <summary>
+            /// Enum Mobilechat for "MobileChat"
+            /// </summary>
+            [EnumMember(Value = "MobileChat")]
+            Mobilechat,
+            
+            /// <summary>
+            /// Enum Other for "Other"
+            /// </summary>
+            [EnumMember(Value = "Other")]
+            Other,
+            
+            /// <summary>
+            /// Enum Qq for "QQ"
+            /// </summary>
+            [EnumMember(Value = "QQ")]
+            Qq,
+            
+            /// <summary>
+            /// Enum Reddit for "Reddit"
+            /// </summary>
+            [EnumMember(Value = "Reddit")]
+            Reddit,
+            
+            /// <summary>
+            /// Enum Servicenow for "ServiceNow"
+            /// </summary>
+            [EnumMember(Value = "ServiceNow")]
+            Servicenow,
+            
+            /// <summary>
+            /// Enum Sfdc for "SFDC"
+            /// </summary>
+            [EnumMember(Value = "SFDC")]
+            Sfdc,
+            
+            /// <summary>
+            /// Enum Sms for "SMS"
+            /// </summary>
+            [EnumMember(Value = "SMS")]
+            Sms,
+            
+            /// <summary>
+            /// Enum Snapchat for "Snapchat"
+            /// </summary>
+            [EnumMember(Value = "Snapchat")]
+            Snapchat,
+            
+            /// <summary>
+            /// Enum Telegram for "Telegram"
+            /// </summary>
+            [EnumMember(Value = "Telegram")]
+            Telegram,
+            
+            /// <summary>
+            /// Enum Threads for "Threads"
+            /// </summary>
+            [EnumMember(Value = "Threads")]
+            Threads,
+            
+            /// <summary>
+            /// Enum Trustpilot for "Trustpilot"
+            /// </summary>
+            [EnumMember(Value = "Trustpilot")]
+            Trustpilot,
+            
+            /// <summary>
+            /// Enum Unspecified for "Unspecified"
+            /// </summary>
+            [EnumMember(Value = "Unspecified")]
+            Unspecified,
+            
+            /// <summary>
+            /// Enum Viber for "Viber"
+            /// </summary>
+            [EnumMember(Value = "Viber")]
+            Viber,
+            
+            /// <summary>
+            /// Enum Webchat for "WebChat"
+            /// </summary>
+            [EnumMember(Value = "WebChat")]
+            Webchat,
+            
+            /// <summary>
+            /// Enum Wechat for "WeChat"
+            /// </summary>
+            [EnumMember(Value = "WeChat")]
+            Wechat,
+            
+            /// <summary>
+            /// Enum Weibo for "Weibo"
+            /// </summary>
+            [EnumMember(Value = "Weibo")]
+            Weibo,
+            
+            /// <summary>
+            /// Enum Whatsapp for "WhatsApp"
+            /// </summary>
+            [EnumMember(Value = "WhatsApp")]
+            Whatsapp,
+            
+            /// <summary>
+            /// Enum X for "X"
+            /// </summary>
+            [EnumMember(Value = "X")]
+            X,
+            
+            /// <summary>
+            /// Enum Yelp for "Yelp"
+            /// </summary>
+            [EnumMember(Value = "Yelp")]
+            Yelp,
+            
+            /// <summary>
+            /// Enum Youtube for "YouTube"
+            /// </summary>
+            [EnumMember(Value = "YouTube")]
+            Youtube,
+            
+            /// <summary>
+            /// Enum Zendesk for "Zendesk"
+            /// </summary>
+            [EnumMember(Value = "Zendesk")]
+            Zendesk,
+            
+            /// <summary>
+            /// Enum Openmessaging for "OpenMessaging"
+            /// </summary>
+            [EnumMember(Value = "OpenMessaging")]
+            Openmessaging
+        }
+        /// <summary>
         /// The session media type
         /// </summary>
         /// <value>The session media type</value>
@@ -164,6 +383,12 @@ namespace PureCloudPlatform.Client.V2.Model
             /// </summary>
             [EnumMember(Value = "message")]
             Message,
+            
+            /// <summary>
+            /// Enum Screenmonitoring for "screenmonitoring"
+            /// </summary>
+            [EnumMember(Value = "screenmonitoring")]
+            Screenmonitoring,
             
             /// <summary>
             /// Enum Screenshare for "screenshare"
@@ -378,6 +603,12 @@ namespace PureCloudPlatform.Client.V2.Model
         [DataMember(Name="direction", EmitDefaultValue=false)]
         public DirectionEnum? Direction { get; set; }
         /// <summary>
+        /// Open Messaging engagement source type
+        /// </summary>
+        /// <value>Open Messaging engagement source type</value>
+        [DataMember(Name="engagementSource", EmitDefaultValue=false)]
+        public EngagementSourceEnum? EngagementSource { get; set; }
+        /// <summary>
         /// The session media type
         /// </summary>
         /// <value>The session media type</value>
@@ -407,7 +638,7 @@ namespace PureCloudPlatform.Client.V2.Model
         /// <param name="AgentAssistantId">Unique identifier of the active virtual agent assistant.</param>
         /// <param name="AgentBullseyeRing">Bullseye ring of the targeted agent.</param>
         /// <param name="AgentOwned">Flag indicating an agent-owned callback.</param>
-        /// <param name="Ani">Automatic Number Identification (caller's number).</param>
+        /// <param name="Ani">Automatic Number Identification (caller&#39;s number).</param>
         /// <param name="AssignerId">ID of the user that manually assigned a conversation.</param>
         /// <param name="Authenticated">Flag that indicates that the identity of the customer has been asserted as verified by the provider..</param>
         /// <param name="BargedParticipantId">The participantId being barged in on (if someone (e.g. an agent) is being barged in on, this would correspond to one of the other participantIds present in the conversation).</param>
@@ -420,6 +651,7 @@ namespace PureCloudPlatform.Client.V2.Model
         /// <param name="CoachedParticipantId">The participantId being coached (if someone (e.g. an agent) is being coached, this would correspond to one of the other participantIds present in the conversation).</param>
         /// <param name="CobrowseRole">Describes side of the cobrowse (sharer or viewer).</param>
         /// <param name="CobrowseRoomId">A unique identifier for a Genesys Cloud cobrowse room.</param>
+        /// <param name="DeliveryPushed">Flag that indicates that the push delivery mechanism was used.</param>
         /// <param name="DeliveryStatus">The email or SMS delivery status.</param>
         /// <param name="DeliveryStatusChangeDate">Date and time of the most recent delivery status change. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z.</param>
         /// <param name="DestinationAddresses">Destination address(es) of transfers or consults.</param>
@@ -431,6 +663,7 @@ namespace PureCloudPlatform.Client.V2.Model
         /// <param name="Dnis">Dialed number identification service (number dialed by the calling party).</param>
         /// <param name="EdgeId">Unique identifier of the edge device.</param>
         /// <param name="EligibleAgentCounts">Number of eligible agents for each predictive routing attempt.</param>
+        /// <param name="EngagementSource">Open Messaging engagement source type.</param>
         /// <param name="ExtendedDeliveryStatus">Extended delivery status.</param>
         /// <param name="FlowInType">Type of flow in that occurred when entering ACD..</param>
         /// <param name="FlowOutType">Type of flow out that occurred when emitting tFlowOut..</param>
@@ -461,6 +694,7 @@ namespace PureCloudPlatform.Client.V2.Model
         /// <param name="RoutingRing">Routing ring for bullseye or preferred agent routing.</param>
         /// <param name="RoutingRule">Routing rule for preferred, conditional and predictive routing type.</param>
         /// <param name="RoutingRuleType">Routing rule type.</param>
+        /// <param name="ScreenMonitoredUserId">The user ID for the participant who is being screen monitored..</param>
         /// <param name="ScreenShareAddressSelf">Direct screen share address.</param>
         /// <param name="ScreenShareRoomId">A unique identifier for a Genesys Cloud screen share room.</param>
         /// <param name="ScriptId">A unique identifier for a script.</param>
@@ -470,6 +704,7 @@ namespace PureCloudPlatform.Client.V2.Model
         /// <param name="SessionId">The unique identifier of this session.</param>
         /// <param name="SharingScreen">Flag determining if screen share is started or not (true/false).</param>
         /// <param name="SkipEnabled">(Dialer) Whether the agent can skip the dialer contact.</param>
+        /// <param name="SnippetRecording">Whether or not the conversation included a snippet being recorded..</param>
         /// <param name="TimeoutSeconds">The number of seconds before Genesys Cloud begins the call for a call back (0 disables automatic calling).</param>
         /// <param name="UsedRouting">Complete routing method.</param>
         /// <param name="VideoAddressSelf">Direct Video address.</param>
@@ -481,7 +716,7 @@ namespace PureCloudPlatform.Client.V2.Model
         /// <param name="Flow">IVR flow execution associated with this session.</param>
         /// <param name="Metrics">List of metrics for this session.</param>
         /// <param name="Segments">List of segments for this session.</param>
-        public AnalyticsSession(List<string> ActiveSkillIds = null, bool? AcwSkipped = null, string AddressFrom = null, string AddressOther = null, string AddressSelf = null, string AddressTo = null, string AgentAssistantId = null, int? AgentBullseyeRing = null, bool? AgentOwned = null, string Ani = null, string AssignerId = null, bool? Authenticated = null, string BargedParticipantId = null, List<string> Bcc = null, List<string> CallbackNumbers = null, DateTime? CallbackScheduledTime = null, string CallbackUserName = null, List<string> Cc = null, bool? Cleared = null, string CoachedParticipantId = null, string CobrowseRole = null, string CobrowseRoomId = null, DeliveryStatusEnum? DeliveryStatus = null, DateTime? DeliveryStatusChangeDate = null, List<string> DestinationAddresses = null, DateTime? DetectedSpeechEnd = null, DateTime? DetectedSpeechStart = null, DirectionEnum? Direction = null, string DispositionAnalyzer = null, string DispositionName = null, string Dnis = null, string EdgeId = null, List<int?> EligibleAgentCounts = null, string ExtendedDeliveryStatus = null, string FlowInType = null, string FlowOutType = null, string JourneyActionId = null, string JourneyActionMapId = null, int? JourneyActionMapVersion = null, string JourneyCustomerId = null, string JourneyCustomerIdType = null, string JourneyCustomerSessionId = null, string JourneyCustomerSessionIdType = null, string MediaBridgeId = null, int? MediaCount = null, MediaTypeEnum? MediaType = null, string MessageType = null, string MonitoredParticipantId = null, string OutboundCampaignId = null, string OutboundContactId = null, string OutboundContactListId = null, string PeerId = null, string ProtocolCallId = null, string Provider = null, bool? Recording = null, string Remote = null, string RemoteNameDisplayable = null, List<string> RemovedSkillIds = null, List<RequestedRoutingsEnum> RequestedRoutings = null, string RoomId = null, int? RoutingRing = null, string RoutingRule = null, RoutingRuleTypeEnum? RoutingRuleType = null, string ScreenShareAddressSelf = null, string ScreenShareRoomId = null, string ScriptId = null, string SelectedAgentId = null, int? SelectedAgentRank = null, string SessionDnis = null, string SessionId = null, bool? SharingScreen = null, bool? SkipEnabled = null, int? TimeoutSeconds = null, UsedRoutingEnum? UsedRouting = null, string VideoAddressSelf = null, string VideoRoomId = null, List<int?> WaitingInteractionCounts = null, List<AnalyticsAgentGroup> AgentGroups = null, List<AnalyticsProposedAgent> ProposedAgents = null, List<AnalyticsMediaEndpointStat> MediaEndpointStats = null, AnalyticsFlow Flow = null, List<AnalyticsSessionMetric> Metrics = null, List<AnalyticsConversationSegment> Segments = null)
+        public AnalyticsSession(List<string> ActiveSkillIds = null, bool? AcwSkipped = null, string AddressFrom = null, string AddressOther = null, string AddressSelf = null, string AddressTo = null, string AgentAssistantId = null, int? AgentBullseyeRing = null, bool? AgentOwned = null, string Ani = null, string AssignerId = null, bool? Authenticated = null, string BargedParticipantId = null, List<string> Bcc = null, List<string> CallbackNumbers = null, DateTime? CallbackScheduledTime = null, string CallbackUserName = null, List<string> Cc = null, bool? Cleared = null, string CoachedParticipantId = null, string CobrowseRole = null, string CobrowseRoomId = null, bool? DeliveryPushed = null, DeliveryStatusEnum? DeliveryStatus = null, DateTime? DeliveryStatusChangeDate = null, List<string> DestinationAddresses = null, DateTime? DetectedSpeechEnd = null, DateTime? DetectedSpeechStart = null, DirectionEnum? Direction = null, string DispositionAnalyzer = null, string DispositionName = null, string Dnis = null, string EdgeId = null, List<int?> EligibleAgentCounts = null, EngagementSourceEnum? EngagementSource = null, string ExtendedDeliveryStatus = null, string FlowInType = null, string FlowOutType = null, string JourneyActionId = null, string JourneyActionMapId = null, int? JourneyActionMapVersion = null, string JourneyCustomerId = null, string JourneyCustomerIdType = null, string JourneyCustomerSessionId = null, string JourneyCustomerSessionIdType = null, string MediaBridgeId = null, int? MediaCount = null, MediaTypeEnum? MediaType = null, string MessageType = null, string MonitoredParticipantId = null, string OutboundCampaignId = null, string OutboundContactId = null, string OutboundContactListId = null, string PeerId = null, string ProtocolCallId = null, string Provider = null, bool? Recording = null, string Remote = null, string RemoteNameDisplayable = null, List<string> RemovedSkillIds = null, List<RequestedRoutingsEnum> RequestedRoutings = null, string RoomId = null, int? RoutingRing = null, string RoutingRule = null, RoutingRuleTypeEnum? RoutingRuleType = null, string ScreenMonitoredUserId = null, string ScreenShareAddressSelf = null, string ScreenShareRoomId = null, string ScriptId = null, string SelectedAgentId = null, int? SelectedAgentRank = null, string SessionDnis = null, string SessionId = null, bool? SharingScreen = null, bool? SkipEnabled = null, bool? SnippetRecording = null, int? TimeoutSeconds = null, UsedRoutingEnum? UsedRouting = null, string VideoAddressSelf = null, string VideoRoomId = null, List<int?> WaitingInteractionCounts = null, List<AnalyticsAgentGroup> AgentGroups = null, List<AnalyticsProposedAgent> ProposedAgents = null, List<AnalyticsMediaEndpointStat> MediaEndpointStats = null, AnalyticsFlow Flow = null, List<AnalyticsSessionMetric> Metrics = null, List<AnalyticsConversationSegment> Segments = null)
         {
             this.ActiveSkillIds = ActiveSkillIds;
             this.AcwSkipped = AcwSkipped;
@@ -505,6 +740,7 @@ namespace PureCloudPlatform.Client.V2.Model
             this.CoachedParticipantId = CoachedParticipantId;
             this.CobrowseRole = CobrowseRole;
             this.CobrowseRoomId = CobrowseRoomId;
+            this.DeliveryPushed = DeliveryPushed;
             this.DeliveryStatus = DeliveryStatus;
             this.DeliveryStatusChangeDate = DeliveryStatusChangeDate;
             this.DestinationAddresses = DestinationAddresses;
@@ -516,6 +752,7 @@ namespace PureCloudPlatform.Client.V2.Model
             this.Dnis = Dnis;
             this.EdgeId = EdgeId;
             this.EligibleAgentCounts = EligibleAgentCounts;
+            this.EngagementSource = EngagementSource;
             this.ExtendedDeliveryStatus = ExtendedDeliveryStatus;
             this.FlowInType = FlowInType;
             this.FlowOutType = FlowOutType;
@@ -546,6 +783,7 @@ namespace PureCloudPlatform.Client.V2.Model
             this.RoutingRing = RoutingRing;
             this.RoutingRule = RoutingRule;
             this.RoutingRuleType = RoutingRuleType;
+            this.ScreenMonitoredUserId = ScreenMonitoredUserId;
             this.ScreenShareAddressSelf = ScreenShareAddressSelf;
             this.ScreenShareRoomId = ScreenShareRoomId;
             this.ScriptId = ScriptId;
@@ -555,6 +793,7 @@ namespace PureCloudPlatform.Client.V2.Model
             this.SessionId = SessionId;
             this.SharingScreen = SharingScreen;
             this.SkipEnabled = SkipEnabled;
+            this.SnippetRecording = SnippetRecording;
             this.TimeoutSeconds = TimeoutSeconds;
             this.UsedRouting = UsedRouting;
             this.VideoAddressSelf = VideoAddressSelf;
@@ -653,9 +892,9 @@ namespace PureCloudPlatform.Client.V2.Model
 
 
         /// <summary>
-        /// Automatic Number Identification (caller's number)
+        /// Automatic Number Identification (caller&#39;s number)
         /// </summary>
-        /// <value>Automatic Number Identification (caller's number)</value>
+        /// <value>Automatic Number Identification (caller&#39;s number)</value>
         [DataMember(Name="ani", EmitDefaultValue=false)]
         public string Ani { get; set; }
 
@@ -769,6 +1008,15 @@ namespace PureCloudPlatform.Client.V2.Model
 
 
 
+        /// <summary>
+        /// Flag that indicates that the push delivery mechanism was used
+        /// </summary>
+        /// <value>Flag that indicates that the push delivery mechanism was used</value>
+        [DataMember(Name="deliveryPushed", EmitDefaultValue=false)]
+        public bool? DeliveryPushed { get; set; }
+
+
+
 
 
         /// <summary>
@@ -851,6 +1099,8 @@ namespace PureCloudPlatform.Client.V2.Model
         /// <value>Number of eligible agents for each predictive routing attempt</value>
         [DataMember(Name="eligibleAgentCounts", EmitDefaultValue=false)]
         public List<int?> EligibleAgentCounts { get; set; }
+
+
 
 
 
@@ -1111,6 +1361,15 @@ namespace PureCloudPlatform.Client.V2.Model
 
 
         /// <summary>
+        /// The user ID for the participant who is being screen monitored.
+        /// </summary>
+        /// <value>The user ID for the participant who is being screen monitored.</value>
+        [DataMember(Name="screenMonitoredUserId", EmitDefaultValue=false)]
+        public string ScreenMonitoredUserId { get; set; }
+
+
+
+        /// <summary>
         /// Direct screen share address
         /// </summary>
         /// <value>Direct screen share address</value>
@@ -1188,6 +1447,15 @@ namespace PureCloudPlatform.Client.V2.Model
         /// <value>(Dialer) Whether the agent can skip the dialer contact</value>
         [DataMember(Name="skipEnabled", EmitDefaultValue=false)]
         public bool? SkipEnabled { get; set; }
+
+
+
+        /// <summary>
+        /// Whether or not the conversation included a snippet being recorded.
+        /// </summary>
+        /// <value>Whether or not the conversation included a snippet being recorded.</value>
+        [DataMember(Name="snippetRecording", EmitDefaultValue=false)]
+        public bool? SnippetRecording { get; set; }
 
 
 
@@ -1313,6 +1581,7 @@ namespace PureCloudPlatform.Client.V2.Model
             sb.Append("  CoachedParticipantId: ").Append(CoachedParticipantId).Append("\n");
             sb.Append("  CobrowseRole: ").Append(CobrowseRole).Append("\n");
             sb.Append("  CobrowseRoomId: ").Append(CobrowseRoomId).Append("\n");
+            sb.Append("  DeliveryPushed: ").Append(DeliveryPushed).Append("\n");
             sb.Append("  DeliveryStatus: ").Append(DeliveryStatus).Append("\n");
             sb.Append("  DeliveryStatusChangeDate: ").Append(DeliveryStatusChangeDate).Append("\n");
             sb.Append("  DestinationAddresses: ").Append(DestinationAddresses).Append("\n");
@@ -1324,6 +1593,7 @@ namespace PureCloudPlatform.Client.V2.Model
             sb.Append("  Dnis: ").Append(Dnis).Append("\n");
             sb.Append("  EdgeId: ").Append(EdgeId).Append("\n");
             sb.Append("  EligibleAgentCounts: ").Append(EligibleAgentCounts).Append("\n");
+            sb.Append("  EngagementSource: ").Append(EngagementSource).Append("\n");
             sb.Append("  ExtendedDeliveryStatus: ").Append(ExtendedDeliveryStatus).Append("\n");
             sb.Append("  FlowInType: ").Append(FlowInType).Append("\n");
             sb.Append("  FlowOutType: ").Append(FlowOutType).Append("\n");
@@ -1354,6 +1624,7 @@ namespace PureCloudPlatform.Client.V2.Model
             sb.Append("  RoutingRing: ").Append(RoutingRing).Append("\n");
             sb.Append("  RoutingRule: ").Append(RoutingRule).Append("\n");
             sb.Append("  RoutingRuleType: ").Append(RoutingRuleType).Append("\n");
+            sb.Append("  ScreenMonitoredUserId: ").Append(ScreenMonitoredUserId).Append("\n");
             sb.Append("  ScreenShareAddressSelf: ").Append(ScreenShareAddressSelf).Append("\n");
             sb.Append("  ScreenShareRoomId: ").Append(ScreenShareRoomId).Append("\n");
             sb.Append("  ScriptId: ").Append(ScriptId).Append("\n");
@@ -1363,6 +1634,7 @@ namespace PureCloudPlatform.Client.V2.Model
             sb.Append("  SessionId: ").Append(SessionId).Append("\n");
             sb.Append("  SharingScreen: ").Append(SharingScreen).Append("\n");
             sb.Append("  SkipEnabled: ").Append(SkipEnabled).Append("\n");
+            sb.Append("  SnippetRecording: ").Append(SnippetRecording).Append("\n");
             sb.Append("  TimeoutSeconds: ").Append(TimeoutSeconds).Append("\n");
             sb.Append("  UsedRouting: ").Append(UsedRouting).Append("\n");
             sb.Append("  VideoAddressSelf: ").Append(VideoAddressSelf).Append("\n");
@@ -1525,6 +1797,11 @@ namespace PureCloudPlatform.Client.V2.Model
                     this.CobrowseRoomId.Equals(other.CobrowseRoomId)
                 ) &&
                 (
+                    this.DeliveryPushed == other.DeliveryPushed ||
+                    this.DeliveryPushed != null &&
+                    this.DeliveryPushed.Equals(other.DeliveryPushed)
+                ) &&
+                (
                     this.DeliveryStatus == other.DeliveryStatus ||
                     this.DeliveryStatus != null &&
                     this.DeliveryStatus.Equals(other.DeliveryStatus)
@@ -1578,6 +1855,11 @@ namespace PureCloudPlatform.Client.V2.Model
                     this.EligibleAgentCounts == other.EligibleAgentCounts ||
                     this.EligibleAgentCounts != null &&
                     this.EligibleAgentCounts.SequenceEqual(other.EligibleAgentCounts)
+                ) &&
+                (
+                    this.EngagementSource == other.EngagementSource ||
+                    this.EngagementSource != null &&
+                    this.EngagementSource.Equals(other.EngagementSource)
                 ) &&
                 (
                     this.ExtendedDeliveryStatus == other.ExtendedDeliveryStatus ||
@@ -1730,6 +2012,11 @@ namespace PureCloudPlatform.Client.V2.Model
                     this.RoutingRuleType.Equals(other.RoutingRuleType)
                 ) &&
                 (
+                    this.ScreenMonitoredUserId == other.ScreenMonitoredUserId ||
+                    this.ScreenMonitoredUserId != null &&
+                    this.ScreenMonitoredUserId.Equals(other.ScreenMonitoredUserId)
+                ) &&
+                (
                     this.ScreenShareAddressSelf == other.ScreenShareAddressSelf ||
                     this.ScreenShareAddressSelf != null &&
                     this.ScreenShareAddressSelf.Equals(other.ScreenShareAddressSelf)
@@ -1773,6 +2060,11 @@ namespace PureCloudPlatform.Client.V2.Model
                     this.SkipEnabled == other.SkipEnabled ||
                     this.SkipEnabled != null &&
                     this.SkipEnabled.Equals(other.SkipEnabled)
+                ) &&
+                (
+                    this.SnippetRecording == other.SnippetRecording ||
+                    this.SnippetRecording != null &&
+                    this.SnippetRecording.Equals(other.SnippetRecording)
                 ) &&
                 (
                     this.TimeoutSeconds == other.TimeoutSeconds ||
@@ -1908,6 +2200,9 @@ namespace PureCloudPlatform.Client.V2.Model
                 if (this.CobrowseRoomId != null)
                     hash = hash * 59 + this.CobrowseRoomId.GetHashCode();
 
+                if (this.DeliveryPushed != null)
+                    hash = hash * 59 + this.DeliveryPushed.GetHashCode();
+
                 if (this.DeliveryStatus != null)
                     hash = hash * 59 + this.DeliveryStatus.GetHashCode();
 
@@ -1940,6 +2235,9 @@ namespace PureCloudPlatform.Client.V2.Model
 
                 if (this.EligibleAgentCounts != null)
                     hash = hash * 59 + this.EligibleAgentCounts.GetHashCode();
+
+                if (this.EngagementSource != null)
+                    hash = hash * 59 + this.EngagementSource.GetHashCode();
 
                 if (this.ExtendedDeliveryStatus != null)
                     hash = hash * 59 + this.ExtendedDeliveryStatus.GetHashCode();
@@ -2031,6 +2329,9 @@ namespace PureCloudPlatform.Client.V2.Model
                 if (this.RoutingRuleType != null)
                     hash = hash * 59 + this.RoutingRuleType.GetHashCode();
 
+                if (this.ScreenMonitoredUserId != null)
+                    hash = hash * 59 + this.ScreenMonitoredUserId.GetHashCode();
+
                 if (this.ScreenShareAddressSelf != null)
                     hash = hash * 59 + this.ScreenShareAddressSelf.GetHashCode();
 
@@ -2057,6 +2358,9 @@ namespace PureCloudPlatform.Client.V2.Model
 
                 if (this.SkipEnabled != null)
                     hash = hash * 59 + this.SkipEnabled.GetHashCode();
+
+                if (this.SnippetRecording != null)
+                    hash = hash * 59 + this.SnippetRecording.GetHashCode();
 
                 if (this.TimeoutSeconds != null)
                     hash = hash * 59 + this.TimeoutSeconds.GetHashCode();

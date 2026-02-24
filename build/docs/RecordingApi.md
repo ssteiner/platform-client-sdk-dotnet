@@ -16,7 +16,7 @@ All URIs are relative to *https://api.mypurecloud.com*
 | [**GetConversationRecording**](#GetConversationRecording) | **Get** /api/v2/conversations/{conversationId}/recordings/{recordingId} | Gets a specific recording. |
 | [**GetConversationRecordingAnnotation**](#GetConversationRecordingAnnotation) | **Get** /api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations/{annotationId} | Get annotation |
 | [**GetConversationRecordingAnnotations**](#GetConversationRecordingAnnotations) | **Get** /api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations | Get annotations for recording |
-| [**GetConversationRecordingmetadata**](#GetConversationRecordingmetadata) | **Get** /api/v2/conversations/{conversationId}/recordingmetadata | Get recording metadata for a conversation. Does not return playable media. Annotations won&#39;t be included in the response if either recording:recording:view or recording:annotation:view permission is missing. |
+| [**GetConversationRecordingmetadata**](#GetConversationRecordingmetadata) | **Get** /api/v2/conversations/{conversationId}/recordingmetadata | Get recording metadata for a conversation. Does not return playable media nor system annotations. Bookmark annotations will be excluded if either recording:recording:view or recording:annotation:view permission is missing. |
 | [**GetConversationRecordingmetadataRecordingId**](#GetConversationRecordingmetadataRecordingId) | **Get** /api/v2/conversations/{conversationId}/recordingmetadata/{recordingId} | Get metadata for a specific recording. Does not return playable media. |
 | [**GetConversationRecordings**](#GetConversationRecordings) | **Get** /api/v2/conversations/{conversationId}/recordings | Get all of a Conversation&#39;s Recordings. |
 | [**GetOrphanrecording**](#GetOrphanrecording) | **Get** /api/v2/orphanrecordings/{orphanId} | Gets a single orphan recording |
@@ -37,7 +37,6 @@ All URIs are relative to *https://api.mypurecloud.com*
 | [**GetRecordingSettings**](#GetRecordingSettings) | **Get** /api/v2/recording/settings | Get the Recording Settings for the Organization |
 | [**GetRecordingUploadsReport**](#GetRecordingUploadsReport) | **Get** /api/v2/recording/uploads/reports/{reportId} | Get the status of a recording upload status report |
 | [**GetRecordingsRetentionQuery**](#GetRecordingsRetentionQuery) | **Get** /api/v2/recordings/retention/query | Query for recording retention data |
-| [**GetRecordingsScreensessions**](#GetRecordingsScreensessions) | **Get** /api/v2/recordings/screensessions | Retrieves a paged listing of screen recording sessions |
 | [**GetRecordingsScreensessionsDetails**](#GetRecordingsScreensessionsDetails) | **Get** /api/v2/recordings/screensessions/details | Retrieves an object containing the total number of concurrent active screen recordings |
 | [**PatchRecordingCrossplatformMediaretentionpolicy**](#PatchRecordingCrossplatformMediaretentionpolicy) | **Patch** /api/v2/recording/crossplatform/mediaretentionpolicies/{policyId} | Patch a media retention policy |
 | [**PatchRecordingMediaretentionpolicy**](#PatchRecordingMediaretentionpolicy) | **Patch** /api/v2/recording/mediaretentionpolicies/{policyId} | Patch a media retention policy |
@@ -77,6 +76,9 @@ Delete annotation
 Requires ANY permissions: 
 
 * recording:annotation:delete
+* recording:recording:view
+* recording:recordingSegment:view
+* recording:snippetRecording:view
 
 ### Example
 ```{"language":"csharp"}
@@ -514,6 +516,7 @@ Requires ANY permissions:
 
 * recording:recording:view
 * recording:recordingSegment:view
+* recording:snippetRecording:view
 
 ### Example
 ```{"language":"csharp"}
@@ -545,7 +548,7 @@ namespace Example
             var messageFormatId = messageFormatId_example;  // string | The desired media format when downloading a message recording. Valid values:ZIP,NONE (optional)  (default to ZIP)
             var download = download_example;  // bool? | requesting a download format of the recording. Valid values:true,false (optional)  (default to false)
             var fileName = fileName_example;  // string | the name of the downloaded fileName (optional) 
-            var locale = locale_example;  // string | The locale for the requested file when downloading, as an ISO 639-1 code (optional) 
+            var locale = locale_example;  // string | The locale for the requested file when downloading or for redacting sensitive information in requested files, as an ISO 639-1 code (optional) 
             var mediaFormats = new List<string>(); // List<string> | All acceptable media formats. Overrides formatId. Valid values:WAV,WEBM,WAV_ULAW,OGG_VORBIS,OGG_OPUS,MP3 (optional) 
 
             try
@@ -576,7 +579,7 @@ namespace Example
 | **messageFormatId** | **string**| The desired media format when downloading a message recording. Valid values:ZIP,NONE | [optional] [default to ZIP]<br />**Values**: ZIP, NONE |
 | **download** | **bool?**| requesting a download format of the recording. Valid values:true,false | [optional] [default to false]<br />**Values**: true, false |
 | **fileName** | **string**| the name of the downloaded fileName | [optional]  |
-| **locale** | **string**| The locale for the requested file when downloading, as an ISO 639-1 code | [optional]  |
+| **locale** | **string**| The locale for the requested file when downloading or for redacting sensitive information in requested files, as an ISO 639-1 code | [optional]  |
 | **mediaFormats** | [**List<string>**](string)| All acceptable media formats. Overrides formatId. Valid values:WAV,WEBM,WAV_ULAW,OGG_VORBIS,OGG_OPUS,MP3 | [optional]  |
 
 ### Return type
@@ -594,6 +597,9 @@ Get annotation
 Requires ANY permissions: 
 
 * recording:annotation:view
+* recording:recording:view
+* recording:recordingSegment:view
+* recording:snippetRecording:view
 
 ### Example
 ```{"language":"csharp"}
@@ -660,6 +666,9 @@ Get annotations for recording
 Requires ANY permissions: 
 
 * recording:annotation:view
+* recording:recording:view
+* recording:recordingSegment:view
+* recording:snippetRecording:view
 
 ### Example
 ```{"language":"csharp"}
@@ -719,12 +728,13 @@ namespace Example
 > [**List&lt;RecordingMetadata&gt;**](RecordingMetadata) GetConversationRecordingmetadata (string conversationId)
 
 
-Get recording metadata for a conversation. Does not return playable media. Annotations won't be included in the response if either recording:recording:view or recording:annotation:view permission is missing.
+Get recording metadata for a conversation. Does not return playable media nor system annotations. Bookmark annotations will be excluded if either recording:recording:view or recording:annotation:view permission is missing.
 
 Requires ANY permissions: 
 
 * recording:recording:view
 * recording:recordingSegment:view
+* recording:snippetRecording:view
 
 ### Example
 ```{"language":"csharp"}
@@ -752,7 +762,7 @@ namespace Example
 
             try
             { 
-                // Get recording metadata for a conversation. Does not return playable media. Annotations won't be included in the response if either recording:recording:view or recording:annotation:view permission is missing.
+                // Get recording metadata for a conversation. Does not return playable media nor system annotations. Bookmark annotations will be excluded if either recording:recording:view or recording:annotation:view permission is missing.
                 List<RecordingMetadata> result = apiInstance.GetConversationRecordingmetadata(conversationId);
                 Debug.WriteLine(result);
             }
@@ -788,6 +798,7 @@ Requires ANY permissions:
 
 * recording:recording:view
 * recording:recordingSegment:view
+* recording:snippetRecording:view
 
 ### Example
 ```{"language":"csharp"}
@@ -844,7 +855,7 @@ namespace Example
 
 ## GetConversationRecordings
 
-> [**List&lt;Recording&gt;**](Recording) GetConversationRecordings (string conversationId, int? maxWaitMs = null, string formatId = null, List<string> mediaFormats = null)
+> [**List&lt;Recording&gt;**](Recording) GetConversationRecordings (string conversationId, int? maxWaitMs = null, string formatId = null, List<string> mediaFormats = null, string locale = null, bool? includePauseAnnotationsForScreenRecordings = null)
 
 
 Get all of a Conversation's Recordings.
@@ -853,6 +864,7 @@ Requires ANY permissions:
 
 * recording:recording:view
 * recording:recordingSegment:view
+* recording:snippetRecording:view
 
 ### Example
 ```{"language":"csharp"}
@@ -880,11 +892,13 @@ namespace Example
             var maxWaitMs = 56;  // int? | The maximum number of milliseconds to wait for the recording to be ready. Must be a positive value. (optional)  (default to 5000)
             var formatId = formatId_example;  // string | The desired media format. Valid values:WAV,WEBM,WAV_ULAW,OGG_VORBIS,OGG_OPUS,MP3,NONE. (optional)  (default to WEBM)
             var mediaFormats = new List<string>(); // List<string> | All acceptable media formats. Overrides formatId. Valid values:WAV,WEBM,WAV_ULAW,OGG_VORBIS,OGG_OPUS,MP3. (optional) 
+            var locale = locale_example;  // string | The locale used for redacting sensitive information in requested files, as an ISO 639-1 code (optional) 
+            var includePauseAnnotationsForScreenRecordings = true;  // bool? | Include applicable Secure Pause annotations from all audio recordings to all screen recordings (optional)  (default to false)
 
             try
             { 
                 // Get all of a Conversation's Recordings.
-                List<Recording> result = apiInstance.GetConversationRecordings(conversationId, maxWaitMs, formatId, mediaFormats);
+                List<Recording> result = apiInstance.GetConversationRecordings(conversationId, maxWaitMs, formatId, mediaFormats, locale, includePauseAnnotationsForScreenRecordings);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -905,6 +919,8 @@ namespace Example
 | **maxWaitMs** | **int?**| The maximum number of milliseconds to wait for the recording to be ready. Must be a positive value. | [optional] [default to 5000] |
 | **formatId** | **string**| The desired media format. Valid values:WAV,WEBM,WAV_ULAW,OGG_VORBIS,OGG_OPUS,MP3,NONE. | [optional] [default to WEBM]<br />**Values**: WAV, WEBM, WAV_ULAW, OGG_VORBIS, OGG_OPUS, MP3, NONE |
 | **mediaFormats** | [**List<string>**](string)| All acceptable media formats. Overrides formatId. Valid values:WAV,WEBM,WAV_ULAW,OGG_VORBIS,OGG_OPUS,MP3. | [optional]  |
+| **locale** | **string**| The locale used for redacting sensitive information in requested files, as an ISO 639-1 code | [optional]  |
+| **includePauseAnnotationsForScreenRecordings** | **bool?**| Include applicable Secure Pause annotations from all audio recordings to all screen recordings | [optional] [default to false] |
 
 ### Return type
 
@@ -1434,7 +1450,7 @@ namespace Example
             var jobId = jobId_example;  // string | jobId
             var pageSize = 56;  // int? | Page size. Maximum is 100. (optional)  (default to 25)
             var pageNumber = 56;  // int? | Page number (optional)  (default to 1)
-            var includeTotal = true;  // bool? | If false, cursor will be used to locate the page instead of pageNumber. (optional) 
+            var includeTotal = true;  // bool? | If false, cursor will be used to locate the page instead of pageNumber. It is recommended to set it to false for improved performance. (optional) 
             var cursor = cursor_example;  // string | Indicates where to resume query results (not required for first page) (optional) 
 
             try
@@ -1460,7 +1476,7 @@ namespace Example
 | **jobId** | **string**| jobId |  |
 | **pageSize** | **int?**| Page size. Maximum is 100. | [optional] [default to 25] |
 | **pageNumber** | **int?**| Page number | [optional] [default to 1] |
-| **includeTotal** | **bool?**| If false, cursor will be used to locate the page instead of pageNumber. | [optional]  |
+| **includeTotal** | **bool?**| If false, cursor will be used to locate the page instead of pageNumber. It is recommended to set it to false for improved performance. | [optional]  |
 | **cursor** | **string**| Indicates where to resume query results (not required for first page) | [optional]  |
 
 ### Return type
@@ -1507,7 +1523,7 @@ namespace Example
             var state = state_example;  // string | Filter by state (optional) 
             var showOnlyMyJobs = true;  // bool? | Show only my jobs (optional) 
             var jobType = jobType_example;  // string | Job Type (Can be left empty for both) (optional) 
-            var includeTotal = true;  // bool? | If false, cursor will be used to locate the page instead of pageNumber. (optional) 
+            var includeTotal = true;  // bool? | If false, cursor will be used to locate the page instead of pageNumber. It is recommended to set it to false for improved performance. (optional) 
             var cursor = cursor_example;  // string | Indicates where to resume query results (not required for first page) (optional) 
 
             try
@@ -1536,7 +1552,7 @@ namespace Example
 | **state** | **string**| Filter by state | [optional] <br />**Values**: FULFILLED, PENDING, READY, PROCESSING, CANCELLED, FAILED |
 | **showOnlyMyJobs** | **bool?**| Show only my jobs | [optional]  |
 | **jobType** | **string**| Job Type (Can be left empty for both) | [optional] <br />**Values**: ARCHIVE, DELETE, EXPORT |
-| **includeTotal** | **bool?**| If false, cursor will be used to locate the page instead of pageNumber. | [optional]  |
+| **includeTotal** | **bool?**| If false, cursor will be used to locate the page instead of pageNumber. It is recommended to set it to false for improved performance. | [optional]  |
 | **cursor** | **string**| Indicates where to resume query results (not required for first page) | [optional]  |
 
 ### Return type
@@ -2119,75 +2135,6 @@ namespace Example
 [**RecordingRetentionCursorEntityListing**](RecordingRetentionCursorEntityListing)
 
 
-## GetRecordingsScreensessions
-
-> [**ScreenRecordingSessionListing**](ScreenRecordingSessionListing) GetRecordingsScreensessions (int? pageSize = null, int? pageNumber = null)
-
-:::{"alert":"warning","title":"Deprecated","collapsible":false,"autoCollapse":false}
-This resource has been deprecated
-:::
-
-Retrieves a paged listing of screen recording sessions
-
-Coming soon: This API is deprecated and will be replaced by /api/v2/recordings/screensessions/details
-
-Requires ANY permissions: 
-
-* recording:screenRecording:view
-
-### Example
-```{"language":"csharp"}
-using System;
-using System.Diagnostics;
-using PureCloudPlatform.Client.V2.Api;
-using PureCloudPlatform.Client.V2.Client;
-using PureCloudPlatform.Client.V2.Model;
-
-namespace Example
-{
-    public class GetRecordingsScreensessionsExample
-    {
-        public void main()
-        { 
-            // Configure OAuth2 access token for authorization: PureCloud OAuth
-            // The following example is using the Authorization Code Grant
-            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
-                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
-                "http://redirecturi.com/",
-                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
-
-            var apiInstance = new RecordingApi();
-            var pageSize = 56;  // int? | Page size (optional)  (default to 25)
-            var pageNumber = 56;  // int? | Page number (optional)  (default to 1)
-
-            try
-            { 
-                // Retrieves a paged listing of screen recording sessions
-                ScreenRecordingSessionListing result = apiInstance.GetRecordingsScreensessions(pageSize, pageNumber);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling RecordingApi.GetRecordingsScreensessions: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-
-|Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **pageSize** | **int?**| Page size | [optional] [default to 25] |
-| **pageNumber** | **int?**| Page number | [optional] [default to 1] |
-
-### Return type
-
-[**ScreenRecordingSessionListing**](ScreenRecordingSessionListing)
-
-
 ## GetRecordingsScreensessionsDetails
 
 > [**ScreenRecordingActiveSessions**](ScreenRecordingActiveSessions) GetRecordingsScreensessionsDetails ()
@@ -2383,6 +2330,9 @@ Create annotation
 Requires ANY permissions: 
 
 * recording:annotation:add
+* recording:recording:view
+* recording:recordingSegment:view
+* recording:snippetRecording:view
 
 ### Example
 ```{"language":"csharp"}
@@ -2450,6 +2400,7 @@ Requires ANY permissions:
 
 * recording:recording:view
 * recording:recordingSegment:view
+* recording:snippetRecording:view
 
 ### Example
 ```{"language":"csharp"}
@@ -2573,7 +2524,7 @@ namespace Example
 
 Create a recording bulk job.
 
-Each organization can run up to a maximum of two concurrent jobs that are either in pending or processing state. Furthermore, the recording:recording:viewSensitiveData permission is required to access recordings with PCI DSS and/or PII data when redaction is enabled for their organization. If the requester does not have that permission and includeRecordingsWithSensitiveData is set to true, then their request will be rejected.
+Each organization can run up to a maximum of two concurrent jobs that are either in pending or processing state. Furthermore, the recording:recording:viewSensitiveData permission is required to access recordings with PCI DSS and/or PII data when redaction is enabled for their organization. If the requester does not have that permission and includeRecordingsWithSensitiveData is set to true, then their request will be rejected. It is recommended to query over smaller time periods so your request does not time out.
 
 Requires ALL permissions: 
 
@@ -3194,6 +3145,8 @@ Requires ANY permissions:
 * recording:recording:view
 * recording:recording:editRetention
 * recording:screenRecording:editRetention
+* recording:snippetRecording:view
+* recording:snippetRecording:editRetention
 
 ### Example
 ```{"language":"csharp"}
@@ -3264,6 +3217,7 @@ Requires ANY permissions:
 * recording:annotation:edit
 * recording:recording:view
 * recording:recordingSegment:view
+* recording:snippetRecording:view
 
 ### Example
 ```{"language":"csharp"}
@@ -3461,13 +3415,14 @@ namespace Example
 
 Execute the recording bulk job.
 
-A job must be executed by the same user whom originally created the job.  In addition, the user must have permission to update the recording's retention.
+Each organization can run up to a maximum of two concurrent jobs that are either in pending or processing state. A job must be executed by the same user whom originally created the job.  In addition, the user must have permission to update the recording's retention.
 
 Requires ALL permissions: 
 
 * recording:job:edit
 * recording:recording:editRetention
 * recording:screenRecording:editRetention
+* recording:snippetRecording:editRetention
 
 ### Example
 ```{"language":"csharp"}
@@ -3593,7 +3548,7 @@ namespace Example
 
 Update a media retention policy
 
-Policy does not work retroactively
+Policy does not work retroactively. In the conditions.forUsers section, each user object can include the 'id' field containing the user's unique identifier. Example: [{\"id\":\"<userId>\"}].
 
 Requires ANY permissions: 
 
@@ -3726,6 +3681,7 @@ Requires ANY permissions:
 * recording:settings:editScreenRecordings
 * recording:settings:editRegionalStorage
 * recording:settings:editUrlExpiration
+* recording:settings:editConferenceRecording
 
 ### Example
 ```{"language":"csharp"}
@@ -3842,4 +3798,4 @@ namespace Example
 void (empty response body)
 
 
-_PureCloudPlatform.Client.V2 227.0.0_
+_PureCloudPlatform.Client.V2 257.0.0_

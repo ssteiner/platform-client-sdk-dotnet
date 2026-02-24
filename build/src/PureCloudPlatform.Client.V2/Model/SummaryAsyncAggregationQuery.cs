@@ -39,6 +39,18 @@ namespace PureCloudPlatform.Client.V2.Model
             Conversationid,
             
             /// <summary>
+            /// Enum Copied for "copied"
+            /// </summary>
+            [EnumMember(Value = "copied")]
+            Copied,
+            
+            /// <summary>
+            /// Enum Editedfield for "editedField"
+            /// </summary>
+            [EnumMember(Value = "editedField")]
+            Editedfield,
+            
+            /// <summary>
             /// Enum Errortype for "errorType"
             /// </summary>
             [EnumMember(Value = "errorType")]
@@ -63,6 +75,12 @@ namespace PureCloudPlatform.Client.V2.Model
             Messagetype,
             
             /// <summary>
+            /// Enum Presented for "presented"
+            /// </summary>
+            [EnumMember(Value = "presented")]
+            Presented,
+            
+            /// <summary>
             /// Enum Queueid for "queueId"
             /// </summary>
             [EnumMember(Value = "queueId")]
@@ -81,10 +99,22 @@ namespace PureCloudPlatform.Client.V2.Model
             Summaryid,
             
             /// <summary>
+            /// Enum Summaryrating for "summaryRating"
+            /// </summary>
+            [EnumMember(Value = "summaryRating")]
+            Summaryrating,
+            
+            /// <summary>
             /// Enum Triggersourceid for "triggerSourceId"
             /// </summary>
             [EnumMember(Value = "triggerSourceId")]
             Triggersourceid,
+            
+            /// <summary>
+            /// Enum Triggersourceoutcome for "triggerSourceOutcome"
+            /// </summary>
+            [EnumMember(Value = "triggerSourceOutcome")]
+            Triggersourceoutcome,
             
             /// <summary>
             /// Enum Triggersourcetype for "triggerSourceType"
@@ -97,6 +127,18 @@ namespace PureCloudPlatform.Client.V2.Model
             /// </summary>
             [EnumMember(Value = "userId")]
             Userid,
+            
+            /// <summary>
+            /// Enum Wrapupcoderating for "wrapUpCodeRating"
+            /// </summary>
+            [EnumMember(Value = "wrapUpCodeRating")]
+            Wrapupcoderating,
+            
+            /// <summary>
+            /// Enum Wrapupcodesuggestionselected for "wrapUpCodeSuggestionSelected"
+            /// </summary>
+            [EnumMember(Value = "wrapUpCodeSuggestionSelected")]
+            Wrapupcodesuggestionselected,
             
             /// <summary>
             /// Enum Wrapupcodesgenerated for "wrapupCodesGenerated"
@@ -123,6 +165,12 @@ namespace PureCloudPlatform.Client.V2.Model
             /// </summary>
             [EnumMember(Value = "nConversationSummaries")]
             Nconversationsummaries,
+            
+            /// <summary>
+            /// Enum Nconversationsummaryengagements for "nConversationSummaryEngagements"
+            /// </summary>
+            [EnumMember(Value = "nConversationSummaryEngagements")]
+            Nconversationsummaryengagements,
             
             /// <summary>
             /// Enum Tconversationsummary for "tConversationSummary"
@@ -152,9 +200,9 @@ namespace PureCloudPlatform.Client.V2.Model
             Eventtime
         }
         /// <summary>
-        /// Query type to use. Use groupBy for all matching results, and topN for just top N results for the requested metric (group by exactly 1 dimension)
+        /// Query type to use. Use groupBy for all matching results, and topN/bottomN for N results ordered by the sortMetric. Default is groupBy.
         /// </summary>
-        /// <value>Query type to use. Use groupBy for all matching results, and topN for just top N results for the requested metric (group by exactly 1 dimension)</value>
+        /// <value>Query type to use. Use groupBy for all matching results, and topN/bottomN for N results ordered by the sortMetric. Default is groupBy.</value>
         [JsonConverter(typeof(UpgradeSdkEnumConverter))]
         public enum QueryTypeEnum
         {
@@ -165,6 +213,12 @@ namespace PureCloudPlatform.Client.V2.Model
             /// </summary>
             [EnumMember(Value = "OUTDATED_SDK_VERSION")]
             OutdatedSdkVersion,
+            
+            /// <summary>
+            /// Enum Bottomn for "bottomN"
+            /// </summary>
+            [EnumMember(Value = "bottomN")]
+            Bottomn,
             
             /// <summary>
             /// Enum Groupby for "groupBy"
@@ -185,9 +239,9 @@ namespace PureCloudPlatform.Client.V2.Model
         [DataMember(Name="alternateTimeDimension", EmitDefaultValue=false)]
         public AlternateTimeDimensionEnum? AlternateTimeDimension { get; set; }
         /// <summary>
-        /// Query type to use. Use groupBy for all matching results, and topN for just top N results for the requested metric (group by exactly 1 dimension)
+        /// Query type to use. Use groupBy for all matching results, and topN/bottomN for N results ordered by the sortMetric. Default is groupBy.
         /// </summary>
-        /// <value>Query type to use. Use groupBy for all matching results, and topN for just top N results for the requested metric (group by exactly 1 dimension)</value>
+        /// <value>Query type to use. Use groupBy for all matching results, and topN/bottomN for N results ordered by the sortMetric. Default is groupBy.</value>
         [DataMember(Name="queryType", EmitDefaultValue=false)]
         public QueryTypeEnum? QueryType { get; set; }
 
@@ -205,13 +259,14 @@ namespace PureCloudPlatform.Client.V2.Model
         /// <param name="GroupBy">Behaves like a SQL GROUPBY. Allows for multiple levels of grouping as a list of dimensions. Partitions resulting aggregate computations into distinct named subgroups rather than across the entire result set as if it were one group..</param>
         /// <param name="Filter">Behaves like a SQL WHERE clause. This is ANDed with the interval parameter. Expresses boolean logical predicates as well as dimensional filters.</param>
         /// <param name="Metrics">Behaves like a SQL SELECT clause. Only named metrics will be retrieved. (required).</param>
-        /// <param name="FlattenMultivaluedDimensions">Flattens any multivalued dimensions used in response groups (e.g. ['a','b','c']->'a,b,c').</param>
+        /// <param name="FlattenMultivaluedDimensions">Flattens any multivalued dimensions used in response groups (e.g. [&#39;a&#39;,&#39;b&#39;,&#39;c&#39;]-&gt;&#39;a,b,c&#39;).</param>
         /// <param name="Views">Custom derived metric views.</param>
-        /// <param name="AlternateTimeDimension">Dimension to use as the alternative timestamp for data in the aggregate.  Choosing \"eventTime\" uses the actual time of the data event..</param>
-        /// <param name="QueryType">Query type to use. Use groupBy for all matching results, and topN for just top N results for the requested metric (group by exactly 1 dimension).</param>
-        /// <param name="Limit">How many results you want in the topN list. Only applicable for topN query type..</param>
+        /// <param name="AlternateTimeDimension">Dimension to use as the alternative timestamp for data in the aggregate.  Choosing \&quot;eventTime\&quot; uses the actual time of the data event..</param>
+        /// <param name="QueryType">Query type to use. Use groupBy for all matching results, and topN/bottomN for N results ordered by the sortMetric. Default is groupBy..</param>
+        /// <param name="SortMetric">Required when requesting multiple metrics. Only applicable for topN/bottomN query type..</param>
+        /// <param name="Limit">How many results you want in an ordered list. Only applicable for topN/bottomN query type..</param>
         /// <param name="PageSize">The number of results per page.</param>
-        public SummaryAsyncAggregationQuery(string Interval = null, string Granularity = null, string TimeZone = null, List<GroupByEnum> GroupBy = null, SummaryAggregateQueryFilter Filter = null, List<MetricsEnum> Metrics = null, bool? FlattenMultivaluedDimensions = null, List<SummaryAggregationView> Views = null, AlternateTimeDimensionEnum? AlternateTimeDimension = null, QueryTypeEnum? QueryType = null, int? Limit = null, int? PageSize = null)
+        public SummaryAsyncAggregationQuery(string Interval = null, string Granularity = null, string TimeZone = null, List<GroupByEnum> GroupBy = null, SummaryAggregateQueryFilter Filter = null, List<MetricsEnum> Metrics = null, bool? FlattenMultivaluedDimensions = null, List<SummaryAggregationView> Views = null, AlternateTimeDimensionEnum? AlternateTimeDimension = null, QueryTypeEnum? QueryType = null, SummaryAggregationSort SortMetric = null, int? Limit = null, int? PageSize = null)
         {
             this.Interval = Interval;
             this.Granularity = Granularity;
@@ -223,6 +278,7 @@ namespace PureCloudPlatform.Client.V2.Model
             this.Views = Views;
             this.AlternateTimeDimension = AlternateTimeDimension;
             this.QueryType = QueryType;
+            this.SortMetric = SortMetric;
             this.Limit = Limit;
             this.PageSize = PageSize;
             
@@ -285,9 +341,9 @@ namespace PureCloudPlatform.Client.V2.Model
 
 
         /// <summary>
-        /// Flattens any multivalued dimensions used in response groups (e.g. ['a','b','c']->'a,b,c')
+        /// Flattens any multivalued dimensions used in response groups (e.g. [&#39;a&#39;,&#39;b&#39;,&#39;c&#39;]-&gt;&#39;a,b,c&#39;)
         /// </summary>
-        /// <value>Flattens any multivalued dimensions used in response groups (e.g. ['a','b','c']->'a,b,c')</value>
+        /// <value>Flattens any multivalued dimensions used in response groups (e.g. [&#39;a&#39;,&#39;b&#39;,&#39;c&#39;]-&gt;&#39;a,b,c&#39;)</value>
         [DataMember(Name="flattenMultivaluedDimensions", EmitDefaultValue=false)]
         public bool? FlattenMultivaluedDimensions { get; set; }
 
@@ -307,9 +363,18 @@ namespace PureCloudPlatform.Client.V2.Model
 
 
         /// <summary>
-        /// How many results you want in the topN list. Only applicable for topN query type.
+        /// Required when requesting multiple metrics. Only applicable for topN/bottomN query type.
         /// </summary>
-        /// <value>How many results you want in the topN list. Only applicable for topN query type.</value>
+        /// <value>Required when requesting multiple metrics. Only applicable for topN/bottomN query type.</value>
+        [DataMember(Name="sortMetric", EmitDefaultValue=false)]
+        public SummaryAggregationSort SortMetric { get; set; }
+
+
+
+        /// <summary>
+        /// How many results you want in an ordered list. Only applicable for topN/bottomN query type.
+        /// </summary>
+        /// <value>How many results you want in an ordered list. Only applicable for topN/bottomN query type.</value>
         [DataMember(Name="limit", EmitDefaultValue=false)]
         public int? Limit { get; set; }
 
@@ -342,6 +407,7 @@ namespace PureCloudPlatform.Client.V2.Model
             sb.Append("  Views: ").Append(Views).Append("\n");
             sb.Append("  AlternateTimeDimension: ").Append(AlternateTimeDimension).Append("\n");
             sb.Append("  QueryType: ").Append(QueryType).Append("\n");
+            sb.Append("  SortMetric: ").Append(SortMetric).Append("\n");
             sb.Append("  Limit: ").Append(Limit).Append("\n");
             sb.Append("  PageSize: ").Append(PageSize).Append("\n");
             sb.Append("}\n");
@@ -435,6 +501,11 @@ namespace PureCloudPlatform.Client.V2.Model
                     this.QueryType.Equals(other.QueryType)
                 ) &&
                 (
+                    this.SortMetric == other.SortMetric ||
+                    this.SortMetric != null &&
+                    this.SortMetric.Equals(other.SortMetric)
+                ) &&
+                (
                     this.Limit == other.Limit ||
                     this.Limit != null &&
                     this.Limit.Equals(other.Limit)
@@ -486,6 +557,9 @@ namespace PureCloudPlatform.Client.V2.Model
 
                 if (this.QueryType != null)
                     hash = hash * 59 + this.QueryType.GetHashCode();
+
+                if (this.SortMetric != null)
+                    hash = hash * 59 + this.SortMetric.GetHashCode();
 
                 if (this.Limit != null)
                     hash = hash * 59 + this.Limit.GetHashCode();

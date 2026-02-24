@@ -12,6 +12,7 @@
 | **To** | **string** | The message recipient. | [optional] |
 | **Timestamp** | **DateTime?** | The time when the message was sent. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z | [optional] |
 | **Id** | **string** | A globally unique identifier for this communication. | [optional] |
+| **Status** | **string** | Status of the message | [optional] |
 | **Purpose** | **string** | A well known string that specifies the purpose or type of the participant on this communication. | [optional] |
 | **ParticipantId** | **string** | A globally unique identifier for the participant on this communication. | [optional] |
 | **Queue** | [**AddressableEntityRef**](AddressableEntityRef) | A globally unique identifier for the queue involved in this communication. | [optional] |
@@ -21,10 +22,22 @@
 | **MessageStickerAttachments** | [**List&lt;MessageStickerAttachment&gt;**](MessageStickerAttachment) | List of message stickers attached with this message. | [optional] |
 | **QuickReplies** | [**List&lt;QuickReply&gt;**](QuickReply) | List of quick reply options offered with this message. | [optional] |
 | **ButtonResponse** | [**ButtonResponse**](ButtonResponse) | Button Response selected by user for this message. | [optional] |
+| **ButtonResponses** | [**List&lt;ButtonResponse&gt;**](ButtonResponse) | List of Button Response selected by user for this message. | [optional] |
 | **Story** | [**RecordingContentStory**](RecordingContentStory) | Ephemeral story content. | [optional] |
 | **Cards** | [**List&lt;Card&gt;**](Card) | List of cards offered for this message | [optional] |
+| **NotificationTemplate** | [**RecordingNotificationTemplate**](RecordingNotificationTemplate) | Template notification content. | [optional] |
+| **DatePicker** | [**DatePicker**](DatePicker) | DatePicker content object. | [optional] |
+| **ListPicker** | [**ListPicker**](ListPicker) | ListPicker content object. | [optional] |
 | **ContentType** | **string** | Indicates the content type for this message | [optional] |
+| **SocialVisibility** | **string** | For social media messages, the visibility of the message in the originating social platform | [optional] |
+| **Events** | [**List&lt;ConversationMessageEvent&gt;**](ConversationMessageEvent) | List of event elements | [optional] |
+| **InteractiveApplication** | [**InteractiveApplication**](InteractiveApplication) | InteractiveApplication content. | [optional] |
+| **PaymentRequest** | [**PaymentRequest**](PaymentRequest) | Payment request content. | [optional] |
+| **PaymentResponse** | [**PaymentResponse**](PaymentResponse) | Payment response content. | [optional] |
+| **Form** | [**RecordingForm**](RecordingForm) | Form content. | [optional] |
+| **RoadsideAssistance** | [**RecordingRoadsideAssistance**](RecordingRoadsideAssistance) | Roadside Assistance content. | [optional] |
+| **MessageReceipts** | [**List&lt;RecordingMessageReceipt&gt;**](RecordingMessageReceipt) | List of message receipts | [optional] |
 
 
 
-_PureCloudPlatform.Client.V2 227.0.0_
+_PureCloudPlatform.Client.V2 257.0.0_

@@ -13,9 +13,9 @@
 | **Relationship** | **string** |  | [optional] |
 | **Appointment** | [**WemCoachingUserNotificationTopicCoachingAppointmentReference**](WemCoachingUserNotificationTopicCoachingAppointmentReference) |  | [optional] |
 | **DateStart** | **DateTime?** |  | [optional] |
-| **LengthInMinutes** | **int?** |  | [optional] |
+| **LengthInMinutes** | **long?** |  | [optional] |
 | **Status** | **string** |  | [optional] |
 
 
 
-_PureCloudPlatform.Client.V2 227.0.0_
+_PureCloudPlatform.Client.V2 257.0.0_

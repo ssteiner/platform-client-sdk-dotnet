@@ -241,7 +241,25 @@ namespace PureCloudPlatform.Client.V2.Model
             /// Enum Spam for "spam"
             /// </summary>
             [EnumMember(Value = "spam")]
-            Spam
+            Spam,
+            
+            /// <summary>
+            /// Enum Inactivity for "inactivity"
+            /// </summary>
+            [EnumMember(Value = "inactivity")]
+            Inactivity,
+            
+            /// <summary>
+            /// Enum Sessionexpired for "session.expired"
+            /// </summary>
+            [EnumMember(Value = "session.expired")]
+            Sessionexpired,
+            
+            /// <summary>
+            /// Enum Takeover for "takeover"
+            /// </summary>
+            [EnumMember(Value = "takeover")]
+            Takeover
         }
         /// <summary>
         /// The reason specifying why participant flagged the conversation.
@@ -295,17 +313,18 @@ namespace PureCloudPlatform.Client.V2.Model
         /// <param name="Name">The display friendly name of the participant..</param>
         /// <param name="Address">The participant address..</param>
         /// <param name="StartTime">The time when this participant first joined the conversation. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z.</param>
+        /// <param name="StartAlertingTime">The timestamp when it is first put into an alerting state. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z.</param>
         /// <param name="ConnectedTime">The time when this participant went connected for this media (eg: video connected time). Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z.</param>
         /// <param name="EndTime">The time when this participant went disconnected for this media (eg: video disconnected time). Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z.</param>
-        /// <param name="StartHoldTime">The time when this participant's hold started. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z.</param>
-        /// <param name="Purpose">The participant's purpose.  Values can be: 'agent', 'user', 'customer', 'external', 'acd', 'ivr.</param>
-        /// <param name="State">The participant's state.  Values can be: 'alerting', 'connected', 'disconnected', 'dialing', 'contacting.</param>
-        /// <param name="Direction">The participant's direction.  Values can be: 'inbound' or 'outbound'.</param>
+        /// <param name="StartHoldTime">The time when this participant&#39;s hold started. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z.</param>
+        /// <param name="Purpose">The participant&#39;s purpose.  Values can be: &#39;agent&#39;, &#39;user&#39;, &#39;customer&#39;, &#39;external&#39;, &#39;acd&#39;, &#39;ivr.</param>
+        /// <param name="State">The participant&#39;s state.  Values can be: &#39;alerting&#39;, &#39;connected&#39;, &#39;disconnected&#39;, &#39;dialing&#39;, &#39;contacting.</param>
+        /// <param name="Direction">The participant&#39;s direction.  Values can be: &#39;inbound&#39; or &#39;outbound&#39;.</param>
         /// <param name="DisconnectType">The reason the participant was disconnected from the conversation..</param>
         /// <param name="Held">Value is true when the participant is on hold..</param>
         /// <param name="WrapupRequired">Value is true when the participant requires wrap-up..</param>
         /// <param name="WrapupPrompt">The wrap-up prompt indicating the type of wrap-up to be performed..</param>
-        /// <param name="MediaRoles">List of roles this participant's media has had on the conversation, ie monitor, coach, etc.</param>
+        /// <param name="MediaRoles">List of roles this participant&#39;s media has had on the conversation, ie monitor, coach, etc.</param>
         /// <param name="User">The PureCloud user for this participant..</param>
         /// <param name="Queue">The PureCloud queue for this participant..</param>
         /// <param name="Team">The PureCloud team for this participant..</param>
@@ -317,6 +336,7 @@ namespace PureCloudPlatform.Client.V2.Model
         /// <param name="AlertingTimeoutMs">Specifies how long the agent has to answer an interaction before being marked as not responding..</param>
         /// <param name="Provider">The source provider for the communication..</param>
         /// <param name="ExternalContact">If this participant represents an external contact, then this will be the reference for the external contact..</param>
+        /// <param name="ExternalContactInitialDivisionId">If this participant represents an external contact, then this will be the initial division for the external contact. This value will not be updated if the external contact is reassigned..</param>
         /// <param name="ExternalOrganization">If this participant represents an external org, then this will be the reference for the external org..</param>
         /// <param name="Wrapup">Wrapup for this participant, if it has been applied..</param>
         /// <param name="Peer">The peer communication corresponding to a matching leg for this communication..</param>
@@ -325,8 +345,8 @@ namespace PureCloudPlatform.Client.V2.Model
         /// <param name="ConversationRoutingData">Information on how a communication should be routed to an agent..</param>
         /// <param name="StartAcwTime">The timestamp when this participant started after-call work. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z.</param>
         /// <param name="EndAcwTime">The timestamp when this participant ended after-call work. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z.</param>
-        /// <param name="ParkTime">The time when this participant's communication was last parked.  Does not reset on resume. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z.</param>
-        /// <param name="ResumeTime">The time when this participant's communications will resume. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z.</param>
+        /// <param name="ParkTime">The time when this participant&#39;s communication was last parked.  Does not reset on resume. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z.</param>
+        /// <param name="ResumeTime">The time when this participant&#39;s communications will resume. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z.</param>
         /// <param name="OutboundPreview">The outbound preview associated with this callback..</param>
         /// <param name="Voicemail">The voicemail associated with this callback..</param>
         /// <param name="CallbackNumbers">The list of phone number to use for this callback..</param>
@@ -336,12 +356,13 @@ namespace PureCloudPlatform.Client.V2.Model
         /// <param name="TimeoutSeconds">Duration in seconds before the callback will be auto-dialed..</param>
         /// <param name="AutomatedCallbackConfigId">The id of the config for automatically placing the callback (and handling the disposition). If absent, the callback will not be placed automatically but routed to an agent as per normal..</param>
         /// <param name="CallbackScheduledTime">Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z.</param>
-        public CallbackMediaParticipant(string Id = null, string Name = null, string Address = null, DateTime? StartTime = null, DateTime? ConnectedTime = null, DateTime? EndTime = null, DateTime? StartHoldTime = null, string Purpose = null, StateEnum? State = null, DirectionEnum? Direction = null, DisconnectTypeEnum? DisconnectType = null, bool? Held = null, bool? WrapupRequired = null, string WrapupPrompt = null, List<string> MediaRoles = null, DomainEntityRef User = null, DomainEntityRef Queue = null, DomainEntityRef Team = null, Dictionary<string, string> Attributes = null, ErrorInfo ErrorInfo = null, DomainEntityRef Script = null, int? WrapupTimeoutMs = null, bool? WrapupSkipped = null, int? AlertingTimeoutMs = null, string Provider = null, DomainEntityRef ExternalContact = null, DomainEntityRef ExternalOrganization = null, Wrapup Wrapup = null, string Peer = null, FlaggedReasonEnum? FlaggedReason = null, JourneyContext JourneyContext = null, ConversationRoutingData ConversationRoutingData = null, DateTime? StartAcwTime = null, DateTime? EndAcwTime = null, DateTime? ParkTime = null, DateTime? ResumeTime = null, DialerPreview OutboundPreview = null, Voicemail Voicemail = null, List<string> CallbackNumbers = null, string CallbackUserName = null, bool? ExternalCampaign = null, bool? SkipEnabled = null, int? TimeoutSeconds = null, string AutomatedCallbackConfigId = null, DateTime? CallbackScheduledTime = null)
+        public CallbackMediaParticipant(string Id = null, string Name = null, string Address = null, DateTime? StartTime = null, DateTime? StartAlertingTime = null, DateTime? ConnectedTime = null, DateTime? EndTime = null, DateTime? StartHoldTime = null, string Purpose = null, StateEnum? State = null, DirectionEnum? Direction = null, DisconnectTypeEnum? DisconnectType = null, bool? Held = null, bool? WrapupRequired = null, string WrapupPrompt = null, List<string> MediaRoles = null, DomainEntityRef User = null, DomainEntityRef Queue = null, DomainEntityRef Team = null, Dictionary<string, string> Attributes = null, ErrorInfo ErrorInfo = null, DomainEntityRef Script = null, int? WrapupTimeoutMs = null, bool? WrapupSkipped = null, int? AlertingTimeoutMs = null, string Provider = null, DomainEntityRef ExternalContact = null, string ExternalContactInitialDivisionId = null, DomainEntityRef ExternalOrganization = null, Wrapup Wrapup = null, string Peer = null, FlaggedReasonEnum? FlaggedReason = null, JourneyContext JourneyContext = null, ConversationRoutingData ConversationRoutingData = null, DateTime? StartAcwTime = null, DateTime? EndAcwTime = null, DateTime? ParkTime = null, DateTime? ResumeTime = null, DialerPreview OutboundPreview = null, Voicemail Voicemail = null, List<string> CallbackNumbers = null, string CallbackUserName = null, bool? ExternalCampaign = null, bool? SkipEnabled = null, int? TimeoutSeconds = null, string AutomatedCallbackConfigId = null, DateTime? CallbackScheduledTime = null)
         {
             this.Id = Id;
             this.Name = Name;
             this.Address = Address;
             this.StartTime = StartTime;
+            this.StartAlertingTime = StartAlertingTime;
             this.ConnectedTime = ConnectedTime;
             this.EndTime = EndTime;
             this.StartHoldTime = StartHoldTime;
@@ -364,6 +385,7 @@ namespace PureCloudPlatform.Client.V2.Model
             this.AlertingTimeoutMs = AlertingTimeoutMs;
             this.Provider = Provider;
             this.ExternalContact = ExternalContact;
+            this.ExternalContactInitialDivisionId = ExternalContactInitialDivisionId;
             this.ExternalOrganization = ExternalOrganization;
             this.Wrapup = Wrapup;
             this.Peer = Peer;
@@ -425,6 +447,15 @@ namespace PureCloudPlatform.Client.V2.Model
 
 
         /// <summary>
+        /// The timestamp when it is first put into an alerting state. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
+        /// </summary>
+        /// <value>The timestamp when it is first put into an alerting state. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z</value>
+        [DataMember(Name="startAlertingTime", EmitDefaultValue=false)]
+        public DateTime? StartAlertingTime { get; set; }
+
+
+
+        /// <summary>
         /// The time when this participant went connected for this media (eg: video connected time). Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
         /// </summary>
         /// <value>The time when this participant went connected for this media (eg: video connected time). Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z</value>
@@ -443,18 +474,18 @@ namespace PureCloudPlatform.Client.V2.Model
 
 
         /// <summary>
-        /// The time when this participant's hold started. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
+        /// The time when this participant&#39;s hold started. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
         /// </summary>
-        /// <value>The time when this participant's hold started. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z</value>
+        /// <value>The time when this participant&#39;s hold started. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z</value>
         [DataMember(Name="startHoldTime", EmitDefaultValue=false)]
         public DateTime? StartHoldTime { get; set; }
 
 
 
         /// <summary>
-        /// The participant's purpose.  Values can be: 'agent', 'user', 'customer', 'external', 'acd', 'ivr
+        /// The participant&#39;s purpose.  Values can be: &#39;agent&#39;, &#39;user&#39;, &#39;customer&#39;, &#39;external&#39;, &#39;acd&#39;, &#39;ivr
         /// </summary>
-        /// <value>The participant's purpose.  Values can be: 'agent', 'user', 'customer', 'external', 'acd', 'ivr</value>
+        /// <value>The participant&#39;s purpose.  Values can be: &#39;agent&#39;, &#39;user&#39;, &#39;customer&#39;, &#39;external&#39;, &#39;acd&#39;, &#39;ivr</value>
         [DataMember(Name="purpose", EmitDefaultValue=false)]
         public string Purpose { get; set; }
 
@@ -494,9 +525,9 @@ namespace PureCloudPlatform.Client.V2.Model
 
 
         /// <summary>
-        /// List of roles this participant's media has had on the conversation, ie monitor, coach, etc
+        /// List of roles this participant&#39;s media has had on the conversation, ie monitor, coach, etc
         /// </summary>
-        /// <value>List of roles this participant's media has had on the conversation, ie monitor, coach, etc</value>
+        /// <value>List of roles this participant&#39;s media has had on the conversation, ie monitor, coach, etc</value>
         [DataMember(Name="mediaRoles", EmitDefaultValue=false)]
         public List<string> MediaRoles { get; set; }
 
@@ -602,6 +633,15 @@ namespace PureCloudPlatform.Client.V2.Model
 
 
         /// <summary>
+        /// If this participant represents an external contact, then this will be the initial division for the external contact. This value will not be updated if the external contact is reassigned.
+        /// </summary>
+        /// <value>If this participant represents an external contact, then this will be the initial division for the external contact. This value will not be updated if the external contact is reassigned.</value>
+        [DataMember(Name="externalContactInitialDivisionId", EmitDefaultValue=false)]
+        public string ExternalContactInitialDivisionId { get; set; }
+
+
+
+        /// <summary>
         /// If this participant represents an external org, then this will be the reference for the external org.
         /// </summary>
         /// <value>If this participant represents an external org, then this will be the reference for the external org.</value>
@@ -667,18 +707,18 @@ namespace PureCloudPlatform.Client.V2.Model
 
 
         /// <summary>
-        /// The time when this participant's communication was last parked.  Does not reset on resume. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
+        /// The time when this participant&#39;s communication was last parked.  Does not reset on resume. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
         /// </summary>
-        /// <value>The time when this participant's communication was last parked.  Does not reset on resume. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z</value>
+        /// <value>The time when this participant&#39;s communication was last parked.  Does not reset on resume. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z</value>
         [DataMember(Name="parkTime", EmitDefaultValue=false)]
         public DateTime? ParkTime { get; set; }
 
 
 
         /// <summary>
-        /// The time when this participant's communications will resume. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
+        /// The time when this participant&#39;s communications will resume. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
         /// </summary>
-        /// <value>The time when this participant's communications will resume. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z</value>
+        /// <value>The time when this participant&#39;s communications will resume. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z</value>
         [DataMember(Name="resumeTime", EmitDefaultValue=false)]
         public DateTime? ResumeTime { get; set; }
 
@@ -777,6 +817,7 @@ namespace PureCloudPlatform.Client.V2.Model
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Address: ").Append(Address).Append("\n");
             sb.Append("  StartTime: ").Append(StartTime).Append("\n");
+            sb.Append("  StartAlertingTime: ").Append(StartAlertingTime).Append("\n");
             sb.Append("  ConnectedTime: ").Append(ConnectedTime).Append("\n");
             sb.Append("  EndTime: ").Append(EndTime).Append("\n");
             sb.Append("  StartHoldTime: ").Append(StartHoldTime).Append("\n");
@@ -799,6 +840,7 @@ namespace PureCloudPlatform.Client.V2.Model
             sb.Append("  AlertingTimeoutMs: ").Append(AlertingTimeoutMs).Append("\n");
             sb.Append("  Provider: ").Append(Provider).Append("\n");
             sb.Append("  ExternalContact: ").Append(ExternalContact).Append("\n");
+            sb.Append("  ExternalContactInitialDivisionId: ").Append(ExternalContactInitialDivisionId).Append("\n");
             sb.Append("  ExternalOrganization: ").Append(ExternalOrganization).Append("\n");
             sb.Append("  Wrapup: ").Append(Wrapup).Append("\n");
             sb.Append("  Peer: ").Append(Peer).Append("\n");
@@ -877,6 +919,11 @@ namespace PureCloudPlatform.Client.V2.Model
                     this.StartTime == other.StartTime ||
                     this.StartTime != null &&
                     this.StartTime.Equals(other.StartTime)
+                ) &&
+                (
+                    this.StartAlertingTime == other.StartAlertingTime ||
+                    this.StartAlertingTime != null &&
+                    this.StartAlertingTime.Equals(other.StartAlertingTime)
                 ) &&
                 (
                     this.ConnectedTime == other.ConnectedTime ||
@@ -987,6 +1034,11 @@ namespace PureCloudPlatform.Client.V2.Model
                     this.ExternalContact == other.ExternalContact ||
                     this.ExternalContact != null &&
                     this.ExternalContact.Equals(other.ExternalContact)
+                ) &&
+                (
+                    this.ExternalContactInitialDivisionId == other.ExternalContactInitialDivisionId ||
+                    this.ExternalContactInitialDivisionId != null &&
+                    this.ExternalContactInitialDivisionId.Equals(other.ExternalContactInitialDivisionId)
                 ) &&
                 (
                     this.ExternalOrganization == other.ExternalOrganization ||
@@ -1108,6 +1160,9 @@ namespace PureCloudPlatform.Client.V2.Model
                 if (this.StartTime != null)
                     hash = hash * 59 + this.StartTime.GetHashCode();
 
+                if (this.StartAlertingTime != null)
+                    hash = hash * 59 + this.StartAlertingTime.GetHashCode();
+
                 if (this.ConnectedTime != null)
                     hash = hash * 59 + this.ConnectedTime.GetHashCode();
 
@@ -1173,6 +1228,9 @@ namespace PureCloudPlatform.Client.V2.Model
 
                 if (this.ExternalContact != null)
                     hash = hash * 59 + this.ExternalContact.GetHashCode();
+
+                if (this.ExternalContactInitialDivisionId != null)
+                    hash = hash * 59 + this.ExternalContactInitialDivisionId.GetHashCode();
 
                 if (this.ExternalOrganization != null)
                     hash = hash * 59 + this.ExternalOrganization.GetHashCode();

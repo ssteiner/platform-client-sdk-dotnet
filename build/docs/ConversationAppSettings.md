@@ -15,7 +15,8 @@
 | **ConversationClear** | [**ConversationClearSettings**](ConversationClearSettings) | The conversation clear settings for the messenger app | [optional] |
 | **Humanize** | [**Humanize**](Humanize) | The humanize conversations settings for the messenger app | [optional] |
 | **Notifications** | [**NotificationsSettings**](NotificationsSettings) | The notification settings for messenger apps | [optional] |
+| **SessionDurationSeconds** | **int?** | The guest session duration settings for messenger conversations | [optional] |
 
 
 
-_PureCloudPlatform.Client.V2 227.0.0_
+_PureCloudPlatform.Client.V2 257.0.0_

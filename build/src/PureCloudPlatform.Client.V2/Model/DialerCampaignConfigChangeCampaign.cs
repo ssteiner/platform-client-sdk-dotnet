@@ -149,7 +149,7 @@ namespace PureCloudPlatform.Client.V2.Model
         /// <param name="SingleNumberPreview">for preview campaigns with multiple phone columns, indicator if one (true) or multiple (false) phone numbers will be available to call for each preview.</param>
         /// <param name="ContactSort">ContactSort.</param>
         /// <param name="ContactSorts">List of contact sort objects..</param>
-        /// <param name="NoAnswerTimeout">for non-preview campaigns, how long to wait before dispositioning as 'no-answer', default 30 seconds.</param>
+        /// <param name="NoAnswerTimeout">for non-preview campaigns, how long to wait before dispositioning as &#39;no-answer&#39;, default 30 seconds.</param>
         /// <param name="CallAnalysisLanguage">The language the edge will use to analyze the call.</param>
         /// <param name="Priority">The priority of this campaign relative to other campaigns.</param>
         /// <param name="ContactListFilters">List of contact filters.</param>
@@ -161,7 +161,8 @@ namespace PureCloudPlatform.Client.V2.Model
         /// <param name="DateCreated">Creation time of the entity.</param>
         /// <param name="DateModified">Last modified time of the entity.</param>
         /// <param name="Version">Required for updates, must match the version number of the most recent update.</param>
-        public DialerCampaignConfigChangeCampaign(DialerCampaignConfigChangeUriReference ContactList = null, DialerCampaignConfigChangeUriReference Queue = null, DialingModeEnum? DialingMode = null, DialerCampaignConfigChangeUriReference Script = null, DialerCampaignConfigChangeUriReference EdgeGroup = null, DialerCampaignConfigChangeUriReference Site = null, CampaignStatusEnum? CampaignStatus = null, List<DialerCampaignConfigChangePhoneColumn> PhoneColumns = null, double? AbandonRate = null, List<DialerCampaignConfigChangeUriReference> DncLists = null, DialerCampaignConfigChangeUriReference CallableTimeSet = null, DialerCampaignConfigChangeUriReference CallAnalysisResponseSet = null, string CallerName = null, string CallerAddress = null, int? OutboundLineCount = null, List<DialerCampaignConfigChangeRestErrorDetail> Errors = null, List<DialerCampaignConfigChangeUriReference> RuleSets = null, bool? SkipPreviewDisabled = null, int? PreviewTimeOutSeconds = null, bool? SingleNumberPreview = null, DialerCampaignConfigChangeContactSort ContactSort = null, List<DialerCampaignConfigChangeContactSort> ContactSorts = null, int? NoAnswerTimeout = null, string CallAnalysisLanguage = null, int? Priority = null, List<DialerCampaignConfigChangeUriReference> ContactListFilters = null, DialerCampaignConfigChangeUriReference Division = null, string AgentOwnedColumn = null, Dictionary<string, Object> AdditionalProperties = null, string Id = null, string Name = null, DateTime? DateCreated = null, DateTime? DateModified = null, int? Version = null)
+        /// <param name="GetAdditionalProperties">GetAdditionalProperties.</param>
+        public DialerCampaignConfigChangeCampaign(DialerCampaignConfigChangeUriReference ContactList = null, DialerCampaignConfigChangeUriReference Queue = null, DialingModeEnum? DialingMode = null, DialerCampaignConfigChangeUriReference Script = null, DialerCampaignConfigChangeUriReference EdgeGroup = null, DialerCampaignConfigChangeUriReference Site = null, CampaignStatusEnum? CampaignStatus = null, List<DialerCampaignConfigChangePhoneColumn> PhoneColumns = null, double? AbandonRate = null, List<DialerCampaignConfigChangeUriReference> DncLists = null, DialerCampaignConfigChangeUriReference CallableTimeSet = null, DialerCampaignConfigChangeUriReference CallAnalysisResponseSet = null, string CallerName = null, string CallerAddress = null, long? OutboundLineCount = null, List<DialerCampaignConfigChangeRestErrorDetail> Errors = null, List<DialerCampaignConfigChangeUriReference> RuleSets = null, bool? SkipPreviewDisabled = null, long? PreviewTimeOutSeconds = null, bool? SingleNumberPreview = null, DialerCampaignConfigChangeContactSort ContactSort = null, List<DialerCampaignConfigChangeContactSort> ContactSorts = null, long? NoAnswerTimeout = null, string CallAnalysisLanguage = null, long? Priority = null, List<DialerCampaignConfigChangeUriReference> ContactListFilters = null, DialerCampaignConfigChangeUriReference Division = null, string AgentOwnedColumn = null, Dictionary<string, Object> AdditionalProperties = null, string Id = null, string Name = null, DateTime? DateCreated = null, DateTime? DateModified = null, long? Version = null, Dictionary<string, Object> GetAdditionalProperties = null)
         {
             this.ContactList = ContactList;
             this.Queue = Queue;
@@ -197,6 +198,7 @@ namespace PureCloudPlatform.Client.V2.Model
             this.DateCreated = DateCreated;
             this.DateModified = DateModified;
             this.Version = Version;
+            this.GetAdditionalProperties = GetAdditionalProperties;
             
         }
         
@@ -318,7 +320,7 @@ namespace PureCloudPlatform.Client.V2.Model
         /// </summary>
         /// <value>for agentless campaigns, the number of outbound lines to be concurrently dialed</value>
         [DataMember(Name="outboundLineCount", EmitDefaultValue=false)]
-        public int? OutboundLineCount { get; set; }
+        public long? OutboundLineCount { get; set; }
 
 
 
@@ -354,7 +356,7 @@ namespace PureCloudPlatform.Client.V2.Model
         /// </summary>
         /// <value>for preview campaigns, number of seconds before a call will be automatically placed. A value of 0 indicates no automatic placement of calls</value>
         [DataMember(Name="previewTimeOutSeconds", EmitDefaultValue=false)]
-        public int? PreviewTimeOutSeconds { get; set; }
+        public long? PreviewTimeOutSeconds { get; set; }
 
 
 
@@ -385,11 +387,11 @@ namespace PureCloudPlatform.Client.V2.Model
 
 
         /// <summary>
-        /// for non-preview campaigns, how long to wait before dispositioning as 'no-answer', default 30 seconds
+        /// for non-preview campaigns, how long to wait before dispositioning as &#39;no-answer&#39;, default 30 seconds
         /// </summary>
-        /// <value>for non-preview campaigns, how long to wait before dispositioning as 'no-answer', default 30 seconds</value>
+        /// <value>for non-preview campaigns, how long to wait before dispositioning as &#39;no-answer&#39;, default 30 seconds</value>
         [DataMember(Name="noAnswerTimeout", EmitDefaultValue=false)]
-        public int? NoAnswerTimeout { get; set; }
+        public long? NoAnswerTimeout { get; set; }
 
 
 
@@ -407,7 +409,7 @@ namespace PureCloudPlatform.Client.V2.Model
         /// </summary>
         /// <value>The priority of this campaign relative to other campaigns</value>
         [DataMember(Name="priority", EmitDefaultValue=false)]
-        public int? Priority { get; set; }
+        public long? Priority { get; set; }
 
 
 
@@ -487,7 +489,15 @@ namespace PureCloudPlatform.Client.V2.Model
         /// </summary>
         /// <value>Required for updates, must match the version number of the most recent update</value>
         [DataMember(Name="version", EmitDefaultValue=false)]
-        public int? Version { get; set; }
+        public long? Version { get; set; }
+
+
+
+        /// <summary>
+        /// Gets or Sets GetAdditionalProperties
+        /// </summary>
+        [DataMember(Name="getAdditionalProperties", EmitDefaultValue=false)]
+        public Dictionary<string, Object> GetAdditionalProperties { get; set; }
 
 
         /// <summary>
@@ -533,6 +543,7 @@ namespace PureCloudPlatform.Client.V2.Model
             sb.Append("  DateCreated: ").Append(DateCreated).Append("\n");
             sb.Append("  DateModified: ").Append(DateModified).Append("\n");
             sb.Append("  Version: ").Append(Version).Append("\n");
+            sb.Append("  GetAdditionalProperties: ").Append(GetAdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -742,6 +753,11 @@ namespace PureCloudPlatform.Client.V2.Model
                     this.Version == other.Version ||
                     this.Version != null &&
                     this.Version.Equals(other.Version)
+                ) &&
+                (
+                    this.GetAdditionalProperties == other.GetAdditionalProperties ||
+                    this.GetAdditionalProperties != null &&
+                    this.GetAdditionalProperties.SequenceEqual(other.GetAdditionalProperties)
                 );
         }
 
@@ -857,6 +873,9 @@ namespace PureCloudPlatform.Client.V2.Model
 
                 if (this.Version != null)
                     hash = hash * 59 + this.Version.GetHashCode();
+
+                if (this.GetAdditionalProperties != null)
+                    hash = hash * 59 + this.GetAdditionalProperties.GetHashCode();
 
                 return hash;
             }

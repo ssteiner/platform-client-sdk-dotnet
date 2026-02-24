@@ -38,18 +38,18 @@ namespace PureCloudPlatform.Client.V2.Model
 
 
         /// <summary>
-        /// Information regarding the campaign's queue
+        /// Information regarding the campaign&#39;s queue
         /// </summary>
-        /// <value>Information regarding the campaign's queue</value>
+        /// <value>Information regarding the campaign&#39;s queue</value>
         [DataMember(Name="queueUtilizationDiagnostic", EmitDefaultValue=false)]
         public QueueUtilizationDiagnostic QueueUtilizationDiagnostic { get; private set; }
 
 
 
         /// <summary>
-        /// Information regarding the campaign's rule sets
+        /// Information regarding the campaign&#39;s rule sets
         /// </summary>
-        /// <value>Information regarding the campaign's rule sets</value>
+        /// <value>Information regarding the campaign&#39;s rule sets</value>
         [DataMember(Name="ruleSetDiagnostics", EmitDefaultValue=false)]
         public List<RuleSetDiagnostic> RuleSetDiagnostics { get; private set; }
 
@@ -83,18 +83,72 @@ namespace PureCloudPlatform.Client.V2.Model
 
 
         /// <summary>
-        /// Number of contacts that don't match filter. This is currently supported only for Campaigns with dynamic filter on.
+        /// Number of contacts that don&#39;t match filter. This is currently supported only for Campaigns with dynamic filter on.
         /// </summary>
-        /// <value>Number of contacts that don't match filter. This is currently supported only for Campaigns with dynamic filter on.</value>
+        /// <value>Number of contacts that don&#39;t match filter. This is currently supported only for Campaigns with dynamic filter on.</value>
         [DataMember(Name="filteredOutContactsCount", EmitDefaultValue=false)]
         public int? FilteredOutContactsCount { get; private set; }
 
 
 
         /// <summary>
-        /// Information regarding the campaign's skills
+        /// Information regarding the campaign&#39;s available agents.
         /// </summary>
-        /// <value>Information regarding the campaign's skills</value>
+        /// <value>Information regarding the campaign&#39;s available agents.</value>
+        [DataMember(Name="idleAgents", EmitDefaultValue=false)]
+        public int? IdleAgents { get; private set; }
+
+
+
+        /// <summary>
+        /// Information regarding the campaign&#39;s effective available agents.
+        /// </summary>
+        /// <value>Information regarding the campaign&#39;s effective available agents.</value>
+        [DataMember(Name="effectiveIdleAgents", EmitDefaultValue=false)]
+        public double? EffectiveIdleAgents { get; private set; }
+
+
+
+        /// <summary>
+        /// Information on the campaign&#39;s lines utilization.
+        /// </summary>
+        /// <value>Information on the campaign&#39;s lines utilization.</value>
+        [DataMember(Name="linesUtilization", EmitDefaultValue=false)]
+        public CampaignLinesUtilization LinesUtilization { get; private set; }
+
+
+
+        /// <summary>
+        /// Number of contacts called during the campaign.
+        /// </summary>
+        /// <value>Number of contacts called during the campaign.</value>
+        [DataMember(Name="numberOfContactsCalled", EmitDefaultValue=false)]
+        public long? NumberOfContactsCalled { get; private set; }
+
+
+
+        /// <summary>
+        /// Total number of contacts in the campaign.
+        /// </summary>
+        /// <value>Total number of contacts in the campaign.</value>
+        [DataMember(Name="totalNumberOfContacts", EmitDefaultValue=false)]
+        public long? TotalNumberOfContacts { get; private set; }
+
+
+
+        /// <summary>
+        /// A list of current error conditions associated with the campaign.
+        /// </summary>
+        /// <value>A list of current error conditions associated with the campaign.</value>
+        [DataMember(Name="campaignErrors", EmitDefaultValue=false)]
+        public List<RestErrorDetail> CampaignErrors { get; private set; }
+
+
+
+        /// <summary>
+        /// Information regarding the campaign&#39;s skills
+        /// </summary>
+        /// <value>Information regarding the campaign&#39;s skills</value>
         [DataMember(Name="campaignSkillStatistics", EmitDefaultValue=false)]
         public CampaignSkillStatistics CampaignSkillStatistics { get; private set; }
 
@@ -115,6 +169,12 @@ namespace PureCloudPlatform.Client.V2.Model
             sb.Append("  ScheduledInteractionsCount: ").Append(ScheduledInteractionsCount).Append("\n");
             sb.Append("  TimeZoneRescheduledCallsCount: ").Append(TimeZoneRescheduledCallsCount).Append("\n");
             sb.Append("  FilteredOutContactsCount: ").Append(FilteredOutContactsCount).Append("\n");
+            sb.Append("  IdleAgents: ").Append(IdleAgents).Append("\n");
+            sb.Append("  EffectiveIdleAgents: ").Append(EffectiveIdleAgents).Append("\n");
+            sb.Append("  LinesUtilization: ").Append(LinesUtilization).Append("\n");
+            sb.Append("  NumberOfContactsCalled: ").Append(NumberOfContactsCalled).Append("\n");
+            sb.Append("  TotalNumberOfContacts: ").Append(TotalNumberOfContacts).Append("\n");
+            sb.Append("  CampaignErrors: ").Append(CampaignErrors).Append("\n");
             sb.Append("  CampaignSkillStatistics: ").Append(CampaignSkillStatistics).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -192,6 +252,36 @@ namespace PureCloudPlatform.Client.V2.Model
                     this.FilteredOutContactsCount.Equals(other.FilteredOutContactsCount)
                 ) &&
                 (
+                    this.IdleAgents == other.IdleAgents ||
+                    this.IdleAgents != null &&
+                    this.IdleAgents.Equals(other.IdleAgents)
+                ) &&
+                (
+                    this.EffectiveIdleAgents == other.EffectiveIdleAgents ||
+                    this.EffectiveIdleAgents != null &&
+                    this.EffectiveIdleAgents.Equals(other.EffectiveIdleAgents)
+                ) &&
+                (
+                    this.LinesUtilization == other.LinesUtilization ||
+                    this.LinesUtilization != null &&
+                    this.LinesUtilization.Equals(other.LinesUtilization)
+                ) &&
+                (
+                    this.NumberOfContactsCalled == other.NumberOfContactsCalled ||
+                    this.NumberOfContactsCalled != null &&
+                    this.NumberOfContactsCalled.Equals(other.NumberOfContactsCalled)
+                ) &&
+                (
+                    this.TotalNumberOfContacts == other.TotalNumberOfContacts ||
+                    this.TotalNumberOfContacts != null &&
+                    this.TotalNumberOfContacts.Equals(other.TotalNumberOfContacts)
+                ) &&
+                (
+                    this.CampaignErrors == other.CampaignErrors ||
+                    this.CampaignErrors != null &&
+                    this.CampaignErrors.SequenceEqual(other.CampaignErrors)
+                ) &&
+                (
                     this.CampaignSkillStatistics == other.CampaignSkillStatistics ||
                     this.CampaignSkillStatistics != null &&
                     this.CampaignSkillStatistics.Equals(other.CampaignSkillStatistics)
@@ -229,6 +319,24 @@ namespace PureCloudPlatform.Client.V2.Model
 
                 if (this.FilteredOutContactsCount != null)
                     hash = hash * 59 + this.FilteredOutContactsCount.GetHashCode();
+
+                if (this.IdleAgents != null)
+                    hash = hash * 59 + this.IdleAgents.GetHashCode();
+
+                if (this.EffectiveIdleAgents != null)
+                    hash = hash * 59 + this.EffectiveIdleAgents.GetHashCode();
+
+                if (this.LinesUtilization != null)
+                    hash = hash * 59 + this.LinesUtilization.GetHashCode();
+
+                if (this.NumberOfContactsCalled != null)
+                    hash = hash * 59 + this.NumberOfContactsCalled.GetHashCode();
+
+                if (this.TotalNumberOfContacts != null)
+                    hash = hash * 59 + this.TotalNumberOfContacts.GetHashCode();
+
+                if (this.CampaignErrors != null)
+                    hash = hash * 59 + this.CampaignErrors.GetHashCode();
 
                 if (this.CampaignSkillStatistics != null)
                     hash = hash * 59 + this.CampaignSkillStatistics.GetHashCode();

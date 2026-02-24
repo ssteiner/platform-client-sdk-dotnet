@@ -43,7 +43,19 @@ namespace PureCloudPlatform.Client.V2.Model
             /// Enum Quickreply for "QuickReply"
             /// </summary>
             [EnumMember(Value = "QuickReply")]
-            Quickreply
+            Quickreply,
+            
+            /// <summary>
+            /// Enum Datepicker for "DatePicker"
+            /// </summary>
+            [EnumMember(Value = "DatePicker")]
+            Datepicker,
+            
+            /// <summary>
+            /// Enum Listpicker for "ListPicker"
+            /// </summary>
+            [EnumMember(Value = "ListPicker")]
+            Listpicker
         }
         /// <summary>
         /// Describes the button that resulted in the Button Response.
@@ -64,12 +76,14 @@ namespace PureCloudPlatform.Client.V2.Model
         /// <param name="Type">Describes the button that resulted in the Button Response..</param>
         /// <param name="Text">The response text from the button click. (required).</param>
         /// <param name="Payload">The response payload associated with the clicked button. (required).</param>
-        public WebMessagingButtonResponse(string Id = null, TypeEnum? Type = null, string Text = null, string Payload = null)
+        /// <param name="OriginatingMessageId">Id of original structured message that this message responds to. (required).</param>
+        public WebMessagingButtonResponse(string Id = null, TypeEnum? Type = null, string Text = null, string Payload = null, string OriginatingMessageId = null)
         {
             this.Id = Id;
             this.Type = Type;
             this.Text = Text;
             this.Payload = Payload;
+            this.OriginatingMessageId = OriginatingMessageId;
             
         }
         
@@ -103,6 +117,15 @@ namespace PureCloudPlatform.Client.V2.Model
         public string Payload { get; set; }
 
 
+
+        /// <summary>
+        /// Id of original structured message that this message responds to.
+        /// </summary>
+        /// <value>Id of original structured message that this message responds to.</value>
+        [DataMember(Name="originatingMessageId", EmitDefaultValue=false)]
+        public string OriginatingMessageId { get; set; }
+
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -116,6 +139,7 @@ namespace PureCloudPlatform.Client.V2.Model
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Text: ").Append(Text).Append("\n");
             sb.Append("  Payload: ").Append(Payload).Append("\n");
+            sb.Append("  OriginatingMessageId: ").Append(OriginatingMessageId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -175,6 +199,11 @@ namespace PureCloudPlatform.Client.V2.Model
                     this.Payload == other.Payload ||
                     this.Payload != null &&
                     this.Payload.Equals(other.Payload)
+                ) &&
+                (
+                    this.OriginatingMessageId == other.OriginatingMessageId ||
+                    this.OriginatingMessageId != null &&
+                    this.OriginatingMessageId.Equals(other.OriginatingMessageId)
                 );
         }
 
@@ -200,6 +229,9 @@ namespace PureCloudPlatform.Client.V2.Model
 
                 if (this.Payload != null)
                     hash = hash * 59 + this.Payload.GetHashCode();
+
+                if (this.OriginatingMessageId != null)
+                    hash = hash * 59 + this.OriginatingMessageId.GetHashCode();
 
                 return hash;
             }

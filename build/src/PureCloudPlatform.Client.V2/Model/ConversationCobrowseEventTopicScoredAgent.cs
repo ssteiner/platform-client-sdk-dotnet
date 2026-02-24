@@ -22,8 +22,8 @@ namespace PureCloudPlatform.Client.V2.Model
         /// Initializes a new instance of the <see cref="ConversationCobrowseEventTopicScoredAgent" /> class.
         /// </summary>
         /// <param name="Agent">A UriReference for a resource.</param>
-        /// <param name="Score">Agent's score for the current conversation, from 0 - 100, higher being better.</param>
-        public ConversationCobrowseEventTopicScoredAgent(ConversationCobrowseEventTopicUriReference Agent = null, int? Score = null)
+        /// <param name="Score">Agent&#39;s score for the current conversation, from 0 - 100, higher being better.</param>
+        public ConversationCobrowseEventTopicScoredAgent(ConversationCobrowseEventTopicUriReference Agent = null, long? Score = null)
         {
             this.Agent = Agent;
             this.Score = Score;
@@ -42,11 +42,11 @@ namespace PureCloudPlatform.Client.V2.Model
 
 
         /// <summary>
-        /// Agent's score for the current conversation, from 0 - 100, higher being better
+        /// Agent&#39;s score for the current conversation, from 0 - 100, higher being better
         /// </summary>
-        /// <value>Agent's score for the current conversation, from 0 - 100, higher being better</value>
+        /// <value>Agent&#39;s score for the current conversation, from 0 - 100, higher being better</value>
         [DataMember(Name="score", EmitDefaultValue=false)]
-        public int? Score { get; set; }
+        public long? Score { get; set; }
 
 
         /// <summary>

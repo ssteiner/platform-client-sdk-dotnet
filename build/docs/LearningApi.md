@@ -20,6 +20,7 @@ All URIs are relative to *https://api.mypurecloud.com*
 | [**GetLearningModules**](#GetLearningModules) | **Get** /api/v2/learning/modules | Get all learning modules of an organization |
 | [**GetLearningModulesAssignments**](#GetLearningModulesAssignments) | **Get** /api/v2/learning/modules/assignments | Get all learning modules of an organization including assignments for a specific user |
 | [**GetLearningModulesCoverartCoverArtId**](#GetLearningModulesCoverartCoverArtId) | **Get** /api/v2/learning/modules/coverart/{coverArtId} | Get a specific Learning Module cover art using ID |
+| [**GetLearningScheduleslotsJob**](#GetLearningScheduleslotsJob) | **Get** /api/v2/learning/scheduleslots/jobs/{jobId} | Retrieve the status of the job for the slots where a learning activity can be scheduled. |
 | [**GetLearningScormScormId**](#GetLearningScormScormId) | **Get** /api/v2/learning/scorm/{scormId} | Get Learning SCORM Result |
 | [**PatchLearningAssignment**](#PatchLearningAssignment) | **Patch** /api/v2/learning/assignments/{assignmentId} | Update Learning Assignment |
 | [**PatchLearningAssignmentReschedule**](#PatchLearningAssignmentReschedule) | **Patch** /api/v2/learning/assignments/{assignmentId}/reschedule | Reschedule Learning Assignment |
@@ -34,8 +35,10 @@ All URIs are relative to *https://api.mypurecloud.com*
 | [**PostLearningAssignmentsBulkremove**](#PostLearningAssignmentsBulkremove) | **Post** /api/v2/learning/assignments/bulkremove | Remove multiple Learning Assignments |
 | [**PostLearningModuleJobs**](#PostLearningModuleJobs) | **Post** /api/v2/learning/modules/{moduleId}/jobs | Starts a specified operation on learning module |
 | [**PostLearningModulePublish**](#PostLearningModulePublish) | **Post** /api/v2/learning/modules/{moduleId}/publish | Publish a Learning module |
+| [**PostLearningModuleRuleMigrate**](#PostLearningModuleRuleMigrate) | **Post** /api/v2/learning/modules/{moduleId}/rule/migrate | Migrate a legacy learning module rule to a users rule. |
 | [**PostLearningModules**](#PostLearningModules) | **Post** /api/v2/learning/modules | Create a new learning module |
 | [**PostLearningRulesQuery**](#PostLearningRulesQuery) | **Post** /api/v2/learning/rules/query | Get users for learning module rule |
+| [**PostLearningScheduleslotsJobs**](#PostLearningScheduleslotsJobs) | **Post** /api/v2/learning/scheduleslots/jobs | Start job to retrieve slots where a learning activity can be scheduled. |
 | [**PostLearningScheduleslotsQuery**](#PostLearningScheduleslotsQuery) | **Post** /api/v2/learning/scheduleslots/query | Get list of possible slots where a learning activity can be scheduled. |
 | [**PostLearningScorm**](#PostLearningScorm) | **Post** /api/v2/learning/scorm | Create a SCORM package upload request |
 | [**PutLearningModule**](#PutLearningModule) | **Put** /api/v2/learning/modules/{moduleId} | Update a learning module |
@@ -805,7 +808,7 @@ namespace Example
 
 ## GetLearningModules
 
-> [**LearningModulesDomainEntityListing**](LearningModulesDomainEntityListing) GetLearningModules (bool? isArchived = null, List<string> types = null, int? pageSize = null, int? pageNumber = null, string sortOrder = null, string sortBy = null, string searchTerm = null, List<string> expand = null, string isPublished = null, List<string> statuses = null, List<string> externalIds = null)
+> [**LearningModuleList**](LearningModuleList) GetLearningModules (bool? isArchived = null, List<string> types = null, int? pageSize = null, int? pageNumber = null, string sortOrder = null, string sortBy = null, string searchTerm = null, List<string> expand = null, string isPublished = null, List<string> statuses = null, List<string> externalIds = null)
 
 
 Get all learning modules of an organization
@@ -851,7 +854,7 @@ namespace Example
             try
             { 
                 // Get all learning modules of an organization
-                LearningModulesDomainEntityListing result = apiInstance.GetLearningModules(isArchived, types, pageSize, pageNumber, sortOrder, sortBy, searchTerm, expand, isPublished, statuses, externalIds);
+                LearningModuleList result = apiInstance.GetLearningModules(isArchived, types, pageSize, pageNumber, sortOrder, sortBy, searchTerm, expand, isPublished, statuses, externalIds);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -882,7 +885,7 @@ namespace Example
 
 ### Return type
 
-[**LearningModulesDomainEntityListing**](LearningModulesDomainEntityListing)
+[**LearningModuleList**](LearningModuleList)
 
 
 ## GetLearningModulesAssignments
@@ -1020,6 +1023,68 @@ namespace Example
 ### Return type
 
 [**LearningModuleCoverArtResponse**](LearningModuleCoverArtResponse)
+
+
+## GetLearningScheduleslotsJob
+
+> [**LearningScheduleSlotsJobResponse**](LearningScheduleSlotsJobResponse) GetLearningScheduleslotsJob (string jobId)
+
+
+Retrieve the status of the job for the slots where a learning activity can be scheduled.
+
+Requires ANY permissions: 
+
+* learning:scheduleSlotJob:view
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class GetLearningScheduleslotsJobExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new LearningApi();
+            var jobId = jobId_example;  // string | The ID of the job
+
+            try
+            { 
+                // Retrieve the status of the job for the slots where a learning activity can be scheduled.
+                LearningScheduleSlotsJobResponse result = apiInstance.GetLearningScheduleslotsJob(jobId);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling LearningApi.GetLearningScheduleslotsJob: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **jobId** | **string**| The ID of the job |  |
+
+### Return type
+
+[**LearningScheduleSlotsJobResponse**](LearningScheduleSlotsJobResponse)
 
 
 ## GetLearningScormScormId
@@ -1915,6 +1980,70 @@ namespace Example
 [**LearningModulePublishResponse**](LearningModulePublishResponse)
 
 
+## PostLearningModuleRuleMigrate
+
+> [**LearningModuleMigrateResponse**](LearningModuleMigrateResponse) PostLearningModuleRuleMigrate (string moduleId)
+
+
+Migrate a legacy learning module rule to a users rule.
+
+PostLearningModuleRuleMigrate is a preview method and is subject to both breaking and non-breaking changes at any time without notice
+
+Requires ANY permissions: 
+
+* learning:module:edit
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class PostLearningModuleRuleMigrateExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new LearningApi();
+            var moduleId = moduleId_example;  // string | The ID of the learning module
+
+            try
+            { 
+                // Migrate a legacy learning module rule to a users rule.
+                LearningModuleMigrateResponse result = apiInstance.PostLearningModuleRuleMigrate(moduleId);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling LearningApi.PostLearningModuleRuleMigrate: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **moduleId** | **string**| The ID of the learning module |  |
+
+### Return type
+
+[**LearningModuleMigrateResponse**](LearningModuleMigrateResponse)
+
+
 ## PostLearningModules
 
 > [**LearningModule**](LearningModule) PostLearningModules (LearningModuleRequest body)
@@ -2045,6 +2174,68 @@ namespace Example
 ### Return type
 
 [**LearningAssignmentUserListing**](LearningAssignmentUserListing)
+
+
+## PostLearningScheduleslotsJobs
+
+> [**LearningScheduleSlotsJobResponse**](LearningScheduleSlotsJobResponse) PostLearningScheduleslotsJobs (LearningScheduleSlotsJobRequest body)
+
+
+Start job to retrieve slots where a learning activity can be scheduled.
+
+Requires ANY permissions: 
+
+* learning:scheduleSlotJob:add
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class PostLearningScheduleslotsJobsExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new LearningApi();
+            var body = new LearningScheduleSlotsJobRequest(); // LearningScheduleSlotsJobRequest | The slots search request
+
+            try
+            { 
+                // Start job to retrieve slots where a learning activity can be scheduled.
+                LearningScheduleSlotsJobResponse result = apiInstance.PostLearningScheduleslotsJobs(body);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling LearningApi.PostLearningScheduleslotsJobs: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **body** | [**LearningScheduleSlotsJobRequest**](LearningScheduleSlotsJobRequest)| The slots search request |  |
+
+### Return type
+
+[**LearningScheduleSlotsJobResponse**](LearningScheduleSlotsJobResponse)
 
 
 ## PostLearningScheduleslotsQuery
@@ -2305,7 +2496,7 @@ namespace Example
 
 ## PutLearningModuleRule
 
-> [**LearningModuleRule**](LearningModuleRule) PutLearningModuleRule (string moduleId, LearningModuleRule body)
+> [**LearningModuleRule**](LearningModuleRule) PutLearningModuleRule (string moduleId, LearningModuleRule body, bool? assign = null)
 
 
 Update a learning module rule
@@ -2340,11 +2531,12 @@ namespace Example
             var apiInstance = new LearningApi();
             var moduleId = moduleId_example;  // string | The ID of the learning module
             var body = new LearningModuleRule(); // LearningModuleRule | The learning module rule to be updated
+            var assign = true;  // bool? | Whether to assign the module to users or not (optional)  (default to true)
 
             try
             { 
                 // Update a learning module rule
-                LearningModuleRule result = apiInstance.PutLearningModuleRule(moduleId, body);
+                LearningModuleRule result = apiInstance.PutLearningModuleRule(moduleId, body, assign);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -2363,10 +2555,11 @@ namespace Example
 |------------- | ------------- | ------------- | -------------|
 | **moduleId** | **string**| The ID of the learning module |  |
 | **body** | [**LearningModuleRule**](LearningModuleRule)| The learning module rule to be updated |  |
+| **assign** | **bool?**| Whether to assign the module to users or not | [optional] [default to true] |
 
 ### Return type
 
 [**LearningModuleRule**](LearningModuleRule)
 
 
-_PureCloudPlatform.Client.V2 227.0.0_
+_PureCloudPlatform.Client.V2 257.0.0_

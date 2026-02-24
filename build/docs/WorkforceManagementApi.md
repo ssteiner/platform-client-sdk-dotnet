@@ -8,6 +8,7 @@ All URIs are relative to *https://api.mypurecloud.com*
 | ------------- | ------------- | ------------- |
 | [**DeleteWorkforcemanagementBusinessunit**](#DeleteWorkforcemanagementBusinessunit) | **Delete** /api/v2/workforcemanagement/businessunits/{businessUnitId} | Delete business unit |
 | [**DeleteWorkforcemanagementBusinessunitActivitycode**](#DeleteWorkforcemanagementBusinessunitActivitycode) | **Delete** /api/v2/workforcemanagement/businessunits/{businessUnitId}/activitycodes/{activityCodeId} | Deletes an activity code |
+| [**DeleteWorkforcemanagementBusinessunitCapacityplanStaffinggroupallocationshistory**](#DeleteWorkforcemanagementBusinessunitCapacityplanStaffinggroupallocationshistory) | **Delete** /api/v2/workforcemanagement/businessunits/{businessUnitId}/capacityplans/{capacityPlanId}/staffinggroupallocationshistory | Delete staffing group allocations history created for a capacity plan before the given date |
 | [**DeleteWorkforcemanagementBusinessunitPlanninggroup**](#DeleteWorkforcemanagementBusinessunitPlanninggroup) | **Delete** /api/v2/workforcemanagement/businessunits/{businessUnitId}/planninggroups/{planningGroupId} | Deletes the planning group |
 | [**DeleteWorkforcemanagementBusinessunitSchedulingRun**](#DeleteWorkforcemanagementBusinessunitSchedulingRun) | **Delete** /api/v2/workforcemanagement/businessunits/{businessUnitId}/scheduling/runs/{runId} | Cancel a scheduling run |
 | [**DeleteWorkforcemanagementBusinessunitServicegoaltemplate**](#DeleteWorkforcemanagementBusinessunitServicegoaltemplate) | **Delete** /api/v2/workforcemanagement/businessunits/{businessUnitId}/servicegoaltemplates/{serviceGoalTemplateId} | Delete a service goal template |
@@ -31,6 +32,7 @@ All URIs are relative to *https://api.mypurecloud.com*
 | [**GetWorkforcemanagementAdherenceHistoricalJob**](#GetWorkforcemanagementAdherenceHistoricalJob) | **Get** /api/v2/workforcemanagement/adherence/historical/jobs/{jobId} | Query the status of a historical adherence request operation. Only the user who started the operation can query the status |
 | [**GetWorkforcemanagementAgentAdherenceExplanation**](#GetWorkforcemanagementAgentAdherenceExplanation) | **Get** /api/v2/workforcemanagement/agents/{agentId}/adherence/explanations/{explanationId} | Get an adherence explanation |
 | [**GetWorkforcemanagementAgentManagementunit**](#GetWorkforcemanagementAgentManagementunit) | **Get** /api/v2/workforcemanagement/agents/{agentId}/managementunit | Get the management unit to which the agent belongs |
+| [**GetWorkforcemanagementAgentsMeAdherenceHistoricalJob**](#GetWorkforcemanagementAgentsMeAdherenceHistoricalJob) | **Get** /api/v2/workforcemanagement/agents/me/adherence/historical/jobs/{jobId} | Request to fetch the status of the agent adherence job. Only the user who started the operation can query the status |
 | [**GetWorkforcemanagementAgentsMeManagementunit**](#GetWorkforcemanagementAgentsMeManagementunit) | **Get** /api/v2/workforcemanagement/agents/me/managementunit | Get the management unit to which the currently logged in agent belongs |
 | [**GetWorkforcemanagementAlternativeshiftsOffersJob**](#GetWorkforcemanagementAlternativeshiftsOffersJob) | **Get** /api/v2/workforcemanagement/alternativeshifts/offers/jobs/{jobId} | Query the status of an alternative shift offers operation. Only the user who started the operation can query the status |
 | [**GetWorkforcemanagementAlternativeshiftsOffersSearchJob**](#GetWorkforcemanagementAlternativeshiftsOffersSearchJob) | **Get** /api/v2/workforcemanagement/alternativeshifts/offers/search/jobs/{jobId} | Query the status of an alternative shift search offers operation. Only the user who started the operation can query the status |
@@ -49,6 +51,11 @@ All URIs are relative to *https://api.mypurecloud.com*
 | [**GetWorkforcemanagementBusinessunitAlternativeshiftsSettings**](#GetWorkforcemanagementBusinessunitAlternativeshiftsSettings) | **Get** /api/v2/workforcemanagement/businessunits/{businessUnitId}/alternativeshifts/settings | Get alternative shifts settings for a business unit |
 | [**GetWorkforcemanagementBusinessunitAlternativeshiftsTrade**](#GetWorkforcemanagementBusinessunitAlternativeshiftsTrade) | **Get** /api/v2/workforcemanagement/businessunits/{businessUnitId}/alternativeshifts/trades/{tradeId} | Get an alternative shifts trade in a business unit for a given trade ID |
 | [**GetWorkforcemanagementBusinessunitAlternativeshiftsTradesSearchJob**](#GetWorkforcemanagementBusinessunitAlternativeshiftsTradesSearchJob) | **Get** /api/v2/workforcemanagement/businessunits/{businessUnitId}/alternativeshifts/trades/search/jobs/{jobId} | Query the status of an alternative shift search trade operation. Only the user who started the operation can query the status |
+| [**GetWorkforcemanagementBusinessunitCapacityplan**](#GetWorkforcemanagementBusinessunitCapacityplan) | **Get** /api/v2/workforcemanagement/businessunits/{businessUnitId}/capacityplans/{capacityPlanId} | Get a capacity plan |
+| [**GetWorkforcemanagementBusinessunitCapacityplanStaffinggroupallocations**](#GetWorkforcemanagementBusinessunitCapacityplanStaffinggroupallocations) | **Get** /api/v2/workforcemanagement/businessunits/{businessUnitId}/capacityplans/{capacityPlanId}/staffinggroupallocations | Get a capacity plan&#39;s staffing group allocations |
+| [**GetWorkforcemanagementBusinessunitCapacityplanStaffingrequirements**](#GetWorkforcemanagementBusinessunitCapacityplanStaffingrequirements) | **Get** /api/v2/workforcemanagement/businessunits/{businessUnitId}/capacityplans/{capacityPlanId}/staffingrequirements | Get a capacity plan&#39;s staffing requirements |
+| [**GetWorkforcemanagementBusinessunitCapacityplanningLongtermrequirementsAutomaticbestmethodWeekForecast**](#GetWorkforcemanagementBusinessunitCapacityplanningLongtermrequirementsAutomaticbestmethodWeekForecast) | **Get** /api/v2/workforcemanagement/businessunits/{businessUnitId}/capacityplanning/longtermrequirements/automaticbestmethod/weeks/{weekDateId}/forecasts/{forecastId} | Get the latest long term staffing requirements for a business unit |
+| [**GetWorkforcemanagementBusinessunitCapacityplans**](#GetWorkforcemanagementBusinessunitCapacityplans) | **Get** /api/v2/workforcemanagement/businessunits/{businessUnitId}/capacityplans | Get list of capacity plans for a business unit |
 | [**GetWorkforcemanagementBusinessunitIntradayPlanninggroups**](#GetWorkforcemanagementBusinessunitIntradayPlanninggroups) | **Get** /api/v2/workforcemanagement/businessunits/{businessUnitId}/intraday/planninggroups | Get intraday planning groups for the given date |
 | [**GetWorkforcemanagementBusinessunitMainforecastContinuousforecastSession**](#GetWorkforcemanagementBusinessunitMainforecastContinuousforecastSession) | **Get** /api/v2/workforcemanagement/businessunits/{businessUnitId}/mainforecast/continuousforecast/session | Get the latest session for the business unit ID |
 | [**GetWorkforcemanagementBusinessunitMainforecastContinuousforecastSessionSessionId**](#GetWorkforcemanagementBusinessunitMainforecastContinuousforecastSessionSessionId) | **Get** /api/v2/workforcemanagement/businessunits/{businessUnitId}/mainforecast/continuousforecast/session/{sessionId} | Get the session details for the session ID |
@@ -92,7 +99,6 @@ All URIs are relative to *https://api.mypurecloud.com*
 | [**GetWorkforcemanagementCalendarUrlIcs**](#GetWorkforcemanagementCalendarUrlIcs) | **Get** /api/v2/workforcemanagement/calendar/url/ics | Get existing calendar link for the current user |
 | [**GetWorkforcemanagementHistoricaldataBulkRemoveJob**](#GetWorkforcemanagementHistoricaldataBulkRemoveJob) | **Get** /api/v2/workforcemanagement/historicaldata/bulk/remove/jobs/{jobId} | Retrieves delete job status for historical data imports associated with the job id |
 | [**GetWorkforcemanagementHistoricaldataBulkRemoveJobs**](#GetWorkforcemanagementHistoricaldataBulkRemoveJobs) | **Get** /api/v2/workforcemanagement/historicaldata/bulk/remove/jobs | Retrieves all delete job status for historical data |
-| [**GetWorkforcemanagementHistoricaldataDeletejob**](#GetWorkforcemanagementHistoricaldataDeletejob) | **Get** /api/v2/workforcemanagement/historicaldata/deletejob | Retrieves delete job status for historical data imports of the organization |
 | [**GetWorkforcemanagementHistoricaldataImportstatus**](#GetWorkforcemanagementHistoricaldataImportstatus) | **Get** /api/v2/workforcemanagement/historicaldata/importstatus | Retrieves status of the historical data imports of the organization |
 | [**GetWorkforcemanagementHistoricaldataImportstatusJobId**](#GetWorkforcemanagementHistoricaldataImportstatusJobId) | **Get** /api/v2/workforcemanagement/historicaldata/importstatus/{jobId} | Retrieves status of the historical data imports associated with job id |
 | [**GetWorkforcemanagementIntegrationsHris**](#GetWorkforcemanagementIntegrationsHris) | **Get** /api/v2/workforcemanagement/integrations/hris | Get integrations |
@@ -125,10 +131,13 @@ All URIs are relative to *https://api.mypurecloud.com*
 | [**GetWorkforcemanagementSchedulingjob**](#GetWorkforcemanagementSchedulingjob) | **Get** /api/v2/workforcemanagement/schedulingjobs/{jobId} | Get status of the scheduling job |
 | [**GetWorkforcemanagementShifttrades**](#GetWorkforcemanagementShifttrades) | **Get** /api/v2/workforcemanagement/shifttrades | Gets all of my shift trades |
 | [**GetWorkforcemanagementShrinkageJob**](#GetWorkforcemanagementShrinkageJob) | **Get** /api/v2/workforcemanagement/shrinkage/jobs/{jobId} | Request to fetch the status of the historical shrinkage query |
+| [**GetWorkforcemanagementTeamAdherence**](#GetWorkforcemanagementTeamAdherence) | **Get** /api/v2/workforcemanagement/teams/{teamId}/adherence | Get a list of user schedule adherence records for the requested team |
 | [**GetWorkforcemanagementTimeoffbalanceJob**](#GetWorkforcemanagementTimeoffbalanceJob) | **Get** /api/v2/workforcemanagement/timeoffbalance/jobs/{jobId} | Query the results of time off types job |
 | [**GetWorkforcemanagementTimeoffrequest**](#GetWorkforcemanagementTimeoffrequest) | **Get** /api/v2/workforcemanagement/timeoffrequests/{timeOffRequestId} | Get a time off request for the current user |
 | [**GetWorkforcemanagementTimeoffrequestWaitlistpositions**](#GetWorkforcemanagementTimeoffrequestWaitlistpositions) | **Get** /api/v2/workforcemanagement/timeoffrequests/{timeOffRequestId}/waitlistpositions | Get the daily waitlist positions of a time off request for the current user |
 | [**GetWorkforcemanagementTimeoffrequests**](#GetWorkforcemanagementTimeoffrequests) | **Get** /api/v2/workforcemanagement/timeoffrequests | Get a list of time off requests for the current user |
+| [**GetWorkforcemanagementUnavailabletimesSettings**](#GetWorkforcemanagementUnavailabletimesSettings) | **Get** /api/v2/workforcemanagement/unavailabletimes/settings | Get availability management unit&#39;s settings for agent |
+| [**GetWorkforcemanagementUnavailabletimesValidationJob**](#GetWorkforcemanagementUnavailabletimesValidationJob) | **Get** /api/v2/workforcemanagement/unavailabletimes/validation/jobs/{jobId} | Query agent unavailable times validation job |
 | [**GetWorkforcemanagementUserWorkplanbidranks**](#GetWorkforcemanagementUserWorkplanbidranks) | **Get** /api/v2/workforcemanagement/users/{userId}/workplanbidranks | Get work plan bid ranks for a user |
 | [**GetWorkforcemanagementWorkplanbidPreferences**](#GetWorkforcemanagementWorkplanbidPreferences) | **Get** /api/v2/workforcemanagement/workplanbids/{bidId}/preferences | Gets an agent&#39;s work plan bidding preference |
 | [**GetWorkforcemanagementWorkplanbidWorkplans**](#GetWorkforcemanagementWorkplanbidWorkplans) | **Get** /api/v2/workforcemanagement/workplanbids/{bidId}/workplans | Gets an agent&#39;s work plans for a bid |
@@ -140,6 +149,7 @@ All URIs are relative to *https://api.mypurecloud.com*
 | [**PatchWorkforcemanagementBusinessunitActivitycode**](#PatchWorkforcemanagementBusinessunitActivitycode) | **Patch** /api/v2/workforcemanagement/businessunits/{businessUnitId}/activitycodes/{activityCodeId} | Update an activity code |
 | [**PatchWorkforcemanagementBusinessunitActivityplan**](#PatchWorkforcemanagementBusinessunitActivityplan) | **Patch** /api/v2/workforcemanagement/businessunits/{businessUnitId}/activityplans/{activityPlanId} | Update an activity plan |
 | [**PatchWorkforcemanagementBusinessunitAlternativeshiftsSettings**](#PatchWorkforcemanagementBusinessunitAlternativeshiftsSettings) | **Patch** /api/v2/workforcemanagement/businessunits/{businessUnitId}/alternativeshifts/settings | Update alternative shifts settings for a business unit |
+| [**PatchWorkforcemanagementBusinessunitCapacityplan**](#PatchWorkforcemanagementBusinessunitCapacityplan) | **Patch** /api/v2/workforcemanagement/businessunits/{businessUnitId}/capacityplans/{capacityPlanId} | Update a capacity plan configuration |
 | [**PatchWorkforcemanagementBusinessunitPlanninggroup**](#PatchWorkforcemanagementBusinessunitPlanninggroup) | **Patch** /api/v2/workforcemanagement/businessunits/{businessUnitId}/planninggroups/{planningGroupId} | Updates the planning group |
 | [**PatchWorkforcemanagementBusinessunitSchedulingRun**](#PatchWorkforcemanagementBusinessunitSchedulingRun) | **Patch** /api/v2/workforcemanagement/businessunits/{businessUnitId}/scheduling/runs/{runId} | Mark a schedule run as applied |
 | [**PatchWorkforcemanagementBusinessunitServicegoaltemplate**](#PatchWorkforcemanagementBusinessunitServicegoaltemplate) | **Patch** /api/v2/workforcemanagement/businessunits/{businessUnitId}/servicegoaltemplates/{serviceGoalTemplateId} | Updates a service goal template |
@@ -154,11 +164,13 @@ All URIs are relative to *https://api.mypurecloud.com*
 | [**PatchWorkforcemanagementManagementunitTimeofflimit**](#PatchWorkforcemanagementManagementunitTimeofflimit) | **Patch** /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeofflimits/{timeOffLimitId} | Updates a time off limit object. |
 | [**PatchWorkforcemanagementManagementunitTimeoffplan**](#PatchWorkforcemanagementManagementunitTimeoffplan) | **Patch** /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffplans/{timeOffPlanId} | Updates a time off plan |
 | [**PatchWorkforcemanagementManagementunitTimeoffrequestUserIntegrationstatus**](#PatchWorkforcemanagementManagementunitTimeoffrequestUserIntegrationstatus) | **Patch** /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffrequests/{timeOffRequestId}/users/{userId}/integrationstatus | Set integration status for a time off request. |
+| [**PatchWorkforcemanagementManagementunitUnavailabletimesSettings**](#PatchWorkforcemanagementManagementunitUnavailabletimesSettings) | **Patch** /api/v2/workforcemanagement/managementunits/{managementUnitId}/unavailabletimes/settings | Update management unit availability settings |
 | [**PatchWorkforcemanagementManagementunitUserTimeoffrequest**](#PatchWorkforcemanagementManagementunitUserTimeoffrequest) | **Patch** /api/v2/workforcemanagement/managementunits/{managementUnitId}/users/{userId}/timeoffrequests/{timeOffRequestId} | Update a time off request |
 | [**PatchWorkforcemanagementManagementunitWeekShifttrade**](#PatchWorkforcemanagementManagementunitWeekShifttrade) | **Patch** /api/v2/workforcemanagement/managementunits/{managementUnitId}/weeks/{weekDateId}/shifttrades/{tradeId} | Updates a shift trade. This route can only be called by the initiating agent |
 | [**PatchWorkforcemanagementManagementunitWorkplan**](#PatchWorkforcemanagementManagementunitWorkplan) | **Patch** /api/v2/workforcemanagement/managementunits/{managementUnitId}/workplans/{workPlanId} | Update a work plan |
 | [**PatchWorkforcemanagementManagementunitWorkplanrotation**](#PatchWorkforcemanagementManagementunitWorkplanrotation) | **Patch** /api/v2/workforcemanagement/managementunits/{managementUnitId}/workplanrotations/{workPlanRotationId} | Update a work plan rotation |
 | [**PatchWorkforcemanagementTimeoffrequest**](#PatchWorkforcemanagementTimeoffrequest) | **Patch** /api/v2/workforcemanagement/timeoffrequests/{timeOffRequestId} | Update a time off request for the current user |
+| [**PatchWorkforcemanagementUnavailabletimes**](#PatchWorkforcemanagementUnavailabletimes) | **Patch** /api/v2/workforcemanagement/unavailabletimes | Update agent unavailable times |
 | [**PatchWorkforcemanagementUserWorkplanbidranks**](#PatchWorkforcemanagementUserWorkplanbidranks) | **Patch** /api/v2/workforcemanagement/users/{userId}/workplanbidranks | Update work plan bid ranks for a user |
 | [**PatchWorkforcemanagementUsersWorkplanbidranksBulk**](#PatchWorkforcemanagementUsersWorkplanbidranksBulk) | **Patch** /api/v2/workforcemanagement/users/workplanbidranks/bulk | Update bulk work plan bid ranks on users. Max 50 users can be updated at a time. |
 | [**PatchWorkforcemanagementWorkplanbidPreferences**](#PatchWorkforcemanagementWorkplanbidPreferences) | **Patch** /api/v2/workforcemanagement/workplanbids/{bidId}/preferences | Update an agent&#39;s work plan bidding preference |
@@ -168,9 +180,12 @@ All URIs are relative to *https://api.mypurecloud.com*
 | [**PostWorkforcemanagementAdherenceHistoricalBulk**](#PostWorkforcemanagementAdherenceHistoricalBulk) | **Post** /api/v2/workforcemanagement/adherence/historical/bulk | Request a historical adherence report in bulk |
 | [**PostWorkforcemanagementAgentAdherenceExplanations**](#PostWorkforcemanagementAgentAdherenceExplanations) | **Post** /api/v2/workforcemanagement/agents/{agentId}/adherence/explanations | Add an adherence explanation for the requested user |
 | [**PostWorkforcemanagementAgentAdherenceExplanationsQuery**](#PostWorkforcemanagementAgentAdherenceExplanationsQuery) | **Post** /api/v2/workforcemanagement/agents/{agentId}/adherence/explanations/query | Query adherence explanations for the given agent across a specified range |
+| [**PostWorkforcemanagementAgentUnavailabletimesQuery**](#PostWorkforcemanagementAgentUnavailabletimesQuery) | **Post** /api/v2/workforcemanagement/agents/{agentId}/unavailabletimes/query | Get agent unavailable times |
 | [**PostWorkforcemanagementAgents**](#PostWorkforcemanagementAgents) | **Post** /api/v2/workforcemanagement/agents | Move agents in and out of management unit |
 | [**PostWorkforcemanagementAgentsIntegrationsHrisQuery**](#PostWorkforcemanagementAgentsIntegrationsHrisQuery) | **Post** /api/v2/workforcemanagement/agents/integrations/hris/query | Query integrations for agents |
+| [**PostWorkforcemanagementAgentsMeAdherenceHistoricalJobs**](#PostWorkforcemanagementAgentsMeAdherenceHistoricalJobs) | **Post** /api/v2/workforcemanagement/agents/me/adherence/historical/jobs | Request an agent historical adherence report |
 | [**PostWorkforcemanagementAgentsMePossibleworkshifts**](#PostWorkforcemanagementAgentsMePossibleworkshifts) | **Post** /api/v2/workforcemanagement/agents/me/possibleworkshifts | Get agent possible work shifts for requested time frame |
+| [**PostWorkforcemanagementAgentschedulesManagementunitsMine**](#PostWorkforcemanagementAgentschedulesManagementunitsMine) | **Post** /api/v2/workforcemanagement/agentschedules/managementunits/mine | Fetch agent schedules for the logged in user&#39;s management unit |
 | [**PostWorkforcemanagementAgentschedulesMine**](#PostWorkforcemanagementAgentschedulesMine) | **Post** /api/v2/workforcemanagement/agentschedules/mine | Get published schedule for the current user |
 | [**PostWorkforcemanagementAlternativeshiftsOffersJobs**](#PostWorkforcemanagementAlternativeshiftsOffersJobs) | **Post** /api/v2/workforcemanagement/alternativeshifts/offers/jobs | Request a list of alternative shift offers for a given schedule |
 | [**PostWorkforcemanagementAlternativeshiftsOffersSearchJobs**](#PostWorkforcemanagementAlternativeshiftsOffersSearchJobs) | **Post** /api/v2/workforcemanagement/alternativeshifts/offers/search/jobs | Request a search of alternative shift offers for a given shift |
@@ -181,14 +196,24 @@ All URIs are relative to *https://api.mypurecloud.com*
 | [**PostWorkforcemanagementBusinessunitAdherenceExplanationsQuery**](#PostWorkforcemanagementBusinessunitAdherenceExplanationsQuery) | **Post** /api/v2/workforcemanagement/businessunits/{businessUnitId}/adherence/explanations/query | Query adherence explanations across an entire business unit for the requested period |
 | [**PostWorkforcemanagementBusinessunitAgentschedulesSearch**](#PostWorkforcemanagementBusinessunitAgentschedulesSearch) | **Post** /api/v2/workforcemanagement/businessunits/{businessUnitId}/agentschedules/search | Search published schedules |
 | [**PostWorkforcemanagementBusinessunitAlternativeshiftsTradesSearch**](#PostWorkforcemanagementBusinessunitAlternativeshiftsTradesSearch) | **Post** /api/v2/workforcemanagement/businessunits/{businessUnitId}/alternativeshifts/trades/search | List alternative shifts trades for a given management unit or agent |
+| [**PostWorkforcemanagementBusinessunitCapacityplanCopy**](#PostWorkforcemanagementBusinessunitCapacityplanCopy) | **Post** /api/v2/workforcemanagement/businessunits/{businessUnitId}/capacityplans/{capacityPlanId}/copy | Copy a capacity plan |
+| [**PostWorkforcemanagementBusinessunitCapacityplanRequirementGenerate**](#PostWorkforcemanagementBusinessunitCapacityplanRequirementGenerate) | **Post** /api/v2/workforcemanagement/businessunits/{businessUnitId}/capacityplans/{capacityPlanId}/requirement/generate | Regenerate requirements for capacity plan |
+| [**PostWorkforcemanagementBusinessunitCapacityplanStaffinggroupallocations**](#PostWorkforcemanagementBusinessunitCapacityplanStaffinggroupallocations) | **Post** /api/v2/workforcemanagement/businessunits/{businessUnitId}/capacityplans/{capacityPlanId}/staffinggroupallocations | Create staffing group allocations for a capacity plan |
+| [**PostWorkforcemanagementBusinessunitCapacityplanStaffinggroupallocationshistoryQuery**](#PostWorkforcemanagementBusinessunitCapacityplanStaffinggroupallocationshistoryQuery) | **Post** /api/v2/workforcemanagement/businessunits/{businessUnitId}/capacityplans/{capacityPlanId}/staffinggroupallocationshistory/query | Query staffing groups allocations history for a capacity plan |
+| [**PostWorkforcemanagementBusinessunitCapacityplanningLongtermrequirementsAutomaticbestmethodWeekForecastForceregenerate**](#PostWorkforcemanagementBusinessunitCapacityplanningLongtermrequirementsAutomaticbestmethodWeekForecastForceregenerate) | **Post** /api/v2/workforcemanagement/businessunits/{businessUnitId}/capacityplanning/longtermrequirements/automaticbestmethod/weeks/{weekDateId}/forecasts/{forecastId}/forceregenerate | Force regenerate the latest long term staffing requirements for a business unit |
+| [**PostWorkforcemanagementBusinessunitCapacityplans**](#PostWorkforcemanagementBusinessunitCapacityplans) | **Post** /api/v2/workforcemanagement/businessunits/{businessUnitId}/capacityplans | Create a new capacity plan |
+| [**PostWorkforcemanagementBusinessunitCapacityplansBulkRemove**](#PostWorkforcemanagementBusinessunitCapacityplansBulkRemove) | **Post** /api/v2/workforcemanagement/businessunits/{businessUnitId}/capacityplans/bulk/remove | Delete capacity plans in a business unit |
 | [**PostWorkforcemanagementBusinessunitIntraday**](#PostWorkforcemanagementBusinessunitIntraday) | **Post** /api/v2/workforcemanagement/businessunits/{businessUnitId}/intraday | Get intraday data for the given date for the requested planningGroupIds |
 | [**PostWorkforcemanagementBusinessunitPlanninggroups**](#PostWorkforcemanagementBusinessunitPlanninggroups) | **Post** /api/v2/workforcemanagement/businessunits/{businessUnitId}/planninggroups | Adds a new planning group |
 | [**PostWorkforcemanagementBusinessunitServicegoaltemplates**](#PostWorkforcemanagementBusinessunitServicegoaltemplates) | **Post** /api/v2/workforcemanagement/businessunits/{businessUnitId}/servicegoaltemplates | Adds a new service goal template |
 | [**PostWorkforcemanagementBusinessunitStaffinggroups**](#PostWorkforcemanagementBusinessunitStaffinggroups) | **Post** /api/v2/workforcemanagement/businessunits/{businessUnitId}/staffinggroups | Creates a new staffing group |
+| [**PostWorkforcemanagementBusinessunitStaffinggroupsPlanninggroupsQuery**](#PostWorkforcemanagementBusinessunitStaffinggroupsPlanninggroupsQuery) | **Post** /api/v2/workforcemanagement/businessunits/{businessUnitId}/staffinggroups/planninggroups/query | Gets a list of planning group to staffing groups list association |
 | [**PostWorkforcemanagementBusinessunitStaffinggroupsQuery**](#PostWorkforcemanagementBusinessunitStaffinggroupsQuery) | **Post** /api/v2/workforcemanagement/businessunits/{businessUnitId}/staffinggroups/query | Gets staffing group associations for a list of user IDs |
 | [**PostWorkforcemanagementBusinessunitTimeofflimits**](#PostWorkforcemanagementBusinessunitTimeofflimits) | **Post** /api/v2/workforcemanagement/businessunits/{businessUnitId}/timeofflimits | Creates a new time-off limit object |
 | [**PostWorkforcemanagementBusinessunitTimeofflimitsValuesQuery**](#PostWorkforcemanagementBusinessunitTimeofflimitsValuesQuery) | **Post** /api/v2/workforcemanagement/businessunits/{businessUnitId}/timeofflimits/values/query | Retrieves time-off limit related values based on a given set of filters. |
 | [**PostWorkforcemanagementBusinessunitTimeoffplans**](#PostWorkforcemanagementBusinessunitTimeoffplans) | **Post** /api/v2/workforcemanagement/businessunits/{businessUnitId}/timeoffplans | Creates a new time-off plan |
+| [**PostWorkforcemanagementBusinessunitUnavailabletimesSchedulesQuery**](#PostWorkforcemanagementBusinessunitUnavailabletimesSchedulesQuery) | **Post** /api/v2/workforcemanagement/businessunits/{businessUnitId}/unavailabletimes/schedules/query | Get agent schedule generation unavailable times |
+| [**PostWorkforcemanagementBusinessunitUnavailabletimesSettingsQuery**](#PostWorkforcemanagementBusinessunitUnavailabletimesSettingsQuery) | **Post** /api/v2/workforcemanagement/businessunits/{businessUnitId}/unavailabletimes/settings/query | Query availability management units settings |
 | [**PostWorkforcemanagementBusinessunitWeekScheduleAgentschedulesQuery**](#PostWorkforcemanagementBusinessunitWeekScheduleAgentschedulesQuery) | **Post** /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekId}/schedules/{scheduleId}/agentschedules/query | Loads agent schedule data from the schedule. Used in combination with the metadata route |
 | [**PostWorkforcemanagementBusinessunitWeekScheduleCopy**](#PostWorkforcemanagementBusinessunitWeekScheduleCopy) | **Post** /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekId}/schedules/{scheduleId}/copy | Copy a schedule |
 | [**PostWorkforcemanagementBusinessunitWeekSchedulePerformancepredictionsRecalculations**](#PostWorkforcemanagementBusinessunitWeekSchedulePerformancepredictionsRecalculations) | **Post** /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekId}/schedules/{scheduleId}/performancepredictions/recalculations | Request a daily recalculation of the performance prediction for the associated schedule |
@@ -210,7 +235,6 @@ All URIs are relative to *https://api.mypurecloud.com*
 | [**PostWorkforcemanagementBusinessunits**](#PostWorkforcemanagementBusinessunits) | **Post** /api/v2/workforcemanagement/businessunits | Add a new business unit |
 | [**PostWorkforcemanagementCalendarUrlIcs**](#PostWorkforcemanagementCalendarUrlIcs) | **Post** /api/v2/workforcemanagement/calendar/url/ics | Create a newly generated calendar link for the current user; if the current user has previously generated one, the generated link will be returned |
 | [**PostWorkforcemanagementHistoricaldataBulkRemoveJobs**](#PostWorkforcemanagementHistoricaldataBulkRemoveJobs) | **Post** /api/v2/workforcemanagement/historicaldata/bulk/remove/jobs | Delete the list of the historical data import entries |
-| [**PostWorkforcemanagementHistoricaldataDeletejob**](#PostWorkforcemanagementHistoricaldataDeletejob) | **Post** /api/v2/workforcemanagement/historicaldata/deletejob | Delete the entries of the historical data imports in the organization |
 | [**PostWorkforcemanagementHistoricaldataValidate**](#PostWorkforcemanagementHistoricaldataValidate) | **Post** /api/v2/workforcemanagement/historicaldata/validate | Trigger validation process for historical import |
 | [**PostWorkforcemanagementIntegrationsHriTimeofftypesJobs**](#PostWorkforcemanagementIntegrationsHriTimeofftypesJobs) | **Post** /api/v2/workforcemanagement/integrations/hris/{hrisIntegrationId}/timeofftypes/jobs | Get list of time off types configured in integration |
 | [**PostWorkforcemanagementManagementunitAgentsWorkplansQuery**](#PostWorkforcemanagementManagementunitAgentsWorkplansQuery) | **Post** /api/v2/workforcemanagement/managementunits/{managementUnitId}/agents/workplans/query | Get agents work plans configuration |
@@ -248,6 +272,8 @@ All URIs are relative to *https://api.mypurecloud.com*
 | [**PostWorkforcemanagementTimeoffrequests**](#PostWorkforcemanagementTimeoffrequests) | **Post** /api/v2/workforcemanagement/timeoffrequests | Create a time off request for the current user |
 | [**PostWorkforcemanagementTimeoffrequestsEstimate**](#PostWorkforcemanagementTimeoffrequestsEstimate) | **Post** /api/v2/workforcemanagement/timeoffrequests/estimate | Estimates available time off for current user |
 | [**PostWorkforcemanagementTimeoffrequestsIntegrationstatusQuery**](#PostWorkforcemanagementTimeoffrequestsIntegrationstatusQuery) | **Post** /api/v2/workforcemanagement/timeoffrequests/integrationstatus/query | Retrieves integration statuses for a list of current user time off requests |
+| [**PostWorkforcemanagementUnavailabletimesQuery**](#PostWorkforcemanagementUnavailabletimesQuery) | **Post** /api/v2/workforcemanagement/unavailabletimes/query | Get agent unavailable times |
+| [**PostWorkforcemanagementUnavailabletimesValidationJobs**](#PostWorkforcemanagementUnavailabletimesValidationJobs) | **Post** /api/v2/workforcemanagement/unavailabletimes/validation/jobs | Validates proposed changes to an agent&#39;s unavailable time spans against scheduling rules and constraints for a specific week |
 | [**PutWorkforcemanagementAgentIntegrationsHris**](#PutWorkforcemanagementAgentIntegrationsHris) | **Put** /api/v2/workforcemanagement/agents/{agentId}/integrations/hris | Update integrations for agent |
 | [**PutWorkforcemanagementBusinessunitTimeofflimitValues**](#PutWorkforcemanagementBusinessunitTimeofflimitValues) | **Put** /api/v2/workforcemanagement/businessunits/{businessUnitId}/timeofflimits/{timeOffLimitId}/values | Sets daily values for a date range of time-off limit object |
 | [**PutWorkforcemanagementManagementunitTimeofflimitValues**](#PutWorkforcemanagementManagementunitTimeofflimitValues) | **Put** /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeofflimits/{timeOffLimitId}/values | Sets daily values for a date range of time off limit object |
@@ -374,6 +400,71 @@ namespace Example
 |------------- | ------------- | ------------- | -------------|
 | **businessUnitId** | **string**| The ID of the business unit, or &#39;mine&#39; for the business unit of the logged-in user. |  |
 | **activityCodeId** | **string**| The ID of the activity code to delete |  |
+
+### Return type
+
+void (empty response body)
+
+
+## DeleteWorkforcemanagementBusinessunitCapacityplanStaffinggroupallocationshistory
+
+> void DeleteWorkforcemanagementBusinessunitCapacityplanStaffinggroupallocationshistory (string businessUnitId, string capacityPlanId, String beforeDateId = null)
+
+
+Delete staffing group allocations history created for a capacity plan before the given date
+
+Requires ANY permissions: 
+
+* wfm:capacityPlan:edit
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class DeleteWorkforcemanagementBusinessunitCapacityplanStaffinggroupallocationshistoryExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new WorkforceManagementApi();
+            var businessUnitId = businessUnitId_example;  // string | The ID of the business unit
+            var capacityPlanId = capacityPlanId_example;  // string | The ID of the capacity plan
+            var beforeDateId = 2013-10-20;  // String | The date to delete records that are created on or before this date in yyyy-MM-dd format. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd (optional) 
+
+            try
+            { 
+                // Delete staffing group allocations history created for a capacity plan before the given date
+                apiInstance.DeleteWorkforcemanagementBusinessunitCapacityplanStaffinggroupallocationshistory(businessUnitId, capacityPlanId, beforeDateId);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling WorkforceManagementApi.DeleteWorkforcemanagementBusinessunitCapacityplanStaffinggroupallocationshistory: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **businessUnitId** | **string**| The ID of the business unit |  |
+| **capacityPlanId** | **string**| The ID of the capacity plan |  |
+| **beforeDateId** | **String**| The date to delete records that are created on or before this date in yyyy-MM-dd format. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd | [optional]  |
 
 ### Return type
 
@@ -1834,6 +1925,69 @@ namespace Example
 [**AgentManagementUnitReference**](AgentManagementUnitReference)
 
 
+## GetWorkforcemanagementAgentsMeAdherenceHistoricalJob
+
+> [**WfmAgentHistoricalAdherenceResponse**](WfmAgentHistoricalAdherenceResponse) GetWorkforcemanagementAgentsMeAdherenceHistoricalJob (string jobId)
+
+
+Request to fetch the status of the agent adherence job. Only the user who started the operation can query the status
+
+Job details are only retained if the initial request returned a 202 ACCEPTED response
+
+Requires NO permissions: 
+
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class GetWorkforcemanagementAgentsMeAdherenceHistoricalJobExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new WorkforceManagementApi();
+            var jobId = jobId_example;  // string | ID of the job to get
+
+            try
+            { 
+                // Request to fetch the status of the agent adherence job. Only the user who started the operation can query the status
+                WfmAgentHistoricalAdherenceResponse result = apiInstance.GetWorkforcemanagementAgentsMeAdherenceHistoricalJob(jobId);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling WorkforceManagementApi.GetWorkforcemanagementAgentsMeAdherenceHistoricalJob: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **jobId** | **string**| ID of the job to get |  |
+
+### Return type
+
+[**WfmAgentHistoricalAdherenceResponse**](WfmAgentHistoricalAdherenceResponse)
+
+
 ## GetWorkforcemanagementAgentsMeManagementunit
 
 > [**AgentManagementUnitReference**](AgentManagementUnitReference) GetWorkforcemanagementAgentsMeManagementunit ()
@@ -2387,7 +2541,7 @@ namespace Example
 
 ## GetWorkforcemanagementBusinessunit
 
-> [**BusinessUnitResponse**](BusinessUnitResponse) GetWorkforcemanagementBusinessunit (string businessUnitId, List<string> expand = null)
+> [**BusinessUnitResponse**](BusinessUnitResponse) GetWorkforcemanagementBusinessunit (string businessUnitId, List<string> expand = null, bool? includeSchedulingDefaultMessageSeverities = null)
 
 
 Get business unit
@@ -2492,11 +2646,12 @@ namespace Example
             var apiInstance = new WorkforceManagementApi();
             var businessUnitId = businessUnitId_example;  // string | The ID of the business unit, or 'mine' for the business unit of the logged-in user.
             var expand = new List<string>(); // List<string> | Include to access additional data on the business unit (optional) 
+            var includeSchedulingDefaultMessageSeverities = true;  // bool? | Whether to include scheduling default message severities (optional) 
 
             try
             { 
                 // Get business unit
-                BusinessUnitResponse result = apiInstance.GetWorkforcemanagementBusinessunit(businessUnitId, expand);
+                BusinessUnitResponse result = apiInstance.GetWorkforcemanagementBusinessunit(businessUnitId, expand, includeSchedulingDefaultMessageSeverities);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -2515,6 +2670,7 @@ namespace Example
 |------------- | ------------- | ------------- | -------------|
 | **businessUnitId** | **string**| The ID of the business unit, or &#39;mine&#39; for the business unit of the logged-in user. |  |
 | **expand** | [**List<string>**](string)| Include to access additional data on the business unit | [optional] <br />**Values**: settings, settings.timeZone, settings.startDayOfWeek, settings.shortTermForecasting, settings.scheduling, settings.notifications.scheduling, settings.learning, settings.coaching |
+| **includeSchedulingDefaultMessageSeverities** | **bool?**| Whether to include scheduling default message severities | [optional]  |
 
 ### Return type
 
@@ -3155,6 +3311,326 @@ namespace Example
 [**BuAlternativeShiftJobResponse**](BuAlternativeShiftJobResponse)
 
 
+## GetWorkforcemanagementBusinessunitCapacityplan
+
+> [**CapacityPlanResponse**](CapacityPlanResponse) GetWorkforcemanagementBusinessunitCapacityplan (string businessUnitId, string capacityPlanId)
+
+
+Get a capacity plan
+
+Requires ANY permissions: 
+
+* wfm:capacityPlan:view
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class GetWorkforcemanagementBusinessunitCapacityplanExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new WorkforceManagementApi();
+            var businessUnitId = businessUnitId_example;  // string | The ID of the business unit
+            var capacityPlanId = capacityPlanId_example;  // string | The ID of the capacity plan
+
+            try
+            { 
+                // Get a capacity plan
+                CapacityPlanResponse result = apiInstance.GetWorkforcemanagementBusinessunitCapacityplan(businessUnitId, capacityPlanId);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling WorkforceManagementApi.GetWorkforcemanagementBusinessunitCapacityplan: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **businessUnitId** | **string**| The ID of the business unit |  |
+| **capacityPlanId** | **string**| The ID of the capacity plan |  |
+
+### Return type
+
+[**CapacityPlanResponse**](CapacityPlanResponse)
+
+
+## GetWorkforcemanagementBusinessunitCapacityplanStaffinggroupallocations
+
+> [**CapacityPlanStaffingGroupAllocationsResponse**](CapacityPlanStaffingGroupAllocationsResponse) GetWorkforcemanagementBusinessunitCapacityplanStaffinggroupallocations (string businessUnitId, string capacityPlanId)
+
+
+Get a capacity plan's staffing group allocations
+
+Requires ANY permissions: 
+
+* wfm:capacityPlan:view
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class GetWorkforcemanagementBusinessunitCapacityplanStaffinggroupallocationsExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new WorkforceManagementApi();
+            var businessUnitId = businessUnitId_example;  // string | The ID of the business unit
+            var capacityPlanId = capacityPlanId_example;  // string | The ID of the capacity plan
+
+            try
+            { 
+                // Get a capacity plan's staffing group allocations
+                CapacityPlanStaffingGroupAllocationsResponse result = apiInstance.GetWorkforcemanagementBusinessunitCapacityplanStaffinggroupallocations(businessUnitId, capacityPlanId);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling WorkforceManagementApi.GetWorkforcemanagementBusinessunitCapacityplanStaffinggroupallocations: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **businessUnitId** | **string**| The ID of the business unit |  |
+| **capacityPlanId** | **string**| The ID of the capacity plan |  |
+
+### Return type
+
+[**CapacityPlanStaffingGroupAllocationsResponse**](CapacityPlanStaffingGroupAllocationsResponse)
+
+
+## GetWorkforcemanagementBusinessunitCapacityplanStaffingrequirements
+
+> [**CapacityPlanStaffingRequirementResult**](CapacityPlanStaffingRequirementResult) GetWorkforcemanagementBusinessunitCapacityplanStaffingrequirements (string businessUnitId, string capacityPlanId)
+
+
+Get a capacity plan's staffing requirements
+
+Requires ANY permissions: 
+
+* wfm:capacityPlan:view
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class GetWorkforcemanagementBusinessunitCapacityplanStaffingrequirementsExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new WorkforceManagementApi();
+            var businessUnitId = businessUnitId_example;  // string | The ID of the business unit
+            var capacityPlanId = capacityPlanId_example;  // string | The ID of the capacity plan
+
+            try
+            { 
+                // Get a capacity plan's staffing requirements
+                CapacityPlanStaffingRequirementResult result = apiInstance.GetWorkforcemanagementBusinessunitCapacityplanStaffingrequirements(businessUnitId, capacityPlanId);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling WorkforceManagementApi.GetWorkforcemanagementBusinessunitCapacityplanStaffingrequirements: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **businessUnitId** | **string**| The ID of the business unit |  |
+| **capacityPlanId** | **string**| The ID of the capacity plan |  |
+
+### Return type
+
+[**CapacityPlanStaffingRequirementResult**](CapacityPlanStaffingRequirementResult)
+
+
+## GetWorkforcemanagementBusinessunitCapacityplanningLongtermrequirementsAutomaticbestmethodWeekForecast
+
+> [**LongTermRequirementsResponse**](LongTermRequirementsResponse) GetWorkforcemanagementBusinessunitCapacityplanningLongtermrequirementsAutomaticbestmethodWeekForecast (string businessUnitId, String weekDateId, string forecastId)
+
+
+Get the latest long term staffing requirements for a business unit
+
+Requires ANY permissions: 
+
+* wfm:longTermStaffing:view
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class GetWorkforcemanagementBusinessunitCapacityplanningLongtermrequirementsAutomaticbestmethodWeekForecastExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new WorkforceManagementApi();
+            var businessUnitId = businessUnitId_example;  // string | 
+            var weekDateId = 2013-10-20;  // String | weekDateId of forecast, format yyyy-MM-dd. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
+            var forecastId = forecastId_example;  // string | forecastId of forecast
+
+            try
+            { 
+                // Get the latest long term staffing requirements for a business unit
+                LongTermRequirementsResponse result = apiInstance.GetWorkforcemanagementBusinessunitCapacityplanningLongtermrequirementsAutomaticbestmethodWeekForecast(businessUnitId, weekDateId, forecastId);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling WorkforceManagementApi.GetWorkforcemanagementBusinessunitCapacityplanningLongtermrequirementsAutomaticbestmethodWeekForecast: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **businessUnitId** | **string**|  |  |
+| **weekDateId** | **String**| weekDateId of forecast, format yyyy-MM-dd. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd |  |
+| **forecastId** | **string**| forecastId of forecast |  |
+
+### Return type
+
+[**LongTermRequirementsResponse**](LongTermRequirementsResponse)
+
+
+## GetWorkforcemanagementBusinessunitCapacityplans
+
+> [**CapacityPlansListResponse**](CapacityPlansListResponse) GetWorkforcemanagementBusinessunitCapacityplans (string businessUnitId)
+
+
+Get list of capacity plans for a business unit
+
+Requires ANY permissions: 
+
+* wfm:capacityPlan:view
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class GetWorkforcemanagementBusinessunitCapacityplansExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new WorkforceManagementApi();
+            var businessUnitId = businessUnitId_example;  // string | The ID of the business unit
+
+            try
+            { 
+                // Get list of capacity plans for a business unit
+                CapacityPlansListResponse result = apiInstance.GetWorkforcemanagementBusinessunitCapacityplans(businessUnitId);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling WorkforceManagementApi.GetWorkforcemanagementBusinessunitCapacityplans: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **businessUnitId** | **string**| The ID of the business unit |  |
+
+### Return type
+
+[**CapacityPlansListResponse**](CapacityPlansListResponse)
+
+
 ## GetWorkforcemanagementBusinessunitIntradayPlanninggroups
 
 > [**WfmIntradayPlanningGroupListing**](WfmIntradayPlanningGroupListing) GetWorkforcemanagementBusinessunitIntradayPlanninggroups (string businessUnitId, String date)
@@ -3474,7 +3950,7 @@ namespace Example
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **businessUnitId** | **string**| The ID of the business unit, or &#39;mine&#39; for the business unit of the logged-in user. |  |
-| **feature** | **string**| If specified, the list of management units for which the user is authorized to use the requested feature will be returned | [optional] <br />**Values**: AgentSchedule, AgentTimeOffRequest, AgentWorkPlanBid, AlternativeShift, Coaching, Learning, ActivityCodes, ActivityPlans, Agents, BuActivityCodes, BusinessUnits, CapacityPlan, ContinuousForecast, HistoricalAdherence, HistoricalShrinkage, IntradayMonitoring, BuIntradayMonitoring, ManagementUnits, RealTimeAdherence, Schedules, BuSchedules, ServiceGoalTemplates, PlanningGroups, LongTermStaffing, ShiftTrading, ShortTermForecasts, BuShortTermForecasts, StaffingGroups, TimeOffPlans, TimeOffRequests, TimeOffLimits, WorkPlanBids, WorkPlanBidGroups, WorkPlanRotations, WorkPlans |
+| **feature** | **string**| If specified, the list of management units for which the user is authorized to use the requested feature will be returned | [optional] <br />**Values**: AgentHistoricalAdherence, AgentHistoricalAdherenceConformance, AgentSchedule, AgentTimeOffRequest, AgentWorkPlanBid, AgentScheduleBid, AlternativeShift, Coaching, Learning, AgentUnavailableTimes, AgentOpportunitiesQuery, AgentOpportunitiesEnrollments, AgentOpportunitiesEnrollmentsStatuses, ActivityCodes, ActivityPlans, UnavailableTimes, Agents, BuActivityCodes, BusinessUnits, CapacityPlan, ContinuousForecast, HistoricalAdherence, HistoricalShrinkage, IntradayMonitoring, BuIntradayMonitoring, ManagementUnits, RealTimeAdherence, Schedules, BuSchedules, ServiceGoalTemplates, PlanningGroups, LongTermStaffing, ShiftTrading, ShortTermForecasts, BuShortTermForecasts, StaffingGroups, TimeOffPlans, TimeOffRequests, TimeOffLimits, WorkPlanBids, WorkPlanBidGroups, WorkPlanRotations, WorkPlans, ScheduleBid, ScheduleBidGroup, Opportunities, OpportunitiesQuery, OpportunitiesEnrollmentsQuery, OpportunitiesExternalActivitiesQuery, OpportunitiesStatuses, OpportunitiesEnrollmentsStatuses |
 | **divisionId** | **string**| If specified, the list of management units belonging to the specified division will be returned | [optional]  |
 
 ### Return type
@@ -4008,7 +4484,7 @@ namespace Example
 
 ## GetWorkforcemanagementBusinessunitStaffinggroups
 
-> [**StaffingGroupListing**](StaffingGroupListing) GetWorkforcemanagementBusinessunitStaffinggroups (string businessUnitId, string managementUnitId = null)
+> [**StaffingGroupListing**](StaffingGroupListing) GetWorkforcemanagementBusinessunitStaffinggroups (string businessUnitId, string managementUnitId = null, bool? forceDownloadService = null)
 
 
 Gets a list of staffing groups
@@ -4041,11 +4517,12 @@ namespace Example
             var apiInstance = new WorkforceManagementApi();
             var businessUnitId = businessUnitId_example;  // string | The ID of the business unit
             var managementUnitId = managementUnitId_example;  // string | The ID of the management unit to get management unit specific staffing groups (optional) 
+            var forceDownloadService = true;  // bool? | Force the result of this operation to be sent via download service. For testing/app development purposes (optional) 
 
             try
             { 
                 // Gets a list of staffing groups
-                StaffingGroupListing result = apiInstance.GetWorkforcemanagementBusinessunitStaffinggroups(businessUnitId, managementUnitId);
+                StaffingGroupListing result = apiInstance.GetWorkforcemanagementBusinessunitStaffinggroups(businessUnitId, managementUnitId, forceDownloadService);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -4064,6 +4541,7 @@ namespace Example
 |------------- | ------------- | ------------- | -------------|
 | **businessUnitId** | **string**| The ID of the business unit |  |
 | **managementUnitId** | **string**| The ID of the management unit to get management unit specific staffing groups | [optional]  |
+| **forceDownloadService** | **bool?**| Force the result of this operation to be sent via download service. For testing/app development purposes | [optional]  |
 
 ### Return type
 
@@ -5158,7 +5636,7 @@ namespace Example
 
 ## GetWorkforcemanagementBusinessunitWeekShorttermforecastStaffingrequirement
 
-> [**BuForecastStaffingRequirementsResultResponse**](BuForecastStaffingRequirementsResultResponse) GetWorkforcemanagementBusinessunitWeekShorttermforecastStaffingrequirement (string businessUnitId, String weekDateId, string forecastId, List<string> weekNumbers = null)
+> [**BuForecastStaffingRequirementsResultResponse**](BuForecastStaffingRequirementsResultResponse) GetWorkforcemanagementBusinessunitWeekShorttermforecastStaffingrequirement (string businessUnitId, String weekDateId, string forecastId, List<string> weekNumbers = null, List<string> expand = null)
 
 
 Get the staffing requirement by planning group for a forecast
@@ -5193,11 +5671,12 @@ namespace Example
             var weekDateId = 2013-10-20;  // String | The week start date of the forecast in yyyy-MM-dd format. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
             var forecastId = forecastId_example;  // string | The ID of the forecast
             var weekNumbers = new List<string>(); // List<string> | The week numbers to fetch (for multi-week forecasts) staffing requirements. Returns all week data if the list is not specified (optional) 
+            var expand = new List<string>(); // List<string> | Expand to include minimum staffing values in (staffing requirement response or applied to base staffing requirement values) (optional) 
 
             try
             { 
                 // Get the staffing requirement by planning group for a forecast
-                BuForecastStaffingRequirementsResultResponse result = apiInstance.GetWorkforcemanagementBusinessunitWeekShorttermforecastStaffingrequirement(businessUnitId, weekDateId, forecastId, weekNumbers);
+                BuForecastStaffingRequirementsResultResponse result = apiInstance.GetWorkforcemanagementBusinessunitWeekShorttermforecastStaffingrequirement(businessUnitId, weekDateId, forecastId, weekNumbers, expand);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -5218,6 +5697,7 @@ namespace Example
 | **weekDateId** | **String**| The week start date of the forecast in yyyy-MM-dd format. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd |  |
 | **forecastId** | **string**| The ID of the forecast |  |
 | **weekNumbers** | [**List<string>**](string)| The week numbers to fetch (for multi-week forecasts) staffing requirements. Returns all week data if the list is not specified | [optional]  |
+| **expand** | [**List<string>**](string)| Expand to include minimum staffing values in (staffing requirement response or applied to base staffing requirement values) | [optional] <br />**Values**: results.planningGroupStaffingRequirements.minimumStaffPerInterval, results.planningGroupStaffingRequirements.effectiveStaffPerInterval |
 
 ### Return type
 
@@ -5668,7 +6148,7 @@ namespace Example
 
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **feature** | **string**| If specified, the list of business units for which the user is authorized to use the requested feature will be returned | [optional] <br />**Values**: AgentSchedule, AgentTimeOffRequest, AgentWorkPlanBid, AlternativeShift, Coaching, Learning, ActivityCodes, ActivityPlans, Agents, BuActivityCodes, BusinessUnits, CapacityPlan, ContinuousForecast, HistoricalAdherence, HistoricalShrinkage, IntradayMonitoring, BuIntradayMonitoring, ManagementUnits, RealTimeAdherence, Schedules, BuSchedules, ServiceGoalTemplates, PlanningGroups, LongTermStaffing, ShiftTrading, ShortTermForecasts, BuShortTermForecasts, StaffingGroups, TimeOffPlans, TimeOffRequests, TimeOffLimits, WorkPlanBids, WorkPlanBidGroups, WorkPlanRotations, WorkPlans |
+| **feature** | **string**| If specified, the list of business units for which the user is authorized to use the requested feature will be returned | [optional] <br />**Values**: AgentHistoricalAdherence, AgentHistoricalAdherenceConformance, AgentSchedule, AgentTimeOffRequest, AgentWorkPlanBid, AgentScheduleBid, AlternativeShift, Coaching, Learning, AgentUnavailableTimes, AgentOpportunitiesQuery, AgentOpportunitiesEnrollments, AgentOpportunitiesEnrollmentsStatuses, ActivityCodes, ActivityPlans, UnavailableTimes, Agents, BuActivityCodes, BusinessUnits, CapacityPlan, ContinuousForecast, HistoricalAdherence, HistoricalShrinkage, IntradayMonitoring, BuIntradayMonitoring, ManagementUnits, RealTimeAdherence, Schedules, BuSchedules, ServiceGoalTemplates, PlanningGroups, LongTermStaffing, ShiftTrading, ShortTermForecasts, BuShortTermForecasts, StaffingGroups, TimeOffPlans, TimeOffRequests, TimeOffLimits, WorkPlanBids, WorkPlanBidGroups, WorkPlanRotations, WorkPlans, ScheduleBid, ScheduleBidGroup, Opportunities, OpportunitiesQuery, OpportunitiesEnrollmentsQuery, OpportunitiesExternalActivitiesQuery, OpportunitiesStatuses, OpportunitiesEnrollmentsStatuses |
 | **divisionId** | **string**| If specified, the list of business units belonging to the specified division will be returned | [optional]  |
 
 ### Return type
@@ -5968,63 +6448,6 @@ This endpoint does require any parameters.
 ### Return type
 
 [**HistoricalImportOverallDeleteStatusResponse**](HistoricalImportOverallDeleteStatusResponse)
-
-
-## GetWorkforcemanagementHistoricaldataDeletejob
-
-> [**HistoricalImportDeleteJobResponse**](HistoricalImportDeleteJobResponse) GetWorkforcemanagementHistoricaldataDeletejob ()
-
-
-Retrieves delete job status for historical data imports of the organization
-
-Requires ALL permissions: 
-
-* wfm:historicalData:upload
-
-### Example
-```{"language":"csharp"}
-using System;
-using System.Diagnostics;
-using PureCloudPlatform.Client.V2.Api;
-using PureCloudPlatform.Client.V2.Client;
-using PureCloudPlatform.Client.V2.Model;
-
-namespace Example
-{
-    public class GetWorkforcemanagementHistoricaldataDeletejobExample
-    {
-        public void main()
-        { 
-            // Configure OAuth2 access token for authorization: PureCloud OAuth
-            // The following example is using the Authorization Code Grant
-            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
-                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
-                "http://redirecturi.com/",
-                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
-
-            var apiInstance = new WorkforceManagementApi();
-
-            try
-            { 
-                // Retrieves delete job status for historical data imports of the organization
-                HistoricalImportDeleteJobResponse result = apiInstance.GetWorkforcemanagementHistoricaldataDeletejob();
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling WorkforceManagementApi.GetWorkforcemanagementHistoricaldataDeletejob: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-This endpoint does require any parameters.
-
-### Return type
-
-[**HistoricalImportDeleteJobResponse**](HistoricalImportDeleteJobResponse)
 
 
 ## GetWorkforcemanagementHistoricaldataImportstatus
@@ -7494,7 +7917,7 @@ namespace Example
 
 ## GetWorkforcemanagementManagementunitWeekShifttrades
 
-> [**WeekShiftTradeListResponse**](WeekShiftTradeListResponse) GetWorkforcemanagementManagementunitWeekShifttrades (string managementUnitId, String weekDateId, bool? evaluateMatches = null, bool? forceDownloadService = null)
+> [**WeekShiftTradeListResponse**](WeekShiftTradeListResponse) GetWorkforcemanagementManagementunitWeekShifttrades (string managementUnitId, String weekDateId, bool? evaluateMatches = null, bool? includeCrossWeekShifts = null, bool? forceDownloadService = null)
 
 
 Gets all the shift trades for a given week
@@ -7529,12 +7952,13 @@ namespace Example
             var managementUnitId = managementUnitId_example;  // string | The ID of the management unit, or 'mine' for the management unit of the logged-in user.
             var weekDateId = 2013-10-20;  // String | The start week date of the initiating shift in yyyy-MM-dd format. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
             var evaluateMatches = true;  // bool? | Whether to evaluate the matches for violations (optional)  (default to true)
+            var includeCrossWeekShifts = true;  // bool? | Whether to include all shift trades with either the initiating shift or the receiving shift in the week (optional)  (default to false)
             var forceDownloadService = true;  // bool? | Force the result of this operation to be sent via download service. For testing/app development purposes (optional) 
 
             try
             { 
                 // Gets all the shift trades for a given week
-                WeekShiftTradeListResponse result = apiInstance.GetWorkforcemanagementManagementunitWeekShifttrades(managementUnitId, weekDateId, evaluateMatches, forceDownloadService);
+                WeekShiftTradeListResponse result = apiInstance.GetWorkforcemanagementManagementunitWeekShifttrades(managementUnitId, weekDateId, evaluateMatches, includeCrossWeekShifts, forceDownloadService);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -7554,6 +7978,7 @@ namespace Example
 | **managementUnitId** | **string**| The ID of the management unit, or &#39;mine&#39; for the management unit of the logged-in user. |  |
 | **weekDateId** | **String**| The start week date of the initiating shift in yyyy-MM-dd format. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd |  |
 | **evaluateMatches** | **bool?**| Whether to evaluate the matches for violations | [optional] [default to true] |
+| **includeCrossWeekShifts** | **bool?**| Whether to include all shift trades with either the initiating shift or the receiving shift in the week | [optional] [default to false] |
 | **forceDownloadService** | **bool?**| Force the result of this operation to be sent via download service. For testing/app development purposes | [optional]  |
 
 ### Return type
@@ -7891,7 +8316,7 @@ namespace Example
 | **pageSize** | **int?**| Deprecated, paging is not supported | [optional]  |
 | **pageNumber** | **int?**| Deprecated, paging is not supported | [optional]  |
 | **expand** | **string**| Deprecated, expand settings on the single MU route | [optional] <br />**Values**: details |
-| **feature** | **string**| If specified, the list of management units for which the user is authorized to use the requested feature will be returned | [optional] <br />**Values**: AgentSchedule, AgentTimeOffRequest, AgentWorkPlanBid, AlternativeShift, Coaching, Learning, ActivityCodes, ActivityPlans, Agents, BuActivityCodes, BusinessUnits, CapacityPlan, ContinuousForecast, HistoricalAdherence, HistoricalShrinkage, IntradayMonitoring, BuIntradayMonitoring, ManagementUnits, RealTimeAdherence, Schedules, BuSchedules, ServiceGoalTemplates, PlanningGroups, LongTermStaffing, ShiftTrading, ShortTermForecasts, BuShortTermForecasts, StaffingGroups, TimeOffPlans, TimeOffRequests, TimeOffLimits, WorkPlanBids, WorkPlanBidGroups, WorkPlanRotations, WorkPlans |
+| **feature** | **string**| If specified, the list of management units for which the user is authorized to use the requested feature will be returned | [optional] <br />**Values**: AgentHistoricalAdherence, AgentHistoricalAdherenceConformance, AgentSchedule, AgentTimeOffRequest, AgentWorkPlanBid, AgentScheduleBid, AlternativeShift, Coaching, Learning, AgentUnavailableTimes, AgentOpportunitiesQuery, AgentOpportunitiesEnrollments, AgentOpportunitiesEnrollmentsStatuses, ActivityCodes, ActivityPlans, UnavailableTimes, Agents, BuActivityCodes, BusinessUnits, CapacityPlan, ContinuousForecast, HistoricalAdherence, HistoricalShrinkage, IntradayMonitoring, BuIntradayMonitoring, ManagementUnits, RealTimeAdherence, Schedules, BuSchedules, ServiceGoalTemplates, PlanningGroups, LongTermStaffing, ShiftTrading, ShortTermForecasts, BuShortTermForecasts, StaffingGroups, TimeOffPlans, TimeOffRequests, TimeOffLimits, WorkPlanBids, WorkPlanBidGroups, WorkPlanRotations, WorkPlans, ScheduleBid, ScheduleBidGroup, Opportunities, OpportunitiesQuery, OpportunitiesEnrollmentsQuery, OpportunitiesExternalActivitiesQuery, OpportunitiesStatuses, OpportunitiesEnrollmentsStatuses |
 | **divisionId** | **string**| If specified, the list of management units belonging to the specified division will be returned | [optional]  |
 
 ### Return type
@@ -8201,6 +8626,68 @@ namespace Example
 [**WfmHistoricalShrinkageResponse**](WfmHistoricalShrinkageResponse)
 
 
+## GetWorkforcemanagementTeamAdherence
+
+> [**UserScheduleAdherenceListing**](UserScheduleAdherenceListing) GetWorkforcemanagementTeamAdherence (string teamId)
+
+
+Get a list of user schedule adherence records for the requested team
+
+Requires ANY permissions: 
+
+* wfm:realtimeAdherence:view
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class GetWorkforcemanagementTeamAdherenceExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new WorkforceManagementApi();
+            var teamId = teamId_example;  // string | The ID of the team
+
+            try
+            { 
+                // Get a list of user schedule adherence records for the requested team
+                UserScheduleAdherenceListing result = apiInstance.GetWorkforcemanagementTeamAdherence(teamId);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling WorkforceManagementApi.GetWorkforcemanagementTeamAdherence: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **teamId** | **string**| The ID of the team |  |
+
+### Return type
+
+[**UserScheduleAdherenceListing**](UserScheduleAdherenceListing)
+
+
 ## GetWorkforcemanagementTimeoffbalanceJob
 
 > [**TimeOffBalanceJobResponse**](TimeOffBalanceJobResponse) GetWorkforcemanagementTimeoffbalanceJob (string jobId)
@@ -8443,6 +8930,125 @@ This endpoint does require any parameters.
 ### Return type
 
 [**TimeOffRequestList**](TimeOffRequestList)
+
+
+## GetWorkforcemanagementUnavailabletimesSettings
+
+> [**ManagementUnitAvailabilitySettingsResponse**](ManagementUnitAvailabilitySettingsResponse) GetWorkforcemanagementUnavailabletimesSettings ()
+
+
+Get availability management unit's settings for agent
+
+Requires ANY permissions: 
+
+* wfm:agentUnavailableTimes:submit
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class GetWorkforcemanagementUnavailabletimesSettingsExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new WorkforceManagementApi();
+
+            try
+            { 
+                // Get availability management unit's settings for agent
+                ManagementUnitAvailabilitySettingsResponse result = apiInstance.GetWorkforcemanagementUnavailabletimesSettings();
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling WorkforceManagementApi.GetWorkforcemanagementUnavailabletimesSettings: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+This endpoint does require any parameters.
+
+### Return type
+
+[**ManagementUnitAvailabilitySettingsResponse**](ManagementUnitAvailabilitySettingsResponse)
+
+
+## GetWorkforcemanagementUnavailabletimesValidationJob
+
+> [**QueryAgentUnavailableTimesValidationJobResponse**](QueryAgentUnavailableTimesValidationJobResponse) GetWorkforcemanagementUnavailabletimesValidationJob (string jobId)
+
+
+Query agent unavailable times validation job
+
+Requires ANY permissions: 
+
+* wfm:agentUnavailableTimes:submit
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class GetWorkforcemanagementUnavailabletimesValidationJobExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new WorkforceManagementApi();
+            var jobId = jobId_example;  // string | The ID of the job
+
+            try
+            { 
+                // Query agent unavailable times validation job
+                QueryAgentUnavailableTimesValidationJobResponse result = apiInstance.GetWorkforcemanagementUnavailabletimesValidationJob(jobId);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling WorkforceManagementApi.GetWorkforcemanagementUnavailabletimesValidationJob: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **jobId** | **string**| The ID of the job |  |
+
+### Return type
+
+[**QueryAgentUnavailableTimesValidationJobResponse**](QueryAgentUnavailableTimesValidationJobResponse)
 
 
 ## GetWorkforcemanagementUserWorkplanbidranks
@@ -8756,7 +9362,7 @@ namespace Example
 
 ## PatchWorkforcemanagementAlternativeshiftsTrade
 
-> [**AlternativeShiftTradeResponse**](AlternativeShiftTradeResponse) PatchWorkforcemanagementAlternativeshiftsTrade (string tradeId, AgentUpdateAlternativeShiftTradeRequest body = null)
+> [**AlternativeShiftTradeResponse**](AlternativeShiftTradeResponse) PatchWorkforcemanagementAlternativeshiftsTrade (string tradeId, AgentUpdateAlternativeShiftTradeRequest body)
 
 
 Update my alternative shifts trade by trade ID
@@ -8788,7 +9394,7 @@ namespace Example
 
             var apiInstance = new WorkforceManagementApi();
             var tradeId = tradeId_example;  // string | The ID of the alternative shift trade
-            var body = new AgentUpdateAlternativeShiftTradeRequest(); // AgentUpdateAlternativeShiftTradeRequest | body (optional) 
+            var body = new AgentUpdateAlternativeShiftTradeRequest(); // AgentUpdateAlternativeShiftTradeRequest | body
 
             try
             { 
@@ -8811,7 +9417,7 @@ namespace Example
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tradeId** | **string**| The ID of the alternative shift trade |  |
-| **body** | [**AgentUpdateAlternativeShiftTradeRequest**](AgentUpdateAlternativeShiftTradeRequest)| body | [optional]  |
+| **body** | [**AgentUpdateAlternativeShiftTradeRequest**](AgentUpdateAlternativeShiftTradeRequest)| body |  |
 
 ### Return type
 
@@ -8882,7 +9488,7 @@ namespace Example
 
 ## PatchWorkforcemanagementBusinessunit
 
-> [**BusinessUnitResponse**](BusinessUnitResponse) PatchWorkforcemanagementBusinessunit (string businessUnitId, UpdateBusinessUnitRequest body = null)
+> [**BusinessUnitResponse**](BusinessUnitResponse) PatchWorkforcemanagementBusinessunit (string businessUnitId, UpdateBusinessUnitRequest body, bool? includeSchedulingDefaultMessageSeverities = null)
 
 
 Update business unit
@@ -8914,12 +9520,13 @@ namespace Example
 
             var apiInstance = new WorkforceManagementApi();
             var businessUnitId = businessUnitId_example;  // string | The ID of the business unit, or 'mine' for the business unit of the logged-in user.
-            var body = new UpdateBusinessUnitRequest(); // UpdateBusinessUnitRequest | body (optional) 
+            var body = new UpdateBusinessUnitRequest(); // UpdateBusinessUnitRequest | body
+            var includeSchedulingDefaultMessageSeverities = true;  // bool? | Whether to include scheduling default message severities (optional) 
 
             try
             { 
                 // Update business unit
-                BusinessUnitResponse result = apiInstance.PatchWorkforcemanagementBusinessunit(businessUnitId, body);
+                BusinessUnitResponse result = apiInstance.PatchWorkforcemanagementBusinessunit(businessUnitId, body, includeSchedulingDefaultMessageSeverities);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -8937,7 +9544,8 @@ namespace Example
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **businessUnitId** | **string**| The ID of the business unit, or &#39;mine&#39; for the business unit of the logged-in user. |  |
-| **body** | [**UpdateBusinessUnitRequest**](UpdateBusinessUnitRequest)| body | [optional]  |
+| **body** | [**UpdateBusinessUnitRequest**](UpdateBusinessUnitRequest)| body |  |
+| **includeSchedulingDefaultMessageSeverities** | **bool?**| Whether to include scheduling default message severities | [optional]  |
 
 ### Return type
 
@@ -8946,7 +9554,7 @@ namespace Example
 
 ## PatchWorkforcemanagementBusinessunitActivitycode
 
-> [**BusinessUnitActivityCode**](BusinessUnitActivityCode) PatchWorkforcemanagementBusinessunitActivitycode (string businessUnitId, string activityCodeId, UpdateActivityCodeRequest body = null)
+> [**BusinessUnitActivityCode**](BusinessUnitActivityCode) PatchWorkforcemanagementBusinessunitActivitycode (string businessUnitId, string activityCodeId, UpdateActivityCodeRequest body)
 
 
 Update an activity code
@@ -8979,7 +9587,7 @@ namespace Example
             var apiInstance = new WorkforceManagementApi();
             var businessUnitId = businessUnitId_example;  // string | The ID of the business unit, or 'mine' for the business unit of the logged-in user.
             var activityCodeId = activityCodeId_example;  // string | The ID of the activity code to update
-            var body = new UpdateActivityCodeRequest(); // UpdateActivityCodeRequest | body (optional) 
+            var body = new UpdateActivityCodeRequest(); // UpdateActivityCodeRequest | body
 
             try
             { 
@@ -9003,7 +9611,7 @@ namespace Example
 |------------- | ------------- | ------------- | -------------|
 | **businessUnitId** | **string**| The ID of the business unit, or &#39;mine&#39; for the business unit of the logged-in user. |  |
 | **activityCodeId** | **string**| The ID of the activity code to update |  |
-| **body** | [**UpdateActivityCodeRequest**](UpdateActivityCodeRequest)| body | [optional]  |
+| **body** | [**UpdateActivityCodeRequest**](UpdateActivityCodeRequest)| body |  |
 
 ### Return type
 
@@ -9080,7 +9688,7 @@ namespace Example
 
 ## PatchWorkforcemanagementBusinessunitAlternativeshiftsSettings
 
-> [**AlternativeShiftBuSettingsResponse**](AlternativeShiftBuSettingsResponse) PatchWorkforcemanagementBusinessunitAlternativeshiftsSettings (string businessUnitId, UpdateAlternativeShiftBuSettingsRequest body = null)
+> [**AlternativeShiftBuSettingsResponse**](AlternativeShiftBuSettingsResponse) PatchWorkforcemanagementBusinessunitAlternativeshiftsSettings (string businessUnitId, UpdateAlternativeShiftBuSettingsRequest body)
 
 
 Update alternative shifts settings for a business unit
@@ -9112,7 +9720,7 @@ namespace Example
 
             var apiInstance = new WorkforceManagementApi();
             var businessUnitId = businessUnitId_example;  // string | The ID of the business unit
-            var body = new UpdateAlternativeShiftBuSettingsRequest(); // UpdateAlternativeShiftBuSettingsRequest | body (optional) 
+            var body = new UpdateAlternativeShiftBuSettingsRequest(); // UpdateAlternativeShiftBuSettingsRequest | body
 
             try
             { 
@@ -9135,16 +9743,82 @@ namespace Example
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **businessUnitId** | **string**| The ID of the business unit |  |
-| **body** | [**UpdateAlternativeShiftBuSettingsRequest**](UpdateAlternativeShiftBuSettingsRequest)| body | [optional]  |
+| **body** | [**UpdateAlternativeShiftBuSettingsRequest**](UpdateAlternativeShiftBuSettingsRequest)| body |  |
 
 ### Return type
 
 [**AlternativeShiftBuSettingsResponse**](AlternativeShiftBuSettingsResponse)
 
 
+## PatchWorkforcemanagementBusinessunitCapacityplan
+
+> [**CapacityPlanResponse**](CapacityPlanResponse) PatchWorkforcemanagementBusinessunitCapacityplan (string businessUnitId, string capacityPlanId, UpdateCapacityPlanRequest body)
+
+
+Update a capacity plan configuration
+
+Requires ANY permissions: 
+
+* wfm:capacityPlan:edit
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class PatchWorkforcemanagementBusinessunitCapacityplanExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new WorkforceManagementApi();
+            var businessUnitId = businessUnitId_example;  // string | The ID of the business unit
+            var capacityPlanId = capacityPlanId_example;  // string | The ID of the capacity plan
+            var body = new UpdateCapacityPlanRequest(); // UpdateCapacityPlanRequest | body
+
+            try
+            { 
+                // Update a capacity plan configuration
+                CapacityPlanResponse result = apiInstance.PatchWorkforcemanagementBusinessunitCapacityplan(businessUnitId, capacityPlanId, body);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling WorkforceManagementApi.PatchWorkforcemanagementBusinessunitCapacityplan: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **businessUnitId** | **string**| The ID of the business unit |  |
+| **capacityPlanId** | **string**| The ID of the capacity plan |  |
+| **body** | [**UpdateCapacityPlanRequest**](UpdateCapacityPlanRequest)| body |  |
+
+### Return type
+
+[**CapacityPlanResponse**](CapacityPlanResponse)
+
+
 ## PatchWorkforcemanagementBusinessunitPlanninggroup
 
-> [**PlanningGroup**](PlanningGroup) PatchWorkforcemanagementBusinessunitPlanninggroup (string businessUnitId, string planningGroupId, UpdatePlanningGroupRequest body = null)
+> [**PlanningGroup**](PlanningGroup) PatchWorkforcemanagementBusinessunitPlanninggroup (string businessUnitId, string planningGroupId, UpdatePlanningGroupRequest body)
 
 
 Updates the planning group
@@ -9177,7 +9851,7 @@ namespace Example
             var apiInstance = new WorkforceManagementApi();
             var businessUnitId = businessUnitId_example;  // string | The ID of the business unit.
             var planningGroupId = planningGroupId_example;  // string | The ID of a planning group to update
-            var body = new UpdatePlanningGroupRequest(); // UpdatePlanningGroupRequest | body (optional) 
+            var body = new UpdatePlanningGroupRequest(); // UpdatePlanningGroupRequest | body
 
             try
             { 
@@ -9201,7 +9875,7 @@ namespace Example
 |------------- | ------------- | ------------- | -------------|
 | **businessUnitId** | **string**| The ID of the business unit. |  |
 | **planningGroupId** | **string**| The ID of a planning group to update |  |
-| **body** | [**UpdatePlanningGroupRequest**](UpdatePlanningGroupRequest)| body | [optional]  |
+| **body** | [**UpdatePlanningGroupRequest**](UpdatePlanningGroupRequest)| body |  |
 
 ### Return type
 
@@ -9210,7 +9884,7 @@ namespace Example
 
 ## PatchWorkforcemanagementBusinessunitSchedulingRun
 
-> void PatchWorkforcemanagementBusinessunitSchedulingRun (string businessUnitId, string runId, PatchBuScheduleRunRequest body = null)
+> void PatchWorkforcemanagementBusinessunitSchedulingRun (string businessUnitId, string runId, PatchBuScheduleRunRequest body)
 
 
 Mark a schedule run as applied
@@ -9243,7 +9917,7 @@ namespace Example
             var apiInstance = new WorkforceManagementApi();
             var businessUnitId = businessUnitId_example;  // string | The ID of the business unit
             var runId = runId_example;  // string | The ID of the schedule run
-            var body = new PatchBuScheduleRunRequest(); // PatchBuScheduleRunRequest | body (optional) 
+            var body = new PatchBuScheduleRunRequest(); // PatchBuScheduleRunRequest | body
 
             try
             { 
@@ -9266,7 +9940,7 @@ namespace Example
 |------------- | ------------- | ------------- | -------------|
 | **businessUnitId** | **string**| The ID of the business unit |  |
 | **runId** | **string**| The ID of the schedule run |  |
-| **body** | [**PatchBuScheduleRunRequest**](PatchBuScheduleRunRequest)| body | [optional]  |
+| **body** | [**PatchBuScheduleRunRequest**](PatchBuScheduleRunRequest)| body |  |
 
 ### Return type
 
@@ -9275,7 +9949,7 @@ void (empty response body)
 
 ## PatchWorkforcemanagementBusinessunitServicegoaltemplate
 
-> [**ServiceGoalTemplate**](ServiceGoalTemplate) PatchWorkforcemanagementBusinessunitServicegoaltemplate (string businessUnitId, string serviceGoalTemplateId, UpdateServiceGoalTemplate body = null)
+> [**ServiceGoalTemplate**](ServiceGoalTemplate) PatchWorkforcemanagementBusinessunitServicegoaltemplate (string businessUnitId, string serviceGoalTemplateId, UpdateServiceGoalTemplate body)
 
 
 Updates a service goal template
@@ -9308,7 +9982,7 @@ namespace Example
             var apiInstance = new WorkforceManagementApi();
             var businessUnitId = businessUnitId_example;  // string | The ID of the business unit.
             var serviceGoalTemplateId = serviceGoalTemplateId_example;  // string | The ID of a service goal template to update
-            var body = new UpdateServiceGoalTemplate(); // UpdateServiceGoalTemplate | body (optional) 
+            var body = new UpdateServiceGoalTemplate(); // UpdateServiceGoalTemplate | body
 
             try
             { 
@@ -9332,7 +10006,7 @@ namespace Example
 |------------- | ------------- | ------------- | -------------|
 | **businessUnitId** | **string**| The ID of the business unit. |  |
 | **serviceGoalTemplateId** | **string**| The ID of a service goal template to update |  |
-| **body** | [**UpdateServiceGoalTemplate**](UpdateServiceGoalTemplate)| body | [optional]  |
+| **body** | [**UpdateServiceGoalTemplate**](UpdateServiceGoalTemplate)| body |  |
 
 ### Return type
 
@@ -9341,7 +10015,7 @@ namespace Example
 
 ## PatchWorkforcemanagementBusinessunitStaffinggroup
 
-> [**StaffingGroupResponse**](StaffingGroupResponse) PatchWorkforcemanagementBusinessunitStaffinggroup (string businessUnitId, string staffingGroupId, UpdateStaffingGroupRequest body = null)
+> [**StaffingGroupResponse**](StaffingGroupResponse) PatchWorkforcemanagementBusinessunitStaffinggroup (string businessUnitId, string staffingGroupId, UpdateStaffingGroupRequest body)
 
 
 Updates a staffing group
@@ -9374,7 +10048,7 @@ namespace Example
             var apiInstance = new WorkforceManagementApi();
             var businessUnitId = businessUnitId_example;  // string | The ID of the business unit
             var staffingGroupId = staffingGroupId_example;  // string | The ID of the staffing group to update
-            var body = new UpdateStaffingGroupRequest(); // UpdateStaffingGroupRequest | body (optional) 
+            var body = new UpdateStaffingGroupRequest(); // UpdateStaffingGroupRequest | body
 
             try
             { 
@@ -9398,7 +10072,7 @@ namespace Example
 |------------- | ------------- | ------------- | -------------|
 | **businessUnitId** | **string**| The ID of the business unit |  |
 | **staffingGroupId** | **string**| The ID of the staffing group to update |  |
-| **body** | [**UpdateStaffingGroupRequest**](UpdateStaffingGroupRequest)| body | [optional]  |
+| **body** | [**UpdateStaffingGroupRequest**](UpdateStaffingGroupRequest)| body |  |
 
 ### Return type
 
@@ -9407,7 +10081,7 @@ namespace Example
 
 ## PatchWorkforcemanagementBusinessunitTimeoffplan
 
-> [**BuTimeOffPlanResponse**](BuTimeOffPlanResponse) PatchWorkforcemanagementBusinessunitTimeoffplan (string businessUnitId, string timeOffPlanId, BuUpdateTimeOffPlanRequest body = null)
+> [**BuTimeOffPlanResponse**](BuTimeOffPlanResponse) PatchWorkforcemanagementBusinessunitTimeoffplan (string businessUnitId, string timeOffPlanId, BuUpdateTimeOffPlanRequest body)
 
 
 Updates a time-off plan
@@ -9440,7 +10114,7 @@ namespace Example
             var apiInstance = new WorkforceManagementApi();
             var businessUnitId = businessUnitId_example;  // string | The ID of the business unit
             var timeOffPlanId = timeOffPlanId_example;  // string | The ID of the time-off plan to update
-            var body = new BuUpdateTimeOffPlanRequest(); // BuUpdateTimeOffPlanRequest | body (optional) 
+            var body = new BuUpdateTimeOffPlanRequest(); // BuUpdateTimeOffPlanRequest | body
 
             try
             { 
@@ -9464,7 +10138,7 @@ namespace Example
 |------------- | ------------- | ------------- | -------------|
 | **businessUnitId** | **string**| The ID of the business unit |  |
 | **timeOffPlanId** | **string**| The ID of the time-off plan to update |  |
-| **body** | [**BuUpdateTimeOffPlanRequest**](BuUpdateTimeOffPlanRequest)| body | [optional]  |
+| **body** | [**BuUpdateTimeOffPlanRequest**](BuUpdateTimeOffPlanRequest)| body |  |
 
 ### Return type
 
@@ -9539,7 +10213,7 @@ namespace Example
 
 ## PatchWorkforcemanagementBusinessunitWorkplanbidGroup
 
-> [**WorkPlanBidGroupResponse**](WorkPlanBidGroupResponse) PatchWorkforcemanagementBusinessunitWorkplanbidGroup (string businessUnitId, string bidId, string bidGroupId, WorkPlanBidGroupUpdate body = null)
+> [**WorkPlanBidGroupResponse**](WorkPlanBidGroupResponse) PatchWorkforcemanagementBusinessunitWorkplanbidGroup (string businessUnitId, string bidId, string bidGroupId, WorkPlanBidGroupUpdate body)
 
 
 Update a bid group by bid group Id
@@ -9573,7 +10247,7 @@ namespace Example
             var businessUnitId = businessUnitId_example;  // string | The ID of the business unit
             var bidId = bidId_example;  // string | The work plan bid id of the bid groups
             var bidGroupId = bidGroupId_example;  // string | Work Plan Bid Group id
-            var body = new WorkPlanBidGroupUpdate(); // WorkPlanBidGroupUpdate | body (optional) 
+            var body = new WorkPlanBidGroupUpdate(); // WorkPlanBidGroupUpdate | body
 
             try
             { 
@@ -9598,7 +10272,7 @@ namespace Example
 | **businessUnitId** | **string**| The ID of the business unit |  |
 | **bidId** | **string**| The work plan bid id of the bid groups |  |
 | **bidGroupId** | **string**| Work Plan Bid Group id |  |
-| **body** | [**WorkPlanBidGroupUpdate**](WorkPlanBidGroupUpdate)| body | [optional]  |
+| **body** | [**WorkPlanBidGroupUpdate**](WorkPlanBidGroupUpdate)| body |  |
 
 ### Return type
 
@@ -9607,7 +10281,7 @@ namespace Example
 
 ## PatchWorkforcemanagementBusinessunitWorkplanbidGroupPreferences
 
-> [**AdminAgentWorkPlanPreferenceResponse**](AdminAgentWorkPlanPreferenceResponse) PatchWorkforcemanagementBusinessunitWorkplanbidGroupPreferences (string businessUnitId, string bidId, string bidGroupId, AgentsBidAssignedWorkPlanOverrideRequest body = null)
+> [**AdminAgentWorkPlanPreferenceResponse**](AdminAgentWorkPlanPreferenceResponse) PatchWorkforcemanagementBusinessunitWorkplanbidGroupPreferences (string businessUnitId, string bidId, string bidGroupId, AgentsBidAssignedWorkPlanOverrideRequest body)
 
 
 Overrides the assigned work plan for the specified agents
@@ -9641,7 +10315,7 @@ namespace Example
             var businessUnitId = businessUnitId_example;  // string | The ID of the business unit
             var bidId = bidId_example;  // string | The work plan bid id of the bid groups
             var bidGroupId = bidGroupId_example;  // string | The ID of the work plan bid group
-            var body = new AgentsBidAssignedWorkPlanOverrideRequest(); // AgentsBidAssignedWorkPlanOverrideRequest | body (optional) 
+            var body = new AgentsBidAssignedWorkPlanOverrideRequest(); // AgentsBidAssignedWorkPlanOverrideRequest | body
 
             try
             { 
@@ -9666,7 +10340,7 @@ namespace Example
 | **businessUnitId** | **string**| The ID of the business unit |  |
 | **bidId** | **string**| The work plan bid id of the bid groups |  |
 | **bidGroupId** | **string**| The ID of the work plan bid group |  |
-| **body** | [**AgentsBidAssignedWorkPlanOverrideRequest**](AgentsBidAssignedWorkPlanOverrideRequest)| body | [optional]  |
+| **body** | [**AgentsBidAssignedWorkPlanOverrideRequest**](AgentsBidAssignedWorkPlanOverrideRequest)| body |  |
 
 ### Return type
 
@@ -9675,7 +10349,7 @@ namespace Example
 
 ## PatchWorkforcemanagementManagementunit
 
-> [**ManagementUnit**](ManagementUnit) PatchWorkforcemanagementManagementunit (string managementUnitId, UpdateManagementUnitRequest body = null)
+> [**ManagementUnit**](ManagementUnit) PatchWorkforcemanagementManagementunit (string managementUnitId, UpdateManagementUnitRequest body)
 
 
 Update the requested management unit
@@ -9707,7 +10381,7 @@ namespace Example
 
             var apiInstance = new WorkforceManagementApi();
             var managementUnitId = managementUnitId_example;  // string | The ID of the management unit, or 'mine' for the management unit of the logged-in user.
-            var body = new UpdateManagementUnitRequest(); // UpdateManagementUnitRequest | body (optional) 
+            var body = new UpdateManagementUnitRequest(); // UpdateManagementUnitRequest | body
 
             try
             { 
@@ -9730,7 +10404,7 @@ namespace Example
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **managementUnitId** | **string**| The ID of the management unit, or &#39;mine&#39; for the management unit of the logged-in user. |  |
-| **body** | [**UpdateManagementUnitRequest**](UpdateManagementUnitRequest)| body | [optional]  |
+| **body** | [**UpdateManagementUnitRequest**](UpdateManagementUnitRequest)| body |  |
 
 ### Return type
 
@@ -9739,7 +10413,7 @@ namespace Example
 
 ## PatchWorkforcemanagementManagementunitAgents
 
-> void PatchWorkforcemanagementManagementunitAgents (string managementUnitId, UpdateMuAgentsRequest body = null)
+> void PatchWorkforcemanagementManagementunitAgents (string managementUnitId, UpdateMuAgentsRequest body)
 
 
 Update agent configurations
@@ -9771,7 +10445,7 @@ namespace Example
 
             var apiInstance = new WorkforceManagementApi();
             var managementUnitId = managementUnitId_example;  // string | The ID of the management unit, or 'mine' for the management unit of the logged-in user.
-            var body = new UpdateMuAgentsRequest(); // UpdateMuAgentsRequest | body (optional) 
+            var body = new UpdateMuAgentsRequest(); // UpdateMuAgentsRequest | body
 
             try
             { 
@@ -9793,7 +10467,7 @@ namespace Example
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **managementUnitId** | **string**| The ID of the management unit, or &#39;mine&#39; for the management unit of the logged-in user. |  |
-| **body** | [**UpdateMuAgentsRequest**](UpdateMuAgentsRequest)| body | [optional]  |
+| **body** | [**UpdateMuAgentsRequest**](UpdateMuAgentsRequest)| body |  |
 
 ### Return type
 
@@ -9802,7 +10476,7 @@ void (empty response body)
 
 ## PatchWorkforcemanagementManagementunitAgentsWorkplansBulk
 
-> [**UpdateMuAgentWorkPlansBatchResponse**](UpdateMuAgentWorkPlansBatchResponse) PatchWorkforcemanagementManagementunitAgentsWorkplansBulk (string managementUnitId, UpdateMuAgentWorkPlansBatchRequest body = null)
+> [**UpdateMuAgentWorkPlansBatchResponse**](UpdateMuAgentWorkPlansBatchResponse) PatchWorkforcemanagementManagementunitAgentsWorkplansBulk (string managementUnitId, UpdateMuAgentWorkPlansBatchRequest body)
 
 
 Updates agent work plan configuration
@@ -9834,7 +10508,7 @@ namespace Example
 
             var apiInstance = new WorkforceManagementApi();
             var managementUnitId = managementUnitId_example;  // string | The ID of the management unit, or 'mine' for the management unit of the logged-in user.
-            var body = new UpdateMuAgentWorkPlansBatchRequest(); // UpdateMuAgentWorkPlansBatchRequest | body (optional) 
+            var body = new UpdateMuAgentWorkPlansBatchRequest(); // UpdateMuAgentWorkPlansBatchRequest | body
 
             try
             { 
@@ -9857,7 +10531,7 @@ namespace Example
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **managementUnitId** | **string**| The ID of the management unit, or &#39;mine&#39; for the management unit of the logged-in user. |  |
-| **body** | [**UpdateMuAgentWorkPlansBatchRequest**](UpdateMuAgentWorkPlansBatchRequest)| body | [optional]  |
+| **body** | [**UpdateMuAgentWorkPlansBatchRequest**](UpdateMuAgentWorkPlansBatchRequest)| body |  |
 
 ### Return type
 
@@ -9866,7 +10540,7 @@ namespace Example
 
 ## PatchWorkforcemanagementManagementunitTimeofflimit
 
-> [**TimeOffLimit**](TimeOffLimit) PatchWorkforcemanagementManagementunitTimeofflimit (string managementUnitId, string timeOffLimitId, UpdateTimeOffLimitRequest body = null)
+> [**TimeOffLimit**](TimeOffLimit) PatchWorkforcemanagementManagementunitTimeofflimit (string managementUnitId, string timeOffLimitId, UpdateTimeOffLimitRequest body)
 
 
 Updates a time off limit object.
@@ -9901,7 +10575,7 @@ namespace Example
             var apiInstance = new WorkforceManagementApi();
             var managementUnitId = managementUnitId_example;  // string | The ID of the management unit.
             var timeOffLimitId = timeOffLimitId_example;  // string | The id of time off limit object to update
-            var body = new UpdateTimeOffLimitRequest(); // UpdateTimeOffLimitRequest | body (optional) 
+            var body = new UpdateTimeOffLimitRequest(); // UpdateTimeOffLimitRequest | body
 
             try
             { 
@@ -9925,7 +10599,7 @@ namespace Example
 |------------- | ------------- | ------------- | -------------|
 | **managementUnitId** | **string**| The ID of the management unit. |  |
 | **timeOffLimitId** | **string**| The id of time off limit object to update |  |
-| **body** | [**UpdateTimeOffLimitRequest**](UpdateTimeOffLimitRequest)| body | [optional]  |
+| **body** | [**UpdateTimeOffLimitRequest**](UpdateTimeOffLimitRequest)| body |  |
 
 ### Return type
 
@@ -9934,7 +10608,7 @@ namespace Example
 
 ## PatchWorkforcemanagementManagementunitTimeoffplan
 
-> [**TimeOffPlan**](TimeOffPlan) PatchWorkforcemanagementManagementunitTimeoffplan (string managementUnitId, string timeOffPlanId, UpdateTimeOffPlanRequest body = null)
+> [**TimeOffPlan**](TimeOffPlan) PatchWorkforcemanagementManagementunitTimeoffplan (string managementUnitId, string timeOffPlanId, UpdateTimeOffPlanRequest body)
 
 
 Updates a time off plan
@@ -9967,7 +10641,7 @@ namespace Example
             var apiInstance = new WorkforceManagementApi();
             var managementUnitId = managementUnitId_example;  // string | The ID of the management unit
             var timeOffPlanId = timeOffPlanId_example;  // string | The ID of the time off plan to update
-            var body = new UpdateTimeOffPlanRequest(); // UpdateTimeOffPlanRequest | body (optional) 
+            var body = new UpdateTimeOffPlanRequest(); // UpdateTimeOffPlanRequest | body
 
             try
             { 
@@ -9991,7 +10665,7 @@ namespace Example
 |------------- | ------------- | ------------- | -------------|
 | **managementUnitId** | **string**| The ID of the management unit |  |
 | **timeOffPlanId** | **string**| The ID of the time off plan to update |  |
-| **body** | [**UpdateTimeOffPlanRequest**](UpdateTimeOffPlanRequest)| body | [optional]  |
+| **body** | [**UpdateTimeOffPlanRequest**](UpdateTimeOffPlanRequest)| body |  |
 
 ### Return type
 
@@ -10000,7 +10674,7 @@ namespace Example
 
 ## PatchWorkforcemanagementManagementunitTimeoffrequestUserIntegrationstatus
 
-> [**UserTimeOffIntegrationStatusResponse**](UserTimeOffIntegrationStatusResponse) PatchWorkforcemanagementManagementunitTimeoffrequestUserIntegrationstatus (string managementUnitId, string timeOffRequestId, string userId, SetTimeOffIntegrationStatusRequest body = null)
+> [**UserTimeOffIntegrationStatusResponse**](UserTimeOffIntegrationStatusResponse) PatchWorkforcemanagementManagementunitTimeoffrequestUserIntegrationstatus (string managementUnitId, string timeOffRequestId, string userId, SetTimeOffIntegrationStatusRequest body)
 
 
 Set integration status for a time off request.
@@ -10034,7 +10708,7 @@ namespace Example
             var managementUnitId = managementUnitId_example;  // string | The ID of the management unit.
             var timeOffRequestId = timeOffRequestId_example;  // string | The ID of the time off request.
             var userId = userId_example;  // string | The ID of user to whom the time off request belongs.
-            var body = new SetTimeOffIntegrationStatusRequest(); // SetTimeOffIntegrationStatusRequest | body (optional) 
+            var body = new SetTimeOffIntegrationStatusRequest(); // SetTimeOffIntegrationStatusRequest | body
 
             try
             { 
@@ -10059,16 +10733,80 @@ namespace Example
 | **managementUnitId** | **string**| The ID of the management unit. |  |
 | **timeOffRequestId** | **string**| The ID of the time off request. |  |
 | **userId** | **string**| The ID of user to whom the time off request belongs. |  |
-| **body** | [**SetTimeOffIntegrationStatusRequest**](SetTimeOffIntegrationStatusRequest)| body | [optional]  |
+| **body** | [**SetTimeOffIntegrationStatusRequest**](SetTimeOffIntegrationStatusRequest)| body |  |
 
 ### Return type
 
 [**UserTimeOffIntegrationStatusResponse**](UserTimeOffIntegrationStatusResponse)
 
 
+## PatchWorkforcemanagementManagementunitUnavailabletimesSettings
+
+> [**ManagementUnitAvailabilitySettingsResponse**](ManagementUnitAvailabilitySettingsResponse) PatchWorkforcemanagementManagementunitUnavailabletimesSettings (string managementUnitId, UpdateManagementUnitsSettingsRequest body)
+
+
+Update management unit availability settings
+
+Requires ANY permissions: 
+
+* wfm:managementUnit:edit
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class PatchWorkforcemanagementManagementunitUnavailabletimesSettingsExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new WorkforceManagementApi();
+            var managementUnitId = managementUnitId_example;  // string | The ID of the management unit
+            var body = new UpdateManagementUnitsSettingsRequest(); // UpdateManagementUnitsSettingsRequest | body
+
+            try
+            { 
+                // Update management unit availability settings
+                ManagementUnitAvailabilitySettingsResponse result = apiInstance.PatchWorkforcemanagementManagementunitUnavailabletimesSettings(managementUnitId, body);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling WorkforceManagementApi.PatchWorkforcemanagementManagementunitUnavailabletimesSettings: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **managementUnitId** | **string**| The ID of the management unit |  |
+| **body** | [**UpdateManagementUnitsSettingsRequest**](UpdateManagementUnitsSettingsRequest)| body |  |
+
+### Return type
+
+[**ManagementUnitAvailabilitySettingsResponse**](ManagementUnitAvailabilitySettingsResponse)
+
+
 ## PatchWorkforcemanagementManagementunitUserTimeoffrequest
 
-> [**TimeOffRequestResponse**](TimeOffRequestResponse) PatchWorkforcemanagementManagementunitUserTimeoffrequest (string managementUnitId, string userId, string timeOffRequestId, AdminTimeOffRequestPatch body = null)
+> [**TimeOffRequestResponse**](TimeOffRequestResponse) PatchWorkforcemanagementManagementunitUserTimeoffrequest (string managementUnitId, string userId, string timeOffRequestId, AdminTimeOffRequestPatch body)
 
 
 Update a time off request
@@ -10102,7 +10840,7 @@ namespace Example
             var managementUnitId = managementUnitId_example;  // string | The ID of the management unit, or 'mine' for the management unit of the logged-in user.
             var userId = userId_example;  // string | The id of the user the requested time off request belongs to
             var timeOffRequestId = timeOffRequestId_example;  // string | The id of the time off request to update
-            var body = new AdminTimeOffRequestPatch(); // AdminTimeOffRequestPatch | body (optional) 
+            var body = new AdminTimeOffRequestPatch(); // AdminTimeOffRequestPatch | body
 
             try
             { 
@@ -10127,7 +10865,7 @@ namespace Example
 | **managementUnitId** | **string**| The ID of the management unit, or &#39;mine&#39; for the management unit of the logged-in user. |  |
 | **userId** | **string**| The id of the user the requested time off request belongs to |  |
 | **timeOffRequestId** | **string**| The id of the time off request to update |  |
-| **body** | [**AdminTimeOffRequestPatch**](AdminTimeOffRequestPatch)| body | [optional]  |
+| **body** | [**AdminTimeOffRequestPatch**](AdminTimeOffRequestPatch)| body |  |
 
 ### Return type
 
@@ -10204,7 +10942,7 @@ namespace Example
 
 ## PatchWorkforcemanagementManagementunitWorkplan
 
-> [**WorkPlan**](WorkPlan) PatchWorkforcemanagementManagementunitWorkplan (string managementUnitId, string workPlanId, string validationMode = null, WorkPlan body = null)
+> [**WorkPlan**](WorkPlan) PatchWorkforcemanagementManagementunitWorkplan (string managementUnitId, string workPlanId, WorkPlan body, string validationMode = null)
 
 
 Update a work plan
@@ -10237,13 +10975,13 @@ namespace Example
             var apiInstance = new WorkforceManagementApi();
             var managementUnitId = managementUnitId_example;  // string | The ID of the management unit, or 'mine' for the management unit of the logged-in user.
             var workPlanId = workPlanId_example;  // string | The ID of the work plan to update
+            var body = new WorkPlan(); // WorkPlan | body
             var validationMode = validationMode_example;  // string | Allows to update work plan even if validation result is invalid (optional) 
-            var body = new WorkPlan(); // WorkPlan | body (optional) 
 
             try
             { 
                 // Update a work plan
-                WorkPlan result = apiInstance.PatchWorkforcemanagementManagementunitWorkplan(managementUnitId, workPlanId, validationMode, body);
+                WorkPlan result = apiInstance.PatchWorkforcemanagementManagementunitWorkplan(managementUnitId, workPlanId, body, validationMode);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -10262,8 +11000,8 @@ namespace Example
 |------------- | ------------- | ------------- | -------------|
 | **managementUnitId** | **string**| The ID of the management unit, or &#39;mine&#39; for the management unit of the logged-in user. |  |
 | **workPlanId** | **string**| The ID of the work plan to update |  |
+| **body** | [**WorkPlan**](WorkPlan)| body |  |
 | **validationMode** | **string**| Allows to update work plan even if validation result is invalid | [optional] <br />**Values**: Ignore |
-| **body** | [**WorkPlan**](WorkPlan)| body | [optional]  |
 
 ### Return type
 
@@ -10272,7 +11010,7 @@ namespace Example
 
 ## PatchWorkforcemanagementManagementunitWorkplanrotation
 
-> [**WorkPlanRotationResponse**](WorkPlanRotationResponse) PatchWorkforcemanagementManagementunitWorkplanrotation (string managementUnitId, string workPlanRotationId, UpdateWorkPlanRotationRequest body = null)
+> [**WorkPlanRotationResponse**](WorkPlanRotationResponse) PatchWorkforcemanagementManagementunitWorkplanrotation (string managementUnitId, string workPlanRotationId, UpdateWorkPlanRotationRequest body)
 
 
 Update a work plan rotation
@@ -10305,7 +11043,7 @@ namespace Example
             var apiInstance = new WorkforceManagementApi();
             var managementUnitId = managementUnitId_example;  // string | The ID of the management unit, or 'mine' for the management unit of the logged-in user.
             var workPlanRotationId = workPlanRotationId_example;  // string | The ID of the work plan rotation to update
-            var body = new UpdateWorkPlanRotationRequest(); // UpdateWorkPlanRotationRequest | body (optional) 
+            var body = new UpdateWorkPlanRotationRequest(); // UpdateWorkPlanRotationRequest | body
 
             try
             { 
@@ -10329,7 +11067,7 @@ namespace Example
 |------------- | ------------- | ------------- | -------------|
 | **managementUnitId** | **string**| The ID of the management unit, or &#39;mine&#39; for the management unit of the logged-in user. |  |
 | **workPlanRotationId** | **string**| The ID of the work plan rotation to update |  |
-| **body** | [**UpdateWorkPlanRotationRequest**](UpdateWorkPlanRotationRequest)| body | [optional]  |
+| **body** | [**UpdateWorkPlanRotationRequest**](UpdateWorkPlanRotationRequest)| body |  |
 
 ### Return type
 
@@ -10338,7 +11076,7 @@ namespace Example
 
 ## PatchWorkforcemanagementTimeoffrequest
 
-> [**TimeOffRequestResponse**](TimeOffRequestResponse) PatchWorkforcemanagementTimeoffrequest (string timeOffRequestId, AgentTimeOffRequestPatch body = null)
+> [**TimeOffRequestResponse**](TimeOffRequestResponse) PatchWorkforcemanagementTimeoffrequest (string timeOffRequestId, AgentTimeOffRequestPatch body)
 
 
 Update a time off request for the current user
@@ -10370,7 +11108,7 @@ namespace Example
 
             var apiInstance = new WorkforceManagementApi();
             var timeOffRequestId = timeOffRequestId_example;  // string | The ID of the time off request
-            var body = new AgentTimeOffRequestPatch(); // AgentTimeOffRequestPatch | body (optional) 
+            var body = new AgentTimeOffRequestPatch(); // AgentTimeOffRequestPatch | body
 
             try
             { 
@@ -10393,16 +11131,78 @@ namespace Example
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **timeOffRequestId** | **string**| The ID of the time off request |  |
-| **body** | [**AgentTimeOffRequestPatch**](AgentTimeOffRequestPatch)| body | [optional]  |
+| **body** | [**AgentTimeOffRequestPatch**](AgentTimeOffRequestPatch)| body |  |
 
 ### Return type
 
 [**TimeOffRequestResponse**](TimeOffRequestResponse)
 
 
+## PatchWorkforcemanagementUnavailabletimes
+
+> [**UnavailableTimeListing**](UnavailableTimeListing) PatchWorkforcemanagementUnavailabletimes (UpdateUnavailableTimesRequest body)
+
+
+Update agent unavailable times
+
+Requires ANY permissions: 
+
+* wfm:agentUnavailableTimes:submit
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class PatchWorkforcemanagementUnavailabletimesExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new WorkforceManagementApi();
+            var body = new UpdateUnavailableTimesRequest(); // UpdateUnavailableTimesRequest | body
+
+            try
+            { 
+                // Update agent unavailable times
+                UnavailableTimeListing result = apiInstance.PatchWorkforcemanagementUnavailabletimes(body);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling WorkforceManagementApi.PatchWorkforcemanagementUnavailabletimes: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **body** | [**UpdateUnavailableTimesRequest**](UpdateUnavailableTimesRequest)| body |  |
+
+### Return type
+
+[**UnavailableTimeListing**](UnavailableTimeListing)
+
+
 ## PatchWorkforcemanagementUserWorkplanbidranks
 
-> [**WorkPlanBidRanks**](WorkPlanBidRanks) PatchWorkforcemanagementUserWorkplanbidranks (string userId, WorkPlanBidRanks body = null)
+> [**WorkPlanBidRanks**](WorkPlanBidRanks) PatchWorkforcemanagementUserWorkplanbidranks (string userId, WorkPlanBidRanks body)
 
 
 Update work plan bid ranks for a user
@@ -10434,7 +11234,7 @@ namespace Example
 
             var apiInstance = new WorkforceManagementApi();
             var userId = userId_example;  // string | The userId to whom the work plan bid ranks apply.
-            var body = new WorkPlanBidRanks(); // WorkPlanBidRanks | body (optional) 
+            var body = new WorkPlanBidRanks(); // WorkPlanBidRanks | body
 
             try
             { 
@@ -10457,7 +11257,7 @@ namespace Example
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **userId** | **string**| The userId to whom the work plan bid ranks apply. |  |
-| **body** | [**WorkPlanBidRanks**](WorkPlanBidRanks)| body | [optional]  |
+| **body** | [**WorkPlanBidRanks**](WorkPlanBidRanks)| body |  |
 
 ### Return type
 
@@ -10528,7 +11328,7 @@ namespace Example
 
 ## PatchWorkforcemanagementWorkplanbidPreferences
 
-> [**AgentWorkPlanBiddingPreferenceResponse**](AgentWorkPlanBiddingPreferenceResponse) PatchWorkforcemanagementWorkplanbidPreferences (string bidId, UpdateAgentWorkPlanBiddingPreference body = null)
+> [**AgentWorkPlanBiddingPreferenceResponse**](AgentWorkPlanBiddingPreferenceResponse) PatchWorkforcemanagementWorkplanbidPreferences (string bidId, UpdateAgentWorkPlanBiddingPreference body)
 
 
 Update an agent's work plan bidding preference
@@ -10560,7 +11360,7 @@ namespace Example
 
             var apiInstance = new WorkforceManagementApi();
             var bidId = bidId_example;  // string | The ID of the work plan bid
-            var body = new UpdateAgentWorkPlanBiddingPreference(); // UpdateAgentWorkPlanBiddingPreference | body (optional) 
+            var body = new UpdateAgentWorkPlanBiddingPreference(); // UpdateAgentWorkPlanBiddingPreference | body
 
             try
             { 
@@ -10583,7 +11383,7 @@ namespace Example
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **bidId** | **string**| The ID of the work plan bid |  |
-| **body** | [**UpdateAgentWorkPlanBiddingPreference**](UpdateAgentWorkPlanBiddingPreference)| body | [optional]  |
+| **body** | [**UpdateAgentWorkPlanBiddingPreference**](UpdateAgentWorkPlanBiddingPreference)| body |  |
 
 ### Return type
 
@@ -10785,7 +11585,7 @@ namespace Example
 
 ## PostWorkforcemanagementAdherenceHistoricalBulk
 
-> [**WfmHistoricalAdherenceBulkResponse**](WfmHistoricalAdherenceBulkResponse) PostWorkforcemanagementAdherenceHistoricalBulk (WfmHistoricalAdherenceBulkQuery body = null)
+> [**WfmHistoricalAdherenceBulkResponse**](WfmHistoricalAdherenceBulkResponse) PostWorkforcemanagementAdherenceHistoricalBulk (WfmHistoricalAdherenceBulkQuery body)
 
 
 Request a historical adherence report in bulk
@@ -10816,7 +11616,7 @@ namespace Example
                 "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
 
             var apiInstance = new WorkforceManagementApi();
-            var body = new WfmHistoricalAdherenceBulkQuery(); // WfmHistoricalAdherenceBulkQuery | body (optional) 
+            var body = new WfmHistoricalAdherenceBulkQuery(); // WfmHistoricalAdherenceBulkQuery | body
 
             try
             { 
@@ -10838,7 +11638,7 @@ namespace Example
 
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **body** | [**WfmHistoricalAdherenceBulkQuery**](WfmHistoricalAdherenceBulkQuery)| body | [optional]  |
+| **body** | [**WfmHistoricalAdherenceBulkQuery**](WfmHistoricalAdherenceBulkQuery)| body |  |
 
 ### Return type
 
@@ -10977,9 +11777,73 @@ namespace Example
 [**AgentQueryAdherenceExplanationsResponse**](AgentQueryAdherenceExplanationsResponse)
 
 
+## PostWorkforcemanagementAgentUnavailabletimesQuery
+
+> [**UnavailableTimeListing**](UnavailableTimeListing) PostWorkforcemanagementAgentUnavailabletimesQuery (string agentId, QueryAgentUnavailableTimesRequest body)
+
+
+Get agent unavailable times
+
+Requires ANY permissions: 
+
+* wfm:unavailableTimes:view
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class PostWorkforcemanagementAgentUnavailabletimesQueryExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new WorkforceManagementApi();
+            var agentId = agentId_example;  // string | The ID of the agent
+            var body = new QueryAgentUnavailableTimesRequest(); // QueryAgentUnavailableTimesRequest | body
+
+            try
+            { 
+                // Get agent unavailable times
+                UnavailableTimeListing result = apiInstance.PostWorkforcemanagementAgentUnavailabletimesQuery(agentId, body);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling WorkforceManagementApi.PostWorkforcemanagementAgentUnavailabletimesQuery: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **agentId** | **string**| The ID of the agent |  |
+| **body** | [**QueryAgentUnavailableTimesRequest**](QueryAgentUnavailableTimesRequest)| body |  |
+
+### Return type
+
+[**UnavailableTimeListing**](UnavailableTimeListing)
+
+
 ## PostWorkforcemanagementAgents
 
-> [**MoveAgentsResponse**](MoveAgentsResponse) PostWorkforcemanagementAgents (MoveAgentsRequest body = null)
+> [**MoveAgentsResponse**](MoveAgentsResponse) PostWorkforcemanagementAgents (MoveAgentsRequest body)
 
 
 Move agents in and out of management unit
@@ -11010,7 +11874,7 @@ namespace Example
                 "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
 
             var apiInstance = new WorkforceManagementApi();
-            var body = new MoveAgentsRequest(); // MoveAgentsRequest | body (optional) 
+            var body = new MoveAgentsRequest(); // MoveAgentsRequest | body
 
             try
             { 
@@ -11032,7 +11896,7 @@ namespace Example
 
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **body** | [**MoveAgentsRequest**](MoveAgentsRequest)| body | [optional]  |
+| **body** | [**MoveAgentsRequest**](MoveAgentsRequest)| body |  |
 
 ### Return type
 
@@ -11041,7 +11905,7 @@ namespace Example
 
 ## PostWorkforcemanagementAgentsIntegrationsHrisQuery
 
-> [**AgentsIntegrationsListing**](AgentsIntegrationsListing) PostWorkforcemanagementAgentsIntegrationsHrisQuery (QueryAgentsIntegrationsRequest body = null)
+> [**AgentsIntegrationsListing**](AgentsIntegrationsListing) PostWorkforcemanagementAgentsIntegrationsHrisQuery (QueryAgentsIntegrationsRequest body)
 
 
 Query integrations for agents
@@ -11072,7 +11936,7 @@ namespace Example
                 "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
 
             var apiInstance = new WorkforceManagementApi();
-            var body = new QueryAgentsIntegrationsRequest(); // QueryAgentsIntegrationsRequest | body (optional) 
+            var body = new QueryAgentsIntegrationsRequest(); // QueryAgentsIntegrationsRequest | body
 
             try
             { 
@@ -11094,11 +11958,78 @@ namespace Example
 
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **body** | [**QueryAgentsIntegrationsRequest**](QueryAgentsIntegrationsRequest)| body | [optional]  |
+| **body** | [**QueryAgentsIntegrationsRequest**](QueryAgentsIntegrationsRequest)| body |  |
 
 ### Return type
 
 [**AgentsIntegrationsListing**](AgentsIntegrationsListing)
+
+
+## PostWorkforcemanagementAgentsMeAdherenceHistoricalJobs
+
+> [**WfmAgentHistoricalAdherenceResponse**](WfmAgentHistoricalAdherenceResponse) PostWorkforcemanagementAgentsMeAdherenceHistoricalJobs (List<string> expand = null, WfmHistoricalAdherenceQueryForAgent body = null)
+
+
+Request an agent historical adherence report
+
+The maximum supported range for historical adherence queries is 31 days, or 7 days when the expand query parameter includes any of the following: exceptionInfo, actuals, scheduledActivities
+
+Requires ANY permissions: 
+
+* wfm:agentHistoricalAdherence:view
+* wfm:agentHistoricalAdherenceConformance:view
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class PostWorkforcemanagementAgentsMeAdherenceHistoricalJobsExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new WorkforceManagementApi();
+            var expand = new List<string>(); // List<string> | Which fields, if any, to expand with. wfm:AgentHistoricalAdherenceConformance:view permission is required for conformance, and wfm:agentSchedule:view permission is required for scheduledActivities. (optional) 
+            var body = new WfmHistoricalAdherenceQueryForAgent(); // WfmHistoricalAdherenceQueryForAgent | body (optional) 
+
+            try
+            { 
+                // Request an agent historical adherence report
+                WfmAgentHistoricalAdherenceResponse result = apiInstance.PostWorkforcemanagementAgentsMeAdherenceHistoricalJobs(expand, body);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling WorkforceManagementApi.PostWorkforcemanagementAgentsMeAdherenceHistoricalJobs: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **expand** | [**List<string>**](string)| Which fields, if any, to expand with. wfm:AgentHistoricalAdherenceConformance:view permission is required for conformance, and wfm:agentSchedule:view permission is required for scheduledActivities. | [optional] <br />**Values**: exceptionInfo, actuals, scheduledActivities, conformance |
+| **body** | [**WfmHistoricalAdherenceQueryForAgent**](WfmHistoricalAdherenceQueryForAgent)| body | [optional]  |
+
+### Return type
+
+[**WfmAgentHistoricalAdherenceResponse**](WfmAgentHistoricalAdherenceResponse)
 
 
 ## PostWorkforcemanagementAgentsMePossibleworkshifts
@@ -11163,9 +12094,75 @@ namespace Example
 [**AgentPossibleWorkShiftsResponse**](AgentPossibleWorkShiftsResponse)
 
 
+## PostWorkforcemanagementAgentschedulesManagementunitsMine
+
+> [**AgentMuQueryResponse**](AgentMuQueryResponse) PostWorkforcemanagementAgentschedulesManagementunitsMine (AgentMuScheduleQuery body, bool? forceAsync = null, bool? forceDownloadService = null)
+
+
+Fetch agent schedules for the logged in user's management unit
+
+Requires ANY permissions: 
+
+* wfm:agentManagementUnitSchedule:view
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class PostWorkforcemanagementAgentschedulesManagementunitsMineExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new WorkforceManagementApi();
+            var body = new AgentMuScheduleQuery(); // AgentMuScheduleQuery | body
+            var forceAsync = true;  // bool? | Force the result of this operation to be sent asynchronously via notification. For testing/app development purposes (optional) 
+            var forceDownloadService = true;  // bool? | Force the result of this operation to be sent via download service. For testing/app development purposes (optional) 
+
+            try
+            { 
+                // Fetch agent schedules for the logged in user's management unit
+                AgentMuQueryResponse result = apiInstance.PostWorkforcemanagementAgentschedulesManagementunitsMine(body, forceAsync, forceDownloadService);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling WorkforceManagementApi.PostWorkforcemanagementAgentschedulesManagementunitsMine: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **body** | [**AgentMuScheduleQuery**](AgentMuScheduleQuery)| body |  |
+| **forceAsync** | **bool?**| Force the result of this operation to be sent asynchronously via notification. For testing/app development purposes | [optional]  |
+| **forceDownloadService** | **bool?**| Force the result of this operation to be sent via download service. For testing/app development purposes | [optional]  |
+
+### Return type
+
+[**AgentMuQueryResponse**](AgentMuQueryResponse)
+
+
 ## PostWorkforcemanagementAgentschedulesMine
 
-> [**BuCurrentAgentScheduleSearchResponse**](BuCurrentAgentScheduleSearchResponse) PostWorkforcemanagementAgentschedulesMine (BuGetCurrentAgentScheduleRequest body = null)
+> [**BuCurrentAgentScheduleSearchResponse**](BuCurrentAgentScheduleSearchResponse) PostWorkforcemanagementAgentschedulesMine (BuGetCurrentAgentScheduleRequest body)
 
 
 Get published schedule for the current user
@@ -11196,7 +12193,7 @@ namespace Example
                 "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
 
             var apiInstance = new WorkforceManagementApi();
-            var body = new BuGetCurrentAgentScheduleRequest(); // BuGetCurrentAgentScheduleRequest | body (optional) 
+            var body = new BuGetCurrentAgentScheduleRequest(); // BuGetCurrentAgentScheduleRequest | body
 
             try
             { 
@@ -11218,7 +12215,7 @@ namespace Example
 
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **body** | [**BuGetCurrentAgentScheduleRequest**](BuGetCurrentAgentScheduleRequest)| body | [optional]  |
+| **body** | [**BuGetCurrentAgentScheduleRequest**](BuGetCurrentAgentScheduleRequest)| body |  |
 
 ### Return type
 
@@ -11413,7 +12410,7 @@ namespace Example
 
 ## PostWorkforcemanagementBusinessunitActivitycodes
 
-> [**BusinessUnitActivityCode**](BusinessUnitActivityCode) PostWorkforcemanagementBusinessunitActivitycodes (string businessUnitId, CreateActivityCodeRequest body = null)
+> [**BusinessUnitActivityCode**](BusinessUnitActivityCode) PostWorkforcemanagementBusinessunitActivitycodes (string businessUnitId, CreateActivityCodeRequest body)
 
 
 Create a new activity code
@@ -11445,7 +12442,7 @@ namespace Example
 
             var apiInstance = new WorkforceManagementApi();
             var businessUnitId = businessUnitId_example;  // string | The ID of the business unit, or 'mine' for the business unit of the logged-in user.
-            var body = new CreateActivityCodeRequest(); // CreateActivityCodeRequest | body (optional) 
+            var body = new CreateActivityCodeRequest(); // CreateActivityCodeRequest | body
 
             try
             { 
@@ -11468,7 +12465,7 @@ namespace Example
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **businessUnitId** | **string**| The ID of the business unit, or &#39;mine&#39; for the business unit of the logged-in user. |  |
-| **body** | [**CreateActivityCodeRequest**](CreateActivityCodeRequest)| body | [optional]  |
+| **body** | [**CreateActivityCodeRequest**](CreateActivityCodeRequest)| body |  |
 
 ### Return type
 
@@ -11675,7 +12672,7 @@ namespace Example
 
 ## PostWorkforcemanagementBusinessunitAgentschedulesSearch
 
-> [**BuAsyncAgentSchedulesSearchResponse**](BuAsyncAgentSchedulesSearchResponse) PostWorkforcemanagementBusinessunitAgentschedulesSearch (string businessUnitId, bool? forceAsync = null, bool? forceDownloadService = null, BuSearchAgentSchedulesRequest body = null)
+> [**BuAsyncAgentSchedulesSearchResponse**](BuAsyncAgentSchedulesSearchResponse) PostWorkforcemanagementBusinessunitAgentschedulesSearch (string businessUnitId, BuSearchAgentSchedulesRequest body, bool? forceAsync = null, bool? forceDownloadService = null)
 
 
 Search published schedules
@@ -11708,14 +12705,14 @@ namespace Example
 
             var apiInstance = new WorkforceManagementApi();
             var businessUnitId = businessUnitId_example;  // string | The ID of the business unit
+            var body = new BuSearchAgentSchedulesRequest(); // BuSearchAgentSchedulesRequest | body
             var forceAsync = true;  // bool? | Force the result of this operation to be sent asynchronously via notification. For testing/app development purposes (optional) 
             var forceDownloadService = true;  // bool? | Force the result of this operation to be sent via download service. For testing/app development purposes (optional) 
-            var body = new BuSearchAgentSchedulesRequest(); // BuSearchAgentSchedulesRequest | body (optional) 
 
             try
             { 
                 // Search published schedules
-                BuAsyncAgentSchedulesSearchResponse result = apiInstance.PostWorkforcemanagementBusinessunitAgentschedulesSearch(businessUnitId, forceAsync, forceDownloadService, body);
+                BuAsyncAgentSchedulesSearchResponse result = apiInstance.PostWorkforcemanagementBusinessunitAgentschedulesSearch(businessUnitId, body, forceAsync, forceDownloadService);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -11733,9 +12730,9 @@ namespace Example
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **businessUnitId** | **string**| The ID of the business unit |  |
+| **body** | [**BuSearchAgentSchedulesRequest**](BuSearchAgentSchedulesRequest)| body |  |
 | **forceAsync** | **bool?**| Force the result of this operation to be sent asynchronously via notification. For testing/app development purposes | [optional]  |
 | **forceDownloadService** | **bool?**| Force the result of this operation to be sent via download service. For testing/app development purposes | [optional]  |
-| **body** | [**BuSearchAgentSchedulesRequest**](BuSearchAgentSchedulesRequest)| body | [optional]  |
 
 ### Return type
 
@@ -11808,9 +12805,464 @@ namespace Example
 [**BuListAlternativeShiftTradesResponse**](BuListAlternativeShiftTradesResponse)
 
 
+## PostWorkforcemanagementBusinessunitCapacityplanCopy
+
+> [**CapacityPlanResponse**](CapacityPlanResponse) PostWorkforcemanagementBusinessunitCapacityplanCopy (string businessUnitId, string capacityPlanId, CopyCapacityPlanRequest body)
+
+
+Copy a capacity plan
+
+Requires ANY permissions: 
+
+* wfm:capacityPlan:add
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class PostWorkforcemanagementBusinessunitCapacityplanCopyExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new WorkforceManagementApi();
+            var businessUnitId = businessUnitId_example;  // string | The ID of the business unit
+            var capacityPlanId = capacityPlanId_example;  // string | The ID of the capacity plan
+            var body = new CopyCapacityPlanRequest(); // CopyCapacityPlanRequest | body
+
+            try
+            { 
+                // Copy a capacity plan
+                CapacityPlanResponse result = apiInstance.PostWorkforcemanagementBusinessunitCapacityplanCopy(businessUnitId, capacityPlanId, body);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling WorkforceManagementApi.PostWorkforcemanagementBusinessunitCapacityplanCopy: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **businessUnitId** | **string**| The ID of the business unit |  |
+| **capacityPlanId** | **string**| The ID of the capacity plan |  |
+| **body** | [**CopyCapacityPlanRequest**](CopyCapacityPlanRequest)| body |  |
+
+### Return type
+
+[**CapacityPlanResponse**](CapacityPlanResponse)
+
+
+## PostWorkforcemanagementBusinessunitCapacityplanRequirementGenerate
+
+> [**CapacityPlanStaffingRequirementResult**](CapacityPlanStaffingRequirementResult) PostWorkforcemanagementBusinessunitCapacityplanRequirementGenerate (string businessUnitId, string capacityPlanId)
+
+
+Regenerate requirements for capacity plan
+
+Requires ANY permissions: 
+
+* wfm:capacityPlan:edit
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class PostWorkforcemanagementBusinessunitCapacityplanRequirementGenerateExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new WorkforceManagementApi();
+            var businessUnitId = businessUnitId_example;  // string | The ID of the business unit
+            var capacityPlanId = capacityPlanId_example;  // string | The ID of the capacity plan
+
+            try
+            { 
+                // Regenerate requirements for capacity plan
+                CapacityPlanStaffingRequirementResult result = apiInstance.PostWorkforcemanagementBusinessunitCapacityplanRequirementGenerate(businessUnitId, capacityPlanId);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling WorkforceManagementApi.PostWorkforcemanagementBusinessunitCapacityplanRequirementGenerate: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **businessUnitId** | **string**| The ID of the business unit |  |
+| **capacityPlanId** | **string**| The ID of the capacity plan |  |
+
+### Return type
+
+[**CapacityPlanStaffingRequirementResult**](CapacityPlanStaffingRequirementResult)
+
+
+## PostWorkforcemanagementBusinessunitCapacityplanStaffinggroupallocations
+
+> [**CapacityPlanStaffingGroupMetricChangeResponse**](CapacityPlanStaffingGroupMetricChangeResponse) PostWorkforcemanagementBusinessunitCapacityplanStaffinggroupallocations (string businessUnitId, string capacityPlanId, CreateCapacityPlanStaffingGroupMetricChangeRequest body)
+
+
+Create staffing group allocations for a capacity plan
+
+Requires ANY permissions: 
+
+* wfm:capacityPlan:edit
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class PostWorkforcemanagementBusinessunitCapacityplanStaffinggroupallocationsExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new WorkforceManagementApi();
+            var businessUnitId = businessUnitId_example;  // string | The ID of the business unit
+            var capacityPlanId = capacityPlanId_example;  // string | The ID of the capacity plan
+            var body = new CreateCapacityPlanStaffingGroupMetricChangeRequest(); // CreateCapacityPlanStaffingGroupMetricChangeRequest | 
+
+            try
+            { 
+                // Create staffing group allocations for a capacity plan
+                CapacityPlanStaffingGroupMetricChangeResponse result = apiInstance.PostWorkforcemanagementBusinessunitCapacityplanStaffinggroupallocations(businessUnitId, capacityPlanId, body);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling WorkforceManagementApi.PostWorkforcemanagementBusinessunitCapacityplanStaffinggroupallocations: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **businessUnitId** | **string**| The ID of the business unit |  |
+| **capacityPlanId** | **string**| The ID of the capacity plan |  |
+| **body** | [**CreateCapacityPlanStaffingGroupMetricChangeRequest**](CreateCapacityPlanStaffingGroupMetricChangeRequest)|  |  |
+
+### Return type
+
+[**CapacityPlanStaffingGroupMetricChangeResponse**](CapacityPlanStaffingGroupMetricChangeResponse)
+
+
+## PostWorkforcemanagementBusinessunitCapacityplanStaffinggroupallocationshistoryQuery
+
+> [**CapacityPlanStaffingGroupMetricChangeHistoryListResponse**](CapacityPlanStaffingGroupMetricChangeHistoryListResponse) PostWorkforcemanagementBusinessunitCapacityplanStaffinggroupallocationshistoryQuery (string businessUnitId, string capacityPlanId, QueryCapacityPlanStaffingGroupMetricChangeHistory body)
+
+
+Query staffing groups allocations history for a capacity plan
+
+Requires ANY permissions: 
+
+* wfm:capacityPlan:view
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class PostWorkforcemanagementBusinessunitCapacityplanStaffinggroupallocationshistoryQueryExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new WorkforceManagementApi();
+            var businessUnitId = businessUnitId_example;  // string | The ID of the business unit
+            var capacityPlanId = capacityPlanId_example;  // string | The ID of the capacity plan
+            var body = new QueryCapacityPlanStaffingGroupMetricChangeHistory(); // QueryCapacityPlanStaffingGroupMetricChangeHistory | 
+
+            try
+            { 
+                // Query staffing groups allocations history for a capacity plan
+                CapacityPlanStaffingGroupMetricChangeHistoryListResponse result = apiInstance.PostWorkforcemanagementBusinessunitCapacityplanStaffinggroupallocationshistoryQuery(businessUnitId, capacityPlanId, body);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling WorkforceManagementApi.PostWorkforcemanagementBusinessunitCapacityplanStaffinggroupallocationshistoryQuery: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **businessUnitId** | **string**| The ID of the business unit |  |
+| **capacityPlanId** | **string**| The ID of the capacity plan |  |
+| **body** | [**QueryCapacityPlanStaffingGroupMetricChangeHistory**](QueryCapacityPlanStaffingGroupMetricChangeHistory)|  |  |
+
+### Return type
+
+[**CapacityPlanStaffingGroupMetricChangeHistoryListResponse**](CapacityPlanStaffingGroupMetricChangeHistoryListResponse)
+
+
+## PostWorkforcemanagementBusinessunitCapacityplanningLongtermrequirementsAutomaticbestmethodWeekForecastForceregenerate
+
+> [**LongTermRequirementsResponse**](LongTermRequirementsResponse) PostWorkforcemanagementBusinessunitCapacityplanningLongtermrequirementsAutomaticbestmethodWeekForecastForceregenerate (string businessUnitId, String weekDateId, string forecastId)
+
+
+Force regenerate the latest long term staffing requirements for a business unit
+
+Requires ANY permissions: 
+
+* wfm:longTermStaffing:edit
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class PostWorkforcemanagementBusinessunitCapacityplanningLongtermrequirementsAutomaticbestmethodWeekForecastForceregenerateExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new WorkforceManagementApi();
+            var businessUnitId = businessUnitId_example;  // string | 
+            var weekDateId = 2013-10-20;  // String | weekDateId of forecast, format yyyy-MM-dd. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
+            var forecastId = forecastId_example;  // string | forecastId of forecast
+
+            try
+            { 
+                // Force regenerate the latest long term staffing requirements for a business unit
+                LongTermRequirementsResponse result = apiInstance.PostWorkforcemanagementBusinessunitCapacityplanningLongtermrequirementsAutomaticbestmethodWeekForecastForceregenerate(businessUnitId, weekDateId, forecastId);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling WorkforceManagementApi.PostWorkforcemanagementBusinessunitCapacityplanningLongtermrequirementsAutomaticbestmethodWeekForecastForceregenerate: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **businessUnitId** | **string**|  |  |
+| **weekDateId** | **String**| weekDateId of forecast, format yyyy-MM-dd. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd |  |
+| **forecastId** | **string**| forecastId of forecast |  |
+
+### Return type
+
+[**LongTermRequirementsResponse**](LongTermRequirementsResponse)
+
+
+## PostWorkforcemanagementBusinessunitCapacityplans
+
+> [**CapacityPlanResponse**](CapacityPlanResponse) PostWorkforcemanagementBusinessunitCapacityplans (string businessUnitId, CapacityPlanRequest body)
+
+
+Create a new capacity plan
+
+Requires ANY permissions: 
+
+* wfm:capacityPlan:add
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class PostWorkforcemanagementBusinessunitCapacityplansExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new WorkforceManagementApi();
+            var businessUnitId = businessUnitId_example;  // string | The ID of the business unit
+            var body = new CapacityPlanRequest(); // CapacityPlanRequest | body
+
+            try
+            { 
+                // Create a new capacity plan
+                CapacityPlanResponse result = apiInstance.PostWorkforcemanagementBusinessunitCapacityplans(businessUnitId, body);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling WorkforceManagementApi.PostWorkforcemanagementBusinessunitCapacityplans: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **businessUnitId** | **string**| The ID of the business unit |  |
+| **body** | [**CapacityPlanRequest**](CapacityPlanRequest)| body |  |
+
+### Return type
+
+[**CapacityPlanResponse**](CapacityPlanResponse)
+
+
+## PostWorkforcemanagementBusinessunitCapacityplansBulkRemove
+
+> void PostWorkforcemanagementBusinessunitCapacityplansBulkRemove (string businessUnitId, CapacityPlanDeleteRequest body)
+
+
+Delete capacity plans in a business unit
+
+Requires ANY permissions: 
+
+* wfm:capacityPlan:delete
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class PostWorkforcemanagementBusinessunitCapacityplansBulkRemoveExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new WorkforceManagementApi();
+            var businessUnitId = businessUnitId_example;  // string | The ID of the business unit
+            var body = new CapacityPlanDeleteRequest(); // CapacityPlanDeleteRequest | body
+
+            try
+            { 
+                // Delete capacity plans in a business unit
+                apiInstance.PostWorkforcemanagementBusinessunitCapacityplansBulkRemove(businessUnitId, body);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling WorkforceManagementApi.PostWorkforcemanagementBusinessunitCapacityplansBulkRemove: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **businessUnitId** | **string**| The ID of the business unit |  |
+| **body** | [**CapacityPlanDeleteRequest**](CapacityPlanDeleteRequest)| body |  |
+
+### Return type
+
+void (empty response body)
+
+
 ## PostWorkforcemanagementBusinessunitIntraday
 
-> [**AsyncIntradayResponse**](AsyncIntradayResponse) PostWorkforcemanagementBusinessunitIntraday (string businessUnitId, bool? forceAsync = null, IntradayPlanningGroupRequest body = null)
+> [**AsyncIntradayResponse**](AsyncIntradayResponse) PostWorkforcemanagementBusinessunitIntraday (string businessUnitId, IntradayPlanningGroupRequest body, bool? forceAsync = null)
 
 
 Get intraday data for the given date for the requested planningGroupIds
@@ -11842,13 +13294,13 @@ namespace Example
 
             var apiInstance = new WorkforceManagementApi();
             var businessUnitId = businessUnitId_example;  // string | The ID of the business unit
+            var body = new IntradayPlanningGroupRequest(); // IntradayPlanningGroupRequest | body
             var forceAsync = true;  // bool? | Force the result of this operation to be sent asynchronously via notification.  For testing/app development purposes (optional) 
-            var body = new IntradayPlanningGroupRequest(); // IntradayPlanningGroupRequest | body (optional) 
 
             try
             { 
                 // Get intraday data for the given date for the requested planningGroupIds
-                AsyncIntradayResponse result = apiInstance.PostWorkforcemanagementBusinessunitIntraday(businessUnitId, forceAsync, body);
+                AsyncIntradayResponse result = apiInstance.PostWorkforcemanagementBusinessunitIntraday(businessUnitId, body, forceAsync);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -11866,8 +13318,8 @@ namespace Example
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **businessUnitId** | **string**| The ID of the business unit |  |
+| **body** | [**IntradayPlanningGroupRequest**](IntradayPlanningGroupRequest)| body |  |
 | **forceAsync** | **bool?**| Force the result of this operation to be sent asynchronously via notification.  For testing/app development purposes | [optional]  |
-| **body** | [**IntradayPlanningGroupRequest**](IntradayPlanningGroupRequest)| body | [optional]  |
 
 ### Return type
 
@@ -11876,7 +13328,7 @@ namespace Example
 
 ## PostWorkforcemanagementBusinessunitPlanninggroups
 
-> [**PlanningGroup**](PlanningGroup) PostWorkforcemanagementBusinessunitPlanninggroups (string businessUnitId, CreatePlanningGroupRequest body = null)
+> [**PlanningGroup**](PlanningGroup) PostWorkforcemanagementBusinessunitPlanninggroups (string businessUnitId, CreatePlanningGroupRequest body)
 
 
 Adds a new planning group
@@ -11908,7 +13360,7 @@ namespace Example
 
             var apiInstance = new WorkforceManagementApi();
             var businessUnitId = businessUnitId_example;  // string | The ID of the business unit.
-            var body = new CreatePlanningGroupRequest(); // CreatePlanningGroupRequest | body (optional) 
+            var body = new CreatePlanningGroupRequest(); // CreatePlanningGroupRequest | body
 
             try
             { 
@@ -11931,7 +13383,7 @@ namespace Example
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **businessUnitId** | **string**| The ID of the business unit. |  |
-| **body** | [**CreatePlanningGroupRequest**](CreatePlanningGroupRequest)| body | [optional]  |
+| **body** | [**CreatePlanningGroupRequest**](CreatePlanningGroupRequest)| body |  |
 
 ### Return type
 
@@ -11940,7 +13392,7 @@ namespace Example
 
 ## PostWorkforcemanagementBusinessunitServicegoaltemplates
 
-> [**ServiceGoalTemplate**](ServiceGoalTemplate) PostWorkforcemanagementBusinessunitServicegoaltemplates (string businessUnitId, CreateServiceGoalTemplate body = null)
+> [**ServiceGoalTemplate**](ServiceGoalTemplate) PostWorkforcemanagementBusinessunitServicegoaltemplates (string businessUnitId, CreateServiceGoalTemplate body)
 
 
 Adds a new service goal template
@@ -11972,7 +13424,7 @@ namespace Example
 
             var apiInstance = new WorkforceManagementApi();
             var businessUnitId = businessUnitId_example;  // string | The ID of the business unit.
-            var body = new CreateServiceGoalTemplate(); // CreateServiceGoalTemplate | body (optional) 
+            var body = new CreateServiceGoalTemplate(); // CreateServiceGoalTemplate | body
 
             try
             { 
@@ -11995,7 +13447,7 @@ namespace Example
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **businessUnitId** | **string**| The ID of the business unit. |  |
-| **body** | [**CreateServiceGoalTemplate**](CreateServiceGoalTemplate)| body | [optional]  |
+| **body** | [**CreateServiceGoalTemplate**](CreateServiceGoalTemplate)| body |  |
 
 ### Return type
 
@@ -12004,7 +13456,7 @@ namespace Example
 
 ## PostWorkforcemanagementBusinessunitStaffinggroups
 
-> [**StaffingGroupResponse**](StaffingGroupResponse) PostWorkforcemanagementBusinessunitStaffinggroups (string businessUnitId, CreateStaffingGroupRequest body = null)
+> [**StaffingGroupResponse**](StaffingGroupResponse) PostWorkforcemanagementBusinessunitStaffinggroups (string businessUnitId, CreateStaffingGroupRequest body)
 
 
 Creates a new staffing group
@@ -12036,7 +13488,7 @@ namespace Example
 
             var apiInstance = new WorkforceManagementApi();
             var businessUnitId = businessUnitId_example;  // string | The ID of the business unit
-            var body = new CreateStaffingGroupRequest(); // CreateStaffingGroupRequest | body (optional) 
+            var body = new CreateStaffingGroupRequest(); // CreateStaffingGroupRequest | body
 
             try
             { 
@@ -12059,16 +13511,80 @@ namespace Example
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **businessUnitId** | **string**| The ID of the business unit |  |
-| **body** | [**CreateStaffingGroupRequest**](CreateStaffingGroupRequest)| body | [optional]  |
+| **body** | [**CreateStaffingGroupRequest**](CreateStaffingGroupRequest)| body |  |
 
 ### Return type
 
 [**StaffingGroupResponse**](StaffingGroupResponse)
 
 
+## PostWorkforcemanagementBusinessunitStaffinggroupsPlanninggroupsQuery
+
+> [**PlanningGroupToStaffingGroupsListing**](PlanningGroupToStaffingGroupsListing) PostWorkforcemanagementBusinessunitStaffinggroupsPlanninggroupsQuery (string businessUnitId, QueryPlanningGroupToStaffingGroupsRequest body)
+
+
+Gets a list of planning group to staffing groups list association
+
+Requires ANY permissions: 
+
+* wfm:staffingGroup:view
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class PostWorkforcemanagementBusinessunitStaffinggroupsPlanninggroupsQueryExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new WorkforceManagementApi();
+            var businessUnitId = businessUnitId_example;  // string | The ID of the business unit
+            var body = new QueryPlanningGroupToStaffingGroupsRequest(); // QueryPlanningGroupToStaffingGroupsRequest | body
+
+            try
+            { 
+                // Gets a list of planning group to staffing groups list association
+                PlanningGroupToStaffingGroupsListing result = apiInstance.PostWorkforcemanagementBusinessunitStaffinggroupsPlanninggroupsQuery(businessUnitId, body);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling WorkforceManagementApi.PostWorkforcemanagementBusinessunitStaffinggroupsPlanninggroupsQuery: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **businessUnitId** | **string**| The ID of the business unit |  |
+| **body** | [**QueryPlanningGroupToStaffingGroupsRequest**](QueryPlanningGroupToStaffingGroupsRequest)| body |  |
+
+### Return type
+
+[**PlanningGroupToStaffingGroupsListing**](PlanningGroupToStaffingGroupsListing)
+
+
 ## PostWorkforcemanagementBusinessunitStaffinggroupsQuery
 
-> [**UserStaffingGroupListing**](UserStaffingGroupListing) PostWorkforcemanagementBusinessunitStaffinggroupsQuery (string businessUnitId, QueryUserStaffingGroupListRequest body = null)
+> [**UserStaffingGroupListing**](UserStaffingGroupListing) PostWorkforcemanagementBusinessunitStaffinggroupsQuery (string businessUnitId, QueryUserStaffingGroupListRequest body, bool? forceDownloadService = null)
 
 
 Gets staffing group associations for a list of user IDs
@@ -12100,12 +13616,13 @@ namespace Example
 
             var apiInstance = new WorkforceManagementApi();
             var businessUnitId = businessUnitId_example;  // string | The ID of the business unit
-            var body = new QueryUserStaffingGroupListRequest(); // QueryUserStaffingGroupListRequest | body (optional) 
+            var body = new QueryUserStaffingGroupListRequest(); // QueryUserStaffingGroupListRequest | body
+            var forceDownloadService = true;  // bool? | Force the result of this operation to be sent via download service (optional) 
 
             try
             { 
                 // Gets staffing group associations for a list of user IDs
-                UserStaffingGroupListing result = apiInstance.PostWorkforcemanagementBusinessunitStaffinggroupsQuery(businessUnitId, body);
+                UserStaffingGroupListing result = apiInstance.PostWorkforcemanagementBusinessunitStaffinggroupsQuery(businessUnitId, body, forceDownloadService);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -12123,7 +13640,8 @@ namespace Example
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **businessUnitId** | **string**| The ID of the business unit |  |
-| **body** | [**QueryUserStaffingGroupListRequest**](QueryUserStaffingGroupListRequest)| body | [optional]  |
+| **body** | [**QueryUserStaffingGroupListRequest**](QueryUserStaffingGroupListRequest)| body |  |
+| **forceDownloadService** | **bool?**| Force the result of this operation to be sent via download service | [optional]  |
 
 ### Return type
 
@@ -12132,7 +13650,7 @@ namespace Example
 
 ## PostWorkforcemanagementBusinessunitTimeofflimits
 
-> [**BuTimeOffLimitResponse**](BuTimeOffLimitResponse) PostWorkforcemanagementBusinessunitTimeofflimits (string businessUnitId, BuCreateTimeOffLimitRequest body = null)
+> [**BuTimeOffLimitResponse**](BuTimeOffLimitResponse) PostWorkforcemanagementBusinessunitTimeofflimits (string businessUnitId, BuCreateTimeOffLimitRequest body)
 
 
 Creates a new time-off limit object
@@ -12164,7 +13682,7 @@ namespace Example
 
             var apiInstance = new WorkforceManagementApi();
             var businessUnitId = businessUnitId_example;  // string | The ID of the business unit
-            var body = new BuCreateTimeOffLimitRequest(); // BuCreateTimeOffLimitRequest | body (optional) 
+            var body = new BuCreateTimeOffLimitRequest(); // BuCreateTimeOffLimitRequest | body
 
             try
             { 
@@ -12187,7 +13705,7 @@ namespace Example
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **businessUnitId** | **string**| The ID of the business unit |  |
-| **body** | [**BuCreateTimeOffLimitRequest**](BuCreateTimeOffLimitRequest)| body | [optional]  |
+| **body** | [**BuCreateTimeOffLimitRequest**](BuCreateTimeOffLimitRequest)| body |  |
 
 ### Return type
 
@@ -12196,7 +13714,7 @@ namespace Example
 
 ## PostWorkforcemanagementBusinessunitTimeofflimitsValuesQuery
 
-> [**BuTimeOffLimitValuesResponse**](BuTimeOffLimitValuesResponse) PostWorkforcemanagementBusinessunitTimeofflimitsValuesQuery (string businessUnitId, QueryTimeOffLimitValuesRequest body = null)
+> [**BuTimeOffLimitValuesResponse**](BuTimeOffLimitValuesResponse) PostWorkforcemanagementBusinessunitTimeofflimitsValuesQuery (string businessUnitId, QueryTimeOffLimitValuesRequest body)
 
 
 Retrieves time-off limit related values based on a given set of filters.
@@ -12228,7 +13746,7 @@ namespace Example
 
             var apiInstance = new WorkforceManagementApi();
             var businessUnitId = businessUnitId_example;  // string | The ID of the business unit
-            var body = new QueryTimeOffLimitValuesRequest(); // QueryTimeOffLimitValuesRequest | body (optional) 
+            var body = new QueryTimeOffLimitValuesRequest(); // QueryTimeOffLimitValuesRequest | body
 
             try
             { 
@@ -12251,7 +13769,7 @@ namespace Example
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **businessUnitId** | **string**| The ID of the business unit |  |
-| **body** | [**QueryTimeOffLimitValuesRequest**](QueryTimeOffLimitValuesRequest)| body | [optional]  |
+| **body** | [**QueryTimeOffLimitValuesRequest**](QueryTimeOffLimitValuesRequest)| body |  |
 
 ### Return type
 
@@ -12260,7 +13778,7 @@ namespace Example
 
 ## PostWorkforcemanagementBusinessunitTimeoffplans
 
-> [**BuTimeOffPlanResponse**](BuTimeOffPlanResponse) PostWorkforcemanagementBusinessunitTimeoffplans (string businessUnitId, BuCreateTimeOffPlanRequest body = null)
+> [**BuTimeOffPlanResponse**](BuTimeOffPlanResponse) PostWorkforcemanagementBusinessunitTimeoffplans (string businessUnitId, BuCreateTimeOffPlanRequest body)
 
 
 Creates a new time-off plan
@@ -12292,7 +13810,7 @@ namespace Example
 
             var apiInstance = new WorkforceManagementApi();
             var businessUnitId = businessUnitId_example;  // string | The ID of the business unit
-            var body = new BuCreateTimeOffPlanRequest(); // BuCreateTimeOffPlanRequest | body (optional) 
+            var body = new BuCreateTimeOffPlanRequest(); // BuCreateTimeOffPlanRequest | body
 
             try
             { 
@@ -12315,11 +13833,139 @@ namespace Example
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **businessUnitId** | **string**| The ID of the business unit |  |
-| **body** | [**BuCreateTimeOffPlanRequest**](BuCreateTimeOffPlanRequest)| body | [optional]  |
+| **body** | [**BuCreateTimeOffPlanRequest**](BuCreateTimeOffPlanRequest)| body |  |
 
 ### Return type
 
 [**BuTimeOffPlanResponse**](BuTimeOffPlanResponse)
+
+
+## PostWorkforcemanagementBusinessunitUnavailabletimesSchedulesQuery
+
+> [**QueryAgentScheduleUnavailableTimesResponse**](QueryAgentScheduleUnavailableTimesResponse) PostWorkforcemanagementBusinessunitUnavailabletimesSchedulesQuery (string businessUnitId, QueryAgentScheduleUnavailableTimesRequest body)
+
+
+Get agent schedule generation unavailable times
+
+Requires ANY permissions: 
+
+* wfm:unavailableTimes:view
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class PostWorkforcemanagementBusinessunitUnavailabletimesSchedulesQueryExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new WorkforceManagementApi();
+            var businessUnitId = businessUnitId_example;  // string | The ID of the business unit
+            var body = new QueryAgentScheduleUnavailableTimesRequest(); // QueryAgentScheduleUnavailableTimesRequest | body
+
+            try
+            { 
+                // Get agent schedule generation unavailable times
+                QueryAgentScheduleUnavailableTimesResponse result = apiInstance.PostWorkforcemanagementBusinessunitUnavailabletimesSchedulesQuery(businessUnitId, body);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling WorkforceManagementApi.PostWorkforcemanagementBusinessunitUnavailabletimesSchedulesQuery: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **businessUnitId** | **string**| The ID of the business unit |  |
+| **body** | [**QueryAgentScheduleUnavailableTimesRequest**](QueryAgentScheduleUnavailableTimesRequest)| body |  |
+
+### Return type
+
+[**QueryAgentScheduleUnavailableTimesResponse**](QueryAgentScheduleUnavailableTimesResponse)
+
+
+## PostWorkforcemanagementBusinessunitUnavailabletimesSettingsQuery
+
+> [**QueryAvailabilityManagementUnitsSettingsResponse**](QueryAvailabilityManagementUnitsSettingsResponse) PostWorkforcemanagementBusinessunitUnavailabletimesSettingsQuery (string businessUnitId, QueryAvailabilityManagementUnitsSettingsRequest body)
+
+
+Query availability management units settings
+
+Requires ANY permissions: 
+
+* wfm:managementUnit:view
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class PostWorkforcemanagementBusinessunitUnavailabletimesSettingsQueryExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new WorkforceManagementApi();
+            var businessUnitId = businessUnitId_example;  // string | The ID of the business unit
+            var body = new QueryAvailabilityManagementUnitsSettingsRequest(); // QueryAvailabilityManagementUnitsSettingsRequest | body
+
+            try
+            { 
+                // Query availability management units settings
+                QueryAvailabilityManagementUnitsSettingsResponse result = apiInstance.PostWorkforcemanagementBusinessunitUnavailabletimesSettingsQuery(businessUnitId, body);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling WorkforceManagementApi.PostWorkforcemanagementBusinessunitUnavailabletimesSettingsQuery: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **businessUnitId** | **string**| The ID of the business unit |  |
+| **body** | [**QueryAvailabilityManagementUnitsSettingsRequest**](QueryAvailabilityManagementUnitsSettingsRequest)| body |  |
+
+### Return type
+
+[**QueryAvailabilityManagementUnitsSettingsResponse**](QueryAvailabilityManagementUnitsSettingsResponse)
 
 
 ## PostWorkforcemanagementBusinessunitWeekScheduleAgentschedulesQuery
@@ -12465,7 +14111,7 @@ namespace Example
 
 ## PostWorkforcemanagementBusinessunitWeekSchedulePerformancepredictionsRecalculations
 
-> [**PerformancePredictionRecalculationResponse**](PerformancePredictionRecalculationResponse) PostWorkforcemanagementBusinessunitWeekSchedulePerformancepredictionsRecalculations (string businessUnitId, string weekId, string scheduleId, WfmProcessUploadRequest body = null)
+> [**PerformancePredictionRecalculationResponse**](PerformancePredictionRecalculationResponse) PostWorkforcemanagementBusinessunitWeekSchedulePerformancepredictionsRecalculations (string businessUnitId, string weekId, string scheduleId, WfmProcessUploadRequest body)
 
 
 Request a daily recalculation of the performance prediction for the associated schedule
@@ -12499,7 +14145,7 @@ namespace Example
             var businessUnitId = businessUnitId_example;  // string | The ID of the business unit to which the performance prediction belongs
             var weekId = weekId_example;  // string | First day of schedule week in yyyy-MM-dd format
             var scheduleId = scheduleId_example;  // string | The ID of the schedule the performance prediction belongs to
-            var body = new WfmProcessUploadRequest(); // WfmProcessUploadRequest | body (optional) 
+            var body = new WfmProcessUploadRequest(); // WfmProcessUploadRequest | body
 
             try
             { 
@@ -12524,7 +14170,7 @@ namespace Example
 | **businessUnitId** | **string**| The ID of the business unit to which the performance prediction belongs |  |
 | **weekId** | **string**| First day of schedule week in yyyy-MM-dd format |  |
 | **scheduleId** | **string**| The ID of the schedule the performance prediction belongs to |  |
-| **body** | [**WfmProcessUploadRequest**](WfmProcessUploadRequest)| body | [optional]  |
+| **body** | [**WfmProcessUploadRequest**](WfmProcessUploadRequest)| body |  |
 
 ### Return type
 
@@ -12533,7 +14179,7 @@ namespace Example
 
 ## PostWorkforcemanagementBusinessunitWeekSchedulePerformancepredictionsRecalculationsUploadurl
 
-> [**PerformancePredictionRecalculationUploadResponse**](PerformancePredictionRecalculationUploadResponse) PostWorkforcemanagementBusinessunitWeekSchedulePerformancepredictionsRecalculationsUploadurl (string businessUnitId, string weekId, string scheduleId, UploadUrlRequestBody body = null)
+> [**PerformancePredictionRecalculationUploadResponse**](PerformancePredictionRecalculationUploadResponse) PostWorkforcemanagementBusinessunitWeekSchedulePerformancepredictionsRecalculationsUploadurl (string businessUnitId, string weekId, string scheduleId, UploadUrlRequestBody body)
 
 
 Upload daily activity changes to be able to request a performance prediction recalculation
@@ -12567,7 +14213,7 @@ namespace Example
             var businessUnitId = businessUnitId_example;  // string | The ID of the business unit to which the performance prediction belongs
             var weekId = weekId_example;  // string | First day of schedule week in yyyy-MM-dd format
             var scheduleId = scheduleId_example;  // string | The ID of the schedule the performance prediction belongs to
-            var body = new UploadUrlRequestBody(); // UploadUrlRequestBody | body (optional) 
+            var body = new UploadUrlRequestBody(); // UploadUrlRequestBody | body
 
             try
             { 
@@ -12592,7 +14238,7 @@ namespace Example
 | **businessUnitId** | **string**| The ID of the business unit to which the performance prediction belongs |  |
 | **weekId** | **string**| First day of schedule week in yyyy-MM-dd format |  |
 | **scheduleId** | **string**| The ID of the schedule the performance prediction belongs to |  |
-| **body** | [**UploadUrlRequestBody**](UploadUrlRequestBody)| body | [optional]  |
+| **body** | [**UploadUrlRequestBody**](UploadUrlRequestBody)| body |  |
 
 ### Return type
 
@@ -13351,7 +14997,7 @@ namespace Example
 
 ## PostWorkforcemanagementBusinessunitWorkplanbidCopy
 
-> [**WorkPlanBid**](WorkPlanBid) PostWorkforcemanagementBusinessunitWorkplanbidCopy (string businessUnitId, string bidId, CopyWorkPlanBid body = null)
+> [**WorkPlanBid**](WorkPlanBid) PostWorkforcemanagementBusinessunitWorkplanbidCopy (string businessUnitId, string bidId, CopyWorkPlanBid body)
 
 
 Copy a work plan bid
@@ -13384,7 +15030,7 @@ namespace Example
             var apiInstance = new WorkforceManagementApi();
             var businessUnitId = businessUnitId_example;  // string | The ID of the business unit
             var bidId = bidId_example;  // string | The ID of the work plan bid to copy
-            var body = new CopyWorkPlanBid(); // CopyWorkPlanBid | body (optional) 
+            var body = new CopyWorkPlanBid(); // CopyWorkPlanBid | body
 
             try
             { 
@@ -13408,7 +15054,7 @@ namespace Example
 |------------- | ------------- | ------------- | -------------|
 | **businessUnitId** | **string**| The ID of the business unit |  |
 | **bidId** | **string**| The ID of the work plan bid to copy |  |
-| **body** | [**CopyWorkPlanBid**](CopyWorkPlanBid)| body | [optional]  |
+| **body** | [**CopyWorkPlanBid**](CopyWorkPlanBid)| body |  |
 
 ### Return type
 
@@ -13417,7 +15063,7 @@ namespace Example
 
 ## PostWorkforcemanagementBusinessunitWorkplanbidGroups
 
-> [**WorkPlanBidGroupResponse**](WorkPlanBidGroupResponse) PostWorkforcemanagementBusinessunitWorkplanbidGroups (string businessUnitId, string bidId, WorkPlanBidGroupCreate body = null)
+> [**WorkPlanBidGroupResponse**](WorkPlanBidGroupResponse) PostWorkforcemanagementBusinessunitWorkplanbidGroups (string businessUnitId, string bidId, WorkPlanBidGroupCreate body)
 
 
 Add a bid group in a given work plan bid
@@ -13450,7 +15096,7 @@ namespace Example
             var apiInstance = new WorkforceManagementApi();
             var businessUnitId = businessUnitId_example;  // string | The ID of the business unit
             var bidId = bidId_example;  // string | The work plan bid id of the bid groups
-            var body = new WorkPlanBidGroupCreate(); // WorkPlanBidGroupCreate | body (optional) 
+            var body = new WorkPlanBidGroupCreate(); // WorkPlanBidGroupCreate | body
 
             try
             { 
@@ -13474,7 +15120,7 @@ namespace Example
 |------------- | ------------- | ------------- | -------------|
 | **businessUnitId** | **string**| The ID of the business unit |  |
 | **bidId** | **string**| The work plan bid id of the bid groups |  |
-| **body** | [**WorkPlanBidGroupCreate**](WorkPlanBidGroupCreate)| body | [optional]  |
+| **body** | [**WorkPlanBidGroupCreate**](WorkPlanBidGroupCreate)| body |  |
 
 ### Return type
 
@@ -13483,7 +15129,7 @@ namespace Example
 
 ## PostWorkforcemanagementBusinessunitWorkplanbids
 
-> [**WorkPlanBid**](WorkPlanBid) PostWorkforcemanagementBusinessunitWorkplanbids (string businessUnitId, CreateWorkPlanBid body = null)
+> [**WorkPlanBid**](WorkPlanBid) PostWorkforcemanagementBusinessunitWorkplanbids (string businessUnitId, CreateWorkPlanBid body)
 
 
 Create a new work plan bid
@@ -13515,7 +15161,7 @@ namespace Example
 
             var apiInstance = new WorkforceManagementApi();
             var businessUnitId = businessUnitId_example;  // string | The ID of the business unit
-            var body = new CreateWorkPlanBid(); // CreateWorkPlanBid | The work plan bid to be created (optional) 
+            var body = new CreateWorkPlanBid(); // CreateWorkPlanBid | The work plan bid to be created
 
             try
             { 
@@ -13538,7 +15184,7 @@ namespace Example
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **businessUnitId** | **string**| The ID of the business unit |  |
-| **body** | [**CreateWorkPlanBid**](CreateWorkPlanBid)| The work plan bid to be created | [optional]  |
+| **body** | [**CreateWorkPlanBid**](CreateWorkPlanBid)| The work plan bid to be created |  |
 
 ### Return type
 
@@ -13547,7 +15193,7 @@ namespace Example
 
 ## PostWorkforcemanagementBusinessunits
 
-> [**BusinessUnitResponse**](BusinessUnitResponse) PostWorkforcemanagementBusinessunits (CreateBusinessUnitRequest body = null)
+> [**BusinessUnitResponse**](BusinessUnitResponse) PostWorkforcemanagementBusinessunits (CreateBusinessUnitRequest body, bool? includeSchedulingDefaultMessageSeverities = null)
 
 
 Add a new business unit
@@ -13580,12 +15226,13 @@ namespace Example
                 "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
 
             var apiInstance = new WorkforceManagementApi();
-            var body = new CreateBusinessUnitRequest(); // CreateBusinessUnitRequest | body (optional) 
+            var body = new CreateBusinessUnitRequest(); // CreateBusinessUnitRequest | body
+            var includeSchedulingDefaultMessageSeverities = true;  // bool? | Whether to include scheduling default message severities (optional) 
 
             try
             { 
                 // Add a new business unit
-                BusinessUnitResponse result = apiInstance.PostWorkforcemanagementBusinessunits(body);
+                BusinessUnitResponse result = apiInstance.PostWorkforcemanagementBusinessunits(body, includeSchedulingDefaultMessageSeverities);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -13602,7 +15249,8 @@ namespace Example
 
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **body** | [**CreateBusinessUnitRequest**](CreateBusinessUnitRequest)| body | [optional]  |
+| **body** | [**CreateBusinessUnitRequest**](CreateBusinessUnitRequest)| body |  |
+| **includeSchedulingDefaultMessageSeverities** | **bool?**| Whether to include scheduling default message severities | [optional]  |
 
 ### Return type
 
@@ -13674,7 +15322,7 @@ namespace Example
 
 ## PostWorkforcemanagementHistoricaldataBulkRemoveJobs
 
-> [**HistoricalImportDeleteFilesJobResponse**](HistoricalImportDeleteFilesJobResponse) PostWorkforcemanagementHistoricaldataBulkRemoveJobs (HistoricalImportDeleteFilesJobRequest body = null)
+> [**HistoricalImportDeleteFilesJobResponse**](HistoricalImportDeleteFilesJobResponse) PostWorkforcemanagementHistoricaldataBulkRemoveJobs (HistoricalImportDeleteFilesJobRequest body)
 
 
 Delete the list of the historical data import entries
@@ -13705,7 +15353,7 @@ namespace Example
                 "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
 
             var apiInstance = new WorkforceManagementApi();
-            var body = new HistoricalImportDeleteFilesJobRequest(); // HistoricalImportDeleteFilesJobRequest | body (optional) 
+            var body = new HistoricalImportDeleteFilesJobRequest(); // HistoricalImportDeleteFilesJobRequest | body
 
             try
             { 
@@ -13727,73 +15375,16 @@ namespace Example
 
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **body** | [**HistoricalImportDeleteFilesJobRequest**](HistoricalImportDeleteFilesJobRequest)| body | [optional]  |
+| **body** | [**HistoricalImportDeleteFilesJobRequest**](HistoricalImportDeleteFilesJobRequest)| body |  |
 
 ### Return type
 
 [**HistoricalImportDeleteFilesJobResponse**](HistoricalImportDeleteFilesJobResponse)
 
 
-## PostWorkforcemanagementHistoricaldataDeletejob
-
-> [**HistoricalImportDeleteJobResponse**](HistoricalImportDeleteJobResponse) PostWorkforcemanagementHistoricaldataDeletejob ()
-
-
-Delete the entries of the historical data imports in the organization
-
-Requires ALL permissions: 
-
-* wfm:historicalData:upload
-
-### Example
-```{"language":"csharp"}
-using System;
-using System.Diagnostics;
-using PureCloudPlatform.Client.V2.Api;
-using PureCloudPlatform.Client.V2.Client;
-using PureCloudPlatform.Client.V2.Model;
-
-namespace Example
-{
-    public class PostWorkforcemanagementHistoricaldataDeletejobExample
-    {
-        public void main()
-        { 
-            // Configure OAuth2 access token for authorization: PureCloud OAuth
-            // The following example is using the Authorization Code Grant
-            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
-                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
-                "http://redirecturi.com/",
-                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
-
-            var apiInstance = new WorkforceManagementApi();
-
-            try
-            { 
-                // Delete the entries of the historical data imports in the organization
-                HistoricalImportDeleteJobResponse result = apiInstance.PostWorkforcemanagementHistoricaldataDeletejob();
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling WorkforceManagementApi.PostWorkforcemanagementHistoricaldataDeletejob: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-This endpoint does require any parameters.
-
-### Return type
-
-[**HistoricalImportDeleteJobResponse**](HistoricalImportDeleteJobResponse)
-
-
 ## PostWorkforcemanagementHistoricaldataValidate
 
-> [**ValidationServiceAsyncResponse**](ValidationServiceAsyncResponse) PostWorkforcemanagementHistoricaldataValidate (ValidationServiceRequest body = null)
+> [**ValidationServiceAsyncResponse**](ValidationServiceAsyncResponse) PostWorkforcemanagementHistoricaldataValidate (ValidationServiceRequest body)
 
 
 Trigger validation process for historical import
@@ -13824,7 +15415,7 @@ namespace Example
                 "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
 
             var apiInstance = new WorkforceManagementApi();
-            var body = new ValidationServiceRequest(); // ValidationServiceRequest | body (optional) 
+            var body = new ValidationServiceRequest(); // ValidationServiceRequest | body
 
             try
             { 
@@ -13846,7 +15437,7 @@ namespace Example
 
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **body** | [**ValidationServiceRequest**](ValidationServiceRequest)| body | [optional]  |
+| **body** | [**ValidationServiceRequest**](ValidationServiceRequest)| body |  |
 
 ### Return type
 
@@ -13917,7 +15508,7 @@ namespace Example
 
 ## PostWorkforcemanagementManagementunitAgentsWorkplansQuery
 
-> [**AgentsWorkPlansResponse**](AgentsWorkPlansResponse) PostWorkforcemanagementManagementunitAgentsWorkplansQuery (string managementUnitId, bool? forceDownloadService = null, GetAgentsWorkPlansRequest body = null)
+> [**AgentsWorkPlansResponse**](AgentsWorkPlansResponse) PostWorkforcemanagementManagementunitAgentsWorkplansQuery (string managementUnitId, GetAgentsWorkPlansRequest body, bool? forceDownloadService = null)
 
 
 Get agents work plans configuration
@@ -13949,13 +15540,13 @@ namespace Example
 
             var apiInstance = new WorkforceManagementApi();
             var managementUnitId = managementUnitId_example;  // string | The ID of the management unit, or 'mine' for the management unit of the logged-in user.
+            var body = new GetAgentsWorkPlansRequest(); // GetAgentsWorkPlansRequest | body
             var forceDownloadService = true;  // bool? | Force the result of this operation to be sent via download service. For testing/app development purposes (optional) 
-            var body = new GetAgentsWorkPlansRequest(); // GetAgentsWorkPlansRequest | body (optional) 
 
             try
             { 
                 // Get agents work plans configuration
-                AgentsWorkPlansResponse result = apiInstance.PostWorkforcemanagementManagementunitAgentsWorkplansQuery(managementUnitId, forceDownloadService, body);
+                AgentsWorkPlansResponse result = apiInstance.PostWorkforcemanagementManagementunitAgentsWorkplansQuery(managementUnitId, body, forceDownloadService);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -13973,8 +15564,8 @@ namespace Example
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **managementUnitId** | **string**| The ID of the management unit, or &#39;mine&#39; for the management unit of the logged-in user. |  |
+| **body** | [**GetAgentsWorkPlansRequest**](GetAgentsWorkPlansRequest)| body |  |
 | **forceDownloadService** | **bool?**| Force the result of this operation to be sent via download service. For testing/app development purposes | [optional]  |
-| **body** | [**GetAgentsWorkPlansRequest**](GetAgentsWorkPlansRequest)| body | [optional]  |
 
 ### Return type
 
@@ -13983,7 +15574,7 @@ namespace Example
 
 ## PostWorkforcemanagementManagementunitAgentschedulesSearch
 
-> [**BuAsyncAgentSchedulesSearchResponse**](BuAsyncAgentSchedulesSearchResponse) PostWorkforcemanagementManagementunitAgentschedulesSearch (string managementUnitId, bool? forceAsync = null, bool? forceDownloadService = null, BuSearchAgentSchedulesRequest body = null)
+> [**BuAsyncAgentSchedulesSearchResponse**](BuAsyncAgentSchedulesSearchResponse) PostWorkforcemanagementManagementunitAgentschedulesSearch (string managementUnitId, BuSearchAgentSchedulesRequest body, bool? forceAsync = null, bool? forceDownloadService = null)
 
 
 Query published schedules for given given time range for set of users
@@ -14016,14 +15607,14 @@ namespace Example
 
             var apiInstance = new WorkforceManagementApi();
             var managementUnitId = managementUnitId_example;  // string | The ID of the management unit, or 'mine' for the management unit of the logged-in user.
+            var body = new BuSearchAgentSchedulesRequest(); // BuSearchAgentSchedulesRequest | body
             var forceAsync = true;  // bool? | Force the result of this operation to be sent asynchronously via notification. For testing/app development purposes (optional) 
             var forceDownloadService = true;  // bool? | Force the result of this operation to be sent via download service. For testing/app development purposes (optional) 
-            var body = new BuSearchAgentSchedulesRequest(); // BuSearchAgentSchedulesRequest | body (optional) 
 
             try
             { 
                 // Query published schedules for given given time range for set of users
-                BuAsyncAgentSchedulesSearchResponse result = apiInstance.PostWorkforcemanagementManagementunitAgentschedulesSearch(managementUnitId, forceAsync, forceDownloadService, body);
+                BuAsyncAgentSchedulesSearchResponse result = apiInstance.PostWorkforcemanagementManagementunitAgentschedulesSearch(managementUnitId, body, forceAsync, forceDownloadService);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -14041,9 +15632,9 @@ namespace Example
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **managementUnitId** | **string**| The ID of the management unit, or &#39;mine&#39; for the management unit of the logged-in user. |  |
+| **body** | [**BuSearchAgentSchedulesRequest**](BuSearchAgentSchedulesRequest)| body |  |
 | **forceAsync** | **bool?**| Force the result of this operation to be sent asynchronously via notification. For testing/app development purposes | [optional]  |
 | **forceDownloadService** | **bool?**| Force the result of this operation to be sent via download service. For testing/app development purposes | [optional]  |
-| **body** | [**BuSearchAgentSchedulesRequest**](BuSearchAgentSchedulesRequest)| body | [optional]  |
 
 ### Return type
 
@@ -14052,7 +15643,7 @@ namespace Example
 
 ## PostWorkforcemanagementManagementunitHistoricaladherencequery
 
-> [**WfmHistoricalAdherenceResponse**](WfmHistoricalAdherenceResponse) PostWorkforcemanagementManagementunitHistoricaladherencequery (string managementUnitId, WfmHistoricalAdherenceQuery body = null)
+> [**WfmHistoricalAdherenceResponse**](WfmHistoricalAdherenceResponse) PostWorkforcemanagementManagementunitHistoricaladherencequery (string managementUnitId, WfmHistoricalAdherenceQuery body)
 
 
 Request a historical adherence report
@@ -14086,7 +15677,7 @@ namespace Example
 
             var apiInstance = new WorkforceManagementApi();
             var managementUnitId = managementUnitId_example;  // string | The ID of the management unit
-            var body = new WfmHistoricalAdherenceQuery(); // WfmHistoricalAdherenceQuery | body (optional) 
+            var body = new WfmHistoricalAdherenceQuery(); // WfmHistoricalAdherenceQuery | body
 
             try
             { 
@@ -14109,7 +15700,7 @@ namespace Example
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **managementUnitId** | **string**| The ID of the management unit |  |
-| **body** | [**WfmHistoricalAdherenceQuery**](WfmHistoricalAdherenceQuery)| body | [optional]  |
+| **body** | [**WfmHistoricalAdherenceQuery**](WfmHistoricalAdherenceQuery)| body |  |
 
 ### Return type
 
@@ -14118,7 +15709,7 @@ namespace Example
 
 ## PostWorkforcemanagementManagementunitMove
 
-> [**MoveManagementUnitResponse**](MoveManagementUnitResponse) PostWorkforcemanagementManagementunitMove (string managementUnitId, MoveManagementUnitRequest body = null)
+> [**MoveManagementUnitResponse**](MoveManagementUnitResponse) PostWorkforcemanagementManagementunitMove (string managementUnitId, MoveManagementUnitRequest body)
 
 
 Move the requested management unit to a new business unit
@@ -14152,7 +15743,7 @@ namespace Example
 
             var apiInstance = new WorkforceManagementApi();
             var managementUnitId = managementUnitId_example;  // string | The ID of the management unit, or 'mine' for the management unit of the logged-in user.
-            var body = new MoveManagementUnitRequest(); // MoveManagementUnitRequest | body (optional) 
+            var body = new MoveManagementUnitRequest(); // MoveManagementUnitRequest | body
 
             try
             { 
@@ -14175,7 +15766,7 @@ namespace Example
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **managementUnitId** | **string**| The ID of the management unit, or &#39;mine&#39; for the management unit of the logged-in user. |  |
-| **body** | [**MoveManagementUnitRequest**](MoveManagementUnitRequest)| body | [optional]  |
+| **body** | [**MoveManagementUnitRequest**](MoveManagementUnitRequest)| body |  |
 
 ### Return type
 
@@ -14184,7 +15775,7 @@ namespace Example
 
 ## PostWorkforcemanagementManagementunitSchedulesSearch
 
-> [**UserScheduleContainer**](UserScheduleContainer) PostWorkforcemanagementManagementunitSchedulesSearch (string managementUnitId, UserListScheduleRequestBody body = null)
+> [**UserScheduleContainer**](UserScheduleContainer) PostWorkforcemanagementManagementunitSchedulesSearch (string managementUnitId, UserListScheduleRequestBody body)
 
 :::{"alert":"warning","title":"Deprecated","collapsible":false,"autoCollapse":false}
 This resource has been deprecated
@@ -14220,7 +15811,7 @@ namespace Example
 
             var apiInstance = new WorkforceManagementApi();
             var managementUnitId = managementUnitId_example;  // string | The ID of the management unit, or 'mine' for the management unit of the logged-in user.
-            var body = new UserListScheduleRequestBody(); // UserListScheduleRequestBody | body (optional) 
+            var body = new UserListScheduleRequestBody(); // UserListScheduleRequestBody | body
 
             try
             { 
@@ -14243,7 +15834,7 @@ namespace Example
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **managementUnitId** | **string**| The ID of the management unit, or &#39;mine&#39; for the management unit of the logged-in user. |  |
-| **body** | [**UserListScheduleRequestBody**](UserListScheduleRequestBody)| body | [optional]  |
+| **body** | [**UserListScheduleRequestBody**](UserListScheduleRequestBody)| body |  |
 
 ### Return type
 
@@ -14252,7 +15843,7 @@ namespace Example
 
 ## PostWorkforcemanagementManagementunitShrinkageJobs
 
-> [**WfmHistoricalShrinkageResponse**](WfmHistoricalShrinkageResponse) PostWorkforcemanagementManagementunitShrinkageJobs (string managementUnitId, WfmHistoricalShrinkageRequest body = null)
+> [**WfmHistoricalShrinkageResponse**](WfmHistoricalShrinkageResponse) PostWorkforcemanagementManagementunitShrinkageJobs (string managementUnitId, WfmHistoricalShrinkageRequest body)
 
 
 Request a historical shrinkage report
@@ -14286,7 +15877,7 @@ namespace Example
 
             var apiInstance = new WorkforceManagementApi();
             var managementUnitId = managementUnitId_example;  // string | The ID of the management unit
-            var body = new WfmHistoricalShrinkageRequest(); // WfmHistoricalShrinkageRequest | body (optional) 
+            var body = new WfmHistoricalShrinkageRequest(); // WfmHistoricalShrinkageRequest | body
 
             try
             { 
@@ -14309,7 +15900,7 @@ namespace Example
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **managementUnitId** | **string**| The ID of the management unit |  |
-| **body** | [**WfmHistoricalShrinkageRequest**](WfmHistoricalShrinkageRequest)| body | [optional]  |
+| **body** | [**WfmHistoricalShrinkageRequest**](WfmHistoricalShrinkageRequest)| body |  |
 
 ### Return type
 
@@ -14318,7 +15909,7 @@ namespace Example
 
 ## PostWorkforcemanagementManagementunitTimeofflimits
 
-> [**TimeOffLimit**](TimeOffLimit) PostWorkforcemanagementManagementunitTimeofflimits (string managementUnitId, CreateTimeOffLimitRequest body = null)
+> [**TimeOffLimit**](TimeOffLimit) PostWorkforcemanagementManagementunitTimeofflimits (string managementUnitId, CreateTimeOffLimitRequest body)
 
 
 Creates a new time off limit object under management unit.
@@ -14352,7 +15943,7 @@ namespace Example
 
             var apiInstance = new WorkforceManagementApi();
             var managementUnitId = managementUnitId_example;  // string | The ID of the management unit.
-            var body = new CreateTimeOffLimitRequest(); // CreateTimeOffLimitRequest | body (optional) 
+            var body = new CreateTimeOffLimitRequest(); // CreateTimeOffLimitRequest | body
 
             try
             { 
@@ -14375,7 +15966,7 @@ namespace Example
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **managementUnitId** | **string**| The ID of the management unit. |  |
-| **body** | [**CreateTimeOffLimitRequest**](CreateTimeOffLimitRequest)| body | [optional]  |
+| **body** | [**CreateTimeOffLimitRequest**](CreateTimeOffLimitRequest)| body |  |
 
 ### Return type
 
@@ -14384,7 +15975,7 @@ namespace Example
 
 ## PostWorkforcemanagementManagementunitTimeofflimitsValuesQuery
 
-> [**QueryTimeOffLimitValuesResponse**](QueryTimeOffLimitValuesResponse) PostWorkforcemanagementManagementunitTimeofflimitsValuesQuery (string managementUnitId, QueryTimeOffLimitValuesRequest body = null)
+> [**QueryTimeOffLimitValuesResponse**](QueryTimeOffLimitValuesResponse) PostWorkforcemanagementManagementunitTimeofflimitsValuesQuery (string managementUnitId, QueryTimeOffLimitValuesRequest body)
 
 
 Retrieves time off limit related values based on a given set of filters.
@@ -14416,7 +16007,7 @@ namespace Example
 
             var apiInstance = new WorkforceManagementApi();
             var managementUnitId = managementUnitId_example;  // string | The ID of the management unit.
-            var body = new QueryTimeOffLimitValuesRequest(); // QueryTimeOffLimitValuesRequest | body (optional) 
+            var body = new QueryTimeOffLimitValuesRequest(); // QueryTimeOffLimitValuesRequest | body
 
             try
             { 
@@ -14439,7 +16030,7 @@ namespace Example
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **managementUnitId** | **string**| The ID of the management unit. |  |
-| **body** | [**QueryTimeOffLimitValuesRequest**](QueryTimeOffLimitValuesRequest)| body | [optional]  |
+| **body** | [**QueryTimeOffLimitValuesRequest**](QueryTimeOffLimitValuesRequest)| body |  |
 
 ### Return type
 
@@ -14448,7 +16039,7 @@ namespace Example
 
 ## PostWorkforcemanagementManagementunitTimeoffplans
 
-> [**TimeOffPlan**](TimeOffPlan) PostWorkforcemanagementManagementunitTimeoffplans (string managementUnitId, CreateTimeOffPlanRequest body = null)
+> [**TimeOffPlan**](TimeOffPlan) PostWorkforcemanagementManagementunitTimeoffplans (string managementUnitId, CreateTimeOffPlanRequest body)
 
 
 Creates a new time off plan
@@ -14480,7 +16071,7 @@ namespace Example
 
             var apiInstance = new WorkforceManagementApi();
             var managementUnitId = managementUnitId_example;  // string | The ID of the management unit
-            var body = new CreateTimeOffPlanRequest(); // CreateTimeOffPlanRequest | body (optional) 
+            var body = new CreateTimeOffPlanRequest(); // CreateTimeOffPlanRequest | body
 
             try
             { 
@@ -14503,7 +16094,7 @@ namespace Example
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **managementUnitId** | **string**| The ID of the management unit |  |
-| **body** | [**CreateTimeOffPlanRequest**](CreateTimeOffPlanRequest)| body | [optional]  |
+| **body** | [**CreateTimeOffPlanRequest**](CreateTimeOffPlanRequest)| body |  |
 
 ### Return type
 
@@ -14512,7 +16103,7 @@ namespace Example
 
 ## PostWorkforcemanagementManagementunitTimeoffrequests
 
-> [**TimeOffRequestList**](TimeOffRequestList) PostWorkforcemanagementManagementunitTimeoffrequests (string managementUnitId, CreateAdminTimeOffRequest body = null)
+> [**TimeOffRequestList**](TimeOffRequestList) PostWorkforcemanagementManagementunitTimeoffrequests (string managementUnitId, CreateAdminTimeOffRequest body)
 
 
 Create a new time off request
@@ -14544,7 +16135,7 @@ namespace Example
 
             var apiInstance = new WorkforceManagementApi();
             var managementUnitId = managementUnitId_example;  // string | The ID of the management unit, or 'mine' for the management unit of the logged-in user.
-            var body = new CreateAdminTimeOffRequest(); // CreateAdminTimeOffRequest | body (optional) 
+            var body = new CreateAdminTimeOffRequest(); // CreateAdminTimeOffRequest | body
 
             try
             { 
@@ -14567,7 +16158,7 @@ namespace Example
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **managementUnitId** | **string**| The ID of the management unit, or &#39;mine&#39; for the management unit of the logged-in user. |  |
-| **body** | [**CreateAdminTimeOffRequest**](CreateAdminTimeOffRequest)| body | [optional]  |
+| **body** | [**CreateAdminTimeOffRequest**](CreateAdminTimeOffRequest)| body |  |
 
 ### Return type
 
@@ -14576,7 +16167,7 @@ namespace Example
 
 ## PostWorkforcemanagementManagementunitTimeoffrequestsIntegrationstatusQuery
 
-> [**UserTimeOffIntegrationStatusResponseListing**](UserTimeOffIntegrationStatusResponseListing) PostWorkforcemanagementManagementunitTimeoffrequestsIntegrationstatusQuery (string managementUnitId, QueryTimeOffIntegrationStatusRequest body = null)
+> [**UserTimeOffIntegrationStatusResponseListing**](UserTimeOffIntegrationStatusResponseListing) PostWorkforcemanagementManagementunitTimeoffrequestsIntegrationstatusQuery (string managementUnitId, QueryTimeOffIntegrationStatusRequest body)
 
 
 Retrieves integration statuses for a list of time off requests
@@ -14608,7 +16199,7 @@ namespace Example
 
             var apiInstance = new WorkforceManagementApi();
             var managementUnitId = managementUnitId_example;  // string | The ID of the management unit.
-            var body = new QueryTimeOffIntegrationStatusRequest(); // QueryTimeOffIntegrationStatusRequest | body (optional) 
+            var body = new QueryTimeOffIntegrationStatusRequest(); // QueryTimeOffIntegrationStatusRequest | body
 
             try
             { 
@@ -14631,7 +16222,7 @@ namespace Example
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **managementUnitId** | **string**| The ID of the management unit. |  |
-| **body** | [**QueryTimeOffIntegrationStatusRequest**](QueryTimeOffIntegrationStatusRequest)| body | [optional]  |
+| **body** | [**QueryTimeOffIntegrationStatusRequest**](QueryTimeOffIntegrationStatusRequest)| body |  |
 
 ### Return type
 
@@ -14640,12 +16231,12 @@ namespace Example
 
 ## PostWorkforcemanagementManagementunitTimeoffrequestsQuery
 
-> [**TimeOffRequestListing**](TimeOffRequestListing) PostWorkforcemanagementManagementunitTimeoffrequestsQuery (string managementUnitId, bool? forceDownloadService = null, TimeOffRequestQueryBody body = null)
+> [**TimeOffRequestListing**](TimeOffRequestListing) PostWorkforcemanagementManagementunitTimeoffrequestsQuery (string managementUnitId, TimeOffRequestQueryBody body, bool? forceDownloadService = null)
 
 
 Fetches time off requests matching the conditions specified in the request body
 
-Request body requires one of the following: User ID is specified, statuses == [Pending] or date range to be specified and less than or equal to 33 days.  All other fields are filters
+Request body requires one of the following: statuses == [Pending] or date range to be specified and less than or equal to 33 days. All other fields are filters
 
 Requires ANY permissions: 
 
@@ -14674,13 +16265,13 @@ namespace Example
 
             var apiInstance = new WorkforceManagementApi();
             var managementUnitId = managementUnitId_example;  // string | The ID of the management unit, or 'mine' for the management unit of the logged-in user.
+            var body = new TimeOffRequestQueryBody(); // TimeOffRequestQueryBody | body
             var forceDownloadService = true;  // bool? | Force the result of this operation to be sent via download service. For testing/app development purposes (optional) 
-            var body = new TimeOffRequestQueryBody(); // TimeOffRequestQueryBody | body (optional) 
 
             try
             { 
                 // Fetches time off requests matching the conditions specified in the request body
-                TimeOffRequestListing result = apiInstance.PostWorkforcemanagementManagementunitTimeoffrequestsQuery(managementUnitId, forceDownloadService, body);
+                TimeOffRequestListing result = apiInstance.PostWorkforcemanagementManagementunitTimeoffrequestsQuery(managementUnitId, body, forceDownloadService);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -14698,8 +16289,8 @@ namespace Example
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **managementUnitId** | **string**| The ID of the management unit, or &#39;mine&#39; for the management unit of the logged-in user. |  |
+| **body** | [**TimeOffRequestQueryBody**](TimeOffRequestQueryBody)| body |  |
 | **forceDownloadService** | **bool?**| Force the result of this operation to be sent via download service. For testing/app development purposes | [optional]  |
-| **body** | [**TimeOffRequestQueryBody**](TimeOffRequestQueryBody)| body | [optional]  |
 
 ### Return type
 
@@ -14708,7 +16299,7 @@ namespace Example
 
 ## PostWorkforcemanagementManagementunitTimeoffrequestsWaitlistpositionsQuery
 
-> [**WaitlistPositionListing**](WaitlistPositionListing) PostWorkforcemanagementManagementunitTimeoffrequestsWaitlistpositionsQuery (string managementUnitId, QueryWaitlistPositionsRequest body = null)
+> [**WaitlistPositionListing**](WaitlistPositionListing) PostWorkforcemanagementManagementunitTimeoffrequestsWaitlistpositionsQuery (string managementUnitId, QueryWaitlistPositionsRequest body)
 
 
 Retrieves daily waitlist position for a list of time off requests
@@ -14740,7 +16331,7 @@ namespace Example
 
             var apiInstance = new WorkforceManagementApi();
             var managementUnitId = managementUnitId_example;  // string | The ID of the management unit.
-            var body = new QueryWaitlistPositionsRequest(); // QueryWaitlistPositionsRequest | body (optional) 
+            var body = new QueryWaitlistPositionsRequest(); // QueryWaitlistPositionsRequest | body
 
             try
             { 
@@ -14763,7 +16354,7 @@ namespace Example
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **managementUnitId** | **string**| The ID of the management unit. |  |
-| **body** | [**QueryWaitlistPositionsRequest**](QueryWaitlistPositionsRequest)| body | [optional]  |
+| **body** | [**QueryWaitlistPositionsRequest**](QueryWaitlistPositionsRequest)| body |  |
 
 ### Return type
 
@@ -14904,7 +16495,7 @@ namespace Example
 
 ## PostWorkforcemanagementManagementunitUserTimeoffrequestsEstimate
 
-> [**EstimateAvailableTimeOffResponse**](EstimateAvailableTimeOffResponse) PostWorkforcemanagementManagementunitUserTimeoffrequestsEstimate (string managementUnitId, string userId, EstimateAvailableTimeOffRequest body = null)
+> [**EstimateAvailableTimeOffResponse**](EstimateAvailableTimeOffResponse) PostWorkforcemanagementManagementunitUserTimeoffrequestsEstimate (string managementUnitId, string userId, EstimateAvailableTimeOffRequest body)
 
 
 Estimates available time off for an agent
@@ -14937,7 +16528,7 @@ namespace Example
             var apiInstance = new WorkforceManagementApi();
             var managementUnitId = managementUnitId_example;  // string | The ID of the management unit
             var userId = userId_example;  // string | The id of the user for whom the time off request estimate is requested
-            var body = new EstimateAvailableTimeOffRequest(); // EstimateAvailableTimeOffRequest | body (optional) 
+            var body = new EstimateAvailableTimeOffRequest(); // EstimateAvailableTimeOffRequest | body
 
             try
             { 
@@ -14961,7 +16552,7 @@ namespace Example
 |------------- | ------------- | ------------- | -------------|
 | **managementUnitId** | **string**| The ID of the management unit |  |
 | **userId** | **string**| The id of the user for whom the time off request estimate is requested |  |
-| **body** | [**EstimateAvailableTimeOffRequest**](EstimateAvailableTimeOffRequest)| body | [optional]  |
+| **body** | [**EstimateAvailableTimeOffRequest**](EstimateAvailableTimeOffRequest)| body |  |
 
 ### Return type
 
@@ -15243,7 +16834,7 @@ namespace Example
 
 ## PostWorkforcemanagementManagementunitWorkplanCopy
 
-> [**WorkPlan**](WorkPlan) PostWorkforcemanagementManagementunitWorkplanCopy (string managementUnitId, string workPlanId, CopyWorkPlan body = null)
+> [**WorkPlan**](WorkPlan) PostWorkforcemanagementManagementunitWorkplanCopy (string managementUnitId, string workPlanId, CopyWorkPlan body)
 
 
 Create a copy of work plan
@@ -15276,7 +16867,7 @@ namespace Example
             var apiInstance = new WorkforceManagementApi();
             var managementUnitId = managementUnitId_example;  // string | The ID of the management unit, or 'mine' for the management unit of the logged-in user.
             var workPlanId = workPlanId_example;  // string | The ID of the work plan to create a copy
-            var body = new CopyWorkPlan(); // CopyWorkPlan | body (optional) 
+            var body = new CopyWorkPlan(); // CopyWorkPlan | body
 
             try
             { 
@@ -15300,7 +16891,7 @@ namespace Example
 |------------- | ------------- | ------------- | -------------|
 | **managementUnitId** | **string**| The ID of the management unit, or &#39;mine&#39; for the management unit of the logged-in user. |  |
 | **workPlanId** | **string**| The ID of the work plan to create a copy |  |
-| **body** | [**CopyWorkPlan**](CopyWorkPlan)| body | [optional]  |
+| **body** | [**CopyWorkPlan**](CopyWorkPlan)| body |  |
 
 ### Return type
 
@@ -15309,7 +16900,7 @@ namespace Example
 
 ## PostWorkforcemanagementManagementunitWorkplanValidate
 
-> [**ValidateWorkPlanResponse**](ValidateWorkPlanResponse) PostWorkforcemanagementManagementunitWorkplanValidate (string managementUnitId, string workPlanId, List<string> expand = null, WorkPlanValidationRequest body = null)
+> [**ValidateWorkPlanResponse**](ValidateWorkPlanResponse) PostWorkforcemanagementManagementunitWorkplanValidate (string managementUnitId, string workPlanId, WorkPlanValidationRequest body, List<string> expand = null)
 
 
 Validate Work Plan
@@ -15343,13 +16934,13 @@ namespace Example
             var apiInstance = new WorkforceManagementApi();
             var managementUnitId = managementUnitId_example;  // string | The ID of the management unit, or 'mine' for the management unit of the logged-in user.
             var workPlanId = workPlanId_example;  // string | The ID of the work plan to validate. For new work plan, use the word 'new' for the ID.
+            var body = new WorkPlanValidationRequest(); // WorkPlanValidationRequest | body
             var expand = new List<string>(); // List<string> |  (optional) 
-            var body = new WorkPlanValidationRequest(); // WorkPlanValidationRequest | body (optional) 
 
             try
             { 
                 // Validate Work Plan
-                ValidateWorkPlanResponse result = apiInstance.PostWorkforcemanagementManagementunitWorkplanValidate(managementUnitId, workPlanId, expand, body);
+                ValidateWorkPlanResponse result = apiInstance.PostWorkforcemanagementManagementunitWorkplanValidate(managementUnitId, workPlanId, body, expand);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -15368,8 +16959,8 @@ namespace Example
 |------------- | ------------- | ------------- | -------------|
 | **managementUnitId** | **string**| The ID of the management unit, or &#39;mine&#39; for the management unit of the logged-in user. |  |
 | **workPlanId** | **string**| The ID of the work plan to validate. For new work plan, use the word &#39;new&#39; for the ID. |  |
+| **body** | [**WorkPlanValidationRequest**](WorkPlanValidationRequest)| body |  |
 | **expand** | [**List<string>**](string)|  | [optional] <br />**Values**: messages |
-| **body** | [**WorkPlanValidationRequest**](WorkPlanValidationRequest)| body | [optional]  |
 
 ### Return type
 
@@ -15378,7 +16969,7 @@ namespace Example
 
 ## PostWorkforcemanagementManagementunitWorkplanrotationCopy
 
-> [**WorkPlanRotationResponse**](WorkPlanRotationResponse) PostWorkforcemanagementManagementunitWorkplanrotationCopy (string managementUnitId, string workPlanRotationId, CopyWorkPlanRotationRequest body = null)
+> [**WorkPlanRotationResponse**](WorkPlanRotationResponse) PostWorkforcemanagementManagementunitWorkplanrotationCopy (string managementUnitId, string workPlanRotationId, CopyWorkPlanRotationRequest body)
 
 
 Create a copy of work plan rotation
@@ -15411,7 +17002,7 @@ namespace Example
             var apiInstance = new WorkforceManagementApi();
             var managementUnitId = managementUnitId_example;  // string | The ID of the management unit, or 'mine' for the management unit of the logged-in user.
             var workPlanRotationId = workPlanRotationId_example;  // string | The ID of the work plan rotation to create a copy
-            var body = new CopyWorkPlanRotationRequest(); // CopyWorkPlanRotationRequest | body (optional) 
+            var body = new CopyWorkPlanRotationRequest(); // CopyWorkPlanRotationRequest | body
 
             try
             { 
@@ -15435,7 +17026,7 @@ namespace Example
 |------------- | ------------- | ------------- | -------------|
 | **managementUnitId** | **string**| The ID of the management unit, or &#39;mine&#39; for the management unit of the logged-in user. |  |
 | **workPlanRotationId** | **string**| The ID of the work plan rotation to create a copy |  |
-| **body** | [**CopyWorkPlanRotationRequest**](CopyWorkPlanRotationRequest)| body | [optional]  |
+| **body** | [**CopyWorkPlanRotationRequest**](CopyWorkPlanRotationRequest)| body |  |
 
 ### Return type
 
@@ -15444,7 +17035,7 @@ namespace Example
 
 ## PostWorkforcemanagementManagementunitWorkplanrotations
 
-> [**WorkPlanRotationResponse**](WorkPlanRotationResponse) PostWorkforcemanagementManagementunitWorkplanrotations (string managementUnitId, AddWorkPlanRotationRequest body = null)
+> [**WorkPlanRotationResponse**](WorkPlanRotationResponse) PostWorkforcemanagementManagementunitWorkplanrotations (string managementUnitId, AddWorkPlanRotationRequest body)
 
 
 Create a new work plan rotation
@@ -15476,7 +17067,7 @@ namespace Example
 
             var apiInstance = new WorkforceManagementApi();
             var managementUnitId = managementUnitId_example;  // string | The ID of the management unit, or 'mine' for the management unit of the logged-in user.
-            var body = new AddWorkPlanRotationRequest(); // AddWorkPlanRotationRequest | body (optional) 
+            var body = new AddWorkPlanRotationRequest(); // AddWorkPlanRotationRequest | body
 
             try
             { 
@@ -15499,7 +17090,7 @@ namespace Example
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **managementUnitId** | **string**| The ID of the management unit, or &#39;mine&#39; for the management unit of the logged-in user. |  |
-| **body** | [**AddWorkPlanRotationRequest**](AddWorkPlanRotationRequest)| body | [optional]  |
+| **body** | [**AddWorkPlanRotationRequest**](AddWorkPlanRotationRequest)| body |  |
 
 ### Return type
 
@@ -15508,7 +17099,7 @@ namespace Example
 
 ## PostWorkforcemanagementManagementunitWorkplans
 
-> [**WorkPlan**](WorkPlan) PostWorkforcemanagementManagementunitWorkplans (string managementUnitId, string validationMode = null, CreateWorkPlan body = null)
+> [**WorkPlan**](WorkPlan) PostWorkforcemanagementManagementunitWorkplans (string managementUnitId, CreateWorkPlan body, string validationMode = null)
 
 
 Create a new work plan
@@ -15540,13 +17131,13 @@ namespace Example
 
             var apiInstance = new WorkforceManagementApi();
             var managementUnitId = managementUnitId_example;  // string | The ID of the management unit, or 'mine' for the management unit of the logged-in user.
+            var body = new CreateWorkPlan(); // CreateWorkPlan | body
             var validationMode = validationMode_example;  // string | Allows to create work plan even if the validation result is invalid (optional) 
-            var body = new CreateWorkPlan(); // CreateWorkPlan | body (optional) 
 
             try
             { 
                 // Create a new work plan
-                WorkPlan result = apiInstance.PostWorkforcemanagementManagementunitWorkplans(managementUnitId, validationMode, body);
+                WorkPlan result = apiInstance.PostWorkforcemanagementManagementunitWorkplans(managementUnitId, body, validationMode);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -15564,8 +17155,8 @@ namespace Example
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **managementUnitId** | **string**| The ID of the management unit, or &#39;mine&#39; for the management unit of the logged-in user. |  |
+| **body** | [**CreateWorkPlan**](CreateWorkPlan)| body |  |
 | **validationMode** | **string**| Allows to create work plan even if the validation result is invalid | [optional] <br />**Values**: Ignore |
-| **body** | [**CreateWorkPlan**](CreateWorkPlan)| body | [optional]  |
 
 ### Return type
 
@@ -15574,7 +17165,7 @@ namespace Example
 
 ## PostWorkforcemanagementManagementunits
 
-> [**ManagementUnit**](ManagementUnit) PostWorkforcemanagementManagementunits (CreateManagementUnitApiRequest body = null)
+> [**ManagementUnit**](ManagementUnit) PostWorkforcemanagementManagementunits (CreateManagementUnitApiRequest body)
 
 
 Add a management unit
@@ -15607,7 +17198,7 @@ namespace Example
                 "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
 
             var apiInstance = new WorkforceManagementApi();
-            var body = new CreateManagementUnitApiRequest(); // CreateManagementUnitApiRequest | body (optional) 
+            var body = new CreateManagementUnitApiRequest(); // CreateManagementUnitApiRequest | body
 
             try
             { 
@@ -15629,7 +17220,7 @@ namespace Example
 
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **body** | [**CreateManagementUnitApiRequest**](CreateManagementUnitApiRequest)| body | [optional]  |
+| **body** | [**CreateManagementUnitApiRequest**](CreateManagementUnitApiRequest)| body |  |
 
 ### Return type
 
@@ -15638,7 +17229,7 @@ namespace Example
 
 ## PostWorkforcemanagementNotificationsUpdate
 
-> [**UpdateNotificationsResponse**](UpdateNotificationsResponse) PostWorkforcemanagementNotificationsUpdate (UpdateNotificationsRequest body = null)
+> [**UpdateNotificationsResponse**](UpdateNotificationsResponse) PostWorkforcemanagementNotificationsUpdate (UpdateNotificationsRequest body)
 
 
 Mark a list of notifications as read or unread
@@ -15668,7 +17259,7 @@ namespace Example
                 "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
 
             var apiInstance = new WorkforceManagementApi();
-            var body = new UpdateNotificationsRequest(); // UpdateNotificationsRequest | body (optional) 
+            var body = new UpdateNotificationsRequest(); // UpdateNotificationsRequest | body
 
             try
             { 
@@ -15690,7 +17281,7 @@ namespace Example
 
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **body** | [**UpdateNotificationsRequest**](UpdateNotificationsRequest)| body | [optional]  |
+| **body** | [**UpdateNotificationsRequest**](UpdateNotificationsRequest)| body |  |
 
 ### Return type
 
@@ -15764,7 +17355,7 @@ namespace Example
 
 ## PostWorkforcemanagementTeamAdherenceHistorical
 
-> [**WfmHistoricalAdherenceResponse**](WfmHistoricalAdherenceResponse) PostWorkforcemanagementTeamAdherenceHistorical (string teamId, WfmHistoricalAdherenceQueryForTeams body = null)
+> [**WfmHistoricalAdherenceResponse**](WfmHistoricalAdherenceResponse) PostWorkforcemanagementTeamAdherenceHistorical (string teamId, WfmHistoricalAdherenceQueryForTeams body)
 
 
 Request a teams historical adherence report
@@ -15798,7 +17389,7 @@ namespace Example
 
             var apiInstance = new WorkforceManagementApi();
             var teamId = teamId_example;  // string | The ID of the team
-            var body = new WfmHistoricalAdherenceQueryForTeams(); // WfmHistoricalAdherenceQueryForTeams | body (optional) 
+            var body = new WfmHistoricalAdherenceQueryForTeams(); // WfmHistoricalAdherenceQueryForTeams | body
 
             try
             { 
@@ -15821,7 +17412,7 @@ namespace Example
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **teamId** | **string**| The ID of the team |  |
-| **body** | [**WfmHistoricalAdherenceQueryForTeams**](WfmHistoricalAdherenceQueryForTeams)| body | [optional]  |
+| **body** | [**WfmHistoricalAdherenceQueryForTeams**](WfmHistoricalAdherenceQueryForTeams)| body |  |
 
 ### Return type
 
@@ -15830,7 +17421,7 @@ namespace Example
 
 ## PostWorkforcemanagementTeamShrinkageJobs
 
-> [**WfmHistoricalShrinkageResponse**](WfmHistoricalShrinkageResponse) PostWorkforcemanagementTeamShrinkageJobs (string teamId, WfmHistoricalShrinkageTeamsRequest body = null)
+> [**WfmHistoricalShrinkageResponse**](WfmHistoricalShrinkageResponse) PostWorkforcemanagementTeamShrinkageJobs (string teamId, WfmHistoricalShrinkageTeamsRequest body)
 
 
 Request a historical shrinkage report
@@ -15864,7 +17455,7 @@ namespace Example
 
             var apiInstance = new WorkforceManagementApi();
             var teamId = teamId_example;  // string | The ID of the team
-            var body = new WfmHistoricalShrinkageTeamsRequest(); // WfmHistoricalShrinkageTeamsRequest | body (optional) 
+            var body = new WfmHistoricalShrinkageTeamsRequest(); // WfmHistoricalShrinkageTeamsRequest | body
 
             try
             { 
@@ -15887,7 +17478,7 @@ namespace Example
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **teamId** | **string**| The ID of the team |  |
-| **body** | [**WfmHistoricalShrinkageTeamsRequest**](WfmHistoricalShrinkageTeamsRequest)| body | [optional]  |
+| **body** | [**WfmHistoricalShrinkageTeamsRequest**](WfmHistoricalShrinkageTeamsRequest)| body |  |
 
 ### Return type
 
@@ -15958,7 +17549,7 @@ namespace Example
 
 ## PostWorkforcemanagementTimeofflimitsAvailableQuery
 
-> [**AvailableTimeOffResponse**](AvailableTimeOffResponse) PostWorkforcemanagementTimeofflimitsAvailableQuery (AvailableTimeOffRequest body = null)
+> [**AvailableTimeOffResponse**](AvailableTimeOffResponse) PostWorkforcemanagementTimeofflimitsAvailableQuery (AvailableTimeOffRequest body)
 
 
 Queries available time off for the current user
@@ -15989,7 +17580,7 @@ namespace Example
                 "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
 
             var apiInstance = new WorkforceManagementApi();
-            var body = new AvailableTimeOffRequest(); // AvailableTimeOffRequest | body (optional) 
+            var body = new AvailableTimeOffRequest(); // AvailableTimeOffRequest | body
 
             try
             { 
@@ -16011,7 +17602,7 @@ namespace Example
 
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **body** | [**AvailableTimeOffRequest**](AvailableTimeOffRequest)| body | [optional]  |
+| **body** | [**AvailableTimeOffRequest**](AvailableTimeOffRequest)| body |  |
 
 ### Return type
 
@@ -16020,7 +17611,7 @@ namespace Example
 
 ## PostWorkforcemanagementTimeoffrequests
 
-> [**TimeOffRequestResponse**](TimeOffRequestResponse) PostWorkforcemanagementTimeoffrequests (CreateAgentTimeOffRequest body = null)
+> [**TimeOffRequestResponse**](TimeOffRequestResponse) PostWorkforcemanagementTimeoffrequests (CreateAgentTimeOffRequest body)
 
 
 Create a time off request for the current user
@@ -16051,7 +17642,7 @@ namespace Example
                 "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
 
             var apiInstance = new WorkforceManagementApi();
-            var body = new CreateAgentTimeOffRequest(); // CreateAgentTimeOffRequest | body (optional) 
+            var body = new CreateAgentTimeOffRequest(); // CreateAgentTimeOffRequest | body
 
             try
             { 
@@ -16073,7 +17664,7 @@ namespace Example
 
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **body** | [**CreateAgentTimeOffRequest**](CreateAgentTimeOffRequest)| body | [optional]  |
+| **body** | [**CreateAgentTimeOffRequest**](CreateAgentTimeOffRequest)| body |  |
 
 ### Return type
 
@@ -16082,7 +17673,7 @@ namespace Example
 
 ## PostWorkforcemanagementTimeoffrequestsEstimate
 
-> [**EstimateAvailableTimeOffResponse**](EstimateAvailableTimeOffResponse) PostWorkforcemanagementTimeoffrequestsEstimate (EstimateAvailableTimeOffRequest body = null)
+> [**EstimateAvailableTimeOffResponse**](EstimateAvailableTimeOffResponse) PostWorkforcemanagementTimeoffrequestsEstimate (EstimateAvailableTimeOffRequest body)
 
 
 Estimates available time off for current user
@@ -16113,7 +17704,7 @@ namespace Example
                 "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
 
             var apiInstance = new WorkforceManagementApi();
-            var body = new EstimateAvailableTimeOffRequest(); // EstimateAvailableTimeOffRequest | body (optional) 
+            var body = new EstimateAvailableTimeOffRequest(); // EstimateAvailableTimeOffRequest | body
 
             try
             { 
@@ -16135,7 +17726,7 @@ namespace Example
 
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **body** | [**EstimateAvailableTimeOffRequest**](EstimateAvailableTimeOffRequest)| body | [optional]  |
+| **body** | [**EstimateAvailableTimeOffRequest**](EstimateAvailableTimeOffRequest)| body |  |
 
 ### Return type
 
@@ -16144,7 +17735,7 @@ namespace Example
 
 ## PostWorkforcemanagementTimeoffrequestsIntegrationstatusQuery
 
-> [**TimeOffIntegrationStatusResponseListing**](TimeOffIntegrationStatusResponseListing) PostWorkforcemanagementTimeoffrequestsIntegrationstatusQuery (CurrentUserTimeOffIntegrationStatusRequest body = null)
+> [**TimeOffIntegrationStatusResponseListing**](TimeOffIntegrationStatusResponseListing) PostWorkforcemanagementTimeoffrequestsIntegrationstatusQuery (CurrentUserTimeOffIntegrationStatusRequest body)
 
 
 Retrieves integration statuses for a list of current user time off requests
@@ -16175,7 +17766,7 @@ namespace Example
                 "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
 
             var apiInstance = new WorkforceManagementApi();
-            var body = new CurrentUserTimeOffIntegrationStatusRequest(); // CurrentUserTimeOffIntegrationStatusRequest | body (optional) 
+            var body = new CurrentUserTimeOffIntegrationStatusRequest(); // CurrentUserTimeOffIntegrationStatusRequest | body
 
             try
             { 
@@ -16197,11 +17788,135 @@ namespace Example
 
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **body** | [**CurrentUserTimeOffIntegrationStatusRequest**](CurrentUserTimeOffIntegrationStatusRequest)| body | [optional]  |
+| **body** | [**CurrentUserTimeOffIntegrationStatusRequest**](CurrentUserTimeOffIntegrationStatusRequest)| body |  |
 
 ### Return type
 
 [**TimeOffIntegrationStatusResponseListing**](TimeOffIntegrationStatusResponseListing)
+
+
+## PostWorkforcemanagementUnavailabletimesQuery
+
+> [**UnavailableTimeListing**](UnavailableTimeListing) PostWorkforcemanagementUnavailabletimesQuery (QueryAgentUnavailableTimesRequest body)
+
+
+Get agent unavailable times
+
+Requires ANY permissions: 
+
+* wfm:agentUnavailableTimes:submit
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class PostWorkforcemanagementUnavailabletimesQueryExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new WorkforceManagementApi();
+            var body = new QueryAgentUnavailableTimesRequest(); // QueryAgentUnavailableTimesRequest | body
+
+            try
+            { 
+                // Get agent unavailable times
+                UnavailableTimeListing result = apiInstance.PostWorkforcemanagementUnavailabletimesQuery(body);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling WorkforceManagementApi.PostWorkforcemanagementUnavailabletimesQuery: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **body** | [**QueryAgentUnavailableTimesRequest**](QueryAgentUnavailableTimesRequest)| body |  |
+
+### Return type
+
+[**UnavailableTimeListing**](UnavailableTimeListing)
+
+
+## PostWorkforcemanagementUnavailabletimesValidationJobs
+
+> [**ValidateAgentUnavailableTimesResponse**](ValidateAgentUnavailableTimesResponse) PostWorkforcemanagementUnavailabletimesValidationJobs (ValidateAgentUnavailableTimesRequest body)
+
+
+Validates proposed changes to an agent's unavailable time spans against scheduling rules and constraints for a specific week
+
+Requires ANY permissions: 
+
+* wfm:agentUnavailableTimes:submit
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class PostWorkforcemanagementUnavailabletimesValidationJobsExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new WorkforceManagementApi();
+            var body = new ValidateAgentUnavailableTimesRequest(); // ValidateAgentUnavailableTimesRequest | body
+
+            try
+            { 
+                // Validates proposed changes to an agent's unavailable time spans against scheduling rules and constraints for a specific week
+                ValidateAgentUnavailableTimesResponse result = apiInstance.PostWorkforcemanagementUnavailabletimesValidationJobs(body);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling WorkforceManagementApi.PostWorkforcemanagementUnavailabletimesValidationJobs: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **body** | [**ValidateAgentUnavailableTimesRequest**](ValidateAgentUnavailableTimesRequest)| body |  |
+
+### Return type
+
+[**ValidateAgentUnavailableTimesResponse**](ValidateAgentUnavailableTimesResponse)
 
 
 ## PutWorkforcemanagementAgentIntegrationsHris
@@ -16270,7 +17985,7 @@ namespace Example
 
 ## PutWorkforcemanagementBusinessunitTimeofflimitValues
 
-> [**BuTimeOffLimitResponse**](BuTimeOffLimitResponse) PutWorkforcemanagementBusinessunitTimeofflimitValues (string businessUnitId, string timeOffLimitId, BuSetTimeOffLimitValuesRequest body = null)
+> [**BuTimeOffLimitResponse**](BuTimeOffLimitResponse) PutWorkforcemanagementBusinessunitTimeofflimitValues (string businessUnitId, string timeOffLimitId, BuSetTimeOffLimitValuesRequest body)
 
 
 Sets daily values for a date range of time-off limit object
@@ -16305,7 +18020,7 @@ namespace Example
             var apiInstance = new WorkforceManagementApi();
             var businessUnitId = businessUnitId_example;  // string | The ID of the business unit
             var timeOffLimitId = timeOffLimitId_example;  // string | The ID of the time-off limit object to set values for
-            var body = new BuSetTimeOffLimitValuesRequest(); // BuSetTimeOffLimitValuesRequest | body (optional) 
+            var body = new BuSetTimeOffLimitValuesRequest(); // BuSetTimeOffLimitValuesRequest | body
 
             try
             { 
@@ -16329,7 +18044,7 @@ namespace Example
 |------------- | ------------- | ------------- | -------------|
 | **businessUnitId** | **string**| The ID of the business unit |  |
 | **timeOffLimitId** | **string**| The ID of the time-off limit object to set values for |  |
-| **body** | [**BuSetTimeOffLimitValuesRequest**](BuSetTimeOffLimitValuesRequest)| body | [optional]  |
+| **body** | [**BuSetTimeOffLimitValuesRequest**](BuSetTimeOffLimitValuesRequest)| body |  |
 
 ### Return type
 
@@ -16338,7 +18053,7 @@ namespace Example
 
 ## PutWorkforcemanagementManagementunitTimeofflimitValues
 
-> [**TimeOffLimit**](TimeOffLimit) PutWorkforcemanagementManagementunitTimeofflimitValues (string managementUnitId, string timeOffLimitId, SetTimeOffLimitValuesRequest body = null)
+> [**TimeOffLimit**](TimeOffLimit) PutWorkforcemanagementManagementunitTimeofflimitValues (string managementUnitId, string timeOffLimitId, SetTimeOffLimitValuesRequest body)
 
 
 Sets daily values for a date range of time off limit object
@@ -16373,7 +18088,7 @@ namespace Example
             var apiInstance = new WorkforceManagementApi();
             var managementUnitId = managementUnitId_example;  // string | The ID of the management unit.
             var timeOffLimitId = timeOffLimitId_example;  // string | The ID of the time off limit object to set values for
-            var body = new SetTimeOffLimitValuesRequest(); // SetTimeOffLimitValuesRequest | body (optional) 
+            var body = new SetTimeOffLimitValuesRequest(); // SetTimeOffLimitValuesRequest | body
 
             try
             { 
@@ -16397,11 +18112,11 @@ namespace Example
 |------------- | ------------- | ------------- | -------------|
 | **managementUnitId** | **string**| The ID of the management unit. |  |
 | **timeOffLimitId** | **string**| The ID of the time off limit object to set values for |  |
-| **body** | [**SetTimeOffLimitValuesRequest**](SetTimeOffLimitValuesRequest)| body | [optional]  |
+| **body** | [**SetTimeOffLimitValuesRequest**](SetTimeOffLimitValuesRequest)| body |  |
 
 ### Return type
 
 [**TimeOffLimit**](TimeOffLimit)
 
 
-_PureCloudPlatform.Client.V2 227.0.0_
+_PureCloudPlatform.Client.V2 257.0.0_

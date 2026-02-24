@@ -32,16 +32,16 @@ namespace PureCloudPlatform.Client.V2.Model
         /// <param name="CustomerIdType">Type of identifier for the customer ID (e.g., cookie). (required).</param>
         /// <param name="Page">The webpage where the user interaction occurred. (required).</param>
         /// <param name="UserAgentString">HTTP User-Agent string (see https://tools.ietf.org/html/rfc1945#section-10.15). (required).</param>
-        /// <param name="Browser">Customer's browser. (required).</param>
-        /// <param name="Device">Customer's device. (required).</param>
+        /// <param name="Browser">Customer&#39;s browser. (required).</param>
+        /// <param name="Device">Customer&#39;s device. (required).</param>
         /// <param name="SearchQuery">Represents the keywords in a customer search query..</param>
-        /// <param name="IpOrganization">Customer's IP-based organization or ISP name..</param>
-        /// <param name="Geolocation">Customer's geolocation..</param>
+        /// <param name="IpOrganization">Customer&#39;s IP-based organization or ISP name..</param>
+        /// <param name="Geolocation">Customer&#39;s geolocation..</param>
         /// <param name="MktCampaign">Urchin Tracking Module (UTM) parameters used to track the effectiveness of online marketing campaigns..</param>
         /// <param name="Session">The session that the event belongs to. (required).</param>
         /// <param name="Referrer">Identifies the web page that originally generated the request for the current page being viewed..</param>
         /// <param name="Attributes">User-defined attributes associated with a particular event. These attributes provide additional context about the event. For example, items_in_cart or subscription_level. (required).</param>
-        /// <param name="Traits">Traits are attributes intrinsic to the customer that may be sent in selected events, (e.g. email, lastName, cellPhone). Traits are used to collect information for identity resolution. For example, the same person might be using an application on different devices which might create two sessions with different customerIds. Additional information can be provided as traits to help link those two sessions and customers to a single external contact through common identifiers that were submitted via a form fill, message, or other input in both sessions. (required).</param>
+        /// <param name="Traits">Traits are attributes intrinsic to the customer that may be sent in selected events, (e.g. email, givenName, cellPhone). Traits are used to collect information for identity resolution. For example, the same person might be using an application on different devices which might create two sessions with different customerIds. Additional information can be provided as traits to help link those two sessions and customers to a single external contact through common identifiers that were submitted via a form fill, message, or other input in both sessions. (required).</param>
         /// <param name="Authenticated">Indicates whether the event was produced during an authenticated session. (required).</param>
         /// <param name="CreatedDate">UTC timestamp indicating when the event actually took place, events older than an hour will be rejected. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z (required).</param>
         public WebEventResponse(string CustomerId = null, string EventName = null, string CustomerIdType = null, ResponsePage Page = null, string UserAgentString = null, WebEventBrowser Browser = null, WebEventDevice Device = null, string SearchQuery = null, string IpOrganization = null, JourneyGeolocation Geolocation = null, JourneyCampaign MktCampaign = null, WebEventResponseSession Session = null, Referrer Referrer = null, Dictionary<string, CustomEventAttribute> Attributes = null, Dictionary<string, CustomEventAttribute> Traits = null, bool? Authenticated = null, DateTime? CreatedDate = null)
@@ -114,18 +114,18 @@ namespace PureCloudPlatform.Client.V2.Model
 
 
         /// <summary>
-        /// Customer's browser.
+        /// Customer&#39;s browser.
         /// </summary>
-        /// <value>Customer's browser.</value>
+        /// <value>Customer&#39;s browser.</value>
         [DataMember(Name="browser", EmitDefaultValue=false)]
         public WebEventBrowser Browser { get; set; }
 
 
 
         /// <summary>
-        /// Customer's device.
+        /// Customer&#39;s device.
         /// </summary>
-        /// <value>Customer's device.</value>
+        /// <value>Customer&#39;s device.</value>
         [DataMember(Name="device", EmitDefaultValue=false)]
         public WebEventDevice Device { get; set; }
 
@@ -141,18 +141,18 @@ namespace PureCloudPlatform.Client.V2.Model
 
 
         /// <summary>
-        /// Customer's IP-based organization or ISP name.
+        /// Customer&#39;s IP-based organization or ISP name.
         /// </summary>
-        /// <value>Customer's IP-based organization or ISP name.</value>
+        /// <value>Customer&#39;s IP-based organization or ISP name.</value>
         [DataMember(Name="ipOrganization", EmitDefaultValue=false)]
         public string IpOrganization { get; set; }
 
 
 
         /// <summary>
-        /// Customer's geolocation.
+        /// Customer&#39;s geolocation.
         /// </summary>
-        /// <value>Customer's geolocation.</value>
+        /// <value>Customer&#39;s geolocation.</value>
         [DataMember(Name="geolocation", EmitDefaultValue=false)]
         public JourneyGeolocation Geolocation { get; set; }
 
@@ -195,9 +195,9 @@ namespace PureCloudPlatform.Client.V2.Model
 
 
         /// <summary>
-        /// Traits are attributes intrinsic to the customer that may be sent in selected events, (e.g. email, lastName, cellPhone). Traits are used to collect information for identity resolution. For example, the same person might be using an application on different devices which might create two sessions with different customerIds. Additional information can be provided as traits to help link those two sessions and customers to a single external contact through common identifiers that were submitted via a form fill, message, or other input in both sessions.
+        /// Traits are attributes intrinsic to the customer that may be sent in selected events, (e.g. email, givenName, cellPhone). Traits are used to collect information for identity resolution. For example, the same person might be using an application on different devices which might create two sessions with different customerIds. Additional information can be provided as traits to help link those two sessions and customers to a single external contact through common identifiers that were submitted via a form fill, message, or other input in both sessions.
         /// </summary>
-        /// <value>Traits are attributes intrinsic to the customer that may be sent in selected events, (e.g. email, lastName, cellPhone). Traits are used to collect information for identity resolution. For example, the same person might be using an application on different devices which might create two sessions with different customerIds. Additional information can be provided as traits to help link those two sessions and customers to a single external contact through common identifiers that were submitted via a form fill, message, or other input in both sessions.</value>
+        /// <value>Traits are attributes intrinsic to the customer that may be sent in selected events, (e.g. email, givenName, cellPhone). Traits are used to collect information for identity resolution. For example, the same person might be using an application on different devices which might create two sessions with different customerIds. Additional information can be provided as traits to help link those two sessions and customers to a single external contact through common identifiers that were submitted via a form fill, message, or other input in both sessions.</value>
         [DataMember(Name="traits", EmitDefaultValue=false)]
         public Dictionary<string, CustomEventAttribute> Traits { get; set; }
 

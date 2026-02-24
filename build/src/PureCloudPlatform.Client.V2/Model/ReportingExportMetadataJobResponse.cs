@@ -751,7 +751,85 @@ namespace PureCloudPlatform.Client.V2.Model
             /// Enum AgentAssignedEvaluationMeView for "AGENT_ASSIGNED_EVALUATION_ME_VIEW"
             /// </summary>
             [EnumMember(Value = "AGENT_ASSIGNED_EVALUATION_ME_VIEW")]
-            AgentAssignedEvaluationMeView
+            AgentAssignedEvaluationMeView,
+            
+            /// <summary>
+            /// Enum VirtualAgentPerformanceView for "VIRTUAL_AGENT_PERFORMANCE_VIEW"
+            /// </summary>
+            [EnumMember(Value = "VIRTUAL_AGENT_PERFORMANCE_VIEW")]
+            VirtualAgentPerformanceView,
+            
+            /// <summary>
+            /// Enum ContentExplorationView for "CONTENT_EXPLORATION_VIEW"
+            /// </summary>
+            [EnumMember(Value = "CONTENT_EXPLORATION_VIEW")]
+            ContentExplorationView,
+            
+            /// <summary>
+            /// Enum EvaluationPerformanceSummaryView for "EVALUATION_PERFORMANCE_SUMMARY_VIEW"
+            /// </summary>
+            [EnumMember(Value = "EVALUATION_PERFORMANCE_SUMMARY_VIEW")]
+            EvaluationPerformanceSummaryView,
+            
+            /// <summary>
+            /// Enum EvaluationPerformanceDetailView for "EVALUATION_PERFORMANCE_DETAIL_VIEW"
+            /// </summary>
+            [EnumMember(Value = "EVALUATION_PERFORMANCE_DETAIL_VIEW")]
+            EvaluationPerformanceDetailView,
+            
+            /// <summary>
+            /// Enum EvaluationPerformanceQuestionGroupDetailView for "EVALUATION_PERFORMANCE_QUESTION_GROUP_DETAIL_VIEW"
+            /// </summary>
+            [EnumMember(Value = "EVALUATION_PERFORMANCE_QUESTION_GROUP_DETAIL_VIEW")]
+            EvaluationPerformanceQuestionGroupDetailView,
+            
+            /// <summary>
+            /// Enum EvaluationPerformanceQuestionDetailView for "EVALUATION_PERFORMANCE_QUESTION_DETAIL_VIEW"
+            /// </summary>
+            [EnumMember(Value = "EVALUATION_PERFORMANCE_QUESTION_DETAIL_VIEW")]
+            EvaluationPerformanceQuestionDetailView,
+            
+            /// <summary>
+            /// Enum QueueWorkitemActivitySummaryView for "QUEUE_WORKITEM_ACTIVITY_SUMMARY_VIEW"
+            /// </summary>
+            [EnumMember(Value = "QUEUE_WORKITEM_ACTIVITY_SUMMARY_VIEW")]
+            QueueWorkitemActivitySummaryView,
+            
+            /// <summary>
+            /// Enum QueueWorkitemActivityDetailView for "QUEUE_WORKITEM_ACTIVITY_DETAIL_VIEW"
+            /// </summary>
+            [EnumMember(Value = "QUEUE_WORKITEM_ACTIVITY_DETAIL_VIEW")]
+            QueueWorkitemActivityDetailView,
+            
+            /// <summary>
+            /// Enum DigitalAdoptionView for "DIGITAL_ADOPTION_VIEW"
+            /// </summary>
+            [EnumMember(Value = "DIGITAL_ADOPTION_VIEW")]
+            DigitalAdoptionView,
+            
+            /// <summary>
+            /// Enum DigitalIntentView for "DIGITAL_INTENT_VIEW"
+            /// </summary>
+            [EnumMember(Value = "DIGITAL_INTENT_VIEW")]
+            DigitalIntentView,
+            
+            /// <summary>
+            /// Enum DigitalPerformanceView for "DIGITAL_PERFORMANCE_VIEW"
+            /// </summary>
+            [EnumMember(Value = "DIGITAL_PERFORMANCE_VIEW")]
+            DigitalPerformanceView,
+            
+            /// <summary>
+            /// Enum CopilotUsageView for "COPILOT_USAGE_VIEW"
+            /// </summary>
+            [EnumMember(Value = "COPILOT_USAGE_VIEW")]
+            CopilotUsageView,
+            
+            /// <summary>
+            /// Enum PredictiveRoutingThroughputView for "PREDICTIVE_ROUTING_THROUGHPUT_VIEW"
+            /// </summary>
+            [EnumMember(Value = "PREDICTIVE_ROUTING_THROUGHPUT_VIEW")]
+            PredictiveRoutingThroughputView
         }
         /// <summary>
         /// The view type of the export metadata

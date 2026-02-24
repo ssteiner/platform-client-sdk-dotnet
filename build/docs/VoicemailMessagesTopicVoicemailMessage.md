@@ -8,8 +8,8 @@
 |------------ | ------------- | ------------- | -------------|
 | **Id** | **string** |  | [optional] |
 | **Read** | **bool?** |  | [optional] |
-| **AudioRecordingDurationSeconds** | **int?** |  | [optional] |
-| **AudioRecordingSizeBytes** | **int?** |  | [optional] |
+| **AudioRecordingDurationSeconds** | **long?** |  | [optional] |
+| **AudioRecordingSizeBytes** | **long?** |  | [optional] |
 | **CreatedDate** | **DateTime?** |  | [optional] |
 | **ModifiedDate** | **DateTime?** |  | [optional] |
 | **CreatedDateString** | **string** |  | [optional] |
@@ -25,4 +25,4 @@
 
 
 
-_PureCloudPlatform.Client.V2 227.0.0_
+_PureCloudPlatform.Client.V2 257.0.0_

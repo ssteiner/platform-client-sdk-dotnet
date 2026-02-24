@@ -10,8 +10,8 @@
 | **HrisTimeOffTypeId** | **string** |  | [optional] |
 | **HrisTimeOffTypeSecondaryId** | **string** |  | [optional] |
 | **StartDate** | **DateTime?** |  | [optional] |
-| **BalanceMinutesPerDay** | **List&lt;int?&gt;** |  | [optional] |
+| **BalanceMinutesPerDay** | **List&lt;long?&gt;** |  | [optional] |
 
 
 
-_PureCloudPlatform.Client.V2 227.0.0_
+_PureCloudPlatform.Client.V2 257.0.0_

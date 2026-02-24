@@ -12,8 +12,9 @@
 | **OtherMediaUris** | **List&lt;string&gt;** |  | [optional] |
 | **Address** | **string** |  | [optional] |
 | **UtilizationLabelId** | **string** |  | [optional] |
+| **InactivityTimeout** | **DateTime?** |  | [optional] |
 | **Divisions** | [**List&lt;QueueConversationMessageEventTopicConversationDivisionMembership&gt;**](QueueConversationMessageEventTopicConversationDivisionMembership) |  | [optional] |
 
 
 
-_PureCloudPlatform.Client.V2 227.0.0_
+_PureCloudPlatform.Client.V2 257.0.0_

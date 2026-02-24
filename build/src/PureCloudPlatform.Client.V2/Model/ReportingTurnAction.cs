@@ -33,6 +33,12 @@ namespace PureCloudPlatform.Client.V2.Model
             OutdatedSdkVersion,
             
             /// <summary>
+            /// Enum Askforauthenticationaction for "AskForAuthenticationAction"
+            /// </summary>
+            [EnumMember(Value = "AskForAuthenticationAction")]
+            Askforauthenticationaction,
+            
+            /// <summary>
             /// Enum Addflowmilestoneaction for "AddFlowMilestoneAction"
             /// </summary>
             [EnumMember(Value = "AddFlowMilestoneAction")]
@@ -49,6 +55,12 @@ namespace PureCloudPlatform.Client.V2.Model
             /// </summary>
             [EnumMember(Value = "AskForBooleanAction")]
             Askforbooleanaction,
+            
+            /// <summary>
+            /// Enum Askforpaymentaction for "AskForPaymentAction"
+            /// </summary>
+            [EnumMember(Value = "AskForPaymentAction")]
+            Askforpaymentaction,
             
             /// <summary>
             /// Enum Askforslotaction for "AskForSlotAction"
@@ -75,10 +87,34 @@ namespace PureCloudPlatform.Client.V2.Model
             Botstate,
             
             /// <summary>
+            /// Enum Callagenticvirtualagentaction for "CallAgenticVirtualAgentAction"
+            /// </summary>
+            [EnumMember(Value = "CallAgenticVirtualAgentAction")]
+            Callagenticvirtualagentaction,
+            
+            /// <summary>
+            /// Enum Callbotflowaction for "CallBotFlowAction"
+            /// </summary>
+            [EnumMember(Value = "CallBotFlowAction")]
+            Callbotflowaction,
+            
+            /// <summary>
+            /// Enum Calldigitalbotflowaction for "CallDigitalBotFlowAction"
+            /// </summary>
+            [EnumMember(Value = "CallDigitalBotFlowAction")]
+            Calldigitalbotflowaction,
+            
+            /// <summary>
             /// Enum Calltaskaction for "CallTaskAction"
             /// </summary>
             [EnumMember(Value = "CallTaskAction")]
             Calltaskaction,
+            
+            /// <summary>
+            /// Enum Callguideaction for "CallGuideAction"
+            /// </summary>
+            [EnumMember(Value = "CallGuideAction")]
+            Callguideaction,
             
             /// <summary>
             /// Enum Clearslotaction for "ClearSlotAction"
@@ -225,6 +261,12 @@ namespace PureCloudPlatform.Client.V2.Model
             Findutilizationlabelaction,
             
             /// <summary>
+            /// Enum Formaction for "FormAction"
+            /// </summary>
+            [EnumMember(Value = "FormAction")]
+            Formaction,
+            
+            /// <summary>
             /// Enum Switchaction for "SwitchAction"
             /// </summary>
             [EnumMember(Value = "SwitchAction")]
@@ -357,6 +399,12 @@ namespace PureCloudPlatform.Client.V2.Model
             Evaluateschedulegroupaction,
             
             /// <summary>
+            /// Enum Promoteexternalcontactaction for "PromoteExternalContactAction"
+            /// </summary>
+            [EnumMember(Value = "PromoteExternalContactAction")]
+            Promoteexternalcontactaction,
+            
+            /// <summary>
             /// Enum Showknowledgearticleaction for "ShowKnowledgeArticleAction"
             /// </summary>
             [EnumMember(Value = "ShowKnowledgeArticleAction")]
@@ -399,6 +447,24 @@ namespace PureCloudPlatform.Client.V2.Model
             Transferpurematchaction,
             
             /// <summary>
+            /// Enum Transferuseraction for "TransferUserAction"
+            /// </summary>
+            [EnumMember(Value = "TransferUserAction")]
+            Transferuseraction,
+            
+            /// <summary>
+            /// Enum Transfergroupaction for "TransferGroupAction"
+            /// </summary>
+            [EnumMember(Value = "TransferGroupAction")]
+            Transfergroupaction,
+            
+            /// <summary>
+            /// Enum Transferexternalaction for "TransferExternalAction"
+            /// </summary>
+            [EnumMember(Value = "TransferExternalAction")]
+            Transferexternalaction,
+            
+            /// <summary>
             /// Enum Getattributesaction for "GetAttributesAction"
             /// </summary>
             [EnumMember(Value = "GetAttributesAction")]
@@ -409,6 +475,24 @@ namespace PureCloudPlatform.Client.V2.Model
             /// </summary>
             [EnumMember(Value = "SetAttributesAction")]
             Setattributesaction,
+            
+            /// <summary>
+            /// Enum Sendinteractiveapplicationaction for "SendInteractiveApplicationAction"
+            /// </summary>
+            [EnumMember(Value = "SendInteractiveApplicationAction")]
+            Sendinteractiveapplicationaction,
+            
+            /// <summary>
+            /// Enum Sendrichlinkaction for "SendRichLinkAction"
+            /// </summary>
+            [EnumMember(Value = "SendRichLinkAction")]
+            Sendrichlinkaction,
+            
+            /// <summary>
+            /// Enum Senddigitalcarouselaction for "SendDigitalCarouselAction"
+            /// </summary>
+            [EnumMember(Value = "SendDigitalCarouselAction")]
+            Senddigitalcarouselaction,
             
             /// <summary>
             /// Enum Unknown for "Unknown"

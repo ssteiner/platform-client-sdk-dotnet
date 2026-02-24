@@ -6,7 +6,7 @@
 
 |Name | Type | Description | Notes|
 |------------ | ------------- | ------------- | -------------|
-| **EventTime** | **int?** |  | [optional] |
+| **EventTime** | **long?** |  | [optional] |
 | **OutboundCampaignType** | **string** |  | [optional] |
 | **SmsAttributes** | [**OutboundMessagingCampaignPreContactSmsEventTopicSMSAttributes**](OutboundMessagingCampaignPreContactSmsEventTopicSMSAttributes) |  | [optional] |
 | **WrapupCode** | **string** |  | [optional] |
@@ -19,4 +19,4 @@
 
 
 
-_PureCloudPlatform.Client.V2 227.0.0_
+_PureCloudPlatform.Client.V2 257.0.0_

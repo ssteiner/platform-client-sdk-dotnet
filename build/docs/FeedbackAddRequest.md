@@ -6,9 +6,9 @@
 
 |Name | Type | Description | Notes|
 |------------ | ------------- | ------------- | -------------|
-| **Summary** | **string** | Agent&#39;s summary for the conversation | |
 | **Rating** | **string** | Agent’s rating for the system-generated summary. | [optional] |
+| **Summary** | **string** | Agent&#39;s summary for the conversation | |
 
 
 
-_PureCloudPlatform.Client.V2 227.0.0_
+_PureCloudPlatform.Client.V2 257.0.0_

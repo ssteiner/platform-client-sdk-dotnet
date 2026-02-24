@@ -15,13 +15,12 @@ All URIs are relative to *https://api.mypurecloud.com*
 | [**GetTelephonyProvidersEdgesSitesSearch**](#GetTelephonyProvidersEdgesSitesSearch) | **Get** /api/v2/telephony/providers/edges/sites/search | Search sites using the q64 value returned from a previous search |
 | [**GetUsersSearch**](#GetUsersSearch) | **Get** /api/v2/users/search | Search users using the q64 value returned from a previous search |
 | [**GetVoicemailSearch**](#GetVoicemailSearch) | **Get** /api/v2/voicemail/search | Search voicemails using the q64 value returned from a previous search |
-| [**PostAnalyticsConversationsTranscriptsQuery**](#PostAnalyticsConversationsTranscriptsQuery) | **Post** /api/v2/analytics/conversations/transcripts/query | Search resources. |
+| [**PostConversationsCustomattributesSearch**](#PostConversationsCustomattributesSearch) | **Post** /api/v2/conversations/customattributes/search | Search resources. |
 | [**PostConversationsParticipantsAttributesSearch**](#PostConversationsParticipantsAttributesSearch) | **Post** /api/v2/conversations/participants/attributes/search | Search conversations |
 | [**PostDocumentationAllSearch**](#PostDocumentationAllSearch) | **Post** /api/v2/documentation/all/search | Search all documents |
 | [**PostDocumentationGknSearch**](#PostDocumentationGknSearch) | **Post** /api/v2/documentation/gkn/search | Search gkn documentation |
 | [**PostDocumentationSearch**](#PostDocumentationSearch) | **Post** /api/v2/documentation/search | Search documentation |
 | [**PostGroupsSearch**](#PostGroupsSearch) | **Post** /api/v2/groups/search | Search groups |
-| [**PostKnowledgeKnowledgebaseSearch**](#PostKnowledgeKnowledgebaseSearch) | **Post** /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/search | Search Documents |
 | [**PostLocationsSearch**](#PostLocationsSearch) | **Post** /api/v2/locations/search | Search locations |
 | [**PostSearch**](#PostSearch) | **Post** /api/v2/search | Search resources. |
 | [**PostSearchSuggest**](#PostSearchSuggest) | **Post** /api/v2/search/suggest | Suggest resources. |
@@ -330,7 +329,7 @@ namespace Example
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **q64** | **string**| q64 |  |
-| **expand** | [**List<string>**](string)| Which fields, if any, to expand | [optional] <br />**Values**: routingStatus, presence, integrationPresence, conversationSummary, outOfOffice, geolocation, station, authorization, lasttokenissued, authorization.unusedRoles, team, workPlanBidRanks, externalContactsSettings, profileSkills, certifications, locations, groups, skills, languages, languagePreference, employerInfo, biography, dateLastLogin, callerUser.routingStatus, callerUser.primaryPresence, callerUser.conversationSummary, callerUser.outOfOffice, callerUser.geolocation, conversations, transcription, images, addressVerificationDetails |
+| **expand** | [**List<string>**](string)| Which fields, if any, to expand | [optional] <br />**Values**: routingStatus, presence, integrationPresence, conversationSummary, outOfOffice, geolocation, station, authorization, lasttokenissued, authorization.unusedRoles, team, workPlanBidRanks, externalContactsSettings, groups, customAttributes, profileSkills, certifications, locations, skills, languages, languagePreference, employerInfo, biography, dateLastLogin, dateWelcomeSent, callerUser.routingStatus, callerUser.primaryPresence, callerUser.conversationSummary, callerUser.outOfOffice, callerUser.geolocation, conversations, transcription, images, addressVerificationDetails |
 | **profile** | **bool?**| profile | [optional] [default to true] |
 
 ### Return type
@@ -396,7 +395,7 @@ namespace Example
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **q64** | **string**| q64 |  |
-| **expand** | [**List<string>**](string)| Which fields, if any, to expand | [optional] <br />**Values**: routingStatus, presence, integrationPresence, conversationSummary, outOfOffice, geolocation, station, authorization, lasttokenissued, authorization.unusedRoles, team, workPlanBidRanks, externalContactsSettings, profileSkills, certifications, locations, groups, skills, languages, languagePreference, employerInfo, biography, dateLastLogin, callerUser.routingStatus, callerUser.primaryPresence, callerUser.conversationSummary, callerUser.outOfOffice, callerUser.geolocation, conversations, transcription, images, addressVerificationDetails |
+| **expand** | [**List<string>**](string)| Which fields, if any, to expand | [optional] <br />**Values**: routingStatus, presence, integrationPresence, conversationSummary, outOfOffice, geolocation, station, authorization, lasttokenissued, authorization.unusedRoles, team, workPlanBidRanks, externalContactsSettings, groups, customAttributes, profileSkills, certifications, locations, skills, languages, languagePreference, employerInfo, biography, dateLastLogin, dateWelcomeSent, callerUser.routingStatus, callerUser.primaryPresence, callerUser.conversationSummary, callerUser.outOfOffice, callerUser.geolocation, conversations, transcription, images, addressVerificationDetails |
 | **profile** | **bool?**| profile | [optional] [default to true] |
 
 ### Return type
@@ -598,16 +597,16 @@ namespace Example
 [**VoicemailsSearchResponse**](VoicemailsSearchResponse)
 
 
-## PostAnalyticsConversationsTranscriptsQuery
+## PostConversationsCustomattributesSearch
 
-> [**AnalyticsConversationWithoutAttributesMultiGetResponse**](AnalyticsConversationWithoutAttributesMultiGetResponse) PostAnalyticsConversationsTranscriptsQuery (TranscriptConversationDetailSearchRequest body)
+> [**JsonSearchResponse**](JsonSearchResponse) PostConversationsCustomattributesSearch (ConversationCustomAttributesSearchRequest body)
 
 
 Search resources.
 
 Requires ANY permissions: 
 
-* analytics:conversationDetail:view
+* conversation:customAttributes:view
 
 ### Example
 ```{"language":"csharp"}
@@ -619,7 +618,7 @@ using PureCloudPlatform.Client.V2.Model;
 
 namespace Example
 {
-    public class PostAnalyticsConversationsTranscriptsQueryExample
+    public class PostConversationsCustomattributesSearchExample
     {
         public void main()
         { 
@@ -631,17 +630,17 @@ namespace Example
                 "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
 
             var apiInstance = new SearchApi();
-            var body = new TranscriptConversationDetailSearchRequest(); // TranscriptConversationDetailSearchRequest | Search request options
+            var body = new ConversationCustomAttributesSearchRequest(); // ConversationCustomAttributesSearchRequest | Search request options
 
             try
             { 
                 // Search resources.
-                AnalyticsConversationWithoutAttributesMultiGetResponse result = apiInstance.PostAnalyticsConversationsTranscriptsQuery(body);
+                JsonSearchResponse result = apiInstance.PostConversationsCustomattributesSearch(body);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling SearchApi.PostAnalyticsConversationsTranscriptsQuery: " + e.Message );
+                Debug.Print("Exception when calling SearchApi.PostConversationsCustomattributesSearch: " + e.Message );
             }
         }
     }
@@ -653,11 +652,11 @@ namespace Example
 
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **body** | [**TranscriptConversationDetailSearchRequest**](TranscriptConversationDetailSearchRequest)| Search request options |  |
+| **body** | [**ConversationCustomAttributesSearchRequest**](ConversationCustomAttributesSearchRequest)| Search request options |  |
 
 ### Return type
 
-[**AnalyticsConversationWithoutAttributesMultiGetResponse**](AnalyticsConversationWithoutAttributesMultiGetResponse)
+[**JsonSearchResponse**](JsonSearchResponse)
 
 
 ## PostConversationsParticipantsAttributesSearch
@@ -950,73 +949,6 @@ namespace Example
 [**GroupsSearchResponse**](GroupsSearchResponse)
 
 
-## PostKnowledgeKnowledgebaseSearch
-
-> [**KnowledgeSearchResponse**](KnowledgeSearchResponse) PostKnowledgeKnowledgebaseSearch (string knowledgeBaseId, KnowledgeSearchRequest body = null)
-
-:::{"alert":"warning","title":"Deprecated","collapsible":false,"autoCollapse":false}
-This resource has been deprecated
-:::
-
-Search Documents
-
-Requires ALL permissions: 
-
-* knowledge:knowledgebase:search
-
-### Example
-```{"language":"csharp"}
-using System;
-using System.Diagnostics;
-using PureCloudPlatform.Client.V2.Api;
-using PureCloudPlatform.Client.V2.Client;
-using PureCloudPlatform.Client.V2.Model;
-
-namespace Example
-{
-    public class PostKnowledgeKnowledgebaseSearchExample
-    {
-        public void main()
-        { 
-            // Configure OAuth2 access token for authorization: PureCloud OAuth
-            // The following example is using the Authorization Code Grant
-            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
-                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
-                "http://redirecturi.com/",
-                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
-
-            var apiInstance = new SearchApi();
-            var knowledgeBaseId = knowledgeBaseId_example;  // string | Knowledge base ID
-            var body = new KnowledgeSearchRequest(); // KnowledgeSearchRequest |  (optional) 
-
-            try
-            { 
-                // Search Documents
-                KnowledgeSearchResponse result = apiInstance.PostKnowledgeKnowledgebaseSearch(knowledgeBaseId, body);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling SearchApi.PostKnowledgeKnowledgebaseSearch: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-
-|Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **knowledgeBaseId** | **string**| Knowledge base ID |  |
-| **body** | [**KnowledgeSearchRequest**](KnowledgeSearchRequest)|  | [optional]  |
-
-### Return type
-
-[**KnowledgeSearchResponse**](KnowledgeSearchResponse)
-
-
 ## PostLocationsSearch
 
 > [**LocationsSearchResponse**](LocationsSearchResponse) PostLocationsSearch (LocationSearchRequest body)
@@ -1217,6 +1149,7 @@ Requires ANY permissions:
 
 * analytics:conversationDetail:view
 * recording:recording:view
+* recording:recordingSegment:view
 
 ### Example
 ```{"language":"csharp"}
@@ -1708,4 +1641,4 @@ namespace Example
 [**VoicemailsSearchResponse**](VoicemailsSearchResponse)
 
 
-_PureCloudPlatform.Client.V2 227.0.0_
+_PureCloudPlatform.Client.V2 257.0.0_

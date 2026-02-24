@@ -11,6 +11,7 @@ All URIs are relative to *https://api.mypurecloud.com*
 | [**DeleteChatsRoomParticipant**](#DeleteChatsRoomParticipant) | **Delete** /api/v2/chats/rooms/{roomJid}/participants/{userId} | Remove a user from a room. |
 | [**DeleteChatsUserMessage**](#DeleteChatsUserMessage) | **Delete** /api/v2/chats/users/{userId}/messages/{messageId} | Delete a message to a user |
 | [**DeleteChatsUserMessagesPin**](#DeleteChatsUserMessagesPin) | **Delete** /api/v2/chats/users/{userId}/messages/pins/{pinnedMessageId} | Remove a pinned message from a 1on1 |
+| [**DeleteChatsUsersMeSettings**](#DeleteChatsUsersMeSettings) | **Delete** /api/v2/chats/users/me/settings | Delete a user&#39;s chat settings |
 | [**GetChatsMessage**](#GetChatsMessage) | **Get** /api/v2/chats/messages/{messageId} | Get a message |
 | [**GetChatsRoom**](#GetChatsRoom) | **Get** /api/v2/chats/rooms/{roomJid} | Get a room |
 | [**GetChatsRoomMessage**](#GetChatsRoomMessage) | **Get** /api/v2/chats/rooms/{roomJid}/messages/{messageIds} | Get messages by id(s) from a room |
@@ -36,6 +37,7 @@ All URIs are relative to *https://api.mypurecloud.com*
 | [**PostChatsRooms**](#PostChatsRooms) | **Post** /api/v2/chats/rooms | Create an adhoc room |
 | [**PostChatsUserMessages**](#PostChatsUserMessages) | **Post** /api/v2/chats/users/{userId}/messages | Send a message to a user |
 | [**PostChatsUserMessagesPins**](#PostChatsUserMessagesPins) | **Post** /api/v2/chats/users/{userId}/messages/pins | Add pinned messages for a 1on1, up to a maximum of 5 pinned messages |
+| [**PostChatsUsersMeSettings**](#PostChatsUsersMeSettings) | **Post** /api/v2/chats/users/me/settings | Create a user&#39;s chat settings |
 | [**PutChatsMessageReactions**](#PutChatsMessageReactions) | **Put** /api/v2/chats/messages/{messageId}/reactions | Update reactions to a message |
 | [**PutChatsSettings**](#PutChatsSettings) | **Put** /api/v2/chats/settings | Update Chat Settings. |
 
@@ -304,8 +306,6 @@ void (empty response body)
 
 Remove a pinned message from a 1on1
 
-DeleteChatsUserMessagesPin is a preview method and is subject to both breaking and non-breaking changes at any time without notice
-
 Requires ANY permissions: 
 
 * chat:chat:access
@@ -357,6 +357,61 @@ namespace Example
 |------------- | ------------- | ------------- | -------------|
 | **userId** | **string**| userId |  |
 | **pinnedMessageId** | **string**| pinnedMessageId |  |
+
+### Return type
+
+void (empty response body)
+
+
+## DeleteChatsUsersMeSettings
+
+> void DeleteChatsUsersMeSettings ()
+
+
+Delete a user's chat settings
+
+Requires NO permissions: 
+
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class DeleteChatsUsersMeSettingsExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new ChatApi();
+
+            try
+            { 
+                // Delete a user's chat settings
+                apiInstance.DeleteChatsUsersMeSettings();
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ChatApi.DeleteChatsUsersMeSettings: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+This endpoint does require any parameters.
 
 ### Return type
 
@@ -557,7 +612,7 @@ namespace Example
 
 ## GetChatsRoomMessages
 
-> [**ChatMessageEntityListing**](ChatMessageEntityListing) GetChatsRoomMessages (string roomJid, string limit = null, string before = null, string after = null)
+> [**ChatMessageEntityListing**](ChatMessageEntityListing) GetChatsRoomMessages (string roomJid, string limit = null, string before = null, string after = null, bool? excludeMetadata = null)
 
 
 Get a room's message history
@@ -593,11 +648,12 @@ namespace Example
             var limit = limit_example;  // string | The maximum number of messages to retrieve (optional) 
             var before = before_example;  // string | The cutoff date for messages to retrieve (optional) 
             var after = after_example;  // string | The beginning date for messages to retrieve (optional) 
+            var excludeMetadata = true;  // bool? | Whether to exclude metadata for messages (optional) 
 
             try
             { 
                 // Get a room's message history
-                ChatMessageEntityListing result = apiInstance.GetChatsRoomMessages(roomJid, limit, before, after);
+                ChatMessageEntityListing result = apiInstance.GetChatsRoomMessages(roomJid, limit, before, after, excludeMetadata);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -618,6 +674,7 @@ namespace Example
 | **limit** | **string**| The maximum number of messages to retrieve | [optional]  |
 | **before** | **string**| The cutoff date for messages to retrieve | [optional]  |
 | **after** | **string**| The beginning date for messages to retrieve | [optional]  |
+| **excludeMetadata** | **bool?**| Whether to exclude metadata for messages | [optional]  |
 
 ### Return type
 
@@ -689,7 +746,7 @@ namespace Example
 
 ## GetChatsRoomParticipants
 
-> [**RoomParticipantsResponse**](RoomParticipantsResponse) GetChatsRoomParticipants (string roomJid)
+> [**RoomParticipantsResponse**](RoomParticipantsResponse) GetChatsRoomParticipants (string roomJid, bool? notify = null)
 
 
 Get room participants in a room
@@ -722,11 +779,12 @@ namespace Example
 
             var apiInstance = new ChatApi();
             var roomJid = roomJid_example;  // string | roomJid
+            var notify = true;  // bool? | Whether to get users to notify (optional) 
 
             try
             { 
                 // Get room participants in a room
-                RoomParticipantsResponse result = apiInstance.GetChatsRoomParticipants(roomJid);
+                RoomParticipantsResponse result = apiInstance.GetChatsRoomParticipants(roomJid, notify);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -744,6 +802,7 @@ namespace Example
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **roomJid** | **string**| roomJid |  |
+| **notify** | **bool?**| Whether to get users to notify | [optional]  |
 
 ### Return type
 
@@ -810,7 +869,7 @@ This endpoint does require any parameters.
 
 ## GetChatsThreadMessages
 
-> [**ChatMessageEntityListing**](ChatMessageEntityListing) GetChatsThreadMessages (string threadId, string limit = null, string before = null, string after = null)
+> [**ChatMessageEntityListing**](ChatMessageEntityListing) GetChatsThreadMessages (string threadId, string limit = null, string before = null, string after = null, bool? excludeMetadata = null)
 
 
 Get history by thread
@@ -846,11 +905,12 @@ namespace Example
             var limit = limit_example;  // string | The maximum number of messages to retrieve (optional) 
             var before = before_example;  // string | The cutoff date for messages to retrieve (optional) 
             var after = after_example;  // string | The beginning date for messages to retrieve (optional) 
+            var excludeMetadata = true;  // bool? | Whether to exclude metadata for messages (optional) 
 
             try
             { 
                 // Get history by thread
-                ChatMessageEntityListing result = apiInstance.GetChatsThreadMessages(threadId, limit, before, after);
+                ChatMessageEntityListing result = apiInstance.GetChatsThreadMessages(threadId, limit, before, after, excludeMetadata);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -871,6 +931,7 @@ namespace Example
 | **limit** | **string**| The maximum number of messages to retrieve | [optional]  |
 | **before** | **string**| The cutoff date for messages to retrieve | [optional]  |
 | **after** | **string**| The beginning date for messages to retrieve | [optional]  |
+| **excludeMetadata** | **bool?**| Whether to exclude metadata for messages | [optional]  |
 
 ### Return type
 
@@ -883,8 +944,6 @@ namespace Example
 
 
 Get information for a 1on1
-
-GetChatsUser is a preview method and is subject to both breaking and non-breaking changes at any time without notice
 
 Requires ANY permissions: 
 
@@ -1009,7 +1068,7 @@ namespace Example
 
 ## GetChatsUserMessages
 
-> [**ChatMessageResponse**](ChatMessageResponse) GetChatsUserMessages (string userId, string limit = null, string before = null, string after = null)
+> [**ChatMessageResponse**](ChatMessageResponse) GetChatsUserMessages (string userId, string limit = null, string before = null, string after = null, bool? excludeMetadata = null)
 
 
 Get 1on1 History between a user
@@ -1045,11 +1104,12 @@ namespace Example
             var limit = limit_example;  // string | The maximum number of messages to retrieve (optional) 
             var before = before_example;  // string | The cutoff date for messages to retrieve (optional) 
             var after = after_example;  // string | The beginning date for messages to retrieve (optional) 
+            var excludeMetadata = true;  // bool? | Whether to exclude metadata for messages (optional) 
 
             try
             { 
                 // Get 1on1 History between a user
-                ChatMessageResponse result = apiInstance.GetChatsUserMessages(userId, limit, before, after);
+                ChatMessageResponse result = apiInstance.GetChatsUserMessages(userId, limit, before, after, excludeMetadata);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -1070,6 +1130,7 @@ namespace Example
 | **limit** | **string**| The maximum number of messages to retrieve | [optional]  |
 | **before** | **string**| The cutoff date for messages to retrieve | [optional]  |
 | **after** | **string**| The beginning date for messages to retrieve | [optional]  |
+| **excludeMetadata** | **bool?**| Whether to exclude metadata for messages | [optional]  |
 
 ### Return type
 
@@ -1082,8 +1143,6 @@ namespace Example
 
 
 Get a user's chat settings
-
-GetChatsUserSettings is a preview method and is subject to both breaking and non-breaking changes at any time without notice
 
 Requires ANY permissions: 
 
@@ -1143,12 +1202,10 @@ namespace Example
 
 ## GetChatsUsersMeSettings
 
-> [**ChatUserSettings**](ChatUserSettings) GetChatsUsersMeSettings ()
+> [**UserSettingsForChat**](UserSettingsForChat) GetChatsUsersMeSettings ()
 
 
 Get a user's chat settings
-
-GetChatsUsersMeSettings is a preview method and is subject to both breaking and non-breaking changes at any time without notice
 
 Requires NO permissions: 
 
@@ -1179,7 +1236,7 @@ namespace Example
             try
             { 
                 // Get a user's chat settings
-                ChatUserSettings result = apiInstance.GetChatsUsersMeSettings();
+                UserSettingsForChat result = apiInstance.GetChatsUsersMeSettings();
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -1196,7 +1253,7 @@ This endpoint does require any parameters.
 
 ### Return type
 
-[**ChatUserSettings**](ChatUserSettings)
+[**UserSettingsForChat**](UserSettingsForChat)
 
 
 ## PatchChatsRoom
@@ -1466,8 +1523,6 @@ namespace Example
 
 Update a user's chat settings
 
-PatchChatsUserSettings is a preview method and is subject to both breaking and non-breaking changes at any time without notice
-
 Requires ANY permissions: 
 
 * chat:usersettings:edit
@@ -1528,12 +1583,10 @@ namespace Example
 
 ## PatchChatsUsersMeSettings
 
-> [**ChatUserSettings**](ChatUserSettings) PatchChatsUsersMeSettings (ChatUserSettings body)
+> [**UserSettingsForChat**](UserSettingsForChat) PatchChatsUsersMeSettings (UserSettingsForChat body)
 
 
 Update a user's chat settings
-
-PatchChatsUsersMeSettings is a preview method and is subject to both breaking and non-breaking changes at any time without notice
 
 Requires NO permissions: 
 
@@ -1560,12 +1613,12 @@ namespace Example
                 "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
 
             var apiInstance = new ChatApi();
-            var body = new ChatUserSettings(); // ChatUserSettings | 
+            var body = new UserSettingsForChat(); // UserSettingsForChat | 
 
             try
             { 
                 // Update a user's chat settings
-                ChatUserSettings result = apiInstance.PatchChatsUsersMeSettings(body);
+                UserSettingsForChat result = apiInstance.PatchChatsUsersMeSettings(body);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -1582,11 +1635,11 @@ namespace Example
 
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **body** | [**ChatUserSettings**](ChatUserSettings)|  |  |
+| **body** | [**UserSettingsForChat**](UserSettingsForChat)|  |  |
 
 ### Return type
 
-[**ChatUserSettings**](ChatUserSettings)
+[**UserSettingsForChat**](UserSettingsForChat)
 
 
 ## PostChatsRoomMessages
@@ -1917,8 +1970,6 @@ namespace Example
 
 Add pinned messages for a 1on1, up to a maximum of 5 pinned messages
 
-PostChatsUserMessagesPins is a preview method and is subject to both breaking and non-breaking changes at any time without notice
-
 Requires ANY permissions: 
 
 * chat:chat:access
@@ -1970,6 +2021,66 @@ namespace Example
 |------------- | ------------- | ------------- | -------------|
 | **userId** | **string**| userId |  |
 | **body** | [**PinnedMessageRequest**](PinnedMessageRequest)| Pinned Message Ids |  |
+
+### Return type
+
+void (empty response body)
+
+
+## PostChatsUsersMeSettings
+
+> void PostChatsUsersMeSettings (UserChatSettingsPost body)
+
+
+Create a user's chat settings
+
+Requires NO permissions: 
+
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class PostChatsUsersMeSettingsExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new ChatApi();
+            var body = new UserChatSettingsPost(); // UserChatSettingsPost | 
+
+            try
+            { 
+                // Create a user's chat settings
+                apiInstance.PostChatsUsersMeSettings(body);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ChatApi.PostChatsUsersMeSettings: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **body** | [**UserChatSettingsPost**](UserChatSettingsPost)|  |  |
 
 ### Return type
 
@@ -2102,4 +2213,4 @@ namespace Example
 [**ChatSettings**](ChatSettings)
 
 
-_PureCloudPlatform.Client.V2 227.0.0_
+_PureCloudPlatform.Client.V2 257.0.0_

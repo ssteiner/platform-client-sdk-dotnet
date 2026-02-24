@@ -14,7 +14,9 @@
 | **AssistedAnswerId** | **string** | AnswerId found with evaluation assistance conditions | [optional] |
 | **FailedKillQuestion** | **bool?** | Applicable only on fatal questions. Indicates that the answer selected was not the highest score available for the question | [optional] |
 | **Comments** | **string** | Comments from the evaluator specific to this question | [optional] |
+| **AiAnswer** | [**AiAnswer**](AiAnswer) | Suggested AI answer | [optional] |
+| **MultipleSelectQuestionOptionScores** | [**List&lt;EvaluationQuestionScore&gt;**](EvaluationQuestionScore) | Only applicable to Multiple Select questions. Scores corresponding to the options of Multiple Select questions. | [optional] |
 
 
 
-_PureCloudPlatform.Client.V2 227.0.0_
+_PureCloudPlatform.Client.V2 257.0.0_

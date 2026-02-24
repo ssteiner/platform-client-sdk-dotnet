@@ -11,6 +11,7 @@
 | **InitialState** | **string** |  | [optional] |
 | **Recording** | **bool?** | True if this call is being recorded. | [optional] |
 | **RecordingState** | **string** | State of recording on this call. | [optional] |
+| **RecordersState** | [**QueueConversationEventTopicRecordersState**](QueueConversationEventTopicRecordersState) |  | [optional] |
 | **Muted** | **bool?** | True if this call is muted so that remote participants can&#39;t hear any audio from this end. | [optional] |
 | **Confined** | **bool?** | True if this call is held and the person on this side hears hold music. | [optional] |
 | **Held** | **bool?** | True if this call is held and the person on this side hears silence. | [optional] |
@@ -36,7 +37,9 @@
 | **AfterCallWorkRequired** | **bool?** | Indicates if after-call is required for a communication. Only used when the ACW Setting is Agent Requested. | [optional] |
 | **AgentAssistantId** | **string** | UUID of virtual agent assistant that provide suggestions to the agent participant during the conversation. | [optional] |
 | **QueueMediaSettings** | [**QueueConversationEventTopicQueueMediaSettings**](QueueConversationEventTopicQueueMediaSettings) |  | [optional] |
+| **Disposition** | [**QueueConversationEventTopicDisposition**](QueueConversationEventTopicDisposition) |  | [optional] |
+| **TransferSource** | **string** | Indicates how call reaches the agent. | [optional] |
 
 
 
-_PureCloudPlatform.Client.V2 227.0.0_
+_PureCloudPlatform.Client.V2 257.0.0_

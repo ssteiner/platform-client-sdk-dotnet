@@ -108,12 +108,12 @@ namespace PureCloudPlatform.Client.V2.Model
         /// <param name="FlowIsDebug">Whether the flow that ran for this flow instance execution data was in debug mode..</param>
         /// <param name="ExecutionItemsTruncated">If true, the execution items in this event have been truncated to be deliverable..</param>
         /// <param name="FlowType">The flow type of the Architect flow that was run..</param>
-        /// <param name="FlowVersion">The version of the flow for this flow instance execution data. Typically this is a numeric value like 1.0 represented as a string but can also be 'debug'.</param>
+        /// <param name="FlowVersion">The version of the flow for this flow instance execution data. Typically this is a numeric value like 1.0 represented as a string but can also be &#39;debug&#39;.</param>
         /// <param name="MessageType">If applicable, the type of message platform from which the message originated..</param>
         /// <param name="InvokingContext">InvokingContext.</param>
         /// <param name="StartDateTime">The start date time for this flow instance execution data..</param>
         /// <param name="Warnings">If the flow encountered a warning during execution, this is an array of the warnings..</param>
-        public V2FlowExecutionDataFlowidTopicFlowExecutionHistory(string ExecutionId = null, string ConversationId = null, string DivisionId = null, DateTime? EndDateTime = null, string Endpoint = null, List<V2FlowExecutionDataFlowidTopicFlowErrorWarningInfo> Errors = null, List<V2FlowExecutionDataFlowidTopicExecution> Execution = null, string FlowExitReason = null, string FlowId = null, bool? FlowIsDebug = null, bool? ExecutionItemsTruncated = null, string FlowType = null, string FlowVersion = null, MessageTypeEnum? MessageType = null, V2FlowExecutionDataFlowidTopicInvokingContext InvokingContext = null, DateTime? StartDateTime = null, List<V2FlowExecutionDataFlowidTopicFlowErrorWarningInfo> Warnings = null)
+        public V2FlowExecutionDataFlowidTopicFlowExecutionHistory(string ExecutionId = null, string ConversationId = null, string DivisionId = null, DateTime? EndDateTime = null, string Endpoint = null, List<V2FlowExecutionDataFlowidTopicFlowErrorWarningInfo> Errors = null, List<V2FlowExecutionDataFlowidTopicFlowExecutionItem> Execution = null, string FlowExitReason = null, string FlowId = null, bool? FlowIsDebug = null, bool? ExecutionItemsTruncated = null, string FlowType = null, string FlowVersion = null, MessageTypeEnum? MessageType = null, V2FlowExecutionDataFlowidTopicInvokingContextInfo InvokingContext = null, DateTime? StartDateTime = null, List<V2FlowExecutionDataFlowidTopicFlowErrorWarningInfo> Warnings = null)
         {
             this.ExecutionId = ExecutionId;
             this.ConversationId = ConversationId;
@@ -196,7 +196,7 @@ namespace PureCloudPlatform.Client.V2.Model
         /// </summary>
         /// <value>An array of execution items that describe what happened when an Architect flow action container ran such as a flow, task, state or bot.</value>
         [DataMember(Name="execution", EmitDefaultValue=false)]
-        public List<V2FlowExecutionDataFlowidTopicExecution> Execution { get; set; }
+        public List<V2FlowExecutionDataFlowidTopicFlowExecutionItem> Execution { get; set; }
 
 
 
@@ -246,9 +246,9 @@ namespace PureCloudPlatform.Client.V2.Model
 
 
         /// <summary>
-        /// The version of the flow for this flow instance execution data. Typically this is a numeric value like 1.0 represented as a string but can also be 'debug'
+        /// The version of the flow for this flow instance execution data. Typically this is a numeric value like 1.0 represented as a string but can also be &#39;debug&#39;
         /// </summary>
-        /// <value>The version of the flow for this flow instance execution data. Typically this is a numeric value like 1.0 represented as a string but can also be 'debug'</value>
+        /// <value>The version of the flow for this flow instance execution data. Typically this is a numeric value like 1.0 represented as a string but can also be &#39;debug&#39;</value>
         [DataMember(Name="flowVersion", EmitDefaultValue=false)]
         public string FlowVersion { get; set; }
 
@@ -260,7 +260,7 @@ namespace PureCloudPlatform.Client.V2.Model
         /// Gets or Sets InvokingContext
         /// </summary>
         [DataMember(Name="invokingContext", EmitDefaultValue=false)]
-        public V2FlowExecutionDataFlowidTopicInvokingContext InvokingContext { get; set; }
+        public V2FlowExecutionDataFlowidTopicInvokingContextInfo InvokingContext { get; set; }
 
 
 

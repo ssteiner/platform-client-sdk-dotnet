@@ -61,7 +61,7 @@ namespace PureCloudPlatform.Client.V2.Model
         /// Initializes a new instance of the <see cref="Assistant" /> class.
         /// </summary>
         /// <param name="Name">The name of the assistant that will assist the agent. (required).</param>
-        /// <param name="GoogleDialogflowConfig">(Deprecated: use the 'knowledgeSuggestionConfig' for genesys knowledge suggestions) Configuration of Dialogflow used to assist the agent with transcriptions and knowledge suggestions..</param>
+        /// <param name="GoogleDialogflowConfig">(Deprecated: use the &#39;knowledgeSuggestionConfig&#39; for genesys knowledge suggestions) Configuration of Dialogflow used to assist the agent with transcriptions and knowledge suggestions..</param>
         /// <param name="TranscriptionConfig">Configuration for speech transcription used to assist the agent. (required).</param>
         /// <param name="KnowledgeSuggestionConfig">Configuration that defines how to produce knowledge suggestions. (required).</param>
         public Assistant(string Name = null, GoogleDialogflowConfig GoogleDialogflowConfig = null, TranscriptionConfig TranscriptionConfig = null, KnowledgeSuggestionConfig KnowledgeSuggestionConfig = null)
@@ -130,9 +130,9 @@ namespace PureCloudPlatform.Client.V2.Model
 
 
         /// <summary>
-        /// (Deprecated: use the 'knowledgeSuggestionConfig' for genesys knowledge suggestions) Configuration of Dialogflow used to assist the agent with transcriptions and knowledge suggestions.
+        /// (Deprecated: use the &#39;knowledgeSuggestionConfig&#39; for genesys knowledge suggestions) Configuration of Dialogflow used to assist the agent with transcriptions and knowledge suggestions.
         /// </summary>
-        /// <value>(Deprecated: use the 'knowledgeSuggestionConfig' for genesys knowledge suggestions) Configuration of Dialogflow used to assist the agent with transcriptions and knowledge suggestions.</value>
+        /// <value>(Deprecated: use the &#39;knowledgeSuggestionConfig&#39; for genesys knowledge suggestions) Configuration of Dialogflow used to assist the agent with transcriptions and knowledge suggestions.</value>
         [DataMember(Name="googleDialogflowConfig", EmitDefaultValue=false)]
         public GoogleDialogflowConfig GoogleDialogflowConfig { get; set; }
 
@@ -175,6 +175,15 @@ namespace PureCloudPlatform.Client.V2.Model
         public string SelfUri { get; private set; }
 
 
+
+        /// <summary>
+        /// The parent assistant if this assistant is a variation of an assistant
+        /// </summary>
+        /// <value>The parent assistant if this assistant is a variation of an assistant</value>
+        [DataMember(Name="variationParent", EmitDefaultValue=false)]
+        public AddressableEntityRef VariationParent { get; private set; }
+
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -196,6 +205,7 @@ namespace PureCloudPlatform.Client.V2.Model
             sb.Append("  State: ").Append(State).Append("\n");
             sb.Append("  Copilot: ").Append(Copilot).Append("\n");
             sb.Append("  SelfUri: ").Append(SelfUri).Append("\n");
+            sb.Append("  VariationParent: ").Append(VariationParent).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -295,6 +305,11 @@ namespace PureCloudPlatform.Client.V2.Model
                     this.SelfUri == other.SelfUri ||
                     this.SelfUri != null &&
                     this.SelfUri.Equals(other.SelfUri)
+                ) &&
+                (
+                    this.VariationParent == other.VariationParent ||
+                    this.VariationParent != null &&
+                    this.VariationParent.Equals(other.VariationParent)
                 );
         }
 
@@ -344,6 +359,9 @@ namespace PureCloudPlatform.Client.V2.Model
 
                 if (this.SelfUri != null)
                     hash = hash * 59 + this.SelfUri.GetHashCode();
+
+                if (this.VariationParent != null)
+                    hash = hash * 59 + this.VariationParent.GetHashCode();
 
                 return hash;
             }

@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using RestSharp;
 using PureCloudPlatform.Client.V2.Client;
 using PureCloudPlatform.Client.V2.Model;
 
@@ -146,25 +145,31 @@ namespace PureCloudPlatform.Client.V2.Api
         /// Get the versions of a configuration
         /// </summary>
         /// <remarks>
-        /// This returns the 50 most recent versions for this configuration
+        /// 
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="configurationId">The configuration version ID</param>
+        /// <param name="pageSize">Number of entities to return. Defaults to 300. (optional)</param>
+        /// <param name="before">The cursor that points to the start of the set of entities that has been returned. (optional)</param>
+        /// <param name="after">The cursor that points to the end of the set of entities that has been returned. (optional)</param>
         /// <returns>WebDeploymentConfigurationVersionEntityListing</returns>
         
-        WebDeploymentConfigurationVersionEntityListing GetWebdeploymentsConfigurationVersions (string configurationId);
+        WebDeploymentConfigurationVersionEntityListing GetWebdeploymentsConfigurationVersions (string configurationId, string pageSize = null, string before = null, string after = null);
 
         /// <summary>
         /// Get the versions of a configuration
         /// </summary>
         /// <remarks>
-        /// This returns the 50 most recent versions for this configuration
+        /// 
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="configurationId">The configuration version ID</param>
+        /// <param name="pageSize">Number of entities to return. Defaults to 300. (optional)</param>
+        /// <param name="before">The cursor that points to the start of the set of entities that has been returned. (optional)</param>
+        /// <param name="after">The cursor that points to the end of the set of entities that has been returned. (optional)</param>
         /// <returns>ApiResponse of WebDeploymentConfigurationVersionEntityListing</returns>
         
-        ApiResponse<WebDeploymentConfigurationVersionEntityListing> GetWebdeploymentsConfigurationVersionsWithHttpInfo (string configurationId);
+        ApiResponse<WebDeploymentConfigurationVersionEntityListing> GetWebdeploymentsConfigurationVersionsWithHttpInfo (string configurationId, string pageSize = null, string before = null, string after = null);
 
         /// <summary>
         /// Get the configuration draft
@@ -197,10 +202,13 @@ namespace PureCloudPlatform.Client.V2.Api
         /// 
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pageSize">Number of entities to return. Defaults to 300. (optional)</param>
+        /// <param name="before">The cursor that points to the start of the set of entities that has been returned. (optional)</param>
+        /// <param name="after">The cursor that points to the end of the set of entities that has been returned. (optional)</param>
         /// <param name="showOnlyPublished">Filter by published status. (optional)</param>
         /// <returns>WebDeploymentConfigurationVersionEntityListing</returns>
         
-        WebDeploymentConfigurationVersionEntityListing GetWebdeploymentsConfigurations (bool? showOnlyPublished = null);
+        WebDeploymentConfigurationVersionEntityListing GetWebdeploymentsConfigurations (string pageSize = null, string before = null, string after = null, bool? showOnlyPublished = null);
 
         /// <summary>
         /// View configuration drafts
@@ -209,10 +217,13 @@ namespace PureCloudPlatform.Client.V2.Api
         /// 
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pageSize">Number of entities to return. Defaults to 300. (optional)</param>
+        /// <param name="before">The cursor that points to the start of the set of entities that has been returned. (optional)</param>
+        /// <param name="after">The cursor that points to the end of the set of entities that has been returned. (optional)</param>
         /// <param name="showOnlyPublished">Filter by published status. (optional)</param>
         /// <returns>ApiResponse of WebDeploymentConfigurationVersionEntityListing</returns>
         
-        ApiResponse<WebDeploymentConfigurationVersionEntityListing> GetWebdeploymentsConfigurationsWithHttpInfo (bool? showOnlyPublished = null);
+        ApiResponse<WebDeploymentConfigurationVersionEntityListing> GetWebdeploymentsConfigurationsWithHttpInfo (string pageSize = null, string before = null, string after = null, bool? showOnlyPublished = null);
 
         /// <summary>
         /// Get a deployment
@@ -295,16 +306,28 @@ namespace PureCloudPlatform.Client.V2.Api
         ApiResponse<WebDeploymentActiveConfigurationOnDeployment> GetWebdeploymentsDeploymentConfigurationsWithHttpInfo (string deploymentId, string type = null, List<string> expand = null);
 
         /// <summary>
-        /// Get deployments
+        /// Get a deployment identity resolution setting.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="expand">The specified entity attributes will be filled. Comma separated values expected.  (optional)</param>
-        /// <returns>ExpandableWebDeploymentEntityListing</returns>
+        /// <param name="deploymentId">The deployment ID</param>
+        /// <returns>DeploymentIdentityResolutionConfig</returns>
         
-        ExpandableWebDeploymentEntityListing GetWebdeploymentsDeployments (List<string> expand = null);
+        DeploymentIdentityResolutionConfig GetWebdeploymentsDeploymentIdentityresolution (string deploymentId);
+
+        /// <summary>
+        /// Get a deployment identity resolution setting.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deploymentId">The deployment ID</param>
+        /// <returns>ApiResponse of DeploymentIdentityResolutionConfig</returns>
+        
+        ApiResponse<DeploymentIdentityResolutionConfig> GetWebdeploymentsDeploymentIdentityresolutionWithHttpInfo (string deploymentId);
 
         /// <summary>
         /// Get deployments
@@ -313,10 +336,28 @@ namespace PureCloudPlatform.Client.V2.Api
         /// 
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pageSize">Number of entities to return. Defaults to 300. (optional)</param>
+        /// <param name="before">The cursor that points to the start of the set of entities that has been returned. (optional)</param>
+        /// <param name="after">The cursor that points to the end of the set of entities that has been returned. (optional)</param>
+        /// <param name="expand">The specified entity attributes will be filled. Comma separated values expected.  (optional)</param>
+        /// <returns>ExpandableWebDeploymentEntityListing</returns>
+        
+        ExpandableWebDeploymentEntityListing GetWebdeploymentsDeployments (string pageSize = null, string before = null, string after = null, List<string> expand = null);
+
+        /// <summary>
+        /// Get deployments
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pageSize">Number of entities to return. Defaults to 300. (optional)</param>
+        /// <param name="before">The cursor that points to the start of the set of entities that has been returned. (optional)</param>
+        /// <param name="after">The cursor that points to the end of the set of entities that has been returned. (optional)</param>
         /// <param name="expand">The specified entity attributes will be filled. Comma separated values expected.  (optional)</param>
         /// <returns>ApiResponse of ExpandableWebDeploymentEntityListing</returns>
         
-        ApiResponse<ExpandableWebDeploymentEntityListing> GetWebdeploymentsDeploymentsWithHttpInfo (List<string> expand = null);
+        ApiResponse<ExpandableWebDeploymentEntityListing> GetWebdeploymentsDeploymentsWithHttpInfo (string pageSize = null, string before = null, string after = null, List<string> expand = null);
 
         /// <summary>
         /// Publish the configuration draft and create a new version
@@ -391,7 +432,7 @@ namespace PureCloudPlatform.Client.V2.Api
         ApiResponse<WebDeployment> PostWebdeploymentsDeploymentsWithHttpInfo (WebDeployment deployment);
 
         /// <summary>
-        /// Exchange an oAuth code (obtained using the Authorization Code Flow) for a JWT that can be used by webdeployments.
+        /// Exchange an oAuth code (obtained using the Authorization Code Flow or Implicit flow) for a JWT that can be used by webdeployments.
         /// </summary>
         /// <remarks>
         /// 
@@ -403,7 +444,7 @@ namespace PureCloudPlatform.Client.V2.Api
         WebDeploymentsAuthorizationResponse PostWebdeploymentsTokenOauthcodegrantjwtexchange (WebDeploymentsOAuthExchangeRequest body);
 
         /// <summary>
-        /// Exchange an oAuth code (obtained using the Authorization Code Flow) for a JWT that can be used by webdeployments.
+        /// Exchange an oAuth code (obtained using the Authorization Code Flow or Implicit flow) for a JWT that can be used by webdeployments.
         /// </summary>
         /// <remarks>
         /// 
@@ -489,6 +530,32 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <returns>ApiResponse of WebDeployment</returns>
         
         ApiResponse<WebDeployment> PutWebdeploymentsDeploymentWithHttpInfo (string deploymentId, WebDeployment deployment);
+
+        /// <summary>
+        /// Update identity resolution settings for a deployment.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deploymentId">The deployment ID</param>
+        /// <param name="body"></param>
+        /// <returns>DeploymentIdentityResolutionConfig</returns>
+        
+        DeploymentIdentityResolutionConfig PutWebdeploymentsDeploymentIdentityresolution (string deploymentId, DeploymentIdentityResolutionConfig body);
+
+        /// <summary>
+        /// Update identity resolution settings for a deployment.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deploymentId">The deployment ID</param>
+        /// <param name="body"></param>
+        /// <returns>ApiResponse of DeploymentIdentityResolutionConfig</returns>
+        
+        ApiResponse<DeploymentIdentityResolutionConfig> PutWebdeploymentsDeploymentIdentityresolutionWithHttpInfo (string deploymentId, DeploymentIdentityResolutionConfig body);
 
         #endregion Synchronous Operations
 
@@ -624,25 +691,31 @@ namespace PureCloudPlatform.Client.V2.Api
         /// Get the versions of a configuration
         /// </summary>
         /// <remarks>
-        /// This returns the 50 most recent versions for this configuration
+        /// 
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="configurationId">The configuration version ID</param>
+        /// <param name="pageSize">Number of entities to return. Defaults to 300. (optional)</param>
+        /// <param name="before">The cursor that points to the start of the set of entities that has been returned. (optional)</param>
+        /// <param name="after">The cursor that points to the end of the set of entities that has been returned. (optional)</param>
         /// <returns>Task of WebDeploymentConfigurationVersionEntityListing</returns>
         
-        System.Threading.Tasks.Task<WebDeploymentConfigurationVersionEntityListing> GetWebdeploymentsConfigurationVersionsAsync (string configurationId);
+        System.Threading.Tasks.Task<WebDeploymentConfigurationVersionEntityListing> GetWebdeploymentsConfigurationVersionsAsync (string configurationId, string pageSize = null, string before = null, string after = null);
 
         /// <summary>
         /// Get the versions of a configuration
         /// </summary>
         /// <remarks>
-        /// This returns the 50 most recent versions for this configuration
+        /// 
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="configurationId">The configuration version ID</param>
+        /// <param name="pageSize">Number of entities to return. Defaults to 300. (optional)</param>
+        /// <param name="before">The cursor that points to the start of the set of entities that has been returned. (optional)</param>
+        /// <param name="after">The cursor that points to the end of the set of entities that has been returned. (optional)</param>
         /// <returns>Task of ApiResponse (WebDeploymentConfigurationVersionEntityListing)</returns>
         
-        System.Threading.Tasks.Task<ApiResponse<WebDeploymentConfigurationVersionEntityListing>> GetWebdeploymentsConfigurationVersionsAsyncWithHttpInfo (string configurationId);
+        System.Threading.Tasks.Task<ApiResponse<WebDeploymentConfigurationVersionEntityListing>> GetWebdeploymentsConfigurationVersionsAsyncWithHttpInfo (string configurationId, string pageSize = null, string before = null, string after = null);
 
         /// <summary>
         /// Get the configuration draft
@@ -675,10 +748,13 @@ namespace PureCloudPlatform.Client.V2.Api
         /// 
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pageSize">Number of entities to return. Defaults to 300. (optional)</param>
+        /// <param name="before">The cursor that points to the start of the set of entities that has been returned. (optional)</param>
+        /// <param name="after">The cursor that points to the end of the set of entities that has been returned. (optional)</param>
         /// <param name="showOnlyPublished">Filter by published status. (optional)</param>
         /// <returns>Task of WebDeploymentConfigurationVersionEntityListing</returns>
         
-        System.Threading.Tasks.Task<WebDeploymentConfigurationVersionEntityListing> GetWebdeploymentsConfigurationsAsync (bool? showOnlyPublished = null);
+        System.Threading.Tasks.Task<WebDeploymentConfigurationVersionEntityListing> GetWebdeploymentsConfigurationsAsync (string pageSize = null, string before = null, string after = null, bool? showOnlyPublished = null);
 
         /// <summary>
         /// View configuration drafts
@@ -687,10 +763,13 @@ namespace PureCloudPlatform.Client.V2.Api
         /// 
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pageSize">Number of entities to return. Defaults to 300. (optional)</param>
+        /// <param name="before">The cursor that points to the start of the set of entities that has been returned. (optional)</param>
+        /// <param name="after">The cursor that points to the end of the set of entities that has been returned. (optional)</param>
         /// <param name="showOnlyPublished">Filter by published status. (optional)</param>
         /// <returns>Task of ApiResponse (WebDeploymentConfigurationVersionEntityListing)</returns>
         
-        System.Threading.Tasks.Task<ApiResponse<WebDeploymentConfigurationVersionEntityListing>> GetWebdeploymentsConfigurationsAsyncWithHttpInfo (bool? showOnlyPublished = null);
+        System.Threading.Tasks.Task<ApiResponse<WebDeploymentConfigurationVersionEntityListing>> GetWebdeploymentsConfigurationsAsyncWithHttpInfo (string pageSize = null, string before = null, string after = null, bool? showOnlyPublished = null);
 
         /// <summary>
         /// Get a deployment
@@ -773,16 +852,28 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task<ApiResponse<WebDeploymentActiveConfigurationOnDeployment>> GetWebdeploymentsDeploymentConfigurationsAsyncWithHttpInfo (string deploymentId, string type = null, List<string> expand = null);
 
         /// <summary>
-        /// Get deployments
+        /// Get a deployment identity resolution setting.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="expand">The specified entity attributes will be filled. Comma separated values expected.  (optional)</param>
-        /// <returns>Task of ExpandableWebDeploymentEntityListing</returns>
+        /// <param name="deploymentId">The deployment ID</param>
+        /// <returns>Task of DeploymentIdentityResolutionConfig</returns>
         
-        System.Threading.Tasks.Task<ExpandableWebDeploymentEntityListing> GetWebdeploymentsDeploymentsAsync (List<string> expand = null);
+        System.Threading.Tasks.Task<DeploymentIdentityResolutionConfig> GetWebdeploymentsDeploymentIdentityresolutionAsync (string deploymentId);
+
+        /// <summary>
+        /// Get a deployment identity resolution setting.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deploymentId">The deployment ID</param>
+        /// <returns>Task of ApiResponse (DeploymentIdentityResolutionConfig)</returns>
+        
+        System.Threading.Tasks.Task<ApiResponse<DeploymentIdentityResolutionConfig>> GetWebdeploymentsDeploymentIdentityresolutionAsyncWithHttpInfo (string deploymentId);
 
         /// <summary>
         /// Get deployments
@@ -791,10 +882,28 @@ namespace PureCloudPlatform.Client.V2.Api
         /// 
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pageSize">Number of entities to return. Defaults to 300. (optional)</param>
+        /// <param name="before">The cursor that points to the start of the set of entities that has been returned. (optional)</param>
+        /// <param name="after">The cursor that points to the end of the set of entities that has been returned. (optional)</param>
+        /// <param name="expand">The specified entity attributes will be filled. Comma separated values expected.  (optional)</param>
+        /// <returns>Task of ExpandableWebDeploymentEntityListing</returns>
+        
+        System.Threading.Tasks.Task<ExpandableWebDeploymentEntityListing> GetWebdeploymentsDeploymentsAsync (string pageSize = null, string before = null, string after = null, List<string> expand = null);
+
+        /// <summary>
+        /// Get deployments
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pageSize">Number of entities to return. Defaults to 300. (optional)</param>
+        /// <param name="before">The cursor that points to the start of the set of entities that has been returned. (optional)</param>
+        /// <param name="after">The cursor that points to the end of the set of entities that has been returned. (optional)</param>
         /// <param name="expand">The specified entity attributes will be filled. Comma separated values expected.  (optional)</param>
         /// <returns>Task of ApiResponse (ExpandableWebDeploymentEntityListing)</returns>
         
-        System.Threading.Tasks.Task<ApiResponse<ExpandableWebDeploymentEntityListing>> GetWebdeploymentsDeploymentsAsyncWithHttpInfo (List<string> expand = null);
+        System.Threading.Tasks.Task<ApiResponse<ExpandableWebDeploymentEntityListing>> GetWebdeploymentsDeploymentsAsyncWithHttpInfo (string pageSize = null, string before = null, string after = null, List<string> expand = null);
 
         /// <summary>
         /// Publish the configuration draft and create a new version
@@ -869,7 +978,7 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task<ApiResponse<WebDeployment>> PostWebdeploymentsDeploymentsAsyncWithHttpInfo (WebDeployment deployment);
 
         /// <summary>
-        /// Exchange an oAuth code (obtained using the Authorization Code Flow) for a JWT that can be used by webdeployments.
+        /// Exchange an oAuth code (obtained using the Authorization Code Flow or Implicit flow) for a JWT that can be used by webdeployments.
         /// </summary>
         /// <remarks>
         /// 
@@ -881,7 +990,7 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task<WebDeploymentsAuthorizationResponse> PostWebdeploymentsTokenOauthcodegrantjwtexchangeAsync (WebDeploymentsOAuthExchangeRequest body);
 
         /// <summary>
-        /// Exchange an oAuth code (obtained using the Authorization Code Flow) for a JWT that can be used by webdeployments.
+        /// Exchange an oAuth code (obtained using the Authorization Code Flow or Implicit flow) for a JWT that can be used by webdeployments.
         /// </summary>
         /// <remarks>
         /// 
@@ -967,6 +1076,32 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <returns>Task of ApiResponse (WebDeployment)</returns>
         
         System.Threading.Tasks.Task<ApiResponse<WebDeployment>> PutWebdeploymentsDeploymentAsyncWithHttpInfo (string deploymentId, WebDeployment deployment);
+
+        /// <summary>
+        /// Update identity resolution settings for a deployment.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deploymentId">The deployment ID</param>
+        /// <param name="body"></param>
+        /// <returns>Task of DeploymentIdentityResolutionConfig</returns>
+        
+        System.Threading.Tasks.Task<DeploymentIdentityResolutionConfig> PutWebdeploymentsDeploymentIdentityresolutionAsync (string deploymentId, DeploymentIdentityResolutionConfig body);
+
+        /// <summary>
+        /// Update identity resolution settings for a deployment.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deploymentId">The deployment ID</param>
+        /// <param name="body"></param>
+        /// <returns>Task of ApiResponse (DeploymentIdentityResolutionConfig)</returns>
+        
+        System.Threading.Tasks.Task<ApiResponse<DeploymentIdentityResolutionConfig>> PutWebdeploymentsDeploymentIdentityresolutionAsyncWithHttpInfo (string deploymentId, DeploymentIdentityResolutionConfig body);
 
         #endregion Asynchronous Operations
 
@@ -1088,11 +1223,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'configurationId' when calling WebDeploymentsApi->DeleteWebdeploymentsConfiguration");
 
             var localVarPath = "/api/v2/webdeployments/configurations/{configurationId}";
+            var localVarHttpMethod = "Delete";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -1136,20 +1272,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling DeleteWebdeploymentsConfiguration: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -1194,11 +1323,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/webdeployments/configurations/{configurationId}";
+            var localVarHttpMethod = "Delete";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -1242,20 +1372,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling DeleteWebdeploymentsConfiguration: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -1299,11 +1422,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'deploymentId' when calling WebDeploymentsApi->DeleteWebdeploymentsDeployment");
 
             var localVarPath = "/api/v2/webdeployments/deployments/{deploymentId}";
+            var localVarHttpMethod = "Delete";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -1347,20 +1471,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling DeleteWebdeploymentsDeployment: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -1405,11 +1522,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/webdeployments/deployments/{deploymentId}";
+            var localVarHttpMethod = "Delete";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -1453,20 +1571,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling DeleteWebdeploymentsDeployment: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -1516,11 +1627,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'sessionId' when calling WebDeploymentsApi->DeleteWebdeploymentsDeploymentCobrowseSessionId");
 
             var localVarPath = "/api/v2/webdeployments/deployments/{deploymentId}/cobrowse/{sessionId}";
+            var localVarHttpMethod = "Delete";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -1558,20 +1670,13 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling DeleteWebdeploymentsDeploymentCobrowseSessionId: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -1623,11 +1728,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/webdeployments/deployments/{deploymentId}/cobrowse/{sessionId}";
+            var localVarHttpMethod = "Delete";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -1665,20 +1771,13 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling DeleteWebdeploymentsDeploymentCobrowseSessionId: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -1721,11 +1820,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/webdeployments/token/revoke";
+            var localVarHttpMethod = "Delete";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -1763,20 +1863,13 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling DeleteWebdeploymentsTokenRevoke: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -1819,11 +1912,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/webdeployments/token/revoke";
+            var localVarHttpMethod = "Delete";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -1861,20 +1955,13 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling DeleteWebdeploymentsTokenRevoke: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -1924,11 +2011,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'versionId' when calling WebDeploymentsApi->GetWebdeploymentsConfigurationVersion");
 
             var localVarPath = "/api/v2/webdeployments/configurations/{configurationId}/versions/{versionId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -1973,20 +2061,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetWebdeploymentsConfigurationVersion: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -2038,11 +2119,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/webdeployments/configurations/{configurationId}/versions/{versionId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -2087,20 +2169,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetWebdeploymentsConfigurationVersion: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -2118,38 +2193,45 @@ namespace PureCloudPlatform.Client.V2.Api
 
         /// <summary>
         /// Get the versions of a configuration 
-        /// This returns the 50 most recent versions for this configuration
+        /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="configurationId">The configuration version ID</param>
+        /// <param name="pageSize">Number of entities to return. Defaults to 300. (optional)</param>
+        /// <param name="before">The cursor that points to the start of the set of entities that has been returned. (optional)</param>
+        /// <param name="after">The cursor that points to the end of the set of entities that has been returned. (optional)</param>
         /// <returns>WebDeploymentConfigurationVersionEntityListing</returns>
         
-        public WebDeploymentConfigurationVersionEntityListing GetWebdeploymentsConfigurationVersions (string configurationId)
+        public WebDeploymentConfigurationVersionEntityListing GetWebdeploymentsConfigurationVersions (string configurationId, string pageSize = null, string before = null, string after = null)
         {
-             ApiResponse<WebDeploymentConfigurationVersionEntityListing> localVarResponse = GetWebdeploymentsConfigurationVersionsWithHttpInfo(configurationId);
+             ApiResponse<WebDeploymentConfigurationVersionEntityListing> localVarResponse = GetWebdeploymentsConfigurationVersionsWithHttpInfo(configurationId, pageSize, before, after);
              return localVarResponse.Data;
         }
 
         /// <summary>
         /// Get the versions of a configuration 
-        /// This returns the 50 most recent versions for this configuration
+        /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="configurationId">The configuration version ID</param>
+        /// <param name="pageSize">Number of entities to return. Defaults to 300. (optional)</param>
+        /// <param name="before">The cursor that points to the start of the set of entities that has been returned. (optional)</param>
+        /// <param name="after">The cursor that points to the end of the set of entities that has been returned. (optional)</param>
         /// <returns>ApiResponse of WebDeploymentConfigurationVersionEntityListing</returns>
         
-        public ApiResponse< WebDeploymentConfigurationVersionEntityListing > GetWebdeploymentsConfigurationVersionsWithHttpInfo (string configurationId)
+        public ApiResponse< WebDeploymentConfigurationVersionEntityListing > GetWebdeploymentsConfigurationVersionsWithHttpInfo (string configurationId, string pageSize = null, string before = null, string after = null)
         { 
             // verify the required parameter 'configurationId' is set
             if (configurationId == null)
                 throw new ApiException(400, "Missing required parameter 'configurationId' when calling WebDeploymentsApi->GetWebdeploymentsConfigurationVersions");
 
             var localVarPath = "/api/v2/webdeployments/configurations/{configurationId}/versions";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -2177,6 +2259,9 @@ namespace PureCloudPlatform.Client.V2.Api
             if (configurationId != null) localVarPathParams.Add("configurationId", this.Configuration.ApiClient.ParameterToString(configurationId));
 
             // Query params
+            if (pageSize != null) localVarQueryParams.Add(new Tuple<string, string>("pageSize", this.Configuration.ApiClient.ParameterToString(pageSize)));
+            if (before != null) localVarQueryParams.Add(new Tuple<string, string>("before", this.Configuration.ApiClient.ParameterToString(before)));
+            if (after != null) localVarQueryParams.Add(new Tuple<string, string>("after", this.Configuration.ApiClient.ParameterToString(after)));
 
             // Header params
 
@@ -2193,20 +2278,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetWebdeploymentsConfigurationVersions: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -2223,28 +2301,34 @@ namespace PureCloudPlatform.Client.V2.Api
 
         /// <summary>
         /// Get the versions of a configuration 
-        /// This returns the 50 most recent versions for this configuration
+        /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="configurationId">The configuration version ID</param>
+        /// <param name="pageSize">Number of entities to return. Defaults to 300. (optional)</param>
+        /// <param name="before">The cursor that points to the start of the set of entities that has been returned. (optional)</param>
+        /// <param name="after">The cursor that points to the end of the set of entities that has been returned. (optional)</param>
         /// <returns>Task of WebDeploymentConfigurationVersionEntityListing</returns>
         
-        public async System.Threading.Tasks.Task<WebDeploymentConfigurationVersionEntityListing> GetWebdeploymentsConfigurationVersionsAsync (string configurationId)
+        public async System.Threading.Tasks.Task<WebDeploymentConfigurationVersionEntityListing> GetWebdeploymentsConfigurationVersionsAsync (string configurationId, string pageSize = null, string before = null, string after = null)
         {
-             ApiResponse<WebDeploymentConfigurationVersionEntityListing> localVarResponse = await GetWebdeploymentsConfigurationVersionsAsyncWithHttpInfo(configurationId);
+             ApiResponse<WebDeploymentConfigurationVersionEntityListing> localVarResponse = await GetWebdeploymentsConfigurationVersionsAsyncWithHttpInfo(configurationId, pageSize, before, after);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
         /// Get the versions of a configuration 
-        /// This returns the 50 most recent versions for this configuration
+        /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="configurationId">The configuration version ID</param>
+        /// <param name="pageSize">Number of entities to return. Defaults to 300. (optional)</param>
+        /// <param name="before">The cursor that points to the start of the set of entities that has been returned. (optional)</param>
+        /// <param name="after">The cursor that points to the end of the set of entities that has been returned. (optional)</param>
         /// <returns>Task of ApiResponse (WebDeploymentConfigurationVersionEntityListing)</returns>
         
-        public async System.Threading.Tasks.Task<ApiResponse<WebDeploymentConfigurationVersionEntityListing>> GetWebdeploymentsConfigurationVersionsAsyncWithHttpInfo (string configurationId)
+        public async System.Threading.Tasks.Task<ApiResponse<WebDeploymentConfigurationVersionEntityListing>> GetWebdeploymentsConfigurationVersionsAsyncWithHttpInfo (string configurationId, string pageSize = null, string before = null, string after = null)
         { 
             // verify the required parameter 'configurationId' is set
             if (configurationId == null)
@@ -2252,11 +2336,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/webdeployments/configurations/{configurationId}/versions";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -2284,6 +2369,9 @@ namespace PureCloudPlatform.Client.V2.Api
             if (configurationId != null) localVarPathParams.Add("configurationId", this.Configuration.ApiClient.ParameterToString(configurationId));
 
             // Query params
+            if (pageSize != null) localVarQueryParams.Add(new Tuple<string, string>("pageSize", this.Configuration.ApiClient.ParameterToString(pageSize)));
+            if (before != null) localVarQueryParams.Add(new Tuple<string, string>("before", this.Configuration.ApiClient.ParameterToString(before)));
+            if (after != null) localVarQueryParams.Add(new Tuple<string, string>("after", this.Configuration.ApiClient.ParameterToString(after)));
 
             // Header params
 
@@ -2300,20 +2388,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetWebdeploymentsConfigurationVersions: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -2358,11 +2439,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'configurationId' when calling WebDeploymentsApi->GetWebdeploymentsConfigurationVersionsDraft");
 
             var localVarPath = "/api/v2/webdeployments/configurations/{configurationId}/versions/draft";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -2406,20 +2488,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetWebdeploymentsConfigurationVersionsDraft: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -2465,11 +2540,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/webdeployments/configurations/{configurationId}/versions/draft";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -2513,20 +2589,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetWebdeploymentsConfigurationVersionsDraft: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -2547,12 +2616,15 @@ namespace PureCloudPlatform.Client.V2.Api
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pageSize">Number of entities to return. Defaults to 300. (optional)</param>
+        /// <param name="before">The cursor that points to the start of the set of entities that has been returned. (optional)</param>
+        /// <param name="after">The cursor that points to the end of the set of entities that has been returned. (optional)</param>
         /// <param name="showOnlyPublished">Filter by published status. (optional)</param>
         /// <returns>WebDeploymentConfigurationVersionEntityListing</returns>
         
-        public WebDeploymentConfigurationVersionEntityListing GetWebdeploymentsConfigurations (bool? showOnlyPublished = null)
+        public WebDeploymentConfigurationVersionEntityListing GetWebdeploymentsConfigurations (string pageSize = null, string before = null, string after = null, bool? showOnlyPublished = null)
         {
-             ApiResponse<WebDeploymentConfigurationVersionEntityListing> localVarResponse = GetWebdeploymentsConfigurationsWithHttpInfo(showOnlyPublished);
+             ApiResponse<WebDeploymentConfigurationVersionEntityListing> localVarResponse = GetWebdeploymentsConfigurationsWithHttpInfo(pageSize, before, after, showOnlyPublished);
              return localVarResponse.Data;
         }
 
@@ -2561,18 +2633,22 @@ namespace PureCloudPlatform.Client.V2.Api
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pageSize">Number of entities to return. Defaults to 300. (optional)</param>
+        /// <param name="before">The cursor that points to the start of the set of entities that has been returned. (optional)</param>
+        /// <param name="after">The cursor that points to the end of the set of entities that has been returned. (optional)</param>
         /// <param name="showOnlyPublished">Filter by published status. (optional)</param>
         /// <returns>ApiResponse of WebDeploymentConfigurationVersionEntityListing</returns>
         
-        public ApiResponse< WebDeploymentConfigurationVersionEntityListing > GetWebdeploymentsConfigurationsWithHttpInfo (bool? showOnlyPublished = null)
+        public ApiResponse< WebDeploymentConfigurationVersionEntityListing > GetWebdeploymentsConfigurationsWithHttpInfo (string pageSize = null, string before = null, string after = null, bool? showOnlyPublished = null)
         { 
 
             var localVarPath = "/api/v2/webdeployments/configurations";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -2599,6 +2675,9 @@ namespace PureCloudPlatform.Client.V2.Api
             // Path params
 
             // Query params
+            if (pageSize != null) localVarQueryParams.Add(new Tuple<string, string>("pageSize", this.Configuration.ApiClient.ParameterToString(pageSize)));
+            if (before != null) localVarQueryParams.Add(new Tuple<string, string>("before", this.Configuration.ApiClient.ParameterToString(before)));
+            if (after != null) localVarQueryParams.Add(new Tuple<string, string>("after", this.Configuration.ApiClient.ParameterToString(after)));
             if (showOnlyPublished != null) localVarQueryParams.Add(new Tuple<string, string>("showOnlyPublished", this.Configuration.ApiClient.ParameterToString(showOnlyPublished)));
 
             // Header params
@@ -2616,20 +2695,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetWebdeploymentsConfigurations: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -2649,12 +2721,15 @@ namespace PureCloudPlatform.Client.V2.Api
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pageSize">Number of entities to return. Defaults to 300. (optional)</param>
+        /// <param name="before">The cursor that points to the start of the set of entities that has been returned. (optional)</param>
+        /// <param name="after">The cursor that points to the end of the set of entities that has been returned. (optional)</param>
         /// <param name="showOnlyPublished">Filter by published status. (optional)</param>
         /// <returns>Task of WebDeploymentConfigurationVersionEntityListing</returns>
         
-        public async System.Threading.Tasks.Task<WebDeploymentConfigurationVersionEntityListing> GetWebdeploymentsConfigurationsAsync (bool? showOnlyPublished = null)
+        public async System.Threading.Tasks.Task<WebDeploymentConfigurationVersionEntityListing> GetWebdeploymentsConfigurationsAsync (string pageSize = null, string before = null, string after = null, bool? showOnlyPublished = null)
         {
-             ApiResponse<WebDeploymentConfigurationVersionEntityListing> localVarResponse = await GetWebdeploymentsConfigurationsAsyncWithHttpInfo(showOnlyPublished);
+             ApiResponse<WebDeploymentConfigurationVersionEntityListing> localVarResponse = await GetWebdeploymentsConfigurationsAsyncWithHttpInfo(pageSize, before, after, showOnlyPublished);
              return localVarResponse.Data;
 
         }
@@ -2664,18 +2739,22 @@ namespace PureCloudPlatform.Client.V2.Api
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pageSize">Number of entities to return. Defaults to 300. (optional)</param>
+        /// <param name="before">The cursor that points to the start of the set of entities that has been returned. (optional)</param>
+        /// <param name="after">The cursor that points to the end of the set of entities that has been returned. (optional)</param>
         /// <param name="showOnlyPublished">Filter by published status. (optional)</param>
         /// <returns>Task of ApiResponse (WebDeploymentConfigurationVersionEntityListing)</returns>
         
-        public async System.Threading.Tasks.Task<ApiResponse<WebDeploymentConfigurationVersionEntityListing>> GetWebdeploymentsConfigurationsAsyncWithHttpInfo (bool? showOnlyPublished = null)
+        public async System.Threading.Tasks.Task<ApiResponse<WebDeploymentConfigurationVersionEntityListing>> GetWebdeploymentsConfigurationsAsyncWithHttpInfo (string pageSize = null, string before = null, string after = null, bool? showOnlyPublished = null)
         { 
 
             var localVarPath = "/api/v2/webdeployments/configurations";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -2702,6 +2781,9 @@ namespace PureCloudPlatform.Client.V2.Api
             // Path params
 
             // Query params
+            if (pageSize != null) localVarQueryParams.Add(new Tuple<string, string>("pageSize", this.Configuration.ApiClient.ParameterToString(pageSize)));
+            if (before != null) localVarQueryParams.Add(new Tuple<string, string>("before", this.Configuration.ApiClient.ParameterToString(before)));
+            if (after != null) localVarQueryParams.Add(new Tuple<string, string>("after", this.Configuration.ApiClient.ParameterToString(after)));
             if (showOnlyPublished != null) localVarQueryParams.Add(new Tuple<string, string>("showOnlyPublished", this.Configuration.ApiClient.ParameterToString(showOnlyPublished)));
 
             // Header params
@@ -2719,20 +2801,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetWebdeploymentsConfigurations: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -2779,11 +2854,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'deploymentId' when calling WebDeploymentsApi->GetWebdeploymentsDeployment");
 
             var localVarPath = "/api/v2/webdeployments/deployments/{deploymentId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -2828,20 +2904,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetWebdeploymentsDeployment: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -2889,11 +2958,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/webdeployments/deployments/{deploymentId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -2938,20 +3008,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetWebdeploymentsDeployment: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -3001,11 +3064,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'sessionId' when calling WebDeploymentsApi->GetWebdeploymentsDeploymentCobrowseSessionId");
 
             var localVarPath = "/api/v2/webdeployments/deployments/{deploymentId}/cobrowse/{sessionId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -3043,20 +3107,13 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetWebdeploymentsDeploymentCobrowseSessionId: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -3108,11 +3165,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/webdeployments/deployments/{deploymentId}/cobrowse/{sessionId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -3150,20 +3208,13 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetWebdeploymentsDeploymentCobrowseSessionId: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -3212,11 +3263,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'deploymentId' when calling WebDeploymentsApi->GetWebdeploymentsDeploymentConfigurations");
 
             var localVarPath = "/api/v2/webdeployments/deployments/{deploymentId}/configurations";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -3262,20 +3314,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetWebdeploymentsDeploymentConfigurations: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -3325,11 +3370,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/webdeployments/deployments/{deploymentId}/configurations";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -3375,20 +3421,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetWebdeploymentsDeploymentConfigurations: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -3405,16 +3444,220 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
+        /// Get a deployment identity resolution setting. 
+        /// 
+        /// </summary>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deploymentId">The deployment ID</param>
+        /// <returns>DeploymentIdentityResolutionConfig</returns>
+        
+        public DeploymentIdentityResolutionConfig GetWebdeploymentsDeploymentIdentityresolution (string deploymentId)
+        {
+             ApiResponse<DeploymentIdentityResolutionConfig> localVarResponse = GetWebdeploymentsDeploymentIdentityresolutionWithHttpInfo(deploymentId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get a deployment identity resolution setting. 
+        /// 
+        /// </summary>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deploymentId">The deployment ID</param>
+        /// <returns>ApiResponse of DeploymentIdentityResolutionConfig</returns>
+        
+        public ApiResponse< DeploymentIdentityResolutionConfig > GetWebdeploymentsDeploymentIdentityresolutionWithHttpInfo (string deploymentId)
+        { 
+            // verify the required parameter 'deploymentId' is set
+            if (deploymentId == null)
+                throw new ApiException(400, "Missing required parameter 'deploymentId' when calling WebDeploymentsApi->GetWebdeploymentsDeploymentIdentityresolution");
+
+            var localVarPath = "/api/v2/webdeployments/deployments/{deploymentId}/identityresolution";
+            var localVarHttpMethod = "Get";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<Tuple<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+
+                "application/json"
+                
+
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+
+            // Path params
+            if (deploymentId != null) localVarPathParams.Add("deploymentId", this.Configuration.ApiClient.ParameterToString(deploymentId));
+
+            // Query params
+
+            // Header params
+
+            // Form params
+            
+            // Body param
+
+
+            // authentication (PureCloud OAuth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
+
+            if (localVarStatusCode >= 400)
+                throw new ApiException (localVarStatusCode, "Error calling GetWebdeploymentsDeploymentIdentityresolution: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
+            else if (localVarStatusCode == 0)
+                throw new ApiException (localVarStatusCode, "Error calling GetWebdeploymentsDeploymentIdentityresolution: " + localVarResponse.ErrorMessage, localVarResponse.ErrorMessage);
+
+            return new ApiResponse<DeploymentIdentityResolutionConfig>(localVarStatusCode,
+                localVarHeaders,
+                (DeploymentIdentityResolutionConfig) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(DeploymentIdentityResolutionConfig)),
+                localVarResponse.Content,
+                localVarResponse.StatusDescription);
+        }
+
+
+        /// <summary>
+        /// Get a deployment identity resolution setting. 
+        /// 
+        /// </summary>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deploymentId">The deployment ID</param>
+        /// <returns>Task of DeploymentIdentityResolutionConfig</returns>
+        
+        public async System.Threading.Tasks.Task<DeploymentIdentityResolutionConfig> GetWebdeploymentsDeploymentIdentityresolutionAsync (string deploymentId)
+        {
+             ApiResponse<DeploymentIdentityResolutionConfig> localVarResponse = await GetWebdeploymentsDeploymentIdentityresolutionAsyncWithHttpInfo(deploymentId);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get a deployment identity resolution setting. 
+        /// 
+        /// </summary>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deploymentId">The deployment ID</param>
+        /// <returns>Task of ApiResponse (DeploymentIdentityResolutionConfig)</returns>
+        
+        public async System.Threading.Tasks.Task<ApiResponse<DeploymentIdentityResolutionConfig>> GetWebdeploymentsDeploymentIdentityresolutionAsyncWithHttpInfo (string deploymentId)
+        { 
+            // verify the required parameter 'deploymentId' is set
+            if (deploymentId == null)
+                throw new ApiException(400, "Missing required parameter 'deploymentId' when calling WebDeploymentsApi->GetWebdeploymentsDeploymentIdentityresolution");
+            
+
+            var localVarPath = "/api/v2/webdeployments/deployments/{deploymentId}/identityresolution";
+            var localVarHttpMethod = "Get";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<Tuple<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+
+                "application/json"
+
+                
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+
+            // Path params
+            if (deploymentId != null) localVarPathParams.Add("deploymentId", this.Configuration.ApiClient.ParameterToString(deploymentId));
+
+            // Query params
+
+            // Header params
+
+            // Form params
+            
+            // Body param
+
+
+            // authentication (PureCloud OAuth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
+
+            if (localVarStatusCode >= 400)
+                throw new ApiException (localVarStatusCode, "Error calling GetWebdeploymentsDeploymentIdentityresolution: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
+            else if (localVarStatusCode == 0)
+                throw new ApiException (localVarStatusCode, "Error calling GetWebdeploymentsDeploymentIdentityresolution: " + localVarResponse.ErrorMessage, localVarResponse.ErrorMessage);
+
+            return new ApiResponse<DeploymentIdentityResolutionConfig>(localVarStatusCode,
+                localVarHeaders,
+                (DeploymentIdentityResolutionConfig) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(DeploymentIdentityResolutionConfig)),
+                localVarResponse.Content,
+                localVarResponse.StatusDescription);
+        }
+
+
+
+        /// <summary>
         /// Get deployments 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pageSize">Number of entities to return. Defaults to 300. (optional)</param>
+        /// <param name="before">The cursor that points to the start of the set of entities that has been returned. (optional)</param>
+        /// <param name="after">The cursor that points to the end of the set of entities that has been returned. (optional)</param>
         /// <param name="expand">The specified entity attributes will be filled. Comma separated values expected.  (optional)</param>
         /// <returns>ExpandableWebDeploymentEntityListing</returns>
         
-        public ExpandableWebDeploymentEntityListing GetWebdeploymentsDeployments (List<string> expand = null)
+        public ExpandableWebDeploymentEntityListing GetWebdeploymentsDeployments (string pageSize = null, string before = null, string after = null, List<string> expand = null)
         {
-             ApiResponse<ExpandableWebDeploymentEntityListing> localVarResponse = GetWebdeploymentsDeploymentsWithHttpInfo(expand);
+             ApiResponse<ExpandableWebDeploymentEntityListing> localVarResponse = GetWebdeploymentsDeploymentsWithHttpInfo(pageSize, before, after, expand);
              return localVarResponse.Data;
         }
 
@@ -3423,18 +3666,22 @@ namespace PureCloudPlatform.Client.V2.Api
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pageSize">Number of entities to return. Defaults to 300. (optional)</param>
+        /// <param name="before">The cursor that points to the start of the set of entities that has been returned. (optional)</param>
+        /// <param name="after">The cursor that points to the end of the set of entities that has been returned. (optional)</param>
         /// <param name="expand">The specified entity attributes will be filled. Comma separated values expected.  (optional)</param>
         /// <returns>ApiResponse of ExpandableWebDeploymentEntityListing</returns>
         
-        public ApiResponse< ExpandableWebDeploymentEntityListing > GetWebdeploymentsDeploymentsWithHttpInfo (List<string> expand = null)
+        public ApiResponse< ExpandableWebDeploymentEntityListing > GetWebdeploymentsDeploymentsWithHttpInfo (string pageSize = null, string before = null, string after = null, List<string> expand = null)
         { 
 
             var localVarPath = "/api/v2/webdeployments/deployments";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -3461,6 +3708,9 @@ namespace PureCloudPlatform.Client.V2.Api
             // Path params
 
             // Query params
+            if (pageSize != null) localVarQueryParams.Add(new Tuple<string, string>("pageSize", this.Configuration.ApiClient.ParameterToString(pageSize)));
+            if (before != null) localVarQueryParams.Add(new Tuple<string, string>("before", this.Configuration.ApiClient.ParameterToString(before)));
+            if (after != null) localVarQueryParams.Add(new Tuple<string, string>("after", this.Configuration.ApiClient.ParameterToString(after)));
             if (expand != null) expand.ForEach(obj => { localVarQueryParams.Add(new Tuple<string, string>("expand", this.Configuration.ApiClient.ParameterToString(obj))); });
 
             // Header params
@@ -3478,20 +3728,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetWebdeploymentsDeployments: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -3511,12 +3754,15 @@ namespace PureCloudPlatform.Client.V2.Api
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pageSize">Number of entities to return. Defaults to 300. (optional)</param>
+        /// <param name="before">The cursor that points to the start of the set of entities that has been returned. (optional)</param>
+        /// <param name="after">The cursor that points to the end of the set of entities that has been returned. (optional)</param>
         /// <param name="expand">The specified entity attributes will be filled. Comma separated values expected.  (optional)</param>
         /// <returns>Task of ExpandableWebDeploymentEntityListing</returns>
         
-        public async System.Threading.Tasks.Task<ExpandableWebDeploymentEntityListing> GetWebdeploymentsDeploymentsAsync (List<string> expand = null)
+        public async System.Threading.Tasks.Task<ExpandableWebDeploymentEntityListing> GetWebdeploymentsDeploymentsAsync (string pageSize = null, string before = null, string after = null, List<string> expand = null)
         {
-             ApiResponse<ExpandableWebDeploymentEntityListing> localVarResponse = await GetWebdeploymentsDeploymentsAsyncWithHttpInfo(expand);
+             ApiResponse<ExpandableWebDeploymentEntityListing> localVarResponse = await GetWebdeploymentsDeploymentsAsyncWithHttpInfo(pageSize, before, after, expand);
              return localVarResponse.Data;
 
         }
@@ -3526,18 +3772,22 @@ namespace PureCloudPlatform.Client.V2.Api
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pageSize">Number of entities to return. Defaults to 300. (optional)</param>
+        /// <param name="before">The cursor that points to the start of the set of entities that has been returned. (optional)</param>
+        /// <param name="after">The cursor that points to the end of the set of entities that has been returned. (optional)</param>
         /// <param name="expand">The specified entity attributes will be filled. Comma separated values expected.  (optional)</param>
         /// <returns>Task of ApiResponse (ExpandableWebDeploymentEntityListing)</returns>
         
-        public async System.Threading.Tasks.Task<ApiResponse<ExpandableWebDeploymentEntityListing>> GetWebdeploymentsDeploymentsAsyncWithHttpInfo (List<string> expand = null)
+        public async System.Threading.Tasks.Task<ApiResponse<ExpandableWebDeploymentEntityListing>> GetWebdeploymentsDeploymentsAsyncWithHttpInfo (string pageSize = null, string before = null, string after = null, List<string> expand = null)
         { 
 
             var localVarPath = "/api/v2/webdeployments/deployments";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -3564,6 +3814,9 @@ namespace PureCloudPlatform.Client.V2.Api
             // Path params
 
             // Query params
+            if (pageSize != null) localVarQueryParams.Add(new Tuple<string, string>("pageSize", this.Configuration.ApiClient.ParameterToString(pageSize)));
+            if (before != null) localVarQueryParams.Add(new Tuple<string, string>("before", this.Configuration.ApiClient.ParameterToString(before)));
+            if (after != null) localVarQueryParams.Add(new Tuple<string, string>("after", this.Configuration.ApiClient.ParameterToString(after)));
             if (expand != null) expand.ForEach(obj => { localVarQueryParams.Add(new Tuple<string, string>("expand", this.Configuration.ApiClient.ParameterToString(obj))); });
 
             // Header params
@@ -3581,20 +3834,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetWebdeploymentsDeployments: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -3639,11 +3885,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'configurationId' when calling WebDeploymentsApi->PostWebdeploymentsConfigurationVersionsDraftPublish");
 
             var localVarPath = "/api/v2/webdeployments/configurations/{configurationId}/versions/draft/publish";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -3687,20 +3934,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostWebdeploymentsConfigurationVersionsDraftPublish: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -3746,11 +3986,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/webdeployments/configurations/{configurationId}/versions/draft/publish";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -3794,20 +4035,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostWebdeploymentsConfigurationVersionsDraftPublish: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -3852,11 +4086,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'configurationVersion' when calling WebDeploymentsApi->PostWebdeploymentsConfigurations");
 
             var localVarPath = "/api/v2/webdeployments/configurations";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -3905,20 +4140,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostWebdeploymentsConfigurations: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -3964,11 +4192,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/webdeployments/configurations";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -4017,20 +4246,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostWebdeploymentsConfigurations: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -4075,11 +4297,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'deployment' when calling WebDeploymentsApi->PostWebdeploymentsDeployments");
 
             var localVarPath = "/api/v2/webdeployments/deployments";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -4128,20 +4351,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostWebdeploymentsDeployments: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -4187,11 +4403,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/webdeployments/deployments";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -4240,20 +4457,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostWebdeploymentsDeployments: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -4270,7 +4480,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Exchange an oAuth code (obtained using the Authorization Code Flow) for a JWT that can be used by webdeployments. 
+        /// Exchange an oAuth code (obtained using the Authorization Code Flow or Implicit flow) for a JWT that can be used by webdeployments. 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -4284,7 +4494,7 @@ namespace PureCloudPlatform.Client.V2.Api
         }
 
         /// <summary>
-        /// Exchange an oAuth code (obtained using the Authorization Code Flow) for a JWT that can be used by webdeployments. 
+        /// Exchange an oAuth code (obtained using the Authorization Code Flow or Implicit flow) for a JWT that can be used by webdeployments. 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -4298,11 +4508,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling WebDeploymentsApi->PostWebdeploymentsTokenOauthcodegrantjwtexchange");
 
             var localVarPath = "/api/v2/webdeployments/token/oauthcodegrantjwtexchange";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -4344,20 +4555,13 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostWebdeploymentsTokenOauthcodegrantjwtexchange: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -4373,7 +4577,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Exchange an oAuth code (obtained using the Authorization Code Flow) for a JWT that can be used by webdeployments. 
+        /// Exchange an oAuth code (obtained using the Authorization Code Flow or Implicit flow) for a JWT that can be used by webdeployments. 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -4388,7 +4592,7 @@ namespace PureCloudPlatform.Client.V2.Api
         }
 
         /// <summary>
-        /// Exchange an oAuth code (obtained using the Authorization Code Flow) for a JWT that can be used by webdeployments. 
+        /// Exchange an oAuth code (obtained using the Authorization Code Flow or Implicit flow) for a JWT that can be used by webdeployments. 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -4403,11 +4607,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/webdeployments/token/oauthcodegrantjwtexchange";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -4449,20 +4654,13 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostWebdeploymentsTokenOauthcodegrantjwtexchange: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -4504,11 +4702,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/webdeployments/token/refresh";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -4550,20 +4749,13 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostWebdeploymentsTokenRefresh: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -4605,11 +4797,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/webdeployments/token/refresh";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -4651,20 +4844,13 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostWebdeploymentsTokenRefresh: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -4714,11 +4900,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'configurationVersion' when calling WebDeploymentsApi->PutWebdeploymentsConfigurationVersionsDraft");
 
             var localVarPath = "/api/v2/webdeployments/configurations/{configurationId}/versions/draft";
+            var localVarHttpMethod = "Put";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -4768,20 +4955,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PutWebdeploymentsConfigurationVersionsDraft: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -4833,11 +5013,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/webdeployments/configurations/{configurationId}/versions/draft";
+            var localVarHttpMethod = "Put";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -4887,20 +5068,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PutWebdeploymentsConfigurationVersionsDraft: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -4950,11 +5124,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'deployment' when calling WebDeploymentsApi->PutWebdeploymentsDeployment");
 
             var localVarPath = "/api/v2/webdeployments/deployments/{deploymentId}";
+            var localVarHttpMethod = "Put";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -5004,20 +5179,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PutWebdeploymentsDeployment: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -5069,11 +5237,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/webdeployments/deployments/{deploymentId}";
+            var localVarHttpMethod = "Put";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -5123,20 +5292,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PutWebdeploymentsDeployment: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -5146,6 +5308,230 @@ namespace PureCloudPlatform.Client.V2.Api
             return new ApiResponse<WebDeployment>(localVarStatusCode,
                 localVarHeaders,
                 (WebDeployment) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(WebDeployment)),
+                localVarResponse.Content,
+                localVarResponse.StatusDescription);
+        }
+
+
+
+        /// <summary>
+        /// Update identity resolution settings for a deployment. 
+        /// 
+        /// </summary>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deploymentId">The deployment ID</param>
+        /// <param name="body"></param>
+        /// <returns>DeploymentIdentityResolutionConfig</returns>
+        
+        public DeploymentIdentityResolutionConfig PutWebdeploymentsDeploymentIdentityresolution (string deploymentId, DeploymentIdentityResolutionConfig body)
+        {
+             ApiResponse<DeploymentIdentityResolutionConfig> localVarResponse = PutWebdeploymentsDeploymentIdentityresolutionWithHttpInfo(deploymentId, body);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update identity resolution settings for a deployment. 
+        /// 
+        /// </summary>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deploymentId">The deployment ID</param>
+        /// <param name="body"></param>
+        /// <returns>ApiResponse of DeploymentIdentityResolutionConfig</returns>
+        
+        public ApiResponse< DeploymentIdentityResolutionConfig > PutWebdeploymentsDeploymentIdentityresolutionWithHttpInfo (string deploymentId, DeploymentIdentityResolutionConfig body)
+        { 
+            // verify the required parameter 'deploymentId' is set
+            if (deploymentId == null)
+                throw new ApiException(400, "Missing required parameter 'deploymentId' when calling WebDeploymentsApi->PutWebdeploymentsDeploymentIdentityresolution");
+            // verify the required parameter 'body' is set
+            if (body == null)
+                throw new ApiException(400, "Missing required parameter 'body' when calling WebDeploymentsApi->PutWebdeploymentsDeploymentIdentityresolution");
+
+            var localVarPath = "/api/v2/webdeployments/deployments/{deploymentId}/identityresolution";
+            var localVarHttpMethod = "Put";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<Tuple<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+                
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+
+                "application/json"
+                
+
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+
+            // Path params
+            if (deploymentId != null) localVarPathParams.Add("deploymentId", this.Configuration.ApiClient.ParameterToString(deploymentId));
+
+            // Query params
+
+            // Header params
+
+            // Form params
+            
+            // Body param
+            if (body != null && body.GetType() != typeof(byte[]))
+                localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
+            else
+                localVarPostBody = body; // byte array
+
+
+
+            // authentication (PureCloud OAuth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
+
+            if (localVarStatusCode >= 400)
+                throw new ApiException (localVarStatusCode, "Error calling PutWebdeploymentsDeploymentIdentityresolution: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
+            else if (localVarStatusCode == 0)
+                throw new ApiException (localVarStatusCode, "Error calling PutWebdeploymentsDeploymentIdentityresolution: " + localVarResponse.ErrorMessage, localVarResponse.ErrorMessage);
+
+            return new ApiResponse<DeploymentIdentityResolutionConfig>(localVarStatusCode,
+                localVarHeaders,
+                (DeploymentIdentityResolutionConfig) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(DeploymentIdentityResolutionConfig)),
+                localVarResponse.Content,
+                localVarResponse.StatusDescription);
+        }
+
+
+        /// <summary>
+        /// Update identity resolution settings for a deployment. 
+        /// 
+        /// </summary>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deploymentId">The deployment ID</param>
+        /// <param name="body"></param>
+        /// <returns>Task of DeploymentIdentityResolutionConfig</returns>
+        
+        public async System.Threading.Tasks.Task<DeploymentIdentityResolutionConfig> PutWebdeploymentsDeploymentIdentityresolutionAsync (string deploymentId, DeploymentIdentityResolutionConfig body)
+        {
+             ApiResponse<DeploymentIdentityResolutionConfig> localVarResponse = await PutWebdeploymentsDeploymentIdentityresolutionAsyncWithHttpInfo(deploymentId, body);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Update identity resolution settings for a deployment. 
+        /// 
+        /// </summary>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deploymentId">The deployment ID</param>
+        /// <param name="body"></param>
+        /// <returns>Task of ApiResponse (DeploymentIdentityResolutionConfig)</returns>
+        
+        public async System.Threading.Tasks.Task<ApiResponse<DeploymentIdentityResolutionConfig>> PutWebdeploymentsDeploymentIdentityresolutionAsyncWithHttpInfo (string deploymentId, DeploymentIdentityResolutionConfig body)
+        { 
+            // verify the required parameter 'deploymentId' is set
+            if (deploymentId == null)
+                throw new ApiException(400, "Missing required parameter 'deploymentId' when calling WebDeploymentsApi->PutWebdeploymentsDeploymentIdentityresolution");
+            
+            // verify the required parameter 'body' is set
+            if (body == null)
+                throw new ApiException(400, "Missing required parameter 'body' when calling WebDeploymentsApi->PutWebdeploymentsDeploymentIdentityresolution");
+            
+
+            var localVarPath = "/api/v2/webdeployments/deployments/{deploymentId}/identityresolution";
+            var localVarHttpMethod = "Put";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<Tuple<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+                
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+
+                "application/json"
+
+                
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+
+            // Path params
+            if (deploymentId != null) localVarPathParams.Add("deploymentId", this.Configuration.ApiClient.ParameterToString(deploymentId));
+
+            // Query params
+
+            // Header params
+
+            // Form params
+            
+            // Body param
+            if (body != null && body.GetType() != typeof(byte[]))
+                localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
+            else
+                localVarPostBody = body; // byte array
+
+
+
+            // authentication (PureCloud OAuth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
+
+            if (localVarStatusCode >= 400)
+                throw new ApiException (localVarStatusCode, "Error calling PutWebdeploymentsDeploymentIdentityresolution: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
+            else if (localVarStatusCode == 0)
+                throw new ApiException (localVarStatusCode, "Error calling PutWebdeploymentsDeploymentIdentityresolution: " + localVarResponse.ErrorMessage, localVarResponse.ErrorMessage);
+
+            return new ApiResponse<DeploymentIdentityResolutionConfig>(localVarStatusCode,
+                localVarHeaders,
+                (DeploymentIdentityResolutionConfig) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(DeploymentIdentityResolutionConfig)),
                 localVarResponse.Content,
                 localVarResponse.StatusDescription);
         }

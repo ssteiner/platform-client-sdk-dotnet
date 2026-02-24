@@ -8,9 +8,9 @@
 |------------ | ------------- | ------------- | -------------|
 | **Id** | **string** |  | [optional] |
 | **StartDate** | **DateTime?** |  | [optional] |
-| **LengthMinutes** | **int?** |  | [optional] |
+| **LengthMinutes** | **long?** |  | [optional] |
 | **Status** | **string** |  | [optional] |
 
 
 
-_PureCloudPlatform.Client.V2 227.0.0_
+_PureCloudPlatform.Client.V2 257.0.0_

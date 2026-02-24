@@ -49,7 +49,19 @@ namespace PureCloudPlatform.Client.V2.Model
             /// Enum Datepicker for "DatePicker"
             /// </summary>
             [EnumMember(Value = "DatePicker")]
-            Datepicker
+            Datepicker,
+            
+            /// <summary>
+            /// Enum Listpicker for "ListPicker"
+            /// </summary>
+            [EnumMember(Value = "ListPicker")]
+            Listpicker,
+            
+            /// <summary>
+            /// Enum Form for "Form"
+            /// </summary>
+            [EnumMember(Value = "Form")]
+            Form
         }
         /// <summary>
         /// Describes the button that resulted in the Button Response.
@@ -66,17 +78,28 @@ namespace PureCloudPlatform.Client.V2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ConversationContentButtonResponse" /> class.
         /// </summary>
+        /// <param name="OriginatingMessageId">Reference to the ID of the original message (e.g., list picker) this button response is replying to..</param>
         /// <param name="Type">Describes the button that resulted in the Button Response..</param>
         /// <param name="Text">The response text from the button click. (required).</param>
         /// <param name="Payload">The response payload associated with the clicked button. (required).</param>
-        public ConversationContentButtonResponse(TypeEnum? Type = null, string Text = null, string Payload = null)
+        public ConversationContentButtonResponse(string OriginatingMessageId = null, TypeEnum? Type = null, string Text = null, string Payload = null)
         {
+            this.OriginatingMessageId = OriginatingMessageId;
             this.Type = Type;
             this.Text = Text;
             this.Payload = Payload;
             
         }
         
+
+
+        /// <summary>
+        /// Reference to the ID of the original message (e.g., list picker) this button response is replying to.
+        /// </summary>
+        /// <value>Reference to the ID of the original message (e.g., list picker) this button response is replying to.</value>
+        [DataMember(Name="originatingMessageId", EmitDefaultValue=false)]
+        public string OriginatingMessageId { get; set; }
+
 
 
 
@@ -107,6 +130,7 @@ namespace PureCloudPlatform.Client.V2.Model
             var sb = new StringBuilder();
             sb.Append("class ConversationContentButtonResponse {\n");
 
+            sb.Append("  OriginatingMessageId: ").Append(OriginatingMessageId).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Text: ").Append(Text).Append("\n");
             sb.Append("  Payload: ").Append(Payload).Append("\n");
@@ -151,6 +175,11 @@ namespace PureCloudPlatform.Client.V2.Model
 
             return true &&
                 (
+                    this.OriginatingMessageId == other.OriginatingMessageId ||
+                    this.OriginatingMessageId != null &&
+                    this.OriginatingMessageId.Equals(other.OriginatingMessageId)
+                ) &&
+                (
                     this.Type == other.Type ||
                     this.Type != null &&
                     this.Type.Equals(other.Type)
@@ -178,6 +207,9 @@ namespace PureCloudPlatform.Client.V2.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                if (this.OriginatingMessageId != null)
+                    hash = hash * 59 + this.OriginatingMessageId.GetHashCode();
+
                 if (this.Type != null)
                     hash = hash * 59 + this.Type.GetHashCode();
 

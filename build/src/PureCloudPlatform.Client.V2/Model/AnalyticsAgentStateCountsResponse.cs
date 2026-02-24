@@ -21,10 +21,16 @@ namespace PureCloudPlatform.Client.V2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AnalyticsAgentStateCountsResponse" /> class.
         /// </summary>
-        /// <param name="Counts">List of count by segment types.</param>
-        public AnalyticsAgentStateCountsResponse(List<AgentStateSegmentTypeCount> Counts = null)
+        /// <param name="SegmentCounts">List of count by segment types.</param>
+        /// <param name="PresenceCounts">List of count by presences.</param>
+        /// <param name="RoutingStatusCounts">List of count by routing statuses.</param>
+        /// <param name="IsOutOfOfficeCounts">List of count by out of office states.</param>
+        public AnalyticsAgentStateCountsResponse(List<AgentStateSegmentTypeCount> SegmentCounts = null, List<AgentStatePresenceCount> PresenceCounts = null, List<AgentStateRoutingStatusCount> RoutingStatusCounts = null, List<AgentStateIsOutOfOfficeCount> IsOutOfOfficeCounts = null)
         {
-            this.Counts = Counts;
+            this.SegmentCounts = SegmentCounts;
+            this.PresenceCounts = PresenceCounts;
+            this.RoutingStatusCounts = RoutingStatusCounts;
+            this.IsOutOfOfficeCounts = IsOutOfOfficeCounts;
             
         }
         
@@ -34,8 +40,35 @@ namespace PureCloudPlatform.Client.V2.Model
         /// List of count by segment types
         /// </summary>
         /// <value>List of count by segment types</value>
-        [DataMember(Name="counts", EmitDefaultValue=false)]
-        public List<AgentStateSegmentTypeCount> Counts { get; set; }
+        [DataMember(Name="segmentCounts", EmitDefaultValue=false)]
+        public List<AgentStateSegmentTypeCount> SegmentCounts { get; set; }
+
+
+
+        /// <summary>
+        /// List of count by presences
+        /// </summary>
+        /// <value>List of count by presences</value>
+        [DataMember(Name="presenceCounts", EmitDefaultValue=false)]
+        public List<AgentStatePresenceCount> PresenceCounts { get; set; }
+
+
+
+        /// <summary>
+        /// List of count by routing statuses
+        /// </summary>
+        /// <value>List of count by routing statuses</value>
+        [DataMember(Name="routingStatusCounts", EmitDefaultValue=false)]
+        public List<AgentStateRoutingStatusCount> RoutingStatusCounts { get; set; }
+
+
+
+        /// <summary>
+        /// List of count by out of office states
+        /// </summary>
+        /// <value>List of count by out of office states</value>
+        [DataMember(Name="isOutOfOfficeCounts", EmitDefaultValue=false)]
+        public List<AgentStateIsOutOfOfficeCount> IsOutOfOfficeCounts { get; set; }
 
 
         /// <summary>
@@ -47,7 +80,10 @@ namespace PureCloudPlatform.Client.V2.Model
             var sb = new StringBuilder();
             sb.Append("class AnalyticsAgentStateCountsResponse {\n");
 
-            sb.Append("  Counts: ").Append(Counts).Append("\n");
+            sb.Append("  SegmentCounts: ").Append(SegmentCounts).Append("\n");
+            sb.Append("  PresenceCounts: ").Append(PresenceCounts).Append("\n");
+            sb.Append("  RoutingStatusCounts: ").Append(RoutingStatusCounts).Append("\n");
+            sb.Append("  IsOutOfOfficeCounts: ").Append(IsOutOfOfficeCounts).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -89,9 +125,24 @@ namespace PureCloudPlatform.Client.V2.Model
 
             return true &&
                 (
-                    this.Counts == other.Counts ||
-                    this.Counts != null &&
-                    this.Counts.SequenceEqual(other.Counts)
+                    this.SegmentCounts == other.SegmentCounts ||
+                    this.SegmentCounts != null &&
+                    this.SegmentCounts.SequenceEqual(other.SegmentCounts)
+                ) &&
+                (
+                    this.PresenceCounts == other.PresenceCounts ||
+                    this.PresenceCounts != null &&
+                    this.PresenceCounts.SequenceEqual(other.PresenceCounts)
+                ) &&
+                (
+                    this.RoutingStatusCounts == other.RoutingStatusCounts ||
+                    this.RoutingStatusCounts != null &&
+                    this.RoutingStatusCounts.SequenceEqual(other.RoutingStatusCounts)
+                ) &&
+                (
+                    this.IsOutOfOfficeCounts == other.IsOutOfOfficeCounts ||
+                    this.IsOutOfOfficeCounts != null &&
+                    this.IsOutOfOfficeCounts.SequenceEqual(other.IsOutOfOfficeCounts)
                 );
         }
 
@@ -106,8 +157,17 @@ namespace PureCloudPlatform.Client.V2.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Counts != null)
-                    hash = hash * 59 + this.Counts.GetHashCode();
+                if (this.SegmentCounts != null)
+                    hash = hash * 59 + this.SegmentCounts.GetHashCode();
+
+                if (this.PresenceCounts != null)
+                    hash = hash * 59 + this.PresenceCounts.GetHashCode();
+
+                if (this.RoutingStatusCounts != null)
+                    hash = hash * 59 + this.RoutingStatusCounts.GetHashCode();
+
+                if (this.IsOutOfOfficeCounts != null)
+                    hash = hash * 59 + this.IsOutOfOfficeCounts.GetHashCode();
 
                 return hash;
             }

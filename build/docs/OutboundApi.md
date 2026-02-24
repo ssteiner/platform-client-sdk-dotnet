@@ -24,6 +24,7 @@ All URIs are relative to *https://api.mypurecloud.com*
 | [**DeleteOutboundDnclistCustomexclusioncolumns**](#DeleteOutboundDnclistCustomexclusioncolumns) | **Delete** /api/v2/outbound/dnclists/{dncListId}/customexclusioncolumns | Deletes all or expired custom exclusion column entries from a DNC list. |
 | [**DeleteOutboundDnclistEmailaddresses**](#DeleteOutboundDnclistEmailaddresses) | **Delete** /api/v2/outbound/dnclists/{dncListId}/emailaddresses | Deletes all or expired email addresses from a DNC list. |
 | [**DeleteOutboundDnclistPhonenumbers**](#DeleteOutboundDnclistPhonenumbers) | **Delete** /api/v2/outbound/dnclists/{dncListId}/phonenumbers | Deletes all or expired phone numbers from a DNC list. |
+| [**DeleteOutboundDnclistWhatsappnumbers**](#DeleteOutboundDnclistWhatsappnumbers) | **Delete** /api/v2/outbound/dnclists/{dncListId}/whatsappnumbers | Deletes all or expired whatsApp numbers from a DNC list. |
 | [**DeleteOutboundFilespecificationtemplate**](#DeleteOutboundFilespecificationtemplate) | **Delete** /api/v2/outbound/filespecificationtemplates/{fileSpecificationTemplateId} | Delete File Specification Template |
 | [**DeleteOutboundFilespecificationtemplatesBulk**](#DeleteOutboundFilespecificationtemplatesBulk) | **Delete** /api/v2/outbound/filespecificationtemplates/bulk | Delete multiple file specification templates. |
 | [**DeleteOutboundImporttemplate**](#DeleteOutboundImporttemplate) | **Delete** /api/v2/outbound/importtemplates/{importTemplateId} | Delete Import Template |
@@ -35,6 +36,7 @@ All URIs are relative to *https://api.mypurecloud.com*
 | [**DeleteOutboundSchedulesEmailcampaign**](#DeleteOutboundSchedulesEmailcampaign) | **Delete** /api/v2/outbound/schedules/emailcampaigns/{emailCampaignId} | Delete an email campaign schedule. |
 | [**DeleteOutboundSchedulesMessagingcampaign**](#DeleteOutboundSchedulesMessagingcampaign) | **Delete** /api/v2/outbound/schedules/messagingcampaigns/{messagingCampaignId} | Delete a messaging campaign schedule. |
 | [**DeleteOutboundSchedulesSequence**](#DeleteOutboundSchedulesSequence) | **Delete** /api/v2/outbound/schedules/sequences/{sequenceId} | Delete a dialer sequence schedule. |
+| [**DeleteOutboundSchedulesWhatsappcampaign**](#DeleteOutboundSchedulesWhatsappcampaign) | **Delete** /api/v2/outbound/schedules/whatsappcampaigns/{whatsAppCampaignId} | Delete a WhatsApp campaign schedule. |
 | [**DeleteOutboundSequence**](#DeleteOutboundSequence) | **Delete** /api/v2/outbound/sequences/{sequenceId} | Delete a dialer campaign sequence. |
 | [**GetOutboundAttemptlimit**](#GetOutboundAttemptlimit) | **Get** /api/v2/outbound/attemptlimits/{attemptLimitsId} | Get attempt limits |
 | [**GetOutboundAttemptlimits**](#GetOutboundAttemptlimits) | **Get** /api/v2/outbound/attemptlimits | Query attempt limits list |
@@ -102,6 +104,8 @@ All URIs are relative to *https://api.mypurecloud.com*
 | [**GetOutboundSchedulesMessagingcampaigns**](#GetOutboundSchedulesMessagingcampaigns) | **Get** /api/v2/outbound/schedules/messagingcampaigns | Query for a list of messaging campaign schedules. |
 | [**GetOutboundSchedulesSequence**](#GetOutboundSchedulesSequence) | **Get** /api/v2/outbound/schedules/sequences/{sequenceId} | Get a dialer sequence schedule. |
 | [**GetOutboundSchedulesSequences**](#GetOutboundSchedulesSequences) | **Get** /api/v2/outbound/schedules/sequences | Query for a list of dialer sequence schedules. |
+| [**GetOutboundSchedulesWhatsappcampaign**](#GetOutboundSchedulesWhatsappcampaign) | **Get** /api/v2/outbound/schedules/whatsappcampaigns/{whatsAppCampaignId} | Get a WhatsApp campaign schedule. |
+| [**GetOutboundSchedulesWhatsappcampaigns**](#GetOutboundSchedulesWhatsappcampaigns) | **Get** /api/v2/outbound/schedules/whatsappcampaigns | Query for a list of WhatsApp campaign schedules. |
 | [**GetOutboundSequence**](#GetOutboundSequence) | **Get** /api/v2/outbound/sequences/{sequenceId} | Get a dialer campaign sequence. |
 | [**GetOutboundSequences**](#GetOutboundSequences) | **Get** /api/v2/outbound/sequences | Query a list of dialer campaign sequences. |
 | [**GetOutboundSettings**](#GetOutboundSettings) | **Get** /api/v2/outbound/settings | Get the outbound settings for this organization |
@@ -110,6 +114,7 @@ All URIs are relative to *https://api.mypurecloud.com*
 | [**PatchOutboundDnclistCustomexclusioncolumns**](#PatchOutboundDnclistCustomexclusioncolumns) | **Patch** /api/v2/outbound/dnclists/{dncListId}/customexclusioncolumns | Add entries to or delete entries from a DNC list. |
 | [**PatchOutboundDnclistEmailaddresses**](#PatchOutboundDnclistEmailaddresses) | **Patch** /api/v2/outbound/dnclists/{dncListId}/emailaddresses | Add emails to or Delete emails from a DNC list. |
 | [**PatchOutboundDnclistPhonenumbers**](#PatchOutboundDnclistPhonenumbers) | **Patch** /api/v2/outbound/dnclists/{dncListId}/phonenumbers | Add numbers to or delete numbers from a DNC list. |
+| [**PatchOutboundDnclistWhatsappnumbers**](#PatchOutboundDnclistWhatsappnumbers) | **Patch** /api/v2/outbound/dnclists/{dncListId}/whatsappnumbers | Add entries to or delete entries from a DNC list. |
 | [**PatchOutboundSettings**](#PatchOutboundSettings) | **Patch** /api/v2/outbound/settings | Update the outbound settings for this organization |
 | [**PostOutboundAttemptlimits**](#PostOutboundAttemptlimits) | **Post** /api/v2/outbound/attemptlimits | Create attempt limits |
 | [**PostOutboundCallabletimesets**](#PostOutboundCallabletimesets) | **Post** /api/v2/outbound/callabletimesets | Create callable time set |
@@ -120,6 +125,7 @@ All URIs are relative to *https://api.mypurecloud.com*
 | [**PostOutboundCampaignStop**](#PostOutboundCampaignStop) | **Post** /api/v2/outbound/campaigns/{campaignId}/stop | Stop the campaign |
 | [**PostOutboundCampaignrules**](#PostOutboundCampaignrules) | **Post** /api/v2/outbound/campaignrules | Create Campaign Rule |
 | [**PostOutboundCampaigns**](#PostOutboundCampaigns) | **Post** /api/v2/outbound/campaigns | Create a campaign. |
+| [**PostOutboundCampaignsPerformanceQuery**](#PostOutboundCampaignsPerformanceQuery) | **Post** /api/v2/outbound/campaigns/performance/query | Get performance data for a list of campaigns |
 | [**PostOutboundCampaignsProgress**](#PostOutboundCampaignsProgress) | **Post** /api/v2/outbound/campaigns/progress | Get progress for a list of campaigns |
 | [**PostOutboundContactlistClear**](#PostOutboundContactlistClear) | **Post** /api/v2/outbound/contactlists/{contactListId}/clear | Deletes all contacts out of a list. All outstanding recalls or rule-scheduled callbacks for non-preview campaigns configured with the contactlist will be cancelled. |
 | [**PostOutboundContactlistContacts**](#PostOutboundContactlistContacts) | **Post** /api/v2/outbound/contactlists/{contactListId}/contacts | Add contacts to a contact list. |
@@ -132,6 +138,7 @@ All URIs are relative to *https://api.mypurecloud.com*
 | [**PostOutboundContactlistfiltersBulkRetrieve**](#PostOutboundContactlistfiltersBulkRetrieve) | **Post** /api/v2/outbound/contactlistfilters/bulk/retrieve | Retrieve multiple contact list filters |
 | [**PostOutboundContactlistfiltersPreview**](#PostOutboundContactlistfiltersPreview) | **Post** /api/v2/outbound/contactlistfilters/preview | Get a preview of the output of a contact list filter |
 | [**PostOutboundContactlists**](#PostOutboundContactlists) | **Post** /api/v2/outbound/contactlists | Create a contact List. |
+| [**PostOutboundContactlistsUploads**](#PostOutboundContactlistsUploads) | **Post** /api/v2/outbound/contactlists/uploads | Generate presigned upload URL for contact list. |
 | [**PostOutboundContactlisttemplates**](#PostOutboundContactlisttemplates) | **Post** /api/v2/outbound/contactlisttemplates | Create Contact List Template |
 | [**PostOutboundContactlisttemplatesBulkAdd**](#PostOutboundContactlisttemplatesBulkAdd) | **Post** /api/v2/outbound/contactlisttemplates/bulk/add | Add multiple contact list templates |
 | [**PostOutboundContactlisttemplatesBulkRetrieve**](#PostOutboundContactlisttemplatesBulkRetrieve) | **Post** /api/v2/outbound/contactlisttemplates/bulk/retrieve | Get multiple contact list templates |
@@ -141,6 +148,7 @@ All URIs are relative to *https://api.mypurecloud.com*
 | [**PostOutboundDnclistExport**](#PostOutboundDnclistExport) | **Post** /api/v2/outbound/dnclists/{dncListId}/export | Initiate the export of a dnc list. |
 | [**PostOutboundDnclistPhonenumbers**](#PostOutboundDnclistPhonenumbers) | **Post** /api/v2/outbound/dnclists/{dncListId}/phonenumbers | Add phone numbers to a DNC list. |
 | [**PostOutboundDnclists**](#PostOutboundDnclists) | **Post** /api/v2/outbound/dnclists | Create dialer DNC list |
+| [**PostOutboundDnclistsUploads**](#PostOutboundDnclistsUploads) | **Post** /api/v2/outbound/dnclists/uploads | Generate presigned upload URL for dnc list. |
 | [**PostOutboundFilespecificationtemplates**](#PostOutboundFilespecificationtemplates) | **Post** /api/v2/outbound/filespecificationtemplates | Create File Specification Template |
 | [**PostOutboundImporttemplates**](#PostOutboundImporttemplates) | **Post** /api/v2/outbound/importtemplates | Create Import Template |
 | [**PostOutboundImporttemplatesBulkAdd**](#PostOutboundImporttemplatesBulkAdd) | **Post** /api/v2/outbound/importtemplates/bulk/add | Add multiple import templates |
@@ -170,6 +178,7 @@ All URIs are relative to *https://api.mypurecloud.com*
 | [**PutOutboundSchedulesEmailcampaign**](#PutOutboundSchedulesEmailcampaign) | **Put** /api/v2/outbound/schedules/emailcampaigns/{emailCampaignId} | Update an email campaign schedule. |
 | [**PutOutboundSchedulesMessagingcampaign**](#PutOutboundSchedulesMessagingcampaign) | **Put** /api/v2/outbound/schedules/messagingcampaigns/{messagingCampaignId} | Update a new messaging campaign schedule. |
 | [**PutOutboundSchedulesSequence**](#PutOutboundSchedulesSequence) | **Put** /api/v2/outbound/schedules/sequences/{sequenceId} | Update a new sequence schedule. |
+| [**PutOutboundSchedulesWhatsappcampaign**](#PutOutboundSchedulesWhatsappcampaign) | **Put** /api/v2/outbound/schedules/whatsappcampaigns/{whatsAppCampaignId} | Update a WhatsApp campaign schedule. |
 | [**PutOutboundSequence**](#PutOutboundSequence) | **Put** /api/v2/outbound/sequences/{sequenceId} | Update a new campaign sequence. |
 | [**PutOutboundWrapupcodemappings**](#PutOutboundWrapupcodemappings) | **Put** /api/v2/outbound/wrapupcodemappings | Update the Dialer wrap up code mapping. |
 
@@ -1291,6 +1300,71 @@ namespace Example
 void (empty response body)
 
 
+## DeleteOutboundDnclistWhatsappnumbers
+
+> void DeleteOutboundDnclistWhatsappnumbers (string dncListId, bool? expiredOnly = null)
+
+
+Deletes all or expired whatsApp numbers from a DNC list.
+
+This operation is only for Internal DNC lists of whatsApp numbers
+
+Requires ANY permissions: 
+
+* outbound:dnc:delete
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class DeleteOutboundDnclistWhatsappnumbersExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new OutboundApi();
+            var dncListId = dncListId_example;  // string | DncList ID
+            var expiredOnly = true;  // bool? | Set to true to only remove DNC whatsApp numbers that are expired (optional)  (default to false)
+
+            try
+            { 
+                // Deletes all or expired whatsApp numbers from a DNC list.
+                apiInstance.DeleteOutboundDnclistWhatsappnumbers(dncListId, expiredOnly);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling OutboundApi.DeleteOutboundDnclistWhatsappnumbers: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **dncListId** | **string**| DncList ID |  |
+| **expiredOnly** | **bool?**| Set to true to only remove DNC whatsApp numbers that are expired | [optional] [default to false] |
+
+### Return type
+
+void (empty response body)
+
+
 ## DeleteOutboundFilespecificationtemplate
 
 > void DeleteOutboundFilespecificationtemplate (string fileSpecificationTemplateId)
@@ -1738,6 +1812,7 @@ Delete a dialer campaign schedule.
 Requires ANY permissions: 
 
 * outbound:schedule:delete
+* outbound:campaign:deleteSchedule
 
 ### Example
 ```{"language":"csharp"}
@@ -1799,6 +1874,7 @@ Delete an email campaign schedule.
 Requires ANY permissions: 
 
 * outbound:emailCampaignSchedule:delete
+* outbound:emailCampaign:deleteSchedule
 
 ### Example
 ```{"language":"csharp"}
@@ -1860,6 +1936,7 @@ Delete a messaging campaign schedule.
 Requires ANY permissions: 
 
 * outbound:messagingCampaignSchedule:delete
+* outbound:messagingCampaign:deleteSchedule
 
 ### Example
 ```{"language":"csharp"}
@@ -1921,6 +1998,7 @@ Delete a dialer sequence schedule.
 Requires ANY permissions: 
 
 * outbound:schedule:delete
+* outbound:campaignSequenceSchedule:delete
 
 ### Example
 ```{"language":"csharp"}
@@ -1966,6 +2044,68 @@ namespace Example
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **sequenceId** | **string**| Sequence ID |  |
+
+### Return type
+
+void (empty response body)
+
+
+## DeleteOutboundSchedulesWhatsappcampaign
+
+> void DeleteOutboundSchedulesWhatsappcampaign (string whatsAppCampaignId)
+
+
+Delete a WhatsApp campaign schedule.
+
+Requires ANY permissions: 
+
+* outbound:whatsAppCampaignSchedule:delete
+* outbound:whatsAppCampaign:deleteSchedule
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class DeleteOutboundSchedulesWhatsappcampaignExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new OutboundApi();
+            var whatsAppCampaignId = whatsAppCampaignId_example;  // string | WhatsApp Campaign ID
+
+            try
+            { 
+                // Delete a WhatsApp campaign schedule.
+                apiInstance.DeleteOutboundSchedulesWhatsappcampaign(whatsAppCampaignId);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling OutboundApi.DeleteOutboundSchedulesWhatsappcampaign: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **whatsAppCampaignId** | **string**| WhatsApp Campaign ID |  |
 
 ### Return type
 
@@ -5651,7 +5791,7 @@ namespace Example
 
 ## GetOutboundMessagingcampaigns
 
-> [**MessagingCampaignEntityListing**](MessagingCampaignEntityListing) GetOutboundMessagingcampaigns (int? pageSize = null, int? pageNumber = null, string sortBy = null, string sortOrder = null, string name = null, string contactListId = null, List<string> divisionId = null, string type = null, string senderSmsPhoneNumber = null, List<string> id = null, string contentTemplateId = null, string campaignStatus = null)
+> [**MessagingCampaignEntityListing**](MessagingCampaignEntityListing) GetOutboundMessagingcampaigns (int? pageSize = null, int? pageNumber = null, string sortBy = null, string sortOrder = null, string name = null, string contactListId = null, List<string> divisionId = null, string type = null, string senderSmsPhoneNumber = null, List<string> id = null, string contentTemplateId = null, string campaignStatus = null, List<string> ruleSetIds = null)
 
 
 Query a list of Messaging Campaigns
@@ -5696,11 +5836,12 @@ namespace Example
             var id = new List<string>(); // List<string> | A list of messaging campaign ids to bulk fetch (optional) 
             var contentTemplateId = contentTemplateId_example;  // string | Content template ID (optional) 
             var campaignStatus = campaignStatus_example;  // string | Campaign Status (optional) 
+            var ruleSetIds = new List<string>(); // List<string> | Ruleset ID(s) (optional) 
 
             try
             { 
                 // Query a list of Messaging Campaigns
-                MessagingCampaignEntityListing result = apiInstance.GetOutboundMessagingcampaigns(pageSize, pageNumber, sortBy, sortOrder, name, contactListId, divisionId, type, senderSmsPhoneNumber, id, contentTemplateId, campaignStatus);
+                MessagingCampaignEntityListing result = apiInstance.GetOutboundMessagingcampaigns(pageSize, pageNumber, sortBy, sortOrder, name, contactListId, divisionId, type, senderSmsPhoneNumber, id, contentTemplateId, campaignStatus, ruleSetIds);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -5729,6 +5870,7 @@ namespace Example
 | **id** | [**List<string>**](string)| A list of messaging campaign ids to bulk fetch | [optional]  |
 | **contentTemplateId** | **string**| Content template ID | [optional]  |
 | **campaignStatus** | **string**| Campaign Status | [optional] <br />**Values**: on, stopping, off, complete, invalid, forced_off, forced_stopping |
+| **ruleSetIds** | [**List<string>**](string)| Ruleset ID(s) | [optional]  |
 
 ### Return type
 
@@ -6029,6 +6171,7 @@ Get a dialer campaign schedule.
 Requires ANY permissions: 
 
 * outbound:schedule:view
+* outbound:campaign:viewSchedule
 
 ### Example
 ```{"language":"csharp"}
@@ -6091,6 +6234,7 @@ Query for a list of dialer campaign schedules.
 Requires ANY permissions: 
 
 * outbound:schedule:view
+* outbound:campaign:viewSchedule
 
 ### Example
 ```{"language":"csharp"}
@@ -6148,6 +6292,7 @@ Get an email campaign schedule.
 Requires ANY permissions: 
 
 * outbound:emailCampaignSchedule:view
+* outbound:emailCampaign:viewSchedule
 
 ### Example
 ```{"language":"csharp"}
@@ -6210,6 +6355,7 @@ Query for a list of email campaign schedules.
 Requires ANY permissions: 
 
 * outbound:emailCampaignSchedule:view
+* outbound:emailCampaign:viewSchedule
 
 ### Example
 ```{"language":"csharp"}
@@ -6267,6 +6413,7 @@ Get a messaging campaign schedule.
 Requires ANY permissions: 
 
 * outbound:messagingCampaignSchedule:view
+* outbound:messagingCampaign:viewSchedule
 
 ### Example
 ```{"language":"csharp"}
@@ -6329,6 +6476,7 @@ Query for a list of messaging campaign schedules.
 Requires ANY permissions: 
 
 * outbound:messagingCampaignSchedule:view
+* outbound:messagingCampaign:viewSchedule
 
 ### Example
 ```{"language":"csharp"}
@@ -6386,6 +6534,7 @@ Get a dialer sequence schedule.
 Requires ANY permissions: 
 
 * outbound:schedule:view
+* outbound:campaignSequenceSchedule:view
 
 ### Example
 ```{"language":"csharp"}
@@ -6448,6 +6597,7 @@ Query for a list of dialer sequence schedules.
 Requires ANY permissions: 
 
 * outbound:schedule:view
+* outbound:campaignSequenceSchedule:view
 
 ### Example
 ```{"language":"csharp"}
@@ -6493,6 +6643,127 @@ This endpoint does require any parameters.
 ### Return type
 
 [**List<SequenceSchedule>**](SequenceSchedule)
+
+
+## GetOutboundSchedulesWhatsappcampaign
+
+> [**WhatsAppCampaignSchedule**](WhatsAppCampaignSchedule) GetOutboundSchedulesWhatsappcampaign (string whatsAppCampaignId)
+
+
+Get a WhatsApp campaign schedule.
+
+Requires ANY permissions: 
+
+* outbound:whatsAppCampaignSchedule:view
+* outbound:whatsAppCampaign:viewSchedule
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class GetOutboundSchedulesWhatsappcampaignExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new OutboundApi();
+            var whatsAppCampaignId = whatsAppCampaignId_example;  // string | WhatsApp Campaign ID
+
+            try
+            { 
+                // Get a WhatsApp campaign schedule.
+                WhatsAppCampaignSchedule result = apiInstance.GetOutboundSchedulesWhatsappcampaign(whatsAppCampaignId);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling OutboundApi.GetOutboundSchedulesWhatsappcampaign: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **whatsAppCampaignId** | **string**| WhatsApp Campaign ID |  |
+
+### Return type
+
+[**WhatsAppCampaignSchedule**](WhatsAppCampaignSchedule)
+
+
+## GetOutboundSchedulesWhatsappcampaigns
+
+> [**WhatsAppCampaignScheduleEntityListing**](WhatsAppCampaignScheduleEntityListing) GetOutboundSchedulesWhatsappcampaigns ()
+
+
+Query for a list of WhatsApp campaign schedules.
+
+Requires ANY permissions: 
+
+* outbound:whatsAppCampaignSchedule:view
+* outbound:whatsAppCampaign:viewSchedule
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class GetOutboundSchedulesWhatsappcampaignsExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new OutboundApi();
+
+            try
+            { 
+                // Query for a list of WhatsApp campaign schedules.
+                WhatsAppCampaignScheduleEntityListing result = apiInstance.GetOutboundSchedulesWhatsappcampaigns();
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling OutboundApi.GetOutboundSchedulesWhatsappcampaigns: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+This endpoint does require any parameters.
+
+### Return type
+
+[**WhatsAppCampaignScheduleEntityListing**](WhatsAppCampaignScheduleEntityListing)
 
 
 ## GetOutboundSequence
@@ -7003,9 +7274,74 @@ namespace Example
 void (empty response body)
 
 
+## PatchOutboundDnclistWhatsappnumbers
+
+> void PatchOutboundDnclistWhatsappnumbers (string dncListId, DncPatchWhatsAppNumbersRequest body)
+
+
+Add entries to or delete entries from a DNC list.
+
+Only Internal DNC lists may be deleted from
+
+Requires ANY permissions: 
+
+* outbound:dnc:edit
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class PatchOutboundDnclistWhatsappnumbersExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new OutboundApi();
+            var dncListId = dncListId_example;  // string | DncList ID
+            var body = new DncPatchWhatsAppNumbersRequest(); // DncPatchWhatsAppNumbersRequest | DNC whatsApp numbers
+
+            try
+            { 
+                // Add entries to or delete entries from a DNC list.
+                apiInstance.PatchOutboundDnclistWhatsappnumbers(dncListId, body);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling OutboundApi.PatchOutboundDnclistWhatsappnumbers: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **dncListId** | **string**| DncList ID |  |
+| **body** | [**DncPatchWhatsAppNumbersRequest**](DncPatchWhatsAppNumbersRequest)| DNC whatsApp numbers |  |
+
+### Return type
+
+void (empty response body)
+
+
 ## PatchOutboundSettings
 
-> void PatchOutboundSettings (OutboundSettings body)
+> void PatchOutboundSettings (OutboundSettings body, bool? useMaxCallsPerAgentDecimal = null)
 
 
 Update the outbound settings for this organization
@@ -7037,11 +7373,12 @@ namespace Example
 
             var apiInstance = new OutboundApi();
             var body = new OutboundSettings(); // OutboundSettings | outboundSettings
+            var useMaxCallsPerAgentDecimal = useMaxCallsPerAgentDecimal_example;  // bool? | Use maxCallsPerAgent with decimal precision (optional) 
 
             try
             { 
                 // Update the outbound settings for this organization
-                apiInstance.PatchOutboundSettings(body);
+                apiInstance.PatchOutboundSettings(body, useMaxCallsPerAgentDecimal);
             }
             catch (Exception e)
             {
@@ -7058,6 +7395,7 @@ namespace Example
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **body** | [**OutboundSettings**](OutboundSettings)| outboundSettings |  |
+| **useMaxCallsPerAgentDecimal** | **bool?**| Use maxCallsPerAgent with decimal precision | [optional] <br />**Values**: true, false |
 
 ### Return type
 
@@ -7568,7 +7906,7 @@ namespace Example
 
 ## PostOutboundCampaigns
 
-> [**Campaign**](Campaign) PostOutboundCampaigns (Campaign body)
+> [**Campaign**](Campaign) PostOutboundCampaigns (Campaign body, bool? useMaxCallsPerAgentDecimal = null)
 
 
 Create a campaign.
@@ -7600,11 +7938,12 @@ namespace Example
 
             var apiInstance = new OutboundApi();
             var body = new Campaign(); // Campaign | Campaign
+            var useMaxCallsPerAgentDecimal = useMaxCallsPerAgentDecimal_example;  // bool? | Use maxCallsPerAgent with decimal precision (optional) 
 
             try
             { 
                 // Create a campaign.
-                Campaign result = apiInstance.PostOutboundCampaigns(body);
+                Campaign result = apiInstance.PostOutboundCampaigns(body, useMaxCallsPerAgentDecimal);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -7622,10 +7961,74 @@ namespace Example
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **body** | [**Campaign**](Campaign)| Campaign |  |
+| **useMaxCallsPerAgentDecimal** | **bool?**| Use maxCallsPerAgent with decimal precision | [optional] <br />**Values**: true, false |
 
 ### Return type
 
 [**Campaign**](Campaign)
+
+
+## PostOutboundCampaignsPerformanceQuery
+
+> [**CampaignPerformanceDataListing**](CampaignPerformanceDataListing) PostOutboundCampaignsPerformanceQuery (List<string> body)
+
+
+Get performance data for a list of campaigns
+
+Requires ANY permissions: 
+
+* outbound:performance:view
+* outbound:campaign:view
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class PostOutboundCampaignsPerformanceQueryExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new OutboundApi();
+            var body = new List<string>(); // List<string> | Campaign IDs. Maximum of 50 IDs allowed.
+
+            try
+            { 
+                // Get performance data for a list of campaigns
+                CampaignPerformanceDataListing result = apiInstance.PostOutboundCampaignsPerformanceQuery(body);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling OutboundApi.PostOutboundCampaignsPerformanceQuery: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **body** | [**List<string>**](string)| Campaign IDs. Maximum of 50 IDs allowed. |  |
+
+### Return type
+
+[**CampaignPerformanceDataListing**](CampaignPerformanceDataListing)
 
 
 ## PostOutboundCampaignsProgress
@@ -8392,6 +8795,68 @@ namespace Example
 [**ContactList**](ContactList)
 
 
+## PostOutboundContactlistsUploads
+
+> [**UploadUrlResponse**](UploadUrlResponse) PostOutboundContactlistsUploads (ContactListUploadUrlRequest body)
+
+
+Generate presigned upload URL for contact list.
+
+Requires ANY permissions: 
+
+* outbound:contactList:upload
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class PostOutboundContactlistsUploadsExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new OutboundApi();
+            var body = new ContactListUploadUrlRequest(); // ContactListUploadUrlRequest | contactListUploadUrlRequest
+
+            try
+            { 
+                // Generate presigned upload URL for contact list.
+                UploadUrlResponse result = apiInstance.PostOutboundContactlistsUploads(body);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling OutboundApi.PostOutboundContactlistsUploads: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **body** | [**ContactListUploadUrlRequest**](ContactListUploadUrlRequest)| contactListUploadUrlRequest |  |
+
+### Return type
+
+[**UploadUrlResponse**](UploadUrlResponse)
+
+
 ## PostOutboundContactlisttemplates
 
 > [**ContactListTemplate**](ContactListTemplate) PostOutboundContactlisttemplates (ContactListTemplate body)
@@ -8960,6 +9425,68 @@ namespace Example
 [**DncList**](DncList)
 
 
+## PostOutboundDnclistsUploads
+
+> [**UploadUrlResponse**](UploadUrlResponse) PostOutboundDnclistsUploads (DNCListUploadUrlRequest body)
+
+
+Generate presigned upload URL for dnc list.
+
+Requires ANY permissions: 
+
+* outbound:dncList:upload
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class PostOutboundDnclistsUploadsExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new OutboundApi();
+            var body = new DNCListUploadUrlRequest(); // DNCListUploadUrlRequest | dncListUploadUrlRequest
+
+            try
+            { 
+                // Generate presigned upload URL for dnc list.
+                UploadUrlResponse result = apiInstance.PostOutboundDnclistsUploads(body);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling OutboundApi.PostOutboundDnclistsUploads: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **body** | [**DNCListUploadUrlRequest**](DNCListUploadUrlRequest)| dncListUploadUrlRequest |  |
+
+### Return type
+
+[**UploadUrlResponse**](UploadUrlResponse)
+
+
 ## PostOutboundFilespecificationtemplates
 
 > [**FileSpecificationTemplate**](FileSpecificationTemplate) PostOutboundFilespecificationtemplates (FileSpecificationTemplate body)
@@ -9351,6 +9878,7 @@ Requires ANY permissions:
 
 * outbound:messagingCampaign:view
 * outbound:emailCampaign:view
+* outbound:whatsAppCampaign:view
 
 ### Example
 ```{"language":"csharp"}
@@ -9721,7 +10249,7 @@ namespace Example
 
 ## PutOutboundCampaign
 
-> [**Campaign**](Campaign) PutOutboundCampaign (string campaignId, Campaign body)
+> [**Campaign**](Campaign) PutOutboundCampaign (string campaignId, Campaign body, bool? useMaxCallsPerAgentDecimal = null)
 
 
 Update a campaign.
@@ -9754,11 +10282,12 @@ namespace Example
             var apiInstance = new OutboundApi();
             var campaignId = campaignId_example;  // string | Campaign ID
             var body = new Campaign(); // Campaign | Campaign
+            var useMaxCallsPerAgentDecimal = useMaxCallsPerAgentDecimal_example;  // bool? | Use maxCallsPerAgent with decimal precision (optional) 
 
             try
             { 
                 // Update a campaign.
-                Campaign result = apiInstance.PutOutboundCampaign(campaignId, body);
+                Campaign result = apiInstance.PutOutboundCampaign(campaignId, body, useMaxCallsPerAgentDecimal);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -9777,6 +10306,7 @@ namespace Example
 |------------- | ------------- | ------------- | -------------|
 | **campaignId** | **string**| Campaign ID |  |
 | **body** | [**Campaign**](Campaign)| Campaign |  |
+| **useMaxCallsPerAgentDecimal** | **bool?**| Use maxCallsPerAgent with decimal precision | [optional] <br />**Values**: true, false |
 
 ### Return type
 
@@ -10568,6 +11098,7 @@ Update a new campaign schedule.
 Requires ANY permissions: 
 
 * outbound:schedule:edit
+* outbound:campaign:editSchedule
 
 ### Example
 ```{"language":"csharp"}
@@ -10632,6 +11163,7 @@ Update an email campaign schedule.
 Requires ANY permissions: 
 
 * outbound:emailCampaignSchedule:edit
+* outbound:emailCampaign:editSchedule
 
 ### Example
 ```{"language":"csharp"}
@@ -10696,6 +11228,7 @@ Update a new messaging campaign schedule.
 Requires ANY permissions: 
 
 * outbound:messagingCampaignSchedule:edit
+* outbound:messagingCampaign:editSchedule
 
 ### Example
 ```{"language":"csharp"}
@@ -10760,6 +11293,7 @@ Update a new sequence schedule.
 Requires ANY permissions: 
 
 * outbound:schedule:edit
+* outbound:campaignSequenceSchedule:edit
 
 ### Example
 ```{"language":"csharp"}
@@ -10812,6 +11346,71 @@ namespace Example
 ### Return type
 
 [**SequenceSchedule**](SequenceSchedule)
+
+
+## PutOutboundSchedulesWhatsappcampaign
+
+> [**WhatsAppCampaignSchedule**](WhatsAppCampaignSchedule) PutOutboundSchedulesWhatsappcampaign (string whatsAppCampaignId, WhatsAppCampaignSchedule body)
+
+
+Update a WhatsApp campaign schedule.
+
+Requires ANY permissions: 
+
+* outbound:whatsAppCampaignSchedule:edit
+* outbound:whatsAppCampaign:editSchedule
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class PutOutboundSchedulesWhatsappcampaignExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new OutboundApi();
+            var whatsAppCampaignId = whatsAppCampaignId_example;  // string | WhatsApp Campaign ID
+            var body = new WhatsAppCampaignSchedule(); // WhatsAppCampaignSchedule | WhatsAppCampaignSchedule
+
+            try
+            { 
+                // Update a WhatsApp campaign schedule.
+                WhatsAppCampaignSchedule result = apiInstance.PutOutboundSchedulesWhatsappcampaign(whatsAppCampaignId, body);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling OutboundApi.PutOutboundSchedulesWhatsappcampaign: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **whatsAppCampaignId** | **string**| WhatsApp Campaign ID |  |
+| **body** | [**WhatsAppCampaignSchedule**](WhatsAppCampaignSchedule)| WhatsAppCampaignSchedule |  |
+
+### Return type
+
+[**WhatsAppCampaignSchedule**](WhatsAppCampaignSchedule)
 
 
 ## PutOutboundSequence
@@ -10940,4 +11539,4 @@ namespace Example
 [**WrapUpCodeMapping**](WrapUpCodeMapping)
 
 
-_PureCloudPlatform.Client.V2 227.0.0_
+_PureCloudPlatform.Client.V2 257.0.0_

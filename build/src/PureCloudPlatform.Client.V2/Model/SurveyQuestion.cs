@@ -39,6 +39,12 @@ namespace PureCloudPlatform.Client.V2.Model
             Multiplechoicequestion,
             
             /// <summary>
+            /// Enum Multipleselectquestion for "multipleSelectQuestion"
+            /// </summary>
+            [EnumMember(Value = "multipleSelectQuestion")]
+            Multipleselectquestion,
+            
+            /// <summary>
             /// Enum Freetextquestion for "freeTextQuestion"
             /// </summary>
             [EnumMember(Value = "freeTextQuestion")]
@@ -94,6 +100,15 @@ namespace PureCloudPlatform.Client.V2.Model
         /// </summary>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public string Id { get; set; }
+
+
+
+        /// <summary>
+        /// An identifier for this question that stays the same across versions of the form.
+        /// </summary>
+        /// <value>An identifier for this question that stays the same across versions of the form.</value>
+        [DataMember(Name="contextId", EmitDefaultValue=false)]
+        public string ContextId { get; private set; }
 
 
 
@@ -167,6 +182,7 @@ namespace PureCloudPlatform.Client.V2.Model
             sb.Append("class SurveyQuestion {\n");
 
             sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  ContextId: ").Append(ContextId).Append("\n");
             sb.Append("  Text: ").Append(Text).Append("\n");
             sb.Append("  HelpText: ").Append(HelpText).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
@@ -219,6 +235,11 @@ namespace PureCloudPlatform.Client.V2.Model
                     this.Id == other.Id ||
                     this.Id != null &&
                     this.Id.Equals(other.Id)
+                ) &&
+                (
+                    this.ContextId == other.ContextId ||
+                    this.ContextId != null &&
+                    this.ContextId.Equals(other.ContextId)
                 ) &&
                 (
                     this.Text == other.Text ||
@@ -275,6 +296,9 @@ namespace PureCloudPlatform.Client.V2.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.Id != null)
                     hash = hash * 59 + this.Id.GetHashCode();
+
+                if (this.ContextId != null)
+                    hash = hash * 59 + this.ContextId.GetHashCode();
 
                 if (this.Text != null)
                     hash = hash * 59 + this.Text.GetHashCode();

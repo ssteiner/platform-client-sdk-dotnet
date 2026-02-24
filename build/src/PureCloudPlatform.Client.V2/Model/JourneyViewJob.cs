@@ -61,7 +61,13 @@ namespace PureCloudPlatform.Client.V2.Model
             /// Enum Cancelled for "Cancelled"
             /// </summary>
             [EnumMember(Value = "Cancelled")]
-            Cancelled
+            Cancelled,
+            
+            /// <summary>
+            /// Enum Scheduled for "Scheduled"
+            /// </summary>
+            [EnumMember(Value = "Scheduled")]
+            Scheduled
         }
         /// <summary>
         /// The status of the job
@@ -128,6 +134,33 @@ namespace PureCloudPlatform.Client.V2.Model
 
 
         /// <summary>
+        /// Timestamp for the estimated time of completion. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
+        /// </summary>
+        /// <value>Timestamp for the estimated time of completion. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z</value>
+        [DataMember(Name="dateCompletionEstimated", EmitDefaultValue=false)]
+        public DateTime? DateCompletionEstimated { get; private set; }
+
+
+
+        /// <summary>
+        /// Margin of error of the estimated time of completion
+        /// </summary>
+        /// <value>Margin of error of the estimated time of completion</value>
+        [DataMember(Name="estimatedCompletionMargin", EmitDefaultValue=false)]
+        public long? EstimatedCompletionMargin { get; private set; }
+
+
+
+        /// <summary>
+        /// Id of the user who submitted the request
+        /// </summary>
+        /// <value>Id of the user who submitted the request</value>
+        [DataMember(Name="userId", EmitDefaultValue=false)]
+        public string UserId { get; private set; }
+
+
+
+        /// <summary>
         /// The URI for this object
         /// </summary>
         /// <value>The URI for this object</value>
@@ -149,6 +182,9 @@ namespace PureCloudPlatform.Client.V2.Model
             sb.Append("  DateCompleted: ").Append(DateCompleted).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  JourneyView: ").Append(JourneyView).Append("\n");
+            sb.Append("  DateCompletionEstimated: ").Append(DateCompletionEstimated).Append("\n");
+            sb.Append("  EstimatedCompletionMargin: ").Append(EstimatedCompletionMargin).Append("\n");
+            sb.Append("  UserId: ").Append(UserId).Append("\n");
             sb.Append("  SelfUri: ").Append(SelfUri).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -216,6 +252,21 @@ namespace PureCloudPlatform.Client.V2.Model
                     this.JourneyView.Equals(other.JourneyView)
                 ) &&
                 (
+                    this.DateCompletionEstimated == other.DateCompletionEstimated ||
+                    this.DateCompletionEstimated != null &&
+                    this.DateCompletionEstimated.Equals(other.DateCompletionEstimated)
+                ) &&
+                (
+                    this.EstimatedCompletionMargin == other.EstimatedCompletionMargin ||
+                    this.EstimatedCompletionMargin != null &&
+                    this.EstimatedCompletionMargin.Equals(other.EstimatedCompletionMargin)
+                ) &&
+                (
+                    this.UserId == other.UserId ||
+                    this.UserId != null &&
+                    this.UserId.Equals(other.UserId)
+                ) &&
+                (
                     this.SelfUri == other.SelfUri ||
                     this.SelfUri != null &&
                     this.SelfUri.Equals(other.SelfUri)
@@ -247,6 +298,15 @@ namespace PureCloudPlatform.Client.V2.Model
 
                 if (this.JourneyView != null)
                     hash = hash * 59 + this.JourneyView.GetHashCode();
+
+                if (this.DateCompletionEstimated != null)
+                    hash = hash * 59 + this.DateCompletionEstimated.GetHashCode();
+
+                if (this.EstimatedCompletionMargin != null)
+                    hash = hash * 59 + this.EstimatedCompletionMargin.GetHashCode();
+
+                if (this.UserId != null)
+                    hash = hash * 59 + this.UserId.GetHashCode();
 
                 if (this.SelfUri != null)
                     hash = hash * 59 + this.SelfUri.GetHashCode();

@@ -28,10 +28,10 @@ namespace PureCloudPlatform.Client.V2.Model
         /// Initializes a new instance of the <see cref="ExternalOrganization" /> class.
         /// </summary>
         /// <param name="Id">The globally unique identifier for the object..</param>
-        /// <param name="Name">The name of the company. (required).</param>
+        /// <param name="Name">The name of the company. Max: 1000 characters. Leading and trailing whitespace stripped. (required).</param>
+        /// <param name="Division">The division to which this entity belongs..</param>
         /// <param name="CompanyType">CompanyType.</param>
         /// <param name="Industry">Industry.</param>
-        /// <param name="PrimaryContactId">PrimaryContactId.</param>
         /// <param name="Address">Address.</param>
         /// <param name="PhoneNumber">PhoneNumber.</param>
         /// <param name="FaxNumber">FaxNumber.</param>
@@ -47,13 +47,15 @@ namespace PureCloudPlatform.Client.V2.Model
         /// <param name="Trustor">Trustor.</param>
         /// <param name="Schema">The schema defining custom fields for this contact.</param>
         /// <param name="CustomFields">Custom fields defined in the schema referenced by schemaId and schemaVersion..</param>
-        public ExternalOrganization(string Id = null, string Name = null, string CompanyType = null, string Industry = null, string PrimaryContactId = null, ContactAddress Address = null, PhoneNumber PhoneNumber = null, PhoneNumber FaxNumber = null, long? EmployeeCount = null, long? Revenue = null, List<string> Tags = null, List<string> Websites = null, List<Ticker> Tickers = null, TwitterId TwitterId = null, string ExternalSystemUrl = null, DateTime? ModifyDate = null, DateTime? CreateDate = null, Trustor Trustor = null, DataSchema Schema = null, Dictionary<string, Object> CustomFields = null)
+        /// <param name="Identifiers">Identifiers claimed by this external org.</param>
+        /// <param name="ExternalIds">A list of external identifiers that identify this External Organization in an external system. Max 10 items..</param>
+        public ExternalOrganization(string Id = null, string Name = null, WritableStarrableDivision Division = null, string CompanyType = null, string Industry = null, ContactAddress Address = null, PhoneNumber PhoneNumber = null, PhoneNumber FaxNumber = null, long? EmployeeCount = null, long? Revenue = null, List<string> Tags = null, List<string> Websites = null, List<Ticker> Tickers = null, TwitterId TwitterId = null, string ExternalSystemUrl = null, DateTime? ModifyDate = null, DateTime? CreateDate = null, Trustor Trustor = null, DataSchema Schema = null, Dictionary<string, Object> CustomFields = null, List<ExternalOrganizationIdentifier> Identifiers = null, List<ExternalId> ExternalIds = null)
         {
             this.Id = Id;
             this.Name = Name;
+            this.Division = Division;
             this.CompanyType = CompanyType;
             this.Industry = Industry;
-            this.PrimaryContactId = PrimaryContactId;
             this.Address = Address;
             this.PhoneNumber = PhoneNumber;
             this.FaxNumber = FaxNumber;
@@ -69,6 +71,8 @@ namespace PureCloudPlatform.Client.V2.Model
             this.Trustor = Trustor;
             this.Schema = Schema;
             this.CustomFields = CustomFields;
+            this.Identifiers = Identifiers;
+            this.ExternalIds = ExternalIds;
             
         }
         
@@ -84,11 +88,20 @@ namespace PureCloudPlatform.Client.V2.Model
 
 
         /// <summary>
-        /// The name of the company.
+        /// The name of the company. Max: 1000 characters. Leading and trailing whitespace stripped.
         /// </summary>
-        /// <value>The name of the company.</value>
+        /// <value>The name of the company. Max: 1000 characters. Leading and trailing whitespace stripped.</value>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
+
+
+
+        /// <summary>
+        /// The division to which this entity belongs.
+        /// </summary>
+        /// <value>The division to which this entity belongs.</value>
+        [DataMember(Name="division", EmitDefaultValue=false)]
+        public WritableStarrableDivision Division { get; set; }
 
 
 
@@ -105,14 +118,6 @@ namespace PureCloudPlatform.Client.V2.Model
         /// </summary>
         [DataMember(Name="industry", EmitDefaultValue=false)]
         public string Industry { get; set; }
-
-
-
-        /// <summary>
-        /// Gets or Sets PrimaryContactId
-        /// </summary>
-        [DataMember(Name="primaryContactId", EmitDefaultValue=false)]
-        public string PrimaryContactId { get; set; }
 
 
 
@@ -242,6 +247,24 @@ namespace PureCloudPlatform.Client.V2.Model
 
 
         /// <summary>
+        /// Identifiers claimed by this external org
+        /// </summary>
+        /// <value>Identifiers claimed by this external org</value>
+        [DataMember(Name="identifiers", EmitDefaultValue=false)]
+        public List<ExternalOrganizationIdentifier> Identifiers { get; set; }
+
+
+
+        /// <summary>
+        /// A list of external identifiers that identify this External Organization in an external system. Max 10 items.
+        /// </summary>
+        /// <value>A list of external identifiers that identify this External Organization in an external system. Max 10 items.</value>
+        [DataMember(Name="externalIds", EmitDefaultValue=false)]
+        public List<ExternalId> ExternalIds { get; set; }
+
+
+
+        /// <summary>
         /// Links to the sources of data (e.g. one source might be a CRM) that contributed data to this record.  Read-only, and only populated when requested via expand param.
         /// </summary>
         /// <value>Links to the sources of data (e.g. one source might be a CRM) that contributed data to this record.  Read-only, and only populated when requested via expand param.</value>
@@ -269,9 +292,9 @@ namespace PureCloudPlatform.Client.V2.Model
 
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  Division: ").Append(Division).Append("\n");
             sb.Append("  CompanyType: ").Append(CompanyType).Append("\n");
             sb.Append("  Industry: ").Append(Industry).Append("\n");
-            sb.Append("  PrimaryContactId: ").Append(PrimaryContactId).Append("\n");
             sb.Append("  Address: ").Append(Address).Append("\n");
             sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
             sb.Append("  FaxNumber: ").Append(FaxNumber).Append("\n");
@@ -287,6 +310,8 @@ namespace PureCloudPlatform.Client.V2.Model
             sb.Append("  Trustor: ").Append(Trustor).Append("\n");
             sb.Append("  Schema: ").Append(Schema).Append("\n");
             sb.Append("  CustomFields: ").Append(CustomFields).Append("\n");
+            sb.Append("  Identifiers: ").Append(Identifiers).Append("\n");
+            sb.Append("  ExternalIds: ").Append(ExternalIds).Append("\n");
             sb.Append("  ExternalDataSources: ").Append(ExternalDataSources).Append("\n");
             sb.Append("  SelfUri: ").Append(SelfUri).Append("\n");
             sb.Append("}\n");
@@ -340,6 +365,11 @@ namespace PureCloudPlatform.Client.V2.Model
                     this.Name.Equals(other.Name)
                 ) &&
                 (
+                    this.Division == other.Division ||
+                    this.Division != null &&
+                    this.Division.Equals(other.Division)
+                ) &&
+                (
                     this.CompanyType == other.CompanyType ||
                     this.CompanyType != null &&
                     this.CompanyType.Equals(other.CompanyType)
@@ -348,11 +378,6 @@ namespace PureCloudPlatform.Client.V2.Model
                     this.Industry == other.Industry ||
                     this.Industry != null &&
                     this.Industry.Equals(other.Industry)
-                ) &&
-                (
-                    this.PrimaryContactId == other.PrimaryContactId ||
-                    this.PrimaryContactId != null &&
-                    this.PrimaryContactId.Equals(other.PrimaryContactId)
                 ) &&
                 (
                     this.Address == other.Address ||
@@ -430,6 +455,16 @@ namespace PureCloudPlatform.Client.V2.Model
                     this.CustomFields.SequenceEqual(other.CustomFields)
                 ) &&
                 (
+                    this.Identifiers == other.Identifiers ||
+                    this.Identifiers != null &&
+                    this.Identifiers.SequenceEqual(other.Identifiers)
+                ) &&
+                (
+                    this.ExternalIds == other.ExternalIds ||
+                    this.ExternalIds != null &&
+                    this.ExternalIds.SequenceEqual(other.ExternalIds)
+                ) &&
+                (
                     this.ExternalDataSources == other.ExternalDataSources ||
                     this.ExternalDataSources != null &&
                     this.ExternalDataSources.SequenceEqual(other.ExternalDataSources)
@@ -458,14 +493,14 @@ namespace PureCloudPlatform.Client.V2.Model
                 if (this.Name != null)
                     hash = hash * 59 + this.Name.GetHashCode();
 
+                if (this.Division != null)
+                    hash = hash * 59 + this.Division.GetHashCode();
+
                 if (this.CompanyType != null)
                     hash = hash * 59 + this.CompanyType.GetHashCode();
 
                 if (this.Industry != null)
                     hash = hash * 59 + this.Industry.GetHashCode();
-
-                if (this.PrimaryContactId != null)
-                    hash = hash * 59 + this.PrimaryContactId.GetHashCode();
 
                 if (this.Address != null)
                     hash = hash * 59 + this.Address.GetHashCode();
@@ -511,6 +546,12 @@ namespace PureCloudPlatform.Client.V2.Model
 
                 if (this.CustomFields != null)
                     hash = hash * 59 + this.CustomFields.GetHashCode();
+
+                if (this.Identifiers != null)
+                    hash = hash * 59 + this.Identifiers.GetHashCode();
+
+                if (this.ExternalIds != null)
+                    hash = hash * 59 + this.ExternalIds.GetHashCode();
 
                 if (this.ExternalDataSources != null)
                     hash = hash * 59 + this.ExternalDataSources.GetHashCode();

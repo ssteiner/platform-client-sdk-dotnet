@@ -39,6 +39,12 @@ namespace PureCloudPlatform.Client.V2.Model
             Multiplechoicequestion,
             
             /// <summary>
+            /// Enum Multipleselectquestion for "multipleSelectQuestion"
+            /// </summary>
+            [EnumMember(Value = "multipleSelectQuestion")]
+            Multipleselectquestion,
+            
+            /// <summary>
             /// Enum Freetextquestion for "freeTextQuestion"
             /// </summary>
             [EnumMember(Value = "freeTextQuestion")]
@@ -72,9 +78,11 @@ namespace PureCloudPlatform.Client.V2.Model
         /// <param name="CommentsRequired">CommentsRequired.</param>
         /// <param name="VisibilityCondition">VisibilityCondition.</param>
         /// <param name="AnswerOptions">Options from which to choose an answer for this question. Only used by Multiple Choice type questions..</param>
+        /// <param name="MultipleSelectOptionQuestions">Only used by Multiple Select type questions. A list of multiple choice questions representing selectable options..</param>
+        /// <param name="DefaultAnswer">The default selected answer for the question.</param>
         /// <param name="IsKill">IsKill.</param>
         /// <param name="IsCritical">IsCritical.</param>
-        public EvaluationQuestion(string Id = null, string Text = null, string HelpText = null, TypeEnum? Type = null, bool? NaEnabled = null, bool? CommentsRequired = null, VisibilityCondition VisibilityCondition = null, List<AnswerOption> AnswerOptions = null, bool? IsKill = null, bool? IsCritical = null)
+        public EvaluationQuestion(string Id = null, string Text = null, string HelpText = null, TypeEnum? Type = null, bool? NaEnabled = null, bool? CommentsRequired = null, VisibilityCondition VisibilityCondition = null, List<AnswerOption> AnswerOptions = null, List<EvaluationQuestion> MultipleSelectOptionQuestions = null, DefaultAnswer DefaultAnswer = null, bool? IsKill = null, bool? IsCritical = null)
         {
             this.Id = Id;
             this.Text = Text;
@@ -84,6 +92,8 @@ namespace PureCloudPlatform.Client.V2.Model
             this.CommentsRequired = CommentsRequired;
             this.VisibilityCondition = VisibilityCondition;
             this.AnswerOptions = AnswerOptions;
+            this.MultipleSelectOptionQuestions = MultipleSelectOptionQuestions;
+            this.DefaultAnswer = DefaultAnswer;
             this.IsKill = IsKill;
             this.IsCritical = IsCritical;
             
@@ -96,6 +106,15 @@ namespace PureCloudPlatform.Client.V2.Model
         /// </summary>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public string Id { get; set; }
+
+
+
+        /// <summary>
+        /// An identifier for this question that stays the same across versions of the form.
+        /// </summary>
+        /// <value>An identifier for this question that stays the same across versions of the form.</value>
+        [DataMember(Name="contextId", EmitDefaultValue=false)]
+        public string ContextId { get; private set; }
 
 
 
@@ -151,6 +170,24 @@ namespace PureCloudPlatform.Client.V2.Model
 
 
         /// <summary>
+        /// Only used by Multiple Select type questions. A list of multiple choice questions representing selectable options.
+        /// </summary>
+        /// <value>Only used by Multiple Select type questions. A list of multiple choice questions representing selectable options.</value>
+        [DataMember(Name="multipleSelectOptionQuestions", EmitDefaultValue=false)]
+        public List<EvaluationQuestion> MultipleSelectOptionQuestions { get; set; }
+
+
+
+        /// <summary>
+        /// The default selected answer for the question
+        /// </summary>
+        /// <value>The default selected answer for the question</value>
+        [DataMember(Name="defaultAnswer", EmitDefaultValue=false)]
+        public DefaultAnswer DefaultAnswer { get; set; }
+
+
+
+        /// <summary>
         /// Gets or Sets IsKill
         /// </summary>
         [DataMember(Name="isKill", EmitDefaultValue=false)]
@@ -175,6 +212,7 @@ namespace PureCloudPlatform.Client.V2.Model
             sb.Append("class EvaluationQuestion {\n");
 
             sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  ContextId: ").Append(ContextId).Append("\n");
             sb.Append("  Text: ").Append(Text).Append("\n");
             sb.Append("  HelpText: ").Append(HelpText).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
@@ -182,6 +220,8 @@ namespace PureCloudPlatform.Client.V2.Model
             sb.Append("  CommentsRequired: ").Append(CommentsRequired).Append("\n");
             sb.Append("  VisibilityCondition: ").Append(VisibilityCondition).Append("\n");
             sb.Append("  AnswerOptions: ").Append(AnswerOptions).Append("\n");
+            sb.Append("  MultipleSelectOptionQuestions: ").Append(MultipleSelectOptionQuestions).Append("\n");
+            sb.Append("  DefaultAnswer: ").Append(DefaultAnswer).Append("\n");
             sb.Append("  IsKill: ").Append(IsKill).Append("\n");
             sb.Append("  IsCritical: ").Append(IsCritical).Append("\n");
             sb.Append("}\n");
@@ -230,6 +270,11 @@ namespace PureCloudPlatform.Client.V2.Model
                     this.Id.Equals(other.Id)
                 ) &&
                 (
+                    this.ContextId == other.ContextId ||
+                    this.ContextId != null &&
+                    this.ContextId.Equals(other.ContextId)
+                ) &&
+                (
                     this.Text == other.Text ||
                     this.Text != null &&
                     this.Text.Equals(other.Text)
@@ -265,6 +310,16 @@ namespace PureCloudPlatform.Client.V2.Model
                     this.AnswerOptions.SequenceEqual(other.AnswerOptions)
                 ) &&
                 (
+                    this.MultipleSelectOptionQuestions == other.MultipleSelectOptionQuestions ||
+                    this.MultipleSelectOptionQuestions != null &&
+                    this.MultipleSelectOptionQuestions.SequenceEqual(other.MultipleSelectOptionQuestions)
+                ) &&
+                (
+                    this.DefaultAnswer == other.DefaultAnswer ||
+                    this.DefaultAnswer != null &&
+                    this.DefaultAnswer.Equals(other.DefaultAnswer)
+                ) &&
+                (
                     this.IsKill == other.IsKill ||
                     this.IsKill != null &&
                     this.IsKill.Equals(other.IsKill)
@@ -290,6 +345,9 @@ namespace PureCloudPlatform.Client.V2.Model
                 if (this.Id != null)
                     hash = hash * 59 + this.Id.GetHashCode();
 
+                if (this.ContextId != null)
+                    hash = hash * 59 + this.ContextId.GetHashCode();
+
                 if (this.Text != null)
                     hash = hash * 59 + this.Text.GetHashCode();
 
@@ -310,6 +368,12 @@ namespace PureCloudPlatform.Client.V2.Model
 
                 if (this.AnswerOptions != null)
                     hash = hash * 59 + this.AnswerOptions.GetHashCode();
+
+                if (this.MultipleSelectOptionQuestions != null)
+                    hash = hash * 59 + this.MultipleSelectOptionQuestions.GetHashCode();
+
+                if (this.DefaultAnswer != null)
+                    hash = hash * 59 + this.DefaultAnswer.GetHashCode();
 
                 if (this.IsKill != null)
                     hash = hash * 59 + this.IsKill.GetHashCode();

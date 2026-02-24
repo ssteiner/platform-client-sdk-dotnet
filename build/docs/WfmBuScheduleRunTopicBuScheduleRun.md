@@ -10,13 +10,13 @@
 | **PercentComplete** | **double?** |  | [optional] |
 | **IntradayRescheduling** | **bool?** |  | [optional] |
 | **State** | **string** |  | [optional] |
-| **WeekCount** | **int?** |  | [optional] |
+| **WeekCount** | **long?** |  | [optional] |
 | **Schedule** | [**WfmBuScheduleRunTopicBuScheduleReference**](WfmBuScheduleRunTopicBuScheduleReference) |  | [optional] |
 | **SchedulingCanceledBy** | [**WfmBuScheduleRunTopicUserReference**](WfmBuScheduleRunTopicUserReference) |  | [optional] |
 | **SchedulingCompletedTime** | **string** |  | [optional] |
-| **MessageCount** | **int?** |  | [optional] |
+| **MessageCount** | **long?** |  | [optional] |
 | **MessageSeverityCounts** | [**List&lt;WfmBuScheduleRunTopicSchedulerMessageSeverityCount&gt;**](WfmBuScheduleRunTopicSchedulerMessageSeverityCount) |  | [optional] |
 
 
 
-_PureCloudPlatform.Client.V2 227.0.0_
+_PureCloudPlatform.Client.V2 257.0.0_

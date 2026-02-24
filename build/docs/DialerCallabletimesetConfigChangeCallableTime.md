@@ -9,7 +9,8 @@
 | **TimeSlots** | [**List&lt;DialerCallabletimesetConfigChangeTimeSlot&gt;**](DialerCallabletimesetConfigChangeTimeSlot) | The time slots | [optional] |
 | **TimeZoneId** | **string** | The ISO ID for the timezone | [optional] |
 | **AdditionalProperties** | **Dictionary&lt;string, Object&gt;** |  | [optional] |
+| **GetAdditionalProperties** | **Dictionary&lt;string, Object&gt;** |  | [optional] |
 
 
 
-_PureCloudPlatform.Client.V2 227.0.0_
+_PureCloudPlatform.Client.V2 257.0.0_

@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using RestSharp;
 using PureCloudPlatform.Client.V2.Client;
 using PureCloudPlatform.Client.V2.Model;
 
@@ -17,7 +16,7 @@ namespace PureCloudPlatform.Client.V2.Api
         #region Synchronous Operations
 
         /// <summary>
-        /// Delete a Speech & Text Analytics category by ID
+        /// Delete a Speech &amp; Text Analytics category by ID
         /// </summary>
         /// <remarks>
         /// 
@@ -29,7 +28,7 @@ namespace PureCloudPlatform.Client.V2.Api
         void DeleteSpeechandtextanalyticsCategory (string categoryId);
 
         /// <summary>
-        /// Delete a Speech & Text Analytics category by ID
+        /// Delete a Speech &amp; Text Analytics category by ID
         /// </summary>
         /// <remarks>
         /// 
@@ -41,7 +40,7 @@ namespace PureCloudPlatform.Client.V2.Api
         ApiResponse<Object> DeleteSpeechandtextanalyticsCategoryWithHttpInfo (string categoryId);
 
         /// <summary>
-        /// Delete a Speech & Text Analytics DictionaryFeedback by Id
+        /// Delete a Speech &amp; Text Analytics DictionaryFeedback by Id
         /// </summary>
         /// <remarks>
         /// 
@@ -53,7 +52,7 @@ namespace PureCloudPlatform.Client.V2.Api
         void DeleteSpeechandtextanalyticsDictionaryfeedbackDictionaryFeedbackId (string dictionaryFeedbackId);
 
         /// <summary>
-        /// Delete a Speech & Text Analytics DictionaryFeedback by Id
+        /// Delete a Speech &amp; Text Analytics DictionaryFeedback by Id
         /// </summary>
         /// <remarks>
         /// 
@@ -65,7 +64,7 @@ namespace PureCloudPlatform.Client.V2.Api
         ApiResponse<Object> DeleteSpeechandtextanalyticsDictionaryfeedbackDictionaryFeedbackIdWithHttpInfo (string dictionaryFeedbackId);
 
         /// <summary>
-        /// Delete a Speech & Text Analytics program by id
+        /// Delete a Speech &amp; Text Analytics program by id
         /// </summary>
         /// <remarks>
         /// 
@@ -78,7 +77,7 @@ namespace PureCloudPlatform.Client.V2.Api
         DeleteProgramResponse DeleteSpeechandtextanalyticsProgram (string programId, bool? forceDelete = null);
 
         /// <summary>
-        /// Delete a Speech & Text Analytics program by id
+        /// Delete a Speech &amp; Text Analytics program by id
         /// </summary>
         /// <remarks>
         /// 
@@ -91,7 +90,33 @@ namespace PureCloudPlatform.Client.V2.Api
         ApiResponse<DeleteProgramResponse> DeleteSpeechandtextanalyticsProgramWithHttpInfo (string programId, bool? forceDelete = null);
 
         /// <summary>
-        /// Delete All Speech & Text Analytics SentimentFeedback
+        /// Delete a Speech &amp; Text Analytics Reprocessing job by Id
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// DeleteSpeechandtextanalyticsReprocessingJob is a preview method and is subject to both breaking and non-breaking changes at any time without notice
+        /// </remarks>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jobId">The Id of the Reprocessing job</param>
+        /// <returns></returns>
+        
+        void DeleteSpeechandtextanalyticsReprocessingJob (string jobId);
+
+        /// <summary>
+        /// Delete a Speech &amp; Text Analytics Reprocessing job by Id
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// DeleteSpeechandtextanalyticsReprocessingJob is a preview method and is subject to both breaking and non-breaking changes at any time without notice
+        /// </remarks>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jobId">The Id of the Reprocessing job</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        
+        ApiResponse<Object> DeleteSpeechandtextanalyticsReprocessingJobWithHttpInfo (string jobId);
+
+        /// <summary>
+        /// Delete All Speech &amp; Text Analytics SentimentFeedback
         /// </summary>
         /// <remarks>
         /// 
@@ -102,7 +127,7 @@ namespace PureCloudPlatform.Client.V2.Api
         void DeleteSpeechandtextanalyticsSentimentfeedback ();
 
         /// <summary>
-        /// Delete All Speech & Text Analytics SentimentFeedback
+        /// Delete All Speech &amp; Text Analytics SentimentFeedback
         /// </summary>
         /// <remarks>
         /// 
@@ -113,7 +138,7 @@ namespace PureCloudPlatform.Client.V2.Api
         ApiResponse<Object> DeleteSpeechandtextanalyticsSentimentfeedbackWithHttpInfo ();
 
         /// <summary>
-        /// Delete a Speech & Text Analytics SentimentFeedback by Id
+        /// Delete a Speech &amp; Text Analytics SentimentFeedback by Id
         /// </summary>
         /// <remarks>
         /// 
@@ -125,7 +150,7 @@ namespace PureCloudPlatform.Client.V2.Api
         void DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackId (string sentimentFeedbackId);
 
         /// <summary>
-        /// Delete a Speech & Text Analytics SentimentFeedback by Id
+        /// Delete a Speech &amp; Text Analytics SentimentFeedback by Id
         /// </summary>
         /// <remarks>
         /// 
@@ -137,7 +162,7 @@ namespace PureCloudPlatform.Client.V2.Api
         ApiResponse<Object> DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIdWithHttpInfo (string sentimentFeedbackId);
 
         /// <summary>
-        /// Delete a Speech & Text Analytics topic by id
+        /// Delete a Speech &amp; Text Analytics topic by id
         /// </summary>
         /// <remarks>
         /// 
@@ -149,7 +174,7 @@ namespace PureCloudPlatform.Client.V2.Api
         void DeleteSpeechandtextanalyticsTopic (string topicId);
 
         /// <summary>
-        /// Delete a Speech & Text Analytics topic by id
+        /// Delete a Speech &amp; Text Analytics topic by id
         /// </summary>
         /// <remarks>
         /// 
@@ -195,7 +220,7 @@ namespace PureCloudPlatform.Client.V2.Api
         ApiResponse<CategoriesEntityListing> GetSpeechandtextanalyticsCategoriesWithHttpInfo (int? pageSize = null, int? pageNumber = null, string name = null, string sortOrder = null, string sortBy = null, List<string> ids = null);
 
         /// <summary>
-        /// Get a Speech & Text Analytics Category by ID
+        /// Get a Speech &amp; Text Analytics Category by ID
         /// </summary>
         /// <remarks>
         /// 
@@ -207,7 +232,7 @@ namespace PureCloudPlatform.Client.V2.Api
         StaCategory GetSpeechandtextanalyticsCategory (string categoryId);
 
         /// <summary>
-        /// Get a Speech & Text Analytics Category by ID
+        /// Get a Speech &amp; Text Analytics Category by ID
         /// </summary>
         /// <remarks>
         /// 
@@ -323,6 +348,30 @@ namespace PureCloudPlatform.Client.V2.Api
         ApiResponse<TranscriptUrls> GetSpeechandtextanalyticsConversationCommunicationTranscripturlsWithHttpInfo (string conversationId, string communicationId);
 
         /// <summary>
+        /// Get sentiment data
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationId">The conversation ID of the sentiment data</param>
+        /// <returns>SentimentData</returns>
+        
+        SentimentData GetSpeechandtextanalyticsConversationSentiments (string conversationId);
+
+        /// <summary>
+        /// Get sentiment data
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationId">The conversation ID of the sentiment data</param>
+        /// <returns>ApiResponse of SentimentData</returns>
+        
+        ApiResponse<SentimentData> GetSpeechandtextanalyticsConversationSentimentsWithHttpInfo (string conversationId);
+
+        /// <summary>
         /// Get conversation summaries by conversation id.
         /// </summary>
         /// <remarks>
@@ -347,35 +396,37 @@ namespace PureCloudPlatform.Client.V2.Api
         ApiResponse<SpeechTextAnalyticsConversationSummaryListing> GetSpeechandtextanalyticsConversationSummariesWithHttpInfo (string conversationId);
 
         /// <summary>
-        /// Get the list of Speech & Text Analytics dictionary feedbacks
+        /// Get the list of Speech &amp; Text Analytics dictionary feedbacks
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dialect">The key for filter the listing by dialect, dialect format is {language}-{country} where language follows ISO 639-1 standard and country follows ISO 3166-1 alpha 2 standard (optional)</param>
+        /// <param name="transcriptionEngine">Filter by transcription engine, If not provided, all transcription engines will be considered (optional)</param>
         /// <param name="nextPage">The key for listing the next page (optional)</param>
         /// <param name="pageSize">The page size for the listing (optional, default to 500)</param>
         /// <returns>DictionaryFeedbackEntityListing</returns>
         
-        DictionaryFeedbackEntityListing GetSpeechandtextanalyticsDictionaryfeedback (string dialect = null, string nextPage = null, int? pageSize = null);
+        DictionaryFeedbackEntityListing GetSpeechandtextanalyticsDictionaryfeedback (string dialect = null, string transcriptionEngine = null, string nextPage = null, int? pageSize = null);
 
         /// <summary>
-        /// Get the list of Speech & Text Analytics dictionary feedbacks
+        /// Get the list of Speech &amp; Text Analytics dictionary feedbacks
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dialect">The key for filter the listing by dialect, dialect format is {language}-{country} where language follows ISO 639-1 standard and country follows ISO 3166-1 alpha 2 standard (optional)</param>
+        /// <param name="transcriptionEngine">Filter by transcription engine, If not provided, all transcription engines will be considered (optional)</param>
         /// <param name="nextPage">The key for listing the next page (optional)</param>
         /// <param name="pageSize">The page size for the listing (optional, default to 500)</param>
         /// <returns>ApiResponse of DictionaryFeedbackEntityListing</returns>
         
-        ApiResponse<DictionaryFeedbackEntityListing> GetSpeechandtextanalyticsDictionaryfeedbackWithHttpInfo (string dialect = null, string nextPage = null, int? pageSize = null);
+        ApiResponse<DictionaryFeedbackEntityListing> GetSpeechandtextanalyticsDictionaryfeedbackWithHttpInfo (string dialect = null, string transcriptionEngine = null, string nextPage = null, int? pageSize = null);
 
         /// <summary>
-        /// Get a Speech & Text Analytics dictionary feedback by id
+        /// Get a Speech &amp; Text Analytics dictionary feedback by id
         /// </summary>
         /// <remarks>
         /// 
@@ -387,7 +438,7 @@ namespace PureCloudPlatform.Client.V2.Api
         DictionaryFeedback GetSpeechandtextanalyticsDictionaryfeedbackDictionaryFeedbackId (string dictionaryFeedbackId);
 
         /// <summary>
-        /// Get a Speech & Text Analytics dictionary feedback by id
+        /// Get a Speech &amp; Text Analytics dictionary feedback by id
         /// </summary>
         /// <remarks>
         /// 
@@ -399,7 +450,7 @@ namespace PureCloudPlatform.Client.V2.Api
         ApiResponse<DictionaryFeedback> GetSpeechandtextanalyticsDictionaryfeedbackDictionaryFeedbackIdWithHttpInfo (string dictionaryFeedbackId);
 
         /// <summary>
-        /// Get a Speech & Text Analytics program by id
+        /// Get a Speech &amp; Text Analytics program by id
         /// </summary>
         /// <remarks>
         /// 
@@ -411,7 +462,7 @@ namespace PureCloudPlatform.Client.V2.Api
         Program GetSpeechandtextanalyticsProgram (string programId);
 
         /// <summary>
-        /// Get a Speech & Text Analytics program by id
+        /// Get a Speech &amp; Text Analytics program by id
         /// </summary>
         /// <remarks>
         /// 
@@ -423,28 +474,28 @@ namespace PureCloudPlatform.Client.V2.Api
         ApiResponse<Program> GetSpeechandtextanalyticsProgramWithHttpInfo (string programId);
 
         /// <summary>
-        /// Get Speech & Text Analytics program mappings to queues and flows by id
+        /// Get Speech &amp; Text Analytics program mappings to queues and flows by id
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="programId">The id of the program</param>
-        /// <returns>ProgramMappings</returns>
+        /// <returns>TopicsDefinitionsProgramMappings</returns>
         
-        ProgramMappings GetSpeechandtextanalyticsProgramMappings (string programId);
+        TopicsDefinitionsProgramMappings GetSpeechandtextanalyticsProgramMappings (string programId);
 
         /// <summary>
-        /// Get Speech & Text Analytics program mappings to queues and flows by id
+        /// Get Speech &amp; Text Analytics program mappings to queues and flows by id
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="programId">The id of the program</param>
-        /// <returns>ApiResponse of ProgramMappings</returns>
+        /// <returns>ApiResponse of TopicsDefinitionsProgramMappings</returns>
         
-        ApiResponse<ProgramMappings> GetSpeechandtextanalyticsProgramMappingsWithHttpInfo (string programId);
+        ApiResponse<TopicsDefinitionsProgramMappings> GetSpeechandtextanalyticsProgramMappingsWithHttpInfo (string programId);
 
         /// <summary>
         /// Get AI Insights settings of a program
@@ -495,7 +546,7 @@ namespace PureCloudPlatform.Client.V2.Api
         ApiResponse<ProgramTranscriptionEngines> GetSpeechandtextanalyticsProgramTranscriptionenginesWithHttpInfo (string programId);
 
         /// <summary>
-        /// Get the list of Speech & Text Analytics programs
+        /// Get the list of Speech &amp; Text Analytics programs
         /// </summary>
         /// <remarks>
         /// 
@@ -504,12 +555,15 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <param name="nextPage">The key for listing the next page (optional)</param>
         /// <param name="pageSize">The page size for the listing (optional, default to 20)</param>
         /// <param name="state">Program state. Defaults to Latest (optional)</param>
+        /// <param name="name">Case insensitive partial name to filter by (optional)</param>
+        /// <param name="sortBy">Sort results by. Defaults to name (optional)</param>
+        /// <param name="sortOrder">Sort order. Defaults to asc (optional)</param>
         /// <returns>ProgramsEntityListing</returns>
         
-        ProgramsEntityListing GetSpeechandtextanalyticsPrograms (string nextPage = null, int? pageSize = null, string state = null);
+        ProgramsEntityListing GetSpeechandtextanalyticsPrograms (string nextPage = null, int? pageSize = null, string state = null, string name = null, string sortBy = null, string sortOrder = null);
 
         /// <summary>
-        /// Get the list of Speech & Text Analytics programs
+        /// Get the list of Speech &amp; Text Analytics programs
         /// </summary>
         /// <remarks>
         /// 
@@ -518,12 +572,15 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <param name="nextPage">The key for listing the next page (optional)</param>
         /// <param name="pageSize">The page size for the listing (optional, default to 20)</param>
         /// <param name="state">Program state. Defaults to Latest (optional)</param>
+        /// <param name="name">Case insensitive partial name to filter by (optional)</param>
+        /// <param name="sortBy">Sort results by. Defaults to name (optional)</param>
+        /// <param name="sortOrder">Sort order. Defaults to asc (optional)</param>
         /// <returns>ApiResponse of ProgramsEntityListing</returns>
         
-        ApiResponse<ProgramsEntityListing> GetSpeechandtextanalyticsProgramsWithHttpInfo (string nextPage = null, int? pageSize = null, string state = null);
+        ApiResponse<ProgramsEntityListing> GetSpeechandtextanalyticsProgramsWithHttpInfo (string nextPage = null, int? pageSize = null, string state = null, string name = null, string sortBy = null, string sortOrder = null);
 
         /// <summary>
-        /// Get a Speech & Text Analytics general program job by id
+        /// Get a Speech &amp; Text Analytics general program job by id
         /// </summary>
         /// <remarks>
         /// 
@@ -535,7 +592,7 @@ namespace PureCloudPlatform.Client.V2.Api
         GeneralProgramJob GetSpeechandtextanalyticsProgramsGeneralJob (string jobId);
 
         /// <summary>
-        /// Get a Speech & Text Analytics general program job by id
+        /// Get a Speech &amp; Text Analytics general program job by id
         /// </summary>
         /// <remarks>
         /// 
@@ -547,7 +604,7 @@ namespace PureCloudPlatform.Client.V2.Api
         ApiResponse<GeneralProgramJob> GetSpeechandtextanalyticsProgramsGeneralJobWithHttpInfo (string jobId);
 
         /// <summary>
-        /// Get the list of Speech & Text Analytics programs mappings to queues and flows
+        /// Get the list of Speech &amp; Text Analytics programs mappings to queues and flows
         /// </summary>
         /// <remarks>
         /// 
@@ -555,12 +612,12 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="nextPage">The key for listing the next page (optional)</param>
         /// <param name="pageSize">The page size for the listing (optional, default to 20)</param>
-        /// <returns>ProgramsMappingsEntityListing</returns>
+        /// <returns>TopicsDefinitionsProgramsMappingsEntityListing</returns>
         
-        ProgramsMappingsEntityListing GetSpeechandtextanalyticsProgramsMappings (string nextPage = null, int? pageSize = null);
+        TopicsDefinitionsProgramsMappingsEntityListing GetSpeechandtextanalyticsProgramsMappings (string nextPage = null, int? pageSize = null);
 
         /// <summary>
-        /// Get the list of Speech & Text Analytics programs mappings to queues and flows
+        /// Get the list of Speech &amp; Text Analytics programs mappings to queues and flows
         /// </summary>
         /// <remarks>
         /// 
@@ -568,12 +625,12 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="nextPage">The key for listing the next page (optional)</param>
         /// <param name="pageSize">The page size for the listing (optional, default to 20)</param>
-        /// <returns>ApiResponse of ProgramsMappingsEntityListing</returns>
+        /// <returns>ApiResponse of TopicsDefinitionsProgramsMappingsEntityListing</returns>
         
-        ApiResponse<ProgramsMappingsEntityListing> GetSpeechandtextanalyticsProgramsMappingsWithHttpInfo (string nextPage = null, int? pageSize = null);
+        ApiResponse<TopicsDefinitionsProgramsMappingsEntityListing> GetSpeechandtextanalyticsProgramsMappingsWithHttpInfo (string nextPage = null, int? pageSize = null);
 
         /// <summary>
-        /// Get a Speech & Text Analytics publish programs job by id
+        /// Get a Speech &amp; Text Analytics publish programs job by id
         /// </summary>
         /// <remarks>
         /// 
@@ -585,7 +642,7 @@ namespace PureCloudPlatform.Client.V2.Api
         ProgramJob GetSpeechandtextanalyticsProgramsPublishjob (string jobId);
 
         /// <summary>
-        /// Get a Speech & Text Analytics publish programs job by id
+        /// Get a Speech &amp; Text Analytics publish programs job by id
         /// </summary>
         /// <remarks>
         /// 
@@ -625,6 +682,30 @@ namespace PureCloudPlatform.Client.V2.Api
         ApiResponse<ProgramInsightsSettingsEntityListing> GetSpeechandtextanalyticsProgramsSettingsInsightsWithHttpInfo (int? pageSize = null, int? pageNumber = null, List<string> programIds = null);
 
         /// <summary>
+        /// Get a Speech &amp; Text Analytics program-topic links job by id
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jobId">The id of the program-topic links job</param>
+        /// <returns>ProgramTopicLinksJob</returns>
+        
+        ProgramTopicLinksJob GetSpeechandtextanalyticsProgramsTopiclinksJob (string jobId);
+
+        /// <summary>
+        /// Get a Speech &amp; Text Analytics program-topic links job by id
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jobId">The id of the program-topic links job</param>
+        /// <returns>ApiResponse of ProgramTopicLinksJob</returns>
+        
+        ApiResponse<ProgramTopicLinksJob> GetSpeechandtextanalyticsProgramsTopiclinksJobWithHttpInfo (string jobId);
+
+        /// <summary>
         /// Get supported dialects for each transcription engine
         /// </summary>
         /// <remarks>
@@ -647,7 +728,7 @@ namespace PureCloudPlatform.Client.V2.Api
         ApiResponse<SupportedDialectsEntityListing> GetSpeechandtextanalyticsProgramsTranscriptionenginesDialectsWithHttpInfo ();
 
         /// <summary>
-        /// Get the list of Speech & Text Analytics unpublished programs
+        /// Get the list of Speech &amp; Text Analytics unpublished programs
         /// </summary>
         /// <remarks>
         /// 
@@ -660,7 +741,7 @@ namespace PureCloudPlatform.Client.V2.Api
         UnpublishedProgramsEntityListing GetSpeechandtextanalyticsProgramsUnpublished (string nextPage = null, int? pageSize = null);
 
         /// <summary>
-        /// Get the list of Speech & Text Analytics unpublished programs
+        /// Get the list of Speech &amp; Text Analytics unpublished programs
         /// </summary>
         /// <remarks>
         /// 
@@ -673,7 +754,91 @@ namespace PureCloudPlatform.Client.V2.Api
         ApiResponse<UnpublishedProgramsEntityListing> GetSpeechandtextanalyticsProgramsUnpublishedWithHttpInfo (string nextPage = null, int? pageSize = null);
 
         /// <summary>
-        /// Get the list of Speech & Text Analytics sentiment supported dialects
+        /// Get a Speech &amp; Text Analytics reprocess job by id
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// GetSpeechandtextanalyticsReprocessingJob is a preview method and is subject to both breaking and non-breaking changes at any time without notice
+        /// </remarks>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jobId">The Id of the Reprocessing job</param>
+        /// <returns>ReprocessJobResponse</returns>
+        
+        ReprocessJobResponse GetSpeechandtextanalyticsReprocessingJob (string jobId);
+
+        /// <summary>
+        /// Get a Speech &amp; Text Analytics reprocess job by id
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// GetSpeechandtextanalyticsReprocessingJob is a preview method and is subject to both breaking and non-breaking changes at any time without notice
+        /// </remarks>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jobId">The Id of the Reprocessing job</param>
+        /// <returns>ApiResponse of ReprocessJobResponse</returns>
+        
+        ApiResponse<ReprocessJobResponse> GetSpeechandtextanalyticsReprocessingJobWithHttpInfo (string jobId);
+
+        /// <summary>
+        /// Get a Speech &amp; Text Analytics Reprocessing interactions statuses by job id
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// GetSpeechandtextanalyticsReprocessingJobInteractions is a preview method and is subject to both breaking and non-breaking changes at any time without notice
+        /// </remarks>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jobId">The Id of the Reprocessing job</param>
+        /// <returns>ReprocessInteractionsByJobIdResponse</returns>
+        
+        ReprocessInteractionsByJobIdResponse GetSpeechandtextanalyticsReprocessingJobInteractions (string jobId);
+
+        /// <summary>
+        /// Get a Speech &amp; Text Analytics Reprocessing interactions statuses by job id
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// GetSpeechandtextanalyticsReprocessingJobInteractions is a preview method and is subject to both breaking and non-breaking changes at any time without notice
+        /// </remarks>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jobId">The Id of the Reprocessing job</param>
+        /// <returns>ApiResponse of ReprocessInteractionsByJobIdResponse</returns>
+        
+        ApiResponse<ReprocessInteractionsByJobIdResponse> GetSpeechandtextanalyticsReprocessingJobInteractionsWithHttpInfo (string jobId);
+
+        /// <summary>
+        /// Get the list of Speech &amp; Text Analytics reprocess jobs
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// GetSpeechandtextanalyticsReprocessingJobs is a preview method and is subject to both breaking and non-breaking changes at any time without notice
+        /// </remarks>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pageSize">The page size for the listing. The max that will be returned is 100. Default is 25. (optional)</param>
+        /// <param name="pageNumber">The page number for the listing. Defaults to 1. (optional)</param>
+        /// <param name="sortOrder">Results are sorted by dateCreated. Please choose the sort order. The default is descending (desc). (optional)</param>
+        /// <param name="name">Case insensitive partial name to filter by. (optional)</param>
+        /// <returns>ReprocessJobEntityListingResponse</returns>
+        
+        ReprocessJobEntityListingResponse GetSpeechandtextanalyticsReprocessingJobs (int? pageSize = null, int? pageNumber = null, string sortOrder = null, string name = null);
+
+        /// <summary>
+        /// Get the list of Speech &amp; Text Analytics reprocess jobs
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// GetSpeechandtextanalyticsReprocessingJobs is a preview method and is subject to both breaking and non-breaking changes at any time without notice
+        /// </remarks>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pageSize">The page size for the listing. The max that will be returned is 100. Default is 25. (optional)</param>
+        /// <param name="pageNumber">The page number for the listing. Defaults to 1. (optional)</param>
+        /// <param name="sortOrder">Results are sorted by dateCreated. Please choose the sort order. The default is descending (desc). (optional)</param>
+        /// <param name="name">Case insensitive partial name to filter by. (optional)</param>
+        /// <returns>ApiResponse of ReprocessJobEntityListingResponse</returns>
+        
+        ApiResponse<ReprocessJobEntityListingResponse> GetSpeechandtextanalyticsReprocessingJobsWithHttpInfo (int? pageSize = null, int? pageNumber = null, string sortOrder = null, string name = null);
+
+        /// <summary>
+        /// Get the list of Speech &amp; Text Analytics sentiment supported dialects
         /// </summary>
         /// <remarks>
         /// 
@@ -684,7 +849,7 @@ namespace PureCloudPlatform.Client.V2.Api
         EntityListing GetSpeechandtextanalyticsSentimentDialects ();
 
         /// <summary>
-        /// Get the list of Speech & Text Analytics sentiment supported dialects
+        /// Get the list of Speech &amp; Text Analytics sentiment supported dialects
         /// </summary>
         /// <remarks>
         /// 
@@ -695,7 +860,7 @@ namespace PureCloudPlatform.Client.V2.Api
         ApiResponse<EntityListing> GetSpeechandtextanalyticsSentimentDialectsWithHttpInfo ();
 
         /// <summary>
-        /// Get the list of Speech & Text Analytics SentimentFeedback
+        /// Get the list of Speech &amp; Text Analytics SentimentFeedback
         /// </summary>
         /// <remarks>
         /// 
@@ -707,7 +872,7 @@ namespace PureCloudPlatform.Client.V2.Api
         SentimentFeedbackEntityListing GetSpeechandtextanalyticsSentimentfeedback (string dialect = null);
 
         /// <summary>
-        /// Get the list of Speech & Text Analytics SentimentFeedback
+        /// Get the list of Speech &amp; Text Analytics SentimentFeedback
         /// </summary>
         /// <remarks>
         /// 
@@ -741,7 +906,7 @@ namespace PureCloudPlatform.Client.V2.Api
         ApiResponse<SpeechTextAnalyticsSettingsResponse> GetSpeechandtextanalyticsSettingsWithHttpInfo ();
 
         /// <summary>
-        /// Get a Speech & Text Analytics topic by id
+        /// Get a Speech &amp; Text Analytics topic by id
         /// </summary>
         /// <remarks>
         /// 
@@ -753,7 +918,7 @@ namespace PureCloudPlatform.Client.V2.Api
         Topic GetSpeechandtextanalyticsTopic (string topicId);
 
         /// <summary>
-        /// Get a Speech & Text Analytics topic by id
+        /// Get a Speech &amp; Text Analytics topic by id
         /// </summary>
         /// <remarks>
         /// 
@@ -765,7 +930,7 @@ namespace PureCloudPlatform.Client.V2.Api
         ApiResponse<Topic> GetSpeechandtextanalyticsTopicWithHttpInfo (string topicId);
 
         /// <summary>
-        /// Get the list of Speech & Text Analytics topics
+        /// Get the list of Speech &amp; Text Analytics topics
         /// </summary>
         /// <remarks>
         /// 
@@ -773,6 +938,7 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="nextPage">The key for listing the next page (optional)</param>
         /// <param name="pageSize">The page size for the listing. The max that will be returned is 500. (optional, default to 20)</param>
+        /// <param name="pageNumber">The page number for the listing (optional)</param>
         /// <param name="state">Topic state. Defaults to latest (optional)</param>
         /// <param name="name">Case insensitive partial name to filter by (optional)</param>
         /// <param name="ids">Comma separated Topic IDs to filter by. Cannot be used with other filters. Maximum of 50 IDs allowed. (optional)</param>
@@ -781,10 +947,10 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <param name="sortOrder">Sort order. Defaults to asc (optional)</param>
         /// <returns>TopicsEntityListing</returns>
         
-        TopicsEntityListing GetSpeechandtextanalyticsTopics (string nextPage = null, int? pageSize = null, string state = null, string name = null, List<string> ids = null, List<string> dialects = null, string sortBy = null, string sortOrder = null);
+        TopicsEntityListing GetSpeechandtextanalyticsTopics (string nextPage = null, int? pageSize = null, int? pageNumber = null, string state = null, string name = null, List<string> ids = null, List<string> dialects = null, string sortBy = null, string sortOrder = null);
 
         /// <summary>
-        /// Get the list of Speech & Text Analytics topics
+        /// Get the list of Speech &amp; Text Analytics topics
         /// </summary>
         /// <remarks>
         /// 
@@ -792,6 +958,7 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="nextPage">The key for listing the next page (optional)</param>
         /// <param name="pageSize">The page size for the listing. The max that will be returned is 500. (optional, default to 20)</param>
+        /// <param name="pageNumber">The page number for the listing (optional)</param>
         /// <param name="state">Topic state. Defaults to latest (optional)</param>
         /// <param name="name">Case insensitive partial name to filter by (optional)</param>
         /// <param name="ids">Comma separated Topic IDs to filter by. Cannot be used with other filters. Maximum of 50 IDs allowed. (optional)</param>
@@ -800,10 +967,10 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <param name="sortOrder">Sort order. Defaults to asc (optional)</param>
         /// <returns>ApiResponse of TopicsEntityListing</returns>
         
-        ApiResponse<TopicsEntityListing> GetSpeechandtextanalyticsTopicsWithHttpInfo (string nextPage = null, int? pageSize = null, string state = null, string name = null, List<string> ids = null, List<string> dialects = null, string sortBy = null, string sortOrder = null);
+        ApiResponse<TopicsEntityListing> GetSpeechandtextanalyticsTopicsWithHttpInfo (string nextPage = null, int? pageSize = null, int? pageNumber = null, string state = null, string name = null, List<string> ids = null, List<string> dialects = null, string sortBy = null, string sortOrder = null);
 
         /// <summary>
-        /// Get list of supported Speech & Text Analytics topics dialects
+        /// Get list of supported Speech &amp; Text Analytics topics dialects
         /// </summary>
         /// <remarks>
         /// 
@@ -814,7 +981,7 @@ namespace PureCloudPlatform.Client.V2.Api
         EntityListing GetSpeechandtextanalyticsTopicsDialects ();
 
         /// <summary>
-        /// Get list of supported Speech & Text Analytics topics dialects
+        /// Get list of supported Speech &amp; Text Analytics topics dialects
         /// </summary>
         /// <remarks>
         /// 
@@ -825,7 +992,7 @@ namespace PureCloudPlatform.Client.V2.Api
         ApiResponse<EntityListing> GetSpeechandtextanalyticsTopicsDialectsWithHttpInfo ();
 
         /// <summary>
-        /// Get the Speech & Text Analytics general topics for a given dialect
+        /// Get the Speech &amp; Text Analytics general topics for a given dialect
         /// </summary>
         /// <remarks>
         /// 
@@ -837,7 +1004,7 @@ namespace PureCloudPlatform.Client.V2.Api
         GeneralTopicsEntityListing GetSpeechandtextanalyticsTopicsGeneral (string dialect = null);
 
         /// <summary>
-        /// Get the Speech & Text Analytics general topics for a given dialect
+        /// Get the Speech &amp; Text Analytics general topics for a given dialect
         /// </summary>
         /// <remarks>
         /// 
@@ -873,7 +1040,7 @@ namespace PureCloudPlatform.Client.V2.Api
         ApiResponse<UnifiedGeneralTopicEntityListing> GetSpeechandtextanalyticsTopicsGeneralStatusWithHttpInfo (string dialect = null);
 
         /// <summary>
-        /// Get a Speech & Text Analytics publish topics job by id
+        /// Get a Speech &amp; Text Analytics publish topics job by id
         /// </summary>
         /// <remarks>
         /// 
@@ -885,7 +1052,7 @@ namespace PureCloudPlatform.Client.V2.Api
         TopicJob GetSpeechandtextanalyticsTopicsPublishjob (string jobId);
 
         /// <summary>
-        /// Get a Speech & Text Analytics publish topics job by id
+        /// Get a Speech &amp; Text Analytics publish topics job by id
         /// </summary>
         /// <remarks>
         /// 
@@ -897,11 +1064,34 @@ namespace PureCloudPlatform.Client.V2.Api
         ApiResponse<TopicJob> GetSpeechandtextanalyticsTopicsPublishjobWithHttpInfo (string jobId);
 
         /// <summary>
+        /// Get a Speech &amp; Text Analytics test topics phrase job by id
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jobId">the id of the test topic phrase job</param>
+        /// <returns>TestTopicPhraseJob</returns>
+        
+        TestTopicPhraseJob GetSpeechandtextanalyticsTopicsTestphraseJob (string jobId);
+
+        /// <summary>
+        /// Get a Speech &amp; Text Analytics test topics phrase job by id
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jobId">the id of the test topic phrase job</param>
+        /// <returns>ApiResponse of TestTopicPhraseJob</returns>
+        
+        ApiResponse<TestTopicPhraseJob> GetSpeechandtextanalyticsTopicsTestphraseJobWithHttpInfo (string jobId);
+
+        /// <summary>
         /// Translate a single interaction recording (or an email conversation)
         /// </summary>
         /// <remarks>
         /// 
-        /// GetSpeechandtextanalyticsTranslationsLanguageConversation is a preview method and is subject to both breaking and non-breaking changes at any time without notice
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="languageId">Target translation language</param>
@@ -917,7 +1107,6 @@ namespace PureCloudPlatform.Client.V2.Api
         /// </summary>
         /// <remarks>
         /// 
-        /// GetSpeechandtextanalyticsTranslationsLanguageConversation is a preview method and is subject to both breaking and non-breaking changes at any time without notice
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="languageId">Target translation language</param>
@@ -933,7 +1122,6 @@ namespace PureCloudPlatform.Client.V2.Api
         /// </summary>
         /// <remarks>
         /// 
-        /// GetSpeechandtextanalyticsTranslationsLanguages is a preview method and is subject to both breaking and non-breaking changes at any time without notice
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>TranslateSupportedLanguageList</returns>
@@ -945,7 +1133,6 @@ namespace PureCloudPlatform.Client.V2.Api
         /// </summary>
         /// <remarks>
         /// 
-        /// GetSpeechandtextanalyticsTranslationsLanguages is a preview method and is subject to both breaking and non-breaking changes at any time without notice
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of TranslateSupportedLanguageList</returns>
@@ -977,7 +1164,7 @@ namespace PureCloudPlatform.Client.V2.Api
         ApiResponse<SpeechTextAnalyticsSettingsResponse> PatchSpeechandtextanalyticsSettingsWithHttpInfo (SpeechTextAnalyticsSettingsRequest body);
 
         /// <summary>
-        /// Create new Speech & Text Analytics category
+        /// Create new Speech &amp; Text Analytics category
         /// </summary>
         /// <remarks>
         /// 
@@ -989,7 +1176,7 @@ namespace PureCloudPlatform.Client.V2.Api
         StaCategory PostSpeechandtextanalyticsCategories (CategoryRequest body);
 
         /// <summary>
-        /// Create new Speech & Text Analytics category
+        /// Create new Speech &amp; Text Analytics category
         /// </summary>
         /// <remarks>
         /// 
@@ -1001,7 +1188,7 @@ namespace PureCloudPlatform.Client.V2.Api
         ApiResponse<StaCategory> PostSpeechandtextanalyticsCategoriesWithHttpInfo (CategoryRequest body);
 
         /// <summary>
-        /// Create a Speech & Text Analytics DictionaryFeedback
+        /// Create a Speech &amp; Text Analytics DictionaryFeedback
         /// </summary>
         /// <remarks>
         /// 
@@ -1013,7 +1200,7 @@ namespace PureCloudPlatform.Client.V2.Api
         DictionaryFeedback PostSpeechandtextanalyticsDictionaryfeedback (DictionaryFeedback body);
 
         /// <summary>
-        /// Create a Speech & Text Analytics DictionaryFeedback
+        /// Create a Speech &amp; Text Analytics DictionaryFeedback
         /// </summary>
         /// <remarks>
         /// 
@@ -1025,7 +1212,7 @@ namespace PureCloudPlatform.Client.V2.Api
         ApiResponse<DictionaryFeedback> PostSpeechandtextanalyticsDictionaryfeedbackWithHttpInfo (DictionaryFeedback body);
 
         /// <summary>
-        /// Create new Speech & Text Analytics program
+        /// Create new Speech &amp; Text Analytics program
         /// </summary>
         /// <remarks>
         /// 
@@ -1037,7 +1224,7 @@ namespace PureCloudPlatform.Client.V2.Api
         Program PostSpeechandtextanalyticsPrograms (ProgramRequest body);
 
         /// <summary>
-        /// Create new Speech & Text Analytics program
+        /// Create new Speech &amp; Text Analytics program
         /// </summary>
         /// <remarks>
         /// 
@@ -1049,7 +1236,7 @@ namespace PureCloudPlatform.Client.V2.Api
         ApiResponse<Program> PostSpeechandtextanalyticsProgramsWithHttpInfo (ProgramRequest body);
 
         /// <summary>
-        /// Create new Speech & Text Analytics general program job
+        /// Create new Speech &amp; Text Analytics general program job
         /// </summary>
         /// <remarks>
         /// 
@@ -1061,7 +1248,7 @@ namespace PureCloudPlatform.Client.V2.Api
         GeneralProgramJob PostSpeechandtextanalyticsProgramsGeneralJobs (GeneralProgramJobRequest body);
 
         /// <summary>
-        /// Create new Speech & Text Analytics general program job
+        /// Create new Speech &amp; Text Analytics general program job
         /// </summary>
         /// <remarks>
         /// 
@@ -1073,7 +1260,7 @@ namespace PureCloudPlatform.Client.V2.Api
         ApiResponse<GeneralProgramJob> PostSpeechandtextanalyticsProgramsGeneralJobsWithHttpInfo (GeneralProgramJobRequest body);
 
         /// <summary>
-        /// Create new Speech & Text Analytics publish programs job
+        /// Create new Speech &amp; Text Analytics publish programs job
         /// </summary>
         /// <remarks>
         /// 
@@ -1085,7 +1272,7 @@ namespace PureCloudPlatform.Client.V2.Api
         ProgramJob PostSpeechandtextanalyticsProgramsPublishjobs (ProgramJobRequest body);
 
         /// <summary>
-        /// Create new Speech & Text Analytics publish programs job
+        /// Create new Speech &amp; Text Analytics publish programs job
         /// </summary>
         /// <remarks>
         /// 
@@ -1097,7 +1284,33 @@ namespace PureCloudPlatform.Client.V2.Api
         ApiResponse<ProgramJob> PostSpeechandtextanalyticsProgramsPublishjobsWithHttpInfo (ProgramJobRequest body);
 
         /// <summary>
-        /// Create a Speech & Text Analytics SentimentFeedback
+        /// Create a Speech &amp; Text Analytics reprocess job.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// PostSpeechandtextanalyticsReprocessingJobs is a preview method and is subject to both breaking and non-breaking changes at any time without notice
+        /// </remarks>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">The ReprocessJob to create</param>
+        /// <returns>ReprocessJobResponse</returns>
+        
+        ReprocessJobResponse PostSpeechandtextanalyticsReprocessingJobs (CreateReprocessJobRequest body);
+
+        /// <summary>
+        /// Create a Speech &amp; Text Analytics reprocess job.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// PostSpeechandtextanalyticsReprocessingJobs is a preview method and is subject to both breaking and non-breaking changes at any time without notice
+        /// </remarks>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">The ReprocessJob to create</param>
+        /// <returns>ApiResponse of ReprocessJobResponse</returns>
+        
+        ApiResponse<ReprocessJobResponse> PostSpeechandtextanalyticsReprocessingJobsWithHttpInfo (CreateReprocessJobRequest body);
+
+        /// <summary>
+        /// Create a Speech &amp; Text Analytics SentimentFeedback
         /// </summary>
         /// <remarks>
         /// 
@@ -1109,7 +1322,7 @@ namespace PureCloudPlatform.Client.V2.Api
         SentimentFeedback PostSpeechandtextanalyticsSentimentfeedback (SentimentFeedback body);
 
         /// <summary>
-        /// Create a Speech & Text Analytics SentimentFeedback
+        /// Create a Speech &amp; Text Analytics SentimentFeedback
         /// </summary>
         /// <remarks>
         /// 
@@ -1121,7 +1334,7 @@ namespace PureCloudPlatform.Client.V2.Api
         ApiResponse<SentimentFeedback> PostSpeechandtextanalyticsSentimentfeedbackWithHttpInfo (SentimentFeedback body);
 
         /// <summary>
-        /// Create new Speech & Text Analytics topic
+        /// Create new Speech &amp; Text Analytics topic
         /// </summary>
         /// <remarks>
         /// 
@@ -1133,7 +1346,7 @@ namespace PureCloudPlatform.Client.V2.Api
         Topic PostSpeechandtextanalyticsTopics (TopicRequest body);
 
         /// <summary>
-        /// Create new Speech & Text Analytics topic
+        /// Create new Speech &amp; Text Analytics topic
         /// </summary>
         /// <remarks>
         /// 
@@ -1145,7 +1358,7 @@ namespace PureCloudPlatform.Client.V2.Api
         ApiResponse<Topic> PostSpeechandtextanalyticsTopicsWithHttpInfo (TopicRequest body);
 
         /// <summary>
-        /// Create new Speech & Text Analytics publish topics job
+        /// Create new Speech &amp; Text Analytics publish topics job
         /// </summary>
         /// <remarks>
         /// 
@@ -1157,7 +1370,7 @@ namespace PureCloudPlatform.Client.V2.Api
         TopicJob PostSpeechandtextanalyticsTopicsPublishjobs (TopicJobRequest body);
 
         /// <summary>
-        /// Create new Speech & Text Analytics publish topics job
+        /// Create new Speech &amp; Text Analytics publish topics job
         /// </summary>
         /// <remarks>
         /// 
@@ -1167,6 +1380,30 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <returns>ApiResponse of TopicJob</returns>
         
         ApiResponse<TopicJob> PostSpeechandtextanalyticsTopicsPublishjobsWithHttpInfo (TopicJobRequest body);
+
+        /// <summary>
+        /// Create new Speech &amp; Text Analytics publish topics job
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">The publish test topic phrase job to create</param>
+        /// <returns>TestTopicPhraseJobs</returns>
+        
+        TestTopicPhraseJobs PostSpeechandtextanalyticsTopicsTestphraseJobs (TestTopicPhraseJobRequest body);
+
+        /// <summary>
+        /// Create new Speech &amp; Text Analytics publish topics job
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">The publish test topic phrase job to create</param>
+        /// <returns>ApiResponse of TestTopicPhraseJobs</returns>
+        
+        ApiResponse<TestTopicPhraseJobs> PostSpeechandtextanalyticsTopicsTestphraseJobsWithHttpInfo (TestTopicPhraseJobRequest body);
 
         /// <summary>
         /// Search resources.
@@ -1193,7 +1430,7 @@ namespace PureCloudPlatform.Client.V2.Api
         ApiResponse<JsonSearchResponse> PostSpeechandtextanalyticsTranscriptsSearchWithHttpInfo (TranscriptSearchRequest body);
 
         /// <summary>
-        /// Update a Speech & Text Analytics category by ID
+        /// Update a Speech &amp; Text Analytics category by ID
         /// </summary>
         /// <remarks>
         /// 
@@ -1206,7 +1443,7 @@ namespace PureCloudPlatform.Client.V2.Api
         StaCategory PutSpeechandtextanalyticsCategory (string categoryId, CategoryRequest body);
 
         /// <summary>
-        /// Update a Speech & Text Analytics category by ID
+        /// Update a Speech &amp; Text Analytics category by ID
         /// </summary>
         /// <remarks>
         /// 
@@ -1219,7 +1456,7 @@ namespace PureCloudPlatform.Client.V2.Api
         ApiResponse<StaCategory> PutSpeechandtextanalyticsCategoryWithHttpInfo (string categoryId, CategoryRequest body);
 
         /// <summary>
-        /// Update existing Speech & Text Analytics dictionary feedback by id
+        /// Update existing Speech &amp; Text Analytics dictionary feedback by id
         /// </summary>
         /// <remarks>
         /// 
@@ -1232,7 +1469,7 @@ namespace PureCloudPlatform.Client.V2.Api
         DictionaryFeedback PutSpeechandtextanalyticsDictionaryfeedbackDictionaryFeedbackId (string dictionaryFeedbackId, DictionaryFeedback body = null);
 
         /// <summary>
-        /// Update existing Speech & Text Analytics dictionary feedback by id
+        /// Update existing Speech &amp; Text Analytics dictionary feedback by id
         /// </summary>
         /// <remarks>
         /// 
@@ -1245,7 +1482,7 @@ namespace PureCloudPlatform.Client.V2.Api
         ApiResponse<DictionaryFeedback> PutSpeechandtextanalyticsDictionaryfeedbackDictionaryFeedbackIdWithHttpInfo (string dictionaryFeedbackId, DictionaryFeedback body = null);
 
         /// <summary>
-        /// Update existing Speech & Text Analytics program
+        /// Update existing Speech &amp; Text Analytics program
         /// </summary>
         /// <remarks>
         /// 
@@ -1258,7 +1495,7 @@ namespace PureCloudPlatform.Client.V2.Api
         Program PutSpeechandtextanalyticsProgram (string programId, ProgramRequest body);
 
         /// <summary>
-        /// Update existing Speech & Text Analytics program
+        /// Update existing Speech &amp; Text Analytics program
         /// </summary>
         /// <remarks>
         /// 
@@ -1271,7 +1508,7 @@ namespace PureCloudPlatform.Client.V2.Api
         ApiResponse<Program> PutSpeechandtextanalyticsProgramWithHttpInfo (string programId, ProgramRequest body);
 
         /// <summary>
-        /// Set Speech & Text Analytics program mappings to queues and flows
+        /// Set Speech &amp; Text Analytics program mappings to queues and flows
         /// </summary>
         /// <remarks>
         /// 
@@ -1279,12 +1516,12 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="programId">The id of the program</param>
         /// <param name="body">The program to set mappings for</param>
-        /// <returns>ProgramMappings</returns>
+        /// <returns>TopicsDefinitionsProgramMappings</returns>
         
-        ProgramMappings PutSpeechandtextanalyticsProgramMappings (string programId, ProgramMappingsRequest body);
+        TopicsDefinitionsProgramMappings PutSpeechandtextanalyticsProgramMappings (string programId, ProgramMappingsRequest body);
 
         /// <summary>
-        /// Set Speech & Text Analytics program mappings to queues and flows
+        /// Set Speech &amp; Text Analytics program mappings to queues and flows
         /// </summary>
         /// <remarks>
         /// 
@@ -1292,9 +1529,9 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="programId">The id of the program</param>
         /// <param name="body">The program to set mappings for</param>
-        /// <returns>ApiResponse of ProgramMappings</returns>
+        /// <returns>ApiResponse of TopicsDefinitionsProgramMappings</returns>
         
-        ApiResponse<ProgramMappings> PutSpeechandtextanalyticsProgramMappingsWithHttpInfo (string programId, ProgramMappingsRequest body);
+        ApiResponse<TopicsDefinitionsProgramMappings> PutSpeechandtextanalyticsProgramMappingsWithHttpInfo (string programId, ProgramMappingsRequest body);
 
         /// <summary>
         /// Update AI Insights settings of a program
@@ -1373,7 +1610,7 @@ namespace PureCloudPlatform.Client.V2.Api
         ApiResponse<SpeechTextAnalyticsSettingsResponse> PutSpeechandtextanalyticsSettingsWithHttpInfo (SpeechTextAnalyticsSettingsRequest body);
 
         /// <summary>
-        /// Update existing Speech & Text Analytics topic
+        /// Update existing Speech &amp; Text Analytics topic
         /// </summary>
         /// <remarks>
         /// 
@@ -1386,7 +1623,7 @@ namespace PureCloudPlatform.Client.V2.Api
         Topic PutSpeechandtextanalyticsTopic (string topicId, TopicRequest body);
 
         /// <summary>
-        /// Update existing Speech & Text Analytics topic
+        /// Update existing Speech &amp; Text Analytics topic
         /// </summary>
         /// <remarks>
         /// 
@@ -1403,7 +1640,7 @@ namespace PureCloudPlatform.Client.V2.Api
         #region Asynchronous Operations
 
         /// <summary>
-        /// Delete a Speech & Text Analytics category by ID
+        /// Delete a Speech &amp; Text Analytics category by ID
         /// </summary>
         /// <remarks>
         /// 
@@ -1415,7 +1652,7 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task DeleteSpeechandtextanalyticsCategoryAsync (string categoryId);
 
         /// <summary>
-        /// Delete a Speech & Text Analytics category by ID
+        /// Delete a Speech &amp; Text Analytics category by ID
         /// </summary>
         /// <remarks>
         /// 
@@ -1427,7 +1664,7 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteSpeechandtextanalyticsCategoryAsyncWithHttpInfo (string categoryId);
 
         /// <summary>
-        /// Delete a Speech & Text Analytics DictionaryFeedback by Id
+        /// Delete a Speech &amp; Text Analytics DictionaryFeedback by Id
         /// </summary>
         /// <remarks>
         /// 
@@ -1439,7 +1676,7 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task DeleteSpeechandtextanalyticsDictionaryfeedbackDictionaryFeedbackIdAsync (string dictionaryFeedbackId);
 
         /// <summary>
-        /// Delete a Speech & Text Analytics DictionaryFeedback by Id
+        /// Delete a Speech &amp; Text Analytics DictionaryFeedback by Id
         /// </summary>
         /// <remarks>
         /// 
@@ -1451,7 +1688,7 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteSpeechandtextanalyticsDictionaryfeedbackDictionaryFeedbackIdAsyncWithHttpInfo (string dictionaryFeedbackId);
 
         /// <summary>
-        /// Delete a Speech & Text Analytics program by id
+        /// Delete a Speech &amp; Text Analytics program by id
         /// </summary>
         /// <remarks>
         /// 
@@ -1464,7 +1701,7 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task<DeleteProgramResponse> DeleteSpeechandtextanalyticsProgramAsync (string programId, bool? forceDelete = null);
 
         /// <summary>
-        /// Delete a Speech & Text Analytics program by id
+        /// Delete a Speech &amp; Text Analytics program by id
         /// </summary>
         /// <remarks>
         /// 
@@ -1477,7 +1714,33 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task<ApiResponse<DeleteProgramResponse>> DeleteSpeechandtextanalyticsProgramAsyncWithHttpInfo (string programId, bool? forceDelete = null);
 
         /// <summary>
-        /// Delete All Speech & Text Analytics SentimentFeedback
+        /// Delete a Speech &amp; Text Analytics Reprocessing job by Id
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// DeleteSpeechandtextanalyticsReprocessingJob is a preview method and is subject to both breaking and non-breaking changes at any time without notice
+        /// </remarks>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jobId">The Id of the Reprocessing job</param>
+        /// <returns>Task of void</returns>
+        
+        System.Threading.Tasks.Task DeleteSpeechandtextanalyticsReprocessingJobAsync (string jobId);
+
+        /// <summary>
+        /// Delete a Speech &amp; Text Analytics Reprocessing job by Id
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// DeleteSpeechandtextanalyticsReprocessingJob is a preview method and is subject to both breaking and non-breaking changes at any time without notice
+        /// </remarks>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jobId">The Id of the Reprocessing job</param>
+        /// <returns>Task of ApiResponse</returns>
+        
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteSpeechandtextanalyticsReprocessingJobAsyncWithHttpInfo (string jobId);
+
+        /// <summary>
+        /// Delete All Speech &amp; Text Analytics SentimentFeedback
         /// </summary>
         /// <remarks>
         /// 
@@ -1488,7 +1751,7 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task DeleteSpeechandtextanalyticsSentimentfeedbackAsync ();
 
         /// <summary>
-        /// Delete All Speech & Text Analytics SentimentFeedback
+        /// Delete All Speech &amp; Text Analytics SentimentFeedback
         /// </summary>
         /// <remarks>
         /// 
@@ -1499,7 +1762,7 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteSpeechandtextanalyticsSentimentfeedbackAsyncWithHttpInfo ();
 
         /// <summary>
-        /// Delete a Speech & Text Analytics SentimentFeedback by Id
+        /// Delete a Speech &amp; Text Analytics SentimentFeedback by Id
         /// </summary>
         /// <remarks>
         /// 
@@ -1511,7 +1774,7 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIdAsync (string sentimentFeedbackId);
 
         /// <summary>
-        /// Delete a Speech & Text Analytics SentimentFeedback by Id
+        /// Delete a Speech &amp; Text Analytics SentimentFeedback by Id
         /// </summary>
         /// <remarks>
         /// 
@@ -1523,7 +1786,7 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIdAsyncWithHttpInfo (string sentimentFeedbackId);
 
         /// <summary>
-        /// Delete a Speech & Text Analytics topic by id
+        /// Delete a Speech &amp; Text Analytics topic by id
         /// </summary>
         /// <remarks>
         /// 
@@ -1535,7 +1798,7 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task DeleteSpeechandtextanalyticsTopicAsync (string topicId);
 
         /// <summary>
-        /// Delete a Speech & Text Analytics topic by id
+        /// Delete a Speech &amp; Text Analytics topic by id
         /// </summary>
         /// <remarks>
         /// 
@@ -1581,7 +1844,7 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task<ApiResponse<CategoriesEntityListing>> GetSpeechandtextanalyticsCategoriesAsyncWithHttpInfo (int? pageSize = null, int? pageNumber = null, string name = null, string sortOrder = null, string sortBy = null, List<string> ids = null);
 
         /// <summary>
-        /// Get a Speech & Text Analytics Category by ID
+        /// Get a Speech &amp; Text Analytics Category by ID
         /// </summary>
         /// <remarks>
         /// 
@@ -1593,7 +1856,7 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task<StaCategory> GetSpeechandtextanalyticsCategoryAsync (string categoryId);
 
         /// <summary>
-        /// Get a Speech & Text Analytics Category by ID
+        /// Get a Speech &amp; Text Analytics Category by ID
         /// </summary>
         /// <remarks>
         /// 
@@ -1709,6 +1972,30 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task<ApiResponse<TranscriptUrls>> GetSpeechandtextanalyticsConversationCommunicationTranscripturlsAsyncWithHttpInfo (string conversationId, string communicationId);
 
         /// <summary>
+        /// Get sentiment data
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationId">The conversation ID of the sentiment data</param>
+        /// <returns>Task of SentimentData</returns>
+        
+        System.Threading.Tasks.Task<SentimentData> GetSpeechandtextanalyticsConversationSentimentsAsync (string conversationId);
+
+        /// <summary>
+        /// Get sentiment data
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationId">The conversation ID of the sentiment data</param>
+        /// <returns>Task of ApiResponse (SentimentData)</returns>
+        
+        System.Threading.Tasks.Task<ApiResponse<SentimentData>> GetSpeechandtextanalyticsConversationSentimentsAsyncWithHttpInfo (string conversationId);
+
+        /// <summary>
         /// Get conversation summaries by conversation id.
         /// </summary>
         /// <remarks>
@@ -1733,35 +2020,37 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task<ApiResponse<SpeechTextAnalyticsConversationSummaryListing>> GetSpeechandtextanalyticsConversationSummariesAsyncWithHttpInfo (string conversationId);
 
         /// <summary>
-        /// Get the list of Speech & Text Analytics dictionary feedbacks
+        /// Get the list of Speech &amp; Text Analytics dictionary feedbacks
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dialect">The key for filter the listing by dialect, dialect format is {language}-{country} where language follows ISO 639-1 standard and country follows ISO 3166-1 alpha 2 standard (optional)</param>
+        /// <param name="transcriptionEngine">Filter by transcription engine, If not provided, all transcription engines will be considered (optional)</param>
         /// <param name="nextPage">The key for listing the next page (optional)</param>
         /// <param name="pageSize">The page size for the listing (optional, default to 500)</param>
         /// <returns>Task of DictionaryFeedbackEntityListing</returns>
         
-        System.Threading.Tasks.Task<DictionaryFeedbackEntityListing> GetSpeechandtextanalyticsDictionaryfeedbackAsync (string dialect = null, string nextPage = null, int? pageSize = null);
+        System.Threading.Tasks.Task<DictionaryFeedbackEntityListing> GetSpeechandtextanalyticsDictionaryfeedbackAsync (string dialect = null, string transcriptionEngine = null, string nextPage = null, int? pageSize = null);
 
         /// <summary>
-        /// Get the list of Speech & Text Analytics dictionary feedbacks
+        /// Get the list of Speech &amp; Text Analytics dictionary feedbacks
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dialect">The key for filter the listing by dialect, dialect format is {language}-{country} where language follows ISO 639-1 standard and country follows ISO 3166-1 alpha 2 standard (optional)</param>
+        /// <param name="transcriptionEngine">Filter by transcription engine, If not provided, all transcription engines will be considered (optional)</param>
         /// <param name="nextPage">The key for listing the next page (optional)</param>
         /// <param name="pageSize">The page size for the listing (optional, default to 500)</param>
         /// <returns>Task of ApiResponse (DictionaryFeedbackEntityListing)</returns>
         
-        System.Threading.Tasks.Task<ApiResponse<DictionaryFeedbackEntityListing>> GetSpeechandtextanalyticsDictionaryfeedbackAsyncWithHttpInfo (string dialect = null, string nextPage = null, int? pageSize = null);
+        System.Threading.Tasks.Task<ApiResponse<DictionaryFeedbackEntityListing>> GetSpeechandtextanalyticsDictionaryfeedbackAsyncWithHttpInfo (string dialect = null, string transcriptionEngine = null, string nextPage = null, int? pageSize = null);
 
         /// <summary>
-        /// Get a Speech & Text Analytics dictionary feedback by id
+        /// Get a Speech &amp; Text Analytics dictionary feedback by id
         /// </summary>
         /// <remarks>
         /// 
@@ -1773,7 +2062,7 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task<DictionaryFeedback> GetSpeechandtextanalyticsDictionaryfeedbackDictionaryFeedbackIdAsync (string dictionaryFeedbackId);
 
         /// <summary>
-        /// Get a Speech & Text Analytics dictionary feedback by id
+        /// Get a Speech &amp; Text Analytics dictionary feedback by id
         /// </summary>
         /// <remarks>
         /// 
@@ -1785,7 +2074,7 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task<ApiResponse<DictionaryFeedback>> GetSpeechandtextanalyticsDictionaryfeedbackDictionaryFeedbackIdAsyncWithHttpInfo (string dictionaryFeedbackId);
 
         /// <summary>
-        /// Get a Speech & Text Analytics program by id
+        /// Get a Speech &amp; Text Analytics program by id
         /// </summary>
         /// <remarks>
         /// 
@@ -1797,7 +2086,7 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task<Program> GetSpeechandtextanalyticsProgramAsync (string programId);
 
         /// <summary>
-        /// Get a Speech & Text Analytics program by id
+        /// Get a Speech &amp; Text Analytics program by id
         /// </summary>
         /// <remarks>
         /// 
@@ -1809,28 +2098,28 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task<ApiResponse<Program>> GetSpeechandtextanalyticsProgramAsyncWithHttpInfo (string programId);
 
         /// <summary>
-        /// Get Speech & Text Analytics program mappings to queues and flows by id
+        /// Get Speech &amp; Text Analytics program mappings to queues and flows by id
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="programId">The id of the program</param>
-        /// <returns>Task of ProgramMappings</returns>
+        /// <returns>Task of TopicsDefinitionsProgramMappings</returns>
         
-        System.Threading.Tasks.Task<ProgramMappings> GetSpeechandtextanalyticsProgramMappingsAsync (string programId);
+        System.Threading.Tasks.Task<TopicsDefinitionsProgramMappings> GetSpeechandtextanalyticsProgramMappingsAsync (string programId);
 
         /// <summary>
-        /// Get Speech & Text Analytics program mappings to queues and flows by id
+        /// Get Speech &amp; Text Analytics program mappings to queues and flows by id
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="programId">The id of the program</param>
-        /// <returns>Task of ApiResponse (ProgramMappings)</returns>
+        /// <returns>Task of ApiResponse (TopicsDefinitionsProgramMappings)</returns>
         
-        System.Threading.Tasks.Task<ApiResponse<ProgramMappings>> GetSpeechandtextanalyticsProgramMappingsAsyncWithHttpInfo (string programId);
+        System.Threading.Tasks.Task<ApiResponse<TopicsDefinitionsProgramMappings>> GetSpeechandtextanalyticsProgramMappingsAsyncWithHttpInfo (string programId);
 
         /// <summary>
         /// Get AI Insights settings of a program
@@ -1881,7 +2170,7 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task<ApiResponse<ProgramTranscriptionEngines>> GetSpeechandtextanalyticsProgramTranscriptionenginesAsyncWithHttpInfo (string programId);
 
         /// <summary>
-        /// Get the list of Speech & Text Analytics programs
+        /// Get the list of Speech &amp; Text Analytics programs
         /// </summary>
         /// <remarks>
         /// 
@@ -1890,12 +2179,15 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <param name="nextPage">The key for listing the next page (optional)</param>
         /// <param name="pageSize">The page size for the listing (optional, default to 20)</param>
         /// <param name="state">Program state. Defaults to Latest (optional)</param>
+        /// <param name="name">Case insensitive partial name to filter by (optional)</param>
+        /// <param name="sortBy">Sort results by. Defaults to name (optional)</param>
+        /// <param name="sortOrder">Sort order. Defaults to asc (optional)</param>
         /// <returns>Task of ProgramsEntityListing</returns>
         
-        System.Threading.Tasks.Task<ProgramsEntityListing> GetSpeechandtextanalyticsProgramsAsync (string nextPage = null, int? pageSize = null, string state = null);
+        System.Threading.Tasks.Task<ProgramsEntityListing> GetSpeechandtextanalyticsProgramsAsync (string nextPage = null, int? pageSize = null, string state = null, string name = null, string sortBy = null, string sortOrder = null);
 
         /// <summary>
-        /// Get the list of Speech & Text Analytics programs
+        /// Get the list of Speech &amp; Text Analytics programs
         /// </summary>
         /// <remarks>
         /// 
@@ -1904,12 +2196,15 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <param name="nextPage">The key for listing the next page (optional)</param>
         /// <param name="pageSize">The page size for the listing (optional, default to 20)</param>
         /// <param name="state">Program state. Defaults to Latest (optional)</param>
+        /// <param name="name">Case insensitive partial name to filter by (optional)</param>
+        /// <param name="sortBy">Sort results by. Defaults to name (optional)</param>
+        /// <param name="sortOrder">Sort order. Defaults to asc (optional)</param>
         /// <returns>Task of ApiResponse (ProgramsEntityListing)</returns>
         
-        System.Threading.Tasks.Task<ApiResponse<ProgramsEntityListing>> GetSpeechandtextanalyticsProgramsAsyncWithHttpInfo (string nextPage = null, int? pageSize = null, string state = null);
+        System.Threading.Tasks.Task<ApiResponse<ProgramsEntityListing>> GetSpeechandtextanalyticsProgramsAsyncWithHttpInfo (string nextPage = null, int? pageSize = null, string state = null, string name = null, string sortBy = null, string sortOrder = null);
 
         /// <summary>
-        /// Get a Speech & Text Analytics general program job by id
+        /// Get a Speech &amp; Text Analytics general program job by id
         /// </summary>
         /// <remarks>
         /// 
@@ -1921,7 +2216,7 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task<GeneralProgramJob> GetSpeechandtextanalyticsProgramsGeneralJobAsync (string jobId);
 
         /// <summary>
-        /// Get a Speech & Text Analytics general program job by id
+        /// Get a Speech &amp; Text Analytics general program job by id
         /// </summary>
         /// <remarks>
         /// 
@@ -1933,7 +2228,7 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task<ApiResponse<GeneralProgramJob>> GetSpeechandtextanalyticsProgramsGeneralJobAsyncWithHttpInfo (string jobId);
 
         /// <summary>
-        /// Get the list of Speech & Text Analytics programs mappings to queues and flows
+        /// Get the list of Speech &amp; Text Analytics programs mappings to queues and flows
         /// </summary>
         /// <remarks>
         /// 
@@ -1941,12 +2236,12 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="nextPage">The key for listing the next page (optional)</param>
         /// <param name="pageSize">The page size for the listing (optional, default to 20)</param>
-        /// <returns>Task of ProgramsMappingsEntityListing</returns>
+        /// <returns>Task of TopicsDefinitionsProgramsMappingsEntityListing</returns>
         
-        System.Threading.Tasks.Task<ProgramsMappingsEntityListing> GetSpeechandtextanalyticsProgramsMappingsAsync (string nextPage = null, int? pageSize = null);
+        System.Threading.Tasks.Task<TopicsDefinitionsProgramsMappingsEntityListing> GetSpeechandtextanalyticsProgramsMappingsAsync (string nextPage = null, int? pageSize = null);
 
         /// <summary>
-        /// Get the list of Speech & Text Analytics programs mappings to queues and flows
+        /// Get the list of Speech &amp; Text Analytics programs mappings to queues and flows
         /// </summary>
         /// <remarks>
         /// 
@@ -1954,12 +2249,12 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="nextPage">The key for listing the next page (optional)</param>
         /// <param name="pageSize">The page size for the listing (optional, default to 20)</param>
-        /// <returns>Task of ApiResponse (ProgramsMappingsEntityListing)</returns>
+        /// <returns>Task of ApiResponse (TopicsDefinitionsProgramsMappingsEntityListing)</returns>
         
-        System.Threading.Tasks.Task<ApiResponse<ProgramsMappingsEntityListing>> GetSpeechandtextanalyticsProgramsMappingsAsyncWithHttpInfo (string nextPage = null, int? pageSize = null);
+        System.Threading.Tasks.Task<ApiResponse<TopicsDefinitionsProgramsMappingsEntityListing>> GetSpeechandtextanalyticsProgramsMappingsAsyncWithHttpInfo (string nextPage = null, int? pageSize = null);
 
         /// <summary>
-        /// Get a Speech & Text Analytics publish programs job by id
+        /// Get a Speech &amp; Text Analytics publish programs job by id
         /// </summary>
         /// <remarks>
         /// 
@@ -1971,7 +2266,7 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task<ProgramJob> GetSpeechandtextanalyticsProgramsPublishjobAsync (string jobId);
 
         /// <summary>
-        /// Get a Speech & Text Analytics publish programs job by id
+        /// Get a Speech &amp; Text Analytics publish programs job by id
         /// </summary>
         /// <remarks>
         /// 
@@ -2011,6 +2306,30 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task<ApiResponse<ProgramInsightsSettingsEntityListing>> GetSpeechandtextanalyticsProgramsSettingsInsightsAsyncWithHttpInfo (int? pageSize = null, int? pageNumber = null, List<string> programIds = null);
 
         /// <summary>
+        /// Get a Speech &amp; Text Analytics program-topic links job by id
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jobId">The id of the program-topic links job</param>
+        /// <returns>Task of ProgramTopicLinksJob</returns>
+        
+        System.Threading.Tasks.Task<ProgramTopicLinksJob> GetSpeechandtextanalyticsProgramsTopiclinksJobAsync (string jobId);
+
+        /// <summary>
+        /// Get a Speech &amp; Text Analytics program-topic links job by id
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jobId">The id of the program-topic links job</param>
+        /// <returns>Task of ApiResponse (ProgramTopicLinksJob)</returns>
+        
+        System.Threading.Tasks.Task<ApiResponse<ProgramTopicLinksJob>> GetSpeechandtextanalyticsProgramsTopiclinksJobAsyncWithHttpInfo (string jobId);
+
+        /// <summary>
         /// Get supported dialects for each transcription engine
         /// </summary>
         /// <remarks>
@@ -2033,7 +2352,7 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task<ApiResponse<SupportedDialectsEntityListing>> GetSpeechandtextanalyticsProgramsTranscriptionenginesDialectsAsyncWithHttpInfo ();
 
         /// <summary>
-        /// Get the list of Speech & Text Analytics unpublished programs
+        /// Get the list of Speech &amp; Text Analytics unpublished programs
         /// </summary>
         /// <remarks>
         /// 
@@ -2046,7 +2365,7 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task<UnpublishedProgramsEntityListing> GetSpeechandtextanalyticsProgramsUnpublishedAsync (string nextPage = null, int? pageSize = null);
 
         /// <summary>
-        /// Get the list of Speech & Text Analytics unpublished programs
+        /// Get the list of Speech &amp; Text Analytics unpublished programs
         /// </summary>
         /// <remarks>
         /// 
@@ -2059,7 +2378,91 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task<ApiResponse<UnpublishedProgramsEntityListing>> GetSpeechandtextanalyticsProgramsUnpublishedAsyncWithHttpInfo (string nextPage = null, int? pageSize = null);
 
         /// <summary>
-        /// Get the list of Speech & Text Analytics sentiment supported dialects
+        /// Get a Speech &amp; Text Analytics reprocess job by id
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// GetSpeechandtextanalyticsReprocessingJob is a preview method and is subject to both breaking and non-breaking changes at any time without notice
+        /// </remarks>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jobId">The Id of the Reprocessing job</param>
+        /// <returns>Task of ReprocessJobResponse</returns>
+        
+        System.Threading.Tasks.Task<ReprocessJobResponse> GetSpeechandtextanalyticsReprocessingJobAsync (string jobId);
+
+        /// <summary>
+        /// Get a Speech &amp; Text Analytics reprocess job by id
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// GetSpeechandtextanalyticsReprocessingJob is a preview method and is subject to both breaking and non-breaking changes at any time without notice
+        /// </remarks>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jobId">The Id of the Reprocessing job</param>
+        /// <returns>Task of ApiResponse (ReprocessJobResponse)</returns>
+        
+        System.Threading.Tasks.Task<ApiResponse<ReprocessJobResponse>> GetSpeechandtextanalyticsReprocessingJobAsyncWithHttpInfo (string jobId);
+
+        /// <summary>
+        /// Get a Speech &amp; Text Analytics Reprocessing interactions statuses by job id
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// GetSpeechandtextanalyticsReprocessingJobInteractions is a preview method and is subject to both breaking and non-breaking changes at any time without notice
+        /// </remarks>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jobId">The Id of the Reprocessing job</param>
+        /// <returns>Task of ReprocessInteractionsByJobIdResponse</returns>
+        
+        System.Threading.Tasks.Task<ReprocessInteractionsByJobIdResponse> GetSpeechandtextanalyticsReprocessingJobInteractionsAsync (string jobId);
+
+        /// <summary>
+        /// Get a Speech &amp; Text Analytics Reprocessing interactions statuses by job id
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// GetSpeechandtextanalyticsReprocessingJobInteractions is a preview method and is subject to both breaking and non-breaking changes at any time without notice
+        /// </remarks>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jobId">The Id of the Reprocessing job</param>
+        /// <returns>Task of ApiResponse (ReprocessInteractionsByJobIdResponse)</returns>
+        
+        System.Threading.Tasks.Task<ApiResponse<ReprocessInteractionsByJobIdResponse>> GetSpeechandtextanalyticsReprocessingJobInteractionsAsyncWithHttpInfo (string jobId);
+
+        /// <summary>
+        /// Get the list of Speech &amp; Text Analytics reprocess jobs
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// GetSpeechandtextanalyticsReprocessingJobs is a preview method and is subject to both breaking and non-breaking changes at any time without notice
+        /// </remarks>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pageSize">The page size for the listing. The max that will be returned is 100. Default is 25. (optional)</param>
+        /// <param name="pageNumber">The page number for the listing. Defaults to 1. (optional)</param>
+        /// <param name="sortOrder">Results are sorted by dateCreated. Please choose the sort order. The default is descending (desc). (optional)</param>
+        /// <param name="name">Case insensitive partial name to filter by. (optional)</param>
+        /// <returns>Task of ReprocessJobEntityListingResponse</returns>
+        
+        System.Threading.Tasks.Task<ReprocessJobEntityListingResponse> GetSpeechandtextanalyticsReprocessingJobsAsync (int? pageSize = null, int? pageNumber = null, string sortOrder = null, string name = null);
+
+        /// <summary>
+        /// Get the list of Speech &amp; Text Analytics reprocess jobs
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// GetSpeechandtextanalyticsReprocessingJobs is a preview method and is subject to both breaking and non-breaking changes at any time without notice
+        /// </remarks>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pageSize">The page size for the listing. The max that will be returned is 100. Default is 25. (optional)</param>
+        /// <param name="pageNumber">The page number for the listing. Defaults to 1. (optional)</param>
+        /// <param name="sortOrder">Results are sorted by dateCreated. Please choose the sort order. The default is descending (desc). (optional)</param>
+        /// <param name="name">Case insensitive partial name to filter by. (optional)</param>
+        /// <returns>Task of ApiResponse (ReprocessJobEntityListingResponse)</returns>
+        
+        System.Threading.Tasks.Task<ApiResponse<ReprocessJobEntityListingResponse>> GetSpeechandtextanalyticsReprocessingJobsAsyncWithHttpInfo (int? pageSize = null, int? pageNumber = null, string sortOrder = null, string name = null);
+
+        /// <summary>
+        /// Get the list of Speech &amp; Text Analytics sentiment supported dialects
         /// </summary>
         /// <remarks>
         /// 
@@ -2070,7 +2473,7 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task<EntityListing> GetSpeechandtextanalyticsSentimentDialectsAsync ();
 
         /// <summary>
-        /// Get the list of Speech & Text Analytics sentiment supported dialects
+        /// Get the list of Speech &amp; Text Analytics sentiment supported dialects
         /// </summary>
         /// <remarks>
         /// 
@@ -2081,7 +2484,7 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task<ApiResponse<EntityListing>> GetSpeechandtextanalyticsSentimentDialectsAsyncWithHttpInfo ();
 
         /// <summary>
-        /// Get the list of Speech & Text Analytics SentimentFeedback
+        /// Get the list of Speech &amp; Text Analytics SentimentFeedback
         /// </summary>
         /// <remarks>
         /// 
@@ -2093,7 +2496,7 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task<SentimentFeedbackEntityListing> GetSpeechandtextanalyticsSentimentfeedbackAsync (string dialect = null);
 
         /// <summary>
-        /// Get the list of Speech & Text Analytics SentimentFeedback
+        /// Get the list of Speech &amp; Text Analytics SentimentFeedback
         /// </summary>
         /// <remarks>
         /// 
@@ -2127,7 +2530,7 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task<ApiResponse<SpeechTextAnalyticsSettingsResponse>> GetSpeechandtextanalyticsSettingsAsyncWithHttpInfo ();
 
         /// <summary>
-        /// Get a Speech & Text Analytics topic by id
+        /// Get a Speech &amp; Text Analytics topic by id
         /// </summary>
         /// <remarks>
         /// 
@@ -2139,7 +2542,7 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task<Topic> GetSpeechandtextanalyticsTopicAsync (string topicId);
 
         /// <summary>
-        /// Get a Speech & Text Analytics topic by id
+        /// Get a Speech &amp; Text Analytics topic by id
         /// </summary>
         /// <remarks>
         /// 
@@ -2151,7 +2554,7 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task<ApiResponse<Topic>> GetSpeechandtextanalyticsTopicAsyncWithHttpInfo (string topicId);
 
         /// <summary>
-        /// Get the list of Speech & Text Analytics topics
+        /// Get the list of Speech &amp; Text Analytics topics
         /// </summary>
         /// <remarks>
         /// 
@@ -2159,6 +2562,7 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="nextPage">The key for listing the next page (optional)</param>
         /// <param name="pageSize">The page size for the listing. The max that will be returned is 500. (optional, default to 20)</param>
+        /// <param name="pageNumber">The page number for the listing (optional)</param>
         /// <param name="state">Topic state. Defaults to latest (optional)</param>
         /// <param name="name">Case insensitive partial name to filter by (optional)</param>
         /// <param name="ids">Comma separated Topic IDs to filter by. Cannot be used with other filters. Maximum of 50 IDs allowed. (optional)</param>
@@ -2167,10 +2571,10 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <param name="sortOrder">Sort order. Defaults to asc (optional)</param>
         /// <returns>Task of TopicsEntityListing</returns>
         
-        System.Threading.Tasks.Task<TopicsEntityListing> GetSpeechandtextanalyticsTopicsAsync (string nextPage = null, int? pageSize = null, string state = null, string name = null, List<string> ids = null, List<string> dialects = null, string sortBy = null, string sortOrder = null);
+        System.Threading.Tasks.Task<TopicsEntityListing> GetSpeechandtextanalyticsTopicsAsync (string nextPage = null, int? pageSize = null, int? pageNumber = null, string state = null, string name = null, List<string> ids = null, List<string> dialects = null, string sortBy = null, string sortOrder = null);
 
         /// <summary>
-        /// Get the list of Speech & Text Analytics topics
+        /// Get the list of Speech &amp; Text Analytics topics
         /// </summary>
         /// <remarks>
         /// 
@@ -2178,6 +2582,7 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="nextPage">The key for listing the next page (optional)</param>
         /// <param name="pageSize">The page size for the listing. The max that will be returned is 500. (optional, default to 20)</param>
+        /// <param name="pageNumber">The page number for the listing (optional)</param>
         /// <param name="state">Topic state. Defaults to latest (optional)</param>
         /// <param name="name">Case insensitive partial name to filter by (optional)</param>
         /// <param name="ids">Comma separated Topic IDs to filter by. Cannot be used with other filters. Maximum of 50 IDs allowed. (optional)</param>
@@ -2186,10 +2591,10 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <param name="sortOrder">Sort order. Defaults to asc (optional)</param>
         /// <returns>Task of ApiResponse (TopicsEntityListing)</returns>
         
-        System.Threading.Tasks.Task<ApiResponse<TopicsEntityListing>> GetSpeechandtextanalyticsTopicsAsyncWithHttpInfo (string nextPage = null, int? pageSize = null, string state = null, string name = null, List<string> ids = null, List<string> dialects = null, string sortBy = null, string sortOrder = null);
+        System.Threading.Tasks.Task<ApiResponse<TopicsEntityListing>> GetSpeechandtextanalyticsTopicsAsyncWithHttpInfo (string nextPage = null, int? pageSize = null, int? pageNumber = null, string state = null, string name = null, List<string> ids = null, List<string> dialects = null, string sortBy = null, string sortOrder = null);
 
         /// <summary>
-        /// Get list of supported Speech & Text Analytics topics dialects
+        /// Get list of supported Speech &amp; Text Analytics topics dialects
         /// </summary>
         /// <remarks>
         /// 
@@ -2200,7 +2605,7 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task<EntityListing> GetSpeechandtextanalyticsTopicsDialectsAsync ();
 
         /// <summary>
-        /// Get list of supported Speech & Text Analytics topics dialects
+        /// Get list of supported Speech &amp; Text Analytics topics dialects
         /// </summary>
         /// <remarks>
         /// 
@@ -2211,7 +2616,7 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task<ApiResponse<EntityListing>> GetSpeechandtextanalyticsTopicsDialectsAsyncWithHttpInfo ();
 
         /// <summary>
-        /// Get the Speech & Text Analytics general topics for a given dialect
+        /// Get the Speech &amp; Text Analytics general topics for a given dialect
         /// </summary>
         /// <remarks>
         /// 
@@ -2223,7 +2628,7 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task<GeneralTopicsEntityListing> GetSpeechandtextanalyticsTopicsGeneralAsync (string dialect = null);
 
         /// <summary>
-        /// Get the Speech & Text Analytics general topics for a given dialect
+        /// Get the Speech &amp; Text Analytics general topics for a given dialect
         /// </summary>
         /// <remarks>
         /// 
@@ -2259,7 +2664,7 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task<ApiResponse<UnifiedGeneralTopicEntityListing>> GetSpeechandtextanalyticsTopicsGeneralStatusAsyncWithHttpInfo (string dialect = null);
 
         /// <summary>
-        /// Get a Speech & Text Analytics publish topics job by id
+        /// Get a Speech &amp; Text Analytics publish topics job by id
         /// </summary>
         /// <remarks>
         /// 
@@ -2271,7 +2676,7 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task<TopicJob> GetSpeechandtextanalyticsTopicsPublishjobAsync (string jobId);
 
         /// <summary>
-        /// Get a Speech & Text Analytics publish topics job by id
+        /// Get a Speech &amp; Text Analytics publish topics job by id
         /// </summary>
         /// <remarks>
         /// 
@@ -2283,11 +2688,34 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task<ApiResponse<TopicJob>> GetSpeechandtextanalyticsTopicsPublishjobAsyncWithHttpInfo (string jobId);
 
         /// <summary>
+        /// Get a Speech &amp; Text Analytics test topics phrase job by id
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jobId">the id of the test topic phrase job</param>
+        /// <returns>Task of TestTopicPhraseJob</returns>
+        
+        System.Threading.Tasks.Task<TestTopicPhraseJob> GetSpeechandtextanalyticsTopicsTestphraseJobAsync (string jobId);
+
+        /// <summary>
+        /// Get a Speech &amp; Text Analytics test topics phrase job by id
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jobId">the id of the test topic phrase job</param>
+        /// <returns>Task of ApiResponse (TestTopicPhraseJob)</returns>
+        
+        System.Threading.Tasks.Task<ApiResponse<TestTopicPhraseJob>> GetSpeechandtextanalyticsTopicsTestphraseJobAsyncWithHttpInfo (string jobId);
+
+        /// <summary>
         /// Translate a single interaction recording (or an email conversation)
         /// </summary>
         /// <remarks>
         /// 
-        /// GetSpeechandtextanalyticsTranslationsLanguageConversation is a preview method and is subject to both breaking and non-breaking changes at any time without notice
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="languageId">Target translation language</param>
@@ -2303,7 +2731,6 @@ namespace PureCloudPlatform.Client.V2.Api
         /// </summary>
         /// <remarks>
         /// 
-        /// GetSpeechandtextanalyticsTranslationsLanguageConversation is a preview method and is subject to both breaking and non-breaking changes at any time without notice
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="languageId">Target translation language</param>
@@ -2319,7 +2746,6 @@ namespace PureCloudPlatform.Client.V2.Api
         /// </summary>
         /// <remarks>
         /// 
-        /// GetSpeechandtextanalyticsTranslationsLanguages is a preview method and is subject to both breaking and non-breaking changes at any time without notice
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of TranslateSupportedLanguageList</returns>
@@ -2331,7 +2757,6 @@ namespace PureCloudPlatform.Client.V2.Api
         /// </summary>
         /// <remarks>
         /// 
-        /// GetSpeechandtextanalyticsTranslationsLanguages is a preview method and is subject to both breaking and non-breaking changes at any time without notice
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (TranslateSupportedLanguageList)</returns>
@@ -2363,7 +2788,7 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task<ApiResponse<SpeechTextAnalyticsSettingsResponse>> PatchSpeechandtextanalyticsSettingsAsyncWithHttpInfo (SpeechTextAnalyticsSettingsRequest body);
 
         /// <summary>
-        /// Create new Speech & Text Analytics category
+        /// Create new Speech &amp; Text Analytics category
         /// </summary>
         /// <remarks>
         /// 
@@ -2375,7 +2800,7 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task<StaCategory> PostSpeechandtextanalyticsCategoriesAsync (CategoryRequest body);
 
         /// <summary>
-        /// Create new Speech & Text Analytics category
+        /// Create new Speech &amp; Text Analytics category
         /// </summary>
         /// <remarks>
         /// 
@@ -2387,7 +2812,7 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task<ApiResponse<StaCategory>> PostSpeechandtextanalyticsCategoriesAsyncWithHttpInfo (CategoryRequest body);
 
         /// <summary>
-        /// Create a Speech & Text Analytics DictionaryFeedback
+        /// Create a Speech &amp; Text Analytics DictionaryFeedback
         /// </summary>
         /// <remarks>
         /// 
@@ -2399,7 +2824,7 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task<DictionaryFeedback> PostSpeechandtextanalyticsDictionaryfeedbackAsync (DictionaryFeedback body);
 
         /// <summary>
-        /// Create a Speech & Text Analytics DictionaryFeedback
+        /// Create a Speech &amp; Text Analytics DictionaryFeedback
         /// </summary>
         /// <remarks>
         /// 
@@ -2411,7 +2836,7 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task<ApiResponse<DictionaryFeedback>> PostSpeechandtextanalyticsDictionaryfeedbackAsyncWithHttpInfo (DictionaryFeedback body);
 
         /// <summary>
-        /// Create new Speech & Text Analytics program
+        /// Create new Speech &amp; Text Analytics program
         /// </summary>
         /// <remarks>
         /// 
@@ -2423,7 +2848,7 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task<Program> PostSpeechandtextanalyticsProgramsAsync (ProgramRequest body);
 
         /// <summary>
-        /// Create new Speech & Text Analytics program
+        /// Create new Speech &amp; Text Analytics program
         /// </summary>
         /// <remarks>
         /// 
@@ -2435,7 +2860,7 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task<ApiResponse<Program>> PostSpeechandtextanalyticsProgramsAsyncWithHttpInfo (ProgramRequest body);
 
         /// <summary>
-        /// Create new Speech & Text Analytics general program job
+        /// Create new Speech &amp; Text Analytics general program job
         /// </summary>
         /// <remarks>
         /// 
@@ -2447,7 +2872,7 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task<GeneralProgramJob> PostSpeechandtextanalyticsProgramsGeneralJobsAsync (GeneralProgramJobRequest body);
 
         /// <summary>
-        /// Create new Speech & Text Analytics general program job
+        /// Create new Speech &amp; Text Analytics general program job
         /// </summary>
         /// <remarks>
         /// 
@@ -2459,7 +2884,7 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task<ApiResponse<GeneralProgramJob>> PostSpeechandtextanalyticsProgramsGeneralJobsAsyncWithHttpInfo (GeneralProgramJobRequest body);
 
         /// <summary>
-        /// Create new Speech & Text Analytics publish programs job
+        /// Create new Speech &amp; Text Analytics publish programs job
         /// </summary>
         /// <remarks>
         /// 
@@ -2471,7 +2896,7 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task<ProgramJob> PostSpeechandtextanalyticsProgramsPublishjobsAsync (ProgramJobRequest body);
 
         /// <summary>
-        /// Create new Speech & Text Analytics publish programs job
+        /// Create new Speech &amp; Text Analytics publish programs job
         /// </summary>
         /// <remarks>
         /// 
@@ -2483,7 +2908,33 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task<ApiResponse<ProgramJob>> PostSpeechandtextanalyticsProgramsPublishjobsAsyncWithHttpInfo (ProgramJobRequest body);
 
         /// <summary>
-        /// Create a Speech & Text Analytics SentimentFeedback
+        /// Create a Speech &amp; Text Analytics reprocess job.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// PostSpeechandtextanalyticsReprocessingJobs is a preview method and is subject to both breaking and non-breaking changes at any time without notice
+        /// </remarks>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">The ReprocessJob to create</param>
+        /// <returns>Task of ReprocessJobResponse</returns>
+        
+        System.Threading.Tasks.Task<ReprocessJobResponse> PostSpeechandtextanalyticsReprocessingJobsAsync (CreateReprocessJobRequest body);
+
+        /// <summary>
+        /// Create a Speech &amp; Text Analytics reprocess job.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// PostSpeechandtextanalyticsReprocessingJobs is a preview method and is subject to both breaking and non-breaking changes at any time without notice
+        /// </remarks>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">The ReprocessJob to create</param>
+        /// <returns>Task of ApiResponse (ReprocessJobResponse)</returns>
+        
+        System.Threading.Tasks.Task<ApiResponse<ReprocessJobResponse>> PostSpeechandtextanalyticsReprocessingJobsAsyncWithHttpInfo (CreateReprocessJobRequest body);
+
+        /// <summary>
+        /// Create a Speech &amp; Text Analytics SentimentFeedback
         /// </summary>
         /// <remarks>
         /// 
@@ -2495,7 +2946,7 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task<SentimentFeedback> PostSpeechandtextanalyticsSentimentfeedbackAsync (SentimentFeedback body);
 
         /// <summary>
-        /// Create a Speech & Text Analytics SentimentFeedback
+        /// Create a Speech &amp; Text Analytics SentimentFeedback
         /// </summary>
         /// <remarks>
         /// 
@@ -2507,7 +2958,7 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task<ApiResponse<SentimentFeedback>> PostSpeechandtextanalyticsSentimentfeedbackAsyncWithHttpInfo (SentimentFeedback body);
 
         /// <summary>
-        /// Create new Speech & Text Analytics topic
+        /// Create new Speech &amp; Text Analytics topic
         /// </summary>
         /// <remarks>
         /// 
@@ -2519,7 +2970,7 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task<Topic> PostSpeechandtextanalyticsTopicsAsync (TopicRequest body);
 
         /// <summary>
-        /// Create new Speech & Text Analytics topic
+        /// Create new Speech &amp; Text Analytics topic
         /// </summary>
         /// <remarks>
         /// 
@@ -2531,7 +2982,7 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task<ApiResponse<Topic>> PostSpeechandtextanalyticsTopicsAsyncWithHttpInfo (TopicRequest body);
 
         /// <summary>
-        /// Create new Speech & Text Analytics publish topics job
+        /// Create new Speech &amp; Text Analytics publish topics job
         /// </summary>
         /// <remarks>
         /// 
@@ -2543,7 +2994,7 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task<TopicJob> PostSpeechandtextanalyticsTopicsPublishjobsAsync (TopicJobRequest body);
 
         /// <summary>
-        /// Create new Speech & Text Analytics publish topics job
+        /// Create new Speech &amp; Text Analytics publish topics job
         /// </summary>
         /// <remarks>
         /// 
@@ -2553,6 +3004,30 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <returns>Task of ApiResponse (TopicJob)</returns>
         
         System.Threading.Tasks.Task<ApiResponse<TopicJob>> PostSpeechandtextanalyticsTopicsPublishjobsAsyncWithHttpInfo (TopicJobRequest body);
+
+        /// <summary>
+        /// Create new Speech &amp; Text Analytics publish topics job
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">The publish test topic phrase job to create</param>
+        /// <returns>Task of TestTopicPhraseJobs</returns>
+        
+        System.Threading.Tasks.Task<TestTopicPhraseJobs> PostSpeechandtextanalyticsTopicsTestphraseJobsAsync (TestTopicPhraseJobRequest body);
+
+        /// <summary>
+        /// Create new Speech &amp; Text Analytics publish topics job
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">The publish test topic phrase job to create</param>
+        /// <returns>Task of ApiResponse (TestTopicPhraseJobs)</returns>
+        
+        System.Threading.Tasks.Task<ApiResponse<TestTopicPhraseJobs>> PostSpeechandtextanalyticsTopicsTestphraseJobsAsyncWithHttpInfo (TestTopicPhraseJobRequest body);
 
         /// <summary>
         /// Search resources.
@@ -2579,7 +3054,7 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task<ApiResponse<JsonSearchResponse>> PostSpeechandtextanalyticsTranscriptsSearchAsyncWithHttpInfo (TranscriptSearchRequest body);
 
         /// <summary>
-        /// Update a Speech & Text Analytics category by ID
+        /// Update a Speech &amp; Text Analytics category by ID
         /// </summary>
         /// <remarks>
         /// 
@@ -2592,7 +3067,7 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task<StaCategory> PutSpeechandtextanalyticsCategoryAsync (string categoryId, CategoryRequest body);
 
         /// <summary>
-        /// Update a Speech & Text Analytics category by ID
+        /// Update a Speech &amp; Text Analytics category by ID
         /// </summary>
         /// <remarks>
         /// 
@@ -2605,7 +3080,7 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task<ApiResponse<StaCategory>> PutSpeechandtextanalyticsCategoryAsyncWithHttpInfo (string categoryId, CategoryRequest body);
 
         /// <summary>
-        /// Update existing Speech & Text Analytics dictionary feedback by id
+        /// Update existing Speech &amp; Text Analytics dictionary feedback by id
         /// </summary>
         /// <remarks>
         /// 
@@ -2618,7 +3093,7 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task<DictionaryFeedback> PutSpeechandtextanalyticsDictionaryfeedbackDictionaryFeedbackIdAsync (string dictionaryFeedbackId, DictionaryFeedback body = null);
 
         /// <summary>
-        /// Update existing Speech & Text Analytics dictionary feedback by id
+        /// Update existing Speech &amp; Text Analytics dictionary feedback by id
         /// </summary>
         /// <remarks>
         /// 
@@ -2631,7 +3106,7 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task<ApiResponse<DictionaryFeedback>> PutSpeechandtextanalyticsDictionaryfeedbackDictionaryFeedbackIdAsyncWithHttpInfo (string dictionaryFeedbackId, DictionaryFeedback body = null);
 
         /// <summary>
-        /// Update existing Speech & Text Analytics program
+        /// Update existing Speech &amp; Text Analytics program
         /// </summary>
         /// <remarks>
         /// 
@@ -2644,7 +3119,7 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task<Program> PutSpeechandtextanalyticsProgramAsync (string programId, ProgramRequest body);
 
         /// <summary>
-        /// Update existing Speech & Text Analytics program
+        /// Update existing Speech &amp; Text Analytics program
         /// </summary>
         /// <remarks>
         /// 
@@ -2657,7 +3132,7 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task<ApiResponse<Program>> PutSpeechandtextanalyticsProgramAsyncWithHttpInfo (string programId, ProgramRequest body);
 
         /// <summary>
-        /// Set Speech & Text Analytics program mappings to queues and flows
+        /// Set Speech &amp; Text Analytics program mappings to queues and flows
         /// </summary>
         /// <remarks>
         /// 
@@ -2665,12 +3140,12 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="programId">The id of the program</param>
         /// <param name="body">The program to set mappings for</param>
-        /// <returns>Task of ProgramMappings</returns>
+        /// <returns>Task of TopicsDefinitionsProgramMappings</returns>
         
-        System.Threading.Tasks.Task<ProgramMappings> PutSpeechandtextanalyticsProgramMappingsAsync (string programId, ProgramMappingsRequest body);
+        System.Threading.Tasks.Task<TopicsDefinitionsProgramMappings> PutSpeechandtextanalyticsProgramMappingsAsync (string programId, ProgramMappingsRequest body);
 
         /// <summary>
-        /// Set Speech & Text Analytics program mappings to queues and flows
+        /// Set Speech &amp; Text Analytics program mappings to queues and flows
         /// </summary>
         /// <remarks>
         /// 
@@ -2678,9 +3153,9 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="programId">The id of the program</param>
         /// <param name="body">The program to set mappings for</param>
-        /// <returns>Task of ApiResponse (ProgramMappings)</returns>
+        /// <returns>Task of ApiResponse (TopicsDefinitionsProgramMappings)</returns>
         
-        System.Threading.Tasks.Task<ApiResponse<ProgramMappings>> PutSpeechandtextanalyticsProgramMappingsAsyncWithHttpInfo (string programId, ProgramMappingsRequest body);
+        System.Threading.Tasks.Task<ApiResponse<TopicsDefinitionsProgramMappings>> PutSpeechandtextanalyticsProgramMappingsAsyncWithHttpInfo (string programId, ProgramMappingsRequest body);
 
         /// <summary>
         /// Update AI Insights settings of a program
@@ -2759,7 +3234,7 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task<ApiResponse<SpeechTextAnalyticsSettingsResponse>> PutSpeechandtextanalyticsSettingsAsyncWithHttpInfo (SpeechTextAnalyticsSettingsRequest body);
 
         /// <summary>
-        /// Update existing Speech & Text Analytics topic
+        /// Update existing Speech &amp; Text Analytics topic
         /// </summary>
         /// <remarks>
         /// 
@@ -2772,7 +3247,7 @@ namespace PureCloudPlatform.Client.V2.Api
         System.Threading.Tasks.Task<Topic> PutSpeechandtextanalyticsTopicAsync (string topicId, TopicRequest body);
 
         /// <summary>
-        /// Update existing Speech & Text Analytics topic
+        /// Update existing Speech &amp; Text Analytics topic
         /// </summary>
         /// <remarks>
         /// 
@@ -2877,7 +3352,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Delete a Speech & Text Analytics category by ID 
+        /// Delete a Speech &amp; Text Analytics category by ID 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -2890,7 +3365,7 @@ namespace PureCloudPlatform.Client.V2.Api
         }
 
         /// <summary>
-        /// Delete a Speech & Text Analytics category by ID 
+        /// Delete a Speech &amp; Text Analytics category by ID 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -2904,11 +3379,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'categoryId' when calling SpeechTextAnalyticsApi->DeleteSpeechandtextanalyticsCategory");
 
             var localVarPath = "/api/v2/speechandtextanalytics/categories/{categoryId}";
+            var localVarHttpMethod = "Delete";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -2952,20 +3428,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling DeleteSpeechandtextanalyticsCategory: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -2981,7 +3450,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Delete a Speech & Text Analytics category by ID 
+        /// Delete a Speech &amp; Text Analytics category by ID 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -2995,7 +3464,7 @@ namespace PureCloudPlatform.Client.V2.Api
         }
 
         /// <summary>
-        /// Delete a Speech & Text Analytics category by ID 
+        /// Delete a Speech &amp; Text Analytics category by ID 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -3010,11 +3479,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/speechandtextanalytics/categories/{categoryId}";
+            var localVarHttpMethod = "Delete";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -3058,20 +3528,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling DeleteSpeechandtextanalyticsCategory: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -3088,7 +3551,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Delete a Speech & Text Analytics DictionaryFeedback by Id 
+        /// Delete a Speech &amp; Text Analytics DictionaryFeedback by Id 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -3101,7 +3564,7 @@ namespace PureCloudPlatform.Client.V2.Api
         }
 
         /// <summary>
-        /// Delete a Speech & Text Analytics DictionaryFeedback by Id 
+        /// Delete a Speech &amp; Text Analytics DictionaryFeedback by Id 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -3115,11 +3578,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'dictionaryFeedbackId' when calling SpeechTextAnalyticsApi->DeleteSpeechandtextanalyticsDictionaryfeedbackDictionaryFeedbackId");
 
             var localVarPath = "/api/v2/speechandtextanalytics/dictionaryfeedback/{dictionaryFeedbackId}";
+            var localVarHttpMethod = "Delete";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -3163,20 +3627,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling DeleteSpeechandtextanalyticsDictionaryfeedbackDictionaryFeedbackId: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -3192,7 +3649,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Delete a Speech & Text Analytics DictionaryFeedback by Id 
+        /// Delete a Speech &amp; Text Analytics DictionaryFeedback by Id 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -3206,7 +3663,7 @@ namespace PureCloudPlatform.Client.V2.Api
         }
 
         /// <summary>
-        /// Delete a Speech & Text Analytics DictionaryFeedback by Id 
+        /// Delete a Speech &amp; Text Analytics DictionaryFeedback by Id 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -3221,11 +3678,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/speechandtextanalytics/dictionaryfeedback/{dictionaryFeedbackId}";
+            var localVarHttpMethod = "Delete";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -3269,20 +3727,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling DeleteSpeechandtextanalyticsDictionaryfeedbackDictionaryFeedbackId: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -3299,7 +3750,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Delete a Speech & Text Analytics program by id 
+        /// Delete a Speech &amp; Text Analytics program by id 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -3314,7 +3765,7 @@ namespace PureCloudPlatform.Client.V2.Api
         }
 
         /// <summary>
-        /// Delete a Speech & Text Analytics program by id 
+        /// Delete a Speech &amp; Text Analytics program by id 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -3329,11 +3780,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'programId' when calling SpeechTextAnalyticsApi->DeleteSpeechandtextanalyticsProgram");
 
             var localVarPath = "/api/v2/speechandtextanalytics/programs/{programId}";
+            var localVarHttpMethod = "Delete";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -3378,20 +3830,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling DeleteSpeechandtextanalyticsProgram: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -3407,7 +3852,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Delete a Speech & Text Analytics program by id 
+        /// Delete a Speech &amp; Text Analytics program by id 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -3423,7 +3868,7 @@ namespace PureCloudPlatform.Client.V2.Api
         }
 
         /// <summary>
-        /// Delete a Speech & Text Analytics program by id 
+        /// Delete a Speech &amp; Text Analytics program by id 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -3439,11 +3884,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/speechandtextanalytics/programs/{programId}";
+            var localVarHttpMethod = "Delete";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -3488,20 +3934,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling DeleteSpeechandtextanalyticsProgram: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -3518,7 +3957,210 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Delete All Speech & Text Analytics SentimentFeedback 
+        /// Delete a Speech &amp; Text Analytics Reprocessing job by Id 
+        /// 
+        /// DeleteSpeechandtextanalyticsReprocessingJob is a preview method and is subject to both breaking and non-breaking changes at any time without notice
+        /// </summary>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jobId">The Id of the Reprocessing job</param>
+        /// <returns></returns>
+        
+        public void DeleteSpeechandtextanalyticsReprocessingJob (string jobId)
+        {
+             DeleteSpeechandtextanalyticsReprocessingJobWithHttpInfo(jobId);
+        }
+
+        /// <summary>
+        /// Delete a Speech &amp; Text Analytics Reprocessing job by Id 
+        /// 
+        /// DeleteSpeechandtextanalyticsReprocessingJob is a preview method and is subject to both breaking and non-breaking changes at any time without notice
+        /// </summary>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jobId">The Id of the Reprocessing job</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        
+        public ApiResponse<Object> DeleteSpeechandtextanalyticsReprocessingJobWithHttpInfo (string jobId)
+        { 
+            // verify the required parameter 'jobId' is set
+            if (jobId == null)
+                throw new ApiException(400, "Missing required parameter 'jobId' when calling SpeechTextAnalyticsApi->DeleteSpeechandtextanalyticsReprocessingJob");
+
+            var localVarPath = "/api/v2/speechandtextanalytics/reprocessing/jobs/{jobId}";
+            var localVarHttpMethod = "Delete";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<Tuple<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+
+                "application/json"
+                
+
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+
+            // Path params
+            if (jobId != null) localVarPathParams.Add("jobId", this.Configuration.ApiClient.ParameterToString(jobId));
+
+            // Query params
+
+            // Header params
+
+            // Form params
+            
+            // Body param
+
+
+            // authentication (PureCloud OAuth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
+
+            if (localVarStatusCode >= 400)
+                throw new ApiException (localVarStatusCode, "Error calling DeleteSpeechandtextanalyticsReprocessingJob: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
+            else if (localVarStatusCode == 0)
+                throw new ApiException (localVarStatusCode, "Error calling DeleteSpeechandtextanalyticsReprocessingJob: " + localVarResponse.ErrorMessage, localVarResponse.ErrorMessage);
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarHeaders,
+                null,
+                localVarResponse.Content,
+                localVarResponse.StatusDescription);
+        }
+
+
+        /// <summary>
+        /// Delete a Speech &amp; Text Analytics Reprocessing job by Id 
+        /// 
+        /// DeleteSpeechandtextanalyticsReprocessingJob is a preview method and is subject to both breaking and non-breaking changes at any time without notice
+        /// </summary>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jobId">The Id of the Reprocessing job</param>
+        /// <returns>Task of void</returns>
+        
+        public async System.Threading.Tasks.Task DeleteSpeechandtextanalyticsReprocessingJobAsync (string jobId)
+        {
+             await DeleteSpeechandtextanalyticsReprocessingJobAsyncWithHttpInfo(jobId);
+
+        }
+
+        /// <summary>
+        /// Delete a Speech &amp; Text Analytics Reprocessing job by Id 
+        /// 
+        /// DeleteSpeechandtextanalyticsReprocessingJob is a preview method and is subject to both breaking and non-breaking changes at any time without notice
+        /// </summary>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jobId">The Id of the Reprocessing job</param>
+        /// <returns>Task of ApiResponse</returns>
+        
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteSpeechandtextanalyticsReprocessingJobAsyncWithHttpInfo (string jobId)
+        { 
+            // verify the required parameter 'jobId' is set
+            if (jobId == null)
+                throw new ApiException(400, "Missing required parameter 'jobId' when calling SpeechTextAnalyticsApi->DeleteSpeechandtextanalyticsReprocessingJob");
+            
+
+            var localVarPath = "/api/v2/speechandtextanalytics/reprocessing/jobs/{jobId}";
+            var localVarHttpMethod = "Delete";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<Tuple<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+
+                "application/json"
+
+                
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+
+            // Path params
+            if (jobId != null) localVarPathParams.Add("jobId", this.Configuration.ApiClient.ParameterToString(jobId));
+
+            // Query params
+
+            // Header params
+
+            // Form params
+            
+            // Body param
+
+
+            // authentication (PureCloud OAuth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
+
+            if (localVarStatusCode >= 400)
+                throw new ApiException (localVarStatusCode, "Error calling DeleteSpeechandtextanalyticsReprocessingJob: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
+            else if (localVarStatusCode == 0)
+                throw new ApiException (localVarStatusCode, "Error calling DeleteSpeechandtextanalyticsReprocessingJob: " + localVarResponse.ErrorMessage, localVarResponse.ErrorMessage);
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarHeaders,
+                null,
+                localVarResponse.Content,
+                localVarResponse.StatusDescription);
+        }
+
+
+
+        /// <summary>
+        /// Delete All Speech &amp; Text Analytics SentimentFeedback 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -3530,7 +4172,7 @@ namespace PureCloudPlatform.Client.V2.Api
         }
 
         /// <summary>
-        /// Delete All Speech & Text Analytics SentimentFeedback 
+        /// Delete All Speech &amp; Text Analytics SentimentFeedback 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -3540,11 +4182,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/speechandtextanalytics/sentimentfeedback";
+            var localVarHttpMethod = "Delete";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -3587,20 +4230,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling DeleteSpeechandtextanalyticsSentimentfeedback: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -3616,7 +4252,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Delete All Speech & Text Analytics SentimentFeedback 
+        /// Delete All Speech &amp; Text Analytics SentimentFeedback 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -3629,7 +4265,7 @@ namespace PureCloudPlatform.Client.V2.Api
         }
 
         /// <summary>
-        /// Delete All Speech & Text Analytics SentimentFeedback 
+        /// Delete All Speech &amp; Text Analytics SentimentFeedback 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -3639,11 +4275,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/speechandtextanalytics/sentimentfeedback";
+            var localVarHttpMethod = "Delete";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -3686,20 +4323,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling DeleteSpeechandtextanalyticsSentimentfeedback: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -3716,7 +4346,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Delete a Speech & Text Analytics SentimentFeedback by Id 
+        /// Delete a Speech &amp; Text Analytics SentimentFeedback by Id 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -3729,7 +4359,7 @@ namespace PureCloudPlatform.Client.V2.Api
         }
 
         /// <summary>
-        /// Delete a Speech & Text Analytics SentimentFeedback by Id 
+        /// Delete a Speech &amp; Text Analytics SentimentFeedback by Id 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -3743,11 +4373,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'sentimentFeedbackId' when calling SpeechTextAnalyticsApi->DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackId");
 
             var localVarPath = "/api/v2/speechandtextanalytics/sentimentfeedback/{sentimentFeedbackId}";
+            var localVarHttpMethod = "Delete";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -3791,20 +4422,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackId: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -3820,7 +4444,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Delete a Speech & Text Analytics SentimentFeedback by Id 
+        /// Delete a Speech &amp; Text Analytics SentimentFeedback by Id 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -3834,7 +4458,7 @@ namespace PureCloudPlatform.Client.V2.Api
         }
 
         /// <summary>
-        /// Delete a Speech & Text Analytics SentimentFeedback by Id 
+        /// Delete a Speech &amp; Text Analytics SentimentFeedback by Id 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -3849,11 +4473,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/speechandtextanalytics/sentimentfeedback/{sentimentFeedbackId}";
+            var localVarHttpMethod = "Delete";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -3897,20 +4522,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackId: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -3927,7 +4545,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Delete a Speech & Text Analytics topic by id 
+        /// Delete a Speech &amp; Text Analytics topic by id 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -3940,7 +4558,7 @@ namespace PureCloudPlatform.Client.V2.Api
         }
 
         /// <summary>
-        /// Delete a Speech & Text Analytics topic by id 
+        /// Delete a Speech &amp; Text Analytics topic by id 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -3954,11 +4572,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'topicId' when calling SpeechTextAnalyticsApi->DeleteSpeechandtextanalyticsTopic");
 
             var localVarPath = "/api/v2/speechandtextanalytics/topics/{topicId}";
+            var localVarHttpMethod = "Delete";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -4002,20 +4621,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling DeleteSpeechandtextanalyticsTopic: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -4031,7 +4643,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Delete a Speech & Text Analytics topic by id 
+        /// Delete a Speech &amp; Text Analytics topic by id 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -4045,7 +4657,7 @@ namespace PureCloudPlatform.Client.V2.Api
         }
 
         /// <summary>
-        /// Delete a Speech & Text Analytics topic by id 
+        /// Delete a Speech &amp; Text Analytics topic by id 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -4060,11 +4672,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/speechandtextanalytics/topics/{topicId}";
+            var localVarHttpMethod = "Delete";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -4108,20 +4721,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling DeleteSpeechandtextanalyticsTopic: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -4173,11 +4779,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/speechandtextanalytics/categories";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -4226,20 +4833,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsCategories: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -4291,11 +4891,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/speechandtextanalytics/categories";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -4344,20 +4945,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsCategories: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -4374,7 +4968,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Get a Speech & Text Analytics Category by ID 
+        /// Get a Speech &amp; Text Analytics Category by ID 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -4388,7 +4982,7 @@ namespace PureCloudPlatform.Client.V2.Api
         }
 
         /// <summary>
-        /// Get a Speech & Text Analytics Category by ID 
+        /// Get a Speech &amp; Text Analytics Category by ID 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -4402,11 +4996,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'categoryId' when calling SpeechTextAnalyticsApi->GetSpeechandtextanalyticsCategory");
 
             var localVarPath = "/api/v2/speechandtextanalytics/categories/{categoryId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -4450,20 +5045,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsCategory: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -4479,7 +5067,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Get a Speech & Text Analytics Category by ID 
+        /// Get a Speech &amp; Text Analytics Category by ID 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -4494,7 +5082,7 @@ namespace PureCloudPlatform.Client.V2.Api
         }
 
         /// <summary>
-        /// Get a Speech & Text Analytics Category by ID 
+        /// Get a Speech &amp; Text Analytics Category by ID 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -4509,11 +5097,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/speechandtextanalytics/categories/{categoryId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -4557,20 +5146,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsCategory: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -4615,11 +5197,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'conversationId' when calling SpeechTextAnalyticsApi->GetSpeechandtextanalyticsConversation");
 
             var localVarPath = "/api/v2/speechandtextanalytics/conversations/{conversationId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -4663,20 +5246,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsConversation: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -4722,11 +5298,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/speechandtextanalytics/conversations/{conversationId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -4770,20 +5347,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsConversation: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -4832,11 +5402,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'conversationId' when calling SpeechTextAnalyticsApi->GetSpeechandtextanalyticsConversationCategories");
 
             var localVarPath = "/api/v2/speechandtextanalytics/conversations/{conversationId}/categories";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -4882,20 +5453,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsConversationCategories: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -4945,11 +5509,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/speechandtextanalytics/conversations/{conversationId}/categories";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -4995,20 +5560,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsConversationCategories: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -5058,11 +5616,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'communicationId' when calling SpeechTextAnalyticsApi->GetSpeechandtextanalyticsConversationCommunicationTranscripturl");
 
             var localVarPath = "/api/v2/speechandtextanalytics/conversations/{conversationId}/communications/{communicationId}/transcripturl";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -5107,20 +5666,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsConversationCommunicationTranscripturl: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -5172,11 +5724,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/speechandtextanalytics/conversations/{conversationId}/communications/{communicationId}/transcripturl";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -5221,20 +5774,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsConversationCommunicationTranscripturl: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -5284,11 +5830,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'communicationId' when calling SpeechTextAnalyticsApi->GetSpeechandtextanalyticsConversationCommunicationTranscripturls");
 
             var localVarPath = "/api/v2/speechandtextanalytics/conversations/{conversationId}/communications/{communicationId}/transcripturls";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -5333,20 +5880,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsConversationCommunicationTranscripturls: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -5398,11 +5938,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/speechandtextanalytics/conversations/{conversationId}/communications/{communicationId}/transcripturls";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -5447,20 +5988,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsConversationCommunicationTranscripturls: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -5477,39 +6011,40 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Get conversation summaries by conversation id. 
+        /// Get sentiment data 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="conversationId">The conversation ID of the summaries</param>
-        /// <returns>SpeechTextAnalyticsConversationSummaryListing</returns>
+        /// <param name="conversationId">The conversation ID of the sentiment data</param>
+        /// <returns>SentimentData</returns>
         
-        public SpeechTextAnalyticsConversationSummaryListing GetSpeechandtextanalyticsConversationSummaries (string conversationId)
+        public SentimentData GetSpeechandtextanalyticsConversationSentiments (string conversationId)
         {
-             ApiResponse<SpeechTextAnalyticsConversationSummaryListing> localVarResponse = GetSpeechandtextanalyticsConversationSummariesWithHttpInfo(conversationId);
+             ApiResponse<SentimentData> localVarResponse = GetSpeechandtextanalyticsConversationSentimentsWithHttpInfo(conversationId);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get conversation summaries by conversation id. 
+        /// Get sentiment data 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="conversationId">The conversation ID of the summaries</param>
-        /// <returns>ApiResponse of SpeechTextAnalyticsConversationSummaryListing</returns>
+        /// <param name="conversationId">The conversation ID of the sentiment data</param>
+        /// <returns>ApiResponse of SentimentData</returns>
         
-        public ApiResponse< SpeechTextAnalyticsConversationSummaryListing > GetSpeechandtextanalyticsConversationSummariesWithHttpInfo (string conversationId)
+        public ApiResponse< SentimentData > GetSpeechandtextanalyticsConversationSentimentsWithHttpInfo (string conversationId)
         { 
             // verify the required parameter 'conversationId' is set
             if (conversationId == null)
-                throw new ApiException(400, "Missing required parameter 'conversationId' when calling SpeechTextAnalyticsApi->GetSpeechandtextanalyticsConversationSummaries");
+                throw new ApiException(400, "Missing required parameter 'conversationId' when calling SpeechTextAnalyticsApi->GetSpeechandtextanalyticsConversationSentiments");
 
-            var localVarPath = "/api/v2/speechandtextanalytics/conversations/{conversationId}/summaries";
+            var localVarPath = "/api/v2/speechandtextanalytics/conversations/{conversationId}/sentiments";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -5553,20 +6088,214 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
+
+            if (localVarStatusCode >= 400)
+                throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsConversationSentiments: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
+            else if (localVarStatusCode == 0)
+                throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsConversationSentiments: " + localVarResponse.ErrorMessage, localVarResponse.ErrorMessage);
+
+            return new ApiResponse<SentimentData>(localVarStatusCode,
+                localVarHeaders,
+                (SentimentData) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SentimentData)),
+                localVarResponse.Content,
+                localVarResponse.StatusDescription);
+        }
+
+
+        /// <summary>
+        /// Get sentiment data 
+        /// 
+        /// </summary>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationId">The conversation ID of the sentiment data</param>
+        /// <returns>Task of SentimentData</returns>
+        
+        public async System.Threading.Tasks.Task<SentimentData> GetSpeechandtextanalyticsConversationSentimentsAsync (string conversationId)
+        {
+             ApiResponse<SentimentData> localVarResponse = await GetSpeechandtextanalyticsConversationSentimentsAsyncWithHttpInfo(conversationId);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get sentiment data 
+        /// 
+        /// </summary>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationId">The conversation ID of the sentiment data</param>
+        /// <returns>Task of ApiResponse (SentimentData)</returns>
+        
+        public async System.Threading.Tasks.Task<ApiResponse<SentimentData>> GetSpeechandtextanalyticsConversationSentimentsAsyncWithHttpInfo (string conversationId)
+        { 
+            // verify the required parameter 'conversationId' is set
+            if (conversationId == null)
+                throw new ApiException(400, "Missing required parameter 'conversationId' when calling SpeechTextAnalyticsApi->GetSpeechandtextanalyticsConversationSentiments");
+            
+
+            var localVarPath = "/api/v2/speechandtextanalytics/conversations/{conversationId}/sentiments";
+            var localVarHttpMethod = "Get";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<Tuple<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+
+                "application/json"
+
+                
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+
+            // Path params
+            if (conversationId != null) localVarPathParams.Add("conversationId", this.Configuration.ApiClient.ParameterToString(conversationId));
+
+            // Query params
+
+            // Header params
+
+            // Form params
+            
+            // Body param
+
+
+            // authentication (PureCloud OAuth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
+
+            if (localVarStatusCode >= 400)
+                throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsConversationSentiments: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
+            else if (localVarStatusCode == 0)
+                throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsConversationSentiments: " + localVarResponse.ErrorMessage, localVarResponse.ErrorMessage);
+
+            return new ApiResponse<SentimentData>(localVarStatusCode,
+                localVarHeaders,
+                (SentimentData) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SentimentData)),
+                localVarResponse.Content,
+                localVarResponse.StatusDescription);
+        }
+
+
+
+        /// <summary>
+        /// Get conversation summaries by conversation id. 
+        /// 
+        /// </summary>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationId">The conversation ID of the summaries</param>
+        /// <returns>SpeechTextAnalyticsConversationSummaryListing</returns>
+        
+        public SpeechTextAnalyticsConversationSummaryListing GetSpeechandtextanalyticsConversationSummaries (string conversationId)
+        {
+             ApiResponse<SpeechTextAnalyticsConversationSummaryListing> localVarResponse = GetSpeechandtextanalyticsConversationSummariesWithHttpInfo(conversationId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get conversation summaries by conversation id. 
+        /// 
+        /// </summary>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationId">The conversation ID of the summaries</param>
+        /// <returns>ApiResponse of SpeechTextAnalyticsConversationSummaryListing</returns>
+        
+        public ApiResponse< SpeechTextAnalyticsConversationSummaryListing > GetSpeechandtextanalyticsConversationSummariesWithHttpInfo (string conversationId)
+        { 
+            // verify the required parameter 'conversationId' is set
+            if (conversationId == null)
+                throw new ApiException(400, "Missing required parameter 'conversationId' when calling SpeechTextAnalyticsApi->GetSpeechandtextanalyticsConversationSummaries");
+
+            var localVarPath = "/api/v2/speechandtextanalytics/conversations/{conversationId}/summaries";
+            var localVarHttpMethod = "Get";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<Tuple<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+
+                "application/json"
+                
+
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+
+            // Path params
+            if (conversationId != null) localVarPathParams.Add("conversationId", this.Configuration.ApiClient.ParameterToString(conversationId));
+
+            // Query params
+
+            // Header params
+
+            // Form params
+            
+            // Body param
+
+
+            // authentication (PureCloud OAuth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsConversationSummaries: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -5612,11 +6341,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/speechandtextanalytics/conversations/{conversationId}/summaries";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -5660,20 +6390,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsConversationSummaries: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -5690,40 +6413,43 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Get the list of Speech & Text Analytics dictionary feedbacks 
+        /// Get the list of Speech &amp; Text Analytics dictionary feedbacks 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dialect">The key for filter the listing by dialect, dialect format is {language}-{country} where language follows ISO 639-1 standard and country follows ISO 3166-1 alpha 2 standard (optional)</param>
+        /// <param name="transcriptionEngine">Filter by transcription engine, If not provided, all transcription engines will be considered (optional)</param>
         /// <param name="nextPage">The key for listing the next page (optional)</param>
         /// <param name="pageSize">The page size for the listing (optional, default to 500)</param>
         /// <returns>DictionaryFeedbackEntityListing</returns>
         
-        public DictionaryFeedbackEntityListing GetSpeechandtextanalyticsDictionaryfeedback (string dialect = null, string nextPage = null, int? pageSize = null)
+        public DictionaryFeedbackEntityListing GetSpeechandtextanalyticsDictionaryfeedback (string dialect = null, string transcriptionEngine = null, string nextPage = null, int? pageSize = null)
         {
-             ApiResponse<DictionaryFeedbackEntityListing> localVarResponse = GetSpeechandtextanalyticsDictionaryfeedbackWithHttpInfo(dialect, nextPage, pageSize);
+             ApiResponse<DictionaryFeedbackEntityListing> localVarResponse = GetSpeechandtextanalyticsDictionaryfeedbackWithHttpInfo(dialect, transcriptionEngine, nextPage, pageSize);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get the list of Speech & Text Analytics dictionary feedbacks 
+        /// Get the list of Speech &amp; Text Analytics dictionary feedbacks 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dialect">The key for filter the listing by dialect, dialect format is {language}-{country} where language follows ISO 639-1 standard and country follows ISO 3166-1 alpha 2 standard (optional)</param>
+        /// <param name="transcriptionEngine">Filter by transcription engine, If not provided, all transcription engines will be considered (optional)</param>
         /// <param name="nextPage">The key for listing the next page (optional)</param>
         /// <param name="pageSize">The page size for the listing (optional, default to 500)</param>
         /// <returns>ApiResponse of DictionaryFeedbackEntityListing</returns>
         
-        public ApiResponse< DictionaryFeedbackEntityListing > GetSpeechandtextanalyticsDictionaryfeedbackWithHttpInfo (string dialect = null, string nextPage = null, int? pageSize = null)
+        public ApiResponse< DictionaryFeedbackEntityListing > GetSpeechandtextanalyticsDictionaryfeedbackWithHttpInfo (string dialect = null, string transcriptionEngine = null, string nextPage = null, int? pageSize = null)
         { 
 
             var localVarPath = "/api/v2/speechandtextanalytics/dictionaryfeedback";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -5751,6 +6477,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
             // Query params
             if (dialect != null) localVarQueryParams.Add(new Tuple<string, string>("dialect", this.Configuration.ApiClient.ParameterToString(dialect)));
+            if (transcriptionEngine != null) localVarQueryParams.Add(new Tuple<string, string>("transcriptionEngine", this.Configuration.ApiClient.ParameterToString(transcriptionEngine)));
             if (nextPage != null) localVarQueryParams.Add(new Tuple<string, string>("nextPage", this.Configuration.ApiClient.ParameterToString(nextPage)));
             if (pageSize != null) localVarQueryParams.Add(new Tuple<string, string>("pageSize", this.Configuration.ApiClient.ParameterToString(pageSize)));
 
@@ -5769,20 +6496,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsDictionaryfeedback: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -5798,41 +6518,44 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Get the list of Speech & Text Analytics dictionary feedbacks 
+        /// Get the list of Speech &amp; Text Analytics dictionary feedbacks 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dialect">The key for filter the listing by dialect, dialect format is {language}-{country} where language follows ISO 639-1 standard and country follows ISO 3166-1 alpha 2 standard (optional)</param>
+        /// <param name="transcriptionEngine">Filter by transcription engine, If not provided, all transcription engines will be considered (optional)</param>
         /// <param name="nextPage">The key for listing the next page (optional)</param>
         /// <param name="pageSize">The page size for the listing (optional, default to 500)</param>
         /// <returns>Task of DictionaryFeedbackEntityListing</returns>
         
-        public async System.Threading.Tasks.Task<DictionaryFeedbackEntityListing> GetSpeechandtextanalyticsDictionaryfeedbackAsync (string dialect = null, string nextPage = null, int? pageSize = null)
+        public async System.Threading.Tasks.Task<DictionaryFeedbackEntityListing> GetSpeechandtextanalyticsDictionaryfeedbackAsync (string dialect = null, string transcriptionEngine = null, string nextPage = null, int? pageSize = null)
         {
-             ApiResponse<DictionaryFeedbackEntityListing> localVarResponse = await GetSpeechandtextanalyticsDictionaryfeedbackAsyncWithHttpInfo(dialect, nextPage, pageSize);
+             ApiResponse<DictionaryFeedbackEntityListing> localVarResponse = await GetSpeechandtextanalyticsDictionaryfeedbackAsyncWithHttpInfo(dialect, transcriptionEngine, nextPage, pageSize);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Get the list of Speech & Text Analytics dictionary feedbacks 
+        /// Get the list of Speech &amp; Text Analytics dictionary feedbacks 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dialect">The key for filter the listing by dialect, dialect format is {language}-{country} where language follows ISO 639-1 standard and country follows ISO 3166-1 alpha 2 standard (optional)</param>
+        /// <param name="transcriptionEngine">Filter by transcription engine, If not provided, all transcription engines will be considered (optional)</param>
         /// <param name="nextPage">The key for listing the next page (optional)</param>
         /// <param name="pageSize">The page size for the listing (optional, default to 500)</param>
         /// <returns>Task of ApiResponse (DictionaryFeedbackEntityListing)</returns>
         
-        public async System.Threading.Tasks.Task<ApiResponse<DictionaryFeedbackEntityListing>> GetSpeechandtextanalyticsDictionaryfeedbackAsyncWithHttpInfo (string dialect = null, string nextPage = null, int? pageSize = null)
+        public async System.Threading.Tasks.Task<ApiResponse<DictionaryFeedbackEntityListing>> GetSpeechandtextanalyticsDictionaryfeedbackAsyncWithHttpInfo (string dialect = null, string transcriptionEngine = null, string nextPage = null, int? pageSize = null)
         { 
 
             var localVarPath = "/api/v2/speechandtextanalytics/dictionaryfeedback";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -5860,6 +6583,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
             // Query params
             if (dialect != null) localVarQueryParams.Add(new Tuple<string, string>("dialect", this.Configuration.ApiClient.ParameterToString(dialect)));
+            if (transcriptionEngine != null) localVarQueryParams.Add(new Tuple<string, string>("transcriptionEngine", this.Configuration.ApiClient.ParameterToString(transcriptionEngine)));
             if (nextPage != null) localVarQueryParams.Add(new Tuple<string, string>("nextPage", this.Configuration.ApiClient.ParameterToString(nextPage)));
             if (pageSize != null) localVarQueryParams.Add(new Tuple<string, string>("pageSize", this.Configuration.ApiClient.ParameterToString(pageSize)));
 
@@ -5878,20 +6602,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsDictionaryfeedback: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -5908,7 +6625,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Get a Speech & Text Analytics dictionary feedback by id 
+        /// Get a Speech &amp; Text Analytics dictionary feedback by id 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -5922,7 +6639,7 @@ namespace PureCloudPlatform.Client.V2.Api
         }
 
         /// <summary>
-        /// Get a Speech & Text Analytics dictionary feedback by id 
+        /// Get a Speech &amp; Text Analytics dictionary feedback by id 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -5936,11 +6653,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'dictionaryFeedbackId' when calling SpeechTextAnalyticsApi->GetSpeechandtextanalyticsDictionaryfeedbackDictionaryFeedbackId");
 
             var localVarPath = "/api/v2/speechandtextanalytics/dictionaryfeedback/{dictionaryFeedbackId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -5984,20 +6702,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsDictionaryfeedbackDictionaryFeedbackId: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -6013,7 +6724,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Get a Speech & Text Analytics dictionary feedback by id 
+        /// Get a Speech &amp; Text Analytics dictionary feedback by id 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -6028,7 +6739,7 @@ namespace PureCloudPlatform.Client.V2.Api
         }
 
         /// <summary>
-        /// Get a Speech & Text Analytics dictionary feedback by id 
+        /// Get a Speech &amp; Text Analytics dictionary feedback by id 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -6043,11 +6754,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/speechandtextanalytics/dictionaryfeedback/{dictionaryFeedbackId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -6091,20 +6803,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsDictionaryfeedbackDictionaryFeedbackId: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -6121,7 +6826,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Get a Speech & Text Analytics program by id 
+        /// Get a Speech &amp; Text Analytics program by id 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -6135,7 +6840,7 @@ namespace PureCloudPlatform.Client.V2.Api
         }
 
         /// <summary>
-        /// Get a Speech & Text Analytics program by id 
+        /// Get a Speech &amp; Text Analytics program by id 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -6149,11 +6854,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'programId' when calling SpeechTextAnalyticsApi->GetSpeechandtextanalyticsProgram");
 
             var localVarPath = "/api/v2/speechandtextanalytics/programs/{programId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -6197,20 +6903,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsProgram: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -6226,7 +6925,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Get a Speech & Text Analytics program by id 
+        /// Get a Speech &amp; Text Analytics program by id 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -6241,7 +6940,7 @@ namespace PureCloudPlatform.Client.V2.Api
         }
 
         /// <summary>
-        /// Get a Speech & Text Analytics program by id 
+        /// Get a Speech &amp; Text Analytics program by id 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -6256,11 +6955,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/speechandtextanalytics/programs/{programId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -6304,20 +7004,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsProgram: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -6334,39 +7027,40 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Get Speech & Text Analytics program mappings to queues and flows by id 
+        /// Get Speech &amp; Text Analytics program mappings to queues and flows by id 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="programId">The id of the program</param>
-        /// <returns>ProgramMappings</returns>
+        /// <returns>TopicsDefinitionsProgramMappings</returns>
         
-        public ProgramMappings GetSpeechandtextanalyticsProgramMappings (string programId)
+        public TopicsDefinitionsProgramMappings GetSpeechandtextanalyticsProgramMappings (string programId)
         {
-             ApiResponse<ProgramMappings> localVarResponse = GetSpeechandtextanalyticsProgramMappingsWithHttpInfo(programId);
+             ApiResponse<TopicsDefinitionsProgramMappings> localVarResponse = GetSpeechandtextanalyticsProgramMappingsWithHttpInfo(programId);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get Speech & Text Analytics program mappings to queues and flows by id 
+        /// Get Speech &amp; Text Analytics program mappings to queues and flows by id 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="programId">The id of the program</param>
-        /// <returns>ApiResponse of ProgramMappings</returns>
+        /// <returns>ApiResponse of TopicsDefinitionsProgramMappings</returns>
         
-        public ApiResponse< ProgramMappings > GetSpeechandtextanalyticsProgramMappingsWithHttpInfo (string programId)
+        public ApiResponse< TopicsDefinitionsProgramMappings > GetSpeechandtextanalyticsProgramMappingsWithHttpInfo (string programId)
         { 
             // verify the required parameter 'programId' is set
             if (programId == null)
                 throw new ApiException(400, "Missing required parameter 'programId' when calling SpeechTextAnalyticsApi->GetSpeechandtextanalyticsProgramMappings");
 
             var localVarPath = "/api/v2/speechandtextanalytics/programs/{programId}/mappings";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -6410,58 +7104,51 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsProgramMappings: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
             else if (localVarStatusCode == 0)
                 throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsProgramMappings: " + localVarResponse.ErrorMessage, localVarResponse.ErrorMessage);
 
-            return new ApiResponse<ProgramMappings>(localVarStatusCode,
+            return new ApiResponse<TopicsDefinitionsProgramMappings>(localVarStatusCode,
                 localVarHeaders,
-                (ProgramMappings) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ProgramMappings)),
+                (TopicsDefinitionsProgramMappings) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(TopicsDefinitionsProgramMappings)),
                 localVarResponse.Content,
                 localVarResponse.StatusDescription);
         }
 
 
         /// <summary>
-        /// Get Speech & Text Analytics program mappings to queues and flows by id 
+        /// Get Speech &amp; Text Analytics program mappings to queues and flows by id 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="programId">The id of the program</param>
-        /// <returns>Task of ProgramMappings</returns>
+        /// <returns>Task of TopicsDefinitionsProgramMappings</returns>
         
-        public async System.Threading.Tasks.Task<ProgramMappings> GetSpeechandtextanalyticsProgramMappingsAsync (string programId)
+        public async System.Threading.Tasks.Task<TopicsDefinitionsProgramMappings> GetSpeechandtextanalyticsProgramMappingsAsync (string programId)
         {
-             ApiResponse<ProgramMappings> localVarResponse = await GetSpeechandtextanalyticsProgramMappingsAsyncWithHttpInfo(programId);
+             ApiResponse<TopicsDefinitionsProgramMappings> localVarResponse = await GetSpeechandtextanalyticsProgramMappingsAsyncWithHttpInfo(programId);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Get Speech & Text Analytics program mappings to queues and flows by id 
+        /// Get Speech &amp; Text Analytics program mappings to queues and flows by id 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="programId">The id of the program</param>
-        /// <returns>Task of ApiResponse (ProgramMappings)</returns>
+        /// <returns>Task of ApiResponse (TopicsDefinitionsProgramMappings)</returns>
         
-        public async System.Threading.Tasks.Task<ApiResponse<ProgramMappings>> GetSpeechandtextanalyticsProgramMappingsAsyncWithHttpInfo (string programId)
+        public async System.Threading.Tasks.Task<ApiResponse<TopicsDefinitionsProgramMappings>> GetSpeechandtextanalyticsProgramMappingsAsyncWithHttpInfo (string programId)
         { 
             // verify the required parameter 'programId' is set
             if (programId == null)
@@ -6469,11 +7156,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/speechandtextanalytics/programs/{programId}/mappings";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -6517,29 +7205,22 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsProgramMappings: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
             else if (localVarStatusCode == 0)
                 throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsProgramMappings: " + localVarResponse.ErrorMessage, localVarResponse.ErrorMessage);
 
-            return new ApiResponse<ProgramMappings>(localVarStatusCode,
+            return new ApiResponse<TopicsDefinitionsProgramMappings>(localVarStatusCode,
                 localVarHeaders,
-                (ProgramMappings) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ProgramMappings)),
+                (TopicsDefinitionsProgramMappings) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(TopicsDefinitionsProgramMappings)),
                 localVarResponse.Content,
                 localVarResponse.StatusDescription);
         }
@@ -6575,11 +7256,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'programId' when calling SpeechTextAnalyticsApi->GetSpeechandtextanalyticsProgramSettingsInsights");
 
             var localVarPath = "/api/v2/speechandtextanalytics/programs/{programId}/settings/insights";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -6623,20 +7305,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsProgramSettingsInsights: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -6682,11 +7357,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/speechandtextanalytics/programs/{programId}/settings/insights";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -6730,20 +7406,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsProgramSettingsInsights: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -6788,11 +7457,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'programId' when calling SpeechTextAnalyticsApi->GetSpeechandtextanalyticsProgramTranscriptionengines");
 
             var localVarPath = "/api/v2/speechandtextanalytics/programs/{programId}/transcriptionengines";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -6836,20 +7506,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsProgramTranscriptionengines: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -6895,11 +7558,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/speechandtextanalytics/programs/{programId}/transcriptionengines";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -6943,20 +7607,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsProgramTranscriptionengines: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -6973,40 +7630,47 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Get the list of Speech & Text Analytics programs 
+        /// Get the list of Speech &amp; Text Analytics programs 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="nextPage">The key for listing the next page (optional)</param>
         /// <param name="pageSize">The page size for the listing (optional, default to 20)</param>
         /// <param name="state">Program state. Defaults to Latest (optional)</param>
+        /// <param name="name">Case insensitive partial name to filter by (optional)</param>
+        /// <param name="sortBy">Sort results by. Defaults to name (optional)</param>
+        /// <param name="sortOrder">Sort order. Defaults to asc (optional)</param>
         /// <returns>ProgramsEntityListing</returns>
         
-        public ProgramsEntityListing GetSpeechandtextanalyticsPrograms (string nextPage = null, int? pageSize = null, string state = null)
+        public ProgramsEntityListing GetSpeechandtextanalyticsPrograms (string nextPage = null, int? pageSize = null, string state = null, string name = null, string sortBy = null, string sortOrder = null)
         {
-             ApiResponse<ProgramsEntityListing> localVarResponse = GetSpeechandtextanalyticsProgramsWithHttpInfo(nextPage, pageSize, state);
+             ApiResponse<ProgramsEntityListing> localVarResponse = GetSpeechandtextanalyticsProgramsWithHttpInfo(nextPage, pageSize, state, name, sortBy, sortOrder);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get the list of Speech & Text Analytics programs 
+        /// Get the list of Speech &amp; Text Analytics programs 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="nextPage">The key for listing the next page (optional)</param>
         /// <param name="pageSize">The page size for the listing (optional, default to 20)</param>
         /// <param name="state">Program state. Defaults to Latest (optional)</param>
+        /// <param name="name">Case insensitive partial name to filter by (optional)</param>
+        /// <param name="sortBy">Sort results by. Defaults to name (optional)</param>
+        /// <param name="sortOrder">Sort order. Defaults to asc (optional)</param>
         /// <returns>ApiResponse of ProgramsEntityListing</returns>
         
-        public ApiResponse< ProgramsEntityListing > GetSpeechandtextanalyticsProgramsWithHttpInfo (string nextPage = null, int? pageSize = null, string state = null)
+        public ApiResponse< ProgramsEntityListing > GetSpeechandtextanalyticsProgramsWithHttpInfo (string nextPage = null, int? pageSize = null, string state = null, string name = null, string sortBy = null, string sortOrder = null)
         { 
 
             var localVarPath = "/api/v2/speechandtextanalytics/programs";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -7036,6 +7700,9 @@ namespace PureCloudPlatform.Client.V2.Api
             if (nextPage != null) localVarQueryParams.Add(new Tuple<string, string>("nextPage", this.Configuration.ApiClient.ParameterToString(nextPage)));
             if (pageSize != null) localVarQueryParams.Add(new Tuple<string, string>("pageSize", this.Configuration.ApiClient.ParameterToString(pageSize)));
             if (state != null) localVarQueryParams.Add(new Tuple<string, string>("state", this.Configuration.ApiClient.ParameterToString(state)));
+            if (name != null) localVarQueryParams.Add(new Tuple<string, string>("name", this.Configuration.ApiClient.ParameterToString(name)));
+            if (sortBy != null) localVarQueryParams.Add(new Tuple<string, string>("sortBy", this.Configuration.ApiClient.ParameterToString(sortBy)));
+            if (sortOrder != null) localVarQueryParams.Add(new Tuple<string, string>("sortOrder", this.Configuration.ApiClient.ParameterToString(sortOrder)));
 
             // Header params
 
@@ -7052,20 +7719,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsPrograms: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -7081,41 +7741,48 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Get the list of Speech & Text Analytics programs 
+        /// Get the list of Speech &amp; Text Analytics programs 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="nextPage">The key for listing the next page (optional)</param>
         /// <param name="pageSize">The page size for the listing (optional, default to 20)</param>
         /// <param name="state">Program state. Defaults to Latest (optional)</param>
+        /// <param name="name">Case insensitive partial name to filter by (optional)</param>
+        /// <param name="sortBy">Sort results by. Defaults to name (optional)</param>
+        /// <param name="sortOrder">Sort order. Defaults to asc (optional)</param>
         /// <returns>Task of ProgramsEntityListing</returns>
         
-        public async System.Threading.Tasks.Task<ProgramsEntityListing> GetSpeechandtextanalyticsProgramsAsync (string nextPage = null, int? pageSize = null, string state = null)
+        public async System.Threading.Tasks.Task<ProgramsEntityListing> GetSpeechandtextanalyticsProgramsAsync (string nextPage = null, int? pageSize = null, string state = null, string name = null, string sortBy = null, string sortOrder = null)
         {
-             ApiResponse<ProgramsEntityListing> localVarResponse = await GetSpeechandtextanalyticsProgramsAsyncWithHttpInfo(nextPage, pageSize, state);
+             ApiResponse<ProgramsEntityListing> localVarResponse = await GetSpeechandtextanalyticsProgramsAsyncWithHttpInfo(nextPage, pageSize, state, name, sortBy, sortOrder);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Get the list of Speech & Text Analytics programs 
+        /// Get the list of Speech &amp; Text Analytics programs 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="nextPage">The key for listing the next page (optional)</param>
         /// <param name="pageSize">The page size for the listing (optional, default to 20)</param>
         /// <param name="state">Program state. Defaults to Latest (optional)</param>
+        /// <param name="name">Case insensitive partial name to filter by (optional)</param>
+        /// <param name="sortBy">Sort results by. Defaults to name (optional)</param>
+        /// <param name="sortOrder">Sort order. Defaults to asc (optional)</param>
         /// <returns>Task of ApiResponse (ProgramsEntityListing)</returns>
         
-        public async System.Threading.Tasks.Task<ApiResponse<ProgramsEntityListing>> GetSpeechandtextanalyticsProgramsAsyncWithHttpInfo (string nextPage = null, int? pageSize = null, string state = null)
+        public async System.Threading.Tasks.Task<ApiResponse<ProgramsEntityListing>> GetSpeechandtextanalyticsProgramsAsyncWithHttpInfo (string nextPage = null, int? pageSize = null, string state = null, string name = null, string sortBy = null, string sortOrder = null)
         { 
 
             var localVarPath = "/api/v2/speechandtextanalytics/programs";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -7145,6 +7812,9 @@ namespace PureCloudPlatform.Client.V2.Api
             if (nextPage != null) localVarQueryParams.Add(new Tuple<string, string>("nextPage", this.Configuration.ApiClient.ParameterToString(nextPage)));
             if (pageSize != null) localVarQueryParams.Add(new Tuple<string, string>("pageSize", this.Configuration.ApiClient.ParameterToString(pageSize)));
             if (state != null) localVarQueryParams.Add(new Tuple<string, string>("state", this.Configuration.ApiClient.ParameterToString(state)));
+            if (name != null) localVarQueryParams.Add(new Tuple<string, string>("name", this.Configuration.ApiClient.ParameterToString(name)));
+            if (sortBy != null) localVarQueryParams.Add(new Tuple<string, string>("sortBy", this.Configuration.ApiClient.ParameterToString(sortBy)));
+            if (sortOrder != null) localVarQueryParams.Add(new Tuple<string, string>("sortOrder", this.Configuration.ApiClient.ParameterToString(sortOrder)));
 
             // Header params
 
@@ -7161,20 +7831,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsPrograms: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -7191,7 +7854,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Get a Speech & Text Analytics general program job by id 
+        /// Get a Speech &amp; Text Analytics general program job by id 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -7205,7 +7868,7 @@ namespace PureCloudPlatform.Client.V2.Api
         }
 
         /// <summary>
-        /// Get a Speech & Text Analytics general program job by id 
+        /// Get a Speech &amp; Text Analytics general program job by id 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -7219,11 +7882,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'jobId' when calling SpeechTextAnalyticsApi->GetSpeechandtextanalyticsProgramsGeneralJob");
 
             var localVarPath = "/api/v2/speechandtextanalytics/programs/general/jobs/{jobId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -7267,20 +7931,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsProgramsGeneralJob: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -7296,7 +7953,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Get a Speech & Text Analytics general program job by id 
+        /// Get a Speech &amp; Text Analytics general program job by id 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -7311,7 +7968,7 @@ namespace PureCloudPlatform.Client.V2.Api
         }
 
         /// <summary>
-        /// Get a Speech & Text Analytics general program job by id 
+        /// Get a Speech &amp; Text Analytics general program job by id 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -7326,11 +7983,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/speechandtextanalytics/programs/general/jobs/{jobId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -7374,20 +8032,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsProgramsGeneralJob: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -7404,38 +8055,39 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Get the list of Speech & Text Analytics programs mappings to queues and flows 
+        /// Get the list of Speech &amp; Text Analytics programs mappings to queues and flows 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="nextPage">The key for listing the next page (optional)</param>
         /// <param name="pageSize">The page size for the listing (optional, default to 20)</param>
-        /// <returns>ProgramsMappingsEntityListing</returns>
+        /// <returns>TopicsDefinitionsProgramsMappingsEntityListing</returns>
         
-        public ProgramsMappingsEntityListing GetSpeechandtextanalyticsProgramsMappings (string nextPage = null, int? pageSize = null)
+        public TopicsDefinitionsProgramsMappingsEntityListing GetSpeechandtextanalyticsProgramsMappings (string nextPage = null, int? pageSize = null)
         {
-             ApiResponse<ProgramsMappingsEntityListing> localVarResponse = GetSpeechandtextanalyticsProgramsMappingsWithHttpInfo(nextPage, pageSize);
+             ApiResponse<TopicsDefinitionsProgramsMappingsEntityListing> localVarResponse = GetSpeechandtextanalyticsProgramsMappingsWithHttpInfo(nextPage, pageSize);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get the list of Speech & Text Analytics programs mappings to queues and flows 
+        /// Get the list of Speech &amp; Text Analytics programs mappings to queues and flows 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="nextPage">The key for listing the next page (optional)</param>
         /// <param name="pageSize">The page size for the listing (optional, default to 20)</param>
-        /// <returns>ApiResponse of ProgramsMappingsEntityListing</returns>
+        /// <returns>ApiResponse of TopicsDefinitionsProgramsMappingsEntityListing</returns>
         
-        public ApiResponse< ProgramsMappingsEntityListing > GetSpeechandtextanalyticsProgramsMappingsWithHttpInfo (string nextPage = null, int? pageSize = null)
+        public ApiResponse< TopicsDefinitionsProgramsMappingsEntityListing > GetSpeechandtextanalyticsProgramsMappingsWithHttpInfo (string nextPage = null, int? pageSize = null)
         { 
 
             var localVarPath = "/api/v2/speechandtextanalytics/programs/mappings";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -7480,68 +8132,62 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsProgramsMappings: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
             else if (localVarStatusCode == 0)
                 throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsProgramsMappings: " + localVarResponse.ErrorMessage, localVarResponse.ErrorMessage);
 
-            return new ApiResponse<ProgramsMappingsEntityListing>(localVarStatusCode,
+            return new ApiResponse<TopicsDefinitionsProgramsMappingsEntityListing>(localVarStatusCode,
                 localVarHeaders,
-                (ProgramsMappingsEntityListing) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ProgramsMappingsEntityListing)),
+                (TopicsDefinitionsProgramsMappingsEntityListing) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(TopicsDefinitionsProgramsMappingsEntityListing)),
                 localVarResponse.Content,
                 localVarResponse.StatusDescription);
         }
 
 
         /// <summary>
-        /// Get the list of Speech & Text Analytics programs mappings to queues and flows 
+        /// Get the list of Speech &amp; Text Analytics programs mappings to queues and flows 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="nextPage">The key for listing the next page (optional)</param>
         /// <param name="pageSize">The page size for the listing (optional, default to 20)</param>
-        /// <returns>Task of ProgramsMappingsEntityListing</returns>
+        /// <returns>Task of TopicsDefinitionsProgramsMappingsEntityListing</returns>
         
-        public async System.Threading.Tasks.Task<ProgramsMappingsEntityListing> GetSpeechandtextanalyticsProgramsMappingsAsync (string nextPage = null, int? pageSize = null)
+        public async System.Threading.Tasks.Task<TopicsDefinitionsProgramsMappingsEntityListing> GetSpeechandtextanalyticsProgramsMappingsAsync (string nextPage = null, int? pageSize = null)
         {
-             ApiResponse<ProgramsMappingsEntityListing> localVarResponse = await GetSpeechandtextanalyticsProgramsMappingsAsyncWithHttpInfo(nextPage, pageSize);
+             ApiResponse<TopicsDefinitionsProgramsMappingsEntityListing> localVarResponse = await GetSpeechandtextanalyticsProgramsMappingsAsyncWithHttpInfo(nextPage, pageSize);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Get the list of Speech & Text Analytics programs mappings to queues and flows 
+        /// Get the list of Speech &amp; Text Analytics programs mappings to queues and flows 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="nextPage">The key for listing the next page (optional)</param>
         /// <param name="pageSize">The page size for the listing (optional, default to 20)</param>
-        /// <returns>Task of ApiResponse (ProgramsMappingsEntityListing)</returns>
+        /// <returns>Task of ApiResponse (TopicsDefinitionsProgramsMappingsEntityListing)</returns>
         
-        public async System.Threading.Tasks.Task<ApiResponse<ProgramsMappingsEntityListing>> GetSpeechandtextanalyticsProgramsMappingsAsyncWithHttpInfo (string nextPage = null, int? pageSize = null)
+        public async System.Threading.Tasks.Task<ApiResponse<TopicsDefinitionsProgramsMappingsEntityListing>> GetSpeechandtextanalyticsProgramsMappingsAsyncWithHttpInfo (string nextPage = null, int? pageSize = null)
         { 
 
             var localVarPath = "/api/v2/speechandtextanalytics/programs/mappings";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -7586,29 +8232,22 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsProgramsMappings: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
             else if (localVarStatusCode == 0)
                 throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsProgramsMappings: " + localVarResponse.ErrorMessage, localVarResponse.ErrorMessage);
 
-            return new ApiResponse<ProgramsMappingsEntityListing>(localVarStatusCode,
+            return new ApiResponse<TopicsDefinitionsProgramsMappingsEntityListing>(localVarStatusCode,
                 localVarHeaders,
-                (ProgramsMappingsEntityListing) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ProgramsMappingsEntityListing)),
+                (TopicsDefinitionsProgramsMappingsEntityListing) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(TopicsDefinitionsProgramsMappingsEntityListing)),
                 localVarResponse.Content,
                 localVarResponse.StatusDescription);
         }
@@ -7616,7 +8255,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Get a Speech & Text Analytics publish programs job by id 
+        /// Get a Speech &amp; Text Analytics publish programs job by id 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -7630,7 +8269,7 @@ namespace PureCloudPlatform.Client.V2.Api
         }
 
         /// <summary>
-        /// Get a Speech & Text Analytics publish programs job by id 
+        /// Get a Speech &amp; Text Analytics publish programs job by id 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -7644,11 +8283,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'jobId' when calling SpeechTextAnalyticsApi->GetSpeechandtextanalyticsProgramsPublishjob");
 
             var localVarPath = "/api/v2/speechandtextanalytics/programs/publishjobs/{jobId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -7692,20 +8332,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsProgramsPublishjob: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -7721,7 +8354,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Get a Speech & Text Analytics publish programs job by id 
+        /// Get a Speech &amp; Text Analytics publish programs job by id 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -7736,7 +8369,7 @@ namespace PureCloudPlatform.Client.V2.Api
         }
 
         /// <summary>
-        /// Get a Speech & Text Analytics publish programs job by id 
+        /// Get a Speech &amp; Text Analytics publish programs job by id 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -7751,11 +8384,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/speechandtextanalytics/programs/publishjobs/{jobId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -7799,20 +8433,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsProgramsPublishjob: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -7858,11 +8485,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/speechandtextanalytics/programs/settings/insights";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -7908,20 +8536,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsProgramsSettingsInsights: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -7967,11 +8588,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/speechandtextanalytics/programs/settings/insights";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -8017,20 +8639,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsProgramsSettingsInsights: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -8040,6 +8655,207 @@ namespace PureCloudPlatform.Client.V2.Api
             return new ApiResponse<ProgramInsightsSettingsEntityListing>(localVarStatusCode,
                 localVarHeaders,
                 (ProgramInsightsSettingsEntityListing) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ProgramInsightsSettingsEntityListing)),
+                localVarResponse.Content,
+                localVarResponse.StatusDescription);
+        }
+
+
+
+        /// <summary>
+        /// Get a Speech &amp; Text Analytics program-topic links job by id 
+        /// 
+        /// </summary>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jobId">The id of the program-topic links job</param>
+        /// <returns>ProgramTopicLinksJob</returns>
+        
+        public ProgramTopicLinksJob GetSpeechandtextanalyticsProgramsTopiclinksJob (string jobId)
+        {
+             ApiResponse<ProgramTopicLinksJob> localVarResponse = GetSpeechandtextanalyticsProgramsTopiclinksJobWithHttpInfo(jobId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get a Speech &amp; Text Analytics program-topic links job by id 
+        /// 
+        /// </summary>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jobId">The id of the program-topic links job</param>
+        /// <returns>ApiResponse of ProgramTopicLinksJob</returns>
+        
+        public ApiResponse< ProgramTopicLinksJob > GetSpeechandtextanalyticsProgramsTopiclinksJobWithHttpInfo (string jobId)
+        { 
+            // verify the required parameter 'jobId' is set
+            if (jobId == null)
+                throw new ApiException(400, "Missing required parameter 'jobId' when calling SpeechTextAnalyticsApi->GetSpeechandtextanalyticsProgramsTopiclinksJob");
+
+            var localVarPath = "/api/v2/speechandtextanalytics/programs/topiclinks/jobs/{jobId}";
+            var localVarHttpMethod = "Get";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<Tuple<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+
+                "application/json"
+                
+
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+
+            // Path params
+            if (jobId != null) localVarPathParams.Add("jobId", this.Configuration.ApiClient.ParameterToString(jobId));
+
+            // Query params
+
+            // Header params
+
+            // Form params
+            
+            // Body param
+
+
+            // authentication (PureCloud OAuth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
+
+            if (localVarStatusCode >= 400)
+                throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsProgramsTopiclinksJob: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
+            else if (localVarStatusCode == 0)
+                throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsProgramsTopiclinksJob: " + localVarResponse.ErrorMessage, localVarResponse.ErrorMessage);
+
+            return new ApiResponse<ProgramTopicLinksJob>(localVarStatusCode,
+                localVarHeaders,
+                (ProgramTopicLinksJob) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ProgramTopicLinksJob)),
+                localVarResponse.Content,
+                localVarResponse.StatusDescription);
+        }
+
+
+        /// <summary>
+        /// Get a Speech &amp; Text Analytics program-topic links job by id 
+        /// 
+        /// </summary>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jobId">The id of the program-topic links job</param>
+        /// <returns>Task of ProgramTopicLinksJob</returns>
+        
+        public async System.Threading.Tasks.Task<ProgramTopicLinksJob> GetSpeechandtextanalyticsProgramsTopiclinksJobAsync (string jobId)
+        {
+             ApiResponse<ProgramTopicLinksJob> localVarResponse = await GetSpeechandtextanalyticsProgramsTopiclinksJobAsyncWithHttpInfo(jobId);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get a Speech &amp; Text Analytics program-topic links job by id 
+        /// 
+        /// </summary>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jobId">The id of the program-topic links job</param>
+        /// <returns>Task of ApiResponse (ProgramTopicLinksJob)</returns>
+        
+        public async System.Threading.Tasks.Task<ApiResponse<ProgramTopicLinksJob>> GetSpeechandtextanalyticsProgramsTopiclinksJobAsyncWithHttpInfo (string jobId)
+        { 
+            // verify the required parameter 'jobId' is set
+            if (jobId == null)
+                throw new ApiException(400, "Missing required parameter 'jobId' when calling SpeechTextAnalyticsApi->GetSpeechandtextanalyticsProgramsTopiclinksJob");
+            
+
+            var localVarPath = "/api/v2/speechandtextanalytics/programs/topiclinks/jobs/{jobId}";
+            var localVarHttpMethod = "Get";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<Tuple<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+
+                "application/json"
+
+                
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+
+            // Path params
+            if (jobId != null) localVarPathParams.Add("jobId", this.Configuration.ApiClient.ParameterToString(jobId));
+
+            // Query params
+
+            // Header params
+
+            // Form params
+            
+            // Body param
+
+
+            // authentication (PureCloud OAuth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
+
+            if (localVarStatusCode >= 400)
+                throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsProgramsTopiclinksJob: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
+            else if (localVarStatusCode == 0)
+                throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsProgramsTopiclinksJob: " + localVarResponse.ErrorMessage, localVarResponse.ErrorMessage);
+
+            return new ApiResponse<ProgramTopicLinksJob>(localVarStatusCode,
+                localVarHeaders,
+                (ProgramTopicLinksJob) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ProgramTopicLinksJob)),
                 localVarResponse.Content,
                 localVarResponse.StatusDescription);
         }
@@ -8070,11 +8886,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/speechandtextanalytics/programs/transcriptionengines/dialects";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -8117,20 +8934,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsProgramsTranscriptionenginesDialects: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -8170,11 +8980,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/speechandtextanalytics/programs/transcriptionengines/dialects";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -8217,20 +9028,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsProgramsTranscriptionenginesDialects: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -8247,7 +9051,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Get the list of Speech & Text Analytics unpublished programs 
+        /// Get the list of Speech &amp; Text Analytics unpublished programs 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -8262,7 +9066,7 @@ namespace PureCloudPlatform.Client.V2.Api
         }
 
         /// <summary>
-        /// Get the list of Speech & Text Analytics unpublished programs 
+        /// Get the list of Speech &amp; Text Analytics unpublished programs 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -8274,11 +9078,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/speechandtextanalytics/programs/unpublished";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -8323,20 +9128,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsProgramsUnpublished: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -8352,7 +9150,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Get the list of Speech & Text Analytics unpublished programs 
+        /// Get the list of Speech &amp; Text Analytics unpublished programs 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -8368,7 +9166,7 @@ namespace PureCloudPlatform.Client.V2.Api
         }
 
         /// <summary>
-        /// Get the list of Speech & Text Analytics unpublished programs 
+        /// Get the list of Speech &amp; Text Analytics unpublished programs 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -8380,11 +9178,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/speechandtextanalytics/programs/unpublished";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -8429,20 +9228,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsProgramsUnpublished: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -8459,7 +9251,633 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Get the list of Speech & Text Analytics sentiment supported dialects 
+        /// Get a Speech &amp; Text Analytics reprocess job by id 
+        /// 
+        /// GetSpeechandtextanalyticsReprocessingJob is a preview method and is subject to both breaking and non-breaking changes at any time without notice
+        /// </summary>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jobId">The Id of the Reprocessing job</param>
+        /// <returns>ReprocessJobResponse</returns>
+        
+        public ReprocessJobResponse GetSpeechandtextanalyticsReprocessingJob (string jobId)
+        {
+             ApiResponse<ReprocessJobResponse> localVarResponse = GetSpeechandtextanalyticsReprocessingJobWithHttpInfo(jobId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get a Speech &amp; Text Analytics reprocess job by id 
+        /// 
+        /// GetSpeechandtextanalyticsReprocessingJob is a preview method and is subject to both breaking and non-breaking changes at any time without notice
+        /// </summary>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jobId">The Id of the Reprocessing job</param>
+        /// <returns>ApiResponse of ReprocessJobResponse</returns>
+        
+        public ApiResponse< ReprocessJobResponse > GetSpeechandtextanalyticsReprocessingJobWithHttpInfo (string jobId)
+        { 
+            // verify the required parameter 'jobId' is set
+            if (jobId == null)
+                throw new ApiException(400, "Missing required parameter 'jobId' when calling SpeechTextAnalyticsApi->GetSpeechandtextanalyticsReprocessingJob");
+
+            var localVarPath = "/api/v2/speechandtextanalytics/reprocessing/jobs/{jobId}";
+            var localVarHttpMethod = "Get";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<Tuple<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+
+                "application/json"
+                
+
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+
+            // Path params
+            if (jobId != null) localVarPathParams.Add("jobId", this.Configuration.ApiClient.ParameterToString(jobId));
+
+            // Query params
+
+            // Header params
+
+            // Form params
+            
+            // Body param
+
+
+            // authentication (PureCloud OAuth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
+
+            if (localVarStatusCode >= 400)
+                throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsReprocessingJob: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
+            else if (localVarStatusCode == 0)
+                throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsReprocessingJob: " + localVarResponse.ErrorMessage, localVarResponse.ErrorMessage);
+
+            return new ApiResponse<ReprocessJobResponse>(localVarStatusCode,
+                localVarHeaders,
+                (ReprocessJobResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ReprocessJobResponse)),
+                localVarResponse.Content,
+                localVarResponse.StatusDescription);
+        }
+
+
+        /// <summary>
+        /// Get a Speech &amp; Text Analytics reprocess job by id 
+        /// 
+        /// GetSpeechandtextanalyticsReprocessingJob is a preview method and is subject to both breaking and non-breaking changes at any time without notice
+        /// </summary>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jobId">The Id of the Reprocessing job</param>
+        /// <returns>Task of ReprocessJobResponse</returns>
+        
+        public async System.Threading.Tasks.Task<ReprocessJobResponse> GetSpeechandtextanalyticsReprocessingJobAsync (string jobId)
+        {
+             ApiResponse<ReprocessJobResponse> localVarResponse = await GetSpeechandtextanalyticsReprocessingJobAsyncWithHttpInfo(jobId);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get a Speech &amp; Text Analytics reprocess job by id 
+        /// 
+        /// GetSpeechandtextanalyticsReprocessingJob is a preview method and is subject to both breaking and non-breaking changes at any time without notice
+        /// </summary>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jobId">The Id of the Reprocessing job</param>
+        /// <returns>Task of ApiResponse (ReprocessJobResponse)</returns>
+        
+        public async System.Threading.Tasks.Task<ApiResponse<ReprocessJobResponse>> GetSpeechandtextanalyticsReprocessingJobAsyncWithHttpInfo (string jobId)
+        { 
+            // verify the required parameter 'jobId' is set
+            if (jobId == null)
+                throw new ApiException(400, "Missing required parameter 'jobId' when calling SpeechTextAnalyticsApi->GetSpeechandtextanalyticsReprocessingJob");
+            
+
+            var localVarPath = "/api/v2/speechandtextanalytics/reprocessing/jobs/{jobId}";
+            var localVarHttpMethod = "Get";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<Tuple<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+
+                "application/json"
+
+                
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+
+            // Path params
+            if (jobId != null) localVarPathParams.Add("jobId", this.Configuration.ApiClient.ParameterToString(jobId));
+
+            // Query params
+
+            // Header params
+
+            // Form params
+            
+            // Body param
+
+
+            // authentication (PureCloud OAuth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
+
+            if (localVarStatusCode >= 400)
+                throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsReprocessingJob: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
+            else if (localVarStatusCode == 0)
+                throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsReprocessingJob: " + localVarResponse.ErrorMessage, localVarResponse.ErrorMessage);
+
+            return new ApiResponse<ReprocessJobResponse>(localVarStatusCode,
+                localVarHeaders,
+                (ReprocessJobResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ReprocessJobResponse)),
+                localVarResponse.Content,
+                localVarResponse.StatusDescription);
+        }
+
+
+
+        /// <summary>
+        /// Get a Speech &amp; Text Analytics Reprocessing interactions statuses by job id 
+        /// 
+        /// GetSpeechandtextanalyticsReprocessingJobInteractions is a preview method and is subject to both breaking and non-breaking changes at any time without notice
+        /// </summary>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jobId">The Id of the Reprocessing job</param>
+        /// <returns>ReprocessInteractionsByJobIdResponse</returns>
+        
+        public ReprocessInteractionsByJobIdResponse GetSpeechandtextanalyticsReprocessingJobInteractions (string jobId)
+        {
+             ApiResponse<ReprocessInteractionsByJobIdResponse> localVarResponse = GetSpeechandtextanalyticsReprocessingJobInteractionsWithHttpInfo(jobId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get a Speech &amp; Text Analytics Reprocessing interactions statuses by job id 
+        /// 
+        /// GetSpeechandtextanalyticsReprocessingJobInteractions is a preview method and is subject to both breaking and non-breaking changes at any time without notice
+        /// </summary>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jobId">The Id of the Reprocessing job</param>
+        /// <returns>ApiResponse of ReprocessInteractionsByJobIdResponse</returns>
+        
+        public ApiResponse< ReprocessInteractionsByJobIdResponse > GetSpeechandtextanalyticsReprocessingJobInteractionsWithHttpInfo (string jobId)
+        { 
+            // verify the required parameter 'jobId' is set
+            if (jobId == null)
+                throw new ApiException(400, "Missing required parameter 'jobId' when calling SpeechTextAnalyticsApi->GetSpeechandtextanalyticsReprocessingJobInteractions");
+
+            var localVarPath = "/api/v2/speechandtextanalytics/reprocessing/jobs/{jobId}/interactions";
+            var localVarHttpMethod = "Get";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<Tuple<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+
+                "application/json"
+                
+
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+
+            // Path params
+            if (jobId != null) localVarPathParams.Add("jobId", this.Configuration.ApiClient.ParameterToString(jobId));
+
+            // Query params
+
+            // Header params
+
+            // Form params
+            
+            // Body param
+
+
+            // authentication (PureCloud OAuth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
+
+            if (localVarStatusCode >= 400)
+                throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsReprocessingJobInteractions: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
+            else if (localVarStatusCode == 0)
+                throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsReprocessingJobInteractions: " + localVarResponse.ErrorMessage, localVarResponse.ErrorMessage);
+
+            return new ApiResponse<ReprocessInteractionsByJobIdResponse>(localVarStatusCode,
+                localVarHeaders,
+                (ReprocessInteractionsByJobIdResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ReprocessInteractionsByJobIdResponse)),
+                localVarResponse.Content,
+                localVarResponse.StatusDescription);
+        }
+
+
+        /// <summary>
+        /// Get a Speech &amp; Text Analytics Reprocessing interactions statuses by job id 
+        /// 
+        /// GetSpeechandtextanalyticsReprocessingJobInteractions is a preview method and is subject to both breaking and non-breaking changes at any time without notice
+        /// </summary>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jobId">The Id of the Reprocessing job</param>
+        /// <returns>Task of ReprocessInteractionsByJobIdResponse</returns>
+        
+        public async System.Threading.Tasks.Task<ReprocessInteractionsByJobIdResponse> GetSpeechandtextanalyticsReprocessingJobInteractionsAsync (string jobId)
+        {
+             ApiResponse<ReprocessInteractionsByJobIdResponse> localVarResponse = await GetSpeechandtextanalyticsReprocessingJobInteractionsAsyncWithHttpInfo(jobId);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get a Speech &amp; Text Analytics Reprocessing interactions statuses by job id 
+        /// 
+        /// GetSpeechandtextanalyticsReprocessingJobInteractions is a preview method and is subject to both breaking and non-breaking changes at any time without notice
+        /// </summary>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jobId">The Id of the Reprocessing job</param>
+        /// <returns>Task of ApiResponse (ReprocessInteractionsByJobIdResponse)</returns>
+        
+        public async System.Threading.Tasks.Task<ApiResponse<ReprocessInteractionsByJobIdResponse>> GetSpeechandtextanalyticsReprocessingJobInteractionsAsyncWithHttpInfo (string jobId)
+        { 
+            // verify the required parameter 'jobId' is set
+            if (jobId == null)
+                throw new ApiException(400, "Missing required parameter 'jobId' when calling SpeechTextAnalyticsApi->GetSpeechandtextanalyticsReprocessingJobInteractions");
+            
+
+            var localVarPath = "/api/v2/speechandtextanalytics/reprocessing/jobs/{jobId}/interactions";
+            var localVarHttpMethod = "Get";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<Tuple<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+
+                "application/json"
+
+                
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+
+            // Path params
+            if (jobId != null) localVarPathParams.Add("jobId", this.Configuration.ApiClient.ParameterToString(jobId));
+
+            // Query params
+
+            // Header params
+
+            // Form params
+            
+            // Body param
+
+
+            // authentication (PureCloud OAuth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
+
+            if (localVarStatusCode >= 400)
+                throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsReprocessingJobInteractions: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
+            else if (localVarStatusCode == 0)
+                throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsReprocessingJobInteractions: " + localVarResponse.ErrorMessage, localVarResponse.ErrorMessage);
+
+            return new ApiResponse<ReprocessInteractionsByJobIdResponse>(localVarStatusCode,
+                localVarHeaders,
+                (ReprocessInteractionsByJobIdResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ReprocessInteractionsByJobIdResponse)),
+                localVarResponse.Content,
+                localVarResponse.StatusDescription);
+        }
+
+
+
+        /// <summary>
+        /// Get the list of Speech &amp; Text Analytics reprocess jobs 
+        /// 
+        /// GetSpeechandtextanalyticsReprocessingJobs is a preview method and is subject to both breaking and non-breaking changes at any time without notice
+        /// </summary>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pageSize">The page size for the listing. The max that will be returned is 100. Default is 25. (optional)</param>
+        /// <param name="pageNumber">The page number for the listing. Defaults to 1. (optional)</param>
+        /// <param name="sortOrder">Results are sorted by dateCreated. Please choose the sort order. The default is descending (desc). (optional)</param>
+        /// <param name="name">Case insensitive partial name to filter by. (optional)</param>
+        /// <returns>ReprocessJobEntityListingResponse</returns>
+        
+        public ReprocessJobEntityListingResponse GetSpeechandtextanalyticsReprocessingJobs (int? pageSize = null, int? pageNumber = null, string sortOrder = null, string name = null)
+        {
+             ApiResponse<ReprocessJobEntityListingResponse> localVarResponse = GetSpeechandtextanalyticsReprocessingJobsWithHttpInfo(pageSize, pageNumber, sortOrder, name);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get the list of Speech &amp; Text Analytics reprocess jobs 
+        /// 
+        /// GetSpeechandtextanalyticsReprocessingJobs is a preview method and is subject to both breaking and non-breaking changes at any time without notice
+        /// </summary>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pageSize">The page size for the listing. The max that will be returned is 100. Default is 25. (optional)</param>
+        /// <param name="pageNumber">The page number for the listing. Defaults to 1. (optional)</param>
+        /// <param name="sortOrder">Results are sorted by dateCreated. Please choose the sort order. The default is descending (desc). (optional)</param>
+        /// <param name="name">Case insensitive partial name to filter by. (optional)</param>
+        /// <returns>ApiResponse of ReprocessJobEntityListingResponse</returns>
+        
+        public ApiResponse< ReprocessJobEntityListingResponse > GetSpeechandtextanalyticsReprocessingJobsWithHttpInfo (int? pageSize = null, int? pageNumber = null, string sortOrder = null, string name = null)
+        { 
+
+            var localVarPath = "/api/v2/speechandtextanalytics/reprocessing/jobs";
+            var localVarHttpMethod = "Get";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<Tuple<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+
+                "application/json"
+                
+
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+
+            // Path params
+
+            // Query params
+            if (pageSize != null) localVarQueryParams.Add(new Tuple<string, string>("pageSize", this.Configuration.ApiClient.ParameterToString(pageSize)));
+            if (pageNumber != null) localVarQueryParams.Add(new Tuple<string, string>("pageNumber", this.Configuration.ApiClient.ParameterToString(pageNumber)));
+            if (sortOrder != null) localVarQueryParams.Add(new Tuple<string, string>("sortOrder", this.Configuration.ApiClient.ParameterToString(sortOrder)));
+            if (name != null) localVarQueryParams.Add(new Tuple<string, string>("name", this.Configuration.ApiClient.ParameterToString(name)));
+
+            // Header params
+
+            // Form params
+            
+            // Body param
+
+
+            // authentication (PureCloud OAuth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
+
+            if (localVarStatusCode >= 400)
+                throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsReprocessingJobs: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
+            else if (localVarStatusCode == 0)
+                throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsReprocessingJobs: " + localVarResponse.ErrorMessage, localVarResponse.ErrorMessage);
+
+            return new ApiResponse<ReprocessJobEntityListingResponse>(localVarStatusCode,
+                localVarHeaders,
+                (ReprocessJobEntityListingResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ReprocessJobEntityListingResponse)),
+                localVarResponse.Content,
+                localVarResponse.StatusDescription);
+        }
+
+
+        /// <summary>
+        /// Get the list of Speech &amp; Text Analytics reprocess jobs 
+        /// 
+        /// GetSpeechandtextanalyticsReprocessingJobs is a preview method and is subject to both breaking and non-breaking changes at any time without notice
+        /// </summary>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pageSize">The page size for the listing. The max that will be returned is 100. Default is 25. (optional)</param>
+        /// <param name="pageNumber">The page number for the listing. Defaults to 1. (optional)</param>
+        /// <param name="sortOrder">Results are sorted by dateCreated. Please choose the sort order. The default is descending (desc). (optional)</param>
+        /// <param name="name">Case insensitive partial name to filter by. (optional)</param>
+        /// <returns>Task of ReprocessJobEntityListingResponse</returns>
+        
+        public async System.Threading.Tasks.Task<ReprocessJobEntityListingResponse> GetSpeechandtextanalyticsReprocessingJobsAsync (int? pageSize = null, int? pageNumber = null, string sortOrder = null, string name = null)
+        {
+             ApiResponse<ReprocessJobEntityListingResponse> localVarResponse = await GetSpeechandtextanalyticsReprocessingJobsAsyncWithHttpInfo(pageSize, pageNumber, sortOrder, name);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get the list of Speech &amp; Text Analytics reprocess jobs 
+        /// 
+        /// GetSpeechandtextanalyticsReprocessingJobs is a preview method and is subject to both breaking and non-breaking changes at any time without notice
+        /// </summary>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pageSize">The page size for the listing. The max that will be returned is 100. Default is 25. (optional)</param>
+        /// <param name="pageNumber">The page number for the listing. Defaults to 1. (optional)</param>
+        /// <param name="sortOrder">Results are sorted by dateCreated. Please choose the sort order. The default is descending (desc). (optional)</param>
+        /// <param name="name">Case insensitive partial name to filter by. (optional)</param>
+        /// <returns>Task of ApiResponse (ReprocessJobEntityListingResponse)</returns>
+        
+        public async System.Threading.Tasks.Task<ApiResponse<ReprocessJobEntityListingResponse>> GetSpeechandtextanalyticsReprocessingJobsAsyncWithHttpInfo (int? pageSize = null, int? pageNumber = null, string sortOrder = null, string name = null)
+        { 
+
+            var localVarPath = "/api/v2/speechandtextanalytics/reprocessing/jobs";
+            var localVarHttpMethod = "Get";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<Tuple<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+
+                "application/json"
+
+                
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+
+            // Path params
+
+            // Query params
+            if (pageSize != null) localVarQueryParams.Add(new Tuple<string, string>("pageSize", this.Configuration.ApiClient.ParameterToString(pageSize)));
+            if (pageNumber != null) localVarQueryParams.Add(new Tuple<string, string>("pageNumber", this.Configuration.ApiClient.ParameterToString(pageNumber)));
+            if (sortOrder != null) localVarQueryParams.Add(new Tuple<string, string>("sortOrder", this.Configuration.ApiClient.ParameterToString(sortOrder)));
+            if (name != null) localVarQueryParams.Add(new Tuple<string, string>("name", this.Configuration.ApiClient.ParameterToString(name)));
+
+            // Header params
+
+            // Form params
+            
+            // Body param
+
+
+            // authentication (PureCloud OAuth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
+
+            if (localVarStatusCode >= 400)
+                throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsReprocessingJobs: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
+            else if (localVarStatusCode == 0)
+                throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsReprocessingJobs: " + localVarResponse.ErrorMessage, localVarResponse.ErrorMessage);
+
+            return new ApiResponse<ReprocessJobEntityListingResponse>(localVarStatusCode,
+                localVarHeaders,
+                (ReprocessJobEntityListingResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ReprocessJobEntityListingResponse)),
+                localVarResponse.Content,
+                localVarResponse.StatusDescription);
+        }
+
+
+
+        /// <summary>
+        /// Get the list of Speech &amp; Text Analytics sentiment supported dialects 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -8472,7 +9890,7 @@ namespace PureCloudPlatform.Client.V2.Api
         }
 
         /// <summary>
-        /// Get the list of Speech & Text Analytics sentiment supported dialects 
+        /// Get the list of Speech &amp; Text Analytics sentiment supported dialects 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -8482,11 +9900,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/speechandtextanalytics/sentiment/dialects";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -8529,20 +9948,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsSentimentDialects: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -8558,7 +9970,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Get the list of Speech & Text Analytics sentiment supported dialects 
+        /// Get the list of Speech &amp; Text Analytics sentiment supported dialects 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -8572,7 +9984,7 @@ namespace PureCloudPlatform.Client.V2.Api
         }
 
         /// <summary>
-        /// Get the list of Speech & Text Analytics sentiment supported dialects 
+        /// Get the list of Speech &amp; Text Analytics sentiment supported dialects 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -8582,11 +9994,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/speechandtextanalytics/sentiment/dialects";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -8629,20 +10042,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsSentimentDialects: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -8659,7 +10065,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Get the list of Speech & Text Analytics SentimentFeedback 
+        /// Get the list of Speech &amp; Text Analytics SentimentFeedback 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -8673,7 +10079,7 @@ namespace PureCloudPlatform.Client.V2.Api
         }
 
         /// <summary>
-        /// Get the list of Speech & Text Analytics SentimentFeedback 
+        /// Get the list of Speech &amp; Text Analytics SentimentFeedback 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -8684,11 +10090,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/speechandtextanalytics/sentimentfeedback";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -8732,20 +10139,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsSentimentfeedback: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -8761,7 +10161,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Get the list of Speech & Text Analytics SentimentFeedback 
+        /// Get the list of Speech &amp; Text Analytics SentimentFeedback 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -8776,7 +10176,7 @@ namespace PureCloudPlatform.Client.V2.Api
         }
 
         /// <summary>
-        /// Get the list of Speech & Text Analytics SentimentFeedback 
+        /// Get the list of Speech &amp; Text Analytics SentimentFeedback 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -8787,11 +10187,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/speechandtextanalytics/sentimentfeedback";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -8835,20 +10236,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsSentimentfeedback: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -8888,11 +10282,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/speechandtextanalytics/settings";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -8935,20 +10330,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsSettings: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -8988,11 +10376,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/speechandtextanalytics/settings";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -9035,20 +10424,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsSettings: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -9065,7 +10447,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Get a Speech & Text Analytics topic by id 
+        /// Get a Speech &amp; Text Analytics topic by id 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -9079,7 +10461,7 @@ namespace PureCloudPlatform.Client.V2.Api
         }
 
         /// <summary>
-        /// Get a Speech & Text Analytics topic by id 
+        /// Get a Speech &amp; Text Analytics topic by id 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -9093,11 +10475,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'topicId' when calling SpeechTextAnalyticsApi->GetSpeechandtextanalyticsTopic");
 
             var localVarPath = "/api/v2/speechandtextanalytics/topics/{topicId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -9141,20 +10524,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsTopic: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -9170,7 +10546,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Get a Speech & Text Analytics topic by id 
+        /// Get a Speech &amp; Text Analytics topic by id 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -9185,7 +10561,7 @@ namespace PureCloudPlatform.Client.V2.Api
         }
 
         /// <summary>
-        /// Get a Speech & Text Analytics topic by id 
+        /// Get a Speech &amp; Text Analytics topic by id 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -9200,11 +10576,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/speechandtextanalytics/topics/{topicId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -9248,20 +10625,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsTopic: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -9278,12 +10648,13 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Get the list of Speech & Text Analytics topics 
+        /// Get the list of Speech &amp; Text Analytics topics 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="nextPage">The key for listing the next page (optional)</param>
         /// <param name="pageSize">The page size for the listing. The max that will be returned is 500. (optional, default to 20)</param>
+        /// <param name="pageNumber">The page number for the listing (optional)</param>
         /// <param name="state">Topic state. Defaults to latest (optional)</param>
         /// <param name="name">Case insensitive partial name to filter by (optional)</param>
         /// <param name="ids">Comma separated Topic IDs to filter by. Cannot be used with other filters. Maximum of 50 IDs allowed. (optional)</param>
@@ -9292,19 +10663,20 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <param name="sortOrder">Sort order. Defaults to asc (optional)</param>
         /// <returns>TopicsEntityListing</returns>
         
-        public TopicsEntityListing GetSpeechandtextanalyticsTopics (string nextPage = null, int? pageSize = null, string state = null, string name = null, List<string> ids = null, List<string> dialects = null, string sortBy = null, string sortOrder = null)
+        public TopicsEntityListing GetSpeechandtextanalyticsTopics (string nextPage = null, int? pageSize = null, int? pageNumber = null, string state = null, string name = null, List<string> ids = null, List<string> dialects = null, string sortBy = null, string sortOrder = null)
         {
-             ApiResponse<TopicsEntityListing> localVarResponse = GetSpeechandtextanalyticsTopicsWithHttpInfo(nextPage, pageSize, state, name, ids, dialects, sortBy, sortOrder);
+             ApiResponse<TopicsEntityListing> localVarResponse = GetSpeechandtextanalyticsTopicsWithHttpInfo(nextPage, pageSize, pageNumber, state, name, ids, dialects, sortBy, sortOrder);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get the list of Speech & Text Analytics topics 
+        /// Get the list of Speech &amp; Text Analytics topics 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="nextPage">The key for listing the next page (optional)</param>
         /// <param name="pageSize">The page size for the listing. The max that will be returned is 500. (optional, default to 20)</param>
+        /// <param name="pageNumber">The page number for the listing (optional)</param>
         /// <param name="state">Topic state. Defaults to latest (optional)</param>
         /// <param name="name">Case insensitive partial name to filter by (optional)</param>
         /// <param name="ids">Comma separated Topic IDs to filter by. Cannot be used with other filters. Maximum of 50 IDs allowed. (optional)</param>
@@ -9313,15 +10685,16 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <param name="sortOrder">Sort order. Defaults to asc (optional)</param>
         /// <returns>ApiResponse of TopicsEntityListing</returns>
         
-        public ApiResponse< TopicsEntityListing > GetSpeechandtextanalyticsTopicsWithHttpInfo (string nextPage = null, int? pageSize = null, string state = null, string name = null, List<string> ids = null, List<string> dialects = null, string sortBy = null, string sortOrder = null)
+        public ApiResponse< TopicsEntityListing > GetSpeechandtextanalyticsTopicsWithHttpInfo (string nextPage = null, int? pageSize = null, int? pageNumber = null, string state = null, string name = null, List<string> ids = null, List<string> dialects = null, string sortBy = null, string sortOrder = null)
         { 
 
             var localVarPath = "/api/v2/speechandtextanalytics/topics";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -9350,6 +10723,7 @@ namespace PureCloudPlatform.Client.V2.Api
             // Query params
             if (nextPage != null) localVarQueryParams.Add(new Tuple<string, string>("nextPage", this.Configuration.ApiClient.ParameterToString(nextPage)));
             if (pageSize != null) localVarQueryParams.Add(new Tuple<string, string>("pageSize", this.Configuration.ApiClient.ParameterToString(pageSize)));
+            if (pageNumber != null) localVarQueryParams.Add(new Tuple<string, string>("pageNumber", this.Configuration.ApiClient.ParameterToString(pageNumber)));
             if (state != null) localVarQueryParams.Add(new Tuple<string, string>("state", this.Configuration.ApiClient.ParameterToString(state)));
             if (name != null) localVarQueryParams.Add(new Tuple<string, string>("name", this.Configuration.ApiClient.ParameterToString(name)));
             if (ids != null) ids.ForEach(obj => { localVarQueryParams.Add(new Tuple<string, string>("ids", this.Configuration.ApiClient.ParameterToString(obj))); });
@@ -9372,20 +10746,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsTopics: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -9401,12 +10768,13 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Get the list of Speech & Text Analytics topics 
+        /// Get the list of Speech &amp; Text Analytics topics 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="nextPage">The key for listing the next page (optional)</param>
         /// <param name="pageSize">The page size for the listing. The max that will be returned is 500. (optional, default to 20)</param>
+        /// <param name="pageNumber">The page number for the listing (optional)</param>
         /// <param name="state">Topic state. Defaults to latest (optional)</param>
         /// <param name="name">Case insensitive partial name to filter by (optional)</param>
         /// <param name="ids">Comma separated Topic IDs to filter by. Cannot be used with other filters. Maximum of 50 IDs allowed. (optional)</param>
@@ -9415,20 +10783,21 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <param name="sortOrder">Sort order. Defaults to asc (optional)</param>
         /// <returns>Task of TopicsEntityListing</returns>
         
-        public async System.Threading.Tasks.Task<TopicsEntityListing> GetSpeechandtextanalyticsTopicsAsync (string nextPage = null, int? pageSize = null, string state = null, string name = null, List<string> ids = null, List<string> dialects = null, string sortBy = null, string sortOrder = null)
+        public async System.Threading.Tasks.Task<TopicsEntityListing> GetSpeechandtextanalyticsTopicsAsync (string nextPage = null, int? pageSize = null, int? pageNumber = null, string state = null, string name = null, List<string> ids = null, List<string> dialects = null, string sortBy = null, string sortOrder = null)
         {
-             ApiResponse<TopicsEntityListing> localVarResponse = await GetSpeechandtextanalyticsTopicsAsyncWithHttpInfo(nextPage, pageSize, state, name, ids, dialects, sortBy, sortOrder);
+             ApiResponse<TopicsEntityListing> localVarResponse = await GetSpeechandtextanalyticsTopicsAsyncWithHttpInfo(nextPage, pageSize, pageNumber, state, name, ids, dialects, sortBy, sortOrder);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Get the list of Speech & Text Analytics topics 
+        /// Get the list of Speech &amp; Text Analytics topics 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="nextPage">The key for listing the next page (optional)</param>
         /// <param name="pageSize">The page size for the listing. The max that will be returned is 500. (optional, default to 20)</param>
+        /// <param name="pageNumber">The page number for the listing (optional)</param>
         /// <param name="state">Topic state. Defaults to latest (optional)</param>
         /// <param name="name">Case insensitive partial name to filter by (optional)</param>
         /// <param name="ids">Comma separated Topic IDs to filter by. Cannot be used with other filters. Maximum of 50 IDs allowed. (optional)</param>
@@ -9437,15 +10806,16 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <param name="sortOrder">Sort order. Defaults to asc (optional)</param>
         /// <returns>Task of ApiResponse (TopicsEntityListing)</returns>
         
-        public async System.Threading.Tasks.Task<ApiResponse<TopicsEntityListing>> GetSpeechandtextanalyticsTopicsAsyncWithHttpInfo (string nextPage = null, int? pageSize = null, string state = null, string name = null, List<string> ids = null, List<string> dialects = null, string sortBy = null, string sortOrder = null)
+        public async System.Threading.Tasks.Task<ApiResponse<TopicsEntityListing>> GetSpeechandtextanalyticsTopicsAsyncWithHttpInfo (string nextPage = null, int? pageSize = null, int? pageNumber = null, string state = null, string name = null, List<string> ids = null, List<string> dialects = null, string sortBy = null, string sortOrder = null)
         { 
 
             var localVarPath = "/api/v2/speechandtextanalytics/topics";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -9474,6 +10844,7 @@ namespace PureCloudPlatform.Client.V2.Api
             // Query params
             if (nextPage != null) localVarQueryParams.Add(new Tuple<string, string>("nextPage", this.Configuration.ApiClient.ParameterToString(nextPage)));
             if (pageSize != null) localVarQueryParams.Add(new Tuple<string, string>("pageSize", this.Configuration.ApiClient.ParameterToString(pageSize)));
+            if (pageNumber != null) localVarQueryParams.Add(new Tuple<string, string>("pageNumber", this.Configuration.ApiClient.ParameterToString(pageNumber)));
             if (state != null) localVarQueryParams.Add(new Tuple<string, string>("state", this.Configuration.ApiClient.ParameterToString(state)));
             if (name != null) localVarQueryParams.Add(new Tuple<string, string>("name", this.Configuration.ApiClient.ParameterToString(name)));
             if (ids != null) ids.ForEach(obj => { localVarQueryParams.Add(new Tuple<string, string>("ids", this.Configuration.ApiClient.ParameterToString(obj))); });
@@ -9496,20 +10867,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsTopics: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -9526,7 +10890,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Get list of supported Speech & Text Analytics topics dialects 
+        /// Get list of supported Speech &amp; Text Analytics topics dialects 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -9539,7 +10903,7 @@ namespace PureCloudPlatform.Client.V2.Api
         }
 
         /// <summary>
-        /// Get list of supported Speech & Text Analytics topics dialects 
+        /// Get list of supported Speech &amp; Text Analytics topics dialects 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -9549,11 +10913,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/speechandtextanalytics/topics/dialects";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -9596,20 +10961,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsTopicsDialects: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -9625,7 +10983,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Get list of supported Speech & Text Analytics topics dialects 
+        /// Get list of supported Speech &amp; Text Analytics topics dialects 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -9639,7 +10997,7 @@ namespace PureCloudPlatform.Client.V2.Api
         }
 
         /// <summary>
-        /// Get list of supported Speech & Text Analytics topics dialects 
+        /// Get list of supported Speech &amp; Text Analytics topics dialects 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -9649,11 +11007,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/speechandtextanalytics/topics/dialects";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -9696,20 +11055,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsTopicsDialects: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -9726,7 +11078,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Get the Speech & Text Analytics general topics for a given dialect 
+        /// Get the Speech &amp; Text Analytics general topics for a given dialect 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -9740,7 +11092,7 @@ namespace PureCloudPlatform.Client.V2.Api
         }
 
         /// <summary>
-        /// Get the Speech & Text Analytics general topics for a given dialect 
+        /// Get the Speech &amp; Text Analytics general topics for a given dialect 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -9751,11 +11103,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/speechandtextanalytics/topics/general";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -9799,20 +11152,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsTopicsGeneral: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -9828,7 +11174,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Get the Speech & Text Analytics general topics for a given dialect 
+        /// Get the Speech &amp; Text Analytics general topics for a given dialect 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -9843,7 +11189,7 @@ namespace PureCloudPlatform.Client.V2.Api
         }
 
         /// <summary>
-        /// Get the Speech & Text Analytics general topics for a given dialect 
+        /// Get the Speech &amp; Text Analytics general topics for a given dialect 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -9854,11 +11200,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/speechandtextanalytics/topics/general";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -9902,20 +11249,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsTopicsGeneral: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -9957,11 +11297,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/speechandtextanalytics/topics/general/status";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -10005,20 +11346,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsTopicsGeneralStatus: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -10060,11 +11394,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/speechandtextanalytics/topics/general/status";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -10108,20 +11443,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsTopicsGeneralStatus: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -10138,7 +11466,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Get a Speech & Text Analytics publish topics job by id 
+        /// Get a Speech &amp; Text Analytics publish topics job by id 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -10152,7 +11480,7 @@ namespace PureCloudPlatform.Client.V2.Api
         }
 
         /// <summary>
-        /// Get a Speech & Text Analytics publish topics job by id 
+        /// Get a Speech &amp; Text Analytics publish topics job by id 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -10166,11 +11494,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'jobId' when calling SpeechTextAnalyticsApi->GetSpeechandtextanalyticsTopicsPublishjob");
 
             var localVarPath = "/api/v2/speechandtextanalytics/topics/publishjobs/{jobId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -10214,20 +11543,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsTopicsPublishjob: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -10243,7 +11565,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Get a Speech & Text Analytics publish topics job by id 
+        /// Get a Speech &amp; Text Analytics publish topics job by id 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -10258,7 +11580,7 @@ namespace PureCloudPlatform.Client.V2.Api
         }
 
         /// <summary>
-        /// Get a Speech & Text Analytics publish topics job by id 
+        /// Get a Speech &amp; Text Analytics publish topics job by id 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -10273,11 +11595,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/speechandtextanalytics/topics/publishjobs/{jobId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -10321,20 +11644,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsTopicsPublishjob: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -10351,9 +11667,209 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
+        /// Get a Speech &amp; Text Analytics test topics phrase job by id 
+        /// 
+        /// </summary>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jobId">the id of the test topic phrase job</param>
+        /// <returns>TestTopicPhraseJob</returns>
+        
+        public TestTopicPhraseJob GetSpeechandtextanalyticsTopicsTestphraseJob (string jobId)
+        {
+             ApiResponse<TestTopicPhraseJob> localVarResponse = GetSpeechandtextanalyticsTopicsTestphraseJobWithHttpInfo(jobId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get a Speech &amp; Text Analytics test topics phrase job by id 
+        /// 
+        /// </summary>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jobId">the id of the test topic phrase job</param>
+        /// <returns>ApiResponse of TestTopicPhraseJob</returns>
+        
+        public ApiResponse< TestTopicPhraseJob > GetSpeechandtextanalyticsTopicsTestphraseJobWithHttpInfo (string jobId)
+        { 
+            // verify the required parameter 'jobId' is set
+            if (jobId == null)
+                throw new ApiException(400, "Missing required parameter 'jobId' when calling SpeechTextAnalyticsApi->GetSpeechandtextanalyticsTopicsTestphraseJob");
+
+            var localVarPath = "/api/v2/speechandtextanalytics/topics/testphrase/jobs/{jobId}";
+            var localVarHttpMethod = "Get";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<Tuple<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+
+                "application/json"
+                
+
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+
+            // Path params
+            if (jobId != null) localVarPathParams.Add("jobId", this.Configuration.ApiClient.ParameterToString(jobId));
+
+            // Query params
+
+            // Header params
+
+            // Form params
+            
+            // Body param
+
+
+            // authentication (PureCloud OAuth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
+
+            if (localVarStatusCode >= 400)
+                throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsTopicsTestphraseJob: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
+            else if (localVarStatusCode == 0)
+                throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsTopicsTestphraseJob: " + localVarResponse.ErrorMessage, localVarResponse.ErrorMessage);
+
+            return new ApiResponse<TestTopicPhraseJob>(localVarStatusCode,
+                localVarHeaders,
+                (TestTopicPhraseJob) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(TestTopicPhraseJob)),
+                localVarResponse.Content,
+                localVarResponse.StatusDescription);
+        }
+
+
+        /// <summary>
+        /// Get a Speech &amp; Text Analytics test topics phrase job by id 
+        /// 
+        /// </summary>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jobId">the id of the test topic phrase job</param>
+        /// <returns>Task of TestTopicPhraseJob</returns>
+        
+        public async System.Threading.Tasks.Task<TestTopicPhraseJob> GetSpeechandtextanalyticsTopicsTestphraseJobAsync (string jobId)
+        {
+             ApiResponse<TestTopicPhraseJob> localVarResponse = await GetSpeechandtextanalyticsTopicsTestphraseJobAsyncWithHttpInfo(jobId);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get a Speech &amp; Text Analytics test topics phrase job by id 
+        /// 
+        /// </summary>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jobId">the id of the test topic phrase job</param>
+        /// <returns>Task of ApiResponse (TestTopicPhraseJob)</returns>
+        
+        public async System.Threading.Tasks.Task<ApiResponse<TestTopicPhraseJob>> GetSpeechandtextanalyticsTopicsTestphraseJobAsyncWithHttpInfo (string jobId)
+        { 
+            // verify the required parameter 'jobId' is set
+            if (jobId == null)
+                throw new ApiException(400, "Missing required parameter 'jobId' when calling SpeechTextAnalyticsApi->GetSpeechandtextanalyticsTopicsTestphraseJob");
+            
+
+            var localVarPath = "/api/v2/speechandtextanalytics/topics/testphrase/jobs/{jobId}";
+            var localVarHttpMethod = "Get";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<Tuple<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+
+                "application/json"
+
+                
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+
+            // Path params
+            if (jobId != null) localVarPathParams.Add("jobId", this.Configuration.ApiClient.ParameterToString(jobId));
+
+            // Query params
+
+            // Header params
+
+            // Form params
+            
+            // Body param
+
+
+            // authentication (PureCloud OAuth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
+
+            if (localVarStatusCode >= 400)
+                throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsTopicsTestphraseJob: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
+            else if (localVarStatusCode == 0)
+                throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsTopicsTestphraseJob: " + localVarResponse.ErrorMessage, localVarResponse.ErrorMessage);
+
+            return new ApiResponse<TestTopicPhraseJob>(localVarStatusCode,
+                localVarHeaders,
+                (TestTopicPhraseJob) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(TestTopicPhraseJob)),
+                localVarResponse.Content,
+                localVarResponse.StatusDescription);
+        }
+
+
+
+        /// <summary>
         /// Translate a single interaction recording (or an email conversation) 
         /// 
-        /// GetSpeechandtextanalyticsTranslationsLanguageConversation is a preview method and is subject to both breaking and non-breaking changes at any time without notice
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="languageId">Target translation language</param>
@@ -10371,7 +11887,6 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <summary>
         /// Translate a single interaction recording (or an email conversation) 
         /// 
-        /// GetSpeechandtextanalyticsTranslationsLanguageConversation is a preview method and is subject to both breaking and non-breaking changes at any time without notice
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="languageId">Target translation language</param>
@@ -10390,11 +11905,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'conversationId' when calling SpeechTextAnalyticsApi->GetSpeechandtextanalyticsTranslationsLanguageConversation");
 
             var localVarPath = "/api/v2/speechandtextanalytics/translations/languages/{languageId}/conversations/{conversationId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -10441,20 +11957,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsTranslationsLanguageConversation: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -10472,7 +11981,6 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <summary>
         /// Translate a single interaction recording (or an email conversation) 
         /// 
-        /// GetSpeechandtextanalyticsTranslationsLanguageConversation is a preview method and is subject to both breaking and non-breaking changes at any time without notice
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="languageId">Target translation language</param>
@@ -10491,7 +11999,6 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <summary>
         /// Translate a single interaction recording (or an email conversation) 
         /// 
-        /// GetSpeechandtextanalyticsTranslationsLanguageConversation is a preview method and is subject to both breaking and non-breaking changes at any time without notice
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="languageId">Target translation language</param>
@@ -10512,11 +12019,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/speechandtextanalytics/translations/languages/{languageId}/conversations/{conversationId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -10563,20 +12071,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsTranslationsLanguageConversation: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -10595,7 +12096,6 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <summary>
         /// Get supported translation languages 
         /// 
-        /// GetSpeechandtextanalyticsTranslationsLanguages is a preview method and is subject to both breaking and non-breaking changes at any time without notice
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>TranslateSupportedLanguageList</returns>
@@ -10609,7 +12109,6 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <summary>
         /// Get supported translation languages 
         /// 
-        /// GetSpeechandtextanalyticsTranslationsLanguages is a preview method and is subject to both breaking and non-breaking changes at any time without notice
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of TranslateSupportedLanguageList</returns>
@@ -10618,11 +12117,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/speechandtextanalytics/translations/languages";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -10665,20 +12165,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsTranslationsLanguages: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -10696,7 +12189,6 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <summary>
         /// Get supported translation languages 
         /// 
-        /// GetSpeechandtextanalyticsTranslationsLanguages is a preview method and is subject to both breaking and non-breaking changes at any time without notice
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of TranslateSupportedLanguageList</returns>
@@ -10711,7 +12203,6 @@ namespace PureCloudPlatform.Client.V2.Api
         /// <summary>
         /// Get supported translation languages 
         /// 
-        /// GetSpeechandtextanalyticsTranslationsLanguages is a preview method and is subject to both breaking and non-breaking changes at any time without notice
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (TranslateSupportedLanguageList)</returns>
@@ -10720,11 +12211,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/speechandtextanalytics/translations/languages";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -10767,20 +12259,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetSpeechandtextanalyticsTranslationsLanguages: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -10825,11 +12310,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling SpeechTextAnalyticsApi->PatchSpeechandtextanalyticsSettings");
 
             var localVarPath = "/api/v2/speechandtextanalytics/settings";
+            var localVarHttpMethod = "Patch";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -10878,20 +12364,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Patch, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PatchSpeechandtextanalyticsSettings: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -10937,11 +12416,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/speechandtextanalytics/settings";
+            var localVarHttpMethod = "Patch";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -10990,20 +12470,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Patch, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PatchSpeechandtextanalyticsSettings: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -11020,7 +12493,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Create new Speech & Text Analytics category 
+        /// Create new Speech &amp; Text Analytics category 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -11034,7 +12507,7 @@ namespace PureCloudPlatform.Client.V2.Api
         }
 
         /// <summary>
-        /// Create new Speech & Text Analytics category 
+        /// Create new Speech &amp; Text Analytics category 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -11048,11 +12521,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling SpeechTextAnalyticsApi->PostSpeechandtextanalyticsCategories");
 
             var localVarPath = "/api/v2/speechandtextanalytics/categories";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -11101,20 +12575,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostSpeechandtextanalyticsCategories: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -11130,7 +12597,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Create new Speech & Text Analytics category 
+        /// Create new Speech &amp; Text Analytics category 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -11145,7 +12612,7 @@ namespace PureCloudPlatform.Client.V2.Api
         }
 
         /// <summary>
-        /// Create new Speech & Text Analytics category 
+        /// Create new Speech &amp; Text Analytics category 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -11160,11 +12627,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/speechandtextanalytics/categories";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -11213,20 +12681,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostSpeechandtextanalyticsCategories: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -11243,7 +12704,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Create a Speech & Text Analytics DictionaryFeedback 
+        /// Create a Speech &amp; Text Analytics DictionaryFeedback 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -11257,7 +12718,7 @@ namespace PureCloudPlatform.Client.V2.Api
         }
 
         /// <summary>
-        /// Create a Speech & Text Analytics DictionaryFeedback 
+        /// Create a Speech &amp; Text Analytics DictionaryFeedback 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -11271,11 +12732,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling SpeechTextAnalyticsApi->PostSpeechandtextanalyticsDictionaryfeedback");
 
             var localVarPath = "/api/v2/speechandtextanalytics/dictionaryfeedback";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -11324,20 +12786,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostSpeechandtextanalyticsDictionaryfeedback: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -11353,7 +12808,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Create a Speech & Text Analytics DictionaryFeedback 
+        /// Create a Speech &amp; Text Analytics DictionaryFeedback 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -11368,7 +12823,7 @@ namespace PureCloudPlatform.Client.V2.Api
         }
 
         /// <summary>
-        /// Create a Speech & Text Analytics DictionaryFeedback 
+        /// Create a Speech &amp; Text Analytics DictionaryFeedback 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -11383,11 +12838,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/speechandtextanalytics/dictionaryfeedback";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -11436,20 +12892,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostSpeechandtextanalyticsDictionaryfeedback: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -11466,7 +12915,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Create new Speech & Text Analytics program 
+        /// Create new Speech &amp; Text Analytics program 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -11480,7 +12929,7 @@ namespace PureCloudPlatform.Client.V2.Api
         }
 
         /// <summary>
-        /// Create new Speech & Text Analytics program 
+        /// Create new Speech &amp; Text Analytics program 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -11494,11 +12943,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling SpeechTextAnalyticsApi->PostSpeechandtextanalyticsPrograms");
 
             var localVarPath = "/api/v2/speechandtextanalytics/programs";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -11547,20 +12997,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostSpeechandtextanalyticsPrograms: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -11576,7 +13019,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Create new Speech & Text Analytics program 
+        /// Create new Speech &amp; Text Analytics program 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -11591,7 +13034,7 @@ namespace PureCloudPlatform.Client.V2.Api
         }
 
         /// <summary>
-        /// Create new Speech & Text Analytics program 
+        /// Create new Speech &amp; Text Analytics program 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -11606,11 +13049,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/speechandtextanalytics/programs";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -11659,20 +13103,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostSpeechandtextanalyticsPrograms: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -11689,7 +13126,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Create new Speech & Text Analytics general program job 
+        /// Create new Speech &amp; Text Analytics general program job 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -11703,7 +13140,7 @@ namespace PureCloudPlatform.Client.V2.Api
         }
 
         /// <summary>
-        /// Create new Speech & Text Analytics general program job 
+        /// Create new Speech &amp; Text Analytics general program job 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -11717,11 +13154,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling SpeechTextAnalyticsApi->PostSpeechandtextanalyticsProgramsGeneralJobs");
 
             var localVarPath = "/api/v2/speechandtextanalytics/programs/general/jobs";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -11770,20 +13208,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostSpeechandtextanalyticsProgramsGeneralJobs: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -11799,7 +13230,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Create new Speech & Text Analytics general program job 
+        /// Create new Speech &amp; Text Analytics general program job 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -11814,7 +13245,7 @@ namespace PureCloudPlatform.Client.V2.Api
         }
 
         /// <summary>
-        /// Create new Speech & Text Analytics general program job 
+        /// Create new Speech &amp; Text Analytics general program job 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -11829,11 +13260,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/speechandtextanalytics/programs/general/jobs";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -11882,20 +13314,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostSpeechandtextanalyticsProgramsGeneralJobs: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -11912,7 +13337,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Create new Speech & Text Analytics publish programs job 
+        /// Create new Speech &amp; Text Analytics publish programs job 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -11926,7 +13351,7 @@ namespace PureCloudPlatform.Client.V2.Api
         }
 
         /// <summary>
-        /// Create new Speech & Text Analytics publish programs job 
+        /// Create new Speech &amp; Text Analytics publish programs job 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -11940,11 +13365,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling SpeechTextAnalyticsApi->PostSpeechandtextanalyticsProgramsPublishjobs");
 
             var localVarPath = "/api/v2/speechandtextanalytics/programs/publishjobs";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -11993,20 +13419,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostSpeechandtextanalyticsProgramsPublishjobs: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -12022,7 +13441,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Create new Speech & Text Analytics publish programs job 
+        /// Create new Speech &amp; Text Analytics publish programs job 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -12037,7 +13456,7 @@ namespace PureCloudPlatform.Client.V2.Api
         }
 
         /// <summary>
-        /// Create new Speech & Text Analytics publish programs job 
+        /// Create new Speech &amp; Text Analytics publish programs job 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -12052,11 +13471,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/speechandtextanalytics/programs/publishjobs";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -12105,20 +13525,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostSpeechandtextanalyticsProgramsPublishjobs: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -12135,39 +13548,42 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Create a Speech & Text Analytics SentimentFeedback 
+        /// Create a Speech &amp; Text Analytics reprocess job. 
         /// 
+        /// PostSpeechandtextanalyticsReprocessingJobs is a preview method and is subject to both breaking and non-breaking changes at any time without notice
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">The SentimentFeedback to create</param>
-        /// <returns>SentimentFeedback</returns>
+        /// <param name="body">The ReprocessJob to create</param>
+        /// <returns>ReprocessJobResponse</returns>
         
-        public SentimentFeedback PostSpeechandtextanalyticsSentimentfeedback (SentimentFeedback body)
+        public ReprocessJobResponse PostSpeechandtextanalyticsReprocessingJobs (CreateReprocessJobRequest body)
         {
-             ApiResponse<SentimentFeedback> localVarResponse = PostSpeechandtextanalyticsSentimentfeedbackWithHttpInfo(body);
+             ApiResponse<ReprocessJobResponse> localVarResponse = PostSpeechandtextanalyticsReprocessingJobsWithHttpInfo(body);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Create a Speech & Text Analytics SentimentFeedback 
+        /// Create a Speech &amp; Text Analytics reprocess job. 
         /// 
+        /// PostSpeechandtextanalyticsReprocessingJobs is a preview method and is subject to both breaking and non-breaking changes at any time without notice
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">The SentimentFeedback to create</param>
-        /// <returns>ApiResponse of SentimentFeedback</returns>
+        /// <param name="body">The ReprocessJob to create</param>
+        /// <returns>ApiResponse of ReprocessJobResponse</returns>
         
-        public ApiResponse< SentimentFeedback > PostSpeechandtextanalyticsSentimentfeedbackWithHttpInfo (SentimentFeedback body)
+        public ApiResponse< ReprocessJobResponse > PostSpeechandtextanalyticsReprocessingJobsWithHttpInfo (CreateReprocessJobRequest body)
         { 
             // verify the required parameter 'body' is set
             if (body == null)
-                throw new ApiException(400, "Missing required parameter 'body' when calling SpeechTextAnalyticsApi->PostSpeechandtextanalyticsSentimentfeedback");
+                throw new ApiException(400, "Missing required parameter 'body' when calling SpeechTextAnalyticsApi->PostSpeechandtextanalyticsReprocessingJobs");
 
-            var localVarPath = "/api/v2/speechandtextanalytics/sentimentfeedback";
+            var localVarPath = "/api/v2/speechandtextanalytics/reprocessing/jobs";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -12216,20 +13632,226 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
+
+            if (localVarStatusCode >= 400)
+                throw new ApiException (localVarStatusCode, "Error calling PostSpeechandtextanalyticsReprocessingJobs: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
+            else if (localVarStatusCode == 0)
+                throw new ApiException (localVarStatusCode, "Error calling PostSpeechandtextanalyticsReprocessingJobs: " + localVarResponse.ErrorMessage, localVarResponse.ErrorMessage);
+
+            return new ApiResponse<ReprocessJobResponse>(localVarStatusCode,
+                localVarHeaders,
+                (ReprocessJobResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ReprocessJobResponse)),
+                localVarResponse.Content,
+                localVarResponse.StatusDescription);
+        }
+
+
+        /// <summary>
+        /// Create a Speech &amp; Text Analytics reprocess job. 
+        /// 
+        /// PostSpeechandtextanalyticsReprocessingJobs is a preview method and is subject to both breaking and non-breaking changes at any time without notice
+        /// </summary>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">The ReprocessJob to create</param>
+        /// <returns>Task of ReprocessJobResponse</returns>
+        
+        public async System.Threading.Tasks.Task<ReprocessJobResponse> PostSpeechandtextanalyticsReprocessingJobsAsync (CreateReprocessJobRequest body)
+        {
+             ApiResponse<ReprocessJobResponse> localVarResponse = await PostSpeechandtextanalyticsReprocessingJobsAsyncWithHttpInfo(body);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Create a Speech &amp; Text Analytics reprocess job. 
+        /// 
+        /// PostSpeechandtextanalyticsReprocessingJobs is a preview method and is subject to both breaking and non-breaking changes at any time without notice
+        /// </summary>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">The ReprocessJob to create</param>
+        /// <returns>Task of ApiResponse (ReprocessJobResponse)</returns>
+        
+        public async System.Threading.Tasks.Task<ApiResponse<ReprocessJobResponse>> PostSpeechandtextanalyticsReprocessingJobsAsyncWithHttpInfo (CreateReprocessJobRequest body)
+        { 
+            // verify the required parameter 'body' is set
+            if (body == null)
+                throw new ApiException(400, "Missing required parameter 'body' when calling SpeechTextAnalyticsApi->PostSpeechandtextanalyticsReprocessingJobs");
+            
+
+            var localVarPath = "/api/v2/speechandtextanalytics/reprocessing/jobs";
+            var localVarHttpMethod = "Post";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<Tuple<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+                
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+
+                "application/json"
+
+                
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+
+            // Path params
+
+            // Query params
+
+            // Header params
+
+            // Form params
+            
+            // Body param
+            if (body != null && body.GetType() != typeof(byte[]))
+                localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
+            else
+                localVarPostBody = body; // byte array
+
+
+
+            // authentication (PureCloud OAuth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
+
+            if (localVarStatusCode >= 400)
+                throw new ApiException (localVarStatusCode, "Error calling PostSpeechandtextanalyticsReprocessingJobs: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
+            else if (localVarStatusCode == 0)
+                throw new ApiException (localVarStatusCode, "Error calling PostSpeechandtextanalyticsReprocessingJobs: " + localVarResponse.ErrorMessage, localVarResponse.ErrorMessage);
+
+            return new ApiResponse<ReprocessJobResponse>(localVarStatusCode,
+                localVarHeaders,
+                (ReprocessJobResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ReprocessJobResponse)),
+                localVarResponse.Content,
+                localVarResponse.StatusDescription);
+        }
+
+
+
+        /// <summary>
+        /// Create a Speech &amp; Text Analytics SentimentFeedback 
+        /// 
+        /// </summary>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">The SentimentFeedback to create</param>
+        /// <returns>SentimentFeedback</returns>
+        
+        public SentimentFeedback PostSpeechandtextanalyticsSentimentfeedback (SentimentFeedback body)
+        {
+             ApiResponse<SentimentFeedback> localVarResponse = PostSpeechandtextanalyticsSentimentfeedbackWithHttpInfo(body);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create a Speech &amp; Text Analytics SentimentFeedback 
+        /// 
+        /// </summary>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">The SentimentFeedback to create</param>
+        /// <returns>ApiResponse of SentimentFeedback</returns>
+        
+        public ApiResponse< SentimentFeedback > PostSpeechandtextanalyticsSentimentfeedbackWithHttpInfo (SentimentFeedback body)
+        { 
+            // verify the required parameter 'body' is set
+            if (body == null)
+                throw new ApiException(400, "Missing required parameter 'body' when calling SpeechTextAnalyticsApi->PostSpeechandtextanalyticsSentimentfeedback");
+
+            var localVarPath = "/api/v2/speechandtextanalytics/sentimentfeedback";
+            var localVarHttpMethod = "Post";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<Tuple<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+                
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+
+                "application/json"
+                
+
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+
+            // Path params
+
+            // Query params
+
+            // Header params
+
+            // Form params
+            
+            // Body param
+            if (body != null && body.GetType() != typeof(byte[]))
+                localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
+            else
+                localVarPostBody = body; // byte array
+
+
+
+            // authentication (PureCloud OAuth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostSpeechandtextanalyticsSentimentfeedback: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -12245,7 +13867,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Create a Speech & Text Analytics SentimentFeedback 
+        /// Create a Speech &amp; Text Analytics SentimentFeedback 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -12260,7 +13882,7 @@ namespace PureCloudPlatform.Client.V2.Api
         }
 
         /// <summary>
-        /// Create a Speech & Text Analytics SentimentFeedback 
+        /// Create a Speech &amp; Text Analytics SentimentFeedback 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -12275,11 +13897,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/speechandtextanalytics/sentimentfeedback";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -12328,20 +13951,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostSpeechandtextanalyticsSentimentfeedback: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -12358,7 +13974,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Create new Speech & Text Analytics topic 
+        /// Create new Speech &amp; Text Analytics topic 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -12372,7 +13988,7 @@ namespace PureCloudPlatform.Client.V2.Api
         }
 
         /// <summary>
-        /// Create new Speech & Text Analytics topic 
+        /// Create new Speech &amp; Text Analytics topic 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -12386,11 +14002,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling SpeechTextAnalyticsApi->PostSpeechandtextanalyticsTopics");
 
             var localVarPath = "/api/v2/speechandtextanalytics/topics";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -12439,20 +14056,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostSpeechandtextanalyticsTopics: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -12468,7 +14078,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Create new Speech & Text Analytics topic 
+        /// Create new Speech &amp; Text Analytics topic 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -12483,7 +14093,7 @@ namespace PureCloudPlatform.Client.V2.Api
         }
 
         /// <summary>
-        /// Create new Speech & Text Analytics topic 
+        /// Create new Speech &amp; Text Analytics topic 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -12498,11 +14108,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/speechandtextanalytics/topics";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -12551,20 +14162,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostSpeechandtextanalyticsTopics: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -12581,7 +14185,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Create new Speech & Text Analytics publish topics job 
+        /// Create new Speech &amp; Text Analytics publish topics job 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -12595,7 +14199,7 @@ namespace PureCloudPlatform.Client.V2.Api
         }
 
         /// <summary>
-        /// Create new Speech & Text Analytics publish topics job 
+        /// Create new Speech &amp; Text Analytics publish topics job 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -12609,11 +14213,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling SpeechTextAnalyticsApi->PostSpeechandtextanalyticsTopicsPublishjobs");
 
             var localVarPath = "/api/v2/speechandtextanalytics/topics/publishjobs";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -12662,20 +14267,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostSpeechandtextanalyticsTopicsPublishjobs: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -12691,7 +14289,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Create new Speech & Text Analytics publish topics job 
+        /// Create new Speech &amp; Text Analytics publish topics job 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -12706,7 +14304,7 @@ namespace PureCloudPlatform.Client.V2.Api
         }
 
         /// <summary>
-        /// Create new Speech & Text Analytics publish topics job 
+        /// Create new Speech &amp; Text Analytics publish topics job 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -12721,11 +14319,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/speechandtextanalytics/topics/publishjobs";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -12774,20 +14373,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostSpeechandtextanalyticsTopicsPublishjobs: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -12797,6 +14389,217 @@ namespace PureCloudPlatform.Client.V2.Api
             return new ApiResponse<TopicJob>(localVarStatusCode,
                 localVarHeaders,
                 (TopicJob) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(TopicJob)),
+                localVarResponse.Content,
+                localVarResponse.StatusDescription);
+        }
+
+
+
+        /// <summary>
+        /// Create new Speech &amp; Text Analytics publish topics job 
+        /// 
+        /// </summary>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">The publish test topic phrase job to create</param>
+        /// <returns>TestTopicPhraseJobs</returns>
+        
+        public TestTopicPhraseJobs PostSpeechandtextanalyticsTopicsTestphraseJobs (TestTopicPhraseJobRequest body)
+        {
+             ApiResponse<TestTopicPhraseJobs> localVarResponse = PostSpeechandtextanalyticsTopicsTestphraseJobsWithHttpInfo(body);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create new Speech &amp; Text Analytics publish topics job 
+        /// 
+        /// </summary>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">The publish test topic phrase job to create</param>
+        /// <returns>ApiResponse of TestTopicPhraseJobs</returns>
+        
+        public ApiResponse< TestTopicPhraseJobs > PostSpeechandtextanalyticsTopicsTestphraseJobsWithHttpInfo (TestTopicPhraseJobRequest body)
+        { 
+            // verify the required parameter 'body' is set
+            if (body == null)
+                throw new ApiException(400, "Missing required parameter 'body' when calling SpeechTextAnalyticsApi->PostSpeechandtextanalyticsTopicsTestphraseJobs");
+
+            var localVarPath = "/api/v2/speechandtextanalytics/topics/testphrase/jobs";
+            var localVarHttpMethod = "Post";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<Tuple<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+                
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+
+                "application/json"
+                
+
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+
+            // Path params
+
+            // Query params
+
+            // Header params
+
+            // Form params
+            
+            // Body param
+            if (body != null && body.GetType() != typeof(byte[]))
+                localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
+            else
+                localVarPostBody = body; // byte array
+
+
+
+            // authentication (PureCloud OAuth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
+
+            if (localVarStatusCode >= 400)
+                throw new ApiException (localVarStatusCode, "Error calling PostSpeechandtextanalyticsTopicsTestphraseJobs: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
+            else if (localVarStatusCode == 0)
+                throw new ApiException (localVarStatusCode, "Error calling PostSpeechandtextanalyticsTopicsTestphraseJobs: " + localVarResponse.ErrorMessage, localVarResponse.ErrorMessage);
+
+            return new ApiResponse<TestTopicPhraseJobs>(localVarStatusCode,
+                localVarHeaders,
+                (TestTopicPhraseJobs) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(TestTopicPhraseJobs)),
+                localVarResponse.Content,
+                localVarResponse.StatusDescription);
+        }
+
+
+        /// <summary>
+        /// Create new Speech &amp; Text Analytics publish topics job 
+        /// 
+        /// </summary>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">The publish test topic phrase job to create</param>
+        /// <returns>Task of TestTopicPhraseJobs</returns>
+        
+        public async System.Threading.Tasks.Task<TestTopicPhraseJobs> PostSpeechandtextanalyticsTopicsTestphraseJobsAsync (TestTopicPhraseJobRequest body)
+        {
+             ApiResponse<TestTopicPhraseJobs> localVarResponse = await PostSpeechandtextanalyticsTopicsTestphraseJobsAsyncWithHttpInfo(body);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Create new Speech &amp; Text Analytics publish topics job 
+        /// 
+        /// </summary>
+        /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">The publish test topic phrase job to create</param>
+        /// <returns>Task of ApiResponse (TestTopicPhraseJobs)</returns>
+        
+        public async System.Threading.Tasks.Task<ApiResponse<TestTopicPhraseJobs>> PostSpeechandtextanalyticsTopicsTestphraseJobsAsyncWithHttpInfo (TestTopicPhraseJobRequest body)
+        { 
+            // verify the required parameter 'body' is set
+            if (body == null)
+                throw new ApiException(400, "Missing required parameter 'body' when calling SpeechTextAnalyticsApi->PostSpeechandtextanalyticsTopicsTestphraseJobs");
+            
+
+            var localVarPath = "/api/v2/speechandtextanalytics/topics/testphrase/jobs";
+            var localVarHttpMethod = "Post";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<Tuple<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+                
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+
+                "application/json"
+
+                
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+
+            // Path params
+
+            // Query params
+
+            // Header params
+
+            // Form params
+            
+            // Body param
+            if (body != null && body.GetType() != typeof(byte[]))
+                localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
+            else
+                localVarPostBody = body; // byte array
+
+
+
+            // authentication (PureCloud OAuth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
+
+            if (localVarStatusCode >= 400)
+                throw new ApiException (localVarStatusCode, "Error calling PostSpeechandtextanalyticsTopicsTestphraseJobs: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
+            else if (localVarStatusCode == 0)
+                throw new ApiException (localVarStatusCode, "Error calling PostSpeechandtextanalyticsTopicsTestphraseJobs: " + localVarResponse.ErrorMessage, localVarResponse.ErrorMessage);
+
+            return new ApiResponse<TestTopicPhraseJobs>(localVarStatusCode,
+                localVarHeaders,
+                (TestTopicPhraseJobs) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(TestTopicPhraseJobs)),
                 localVarResponse.Content,
                 localVarResponse.StatusDescription);
         }
@@ -12832,11 +14635,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling SpeechTextAnalyticsApi->PostSpeechandtextanalyticsTranscriptsSearch");
 
             var localVarPath = "/api/v2/speechandtextanalytics/transcripts/search";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -12885,20 +14689,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostSpeechandtextanalyticsTranscriptsSearch: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -12944,11 +14741,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/speechandtextanalytics/transcripts/search";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -12997,20 +14795,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostSpeechandtextanalyticsTranscriptsSearch: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -13027,7 +14818,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Update a Speech & Text Analytics category by ID 
+        /// Update a Speech &amp; Text Analytics category by ID 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -13042,7 +14833,7 @@ namespace PureCloudPlatform.Client.V2.Api
         }
 
         /// <summary>
-        /// Update a Speech & Text Analytics category by ID 
+        /// Update a Speech &amp; Text Analytics category by ID 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -13060,11 +14851,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling SpeechTextAnalyticsApi->PutSpeechandtextanalyticsCategory");
 
             var localVarPath = "/api/v2/speechandtextanalytics/categories/{categoryId}";
+            var localVarHttpMethod = "Put";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -13114,20 +14906,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PutSpeechandtextanalyticsCategory: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -13143,7 +14928,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Update a Speech & Text Analytics category by ID 
+        /// Update a Speech &amp; Text Analytics category by ID 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -13159,7 +14944,7 @@ namespace PureCloudPlatform.Client.V2.Api
         }
 
         /// <summary>
-        /// Update a Speech & Text Analytics category by ID 
+        /// Update a Speech &amp; Text Analytics category by ID 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -13179,11 +14964,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/speechandtextanalytics/categories/{categoryId}";
+            var localVarHttpMethod = "Put";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -13233,20 +15019,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PutSpeechandtextanalyticsCategory: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -13263,7 +15042,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Update existing Speech & Text Analytics dictionary feedback by id 
+        /// Update existing Speech &amp; Text Analytics dictionary feedback by id 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -13278,7 +15057,7 @@ namespace PureCloudPlatform.Client.V2.Api
         }
 
         /// <summary>
-        /// Update existing Speech & Text Analytics dictionary feedback by id 
+        /// Update existing Speech &amp; Text Analytics dictionary feedback by id 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -13293,11 +15072,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'dictionaryFeedbackId' when calling SpeechTextAnalyticsApi->PutSpeechandtextanalyticsDictionaryfeedbackDictionaryFeedbackId");
 
             var localVarPath = "/api/v2/speechandtextanalytics/dictionaryfeedback/{dictionaryFeedbackId}";
+            var localVarHttpMethod = "Put";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -13347,20 +15127,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PutSpeechandtextanalyticsDictionaryfeedbackDictionaryFeedbackId: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -13376,7 +15149,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Update existing Speech & Text Analytics dictionary feedback by id 
+        /// Update existing Speech &amp; Text Analytics dictionary feedback by id 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -13392,7 +15165,7 @@ namespace PureCloudPlatform.Client.V2.Api
         }
 
         /// <summary>
-        /// Update existing Speech & Text Analytics dictionary feedback by id 
+        /// Update existing Speech &amp; Text Analytics dictionary feedback by id 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -13408,11 +15181,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/speechandtextanalytics/dictionaryfeedback/{dictionaryFeedbackId}";
+            var localVarHttpMethod = "Put";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -13462,20 +15236,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PutSpeechandtextanalyticsDictionaryfeedbackDictionaryFeedbackId: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -13492,7 +15259,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Update existing Speech & Text Analytics program 
+        /// Update existing Speech &amp; Text Analytics program 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -13507,7 +15274,7 @@ namespace PureCloudPlatform.Client.V2.Api
         }
 
         /// <summary>
-        /// Update existing Speech & Text Analytics program 
+        /// Update existing Speech &amp; Text Analytics program 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -13525,11 +15292,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling SpeechTextAnalyticsApi->PutSpeechandtextanalyticsProgram");
 
             var localVarPath = "/api/v2/speechandtextanalytics/programs/{programId}";
+            var localVarHttpMethod = "Put";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -13579,20 +15347,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PutSpeechandtextanalyticsProgram: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -13608,7 +15369,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Update existing Speech & Text Analytics program 
+        /// Update existing Speech &amp; Text Analytics program 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -13624,7 +15385,7 @@ namespace PureCloudPlatform.Client.V2.Api
         }
 
         /// <summary>
-        /// Update existing Speech & Text Analytics program 
+        /// Update existing Speech &amp; Text Analytics program 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -13644,11 +15405,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/speechandtextanalytics/programs/{programId}";
+            var localVarHttpMethod = "Put";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -13698,20 +15460,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PutSpeechandtextanalyticsProgram: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -13728,30 +15483,30 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Set Speech & Text Analytics program mappings to queues and flows 
+        /// Set Speech &amp; Text Analytics program mappings to queues and flows 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="programId">The id of the program</param>
         /// <param name="body">The program to set mappings for</param>
-        /// <returns>ProgramMappings</returns>
+        /// <returns>TopicsDefinitionsProgramMappings</returns>
         
-        public ProgramMappings PutSpeechandtextanalyticsProgramMappings (string programId, ProgramMappingsRequest body)
+        public TopicsDefinitionsProgramMappings PutSpeechandtextanalyticsProgramMappings (string programId, ProgramMappingsRequest body)
         {
-             ApiResponse<ProgramMappings> localVarResponse = PutSpeechandtextanalyticsProgramMappingsWithHttpInfo(programId, body);
+             ApiResponse<TopicsDefinitionsProgramMappings> localVarResponse = PutSpeechandtextanalyticsProgramMappingsWithHttpInfo(programId, body);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Set Speech & Text Analytics program mappings to queues and flows 
+        /// Set Speech &amp; Text Analytics program mappings to queues and flows 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="programId">The id of the program</param>
         /// <param name="body">The program to set mappings for</param>
-        /// <returns>ApiResponse of ProgramMappings</returns>
+        /// <returns>ApiResponse of TopicsDefinitionsProgramMappings</returns>
         
-        public ApiResponse< ProgramMappings > PutSpeechandtextanalyticsProgramMappingsWithHttpInfo (string programId, ProgramMappingsRequest body)
+        public ApiResponse< TopicsDefinitionsProgramMappings > PutSpeechandtextanalyticsProgramMappingsWithHttpInfo (string programId, ProgramMappingsRequest body)
         { 
             // verify the required parameter 'programId' is set
             if (programId == null)
@@ -13761,11 +15516,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling SpeechTextAnalyticsApi->PutSpeechandtextanalyticsProgramMappings");
 
             var localVarPath = "/api/v2/speechandtextanalytics/programs/{programId}/mappings";
+            var localVarHttpMethod = "Put";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -13815,60 +15571,53 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PutSpeechandtextanalyticsProgramMappings: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
             else if (localVarStatusCode == 0)
                 throw new ApiException (localVarStatusCode, "Error calling PutSpeechandtextanalyticsProgramMappings: " + localVarResponse.ErrorMessage, localVarResponse.ErrorMessage);
 
-            return new ApiResponse<ProgramMappings>(localVarStatusCode,
+            return new ApiResponse<TopicsDefinitionsProgramMappings>(localVarStatusCode,
                 localVarHeaders,
-                (ProgramMappings) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ProgramMappings)),
+                (TopicsDefinitionsProgramMappings) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(TopicsDefinitionsProgramMappings)),
                 localVarResponse.Content,
                 localVarResponse.StatusDescription);
         }
 
 
         /// <summary>
-        /// Set Speech & Text Analytics program mappings to queues and flows 
+        /// Set Speech &amp; Text Analytics program mappings to queues and flows 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="programId">The id of the program</param>
         /// <param name="body">The program to set mappings for</param>
-        /// <returns>Task of ProgramMappings</returns>
+        /// <returns>Task of TopicsDefinitionsProgramMappings</returns>
         
-        public async System.Threading.Tasks.Task<ProgramMappings> PutSpeechandtextanalyticsProgramMappingsAsync (string programId, ProgramMappingsRequest body)
+        public async System.Threading.Tasks.Task<TopicsDefinitionsProgramMappings> PutSpeechandtextanalyticsProgramMappingsAsync (string programId, ProgramMappingsRequest body)
         {
-             ApiResponse<ProgramMappings> localVarResponse = await PutSpeechandtextanalyticsProgramMappingsAsyncWithHttpInfo(programId, body);
+             ApiResponse<TopicsDefinitionsProgramMappings> localVarResponse = await PutSpeechandtextanalyticsProgramMappingsAsyncWithHttpInfo(programId, body);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Set Speech & Text Analytics program mappings to queues and flows 
+        /// Set Speech &amp; Text Analytics program mappings to queues and flows 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="programId">The id of the program</param>
         /// <param name="body">The program to set mappings for</param>
-        /// <returns>Task of ApiResponse (ProgramMappings)</returns>
+        /// <returns>Task of ApiResponse (TopicsDefinitionsProgramMappings)</returns>
         
-        public async System.Threading.Tasks.Task<ApiResponse<ProgramMappings>> PutSpeechandtextanalyticsProgramMappingsAsyncWithHttpInfo (string programId, ProgramMappingsRequest body)
+        public async System.Threading.Tasks.Task<ApiResponse<TopicsDefinitionsProgramMappings>> PutSpeechandtextanalyticsProgramMappingsAsyncWithHttpInfo (string programId, ProgramMappingsRequest body)
         { 
             // verify the required parameter 'programId' is set
             if (programId == null)
@@ -13880,11 +15629,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/speechandtextanalytics/programs/{programId}/mappings";
+            var localVarHttpMethod = "Put";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -13934,29 +15684,22 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PutSpeechandtextanalyticsProgramMappings: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
             else if (localVarStatusCode == 0)
                 throw new ApiException (localVarStatusCode, "Error calling PutSpeechandtextanalyticsProgramMappings: " + localVarResponse.ErrorMessage, localVarResponse.ErrorMessage);
 
-            return new ApiResponse<ProgramMappings>(localVarStatusCode,
+            return new ApiResponse<TopicsDefinitionsProgramMappings>(localVarStatusCode,
                 localVarHeaders,
-                (ProgramMappings) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ProgramMappings)),
+                (TopicsDefinitionsProgramMappings) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(TopicsDefinitionsProgramMappings)),
                 localVarResponse.Content,
                 localVarResponse.StatusDescription);
         }
@@ -13997,11 +15740,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling SpeechTextAnalyticsApi->PutSpeechandtextanalyticsProgramSettingsInsights");
 
             var localVarPath = "/api/v2/speechandtextanalytics/programs/{programId}/settings/insights";
+            var localVarHttpMethod = "Put";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -14051,20 +15795,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PutSpeechandtextanalyticsProgramSettingsInsights: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -14116,11 +15853,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/speechandtextanalytics/programs/{programId}/settings/insights";
+            var localVarHttpMethod = "Put";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -14170,20 +15908,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PutSpeechandtextanalyticsProgramSettingsInsights: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -14233,11 +15964,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling SpeechTextAnalyticsApi->PutSpeechandtextanalyticsProgramTranscriptionengines");
 
             var localVarPath = "/api/v2/speechandtextanalytics/programs/{programId}/transcriptionengines";
+            var localVarHttpMethod = "Put";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -14287,20 +16019,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PutSpeechandtextanalyticsProgramTranscriptionengines: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -14352,11 +16077,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/speechandtextanalytics/programs/{programId}/transcriptionengines";
+            var localVarHttpMethod = "Put";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -14406,20 +16132,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PutSpeechandtextanalyticsProgramTranscriptionengines: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -14464,11 +16183,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling SpeechTextAnalyticsApi->PutSpeechandtextanalyticsSettings");
 
             var localVarPath = "/api/v2/speechandtextanalytics/settings";
+            var localVarHttpMethod = "Put";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -14517,20 +16237,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PutSpeechandtextanalyticsSettings: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -14576,11 +16289,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/speechandtextanalytics/settings";
+            var localVarHttpMethod = "Put";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -14629,20 +16343,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PutSpeechandtextanalyticsSettings: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -14659,7 +16366,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Update existing Speech & Text Analytics topic 
+        /// Update existing Speech &amp; Text Analytics topic 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -14674,7 +16381,7 @@ namespace PureCloudPlatform.Client.V2.Api
         }
 
         /// <summary>
-        /// Update existing Speech & Text Analytics topic 
+        /// Update existing Speech &amp; Text Analytics topic 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -14692,11 +16399,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'body' when calling SpeechTextAnalyticsApi->PutSpeechandtextanalyticsTopic");
 
             var localVarPath = "/api/v2/speechandtextanalytics/topics/{topicId}";
+            var localVarHttpMethod = "Put";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -14746,20 +16454,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PutSpeechandtextanalyticsTopic: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -14775,7 +16476,7 @@ namespace PureCloudPlatform.Client.V2.Api
 
 
         /// <summary>
-        /// Update existing Speech & Text Analytics topic 
+        /// Update existing Speech &amp; Text Analytics topic 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -14791,7 +16492,7 @@ namespace PureCloudPlatform.Client.V2.Api
         }
 
         /// <summary>
-        /// Update existing Speech & Text Analytics topic 
+        /// Update existing Speech &amp; Text Analytics topic 
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -14811,11 +16512,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/speechandtextanalytics/topics/{topicId}";
+            var localVarHttpMethod = "Put";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -14865,20 +16567,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PutSpeechandtextanalyticsTopic: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);

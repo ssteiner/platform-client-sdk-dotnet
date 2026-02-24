@@ -197,16 +197,18 @@ namespace PureCloudPlatform.Client.V2.Model
         /// <param name="CustomerParticipation">Indicates a messaging conversation in which the customer participated by sending at least one message.</param>
         /// <param name="DivisionIds">Identifier(s) of division(s) associated with a conversation.</param>
         /// <param name="ExternalTag">External tag for the conversation.</param>
+        /// <param name="InactivityTimeout">The time in the future, after which this conversation would be considered inactive. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z.</param>
         /// <param name="KnowledgeBaseIds">The unique identifier(s) of the knowledge base(s) used.</param>
         /// <param name="MediaStatsMinConversationMos">The lowest estimated average MOS among all the audio streams belonging to this conversation.</param>
         /// <param name="MediaStatsMinConversationRFactor">The lowest R-factor value among all of the audio streams belonging to this conversation.</param>
         /// <param name="OriginatingDirection">The original direction of the conversation.</param>
+        /// <param name="OriginatingSocialMediaPublic">Indicates that the conversation originated from a public message on social media.</param>
         /// <param name="SelfServed">Indicates whether all flow sessions were self serviced.</param>
         /// <param name="Evaluations">Evaluations associated with this conversation.</param>
         /// <param name="Surveys">Surveys associated with this conversation.</param>
         /// <param name="Resolutions">Resolutions associated with this conversation.</param>
         /// <param name="Participants">Participants in the conversation.</param>
-        public AnalyticsConversation(DateTime? ConferenceStart = null, DateTime? ConversationEnd = null, string ConversationId = null, ConversationInitiatorEnum? ConversationInitiator = null, DateTime? ConversationStart = null, bool? CustomerParticipation = null, List<string> DivisionIds = null, string ExternalTag = null, List<string> KnowledgeBaseIds = null, double? MediaStatsMinConversationMos = null, double? MediaStatsMinConversationRFactor = null, OriginatingDirectionEnum? OriginatingDirection = null, bool? SelfServed = null, List<AnalyticsEvaluation> Evaluations = null, List<AnalyticsSurvey> Surveys = null, List<AnalyticsResolution> Resolutions = null, List<AnalyticsParticipant> Participants = null)
+        public AnalyticsConversation(DateTime? ConferenceStart = null, DateTime? ConversationEnd = null, string ConversationId = null, ConversationInitiatorEnum? ConversationInitiator = null, DateTime? ConversationStart = null, bool? CustomerParticipation = null, List<string> DivisionIds = null, string ExternalTag = null, DateTime? InactivityTimeout = null, List<string> KnowledgeBaseIds = null, double? MediaStatsMinConversationMos = null, double? MediaStatsMinConversationRFactor = null, OriginatingDirectionEnum? OriginatingDirection = null, bool? OriginatingSocialMediaPublic = null, bool? SelfServed = null, List<AnalyticsEvaluation> Evaluations = null, List<AnalyticsSurvey> Surveys = null, List<AnalyticsResolution> Resolutions = null, List<AnalyticsParticipant> Participants = null)
         {
             this.ConferenceStart = ConferenceStart;
             this.ConversationEnd = ConversationEnd;
@@ -216,10 +218,12 @@ namespace PureCloudPlatform.Client.V2.Model
             this.CustomerParticipation = CustomerParticipation;
             this.DivisionIds = DivisionIds;
             this.ExternalTag = ExternalTag;
+            this.InactivityTimeout = InactivityTimeout;
             this.KnowledgeBaseIds = KnowledgeBaseIds;
             this.MediaStatsMinConversationMos = MediaStatsMinConversationMos;
             this.MediaStatsMinConversationRFactor = MediaStatsMinConversationRFactor;
             this.OriginatingDirection = OriginatingDirection;
+            this.OriginatingSocialMediaPublic = OriginatingSocialMediaPublic;
             this.SelfServed = SelfServed;
             this.Evaluations = Evaluations;
             this.Surveys = Surveys;
@@ -296,6 +300,15 @@ namespace PureCloudPlatform.Client.V2.Model
 
 
         /// <summary>
+        /// The time in the future, after which this conversation would be considered inactive. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
+        /// </summary>
+        /// <value>The time in the future, after which this conversation would be considered inactive. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z</value>
+        [DataMember(Name="inactivityTimeout", EmitDefaultValue=false)]
+        public DateTime? InactivityTimeout { get; set; }
+
+
+
+        /// <summary>
         /// The unique identifier(s) of the knowledge base(s) used
         /// </summary>
         /// <value>The unique identifier(s) of the knowledge base(s) used</value>
@@ -321,6 +334,15 @@ namespace PureCloudPlatform.Client.V2.Model
         public double? MediaStatsMinConversationRFactor { get; set; }
 
 
+
+
+
+        /// <summary>
+        /// Indicates that the conversation originated from a public message on social media
+        /// </summary>
+        /// <value>Indicates that the conversation originated from a public message on social media</value>
+        [DataMember(Name="originatingSocialMediaPublic", EmitDefaultValue=false)]
+        public bool? OriginatingSocialMediaPublic { get; set; }
 
 
 
@@ -385,10 +407,12 @@ namespace PureCloudPlatform.Client.V2.Model
             sb.Append("  CustomerParticipation: ").Append(CustomerParticipation).Append("\n");
             sb.Append("  DivisionIds: ").Append(DivisionIds).Append("\n");
             sb.Append("  ExternalTag: ").Append(ExternalTag).Append("\n");
+            sb.Append("  InactivityTimeout: ").Append(InactivityTimeout).Append("\n");
             sb.Append("  KnowledgeBaseIds: ").Append(KnowledgeBaseIds).Append("\n");
             sb.Append("  MediaStatsMinConversationMos: ").Append(MediaStatsMinConversationMos).Append("\n");
             sb.Append("  MediaStatsMinConversationRFactor: ").Append(MediaStatsMinConversationRFactor).Append("\n");
             sb.Append("  OriginatingDirection: ").Append(OriginatingDirection).Append("\n");
+            sb.Append("  OriginatingSocialMediaPublic: ").Append(OriginatingSocialMediaPublic).Append("\n");
             sb.Append("  SelfServed: ").Append(SelfServed).Append("\n");
             sb.Append("  Evaluations: ").Append(Evaluations).Append("\n");
             sb.Append("  Surveys: ").Append(Surveys).Append("\n");
@@ -475,6 +499,11 @@ namespace PureCloudPlatform.Client.V2.Model
                     this.ExternalTag.Equals(other.ExternalTag)
                 ) &&
                 (
+                    this.InactivityTimeout == other.InactivityTimeout ||
+                    this.InactivityTimeout != null &&
+                    this.InactivityTimeout.Equals(other.InactivityTimeout)
+                ) &&
+                (
                     this.KnowledgeBaseIds == other.KnowledgeBaseIds ||
                     this.KnowledgeBaseIds != null &&
                     this.KnowledgeBaseIds.SequenceEqual(other.KnowledgeBaseIds)
@@ -493,6 +522,11 @@ namespace PureCloudPlatform.Client.V2.Model
                     this.OriginatingDirection == other.OriginatingDirection ||
                     this.OriginatingDirection != null &&
                     this.OriginatingDirection.Equals(other.OriginatingDirection)
+                ) &&
+                (
+                    this.OriginatingSocialMediaPublic == other.OriginatingSocialMediaPublic ||
+                    this.OriginatingSocialMediaPublic != null &&
+                    this.OriginatingSocialMediaPublic.Equals(other.OriginatingSocialMediaPublic)
                 ) &&
                 (
                     this.SelfServed == other.SelfServed ||
@@ -556,6 +590,9 @@ namespace PureCloudPlatform.Client.V2.Model
                 if (this.ExternalTag != null)
                     hash = hash * 59 + this.ExternalTag.GetHashCode();
 
+                if (this.InactivityTimeout != null)
+                    hash = hash * 59 + this.InactivityTimeout.GetHashCode();
+
                 if (this.KnowledgeBaseIds != null)
                     hash = hash * 59 + this.KnowledgeBaseIds.GetHashCode();
 
@@ -567,6 +604,9 @@ namespace PureCloudPlatform.Client.V2.Model
 
                 if (this.OriginatingDirection != null)
                     hash = hash * 59 + this.OriginatingDirection.GetHashCode();
+
+                if (this.OriginatingSocialMediaPublic != null)
+                    hash = hash * 59 + this.OriginatingSocialMediaPublic.GetHashCode();
 
                 if (this.SelfServed != null)
                     hash = hash * 59 + this.SelfServed.GetHashCode();

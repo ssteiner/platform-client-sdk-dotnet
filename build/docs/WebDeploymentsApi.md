@@ -17,14 +17,16 @@ All URIs are relative to *https://api.mypurecloud.com*
 | [**GetWebdeploymentsDeployment**](#GetWebdeploymentsDeployment) | **Get** /api/v2/webdeployments/deployments/{deploymentId} | Get a deployment |
 | [**GetWebdeploymentsDeploymentCobrowseSessionId**](#GetWebdeploymentsDeploymentCobrowseSessionId) | **Get** /api/v2/webdeployments/deployments/{deploymentId}/cobrowse/{sessionId} | Retrieves a cobrowse session |
 | [**GetWebdeploymentsDeploymentConfigurations**](#GetWebdeploymentsDeploymentConfigurations) | **Get** /api/v2/webdeployments/deployments/{deploymentId}/configurations | Get active configuration for a given deployment |
+| [**GetWebdeploymentsDeploymentIdentityresolution**](#GetWebdeploymentsDeploymentIdentityresolution) | **Get** /api/v2/webdeployments/deployments/{deploymentId}/identityresolution | Get a deployment identity resolution setting. |
 | [**GetWebdeploymentsDeployments**](#GetWebdeploymentsDeployments) | **Get** /api/v2/webdeployments/deployments | Get deployments |
 | [**PostWebdeploymentsConfigurationVersionsDraftPublish**](#PostWebdeploymentsConfigurationVersionsDraftPublish) | **Post** /api/v2/webdeployments/configurations/{configurationId}/versions/draft/publish | Publish the configuration draft and create a new version |
 | [**PostWebdeploymentsConfigurations**](#PostWebdeploymentsConfigurations) | **Post** /api/v2/webdeployments/configurations | Create a configuration draft |
 | [**PostWebdeploymentsDeployments**](#PostWebdeploymentsDeployments) | **Post** /api/v2/webdeployments/deployments | Create a deployment |
-| [**PostWebdeploymentsTokenOauthcodegrantjwtexchange**](#PostWebdeploymentsTokenOauthcodegrantjwtexchange) | **Post** /api/v2/webdeployments/token/oauthcodegrantjwtexchange | Exchange an oAuth code (obtained using the Authorization Code Flow) for a JWT that can be used by webdeployments. |
+| [**PostWebdeploymentsTokenOauthcodegrantjwtexchange**](#PostWebdeploymentsTokenOauthcodegrantjwtexchange) | **Post** /api/v2/webdeployments/token/oauthcodegrantjwtexchange | Exchange an oAuth code (obtained using the Authorization Code Flow or Implicit flow) for a JWT that can be used by webdeployments. |
 | [**PostWebdeploymentsTokenRefresh**](#PostWebdeploymentsTokenRefresh) | **Post** /api/v2/webdeployments/token/refresh | Refresh a JWT. |
 | [**PutWebdeploymentsConfigurationVersionsDraft**](#PutWebdeploymentsConfigurationVersionsDraft) | **Put** /api/v2/webdeployments/configurations/{configurationId}/versions/draft | Update the configuration draft |
 | [**PutWebdeploymentsDeployment**](#PutWebdeploymentsDeployment) | **Put** /api/v2/webdeployments/deployments/{deploymentId} | Update a deployment |
+| [**PutWebdeploymentsDeploymentIdentityresolution**](#PutWebdeploymentsDeploymentIdentityresolution) | **Put** /api/v2/webdeployments/deployments/{deploymentId}/identityresolution | Update identity resolution settings for a deployment. |
 
 
 
@@ -329,12 +331,10 @@ namespace Example
 
 ## GetWebdeploymentsConfigurationVersions
 
-> [**WebDeploymentConfigurationVersionEntityListing**](WebDeploymentConfigurationVersionEntityListing) GetWebdeploymentsConfigurationVersions (string configurationId)
+> [**WebDeploymentConfigurationVersionEntityListing**](WebDeploymentConfigurationVersionEntityListing) GetWebdeploymentsConfigurationVersions (string configurationId, string pageSize = null, string before = null, string after = null)
 
 
 Get the versions of a configuration
-
-This returns the 50 most recent versions for this configuration
 
 Requires ALL permissions: 
 
@@ -363,11 +363,14 @@ namespace Example
 
             var apiInstance = new WebDeploymentsApi();
             var configurationId = configurationId_example;  // string | The configuration version ID
+            var pageSize = pageSize_example;  // string | Number of entities to return. Defaults to 300. (optional) 
+            var before = before_example;  // string | The cursor that points to the start of the set of entities that has been returned. (optional) 
+            var after = after_example;  // string | The cursor that points to the end of the set of entities that has been returned. (optional) 
 
             try
             { 
                 // Get the versions of a configuration
-                WebDeploymentConfigurationVersionEntityListing result = apiInstance.GetWebdeploymentsConfigurationVersions(configurationId);
+                WebDeploymentConfigurationVersionEntityListing result = apiInstance.GetWebdeploymentsConfigurationVersions(configurationId, pageSize, before, after);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -385,6 +388,9 @@ namespace Example
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **configurationId** | **string**| The configuration version ID |  |
+| **pageSize** | **string**| Number of entities to return. Defaults to 300. | [optional]  |
+| **before** | **string**| The cursor that points to the start of the set of entities that has been returned. | [optional]  |
+| **after** | **string**| The cursor that points to the end of the set of entities that has been returned. | [optional]  |
 
 ### Return type
 
@@ -455,7 +461,7 @@ namespace Example
 
 ## GetWebdeploymentsConfigurations
 
-> [**WebDeploymentConfigurationVersionEntityListing**](WebDeploymentConfigurationVersionEntityListing) GetWebdeploymentsConfigurations (bool? showOnlyPublished = null)
+> [**WebDeploymentConfigurationVersionEntityListing**](WebDeploymentConfigurationVersionEntityListing) GetWebdeploymentsConfigurations (string pageSize = null, string before = null, string after = null, bool? showOnlyPublished = null)
 
 
 View configuration drafts
@@ -486,12 +492,15 @@ namespace Example
                 "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
 
             var apiInstance = new WebDeploymentsApi();
+            var pageSize = pageSize_example;  // string | Number of entities to return. Defaults to 300. (optional) 
+            var before = before_example;  // string | The cursor that points to the start of the set of entities that has been returned. (optional) 
+            var after = after_example;  // string | The cursor that points to the end of the set of entities that has been returned. (optional) 
             var showOnlyPublished = true;  // bool? | Filter by published status. (optional) 
 
             try
             { 
                 // View configuration drafts
-                WebDeploymentConfigurationVersionEntityListing result = apiInstance.GetWebdeploymentsConfigurations(showOnlyPublished);
+                WebDeploymentConfigurationVersionEntityListing result = apiInstance.GetWebdeploymentsConfigurations(pageSize, before, after, showOnlyPublished);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -508,6 +517,9 @@ namespace Example
 
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **pageSize** | **string**| Number of entities to return. Defaults to 300. | [optional]  |
+| **before** | **string**| The cursor that points to the start of the set of entities that has been returned. | [optional]  |
+| **after** | **string**| The cursor that points to the end of the set of entities that has been returned. | [optional]  |
 | **showOnlyPublished** | **bool?**| Filter by published status. | [optional]  |
 
 ### Return type
@@ -701,9 +713,72 @@ namespace Example
 [**WebDeploymentActiveConfigurationOnDeployment**](WebDeploymentActiveConfigurationOnDeployment)
 
 
+## GetWebdeploymentsDeploymentIdentityresolution
+
+> [**DeploymentIdentityResolutionConfig**](DeploymentIdentityResolutionConfig) GetWebdeploymentsDeploymentIdentityresolution (string deploymentId)
+
+
+Get a deployment identity resolution setting.
+
+Requires ALL permissions: 
+
+* webDeployments:deployment:view
+* webDeployments:identityResolution:view
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class GetWebdeploymentsDeploymentIdentityresolutionExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new WebDeploymentsApi();
+            var deploymentId = deploymentId_example;  // string | The deployment ID
+
+            try
+            { 
+                // Get a deployment identity resolution setting.
+                DeploymentIdentityResolutionConfig result = apiInstance.GetWebdeploymentsDeploymentIdentityresolution(deploymentId);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling WebDeploymentsApi.GetWebdeploymentsDeploymentIdentityresolution: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **deploymentId** | **string**| The deployment ID |  |
+
+### Return type
+
+[**DeploymentIdentityResolutionConfig**](DeploymentIdentityResolutionConfig)
+
+
 ## GetWebdeploymentsDeployments
 
-> [**ExpandableWebDeploymentEntityListing**](ExpandableWebDeploymentEntityListing) GetWebdeploymentsDeployments (List<string> expand = null)
+> [**ExpandableWebDeploymentEntityListing**](ExpandableWebDeploymentEntityListing) GetWebdeploymentsDeployments (string pageSize = null, string before = null, string after = null, List<string> expand = null)
 
 
 Get deployments
@@ -734,12 +809,15 @@ namespace Example
                 "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
 
             var apiInstance = new WebDeploymentsApi();
+            var pageSize = pageSize_example;  // string | Number of entities to return. Defaults to 300. (optional) 
+            var before = before_example;  // string | The cursor that points to the start of the set of entities that has been returned. (optional) 
+            var after = after_example;  // string | The cursor that points to the end of the set of entities that has been returned. (optional) 
             var expand = new List<string>(); // List<string> | The specified entity attributes will be filled. Comma separated values expected.  (optional) 
 
             try
             { 
                 // Get deployments
-                ExpandableWebDeploymentEntityListing result = apiInstance.GetWebdeploymentsDeployments(expand);
+                ExpandableWebDeploymentEntityListing result = apiInstance.GetWebdeploymentsDeployments(pageSize, before, after, expand);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -756,7 +834,10 @@ namespace Example
 
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **expand** | [**List<string>**](string)| The specified entity attributes will be filled. Comma separated values expected.  | [optional] <br />**Values**: Configuration, SupportedContent |
+| **pageSize** | **string**| Number of entities to return. Defaults to 300. | [optional]  |
+| **before** | **string**| The cursor that points to the start of the set of entities that has been returned. | [optional]  |
+| **after** | **string**| The cursor that points to the end of the set of entities that has been returned. | [optional]  |
+| **expand** | [**List<string>**](string)| The specified entity attributes will be filled. Comma separated values expected.  | [optional] <br />**Values**: Configuration, SupportedContent, identityresolution |
 
 ### Return type
 
@@ -955,7 +1036,7 @@ namespace Example
 > [**WebDeploymentsAuthorizationResponse**](WebDeploymentsAuthorizationResponse) PostWebdeploymentsTokenOauthcodegrantjwtexchange (WebDeploymentsOAuthExchangeRequest body)
 
 
-Exchange an oAuth code (obtained using the Authorization Code Flow) for a JWT that can be used by webdeployments.
+Exchange an oAuth code (obtained using the Authorization Code Flow or Implicit flow) for a JWT that can be used by webdeployments.
 
 Requires NO permissions: 
 
@@ -980,7 +1061,7 @@ namespace Example
 
             try
             { 
-                // Exchange an oAuth code (obtained using the Authorization Code Flow) for a JWT that can be used by webdeployments.
+                // Exchange an oAuth code (obtained using the Authorization Code Flow or Implicit flow) for a JWT that can be used by webdeployments.
                 WebDeploymentsAuthorizationResponse result = apiInstance.PostWebdeploymentsTokenOauthcodegrantjwtexchange(body);
                 Debug.WriteLine(result);
             }
@@ -1188,4 +1269,69 @@ namespace Example
 [**WebDeployment**](WebDeployment)
 
 
-_PureCloudPlatform.Client.V2 227.0.0_
+## PutWebdeploymentsDeploymentIdentityresolution
+
+> [**DeploymentIdentityResolutionConfig**](DeploymentIdentityResolutionConfig) PutWebdeploymentsDeploymentIdentityresolution (string deploymentId, DeploymentIdentityResolutionConfig body)
+
+
+Update identity resolution settings for a deployment.
+
+Requires ALL permissions: 
+
+* webDeployments:deployment:edit
+* webDeployments:identityResolution:edit
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class PutWebdeploymentsDeploymentIdentityresolutionExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new WebDeploymentsApi();
+            var deploymentId = deploymentId_example;  // string | The deployment ID
+            var body = new DeploymentIdentityResolutionConfig(); // DeploymentIdentityResolutionConfig | 
+
+            try
+            { 
+                // Update identity resolution settings for a deployment.
+                DeploymentIdentityResolutionConfig result = apiInstance.PutWebdeploymentsDeploymentIdentityresolution(deploymentId, body);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling WebDeploymentsApi.PutWebdeploymentsDeploymentIdentityresolution: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **deploymentId** | **string**| The deployment ID |  |
+| **body** | [**DeploymentIdentityResolutionConfig**](DeploymentIdentityResolutionConfig)|  |  |
+
+### Return type
+
+[**DeploymentIdentityResolutionConfig**](DeploymentIdentityResolutionConfig)
+
+
+_PureCloudPlatform.Client.V2 257.0.0_

@@ -87,10 +87,22 @@ namespace PureCloudPlatform.Client.V2.Model
             CampaignBlacklisted,
             
             /// <summary>
+            /// Enum CampaignBuildContactQueueError for "CAMPAIGN_BUILD_CONTACT_QUEUE_ERROR"
+            /// </summary>
+            [EnumMember(Value = "CAMPAIGN_BUILD_CONTACT_QUEUE_ERROR")]
+            CampaignBuildContactQueueError,
+            
+            /// <summary>
             /// Enum CampaignContentTemplateSubstitutionMismatch for "CAMPAIGN_CONTENT_TEMPLATE_SUBSTITUTION_MISMATCH"
             /// </summary>
             [EnumMember(Value = "CAMPAIGN_CONTENT_TEMPLATE_SUBSTITUTION_MISMATCH")]
             CampaignContentTemplateSubstitutionMismatch,
+            
+            /// <summary>
+            /// Enum CampaignCallsPerAgentLow for "CAMPAIGN_CALLS_PER_AGENT_LOW"
+            /// </summary>
+            [EnumMember(Value = "CAMPAIGN_CALLS_PER_AGENT_LOW")]
+            CampaignCallsPerAgentLow,
             
             /// <summary>
             /// Enum CampaignEmailBodyCharacterLimitExceeded for "CAMPAIGN_EMAIL_BODY_CHARACTER_LIMIT_EXCEEDED"
@@ -103,6 +115,18 @@ namespace PureCloudPlatform.Client.V2.Model
             /// </summary>
             [EnumMember(Value = "CAMPAIGN_EMAIL_SUBJECT_CHARACTER_LIMIT_EXCEEDED")]
             CampaignEmailSubjectCharacterLimitExceeded,
+            
+            /// <summary>
+            /// Enum CampaignWhatsappHeaderValueLimitExceeded for "CAMPAIGN_WHATSAPP_HEADER_VALUE_LIMIT_EXCEEDED"
+            /// </summary>
+            [EnumMember(Value = "CAMPAIGN_WHATSAPP_HEADER_VALUE_LIMIT_EXCEEDED")]
+            CampaignWhatsappHeaderValueLimitExceeded,
+            
+            /// <summary>
+            /// Enum CampaignWhatsappButtonUrlValueLimitExceeded for "CAMPAIGN_WHATSAPP_BUTTON_URL_VALUE_LIMIT_EXCEEDED"
+            /// </summary>
+            [EnumMember(Value = "CAMPAIGN_WHATSAPP_BUTTON_URL_VALUE_LIMIT_EXCEEDED")]
+            CampaignWhatsappButtonUrlValueLimitExceeded,
             
             /// <summary>
             /// Enum CampaignInvalidated for "CAMPAIGN_INVALIDATED"
@@ -135,6 +159,12 @@ namespace PureCloudPlatform.Client.V2.Model
             CampaignRuleStartError,
             
             /// <summary>
+            /// Enum CampaignScriptStageMissing for "CAMPAIGN_SCRIPT_STAGE_MISSING"
+            /// </summary>
+            [EnumMember(Value = "CAMPAIGN_SCRIPT_STAGE_MISSING")]
+            CampaignScriptStageMissing,
+            
+            /// <summary>
             /// Enum CampaignSetDialingModeError for "CAMPAIGN_SET_DIALING_MODE_ERROR"
             /// </summary>
             [EnumMember(Value = "CAMPAIGN_SET_DIALING_MODE_ERROR")]
@@ -157,6 +187,12 @@ namespace PureCloudPlatform.Client.V2.Model
             /// </summary>
             [EnumMember(Value = "CAMPAIGN_QUEUE_MEMBERS_LIMIT_EXCEEDED")]
             CampaignQueueMembersLimitExceeded,
+            
+            /// <summary>
+            /// Enum CampaignWeightZero for "CAMPAIGN_WEIGHT_ZERO"
+            /// </summary>
+            [EnumMember(Value = "CAMPAIGN_WEIGHT_ZERO")]
+            CampaignWeightZero,
             
             /// <summary>
             /// Enum InvalidCallableTimeZone for "INVALID_CALLABLE_TIME_ZONE"

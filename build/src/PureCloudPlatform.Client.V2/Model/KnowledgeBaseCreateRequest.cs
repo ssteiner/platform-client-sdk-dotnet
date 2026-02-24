@@ -307,7 +307,37 @@ namespace PureCloudPlatform.Client.V2.Model
             /// Enum Ukua for "uk-UA"
             /// </summary>
             [EnumMember(Value = "uk-UA")]
-            Ukua
+            Ukua,
+            
+            /// <summary>
+            /// Enum Cscz for "cs-CZ"
+            /// </summary>
+            [EnumMember(Value = "cs-CZ")]
+            Cscz,
+            
+            /// <summary>
+            /// Enum Filph for "fil-PH"
+            /// </summary>
+            [EnumMember(Value = "fil-PH")]
+            Filph,
+            
+            /// <summary>
+            /// Enum Msmy for "ms-MY"
+            /// </summary>
+            [EnumMember(Value = "ms-MY")]
+            Msmy,
+            
+            /// <summary>
+            /// Enum Heil for "he-IL"
+            /// </summary>
+            [EnumMember(Value = "he-IL")]
+            Heil,
+            
+            /// <summary>
+            /// Enum Elgr for "el-GR"
+            /// </summary>
+            [EnumMember(Value = "el-GR")]
+            Elgr
         }
         /// <summary>
         /// Core language for knowledge base in which initial content must be created, language codes [en-US, en-UK, en-AU, de-DE] are supported currently. However, the new DX knowledge will support all these language codes, along with 'early preview' language codes [ca-ES, tr-TR, sv-SE, fi-FI, nb-NO, da-DK, ja-JP, ar-AE, zh-CN, zh-TW, zh-HK, ko-KR, pl-PL, hi-IN, th-TH, hu-HU, vi-VN, uk-UA] which might have a lower accuracy.
@@ -326,7 +356,7 @@ namespace PureCloudPlatform.Client.V2.Model
         /// </summary>
         /// <param name="Name">Knowledge base name (required).</param>
         /// <param name="Description">Knowledge base description.</param>
-        /// <param name="CoreLanguage">Core language for knowledge base in which initial content must be created, language codes [en-US, en-UK, en-AU, de-DE] are supported currently. However, the new DX knowledge will support all these language codes, along with 'early preview' language codes [ca-ES, tr-TR, sv-SE, fi-FI, nb-NO, da-DK, ja-JP, ar-AE, zh-CN, zh-TW, zh-HK, ko-KR, pl-PL, hi-IN, th-TH, hu-HU, vi-VN, uk-UA] which might have a lower accuracy. (required).</param>
+        /// <param name="CoreLanguage">Core language for knowledge base in which initial content must be created, language codes [en-US, en-UK, en-AU, de-DE] are supported currently. However, the new DX knowledge will support all these language codes, along with &#39;early preview&#39; language codes [ca-ES, tr-TR, sv-SE, fi-FI, nb-NO, da-DK, ja-JP, ar-AE, zh-CN, zh-TW, zh-HK, ko-KR, pl-PL, hi-IN, th-TH, hu-HU, vi-VN, uk-UA] which might have a lower accuracy. (required).</param>
         public KnowledgeBaseCreateRequest(string Name = null, string Description = null, CoreLanguageEnum? CoreLanguage = null)
         {
             this.Name = Name;

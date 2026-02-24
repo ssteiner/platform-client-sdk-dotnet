@@ -7,8 +7,8 @@
 |Name | Type | Description | Notes|
 |------------ | ------------- | ------------- | -------------|
 | **Entities** | [**List&lt;LearningAssignmentRuleRunTopicLearningAssignmentsCreated&gt;**](LearningAssignmentRuleRunTopicLearningAssignmentsCreated) |  | [optional] |
-| **Total** | **int?** |  | [optional] |
+| **Total** | **long?** |  | [optional] |
 
 
 
-_PureCloudPlatform.Client.V2 227.0.0_
+_PureCloudPlatform.Client.V2 257.0.0_

@@ -28,6 +28,9 @@ All URIs are relative to *https://api.mypurecloud.com*
 | [**GetIntegrationsActionsCertificatesTruststore**](#GetIntegrationsActionsCertificatesTruststore) | **Get** /api/v2/integrations/actions/certificates/truststore | Retrieves basic info about trusted root CA certificates |
 | [**GetIntegrationsActionsDrafts**](#GetIntegrationsActionsDrafts) | **Get** /api/v2/integrations/actions/drafts | Retrieves all action drafts associated with the filters passed in via query param. |
 | [**GetIntegrationsActionsFunctionsRuntimes**](#GetIntegrationsActionsFunctionsRuntimes) | **Get** /api/v2/integrations/actions/functions/runtimes | Get action function settings for Action |
+| [**GetIntegrationsBotconnectorBot**](#GetIntegrationsBotconnectorBot) | **Get** /api/v2/integrations/botconnectors/{integrationId}/bots/{botId} | Get a specific Bot details |
+| [**GetIntegrationsBotconnectorBots**](#GetIntegrationsBotconnectorBots) | **Get** /api/v2/integrations/botconnectors/{integrationId}/bots | Get the list of bots for this integration. |
+| [**GetIntegrationsBotconnectorBotsSummaries**](#GetIntegrationsBotconnectorBotsSummaries) | **Get** /api/v2/integrations/botconnectors/{integrationId}/bots/summaries | Get the summary list of bots for this integration. |
 | [**GetIntegrationsBotconnectorIntegrationIdBot**](#GetIntegrationsBotconnectorIntegrationIdBot) | **Get** /api/v2/integrations/botconnector/{integrationId}/bots/{botId} | Get a specific botConnector bot, plus versions, for this integration |
 | [**GetIntegrationsBotconnectorIntegrationIdBotVersions**](#GetIntegrationsBotconnectorIntegrationIdBotVersions) | **Get** /api/v2/integrations/botconnector/{integrationId}/bots/{botId}/versions | Get a list of bot versions for a bot |
 | [**GetIntegrationsBotconnectorIntegrationIdBots**](#GetIntegrationsBotconnectorIntegrationIdBots) | **Get** /api/v2/integrations/botconnector/{integrationId}/bots | Get a list of botConnector bots for this integration |
@@ -36,6 +39,7 @@ All URIs are relative to *https://api.mypurecloud.com*
 | [**GetIntegrationsClientappsUnifiedcommunications**](#GetIntegrationsClientappsUnifiedcommunications) | **Get** /api/v2/integrations/clientapps/unifiedcommunications | UC integration client application configuration. |
 | [**GetIntegrationsCredential**](#GetIntegrationsCredential) | **Get** /api/v2/integrations/credentials/{credentialId} | Get a single credential with sensitive fields redacted |
 | [**GetIntegrationsCredentials**](#GetIntegrationsCredentials) | **Get** /api/v2/integrations/credentials | List multiple sets of credentials |
+| [**GetIntegrationsCredentialsListing**](#GetIntegrationsCredentialsListing) | **Get** /api/v2/integrations/credentials/listing | List multiple sets of credentials using cursor-based paging |
 | [**GetIntegrationsCredentialsTypes**](#GetIntegrationsCredentialsTypes) | **Get** /api/v2/integrations/credentials/types | List all credential types |
 | [**GetIntegrationsSpeechAudioconnector**](#GetIntegrationsSpeechAudioconnector) | **Get** /api/v2/integrations/speech/audioconnector | Get a list of Audio Connector integrations |
 | [**GetIntegrationsSpeechAudioconnectorIntegrationId**](#GetIntegrationsSpeechAudioconnectorIntegrationId) | **Get** /api/v2/integrations/speech/audioconnector/{integrationId} | Get an Audio Connector integration |
@@ -80,10 +84,13 @@ All URIs are relative to *https://api.mypurecloud.com*
 | [**PostIntegrationsActionTest**](#PostIntegrationsActionTest) | **Post** /api/v2/integrations/actions/{actionId}/test | Test the execution of an action. Responses will show execution steps broken out with intermediate results to help in debugging. |
 | [**PostIntegrationsActions**](#PostIntegrationsActions) | **Post** /api/v2/integrations/actions | Create a new Action. Not supported for &#39;Function Integration&#39; actions. Function integrations must be created as drafts to allow managing of uploading required ZIP function package before they may be used as a published action. |
 | [**PostIntegrationsActionsDrafts**](#PostIntegrationsActionsDrafts) | **Post** /api/v2/integrations/actions/drafts | Create a new Draft |
+| [**PostIntegrationsBotconnectorsIncomingMessages**](#PostIntegrationsBotconnectorsIncomingMessages) | **Post** /api/v2/integrations/botconnectors/incoming/messages | Send an incoming message to the bot. |
+| [**PostIntegrationsBotconnectorsOutgoingMessages**](#PostIntegrationsBotconnectorsOutgoingMessages) | **Post** /api/v2/integrations/botconnectors/outgoing/messages | Send an outgoing message to the end user. |
 | [**PostIntegrationsCredentials**](#PostIntegrationsCredentials) | **Post** /api/v2/integrations/credentials | Create a set of credentials |
 | [**PostIntegrationsSpeechNuanceNuanceIntegrationIdBotJobs**](#PostIntegrationsSpeechNuanceNuanceIntegrationIdBotJobs) | **Post** /api/v2/integrations/speech/nuance/{nuanceIntegrationId}/bots/{botId}/jobs | Get a Nuance bot in the specified Integration asynchronously |
 | [**PostIntegrationsSpeechNuanceNuanceIntegrationIdBotsJobs**](#PostIntegrationsSpeechNuanceNuanceIntegrationIdBotsJobs) | **Post** /api/v2/integrations/speech/nuance/{nuanceIntegrationId}/bots/jobs | Get a list of Nuance bots in the specified Integration asynchronously |
 | [**PostIntegrationsSpeechNuanceNuanceIntegrationIdBotsLaunchValidate**](#PostIntegrationsSpeechNuanceNuanceIntegrationIdBotsLaunchValidate) | **Post** /api/v2/integrations/speech/nuance/{nuanceIntegrationId}/bots/launch/validate | Try out a single credential for a Nuance bot to know if the secret is correct |
+| [**PostIntegrationsWebhookEvents**](#PostIntegrationsWebhookEvents) | **Post** /api/v2/integrations/webhooks/{tokenId}/events | Invoke Webhook |
 | [**PutIntegrationConfigCurrent**](#PutIntegrationConfigCurrent) | **Put** /api/v2/integrations/{integrationId}/config/current | Update integration configuration. |
 | [**PutIntegrationsActionDraftFunction**](#PutIntegrationsActionDraftFunction) | **Put** /api/v2/integrations/actions/{actionId}/draft/function | Update draft function settings. |
 | [**PutIntegrationsBotconnectorIntegrationIdBots**](#PutIntegrationsBotconnectorIntegrationIdBots) | **Put** /api/v2/integrations/botconnector/{integrationId}/bots | Set a list of botConnector bots plus versions for this integration |
@@ -477,7 +484,7 @@ namespace Example
 
 ## GetIntegrations
 
-> [**IntegrationEntityListing**](IntegrationEntityListing) GetIntegrations (int? pageSize = null, int? pageNumber = null, string sortBy = null, List<string> expand = null, string nextPage = null, string previousPage = null)
+> [**IntegrationEntityListing**](IntegrationEntityListing) GetIntegrations (int? pageSize = null, int? pageNumber = null, string sortBy = null, List<string> expand = null, string nextPage = null, string previousPage = null, List<string> ids = null, string integrationType = null, string reportedState = null)
 
 
 List integrations
@@ -514,11 +521,14 @@ namespace Example
             var expand = new List<string>(); // List<string> | variable name requested by expand list (optional) 
             var nextPage = nextPage_example;  // string | next page token (optional) 
             var previousPage = previousPage_example;  // string | Previous page token (optional) 
+            var ids = new List<string>(); // List<string> | Comma-separated list of integration IDs to filter by (max 100) (optional) 
+            var integrationType = webhook;  // string | Filter integrations by integration type ID (optional) 
+            var reportedState = ACTIVE;  // string | Filter integrations by reported state (case-insensitive) (optional) 
 
             try
             { 
                 // List integrations
-                IntegrationEntityListing result = apiInstance.GetIntegrations(pageSize, pageNumber, sortBy, expand, nextPage, previousPage);
+                IntegrationEntityListing result = apiInstance.GetIntegrations(pageSize, pageNumber, sortBy, expand, nextPage, previousPage, ids, integrationType, reportedState);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -541,6 +551,9 @@ namespace Example
 | **expand** | [**List<string>**](string)| variable name requested by expand list | [optional]  |
 | **nextPage** | **string**| next page token | [optional]  |
 | **previousPage** | **string**| Previous page token | [optional]  |
+| **ids** | [**List<string>**](string)| Comma-separated list of integration IDs to filter by (max 100) | [optional]  |
+| **integrationType** | **string**| Filter integrations by integration type ID | [optional]  |
+| **reportedState** | **string**| Filter integrations by reported state (case-insensitive) | [optional] <br />**Values**: ACTIVE, ACTIVATING, INACTIVE, DEACTIVATING, ERROR |
 
 ### Return type
 
@@ -549,7 +562,7 @@ namespace Example
 
 ## GetIntegrationsAction
 
-> [**PureCloudPlatform.Client.V2.Model.Action**](PureCloudPlatform.Client.V2.Model.Action) GetIntegrationsAction (string actionId, string expand = null, bool? includeConfig = null)
+> [**PureCloudPlatform.Client.V2.Model.Action**](PureCloudPlatform.Client.V2.Model.Action) GetIntegrationsAction (string actionId, string expand = null, bool? flatten = null, bool? includeConfig = null)
 
 
 Retrieves a single Action matching id.
@@ -583,12 +596,13 @@ namespace Example
             var apiInstance = new IntegrationsApi();
             var actionId = actionId_example;  // string | actionId
             var expand = expand_example;  // string | Indicates a field in the response which should be expanded. (optional) 
+            var flatten = flatten_example;  // bool? | Indicates the response should be reformatted, based on Architect's flattening format. (optional)  (default to false)
             var includeConfig = includeConfig_example;  // bool? | Return config in response. (optional)  (default to false)
 
             try
             { 
                 // Retrieves a single Action matching id.
-                PureCloudPlatform.Client.V2.Model.Action result = apiInstance.GetIntegrationsAction(actionId, expand, includeConfig);
+                PureCloudPlatform.Client.V2.Model.Action result = apiInstance.GetIntegrationsAction(actionId, expand, flatten, includeConfig);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -607,6 +621,7 @@ namespace Example
 |------------- | ------------- | ------------- | -------------|
 | **actionId** | **string**| actionId |  |
 | **expand** | **string**| Indicates a field in the response which should be expanded. | [optional] <br />**Values**: contract |
+| **flatten** | **bool?**| Indicates the response should be reformatted, based on Architect&#39;s flattening format. | [optional] [default to false]<br />**Values**: true, false |
 | **includeConfig** | **bool?**| Return config in response. | [optional] [default to false]<br />**Values**: true, false |
 
 ### Return type
@@ -616,7 +631,7 @@ namespace Example
 
 ## GetIntegrationsActionDraft
 
-> [**PureCloudPlatform.Client.V2.Model.Action**](PureCloudPlatform.Client.V2.Model.Action) GetIntegrationsActionDraft (string actionId, string expand = null, bool? includeConfig = null)
+> [**PureCloudPlatform.Client.V2.Model.Action**](PureCloudPlatform.Client.V2.Model.Action) GetIntegrationsActionDraft (string actionId, string expand = null, bool? flatten = null, bool? includeConfig = null)
 
 
 Retrieve a Draft
@@ -650,12 +665,13 @@ namespace Example
             var apiInstance = new IntegrationsApi();
             var actionId = actionId_example;  // string | actionId
             var expand = expand_example;  // string | Indicates a field in the response which should be expanded. (optional) 
+            var flatten = flatten_example;  // bool? | Indicates the response should be reformatted, based on Architect's flattening format. (optional)  (default to false)
             var includeConfig = includeConfig_example;  // bool? | Return config in response. (optional)  (default to false)
 
             try
             { 
                 // Retrieve a Draft
-                PureCloudPlatform.Client.V2.Model.Action result = apiInstance.GetIntegrationsActionDraft(actionId, expand, includeConfig);
+                PureCloudPlatform.Client.V2.Model.Action result = apiInstance.GetIntegrationsActionDraft(actionId, expand, flatten, includeConfig);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -674,6 +690,7 @@ namespace Example
 |------------- | ------------- | ------------- | -------------|
 | **actionId** | **string**| actionId |  |
 | **expand** | **string**| Indicates a field in the response which should be expanded. | [optional] <br />**Values**: contract |
+| **flatten** | **bool?**| Indicates the response should be reformatted, based on Architect&#39;s flattening format. | [optional] [default to false]<br />**Values**: true, false |
 | **includeConfig** | **bool?**| Return config in response. | [optional] [default to false]<br />**Values**: true, false |
 
 ### Return type
@@ -1133,7 +1150,7 @@ namespace Example
 
 ## GetIntegrationsActions
 
-> [**ActionEntityListing**](ActionEntityListing) GetIntegrationsActions (int? pageSize = null, int? pageNumber = null, string nextPage = null, string previousPage = null, string sortBy = null, string sortOrder = null, string category = null, string name = null, string ids = null, string secure = null, string includeAuthActions = null)
+> [**ActionEntityListing**](ActionEntityListing) GetIntegrationsActions (int? pageSize = null, int? pageNumber = null, string nextPage = null, string previousPage = null, string sortBy = null, string sortOrder = null, string category = null, string name = null, string ids = null, string secure = null, string includeAuthActions = null, bool? includeConfig = null)
 
 
 Retrieves all actions associated with filters passed in via query param.
@@ -1176,11 +1193,12 @@ namespace Example
             var ids = ids_example;  // string | Filter by action Id. Can be a comma separated list to request multiple actions.  Limit of 50 Ids. (optional) 
             var secure = secure_example;  // string | Filter based on 'secure' configuration option. True will only return actions marked as secure. False will return only non-secure actions. Do not use filter if you want all Actions. (optional) 
             var includeAuthActions = includeAuthActions_example;  // string | Whether or not to include authentication actions in the response. These actions are not directly executable. Some integrations create them and will run them as needed to refresh authentication information for other actions. (optional)  (default to false)
+            var includeConfig = includeConfig_example;  // bool? | Return config in response. (optional)  (default to false)
 
             try
             { 
                 // Retrieves all actions associated with filters passed in via query param.
-                ActionEntityListing result = apiInstance.GetIntegrationsActions(pageSize, pageNumber, nextPage, previousPage, sortBy, sortOrder, category, name, ids, secure, includeAuthActions);
+                ActionEntityListing result = apiInstance.GetIntegrationsActions(pageSize, pageNumber, nextPage, previousPage, sortBy, sortOrder, category, name, ids, secure, includeAuthActions, includeConfig);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -1208,6 +1226,7 @@ namespace Example
 | **ids** | **string**| Filter by action Id. Can be a comma separated list to request multiple actions.  Limit of 50 Ids. | [optional]  |
 | **secure** | **string**| Filter based on &#39;secure&#39; configuration option. True will only return actions marked as secure. False will return only non-secure actions. Do not use filter if you want all Actions. | [optional] <br />**Values**: true, false |
 | **includeAuthActions** | **string**| Whether or not to include authentication actions in the response. These actions are not directly executable. Some integrations create them and will run them as needed to refresh authentication information for other actions. | [optional] [default to false]<br />**Values**: true, false |
+| **includeConfig** | **bool?**| Return config in response. | [optional] [default to false]<br />**Values**: true, false |
 
 ### Return type
 
@@ -1412,7 +1431,7 @@ This endpoint does require any parameters.
 
 ## GetIntegrationsActionsDrafts
 
-> [**ActionEntityListing**](ActionEntityListing) GetIntegrationsActionsDrafts (int? pageSize = null, int? pageNumber = null, string nextPage = null, string previousPage = null, string sortBy = null, string sortOrder = null, string category = null, string name = null, string ids = null, string secure = null, string includeAuthActions = null)
+> [**ActionEntityListing**](ActionEntityListing) GetIntegrationsActionsDrafts (int? pageSize = null, int? pageNumber = null, string nextPage = null, string previousPage = null, string sortBy = null, string sortOrder = null, string category = null, string name = null, string ids = null, string secure = null, string includeAuthActions = null, bool? includeConfig = null)
 
 
 Retrieves all action drafts associated with the filters passed in via query param.
@@ -1455,11 +1474,12 @@ namespace Example
             var ids = ids_example;  // string | Filter by action Id. Can be a comma separated list to request multiple actions.  Limit of 50 Ids. (optional) 
             var secure = secure_example;  // string | Filter based on 'secure' configuration option. True will only return actions marked as secure. False will return only non-secure actions. Do not use filter if you want all Actions. (optional) 
             var includeAuthActions = includeAuthActions_example;  // string | Whether or not to include authentication actions in the response. These actions are not directly executable. Some integrations create them and will run them as needed to refresh authentication information for other actions. (optional)  (default to false)
+            var includeConfig = includeConfig_example;  // bool? | Return config in response. (optional)  (default to false)
 
             try
             { 
                 // Retrieves all action drafts associated with the filters passed in via query param.
-                ActionEntityListing result = apiInstance.GetIntegrationsActionsDrafts(pageSize, pageNumber, nextPage, previousPage, sortBy, sortOrder, category, name, ids, secure, includeAuthActions);
+                ActionEntityListing result = apiInstance.GetIntegrationsActionsDrafts(pageSize, pageNumber, nextPage, previousPage, sortBy, sortOrder, category, name, ids, secure, includeAuthActions, includeConfig);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -1487,6 +1507,7 @@ namespace Example
 | **ids** | **string**| Filter by action Id. Can be a comma separated list to request multiple actions.  Limit of 50 Ids. | [optional]  |
 | **secure** | **string**| Filter based on &#39;secure&#39; configuration option. True will only return actions marked as secure. False will return only non-secure actions. Do not use filter if you want all Actions. | [optional] <br />**Values**: true, false |
 | **includeAuthActions** | **string**| Whether or not to include authentication actions in the response. These actions are not directly executable. Some integrations create them and will run them as needed to refresh authentication information for other actions. | [optional] [default to false]<br />**Values**: true, false |
+| **includeConfig** | **bool?**| Return config in response. | [optional] [default to false]<br />**Values**: true, false |
 
 ### Return type
 
@@ -1548,6 +1569,210 @@ This endpoint does require any parameters.
 ### Return type
 
 [**List<FunctionRuntime>**](FunctionRuntime)
+
+
+## GetIntegrationsBotconnectorBot
+
+> [**Bot**](Bot) GetIntegrationsBotconnectorBot (string integrationId, string botId, string version = null)
+
+
+Get a specific Bot details
+
+GetIntegrationsBotconnectorBot is a preview method and is subject to both breaking and non-breaking changes at any time without notice
+
+Requires ANY permissions: 
+
+* integration:botconnector:view
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class GetIntegrationsBotconnectorBotExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new IntegrationsApi();
+            var integrationId = integrationId_example;  // string | The integration ID for this group of bots
+            var botId = botId_example;  // string | The bot ID for this bot
+            var version = version_example;  // string | Specific Version (optional) 
+
+            try
+            { 
+                // Get a specific Bot details
+                Bot result = apiInstance.GetIntegrationsBotconnectorBot(integrationId, botId, version);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling IntegrationsApi.GetIntegrationsBotconnectorBot: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **integrationId** | **string**| The integration ID for this group of bots |  |
+| **botId** | **string**| The bot ID for this bot |  |
+| **version** | **string**| Specific Version | [optional]  |
+
+### Return type
+
+[**Bot**](Bot)
+
+
+## GetIntegrationsBotconnectorBots
+
+> [**BotListing**](BotListing) GetIntegrationsBotconnectorBots (string integrationId, int? pageNumber = null, int? pageSize = null)
+
+
+Get the list of bots for this integration.
+
+GetIntegrationsBotconnectorBots is a preview method and is subject to both breaking and non-breaking changes at any time without notice
+
+Requires ANY permissions: 
+
+* integration:botconnector:view
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class GetIntegrationsBotconnectorBotsExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new IntegrationsApi();
+            var integrationId = integrationId_example;  // string | The integration ID for this group of bots.
+            var pageNumber = 56;  // int? | Page number (optional)  (default to 1)
+            var pageSize = 56;  // int? | Page size (optional)  (default to 25)
+
+            try
+            { 
+                // Get the list of bots for this integration.
+                BotListing result = apiInstance.GetIntegrationsBotconnectorBots(integrationId, pageNumber, pageSize);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling IntegrationsApi.GetIntegrationsBotconnectorBots: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **integrationId** | **string**| The integration ID for this group of bots. |  |
+| **pageNumber** | **int?**| Page number | [optional] [default to 1] |
+| **pageSize** | **int?**| Page size | [optional] [default to 25] |
+
+### Return type
+
+[**BotListing**](BotListing)
+
+
+## GetIntegrationsBotconnectorBotsSummaries
+
+> [**BotSummaryEntityListing**](BotSummaryEntityListing) GetIntegrationsBotconnectorBotsSummaries (string integrationId, int? pageNumber = null, int? pageSize = null)
+
+
+Get the summary list of bots for this integration.
+
+GetIntegrationsBotconnectorBotsSummaries is a preview method and is subject to both breaking and non-breaking changes at any time without notice
+
+Requires ANY permissions: 
+
+* integration:botconnector:view
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class GetIntegrationsBotconnectorBotsSummariesExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new IntegrationsApi();
+            var integrationId = integrationId_example;  // string | The integration ID for this group of bots.
+            var pageNumber = 56;  // int? | Page number (optional)  (default to 1)
+            var pageSize = 56;  // int? | Page size (optional)  (default to 25)
+
+            try
+            { 
+                // Get the summary list of bots for this integration.
+                BotSummaryEntityListing result = apiInstance.GetIntegrationsBotconnectorBotsSummaries(integrationId, pageNumber, pageSize);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling IntegrationsApi.GetIntegrationsBotconnectorBotsSummaries: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **integrationId** | **string**| The integration ID for this group of bots. |  |
+| **pageNumber** | **int?**| Page number | [optional] [default to 1] |
+| **pageSize** | **int?**| Page size | [optional] [default to 25] |
+
+### Return type
+
+[**BotSummaryEntityListing**](BotSummaryEntityListing)
 
 
 ## GetIntegrationsBotconnectorIntegrationIdBot
@@ -2026,8 +2251,13 @@ namespace Example
 
 > [**CredentialInfoListing**](CredentialInfoListing) GetIntegrationsCredentials (int? pageNumber = null, int? pageSize = null)
 
+:::{"alert":"warning","title":"Deprecated","collapsible":false,"autoCollapse":false}
+This resource has been deprecated
+:::
 
 List multiple sets of credentials
+
+This endpoint is deprecated. Please see the Listing API (GET /api/v2/integrations/credentials/listing)
 
 Requires ANY permissions: 
 
@@ -2084,6 +2314,72 @@ namespace Example
 ### Return type
 
 [**CredentialInfoListing**](CredentialInfoListing)
+
+
+## GetIntegrationsCredentialsListing
+
+> [**CredentialInfoCursorListing**](CredentialInfoCursorListing) GetIntegrationsCredentialsListing (string before = null, string after = null, string pageSize = null)
+
+
+List multiple sets of credentials using cursor-based paging
+
+Requires ANY permissions: 
+
+* integrations:integration:view
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class GetIntegrationsCredentialsListingExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new IntegrationsApi();
+            var before = before_example;  // string | The cursor that points to the start of the set of entities that has been returned. (optional) 
+            var after = after_example;  // string | The cursor that points to the end of the set of entities that has been returned. (optional) 
+            var pageSize = pageSize_example;  // string | Number of entities to return. Maximum of 200. (optional) 
+
+            try
+            { 
+                // List multiple sets of credentials using cursor-based paging
+                CredentialInfoCursorListing result = apiInstance.GetIntegrationsCredentialsListing(before, after, pageSize);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling IntegrationsApi.GetIntegrationsCredentialsListing: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **before** | **string**| The cursor that points to the start of the set of entities that has been returned. | [optional]  |
+| **after** | **string**| The cursor that points to the end of the set of entities that has been returned. | [optional]  |
+| **pageSize** | **string**| Number of entities to return. Maximum of 200. | [optional]  |
+
+### Return type
+
+[**CredentialInfoCursorListing**](CredentialInfoCursorListing)
 
 
 ## GetIntegrationsCredentialsTypes
@@ -4957,6 +5253,134 @@ namespace Example
 [**PureCloudPlatform.Client.V2.Model.Action**](PureCloudPlatform.Client.V2.Model.Action)
 
 
+## PostIntegrationsBotconnectorsIncomingMessages
+
+> [**IncomingMessageResponse**](IncomingMessageResponse) PostIntegrationsBotconnectorsIncomingMessages (IncomingMessageRequest body)
+
+
+Send an incoming message to the bot.
+
+PostIntegrationsBotconnectorsIncomingMessages is a preview method and is subject to both breaking and non-breaking changes at any time without notice
+
+Requires ANY permissions: 
+
+* integration:botconnector:send
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class PostIntegrationsBotconnectorsIncomingMessagesExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new IntegrationsApi();
+            var body = new IncomingMessageRequest(); // IncomingMessageRequest | Incoming Message Request
+
+            try
+            { 
+                // Send an incoming message to the bot.
+                IncomingMessageResponse result = apiInstance.PostIntegrationsBotconnectorsIncomingMessages(body);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling IntegrationsApi.PostIntegrationsBotconnectorsIncomingMessages: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **body** | [**IncomingMessageRequest**](IncomingMessageRequest)| Incoming Message Request |  |
+
+### Return type
+
+[**IncomingMessageResponse**](IncomingMessageResponse)
+
+
+## PostIntegrationsBotconnectorsOutgoingMessages
+
+> [**OutgoingMessageResponse**](OutgoingMessageResponse) PostIntegrationsBotconnectorsOutgoingMessages (OutgoingMessageRequest body)
+
+
+Send an outgoing message to the end user.
+
+PostIntegrationsBotconnectorsOutgoingMessages is a preview method and is subject to both breaking and non-breaking changes at any time without notice
+
+Requires ANY permissions: 
+
+* integration:botconnector:send
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class PostIntegrationsBotconnectorsOutgoingMessagesExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new IntegrationsApi();
+            var body = new OutgoingMessageRequest(); // OutgoingMessageRequest | Outgoing Message Request
+
+            try
+            { 
+                // Send an outgoing message to the end user.
+                OutgoingMessageResponse result = apiInstance.PostIntegrationsBotconnectorsOutgoingMessages(body);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling IntegrationsApi.PostIntegrationsBotconnectorsOutgoingMessages: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **body** | [**OutgoingMessageRequest**](OutgoingMessageRequest)| Outgoing Message Request |  |
+
+### Return type
+
+[**OutgoingMessageResponse**](OutgoingMessageResponse)
+
+
 ## PostIntegrationsCredentials
 
 > [**CredentialInfo**](CredentialInfo) PostIntegrationsCredentials (Credential body = null)
@@ -5216,6 +5640,63 @@ namespace Example
 ### Return type
 
 void (empty response body)
+
+
+## PostIntegrationsWebhookEvents
+
+> [**WebhookInvocationResponse**](WebhookInvocationResponse) PostIntegrationsWebhookEvents (string tokenId, Object body)
+
+
+Invoke Webhook
+
+Requires NO permissions: 
+
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class PostIntegrationsWebhookEventsExample
+    {
+        public void main()
+        { 
+
+            var apiInstance = new IntegrationsApi();
+            var tokenId = tokenId_example;  // string | The token of the webhook to be invoked
+            var body = new Object(); // Object | Webhook Invocation Payload
+
+            try
+            { 
+                // Invoke Webhook
+                WebhookInvocationResponse result = apiInstance.PostIntegrationsWebhookEvents(tokenId, body);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling IntegrationsApi.PostIntegrationsWebhookEvents: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tokenId** | **string**| The token of the webhook to be invoked |  |
+| **body** | [**Object**](Object)| Webhook Invocation Payload |  |
+
+### Return type
+
+[**WebhookInvocationResponse**](WebhookInvocationResponse)
 
 
 ## PutIntegrationConfigCurrent
@@ -5664,4 +6145,4 @@ namespace Example
 **string**
 
 
-_PureCloudPlatform.Client.V2 227.0.0_
+_PureCloudPlatform.Client.V2 257.0.0_

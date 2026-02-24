@@ -70,6 +70,12 @@ namespace PureCloudPlatform.Client.V2.Model
             Nconsulttransferred,
             
             /// <summary>
+            /// Enum Nconversations for "nConversations"
+            /// </summary>
+            [EnumMember(Value = "nConversations")]
+            Nconversations,
+            
+            /// <summary>
             /// Enum Nerror for "nError"
             /// </summary>
             [EnumMember(Value = "nError")]
@@ -122,6 +128,18 @@ namespace PureCloudPlatform.Client.V2.Model
             /// </summary>
             [EnumMember(Value = "nTransferred")]
             Ntransferred,
+            
+            /// <summary>
+            /// Enum Oaudiomessagecount for "oAudioMessageCount"
+            /// </summary>
+            [EnumMember(Value = "oAudioMessageCount")]
+            Oaudiomessagecount,
+            
+            /// <summary>
+            /// Enum Oexternalaudiomessagecount for "oExternalAudioMessageCount"
+            /// </summary>
+            [EnumMember(Value = "oExternalAudioMessageCount")]
+            Oexternalaudiomessagecount,
             
             /// <summary>
             /// Enum Oexternalmediacount for "oExternalMediaCount"
@@ -202,6 +220,12 @@ namespace PureCloudPlatform.Client.V2.Model
             Tagentresponsetime,
             
             /// <summary>
+            /// Enum Tagentvideoconnected for "tAgentVideoConnected"
+            /// </summary>
+            [EnumMember(Value = "tAgentVideoConnected")]
+            Tagentvideoconnected,
+            
+            /// <summary>
             /// Enum Talert for "tAlert"
             /// </summary>
             [EnumMember(Value = "tAlert")]
@@ -212,6 +236,18 @@ namespace PureCloudPlatform.Client.V2.Model
             /// </summary>
             [EnumMember(Value = "tAnswered")]
             Tanswered,
+            
+            /// <summary>
+            /// Enum Taverageagentresponsetime for "tAverageAgentResponseTime"
+            /// </summary>
+            [EnumMember(Value = "tAverageAgentResponseTime")]
+            Taverageagentresponsetime,
+            
+            /// <summary>
+            /// Enum Taveragecustomerresponsetime for "tAverageCustomerResponseTime"
+            /// </summary>
+            [EnumMember(Value = "tAverageCustomerResponseTime")]
+            Taveragecustomerresponsetime,
             
             /// <summary>
             /// Enum Tbarging for "tBarging"
@@ -260,6 +296,18 @@ namespace PureCloudPlatform.Client.V2.Model
             /// </summary>
             [EnumMember(Value = "tFirstDial")]
             Tfirstdial,
+            
+            /// <summary>
+            /// Enum Tfirstengagement for "tFirstEngagement"
+            /// </summary>
+            [EnumMember(Value = "tFirstEngagement")]
+            Tfirstengagement,
+            
+            /// <summary>
+            /// Enum Tfirstresponse for "tFirstResponse"
+            /// </summary>
+            [EnumMember(Value = "tFirstResponse")]
+            Tfirstresponse,
             
             /// <summary>
             /// Enum Tflowout for "tFlowOut"
@@ -322,10 +370,22 @@ namespace PureCloudPlatform.Client.V2.Model
             Tparkcomplete,
             
             /// <summary>
+            /// Enum Tscreenmonitoring for "tScreenMonitoring"
+            /// </summary>
+            [EnumMember(Value = "tScreenMonitoring")]
+            Tscreenmonitoring,
+            
+            /// <summary>
             /// Enum Tshortabandon for "tShortAbandon"
             /// </summary>
             [EnumMember(Value = "tShortAbandon")]
             Tshortabandon,
+            
+            /// <summary>
+            /// Enum Tsnippetrecord for "tSnippetRecord"
+            /// </summary>
+            [EnumMember(Value = "tSnippetRecord")]
+            Tsnippetrecord,
             
             /// <summary>
             /// Enum Ttalk for "tTalk"

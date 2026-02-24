@@ -79,13 +79,7 @@ namespace PureCloudPlatform.Client.V2.Model
             /// Enum Unavailable for "Unavailable"
             /// </summary>
             [EnumMember(Value = "Unavailable")]
-            Unavailable,
-            
-            /// <summary>
-            /// Enum Unscheduled for "Unscheduled"
-            /// </summary>
-            [EnumMember(Value = "Unscheduled")]
-            Unscheduled
+            Unavailable
         }
         /// <summary>
         /// The category of the activity code
@@ -103,13 +97,14 @@ namespace PureCloudPlatform.Client.V2.Model
         /// <param name="LengthInMinutes">The default length of the activity in minutes.</param>
         /// <param name="CountsAsPaidTime">Whether an agent is paid while performing this activity.</param>
         /// <param name="CountsAsWorkTime">Indicates whether or not the activity should be counted as contiguous work time for calculating daily constraints.</param>
-        /// <param name="AgentTimeOffSelectable">Whether an agent can select this activity code when creating or editing a time off request. Null if the activity's category is not time off..</param>
+        /// <param name="AgentTimeOffSelectable">Whether an agent can select this activity code when creating or editing a time off request. Null if the activity&#39;s category is not time off..</param>
         /// <param name="CountsTowardShrinkage">Whether or not this activity code counts toward shrinkage calculations.</param>
         /// <param name="PlannedShrinkage">Whether this activity code is considered planned or unplanned shrinkage.</param>
         /// <param name="Interruptible">Whether this activity code is considered interruptible.</param>
         /// <param name="SecondaryPresences">The secondary presences of this activity code.</param>
+        /// <param name="PlanningGroups">Planning groups associated with this activity code.</param>
         /// <param name="Metadata">Version metadata of this activity code.</param>
-        public BusinessUnitActivityCode(string Name = null, bool? Active = null, bool? DefaultCode = null, CategoryEnum? Category = null, int? LengthInMinutes = null, bool? CountsAsPaidTime = null, bool? CountsAsWorkTime = null, bool? AgentTimeOffSelectable = null, bool? CountsTowardShrinkage = null, bool? PlannedShrinkage = null, bool? Interruptible = null, List<SecondaryPresence> SecondaryPresences = null, WfmVersionedEntityMetadata Metadata = null)
+        public BusinessUnitActivityCode(string Name = null, bool? Active = null, bool? DefaultCode = null, CategoryEnum? Category = null, int? LengthInMinutes = null, bool? CountsAsPaidTime = null, bool? CountsAsWorkTime = null, bool? AgentTimeOffSelectable = null, bool? CountsTowardShrinkage = null, bool? PlannedShrinkage = null, bool? Interruptible = null, List<SecondaryPresence> SecondaryPresences = null, List<PlanningGroupReference> PlanningGroups = null, WfmVersionedEntityMetadata Metadata = null)
         {
             this.Name = Name;
             this.Active = Active;
@@ -123,6 +118,7 @@ namespace PureCloudPlatform.Client.V2.Model
             this.PlannedShrinkage = PlannedShrinkage;
             this.Interruptible = Interruptible;
             this.SecondaryPresences = SecondaryPresences;
+            this.PlanningGroups = PlanningGroups;
             this.Metadata = Metadata;
             
         }
@@ -194,9 +190,9 @@ namespace PureCloudPlatform.Client.V2.Model
 
 
         /// <summary>
-        /// Whether an agent can select this activity code when creating or editing a time off request. Null if the activity's category is not time off.
+        /// Whether an agent can select this activity code when creating or editing a time off request. Null if the activity&#39;s category is not time off.
         /// </summary>
-        /// <value>Whether an agent can select this activity code when creating or editing a time off request. Null if the activity's category is not time off.</value>
+        /// <value>Whether an agent can select this activity code when creating or editing a time off request. Null if the activity&#39;s category is not time off.</value>
         [DataMember(Name="agentTimeOffSelectable", EmitDefaultValue=false)]
         public bool? AgentTimeOffSelectable { get; set; }
 
@@ -239,6 +235,15 @@ namespace PureCloudPlatform.Client.V2.Model
 
 
         /// <summary>
+        /// Planning groups associated with this activity code
+        /// </summary>
+        /// <value>Planning groups associated with this activity code</value>
+        [DataMember(Name="planningGroups", EmitDefaultValue=false)]
+        public List<PlanningGroupReference> PlanningGroups { get; set; }
+
+
+
+        /// <summary>
         /// Version metadata of this activity code
         /// </summary>
         /// <value>Version metadata of this activity code</value>
@@ -277,6 +282,7 @@ namespace PureCloudPlatform.Client.V2.Model
             sb.Append("  PlannedShrinkage: ").Append(PlannedShrinkage).Append("\n");
             sb.Append("  Interruptible: ").Append(Interruptible).Append("\n");
             sb.Append("  SecondaryPresences: ").Append(SecondaryPresences).Append("\n");
+            sb.Append("  PlanningGroups: ").Append(PlanningGroups).Append("\n");
             sb.Append("  Metadata: ").Append(Metadata).Append("\n");
             sb.Append("  SelfUri: ").Append(SelfUri).Append("\n");
             sb.Append("}\n");
@@ -385,6 +391,11 @@ namespace PureCloudPlatform.Client.V2.Model
                     this.SecondaryPresences.SequenceEqual(other.SecondaryPresences)
                 ) &&
                 (
+                    this.PlanningGroups == other.PlanningGroups ||
+                    this.PlanningGroups != null &&
+                    this.PlanningGroups.SequenceEqual(other.PlanningGroups)
+                ) &&
+                (
                     this.Metadata == other.Metadata ||
                     this.Metadata != null &&
                     this.Metadata.Equals(other.Metadata)
@@ -445,6 +456,9 @@ namespace PureCloudPlatform.Client.V2.Model
 
                 if (this.SecondaryPresences != null)
                     hash = hash * 59 + this.SecondaryPresences.GetHashCode();
+
+                if (this.PlanningGroups != null)
+                    hash = hash * 59 + this.PlanningGroups.GetHashCode();
 
                 if (this.Metadata != null)
                     hash = hash * 59 + this.Metadata.GetHashCode();

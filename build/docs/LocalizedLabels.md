@@ -6,9 +6,9 @@
 
 |Name | Type | Description | Notes|
 |------------ | ------------- | ------------- | -------------|
-| **Key** | **string** | Contains localized label key used in messenger homescreen | [optional] |
-| **Value** | **string** | Contains localized label value used in messenger homescreen | [optional] |
+| **Key** | **string** | Contains localized label key used in messenger homescreen and push notification. PushNotificationTitle and PushNotificationBody keys are required when notifications are enabled. | [optional] |
+| **Value** | **string** | Contains localized label value used in messenger homescreen and push notification | [optional] |
 
 
 
-_PureCloudPlatform.Client.V2 227.0.0_
+_PureCloudPlatform.Client.V2 257.0.0_

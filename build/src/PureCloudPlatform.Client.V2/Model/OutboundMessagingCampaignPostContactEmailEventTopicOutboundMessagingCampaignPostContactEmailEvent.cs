@@ -48,7 +48,13 @@ namespace PureCloudPlatform.Client.V2.Model
             /// Enum Sms for "SMS"
             /// </summary>
             [EnumMember(Value = "SMS")]
-            Sms
+            Sms,
+            
+            /// <summary>
+            /// Enum Whatsapp for "WHATSAPP"
+            /// </summary>
+            [EnumMember(Value = "WHATSAPP")]
+            Whatsapp
         }
         /// <summary>
         /// Gets or Sets WrapupCode
@@ -86,7 +92,19 @@ namespace PureCloudPlatform.Client.V2.Model
             /// Enum OutboundMessageThrottled for "OUTBOUND_MESSAGE_THROTTLED"
             /// </summary>
             [EnumMember(Value = "OUTBOUND_MESSAGE_THROTTLED")]
-            OutboundMessageThrottled
+            OutboundMessageThrottled,
+            
+            /// <summary>
+            /// Enum OutboundMessageAmbiguous for "OUTBOUND_MESSAGE_AMBIGUOUS"
+            /// </summary>
+            [EnumMember(Value = "OUTBOUND_MESSAGE_AMBIGUOUS")]
+            OutboundMessageAmbiguous,
+            
+            /// <summary>
+            /// Enum IninOutboundCampaignForcedOff for "ININ_OUTBOUND_CAMPAIGN_FORCED_OFF"
+            /// </summary>
+            [EnumMember(Value = "ININ_OUTBOUND_CAMPAIGN_FORCED_OFF")]
+            IninOutboundCampaignForcedOff
         }
         /// <summary>
         /// Gets or Sets OutboundCampaignType
@@ -112,7 +130,7 @@ namespace PureCloudPlatform.Client.V2.Model
         /// <param name="OutboundContactListId">OutboundContactListId.</param>
         /// <param name="OutboundContactId">OutboundContactId.</param>
         /// <param name="IsCampaignAlwaysRunning">IsCampaignAlwaysRunning.</param>
-        public OutboundMessagingCampaignPostContactEmailEventTopicOutboundMessagingCampaignPostContactEmailEvent(int? EventTime = null, Guid? ConversationId = null, OutboundCampaignTypeEnum? OutboundCampaignType = null, OutboundMessagingCampaignPostContactEmailEventTopicEmailAttributes EmailAttributes = null, WrapupCodeEnum? WrapupCode = null, Guid? OutboundCampaignId = null, Guid? DivisionId = null, Guid? ContentTemplateId = null, Guid? OutboundContactListId = null, string OutboundContactId = null, bool? IsCampaignAlwaysRunning = null)
+        public OutboundMessagingCampaignPostContactEmailEventTopicOutboundMessagingCampaignPostContactEmailEvent(long? EventTime = null, Guid? ConversationId = null, OutboundCampaignTypeEnum? OutboundCampaignType = null, OutboundMessagingCampaignPostContactEmailEventTopicEmailAttributes EmailAttributes = null, WrapupCodeEnum? WrapupCode = null, Guid? OutboundCampaignId = null, Guid? DivisionId = null, Guid? ContentTemplateId = null, Guid? OutboundContactListId = null, string OutboundContactId = null, bool? IsCampaignAlwaysRunning = null)
         {
             this.EventTime = EventTime;
             this.ConversationId = ConversationId;
@@ -134,7 +152,7 @@ namespace PureCloudPlatform.Client.V2.Model
         /// Gets or Sets EventTime
         /// </summary>
         [DataMember(Name="eventTime", EmitDefaultValue=false)]
-        public int? EventTime { get; set; }
+        public long? EventTime { get; set; }
 
 
 

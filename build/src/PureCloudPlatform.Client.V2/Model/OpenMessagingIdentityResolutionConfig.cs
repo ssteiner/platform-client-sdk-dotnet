@@ -27,10 +27,14 @@ namespace PureCloudPlatform.Client.V2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OpenMessagingIdentityResolutionConfig" /> class.
         /// </summary>
+        /// <param name="Division">The division to use when performing identity resolution..</param>
         /// <param name="ResolveIdentities">Whether the channel should resolve identities (required).</param>
-        public OpenMessagingIdentityResolutionConfig(bool? ResolveIdentities = null)
+        /// <param name="ExternalSource">The external source used for stitching this channel..</param>
+        public OpenMessagingIdentityResolutionConfig(WritableStarrableDivision Division = null, bool? ResolveIdentities = null, IdentityResolutionExternalSource ExternalSource = null)
         {
+            this.Division = Division;
             this.ResolveIdentities = ResolveIdentities;
+            this.ExternalSource = ExternalSource;
             
         }
         
@@ -46,11 +50,29 @@ namespace PureCloudPlatform.Client.V2.Model
 
 
         /// <summary>
+        /// The division to use when performing identity resolution.
+        /// </summary>
+        /// <value>The division to use when performing identity resolution.</value>
+        [DataMember(Name="division", EmitDefaultValue=false)]
+        public WritableStarrableDivision Division { get; set; }
+
+
+
+        /// <summary>
         /// Whether the channel should resolve identities
         /// </summary>
         /// <value>Whether the channel should resolve identities</value>
         [DataMember(Name="resolveIdentities", EmitDefaultValue=false)]
         public bool? ResolveIdentities { get; set; }
+
+
+
+        /// <summary>
+        /// The external source used for stitching this channel.
+        /// </summary>
+        /// <value>The external source used for stitching this channel.</value>
+        [DataMember(Name="externalSource", EmitDefaultValue=false)]
+        public IdentityResolutionExternalSource ExternalSource { get; set; }
 
 
 
@@ -72,7 +94,9 @@ namespace PureCloudPlatform.Client.V2.Model
             sb.Append("class OpenMessagingIdentityResolutionConfig {\n");
 
             sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  Division: ").Append(Division).Append("\n");
             sb.Append("  ResolveIdentities: ").Append(ResolveIdentities).Append("\n");
+            sb.Append("  ExternalSource: ").Append(ExternalSource).Append("\n");
             sb.Append("  SelfUri: ").Append(SelfUri).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -120,9 +144,19 @@ namespace PureCloudPlatform.Client.V2.Model
                     this.Id.Equals(other.Id)
                 ) &&
                 (
+                    this.Division == other.Division ||
+                    this.Division != null &&
+                    this.Division.Equals(other.Division)
+                ) &&
+                (
                     this.ResolveIdentities == other.ResolveIdentities ||
                     this.ResolveIdentities != null &&
                     this.ResolveIdentities.Equals(other.ResolveIdentities)
+                ) &&
+                (
+                    this.ExternalSource == other.ExternalSource ||
+                    this.ExternalSource != null &&
+                    this.ExternalSource.Equals(other.ExternalSource)
                 ) &&
                 (
                     this.SelfUri == other.SelfUri ||
@@ -145,8 +179,14 @@ namespace PureCloudPlatform.Client.V2.Model
                 if (this.Id != null)
                     hash = hash * 59 + this.Id.GetHashCode();
 
+                if (this.Division != null)
+                    hash = hash * 59 + this.Division.GetHashCode();
+
                 if (this.ResolveIdentities != null)
                     hash = hash * 59 + this.ResolveIdentities.GetHashCode();
+
+                if (this.ExternalSource != null)
+                    hash = hash * 59 + this.ExternalSource.GetHashCode();
 
                 if (this.SelfUri != null)
                     hash = hash * 59 + this.SelfUri.GetHashCode();

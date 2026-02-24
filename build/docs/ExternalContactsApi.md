@@ -18,15 +18,21 @@ All URIs are relative to *https://api.mypurecloud.com*
 | [**DeleteExternalcontactsRelationship**](#DeleteExternalcontactsRelationship) | **Delete** /api/v2/externalcontacts/relationships/{relationshipId} | Delete a relationship |
 | [**GetExternalcontactsContact**](#GetExternalcontactsContact) | **Get** /api/v2/externalcontacts/contacts/{contactId} | Fetch an external contact |
 | [**GetExternalcontactsContactIdentifiers**](#GetExternalcontactsContactIdentifiers) | **Get** /api/v2/externalcontacts/contacts/{contactId}/identifiers | List the identifiers for a contact |
+| [**GetExternalcontactsContactJourneySegments**](#GetExternalcontactsContactJourneySegments) | **Get** /api/v2/externalcontacts/contacts/{contactId}/journey/segments | Retrieve segment assignments by external contact ID. |
 | [**GetExternalcontactsContactJourneySessions**](#GetExternalcontactsContactJourneySessions) | **Get** /api/v2/externalcontacts/contacts/{contactId}/journey/sessions | Retrieve all sessions for a given external contact. |
 | [**GetExternalcontactsContactNote**](#GetExternalcontactsContactNote) | **Get** /api/v2/externalcontacts/contacts/{contactId}/notes/{noteId} | Fetch a note for an external contact |
 | [**GetExternalcontactsContactNotes**](#GetExternalcontactsContactNotes) | **Get** /api/v2/externalcontacts/contacts/{contactId}/notes | List notes for an external contact |
 | [**GetExternalcontactsContactUnresolved**](#GetExternalcontactsContactUnresolved) | **Get** /api/v2/externalcontacts/contacts/{contactId}/unresolved | Fetch an unresolved external contact |
 | [**GetExternalcontactsContacts**](#GetExternalcontactsContacts) | **Get** /api/v2/externalcontacts/contacts | Search for external contacts |
+| [**GetExternalcontactsContactsExport**](#GetExternalcontactsContactsExport) | **Get** /api/v2/externalcontacts/contacts/exports/{exportId} | Get export for exportId |
+| [**GetExternalcontactsContactsExports**](#GetExternalcontactsContactsExports) | **Get** /api/v2/externalcontacts/contacts/exports | List exports for organization |
 | [**GetExternalcontactsContactsSchema**](#GetExternalcontactsContactsSchema) | **Get** /api/v2/externalcontacts/contacts/schemas/{schemaId} | Get a schema |
 | [**GetExternalcontactsContactsSchemaVersion**](#GetExternalcontactsContactsSchemaVersion) | **Get** /api/v2/externalcontacts/contacts/schemas/{schemaId}/versions/{versionId} | Get a specific version of a schema |
 | [**GetExternalcontactsContactsSchemaVersions**](#GetExternalcontactsContactsSchemaVersions) | **Get** /api/v2/externalcontacts/contacts/schemas/{schemaId}/versions | Get all versions of an external contact&#39;s schema |
 | [**GetExternalcontactsContactsSchemas**](#GetExternalcontactsContactsSchemas) | **Get** /api/v2/externalcontacts/contacts/schemas | Get a list of schemas. |
+| [**GetExternalcontactsContactsSchemasCoretype**](#GetExternalcontactsContactsSchemasCoretype) | **Get** /api/v2/externalcontacts/contacts/schemas/coretypes/{coreTypeName} | Get a specific named core type. |
+| [**GetExternalcontactsContactsSchemasCoretypes**](#GetExternalcontactsContactsSchemasCoretypes) | **Get** /api/v2/externalcontacts/contacts/schemas/coretypes | Get the core types from which all schemas are built. |
+| [**GetExternalcontactsContactsSchemasLimits**](#GetExternalcontactsContactsSchemasLimits) | **Get** /api/v2/externalcontacts/contacts/schemas/limits | Get quantitative limits on schemas |
 | [**GetExternalcontactsExternalsource**](#GetExternalcontactsExternalsource) | **Get** /api/v2/externalcontacts/externalsources/{externalSourceId} | Fetch an External Source |
 | [**GetExternalcontactsExternalsources**](#GetExternalcontactsExternalsources) | **Get** /api/v2/externalcontacts/externalsources | Fetch a list of External Sources |
 | [**GetExternalcontactsImportCsvSetting**](#GetExternalcontactsImportCsvSetting) | **Get** /api/v2/externalcontacts/import/csv/settings/{settingsId} | Get settings for CSV import |
@@ -39,6 +45,7 @@ All URIs are relative to *https://api.mypurecloud.com*
 | [**GetExternalcontactsImportSettings**](#GetExternalcontactsImportSettings) | **Get** /api/v2/externalcontacts/import/settings | List settings for organization |
 | [**GetExternalcontactsOrganization**](#GetExternalcontactsOrganization) | **Get** /api/v2/externalcontacts/organizations/{externalOrganizationId} | Fetch an external organization |
 | [**GetExternalcontactsOrganizationContacts**](#GetExternalcontactsOrganizationContacts) | **Get** /api/v2/externalcontacts/organizations/{externalOrganizationId}/contacts | Search for external contacts in an external organization |
+| [**GetExternalcontactsOrganizationIdentifiers**](#GetExternalcontactsOrganizationIdentifiers) | **Get** /api/v2/externalcontacts/organizations/{externalOrganizationId}/identifiers | List the identifiers for an external organization |
 | [**GetExternalcontactsOrganizationNote**](#GetExternalcontactsOrganizationNote) | **Get** /api/v2/externalcontacts/organizations/{externalOrganizationId}/notes/{noteId} | Fetch a note for an external organization |
 | [**GetExternalcontactsOrganizationNotes**](#GetExternalcontactsOrganizationNotes) | **Get** /api/v2/externalcontacts/organizations/{externalOrganizationId}/notes | List notes for an external organization |
 | [**GetExternalcontactsOrganizationRelationships**](#GetExternalcontactsOrganizationRelationships) | **Get** /api/v2/externalcontacts/organizations/{externalOrganizationId}/relationships | Fetch a relationship for an external organization |
@@ -47,15 +54,25 @@ All URIs are relative to *https://api.mypurecloud.com*
 | [**GetExternalcontactsOrganizationsSchemaVersion**](#GetExternalcontactsOrganizationsSchemaVersion) | **Get** /api/v2/externalcontacts/organizations/schemas/{schemaId}/versions/{versionId} | Get a specific version of a schema |
 | [**GetExternalcontactsOrganizationsSchemaVersions**](#GetExternalcontactsOrganizationsSchemaVersions) | **Get** /api/v2/externalcontacts/organizations/schemas/{schemaId}/versions | Get all versions of an external organization&#39;s schema |
 | [**GetExternalcontactsOrganizationsSchemas**](#GetExternalcontactsOrganizationsSchemas) | **Get** /api/v2/externalcontacts/organizations/schemas | Get a list of schemas. |
+| [**GetExternalcontactsOrganizationsSchemasCoretype**](#GetExternalcontactsOrganizationsSchemasCoretype) | **Get** /api/v2/externalcontacts/organizations/schemas/coretypes/{coreTypeName} | Get a specific named core type. |
+| [**GetExternalcontactsOrganizationsSchemasCoretypes**](#GetExternalcontactsOrganizationsSchemasCoretypes) | **Get** /api/v2/externalcontacts/organizations/schemas/coretypes | Get the core types from which all schemas are built. |
+| [**GetExternalcontactsOrganizationsSchemasLimits**](#GetExternalcontactsOrganizationsSchemasLimits) | **Get** /api/v2/externalcontacts/organizations/schemas/limits | Get quantitative limits on schemas |
 | [**GetExternalcontactsRelationship**](#GetExternalcontactsRelationship) | **Get** /api/v2/externalcontacts/relationships/{relationshipId} | Fetch a relationship |
-| [**GetExternalcontactsReversewhitepageslookup**](#GetExternalcontactsReversewhitepageslookup) | **Get** /api/v2/externalcontacts/reversewhitepageslookup | Look up contacts and externalOrganizations based on an attribute. Maximum of 25 values returned. |
+| [**GetExternalcontactsReversewhitepageslookup**](#GetExternalcontactsReversewhitepageslookup) | **Get** /api/v2/externalcontacts/reversewhitepageslookup | Look up contacts based on an attribute. Maximum of 25 values returned. |
 | [**GetExternalcontactsScanContacts**](#GetExternalcontactsScanContacts) | **Get** /api/v2/externalcontacts/scan/contacts | Scan for external contacts using paging |
+| [**GetExternalcontactsScanContactsDivisionviewsAll**](#GetExternalcontactsScanContactsDivisionviewsAll) | **Get** /api/v2/externalcontacts/scan/contacts/divisionviews/all | Scan for external contacts using paging |
 | [**GetExternalcontactsScanNotes**](#GetExternalcontactsScanNotes) | **Get** /api/v2/externalcontacts/scan/notes | Scan for notes using paging |
+| [**GetExternalcontactsScanNotesDivisionviewsAll**](#GetExternalcontactsScanNotesDivisionviewsAll) | **Get** /api/v2/externalcontacts/scan/notes/divisionviews/all | Scan for notes using paging |
 | [**GetExternalcontactsScanOrganizations**](#GetExternalcontactsScanOrganizations) | **Get** /api/v2/externalcontacts/scan/organizations | Scan for external organizations using paging |
+| [**GetExternalcontactsScanOrganizationsDivisionviewsAll**](#GetExternalcontactsScanOrganizationsDivisionviewsAll) | **Get** /api/v2/externalcontacts/scan/organizations/divisionviews/all | Scan for external organizations using paging |
 | [**GetExternalcontactsScanRelationships**](#GetExternalcontactsScanRelationships) | **Get** /api/v2/externalcontacts/scan/relationships | Scan for relationships |
+| [**GetExternalcontactsScanRelationshipsDivisionviewsAll**](#GetExternalcontactsScanRelationshipsDivisionviewsAll) | **Get** /api/v2/externalcontacts/scan/relationships/divisionviews/all | Scan for relationships |
 | [**PatchExternalcontactsContactIdentifiers**](#PatchExternalcontactsContactIdentifiers) | **Patch** /api/v2/externalcontacts/contacts/{contactId}/identifiers | Claim or release identifiers for a contact |
+| [**PatchExternalcontactsOrganizationIdentifiers**](#PatchExternalcontactsOrganizationIdentifiers) | **Patch** /api/v2/externalcontacts/organizations/{externalOrganizationId}/identifiers | Claim or release identifiers for an external organization |
 | [**PostExternalcontactsBulkContacts**](#PostExternalcontactsBulkContacts) | **Post** /api/v2/externalcontacts/bulk/contacts | Bulk fetch contacts |
 | [**PostExternalcontactsBulkContactsAdd**](#PostExternalcontactsBulkContactsAdd) | **Post** /api/v2/externalcontacts/bulk/contacts/add | Bulk add contacts |
+| [**PostExternalcontactsBulkContactsDivisionviews**](#PostExternalcontactsBulkContactsDivisionviews) | **Post** /api/v2/externalcontacts/bulk/contacts/divisionviews | Bulk fetch contacts across divisions |
+| [**PostExternalcontactsBulkContactsEnrich**](#PostExternalcontactsBulkContactsEnrich) | **Post** /api/v2/externalcontacts/bulk/contacts/enrich | Bulk Enrich Contacts - Run up to 10 Enrich operations per request |
 | [**PostExternalcontactsBulkContactsRemove**](#PostExternalcontactsBulkContactsRemove) | **Post** /api/v2/externalcontacts/bulk/contacts/remove | Bulk remove contacts |
 | [**PostExternalcontactsBulkContactsUnresolved**](#PostExternalcontactsBulkContactsUnresolved) | **Post** /api/v2/externalcontacts/bulk/contacts/unresolved | Bulk fetch unresolved ancestor contacts |
 | [**PostExternalcontactsBulkContactsUpdate**](#PostExternalcontactsBulkContactsUpdate) | **Post** /api/v2/externalcontacts/bulk/contacts/update | Bulk update contacts |
@@ -65,18 +82,26 @@ All URIs are relative to *https://api.mypurecloud.com*
 | [**PostExternalcontactsBulkNotesUpdate**](#PostExternalcontactsBulkNotesUpdate) | **Post** /api/v2/externalcontacts/bulk/notes/update | Bulk update notes |
 | [**PostExternalcontactsBulkOrganizations**](#PostExternalcontactsBulkOrganizations) | **Post** /api/v2/externalcontacts/bulk/organizations | Bulk fetch organizations |
 | [**PostExternalcontactsBulkOrganizationsAdd**](#PostExternalcontactsBulkOrganizationsAdd) | **Post** /api/v2/externalcontacts/bulk/organizations/add | Bulk add organizations |
+| [**PostExternalcontactsBulkOrganizationsDivisionviews**](#PostExternalcontactsBulkOrganizationsDivisionviews) | **Post** /api/v2/externalcontacts/bulk/organizations/divisionviews | Bulk fetch organizations across divisions |
+| [**PostExternalcontactsBulkOrganizationsEnrich**](#PostExternalcontactsBulkOrganizationsEnrich) | **Post** /api/v2/externalcontacts/bulk/organizations/enrich | Bulk enrich external organizations - Run up to 10 Enrich operations per request |
 | [**PostExternalcontactsBulkOrganizationsRemove**](#PostExternalcontactsBulkOrganizationsRemove) | **Post** /api/v2/externalcontacts/bulk/organizations/remove | Bulk remove organizations |
 | [**PostExternalcontactsBulkOrganizationsUpdate**](#PostExternalcontactsBulkOrganizationsUpdate) | **Post** /api/v2/externalcontacts/bulk/organizations/update | Bulk update organizations |
 | [**PostExternalcontactsBulkRelationships**](#PostExternalcontactsBulkRelationships) | **Post** /api/v2/externalcontacts/bulk/relationships | Bulk fetch relationships |
 | [**PostExternalcontactsBulkRelationshipsAdd**](#PostExternalcontactsBulkRelationshipsAdd) | **Post** /api/v2/externalcontacts/bulk/relationships/add | Bulk add relationships |
 | [**PostExternalcontactsBulkRelationshipsRemove**](#PostExternalcontactsBulkRelationshipsRemove) | **Post** /api/v2/externalcontacts/bulk/relationships/remove | Bulk remove relationships |
 | [**PostExternalcontactsBulkRelationshipsUpdate**](#PostExternalcontactsBulkRelationshipsUpdate) | **Post** /api/v2/externalcontacts/bulk/relationships/update | Bulk update relationships |
+| [**PostExternalcontactsContactJourneySegments**](#PostExternalcontactsContactJourneySegments) | **Post** /api/v2/externalcontacts/contacts/{contactId}/journey/segments | Assign/Unassign up to 10 segments to/from an external contact or, if a segment is already assigned, update the expiry date of the segment assignment. Any unprocessed segment assignments are returned in the body for the client to retry, in the event of a partial success. |
 | [**PostExternalcontactsContactNotes**](#PostExternalcontactsContactNotes) | **Post** /api/v2/externalcontacts/contacts/{contactId}/notes | Create a note for an external contact |
 | [**PostExternalcontactsContactPromotion**](#PostExternalcontactsContactPromotion) | **Post** /api/v2/externalcontacts/contacts/{contactId}/promotion | Promote an observed contact (ephemeral or identified) to a curated contact |
 | [**PostExternalcontactsContacts**](#PostExternalcontactsContacts) | **Post** /api/v2/externalcontacts/contacts | Create an external contact |
+| [**PostExternalcontactsContactsEnrich**](#PostExternalcontactsContactsEnrich) | **Post** /api/v2/externalcontacts/contacts/enrich | Modify or create an External Contact, with powerful behaviors for finding and combining data with pre-existing Contacts. |
+| [**PostExternalcontactsContactsExports**](#PostExternalcontactsContactsExports) | **Post** /api/v2/externalcontacts/contacts/exports | Create bulk export |
+| [**PostExternalcontactsContactsMerge**](#PostExternalcontactsContactsMerge) | **Post** /api/v2/externalcontacts/contacts/merge | Merge up to 25 contacts into a new contact record |
 | [**PostExternalcontactsContactsSchemas**](#PostExternalcontactsContactsSchemas) | **Post** /api/v2/externalcontacts/contacts/schemas | Create a schema |
 | [**PostExternalcontactsExternalsources**](#PostExternalcontactsExternalsources) | **Post** /api/v2/externalcontacts/externalsources | Create an External Source |
 | [**PostExternalcontactsIdentifierlookup**](#PostExternalcontactsIdentifierlookup) | **Post** /api/v2/externalcontacts/identifierlookup | Fetch a contact using an identifier type and value. |
+| [**PostExternalcontactsIdentifierlookupContacts**](#PostExternalcontactsIdentifierlookupContacts) | **Post** /api/v2/externalcontacts/identifierlookup/contacts | Fetch a contact using an identifier type and value. |
+| [**PostExternalcontactsIdentifierlookupOrganizations**](#PostExternalcontactsIdentifierlookupOrganizations) | **Post** /api/v2/externalcontacts/identifierlookup/organizations | Fetch an external organization using an identifier type and value. |
 | [**PostExternalcontactsImportCsvJobs**](#PostExternalcontactsImportCsvJobs) | **Post** /api/v2/externalcontacts/import/csv/jobs | Create CSV import job |
 | [**PostExternalcontactsImportCsvSettings**](#PostExternalcontactsImportCsvSettings) | **Post** /api/v2/externalcontacts/import/csv/settings | Create settings for CSV import |
 | [**PostExternalcontactsImportCsvUploads**](#PostExternalcontactsImportCsvUploads) | **Post** /api/v2/externalcontacts/import/csv/uploads | Get url for CSV upload |
@@ -85,6 +110,7 @@ All URIs are relative to *https://api.mypurecloud.com*
 | [**PostExternalcontactsMergeContacts**](#PostExternalcontactsMergeContacts) | **Post** /api/v2/externalcontacts/merge/contacts | Merge two contacts into a new contact record |
 | [**PostExternalcontactsOrganizationNotes**](#PostExternalcontactsOrganizationNotes) | **Post** /api/v2/externalcontacts/organizations/{externalOrganizationId}/notes | Create a note for an external organization |
 | [**PostExternalcontactsOrganizations**](#PostExternalcontactsOrganizations) | **Post** /api/v2/externalcontacts/organizations | Create an external organization |
+| [**PostExternalcontactsOrganizationsEnrich**](#PostExternalcontactsOrganizationsEnrich) | **Post** /api/v2/externalcontacts/organizations/enrich | Modify or create an External Org, with powerful behaviors for finding and combining data with pre-existing External Orgs. |
 | [**PostExternalcontactsOrganizationsSchemas**](#PostExternalcontactsOrganizationsSchemas) | **Post** /api/v2/externalcontacts/organizations/schemas | Create a schema |
 | [**PostExternalcontactsRelationships**](#PostExternalcontactsRelationships) | **Post** /api/v2/externalcontacts/relationships | Create a relationship |
 | [**PutExternalcontactsContact**](#PutExternalcontactsContact) | **Put** /api/v2/externalcontacts/contacts/{contactId} | Update an external contact |
@@ -855,6 +881,72 @@ namespace Example
 [**ContactIdentifierListing**](ContactIdentifierListing)
 
 
+## GetExternalcontactsContactJourneySegments
+
+> [**SegmentAssignmentListing**](SegmentAssignmentListing) GetExternalcontactsContactJourneySegments (string contactId, bool? includeMerged = null, int? limit = null)
+
+
+Retrieve segment assignments by external contact ID.
+
+Requires ANY permissions: 
+
+* externalContacts:segmentAssignment:view
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class GetExternalcontactsContactJourneySegmentsExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new ExternalContactsApi();
+            var contactId = contactId_example;  // string | ExternalContact ID
+            var includeMerged = true;  // bool? | Indicates whether to return segment assignments from all external contacts in the merge-set of the given one. (optional) 
+            var limit = 56;  // int? | Number of entities to return. Default of 25, maximum of 500. (optional) 
+
+            try
+            { 
+                // Retrieve segment assignments by external contact ID.
+                SegmentAssignmentListing result = apiInstance.GetExternalcontactsContactJourneySegments(contactId, includeMerged, limit);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ExternalContactsApi.GetExternalcontactsContactJourneySegments: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **contactId** | **string**| ExternalContact ID |  |
+| **includeMerged** | **bool?**| Indicates whether to return segment assignments from all external contacts in the merge-set of the given one. | [optional]  |
+| **limit** | **int?**| Number of entities to return. Default of 25, maximum of 500. | [optional]  |
+
+### Return type
+
+[**SegmentAssignmentListing**](SegmentAssignmentListing)
+
+
 ## GetExternalcontactsContactJourneySessions
 
 > [**SessionListing**](SessionListing) GetExternalcontactsContactJourneySessions (string contactId, string pageSize = null, string after = null, bool? includeMerged = null)
@@ -1025,10 +1117,10 @@ namespace Example
 
             var apiInstance = new ExternalContactsApi();
             var contactId = contactId_example;  // string | ExternalContact Id
-            var pageSize = 56;  // int? | Page size (limited to fetching first 1,000 records; pageNumber * pageSize must be <= 1,000) (optional)  (default to 20)
+            var pageSize = 56;  // int? | Page size (limited to fetching first 1,000 records; pageSize <= 100; pageNumber * pageSize must be <= 1,000) (optional)  (default to 20)
             var pageNumber = 56;  // int? | Page number (limited to fetching first 1,000 records; pageNumber * pageSize must be <= 1,000) (optional)  (default to 1)
             var sortOrder = sortOrder_example;  // string | The Note field to sort by. Any of: [createDate]. Direction: [asc, desc].  e.g. \"createDate:asc\", \"createDate:desc\" (optional) 
-            var expand = new List<string>(); // List<string> | which fields, if any, to expand (optional) 
+            var expand = new List<string>(); // List<string> | which fields, if any, to expand. mergeset will include notes attached to ancestor contacts which have been merged into this one. (optional) 
 
             try
             { 
@@ -1051,10 +1143,10 @@ namespace Example
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **contactId** | **string**| ExternalContact Id |  |
-| **pageSize** | **int?**| Page size (limited to fetching first 1,000 records; pageNumber * pageSize must be &lt;&#x3D; 1,000) | [optional] [default to 20] |
+| **pageSize** | **int?**| Page size (limited to fetching first 1,000 records; pageSize &lt;&#x3D; 100; pageNumber * pageSize must be &lt;&#x3D; 1,000) | [optional] [default to 20] |
 | **pageNumber** | **int?**| Page number (limited to fetching first 1,000 records; pageNumber * pageSize must be &lt;&#x3D; 1,000) | [optional] [default to 1] |
 | **sortOrder** | **string**| The Note field to sort by. Any of: [createDate]. Direction: [asc, desc].  e.g. \&quot;createDate:asc\&quot;, \&quot;createDate:desc\&quot; | [optional]  |
-| **expand** | [**List<string>**](string)| which fields, if any, to expand | [optional] <br />**Values**: author, externalDataSources, division |
+| **expand** | [**List<string>**](string)| which fields, if any, to expand. mergeset will include notes attached to ancestor contacts which have been merged into this one. | [optional] <br />**Values**: author, externalDataSources, division, mergeset |
 
 ### Return type
 
@@ -1127,7 +1219,7 @@ namespace Example
 
 ## GetExternalcontactsContacts
 
-> [**ContactListing**](ContactListing) GetExternalcontactsContacts (int? pageSize = null, int? pageNumber = null, string q = null, string sortOrder = null, List<string> expand = null)
+> [**ContactListing**](ContactListing) GetExternalcontactsContacts (int? pageSize = null, int? pageNumber = null, string q = null, string sortOrder = null, List<string> expand = null, List<string> divisionIds = null)
 
 
 Search for external contacts
@@ -1164,11 +1256,12 @@ namespace Example
             var q = q_example;  // string | User supplied search keywords (no special syntax is currently supported) (optional) 
             var sortOrder = sortOrder_example;  // string | The External Contact field to sort by. Any of: [firstName, lastName, middleName, title]. Direction: [asc, desc]. e.g. \"firstName:asc\", \"title:desc\" (optional) 
             var expand = new List<string>(); // List<string> | which fields, if any, to expand (optional) 
+            var divisionIds = new List<string>(); // List<string> | which divisions to search, up to 50 (optional) 
 
             try
             { 
                 // Search for external contacts
-                ContactListing result = apiInstance.GetExternalcontactsContacts(pageSize, pageNumber, q, sortOrder, expand);
+                ContactListing result = apiInstance.GetExternalcontactsContacts(pageSize, pageNumber, q, sortOrder, expand, divisionIds);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -1190,10 +1283,141 @@ namespace Example
 | **q** | **string**| User supplied search keywords (no special syntax is currently supported) | [optional]  |
 | **sortOrder** | **string**| The External Contact field to sort by. Any of: [firstName, lastName, middleName, title]. Direction: [asc, desc]. e.g. \&quot;firstName:asc\&quot;, \&quot;title:desc\&quot; | [optional]  |
 | **expand** | [**List<string>**](string)| which fields, if any, to expand | [optional] <br />**Values**: externalOrganization, externalDataSources, identifiers, externalSources, division |
+| **divisionIds** | [**List<string>**](string)| which divisions to search, up to 50 | [optional]  |
 
 ### Return type
 
 [**ContactListing**](ContactListing)
+
+
+## GetExternalcontactsContactsExport
+
+> [**ContactsExport**](ContactsExport) GetExternalcontactsContactsExport (string exportId)
+
+
+Get export for exportId
+
+Requires ALL permissions: 
+
+* externalContacts:export:view
+* externalContacts:contact:view
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class GetExternalcontactsContactsExportExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new ExternalContactsApi();
+            var exportId = exportId_example;  // string | Export id
+
+            try
+            { 
+                // Get export for exportId
+                ContactsExport result = apiInstance.GetExternalcontactsContactsExport(exportId);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ExternalContactsApi.GetExternalcontactsContactsExport: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **exportId** | **string**| Export id |  |
+
+### Return type
+
+[**ContactsExport**](ContactsExport)
+
+
+## GetExternalcontactsContactsExports
+
+> [**ExportListing**](ExportListing) GetExternalcontactsContactsExports (List<string> divisionIds = null, string after = null, int? pageSize = null)
+
+
+List exports for organization
+
+Requires ALL permissions: 
+
+* externalContacts:export:view
+* externalContacts:contact:view
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class GetExternalcontactsContactsExportsExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new ExternalContactsApi();
+            var divisionIds = new List<string>(); // List<string> | Division IDs of entities (optional) 
+            var after = after_example;  // string | The cursor that points to the end of the set of entities (optional) 
+            var pageSize = 56;  // int? | Number of entities to return (optional) 
+
+            try
+            { 
+                // List exports for organization
+                ExportListing result = apiInstance.GetExternalcontactsContactsExports(divisionIds, after, pageSize);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ExternalContactsApi.GetExternalcontactsContactsExports: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **divisionIds** | [**List<string>**](string)| Division IDs of entities | [optional]  |
+| **after** | **string**| The cursor that points to the end of the set of entities | [optional]  |
+| **pageSize** | **int?**| Number of entities to return | [optional]  |
+
+### Return type
+
+[**ExportListing**](ExportListing)
 
 
 ## GetExternalcontactsContactsSchema
@@ -1324,7 +1548,7 @@ namespace Example
 
 ## GetExternalcontactsContactsSchemaVersions
 
-> [**DataSchema**](DataSchema) GetExternalcontactsContactsSchemaVersions (string schemaId)
+> [**DataSchemaListing**](DataSchemaListing) GetExternalcontactsContactsSchemaVersions (string schemaId)
 
 
 Get all versions of an external contact's schema
@@ -1360,7 +1584,7 @@ namespace Example
             try
             { 
                 // Get all versions of an external contact's schema
-                DataSchema result = apiInstance.GetExternalcontactsContactsSchemaVersions(schemaId);
+                DataSchemaListing result = apiInstance.GetExternalcontactsContactsSchemaVersions(schemaId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -1381,7 +1605,7 @@ namespace Example
 
 ### Return type
 
-[**DataSchema**](DataSchema)
+[**DataSchemaListing**](DataSchemaListing)
 
 
 ## GetExternalcontactsContactsSchemas
@@ -1439,6 +1663,182 @@ This endpoint does require any parameters.
 ### Return type
 
 [**DataSchemaListing**](DataSchemaListing)
+
+
+## GetExternalcontactsContactsSchemasCoretype
+
+> [**Coretype**](Coretype) GetExternalcontactsContactsSchemasCoretype (string coreTypeName)
+
+
+Get a specific named core type.
+
+Requires ANY permissions: 
+
+* externalContacts:customFields:view
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class GetExternalcontactsContactsSchemasCoretypeExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new ExternalContactsApi();
+            var coreTypeName = coreTypeName_example;  // string | Name of the core type
+
+            try
+            { 
+                // Get a specific named core type.
+                Coretype result = apiInstance.GetExternalcontactsContactsSchemasCoretype(coreTypeName);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ExternalContactsApi.GetExternalcontactsContactsSchemasCoretype: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **coreTypeName** | **string**| Name of the core type |  |
+
+### Return type
+
+[**Coretype**](Coretype)
+
+
+## GetExternalcontactsContactsSchemasCoretypes
+
+> [**CoretypeListing**](CoretypeListing) GetExternalcontactsContactsSchemasCoretypes ()
+
+
+Get the core types from which all schemas are built.
+
+Requires ANY permissions: 
+
+* externalContacts:customFields:view
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class GetExternalcontactsContactsSchemasCoretypesExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new ExternalContactsApi();
+
+            try
+            { 
+                // Get the core types from which all schemas are built.
+                CoretypeListing result = apiInstance.GetExternalcontactsContactsSchemasCoretypes();
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ExternalContactsApi.GetExternalcontactsContactsSchemasCoretypes: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+This endpoint does require any parameters.
+
+### Return type
+
+[**CoretypeListing**](CoretypeListing)
+
+
+## GetExternalcontactsContactsSchemasLimits
+
+> [**SchemaQuantityLimits**](SchemaQuantityLimits) GetExternalcontactsContactsSchemasLimits ()
+
+
+Get quantitative limits on schemas
+
+Requires ANY permissions: 
+
+* externalContacts:customFields:view
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class GetExternalcontactsContactsSchemasLimitsExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new ExternalContactsApi();
+
+            try
+            { 
+                // Get quantitative limits on schemas
+                SchemaQuantityLimits result = apiInstance.GetExternalcontactsContactsSchemasLimits();
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ExternalContactsApi.GetExternalcontactsContactsSchemasLimits: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+This endpoint does require any parameters.
+
+### Return type
+
+[**SchemaQuantityLimits**](SchemaQuantityLimits)
 
 
 ## GetExternalcontactsExternalsource
@@ -2231,6 +2631,68 @@ namespace Example
 [**ContactListing**](ContactListing)
 
 
+## GetExternalcontactsOrganizationIdentifiers
+
+> [**ExternalOrganizationIdentifierListing**](ExternalOrganizationIdentifierListing) GetExternalcontactsOrganizationIdentifiers (string externalOrganizationId)
+
+
+List the identifiers for an external organization
+
+Requires ANY permissions: 
+
+* externalContacts:externalOrganization:view
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class GetExternalcontactsOrganizationIdentifiersExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new ExternalContactsApi();
+            var externalOrganizationId = externalOrganizationId_example;  // string | External Organization ID
+
+            try
+            { 
+                // List the identifiers for an external organization
+                ExternalOrganizationIdentifierListing result = apiInstance.GetExternalcontactsOrganizationIdentifiers(externalOrganizationId);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ExternalContactsApi.GetExternalcontactsOrganizationIdentifiers: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **externalOrganizationId** | **string**| External Organization ID |  |
+
+### Return type
+
+[**ExternalOrganizationIdentifierListing**](ExternalOrganizationIdentifierListing)
+
+
 ## GetExternalcontactsOrganizationNote
 
 > [**Note**](Note) GetExternalcontactsOrganizationNote (string externalOrganizationId, string noteId, List<string> expand = null)
@@ -2442,7 +2904,7 @@ namespace Example
 
 ## GetExternalcontactsOrganizations
 
-> [**ExternalOrganizationListing**](ExternalOrganizationListing) GetExternalcontactsOrganizations (int? pageSize = null, int? pageNumber = null, string q = null, List<string> trustorId = null, string sortOrder = null, List<string> expand = null, bool? includeTrustors = null)
+> [**ExternalOrganizationListing**](ExternalOrganizationListing) GetExternalcontactsOrganizations (int? pageSize = null, int? pageNumber = null, string q = null, List<string> trustorId = null, string sortOrder = null, List<string> expand = null, bool? includeTrustors = null, List<string> divisionIds = null)
 
 
 Search for external organizations
@@ -2481,11 +2943,12 @@ namespace Example
             var sortOrder = sortOrder_example;  // string | The Organization field to sort by. Any of: [companyType, industry, name]. Direction: [asc, desc]. e.g. \"companyType:asc\", \"industry:desc\" (optional) 
             var expand = new List<string>(); // List<string> | which fields, if any, to expand (optional) 
             var includeTrustors = true;  // bool? | (true or false) whether or not to include trustor information embedded in the externalOrganization (optional) 
+            var divisionIds = new List<string>(); // List<string> | which divisions to search, up to 50 (optional) 
 
             try
             { 
                 // Search for external organizations
-                ExternalOrganizationListing result = apiInstance.GetExternalcontactsOrganizations(pageSize, pageNumber, q, trustorId, sortOrder, expand, includeTrustors);
+                ExternalOrganizationListing result = apiInstance.GetExternalcontactsOrganizations(pageSize, pageNumber, q, trustorId, sortOrder, expand, includeTrustors, divisionIds);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -2509,6 +2972,7 @@ namespace Example
 | **sortOrder** | **string**| The Organization field to sort by. Any of: [companyType, industry, name]. Direction: [asc, desc]. e.g. \&quot;companyType:asc\&quot;, \&quot;industry:desc\&quot; | [optional]  |
 | **expand** | [**List<string>**](string)| which fields, if any, to expand | [optional] <br />**Values**: externalDataSources, division, identifiers, externalSources |
 | **includeTrustors** | **bool?**| (true or false) whether or not to include trustor information embedded in the externalOrganization | [optional]  |
+| **divisionIds** | [**List<string>**](string)| which divisions to search, up to 50 | [optional]  |
 
 ### Return type
 
@@ -2643,7 +3107,7 @@ namespace Example
 
 ## GetExternalcontactsOrganizationsSchemaVersions
 
-> [**DataSchema**](DataSchema) GetExternalcontactsOrganizationsSchemaVersions (string schemaId)
+> [**DataSchemaListing**](DataSchemaListing) GetExternalcontactsOrganizationsSchemaVersions (string schemaId)
 
 
 Get all versions of an external organization's schema
@@ -2679,7 +3143,7 @@ namespace Example
             try
             { 
                 // Get all versions of an external organization's schema
-                DataSchema result = apiInstance.GetExternalcontactsOrganizationsSchemaVersions(schemaId);
+                DataSchemaListing result = apiInstance.GetExternalcontactsOrganizationsSchemaVersions(schemaId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -2700,7 +3164,7 @@ namespace Example
 
 ### Return type
 
-[**DataSchema**](DataSchema)
+[**DataSchemaListing**](DataSchemaListing)
 
 
 ## GetExternalcontactsOrganizationsSchemas
@@ -2758,6 +3222,182 @@ This endpoint does require any parameters.
 ### Return type
 
 [**DataSchemaListing**](DataSchemaListing)
+
+
+## GetExternalcontactsOrganizationsSchemasCoretype
+
+> [**Coretype**](Coretype) GetExternalcontactsOrganizationsSchemasCoretype (string coreTypeName)
+
+
+Get a specific named core type.
+
+Requires ANY permissions: 
+
+* externalContacts:customFields:view
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class GetExternalcontactsOrganizationsSchemasCoretypeExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new ExternalContactsApi();
+            var coreTypeName = coreTypeName_example;  // string | Name of the core type
+
+            try
+            { 
+                // Get a specific named core type.
+                Coretype result = apiInstance.GetExternalcontactsOrganizationsSchemasCoretype(coreTypeName);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ExternalContactsApi.GetExternalcontactsOrganizationsSchemasCoretype: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **coreTypeName** | **string**| Name of the core type |  |
+
+### Return type
+
+[**Coretype**](Coretype)
+
+
+## GetExternalcontactsOrganizationsSchemasCoretypes
+
+> [**CoretypeListing**](CoretypeListing) GetExternalcontactsOrganizationsSchemasCoretypes ()
+
+
+Get the core types from which all schemas are built.
+
+Requires ANY permissions: 
+
+* externalContacts:customFields:view
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class GetExternalcontactsOrganizationsSchemasCoretypesExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new ExternalContactsApi();
+
+            try
+            { 
+                // Get the core types from which all schemas are built.
+                CoretypeListing result = apiInstance.GetExternalcontactsOrganizationsSchemasCoretypes();
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ExternalContactsApi.GetExternalcontactsOrganizationsSchemasCoretypes: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+This endpoint does require any parameters.
+
+### Return type
+
+[**CoretypeListing**](CoretypeListing)
+
+
+## GetExternalcontactsOrganizationsSchemasLimits
+
+> [**SchemaQuantityLimits**](SchemaQuantityLimits) GetExternalcontactsOrganizationsSchemasLimits ()
+
+
+Get quantitative limits on schemas
+
+Requires ANY permissions: 
+
+* externalContacts:customFields:view
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class GetExternalcontactsOrganizationsSchemasLimitsExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new ExternalContactsApi();
+
+            try
+            { 
+                // Get quantitative limits on schemas
+                SchemaQuantityLimits result = apiInstance.GetExternalcontactsOrganizationsSchemasLimits();
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ExternalContactsApi.GetExternalcontactsOrganizationsSchemasLimits: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+This endpoint does require any parameters.
+
+### Return type
+
+[**SchemaQuantityLimits**](SchemaQuantityLimits)
 
 
 ## GetExternalcontactsRelationship
@@ -2827,10 +3467,10 @@ namespace Example
 
 ## GetExternalcontactsReversewhitepageslookup
 
-> [**ReverseWhitepagesLookupResult**](ReverseWhitepagesLookupResult) GetExternalcontactsReversewhitepageslookup (string lookupVal, List<string> expand = null)
+> [**ReverseWhitepagesLookupResult**](ReverseWhitepagesLookupResult) GetExternalcontactsReversewhitepageslookup (string lookupVal, List<string> expand = null, string divisionId = null)
 
 
-Look up contacts and externalOrganizations based on an attribute. Maximum of 25 values returned.
+Look up contacts based on an attribute. Maximum of 25 values returned.
 
 Requires ANY permissions: 
 
@@ -2858,13 +3498,14 @@ namespace Example
                 "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
 
             var apiInstance = new ExternalContactsApi();
-            var lookupVal = lookupVal_example;  // string | User supplied value to lookup contacts/externalOrganizations (supports email addresses, e164 phone numbers, Twitter screen names)
+            var lookupVal = lookupVal_example;  // string | User supplied value to lookup contacts (supports email addresses, e164 phone numbers, Twitter screen names)
             var expand = new List<string>(); // List<string> | which field, if any, to expand (optional) 
+            var divisionId = divisionId_example;  // string | Specifies which division to lookup contacts in, for the given lookup value (optional)  (default to "*")
 
             try
             { 
-                // Look up contacts and externalOrganizations based on an attribute. Maximum of 25 values returned.
-                ReverseWhitepagesLookupResult result = apiInstance.GetExternalcontactsReversewhitepageslookup(lookupVal, expand);
+                // Look up contacts based on an attribute. Maximum of 25 values returned.
+                ReverseWhitepagesLookupResult result = apiInstance.GetExternalcontactsReversewhitepageslookup(lookupVal, expand, divisionId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -2881,8 +3522,9 @@ namespace Example
 
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **lookupVal** | **string**| User supplied value to lookup contacts/externalOrganizations (supports email addresses, e164 phone numbers, Twitter screen names) |  |
+| **lookupVal** | **string**| User supplied value to lookup contacts (supports email addresses, e164 phone numbers, Twitter screen names) |  |
 | **expand** | [**List<string>**](string)| which field, if any, to expand | [optional] <br />**Values**: contacts.externalOrganization, externalDataSources, division |
+| **divisionId** | **string**| Specifies which division to lookup contacts in, for the given lookup value | [optional] [default to "*"] |
 
 ### Return type
 
@@ -2891,7 +3533,7 @@ namespace Example
 
 ## GetExternalcontactsScanContacts
 
-> [**CursorContactListing**](CursorContactListing) GetExternalcontactsScanContacts (int? limit = null, string cursor = null)
+> [**CursorContactListing**](CursorContactListing) GetExternalcontactsScanContacts (int? limit = null, string cursor = null, string divisionId = null)
 
 
 Scan for external contacts using paging
@@ -2925,16 +3567,82 @@ namespace Example
             var apiInstance = new ExternalContactsApi();
             var limit = 56;  // int? | The number of contacts per page; must be between 10 and 200, default is 100 (optional) 
             var cursor = cursor_example;  // string | Indicates where to resume query results (not required for first page), each page returns a new cursor with a 24h TTL (optional) 
+            var divisionId = divisionId_example;  // string | The division to scan over (optional)  (default to "*")
 
             try
             { 
                 // Scan for external contacts using paging
-                CursorContactListing result = apiInstance.GetExternalcontactsScanContacts(limit, cursor);
+                CursorContactListing result = apiInstance.GetExternalcontactsScanContacts(limit, cursor, divisionId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
                 Debug.Print("Exception when calling ExternalContactsApi.GetExternalcontactsScanContacts: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **limit** | **int?**| The number of contacts per page; must be between 10 and 200, default is 100 | [optional]  |
+| **cursor** | **string**| Indicates where to resume query results (not required for first page), each page returns a new cursor with a 24h TTL | [optional]  |
+| **divisionId** | **string**| The division to scan over | [optional] [default to "*"] |
+
+### Return type
+
+[**CursorContactListing**](CursorContactListing)
+
+
+## GetExternalcontactsScanContactsDivisionviewsAll
+
+> [**CursorContactListing**](CursorContactListing) GetExternalcontactsScanContactsDivisionviewsAll (int? limit = null, string cursor = null)
+
+
+Scan for external contacts using paging
+
+Requires ALL permissions: 
+
+* externalContacts:contact:viewAll
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class GetExternalcontactsScanContactsDivisionviewsAllExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new ExternalContactsApi();
+            var limit = 56;  // int? | The number of contacts per page; must be between 10 and 200, default is 100 (optional) 
+            var cursor = cursor_example;  // string | Indicates where to resume query results (not required for first page), each page returns a new cursor with a 24h TTL (optional) 
+
+            try
+            { 
+                // Scan for external contacts using paging
+                CursorContactListing result = apiInstance.GetExternalcontactsScanContactsDivisionviewsAll(limit, cursor);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ExternalContactsApi.GetExternalcontactsScanContactsDivisionviewsAll: " + e.Message );
             }
         }
     }
@@ -2956,7 +3664,7 @@ namespace Example
 
 ## GetExternalcontactsScanNotes
 
-> [**CursorNoteListing**](CursorNoteListing) GetExternalcontactsScanNotes (int? limit = null, string cursor = null)
+> [**CursorNoteListing**](CursorNoteListing) GetExternalcontactsScanNotes (int? limit = null, string cursor = null, string divisionId = null)
 
 
 Scan for notes using paging
@@ -2990,16 +3698,82 @@ namespace Example
             var apiInstance = new ExternalContactsApi();
             var limit = 56;  // int? | The number of notes per page; must be between 10 and 200, default is 100 (optional) 
             var cursor = cursor_example;  // string | Indicates where to resume query results (not required for first page), each page returns a new cursor with a 24h TTL (optional) 
+            var divisionId = divisionId_example;  // string | The division to scan over (optional)  (default to "*")
 
             try
             { 
                 // Scan for notes using paging
-                CursorNoteListing result = apiInstance.GetExternalcontactsScanNotes(limit, cursor);
+                CursorNoteListing result = apiInstance.GetExternalcontactsScanNotes(limit, cursor, divisionId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
                 Debug.Print("Exception when calling ExternalContactsApi.GetExternalcontactsScanNotes: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **limit** | **int?**| The number of notes per page; must be between 10 and 200, default is 100 | [optional]  |
+| **cursor** | **string**| Indicates where to resume query results (not required for first page), each page returns a new cursor with a 24h TTL | [optional]  |
+| **divisionId** | **string**| The division to scan over | [optional] [default to "*"] |
+
+### Return type
+
+[**CursorNoteListing**](CursorNoteListing)
+
+
+## GetExternalcontactsScanNotesDivisionviewsAll
+
+> [**CursorNoteListing**](CursorNoteListing) GetExternalcontactsScanNotesDivisionviewsAll (int? limit = null, string cursor = null)
+
+
+Scan for notes using paging
+
+Requires ALL permissions: 
+
+* externalContacts:contact:viewAll
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class GetExternalcontactsScanNotesDivisionviewsAllExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new ExternalContactsApi();
+            var limit = 56;  // int? | The number of notes per page; must be between 10 and 200, default is 100 (optional) 
+            var cursor = cursor_example;  // string | Indicates where to resume query results (not required for first page), each page returns a new cursor with a 24h TTL (optional) 
+
+            try
+            { 
+                // Scan for notes using paging
+                CursorNoteListing result = apiInstance.GetExternalcontactsScanNotesDivisionviewsAll(limit, cursor);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ExternalContactsApi.GetExternalcontactsScanNotesDivisionviewsAll: " + e.Message );
             }
         }
     }
@@ -3021,7 +3795,7 @@ namespace Example
 
 ## GetExternalcontactsScanOrganizations
 
-> [**CursorOrganizationListing**](CursorOrganizationListing) GetExternalcontactsScanOrganizations (int? limit = null, string cursor = null)
+> [**CursorOrganizationListing**](CursorOrganizationListing) GetExternalcontactsScanOrganizations (int? limit = null, string cursor = null, string divisionId = null)
 
 
 Scan for external organizations using paging
@@ -3055,16 +3829,82 @@ namespace Example
             var apiInstance = new ExternalContactsApi();
             var limit = 56;  // int? | The number of organizations per page; must be between 10 and 200, default is 100 (optional) 
             var cursor = cursor_example;  // string | Indicates where to resume query results (not required for first page), each page returns a new cursor with a 24h TTL (optional) 
+            var divisionId = divisionId_example;  // string | The division to scan over (optional)  (default to "*")
 
             try
             { 
                 // Scan for external organizations using paging
-                CursorOrganizationListing result = apiInstance.GetExternalcontactsScanOrganizations(limit, cursor);
+                CursorOrganizationListing result = apiInstance.GetExternalcontactsScanOrganizations(limit, cursor, divisionId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
                 Debug.Print("Exception when calling ExternalContactsApi.GetExternalcontactsScanOrganizations: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **limit** | **int?**| The number of organizations per page; must be between 10 and 200, default is 100 | [optional]  |
+| **cursor** | **string**| Indicates where to resume query results (not required for first page), each page returns a new cursor with a 24h TTL | [optional]  |
+| **divisionId** | **string**| The division to scan over | [optional] [default to "*"] |
+
+### Return type
+
+[**CursorOrganizationListing**](CursorOrganizationListing)
+
+
+## GetExternalcontactsScanOrganizationsDivisionviewsAll
+
+> [**CursorOrganizationListing**](CursorOrganizationListing) GetExternalcontactsScanOrganizationsDivisionviewsAll (int? limit = null, string cursor = null)
+
+
+Scan for external organizations using paging
+
+Requires ALL permissions: 
+
+* externalContacts:externalOrganization:viewAll
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class GetExternalcontactsScanOrganizationsDivisionviewsAllExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new ExternalContactsApi();
+            var limit = 56;  // int? | The number of organizations per page; must be between 10 and 200, default is 100 (optional) 
+            var cursor = cursor_example;  // string | Indicates where to resume query results (not required for first page), each page returns a new cursor with a 24h TTL (optional) 
+
+            try
+            { 
+                // Scan for external organizations using paging
+                CursorOrganizationListing result = apiInstance.GetExternalcontactsScanOrganizationsDivisionviewsAll(limit, cursor);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ExternalContactsApi.GetExternalcontactsScanOrganizationsDivisionviewsAll: " + e.Message );
             }
         }
     }
@@ -3086,7 +3926,7 @@ namespace Example
 
 ## GetExternalcontactsScanRelationships
 
-> [**CursorRelationshipListing**](CursorRelationshipListing) GetExternalcontactsScanRelationships (int? limit = null, string cursor = null)
+> [**CursorRelationshipListing**](CursorRelationshipListing) GetExternalcontactsScanRelationships (int? limit = null, string cursor = null, string divisionId = null)
 
 
 Scan for relationships
@@ -3120,16 +3960,82 @@ namespace Example
             var apiInstance = new ExternalContactsApi();
             var limit = 56;  // int? | The number of relationships per page; must be between 10 and 200, default is 100 (optional) 
             var cursor = cursor_example;  // string | Indicates where to resume query results (not required for first page), each page returns a new cursor with a 24h TTL (optional) 
+            var divisionId = divisionId_example;  // string | The division to scan over (optional)  (default to "*")
 
             try
             { 
                 // Scan for relationships
-                CursorRelationshipListing result = apiInstance.GetExternalcontactsScanRelationships(limit, cursor);
+                CursorRelationshipListing result = apiInstance.GetExternalcontactsScanRelationships(limit, cursor, divisionId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
                 Debug.Print("Exception when calling ExternalContactsApi.GetExternalcontactsScanRelationships: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **limit** | **int?**| The number of relationships per page; must be between 10 and 200, default is 100 | [optional]  |
+| **cursor** | **string**| Indicates where to resume query results (not required for first page), each page returns a new cursor with a 24h TTL | [optional]  |
+| **divisionId** | **string**| The division to scan over | [optional] [default to "*"] |
+
+### Return type
+
+[**CursorRelationshipListing**](CursorRelationshipListing)
+
+
+## GetExternalcontactsScanRelationshipsDivisionviewsAll
+
+> [**CursorRelationshipListing**](CursorRelationshipListing) GetExternalcontactsScanRelationshipsDivisionviewsAll (int? limit = null, string cursor = null)
+
+
+Scan for relationships
+
+Requires ALL permissions: 
+
+* externalContacts:contact:viewAll
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class GetExternalcontactsScanRelationshipsDivisionviewsAllExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new ExternalContactsApi();
+            var limit = 56;  // int? | The number of relationships per page; must be between 10 and 200, default is 100 (optional) 
+            var cursor = cursor_example;  // string | Indicates where to resume query results (not required for first page), each page returns a new cursor with a 24h TTL (optional) 
+
+            try
+            { 
+                // Scan for relationships
+                CursorRelationshipListing result = apiInstance.GetExternalcontactsScanRelationshipsDivisionviewsAll(limit, cursor);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ExternalContactsApi.GetExternalcontactsScanRelationshipsDivisionviewsAll: " + e.Message );
             }
         }
     }
@@ -3211,6 +4117,70 @@ namespace Example
 ### Return type
 
 [**ContactIdentifier**](ContactIdentifier)
+
+
+## PatchExternalcontactsOrganizationIdentifiers
+
+> [**ExternalOrganizationIdentifier**](ExternalOrganizationIdentifier) PatchExternalcontactsOrganizationIdentifiers (string externalOrganizationId, ExternalOrganizationIdentifierClaimRequest body)
+
+
+Claim or release identifiers for an external organization
+
+Requires ANY permissions: 
+
+* externalContacts:externalOrganization:edit
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class PatchExternalcontactsOrganizationIdentifiersExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new ExternalContactsApi();
+            var externalOrganizationId = externalOrganizationId_example;  // string | External Organization ID
+            var body = new ExternalOrganizationIdentifierClaimRequest(); // ExternalOrganizationIdentifierClaimRequest | ClaimRequest
+
+            try
+            { 
+                // Claim or release identifiers for an external organization
+                ExternalOrganizationIdentifier result = apiInstance.PatchExternalcontactsOrganizationIdentifiers(externalOrganizationId, body);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ExternalContactsApi.PatchExternalcontactsOrganizationIdentifiers: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **externalOrganizationId** | **string**| External Organization ID |  |
+| **body** | [**ExternalOrganizationIdentifierClaimRequest**](ExternalOrganizationIdentifierClaimRequest)| ClaimRequest |  |
+
+### Return type
+
+[**ExternalOrganizationIdentifier**](ExternalOrganizationIdentifier)
 
 
 ## PostExternalcontactsBulkContacts
@@ -3335,6 +4305,134 @@ namespace Example
 ### Return type
 
 [**BulkContactsResponse**](BulkContactsResponse)
+
+
+## PostExternalcontactsBulkContactsDivisionviews
+
+> [**BulkFetchContactsResponse**](BulkFetchContactsResponse) PostExternalcontactsBulkContactsDivisionviews (BulkIdsRequest body)
+
+
+Bulk fetch contacts across divisions
+
+Requires ANY permissions: 
+
+* externalContacts:contact:search
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class PostExternalcontactsBulkContactsDivisionviewsExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new ExternalContactsApi();
+            var body = new BulkIdsRequest(); // BulkIdsRequest | Contact ids
+
+            try
+            { 
+                // Bulk fetch contacts across divisions
+                BulkFetchContactsResponse result = apiInstance.PostExternalcontactsBulkContactsDivisionviews(body);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ExternalContactsApi.PostExternalcontactsBulkContactsDivisionviews: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **body** | [**BulkIdsRequest**](BulkIdsRequest)| Contact ids |  |
+
+### Return type
+
+[**BulkFetchContactsResponse**](BulkFetchContactsResponse)
+
+
+## PostExternalcontactsBulkContactsEnrich
+
+> [**BulkContactsEnrichResponse**](BulkContactsEnrichResponse) PostExternalcontactsBulkContactsEnrich (BulkContactsEnrichRequest body, bool? dryRun = null)
+
+
+Bulk Enrich Contacts - Run up to 10 Enrich operations per request
+
+See the API endpoint /externalcontacts/contacts/enrich for docs on individual Enrich operations.
+
+Requires ANY permissions: 
+
+* externalContacts:contact:enrich
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class PostExternalcontactsBulkContactsEnrichExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new ExternalContactsApi();
+            var body = new BulkContactsEnrichRequest(); // BulkContactsEnrichRequest | Contact Enrich Requests
+            var dryRun = true;  // bool? | If true, the request will not make any modifications, but will show you what the end result *would* be. (optional) 
+
+            try
+            { 
+                // Bulk Enrich Contacts - Run up to 10 Enrich operations per request
+                BulkContactsEnrichResponse result = apiInstance.PostExternalcontactsBulkContactsEnrich(body, dryRun);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ExternalContactsApi.PostExternalcontactsBulkContactsEnrich: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **body** | [**BulkContactsEnrichRequest**](BulkContactsEnrichRequest)| Contact Enrich Requests |  |
+| **dryRun** | **bool?**| If true, the request will not make any modifications, but will show you what the end result *would* be. | [optional]  |
+
+### Return type
+
+[**BulkContactsEnrichResponse**](BulkContactsEnrichResponse)
 
 
 ## PostExternalcontactsBulkContactsRemove
@@ -3899,6 +4997,134 @@ namespace Example
 [**BulkOrganizationsResponse**](BulkOrganizationsResponse)
 
 
+## PostExternalcontactsBulkOrganizationsDivisionviews
+
+> [**BulkFetchOrganizationsResponse**](BulkFetchOrganizationsResponse) PostExternalcontactsBulkOrganizationsDivisionviews (BulkIdsRequest body)
+
+
+Bulk fetch organizations across divisions
+
+Requires ANY permissions: 
+
+* externalContacts:externalOrganization:search
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class PostExternalcontactsBulkOrganizationsDivisionviewsExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new ExternalContactsApi();
+            var body = new BulkIdsRequest(); // BulkIdsRequest | Organizations ids
+
+            try
+            { 
+                // Bulk fetch organizations across divisions
+                BulkFetchOrganizationsResponse result = apiInstance.PostExternalcontactsBulkOrganizationsDivisionviews(body);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ExternalContactsApi.PostExternalcontactsBulkOrganizationsDivisionviews: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **body** | [**BulkIdsRequest**](BulkIdsRequest)| Organizations ids |  |
+
+### Return type
+
+[**BulkFetchOrganizationsResponse**](BulkFetchOrganizationsResponse)
+
+
+## PostExternalcontactsBulkOrganizationsEnrich
+
+> [**BulkOrganizationsEnrichResponse**](BulkOrganizationsEnrichResponse) PostExternalcontactsBulkOrganizationsEnrich (BulkOrganizationsEnrichRequest body, bool? dryRun = null)
+
+
+Bulk enrich external organizations - Run up to 10 Enrich operations per request
+
+See the API endpoint /externalcontacts/organizations/enrich for docs on individual Enrich operations.
+
+Requires ANY permissions: 
+
+* externalContacts:externalOrganization:enrich
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class PostExternalcontactsBulkOrganizationsEnrichExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new ExternalContactsApi();
+            var body = new BulkOrganizationsEnrichRequest(); // BulkOrganizationsEnrichRequest | External Organization Enrich Requests
+            var dryRun = true;  // bool? | If true, the request will not make any modifications, but will show you what the end result *would* be. (optional) 
+
+            try
+            { 
+                // Bulk enrich external organizations - Run up to 10 Enrich operations per request
+                BulkOrganizationsEnrichResponse result = apiInstance.PostExternalcontactsBulkOrganizationsEnrich(body, dryRun);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ExternalContactsApi.PostExternalcontactsBulkOrganizationsEnrich: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **body** | [**BulkOrganizationsEnrichRequest**](BulkOrganizationsEnrichRequest)| External Organization Enrich Requests |  |
+| **dryRun** | **bool?**| If true, the request will not make any modifications, but will show you what the end result *would* be. | [optional]  |
+
+### Return type
+
+[**BulkOrganizationsEnrichResponse**](BulkOrganizationsEnrichResponse)
+
+
 ## PostExternalcontactsBulkOrganizationsRemove
 
 > [**BulkDeleteResponse**](BulkDeleteResponse) PostExternalcontactsBulkOrganizationsRemove (BulkIdsRequest body)
@@ -4275,6 +5501,71 @@ namespace Example
 [**BulkRelationshipsResponse**](BulkRelationshipsResponse)
 
 
+## PostExternalcontactsContactJourneySegments
+
+> [**UpdateSegmentAssignmentResponse**](UpdateSegmentAssignmentResponse) PostExternalcontactsContactJourneySegments (string contactId, UpdateSegmentAssignmentRequest body = null)
+
+
+Assign/Unassign up to 10 segments to/from an external contact or, if a segment is already assigned, update the expiry date of the segment assignment. Any unprocessed segment assignments are returned in the body for the client to retry, in the event of a partial success.
+
+Requires ANY permissions: 
+
+* externalContacts:segmentAssignment:add
+* externalContacts:segmentAssignment:delete
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class PostExternalcontactsContactJourneySegmentsExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new ExternalContactsApi();
+            var contactId = contactId_example;  // string | ExternalContact ID
+            var body = new UpdateSegmentAssignmentRequest(); // UpdateSegmentAssignmentRequest |  (optional) 
+
+            try
+            { 
+                // Assign/Unassign up to 10 segments to/from an external contact or, if a segment is already assigned, update the expiry date of the segment assignment. Any unprocessed segment assignments are returned in the body for the client to retry, in the event of a partial success.
+                UpdateSegmentAssignmentResponse result = apiInstance.PostExternalcontactsContactJourneySegments(contactId, body);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ExternalContactsApi.PostExternalcontactsContactJourneySegments: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **contactId** | **string**| ExternalContact ID |  |
+| **body** | [**UpdateSegmentAssignmentRequest**](UpdateSegmentAssignmentRequest)|  | [optional]  |
+
+### Return type
+
+[**UpdateSegmentAssignmentResponse**](UpdateSegmentAssignmentResponse)
+
+
 ## PostExternalcontactsContactNotes
 
 > [**Note**](Note) PostExternalcontactsContactNotes (string contactId, Note body)
@@ -4459,6 +5750,199 @@ namespace Example
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **body** | [**ExternalContact**](ExternalContact)| ExternalContact |  |
+
+### Return type
+
+[**ExternalContact**](ExternalContact)
+
+
+## PostExternalcontactsContactsEnrich
+
+> [**ExternalContact**](ExternalContact) PostExternalcontactsContactsEnrich (ContactEnrichRequest body, bool? dryRun = null)
+
+
+Modify or create an External Contact, with powerful behaviors for finding and combining data with pre-existing Contacts.
+
+You may also submit multiple Enrich operations in one request via the Bulk Enrich API at /externalcontacts/bulk/contacts. A 201 response status indicates that a new Contact was created, whereas a 200 status indicates that a Contact was updated or a merge occurred.
+
+Requires ANY permissions: 
+
+* externalContacts:contact:enrich
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class PostExternalcontactsContactsEnrichExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new ExternalContactsApi();
+            var body = new ContactEnrichRequest(); // ContactEnrichRequest | ContactEnrichRequest
+            var dryRun = true;  // bool? | If true, the request will not make any modifications, but will show you what the end result *would* be. (optional) 
+
+            try
+            { 
+                // Modify or create an External Contact, with powerful behaviors for finding and combining data with pre-existing Contacts.
+                ExternalContact result = apiInstance.PostExternalcontactsContactsEnrich(body, dryRun);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ExternalContactsApi.PostExternalcontactsContactsEnrich: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **body** | [**ContactEnrichRequest**](ContactEnrichRequest)| ContactEnrichRequest |  |
+| **dryRun** | **bool?**| If true, the request will not make any modifications, but will show you what the end result *would* be. | [optional]  |
+
+### Return type
+
+[**ExternalContact**](ExternalContact)
+
+
+## PostExternalcontactsContactsExports
+
+> [**ContactsExport**](ContactsExport) PostExternalcontactsContactsExports (ContactsExport body)
+
+
+Create bulk export
+
+Requires ALL permissions: 
+
+* externalContacts:export:add
+* externalContacts:contact:view
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class PostExternalcontactsContactsExportsExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new ExternalContactsApi();
+            var body = new ContactsExport(); // ContactsExport | Export
+
+            try
+            { 
+                // Create bulk export
+                ContactsExport result = apiInstance.PostExternalcontactsContactsExports(body);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ExternalContactsApi.PostExternalcontactsContactsExports: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **body** | [**ContactsExport**](ContactsExport)| Export |  |
+
+### Return type
+
+[**ContactsExport**](ContactsExport)
+
+
+## PostExternalcontactsContactsMerge
+
+> [**ExternalContact**](ExternalContact) PostExternalcontactsContactsMerge (MergeContactsRequest body)
+
+
+Merge up to 25 contacts into a new contact record
+
+Merge operation may fail if the resulting mergeset exceeds our default limit of 52. The valueOverride field lets you override any of the Contact fields post-merge. If any Contact field is left null in `valueOverride`, it will be taken from the most recently-modified contact in the merge set. Exception for *phone/_*email fields: Conflicting data will be moved to any other available phone/email fields in the merged contact.
+
+Requires ANY permissions: 
+
+* externalContacts:identity:merge
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class PostExternalcontactsContactsMergeExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new ExternalContactsApi();
+            var body = new MergeContactsRequest(); // MergeContactsRequest | MergeRequest
+
+            try
+            { 
+                // Merge up to 25 contacts into a new contact record
+                ExternalContact result = apiInstance.PostExternalcontactsContactsMerge(body);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ExternalContactsApi.PostExternalcontactsContactsMerge: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **body** | [**MergeContactsRequest**](MergeContactsRequest)| MergeRequest |  |
 
 ### Return type
 
@@ -4657,6 +6141,138 @@ namespace Example
 ### Return type
 
 [**ExternalContact**](ExternalContact)
+
+
+## PostExternalcontactsIdentifierlookupContacts
+
+> [**ExternalContact**](ExternalContact) PostExternalcontactsIdentifierlookupContacts (ContactIdentifier identifier, List<string> expand = null)
+
+
+Fetch a contact using an identifier type and value.
+
+Phone number identifier values must be provided with the country code and a leading '+' symbol. Example: \"+1 704 298 4733\"
+
+Requires ANY permissions: 
+
+* externalContacts:contact:view
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class PostExternalcontactsIdentifierlookupContactsExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new ExternalContactsApi();
+            var identifier = new ContactIdentifier(); // ContactIdentifier | 
+            var expand = new List<string>(); // List<string> | which field, if any, to expand (optional) 
+
+            try
+            { 
+                // Fetch a contact using an identifier type and value.
+                ExternalContact result = apiInstance.PostExternalcontactsIdentifierlookupContacts(identifier, expand);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ExternalContactsApi.PostExternalcontactsIdentifierlookupContacts: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **identifier** | [**ContactIdentifier**](ContactIdentifier)|  |  |
+| **expand** | [**List<string>**](string)| which field, if any, to expand | [optional] <br />**Values**: externalOrganization, identifiers, externalSources, division |
+
+### Return type
+
+[**ExternalContact**](ExternalContact)
+
+
+## PostExternalcontactsIdentifierlookupOrganizations
+
+> [**ExternalOrganization**](ExternalOrganization) PostExternalcontactsIdentifierlookupOrganizations (ExternalOrganizationIdentifier identifier, List<string> expand = null)
+
+
+Fetch an external organization using an identifier type and value.
+
+This endpoint will only accept ExternalId type identifiers.
+
+Requires ANY permissions: 
+
+* externalContacts:externalOrganization:view
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class PostExternalcontactsIdentifierlookupOrganizationsExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new ExternalContactsApi();
+            var identifier = new ExternalOrganizationIdentifier(); // ExternalOrganizationIdentifier | 
+            var expand = new List<string>(); // List<string> | which field, if any, to expand (optional) 
+
+            try
+            { 
+                // Fetch an external organization using an identifier type and value.
+                ExternalOrganization result = apiInstance.PostExternalcontactsIdentifierlookupOrganizations(identifier, expand);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ExternalContactsApi.PostExternalcontactsIdentifierlookupOrganizations: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **identifier** | [**ExternalOrganizationIdentifier**](ExternalOrganizationIdentifier)|  |  |
+| **expand** | [**List<string>**](string)| which field, if any, to expand | [optional] <br />**Values**: identifiers, externalSources, division |
+
+### Return type
+
+[**ExternalOrganization**](ExternalOrganization)
 
 
 ## PostExternalcontactsImportCsvJobs
@@ -4973,10 +6589,13 @@ namespace Example
 
 > [**ExternalContact**](ExternalContact) PostExternalcontactsMergeContacts (MergeRequest body)
 
+:::{"alert":"warning","title":"Deprecated","collapsible":false,"autoCollapse":false}
+This resource has been deprecated
+:::
 
 Merge two contacts into a new contact record
 
-Two curated contacts cannot be merged. Refer to the Contact Merging article on the Developer Center for details
+Two curated contacts cannot be merged. Refer to the Contact Merging article on the Developer Center for details. Deprecated: This API has been superseded by a new merge API. You are encouraged to instead use /api/v2/externalcontacts/contacts/merge, which supports merging up to 25 Contacts of any type, and overriding specific fields in the resulting Contact.
 
 Requires ANY permissions: 
 
@@ -5155,6 +6774,72 @@ namespace Example
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **body** | [**ExternalOrganization**](ExternalOrganization)| ExternalOrganization |  |
+
+### Return type
+
+[**ExternalOrganization**](ExternalOrganization)
+
+
+## PostExternalcontactsOrganizationsEnrich
+
+> [**ExternalOrganization**](ExternalOrganization) PostExternalcontactsOrganizationsEnrich (ExternalOrganizationEnrichRequest body, bool? dryRun = null)
+
+
+Modify or create an External Org, with powerful behaviors for finding and combining data with pre-existing External Orgs.
+
+You may also submit multiple Enrich operations in one request via the Bulk Enrich API at /externalcontacts/bulk/organizations. A 201 response status indicates that a new External Organization was created, whereas a 200 status indicates that an External Organization was updated
+
+Requires ANY permissions: 
+
+* externalContacts:externalOrganization:enrich
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class PostExternalcontactsOrganizationsEnrichExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new ExternalContactsApi();
+            var body = new ExternalOrganizationEnrichRequest(); // ExternalOrganizationEnrichRequest | ExternalOrgEnrichRequest
+            var dryRun = true;  // bool? | If true, the request will not make any modifications, but will show you what the end result *would* be. (optional) 
+
+            try
+            { 
+                // Modify or create an External Org, with powerful behaviors for finding and combining data with pre-existing External Orgs.
+                ExternalOrganization result = apiInstance.PostExternalcontactsOrganizationsEnrich(body, dryRun);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ExternalContactsApi.PostExternalcontactsOrganizationsEnrich: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **body** | [**ExternalOrganizationEnrichRequest**](ExternalOrganizationEnrichRequest)| ExternalOrgEnrichRequest |  |
+| **dryRun** | **bool?**| If true, the request will not make any modifications, but will show you what the end result *would* be. | [optional]  |
 
 ### Return type
 
@@ -6129,4 +7814,4 @@ namespace Example
 [**Relationship**](Relationship)
 
 
-_PureCloudPlatform.Client.V2 227.0.0_
+_PureCloudPlatform.Client.V2 257.0.0_

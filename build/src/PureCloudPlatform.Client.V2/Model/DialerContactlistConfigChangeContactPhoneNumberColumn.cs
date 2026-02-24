@@ -22,15 +22,17 @@ namespace PureCloudPlatform.Client.V2.Model
         /// Initializes a new instance of the <see cref="DialerContactlistConfigChangeContactPhoneNumberColumn" /> class.
         /// </summary>
         /// <param name="ColumnName">name of the phone column.</param>
-        /// <param name="Type">type of the phone column, for example, 'cell' or 'home'.</param>
+        /// <param name="Type">type of the phone column, for example, &#39;cell&#39; or &#39;home&#39;.</param>
         /// <param name="CallableTimeColumn">name of the column indicating the timezone to be considered for determining callable times.</param>
         /// <param name="AdditionalProperties">AdditionalProperties.</param>
-        public DialerContactlistConfigChangeContactPhoneNumberColumn(string ColumnName = null, string Type = null, string CallableTimeColumn = null, Dictionary<string, Object> AdditionalProperties = null)
+        /// <param name="GetAdditionalProperties">GetAdditionalProperties.</param>
+        public DialerContactlistConfigChangeContactPhoneNumberColumn(string ColumnName = null, string Type = null, string CallableTimeColumn = null, Dictionary<string, Object> AdditionalProperties = null, Dictionary<string, Object> GetAdditionalProperties = null)
         {
             this.ColumnName = ColumnName;
             this.Type = Type;
             this.CallableTimeColumn = CallableTimeColumn;
             this.AdditionalProperties = AdditionalProperties;
+            this.GetAdditionalProperties = GetAdditionalProperties;
             
         }
         
@@ -46,9 +48,9 @@ namespace PureCloudPlatform.Client.V2.Model
 
 
         /// <summary>
-        /// type of the phone column, for example, 'cell' or 'home'
+        /// type of the phone column, for example, &#39;cell&#39; or &#39;home&#39;
         /// </summary>
-        /// <value>type of the phone column, for example, 'cell' or 'home'</value>
+        /// <value>type of the phone column, for example, &#39;cell&#39; or &#39;home&#39;</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 
@@ -70,6 +72,14 @@ namespace PureCloudPlatform.Client.V2.Model
         public Dictionary<string, Object> AdditionalProperties { get; set; }
 
 
+
+        /// <summary>
+        /// Gets or Sets GetAdditionalProperties
+        /// </summary>
+        [DataMember(Name="getAdditionalProperties", EmitDefaultValue=false)]
+        public Dictionary<string, Object> GetAdditionalProperties { get; set; }
+
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -83,6 +93,7 @@ namespace PureCloudPlatform.Client.V2.Model
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  CallableTimeColumn: ").Append(CallableTimeColumn).Append("\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
+            sb.Append("  GetAdditionalProperties: ").Append(GetAdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -142,6 +153,11 @@ namespace PureCloudPlatform.Client.V2.Model
                     this.AdditionalProperties == other.AdditionalProperties ||
                     this.AdditionalProperties != null &&
                     this.AdditionalProperties.SequenceEqual(other.AdditionalProperties)
+                ) &&
+                (
+                    this.GetAdditionalProperties == other.GetAdditionalProperties ||
+                    this.GetAdditionalProperties != null &&
+                    this.GetAdditionalProperties.SequenceEqual(other.GetAdditionalProperties)
                 );
         }
 
@@ -167,6 +183,9 @@ namespace PureCloudPlatform.Client.V2.Model
 
                 if (this.AdditionalProperties != null)
                     hash = hash * 59 + this.AdditionalProperties.GetHashCode();
+
+                if (this.GetAdditionalProperties != null)
+                    hash = hash * 59 + this.GetAdditionalProperties.GetHashCode();
 
                 return hash;
             }

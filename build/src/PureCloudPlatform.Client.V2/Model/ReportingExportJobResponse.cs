@@ -835,7 +835,85 @@ namespace PureCloudPlatform.Client.V2.Model
             /// Enum AgentAssignedEvaluationMeView for "AGENT_ASSIGNED_EVALUATION_ME_VIEW"
             /// </summary>
             [EnumMember(Value = "AGENT_ASSIGNED_EVALUATION_ME_VIEW")]
-            AgentAssignedEvaluationMeView
+            AgentAssignedEvaluationMeView,
+            
+            /// <summary>
+            /// Enum VirtualAgentPerformanceView for "VIRTUAL_AGENT_PERFORMANCE_VIEW"
+            /// </summary>
+            [EnumMember(Value = "VIRTUAL_AGENT_PERFORMANCE_VIEW")]
+            VirtualAgentPerformanceView,
+            
+            /// <summary>
+            /// Enum ContentExplorationView for "CONTENT_EXPLORATION_VIEW"
+            /// </summary>
+            [EnumMember(Value = "CONTENT_EXPLORATION_VIEW")]
+            ContentExplorationView,
+            
+            /// <summary>
+            /// Enum EvaluationPerformanceSummaryView for "EVALUATION_PERFORMANCE_SUMMARY_VIEW"
+            /// </summary>
+            [EnumMember(Value = "EVALUATION_PERFORMANCE_SUMMARY_VIEW")]
+            EvaluationPerformanceSummaryView,
+            
+            /// <summary>
+            /// Enum EvaluationPerformanceDetailView for "EVALUATION_PERFORMANCE_DETAIL_VIEW"
+            /// </summary>
+            [EnumMember(Value = "EVALUATION_PERFORMANCE_DETAIL_VIEW")]
+            EvaluationPerformanceDetailView,
+            
+            /// <summary>
+            /// Enum EvaluationPerformanceQuestionGroupDetailView for "EVALUATION_PERFORMANCE_QUESTION_GROUP_DETAIL_VIEW"
+            /// </summary>
+            [EnumMember(Value = "EVALUATION_PERFORMANCE_QUESTION_GROUP_DETAIL_VIEW")]
+            EvaluationPerformanceQuestionGroupDetailView,
+            
+            /// <summary>
+            /// Enum EvaluationPerformanceQuestionDetailView for "EVALUATION_PERFORMANCE_QUESTION_DETAIL_VIEW"
+            /// </summary>
+            [EnumMember(Value = "EVALUATION_PERFORMANCE_QUESTION_DETAIL_VIEW")]
+            EvaluationPerformanceQuestionDetailView,
+            
+            /// <summary>
+            /// Enum QueueWorkitemActivitySummaryView for "QUEUE_WORKITEM_ACTIVITY_SUMMARY_VIEW"
+            /// </summary>
+            [EnumMember(Value = "QUEUE_WORKITEM_ACTIVITY_SUMMARY_VIEW")]
+            QueueWorkitemActivitySummaryView,
+            
+            /// <summary>
+            /// Enum QueueWorkitemActivityDetailView for "QUEUE_WORKITEM_ACTIVITY_DETAIL_VIEW"
+            /// </summary>
+            [EnumMember(Value = "QUEUE_WORKITEM_ACTIVITY_DETAIL_VIEW")]
+            QueueWorkitemActivityDetailView,
+            
+            /// <summary>
+            /// Enum DigitalAdoptionView for "DIGITAL_ADOPTION_VIEW"
+            /// </summary>
+            [EnumMember(Value = "DIGITAL_ADOPTION_VIEW")]
+            DigitalAdoptionView,
+            
+            /// <summary>
+            /// Enum DigitalIntentView for "DIGITAL_INTENT_VIEW"
+            /// </summary>
+            [EnumMember(Value = "DIGITAL_INTENT_VIEW")]
+            DigitalIntentView,
+            
+            /// <summary>
+            /// Enum DigitalPerformanceView for "DIGITAL_PERFORMANCE_VIEW"
+            /// </summary>
+            [EnumMember(Value = "DIGITAL_PERFORMANCE_VIEW")]
+            DigitalPerformanceView,
+            
+            /// <summary>
+            /// Enum CopilotUsageView for "COPILOT_USAGE_VIEW"
+            /// </summary>
+            [EnumMember(Value = "COPILOT_USAGE_VIEW")]
+            CopilotUsageView,
+            
+            /// <summary>
+            /// Enum PredictiveRoutingThroughputView for "PREDICTIVE_ROUTING_THROUGHPUT_VIEW"
+            /// </summary>
+            [EnumMember(Value = "PREDICTIVE_ROUTING_THROUGHPUT_VIEW")]
+            PredictiveRoutingThroughputView
         }
         /// <summary>
         /// The error message in case the export request failed
@@ -1121,7 +1199,7 @@ namespace PureCloudPlatform.Client.V2.Model
         /// <param name="TimeZone">The requested timezone of the exported data. Time zones are represented as a string of the zone name as found in the IANA time zone database. For example: UTC, Etc/UTC, or Europe/London (required).</param>
         /// <param name="ExportFormat">The requested format of the exported data (required).</param>
         /// <param name="Interval">The time period used to limit the the exported data. Intervals are represented as an ISO-8601 string. For example: YYYY-MM-DDThh:mm:ss/YYYY-MM-DDThh:mm:ss (required).</param>
-        /// <param name="DownloadUrl">The url to download the request if it's status is completed.</param>
+        /// <param name="DownloadUrl">The url to download the request if it&#39;s status is completed.</param>
         /// <param name="ViewType">The type of view export job to be created (required).</param>
         /// <param name="ExportErrorMessagesType">The error message in case the export request failed.</param>
         /// <param name="Period">The Period of the request in which to break down the intervals. Periods are represented as an ISO-8601 string. For example: P1D or P1DT12H (required).</param>
@@ -1136,7 +1214,7 @@ namespace PureCloudPlatform.Client.V2.Model
         /// <param name="ExcludeEmptyRows">Excludes empty rows from the exports.</param>
         /// <param name="HasSplitByMedia">Indicates if media type will be split in aggregate detail exports.</param>
         /// <param name="HasSummaryRow">Indicates if summary row needs to be present in exports.</param>
-        /// <param name="CsvDelimiter">The user supplied csv delimiter string value either of type 'comma' or 'semicolon' permitted for the export request.</param>
+        /// <param name="CsvDelimiter">The user supplied csv delimiter string value either of type &#39;comma&#39; or &#39;semicolon&#39; permitted for the export request.</param>
         /// <param name="SelectedColumns">The list of ordered selected columns from the export view by the user.</param>
         /// <param name="HasCustomParticipantAttributes">Indicates if custom participant attributes will be exported.</param>
         /// <param name="RecipientEmails">The list of email recipients for the exports.</param>
@@ -1145,8 +1223,9 @@ namespace PureCloudPlatform.Client.V2.Model
         /// <param name="IncludeDurationFormatInHeader">Indicates whether to include selected duration format to the column headers.</param>
         /// <param name="DurationFormat">Indicates the duration format for the exports.</param>
         /// <param name="ExportAllowedToRerun">Indicates whether the export run is allowed to rerun.</param>
+        /// <param name="ChartColumns">The list of columns for which chart is going to be displayed in export.</param>
         /// <param name="Enabled">Enabled.</param>
-        public ReportingExportJobResponse(string Name = null, string RunId = null, StatusEnum? Status = null, string TimeZone = null, ExportFormatEnum? ExportFormat = null, string Interval = null, string DownloadUrl = null, ViewTypeEnum? ViewType = null, ExportErrorMessagesTypeEnum? ExportErrorMessagesType = null, string Period = null, ViewFilter Filter = null, bool? Read = null, DateTime? CreatedDateTime = null, DateTime? ModifiedDateTime = null, string Locale = null, double? PercentageComplete = null, bool? HasFormatDurations = null, bool? HasSplitFilters = null, bool? ExcludeEmptyRows = null, bool? HasSplitByMedia = null, bool? HasSummaryRow = null, CsvDelimiterEnum? CsvDelimiter = null, List<SelectedColumns> SelectedColumns = null, bool? HasCustomParticipantAttributes = null, List<string> RecipientEmails = null, Dictionary<string, string> EmailStatuses = null, string EmailErrorDescription = null, bool? IncludeDurationFormatInHeader = null, DurationFormatEnum? DurationFormat = null, bool? ExportAllowedToRerun = null, bool? Enabled = null)
+        public ReportingExportJobResponse(string Name = null, string RunId = null, StatusEnum? Status = null, string TimeZone = null, ExportFormatEnum? ExportFormat = null, string Interval = null, string DownloadUrl = null, ViewTypeEnum? ViewType = null, ExportErrorMessagesTypeEnum? ExportErrorMessagesType = null, string Period = null, ViewFilter Filter = null, bool? Read = null, DateTime? CreatedDateTime = null, DateTime? ModifiedDateTime = null, string Locale = null, double? PercentageComplete = null, bool? HasFormatDurations = null, bool? HasSplitFilters = null, bool? ExcludeEmptyRows = null, bool? HasSplitByMedia = null, bool? HasSummaryRow = null, CsvDelimiterEnum? CsvDelimiter = null, List<SelectedColumns> SelectedColumns = null, bool? HasCustomParticipantAttributes = null, List<string> RecipientEmails = null, Dictionary<string, string> EmailStatuses = null, string EmailErrorDescription = null, bool? IncludeDurationFormatInHeader = null, DurationFormatEnum? DurationFormat = null, bool? ExportAllowedToRerun = null, List<ChartColumn> ChartColumns = null, bool? Enabled = null)
         {
             this.Name = Name;
             this.RunId = RunId;
@@ -1178,6 +1257,7 @@ namespace PureCloudPlatform.Client.V2.Model
             this.IncludeDurationFormatInHeader = IncludeDurationFormatInHeader;
             this.DurationFormat = DurationFormat;
             this.ExportAllowedToRerun = ExportAllowedToRerun;
+            this.ChartColumns = ChartColumns;
             this.Enabled = Enabled;
             
         }
@@ -1233,9 +1313,9 @@ namespace PureCloudPlatform.Client.V2.Model
 
 
         /// <summary>
-        /// The url to download the request if it's status is completed
+        /// The url to download the request if it&#39;s status is completed
         /// </summary>
-        /// <value>The url to download the request if it's status is completed</value>
+        /// <value>The url to download the request if it&#39;s status is completed</value>
         [DataMember(Name="downloadUrl", EmitDefaultValue=false)]
         public string DownloadUrl { get; set; }
 
@@ -1421,6 +1501,15 @@ namespace PureCloudPlatform.Client.V2.Model
 
 
         /// <summary>
+        /// The list of columns for which chart is going to be displayed in export
+        /// </summary>
+        /// <value>The list of columns for which chart is going to be displayed in export</value>
+        [DataMember(Name="chartColumns", EmitDefaultValue=false)]
+        public List<ChartColumn> ChartColumns { get; set; }
+
+
+
+        /// <summary>
         /// Gets or Sets Enabled
         /// </summary>
         [DataMember(Name="enabled", EmitDefaultValue=false)]
@@ -1476,6 +1565,7 @@ namespace PureCloudPlatform.Client.V2.Model
             sb.Append("  IncludeDurationFormatInHeader: ").Append(IncludeDurationFormatInHeader).Append("\n");
             sb.Append("  DurationFormat: ").Append(DurationFormat).Append("\n");
             sb.Append("  ExportAllowedToRerun: ").Append(ExportAllowedToRerun).Append("\n");
+            sb.Append("  ChartColumns: ").Append(ChartColumns).Append("\n");
             sb.Append("  Enabled: ").Append(Enabled).Append("\n");
             sb.Append("  SelfUri: ").Append(SelfUri).Append("\n");
             sb.Append("}\n");
@@ -1674,6 +1764,11 @@ namespace PureCloudPlatform.Client.V2.Model
                     this.ExportAllowedToRerun.Equals(other.ExportAllowedToRerun)
                 ) &&
                 (
+                    this.ChartColumns == other.ChartColumns ||
+                    this.ChartColumns != null &&
+                    this.ChartColumns.SequenceEqual(other.ChartColumns)
+                ) &&
+                (
                     this.Enabled == other.Enabled ||
                     this.Enabled != null &&
                     this.Enabled.Equals(other.Enabled)
@@ -1788,6 +1883,9 @@ namespace PureCloudPlatform.Client.V2.Model
 
                 if (this.ExportAllowedToRerun != null)
                     hash = hash * 59 + this.ExportAllowedToRerun.GetHashCode();
+
+                if (this.ChartColumns != null)
+                    hash = hash * 59 + this.ChartColumns.GetHashCode();
 
                 if (this.Enabled != null)
                     hash = hash * 59 + this.Enabled.GetHashCode();

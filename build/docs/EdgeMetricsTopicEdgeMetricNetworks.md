@@ -7,11 +7,11 @@
 |Name | Type | Description | Notes|
 |------------ | ------------- | ------------- | -------------|
 | **Ifname** | **string** |  | [optional] |
-| **SentBytesPerSec** | **int?** |  | [optional] |
-| **ReceivedBytesPerSec** | **int?** |  | [optional] |
-| **BandwidthBitsPerSec** | **int?** |  | [optional] |
+| **SentBytesPerSec** | **long?** |  | [optional] |
+| **ReceivedBytesPerSec** | **long?** |  | [optional] |
+| **BandwidthBitsPerSec** | **long?** |  | [optional] |
 | **UtilizationPct** | **double?** |  | [optional] |
 
 
 
-_PureCloudPlatform.Client.V2 227.0.0_
+_PureCloudPlatform.Client.V2 257.0.0_

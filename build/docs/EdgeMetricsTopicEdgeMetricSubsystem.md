@@ -7,9 +7,9 @@
 |Name | Type | Description | Notes|
 |------------ | ------------- | ------------- | -------------|
 | **ProcessName** | **string** |  | [optional] |
-| **DelayMs** | **int?** |  | [optional] |
+| **DelayMs** | **long?** |  | [optional] |
 | **MediaSubsystem** | [**EdgeMetricsTopicEdgeMetricSubsystemMedia**](EdgeMetricsTopicEdgeMetricSubsystemMedia) |  | [optional] |
 
 
 
-_PureCloudPlatform.Client.V2 227.0.0_
+_PureCloudPlatform.Client.V2 257.0.0_

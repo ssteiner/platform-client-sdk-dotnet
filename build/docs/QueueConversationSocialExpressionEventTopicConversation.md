@@ -7,7 +7,7 @@
 |Name | Type | Description | Notes|
 |------------ | ------------- | ------------- | -------------|
 | **Id** | **string** |  | [optional] |
-| **MaxParticipants** | **int?** |  | [optional] |
+| **MaxParticipants** | **long?** |  | [optional] |
 | **Participants** | [**List&lt;QueueConversationSocialExpressionEventTopicParticipant&gt;**](QueueConversationSocialExpressionEventTopicParticipant) |  | [optional] |
 | **RecentTransfers** | [**List&lt;QueueConversationSocialExpressionEventTopicTransferResponse&gt;**](QueueConversationSocialExpressionEventTopicTransferResponse) |  | [optional] |
 | **RecordingState** | **string** |  | [optional] |
@@ -15,8 +15,11 @@
 | **ExternalTag** | **string** |  | [optional] |
 | **UtilizationLabelId** | **string** |  | [optional] |
 | **SecurePause** | **bool?** |  | [optional] |
+| **InactivityTimeout** | **DateTime?** |  | [optional] |
+| **AssociatedConversation** | [**QueueConversationSocialExpressionEventTopicDomainEntityRef**](QueueConversationSocialExpressionEventTopicDomainEntityRef) |  | [optional] |
+| **ConsultationConversations** | [**List&lt;QueueConversationSocialExpressionEventTopicDomainEntityRef&gt;**](QueueConversationSocialExpressionEventTopicDomainEntityRef) |  | [optional] |
 | **Divisions** | [**List&lt;QueueConversationSocialExpressionEventTopicConversationDivisionMembership&gt;**](QueueConversationSocialExpressionEventTopicConversationDivisionMembership) |  | [optional] |
 
 
 
-_PureCloudPlatform.Client.V2 227.0.0_
+_PureCloudPlatform.Client.V2 257.0.0_

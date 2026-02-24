@@ -21,7 +21,7 @@ namespace PureCloudPlatform.Client.V2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DialerResponsesetConfigChangeResponseSet" /> class.
         /// </summary>
-        /// <param name="Responses">Map of disposition identifiers to reactions. For example: {\"disposition.classification.callable.person\": {\"reactionType\": \"transfer\"}}.</param>
+        /// <param name="Responses">Map of disposition identifiers to reactions. For example: {\&quot;disposition.classification.callable.person\&quot;: {\&quot;reactionType\&quot;: \&quot;transfer\&quot;}}.</param>
         /// <param name="BeepDetectionEnabled">When beep detection is enabled, answering machine detection will wait for the beep before transferring the call.</param>
         /// <param name="AdditionalProperties">AdditionalProperties.</param>
         /// <param name="Id">The globally unique identifier for the object..</param>
@@ -29,7 +29,8 @@ namespace PureCloudPlatform.Client.V2.Model
         /// <param name="DateCreated">Creation time of the entity.</param>
         /// <param name="DateModified">Last modified time of the entity.</param>
         /// <param name="Version">Required for updates, must match the version number of the most recent update.</param>
-        public DialerResponsesetConfigChangeResponseSet(Dictionary<string, DialerResponsesetConfigChangeReaction> Responses = null, bool? BeepDetectionEnabled = null, Dictionary<string, Object> AdditionalProperties = null, string Id = null, string Name = null, DateTime? DateCreated = null, DateTime? DateModified = null, int? Version = null)
+        /// <param name="GetAdditionalProperties">GetAdditionalProperties.</param>
+        public DialerResponsesetConfigChangeResponseSet(Dictionary<string, DialerResponsesetConfigChangeReaction> Responses = null, bool? BeepDetectionEnabled = null, Dictionary<string, Object> AdditionalProperties = null, string Id = null, string Name = null, DateTime? DateCreated = null, DateTime? DateModified = null, long? Version = null, Dictionary<string, Object> GetAdditionalProperties = null)
         {
             this.Responses = Responses;
             this.BeepDetectionEnabled = BeepDetectionEnabled;
@@ -39,15 +40,16 @@ namespace PureCloudPlatform.Client.V2.Model
             this.DateCreated = DateCreated;
             this.DateModified = DateModified;
             this.Version = Version;
+            this.GetAdditionalProperties = GetAdditionalProperties;
             
         }
         
 
 
         /// <summary>
-        /// Map of disposition identifiers to reactions. For example: {\"disposition.classification.callable.person\": {\"reactionType\": \"transfer\"}}
+        /// Map of disposition identifiers to reactions. For example: {\&quot;disposition.classification.callable.person\&quot;: {\&quot;reactionType\&quot;: \&quot;transfer\&quot;}}
         /// </summary>
-        /// <value>Map of disposition identifiers to reactions. For example: {\"disposition.classification.callable.person\": {\"reactionType\": \"transfer\"}}</value>
+        /// <value>Map of disposition identifiers to reactions. For example: {\&quot;disposition.classification.callable.person\&quot;: {\&quot;reactionType\&quot;: \&quot;transfer\&quot;}}</value>
         [DataMember(Name="responses", EmitDefaultValue=false)]
         public Dictionary<string, DialerResponsesetConfigChangeReaction> Responses { get; set; }
 
@@ -111,7 +113,15 @@ namespace PureCloudPlatform.Client.V2.Model
         /// </summary>
         /// <value>Required for updates, must match the version number of the most recent update</value>
         [DataMember(Name="version", EmitDefaultValue=false)]
-        public int? Version { get; set; }
+        public long? Version { get; set; }
+
+
+
+        /// <summary>
+        /// Gets or Sets GetAdditionalProperties
+        /// </summary>
+        [DataMember(Name="getAdditionalProperties", EmitDefaultValue=false)]
+        public Dictionary<string, Object> GetAdditionalProperties { get; set; }
 
 
         /// <summary>
@@ -131,6 +141,7 @@ namespace PureCloudPlatform.Client.V2.Model
             sb.Append("  DateCreated: ").Append(DateCreated).Append("\n");
             sb.Append("  DateModified: ").Append(DateModified).Append("\n");
             sb.Append("  Version: ").Append(Version).Append("\n");
+            sb.Append("  GetAdditionalProperties: ").Append(GetAdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -210,6 +221,11 @@ namespace PureCloudPlatform.Client.V2.Model
                     this.Version == other.Version ||
                     this.Version != null &&
                     this.Version.Equals(other.Version)
+                ) &&
+                (
+                    this.GetAdditionalProperties == other.GetAdditionalProperties ||
+                    this.GetAdditionalProperties != null &&
+                    this.GetAdditionalProperties.SequenceEqual(other.GetAdditionalProperties)
                 );
         }
 
@@ -247,6 +263,9 @@ namespace PureCloudPlatform.Client.V2.Model
 
                 if (this.Version != null)
                     hash = hash * 59 + this.Version.GetHashCode();
+
+                if (this.GetAdditionalProperties != null)
+                    hash = hash * 59 + this.GetAdditionalProperties.GetHashCode();
 
                 return hash;
             }

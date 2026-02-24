@@ -15,7 +15,10 @@
 | **DoNotChangeDailyPaidTime** | **bool?** | Instructs the scheduler whether it is allowed to change daily paid time | |
 | **DoNotChangeShiftStartTimes** | **bool?** | Instructs the scheduler whether it is allowed to change shift start times | |
 | **DoNotChangeManuallyEditedShifts** | **bool?** | Instructs the scheduler whether it is allowed to change manually edited shifts | |
+| **ActivitySmoothingType** | **string** | Overrides the default BU level activity smoothing type for this reschedule run | [optional] |
+| **InduceScheduleVariability** | **bool?** | Overrides the default BU level induce schedule variability setting for this reschedule run | [optional] |
+| **UseUnavailableTimesSnapshot** | **bool?** | Whether to use original unavailable times from schedule generation or latest saved unavailable times for this reschedule run | [optional] |
 
 
 
-_PureCloudPlatform.Client.V2 227.0.0_
+_PureCloudPlatform.Client.V2 257.0.0_

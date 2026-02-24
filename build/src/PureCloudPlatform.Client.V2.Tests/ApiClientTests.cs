@@ -9,7 +9,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
-using RestSharp;
 using System.Linq;
 using Parameter = RestSharp.Parameter;
 using System.Net;
@@ -20,6 +19,9 @@ using System.Net.Http;
 namespace PureCloudPlatform.Client.V2.Tests
 {
 
+///<Summary>
+/// Tests for ApiClient
+///</Summary>        
 [TestFixture]
 public class ApiClientTests
 {
@@ -29,15 +31,18 @@ public class ApiClientTests
 
     private Stopwatch stopwatch;
     private static String path = "/api/v2/users";
-    private static RestSharp.Method method = Method.Get;
+    private static String method = "GET";
     private static Dictionary<String, String> pathParams = new Dictionary<String, String>();
     private static List<Tuple<String, String>> queryParams = new List<Tuple<String, String>>();
     private static Dictionary<String, String> headerParams = new Dictionary<String, String>();
     private static Dictionary<String, String> formParams = new Dictionary<String, String>();
-    private static Dictionary<String, FileParameter> fileParams = new Dictionary<String, FileParameter>();
+    private static Dictionary<String, IFileParameter> fileParams = new Dictionary<String, IFileParameter>();
     private static Object postBody = null;
     private static String contentType = null;
 
+    ///<Summary>
+    /// Init
+    ///</Summary>
     [OneTimeSetUp]
     public void Init()
     {
@@ -52,6 +57,9 @@ public class ApiClientTests
         PureCloudPlatform.Client.V2.Client.Configuration.Default.ApiClient.PostToken(clientId, clientSecret);
     }
 
+    ///<Summary>
+    /// InvokeTestWith_429
+    ///</Summary>
     [Test]
     public void InvokeTestWith_429()
     {
@@ -76,12 +84,15 @@ public class ApiClientTests
         apiClient.ClientOptions.HttpMessageHandler = mockHttp;
 
         stopwatch = Stopwatch.StartNew();
-        RestResponse user = (RestResponse)apiClient.CallApi(path, method, queryParams, postBody, headerParams, formParams, fileParams, pathParams, contentType);
+        HttpResponse user = (HttpResponse)apiClient.CallApi(path, method, queryParams, postBody, headerParams, formParams, fileParams, pathParams, contentType);
         Assert.IsTrue(stopwatch.ElapsedMilliseconds >= 6000 && stopwatch.ElapsedMilliseconds < 6100, "It will wait for every 100 Mills and retry until 6 Seconds");
         Assert.AreEqual(429, (int)user.StatusCode);
         stopwatch.Stop();
     }
 
+    ///<Summary>
+    /// InvokeTestWith_429_And_No_MaxRetryTime
+    ///</Summary>
     [Test]
     public void InvokeTestWith_429_And_No_MaxRetryTime()
     {
@@ -95,20 +106,23 @@ public class ApiClientTests
         var mockHttp = new MockHttpMessageHandler();
         var response = new HttpResponseMessage((System.Net.HttpStatusCode)429);
         response.Headers.Add("Retry-After", "3");
-        mockHttp.When("*").Respond(response);
+        mockHttp.When("*").Respond(req => response);
         
         var apiClient = new ApiClient(new PureCloudPlatform.Client.V2.Client.Configuration());
         apiClient.RetryConfig = retryConfig;
         apiClient.ClientOptions.HttpMessageHandler = mockHttp;
 
         stopwatch = Stopwatch.StartNew();
-        RestResponse user = (RestResponse)apiClient.CallApi(path, method, queryParams, postBody, headerParams, formParams, fileParams, pathParams, contentType);
+        HttpResponse user = (HttpResponse)apiClient.CallApi(path, method, queryParams, postBody, headerParams, formParams, fileParams, pathParams, contentType);
        
         Assert.IsTrue(stopwatch.ElapsedMilliseconds >= 0 && stopwatch.ElapsedMilliseconds < 100, "Since maxRetryTime is not provided it will not retry even if the status code is 429");
         Assert.AreEqual(429, (int)user.StatusCode);
         stopwatch.Stop();
     }
 
+    ///<Summary>
+    /// InvokeTestWith_502
+    ///</Summary>
     [Test]
     public void InvokeTestWith_502()
     {
@@ -128,13 +142,16 @@ public class ApiClientTests
         apiClient.ClientOptions.HttpMessageHandler = mockHttp;
 
         stopwatch = Stopwatch.StartNew();
-        RestResponse user = (RestResponse)apiClient.CallApi(path, method, queryParams, postBody, headerParams, formParams, fileParams, pathParams, contentType);
+        HttpResponse user = (HttpResponse)apiClient.CallApi(path, method, queryParams, postBody, headerParams, formParams, fileParams, pathParams, contentType);
        
         Assert.IsTrue(stopwatch.ElapsedMilliseconds >= 13000 && stopwatch.ElapsedMilliseconds < 13100, "It will wait for every 2 Sec and retry for 5 times then it will backoff for 3 sec and retry then it exits.");
         Assert.AreEqual(502, (int)user.StatusCode);
         stopwatch.Stop();
     }
 
+    ///<Summary>
+    /// InvokeTestWith_503
+    ///</Summary>
     [Test]
     public void InvokeTestWith_503()
     {
@@ -153,13 +170,16 @@ public class ApiClientTests
         apiClient.ClientOptions.HttpMessageHandler = mockHttp;
 
         stopwatch = Stopwatch.StartNew();
-        RestResponse user = (RestResponse)apiClient.CallApi(path, method, queryParams, postBody, headerParams, formParams, fileParams, pathParams, contentType);
+        HttpResponse user = (HttpResponse)apiClient.CallApi(path, method, queryParams, postBody, headerParams, formParams, fileParams, pathParams, contentType);
         
         Assert.IsTrue(stopwatch.ElapsedMilliseconds >= 40000 && stopwatch.ElapsedMilliseconds < 40100, "It will wait for every 200 Mills and retry for 5 times then it will backoff for 3 Sec once, 9 Sec once and 27 Sec before retrying");
         Assert.AreEqual(503, (int)user.StatusCode);
         stopwatch.Stop();
     }
 
+    ///<Summary>
+    /// InvokeTestWith_504
+    ///</Summary>
     [Test]
     public void InvokeTestWith_504()
     {
@@ -178,13 +198,16 @@ public class ApiClientTests
         apiClient.ClientOptions.HttpMessageHandler = mockHttp;
 
         stopwatch = Stopwatch.StartNew();
-        RestResponse user = (RestResponse)apiClient.CallApi(path, method, queryParams, postBody, headerParams, formParams, fileParams, pathParams, contentType);
+        HttpResponse user = (HttpResponse)apiClient.CallApi(path, method, queryParams, postBody, headerParams, formParams, fileParams, pathParams, contentType);
         
         Assert.IsTrue(stopwatch.ElapsedMilliseconds >= 2000 && stopwatch.ElapsedMilliseconds < 2100, "It will wait for every 1 sec and retry for 2 times");
         Assert.AreEqual(504, (int)user.StatusCode);
         stopwatch.Stop();
     }
 
+    ///<Summary>
+    /// InvokeTestWith_504_No_MaxRetryTime
+    ///</Summary>
     [Test]
     public void InvokeTestWith_504_No_MaxRetryTime()
     {
@@ -202,13 +225,16 @@ public class ApiClientTests
         apiClient.ClientOptions.HttpMessageHandler = mockHttp;
 
         stopwatch = Stopwatch.StartNew();
-        RestResponse user = (RestResponse)apiClient.CallApi(path, method, queryParams, postBody, headerParams, formParams, fileParams, pathParams, contentType);
+        HttpResponse user = (HttpResponse)apiClient.CallApi(path, method, queryParams, postBody, headerParams, formParams, fileParams, pathParams, contentType);
         
         Assert.IsTrue(stopwatch.ElapsedMilliseconds >= 0 && stopwatch.ElapsedMilliseconds < 100, "Since maxRetryTime is not provided it will not retry even if the status code is 504");
         Assert.AreEqual(504, (int)user.StatusCode);
         stopwatch.Stop();
     }
 
+    ///<Summary>
+    /// InvokeAsyncTestWith_429
+    ///</Summary>
     [Test]
     public async Task InvokeAsyncTestWith_429()
     {
@@ -231,13 +257,15 @@ public class ApiClientTests
         apiClient.ClientOptions.HttpMessageHandler = mockHttp;
 
         stopwatch = Stopwatch.StartNew();
-        RestResponse user = (RestResponse)await apiClient.CallApiAsync(path, method, queryParams, postBody, headerParams, formParams, fileParams, pathParams, contentType);
-        
+        HttpResponse user = (HttpResponse)await apiClient.CallApiAsync(path, method, queryParams, postBody, headerParams, formParams, fileParams, pathParams, contentType);
         Assert.IsTrue(stopwatch.ElapsedMilliseconds >= 5000 && stopwatch.ElapsedMilliseconds < 5100, "It will wait for every 1 Sec provided by Retry-After header Sec and retry for 5 Sec");
         Assert.AreEqual(429, (int)user.StatusCode);
         stopwatch.Stop();
     }
 
+    ///<Summary>
+    /// InvokeAsyncTestWith_429_And_No_MaxRetryTime
+    ///</Summary>
     [Test]
     public async Task InvokeAsyncTestWith_429_And_No_MaxRetryTime()
     {
@@ -251,20 +279,23 @@ public class ApiClientTests
         var response = new HttpResponseMessage((System.Net.HttpStatusCode)429);
         response.Headers.Add("Retry-After", "1");
 
-        mockHttp.When("*").Respond(response);
+        mockHttp.When("*").Respond(req => response);
 
         var apiClient = new ApiClient(new PureCloudPlatform.Client.V2.Client.Configuration());
         apiClient.RetryConfig = retryConfig;
         apiClient.ClientOptions.HttpMessageHandler = mockHttp;
 
         stopwatch = Stopwatch.StartNew();
-        RestResponse user = (RestResponse)await apiClient.CallApiAsync(path, method, queryParams, postBody, headerParams, formParams, fileParams, pathParams, contentType);
+        HttpResponse user = (HttpResponse)await apiClient.CallApiAsync(path, method, queryParams, postBody, headerParams, formParams, fileParams, pathParams, contentType);
         
         Assert.IsTrue(stopwatch.ElapsedMilliseconds >= 0 && stopwatch.ElapsedMilliseconds < 100, "Since maxWaitTime is 0 it will not retry even if status code is 429");
         Assert.AreEqual(429, (int)user.StatusCode);
         stopwatch.Stop();
     }
 
+    ///<Summary>
+    /// InvokeAsyncTestWith_502
+    ///</Summary>
     [Test]
     public async Task InvokeAsyncTestWith_502()
     {
@@ -288,13 +319,16 @@ public class ApiClientTests
         apiClient.ClientOptions.HttpMessageHandler = mockHttp;
 
         stopwatch = Stopwatch.StartNew();
-        RestResponse user = (RestResponse)await apiClient.CallApiAsync(path, method, queryParams, postBody, headerParams, formParams, fileParams, pathParams, contentType);
+        HttpResponse user = (HttpResponse)await apiClient.CallApiAsync(path, method, queryParams, postBody, headerParams, formParams, fileParams, pathParams, contentType);
         
         Assert.IsTrue(stopwatch.ElapsedMilliseconds >= 13000 && stopwatch.ElapsedMilliseconds < 13100, "It will wait for every 2 Sec and retry for 5 times then it will backoff for 3 sec and retry then it exits.");
         Assert.AreEqual(502, (int)user.StatusCode);
         stopwatch.Stop();
     }
 
+    ///<Summary>
+    /// InvokeAsyncTestWith_503
+    ///</Summary>
     [Test]
     public async Task InvokeAsyncTestWith_503()
     {
@@ -318,12 +352,15 @@ public class ApiClientTests
         apiClient.ClientOptions.HttpMessageHandler = mockHttp;
 
         stopwatch = Stopwatch.StartNew();
-        RestResponse user = (RestResponse)await apiClient.CallApiAsync(path, method, queryParams, postBody, headerParams, formParams, fileParams, pathParams, contentType);
+        HttpResponse user = (HttpResponse)await apiClient.CallApiAsync(path, method, queryParams, postBody, headerParams, formParams, fileParams, pathParams, contentType);
         Assert.IsTrue(stopwatch.ElapsedMilliseconds >= 40000 && stopwatch.ElapsedMilliseconds < 40100, "It will wait for every 200 Mills and retry for 5 times then it will backoff for 3 Sec once, 9 Sec once and 27 Sec before retrying");
         Assert.AreEqual(503, (int)user.StatusCode);
         stopwatch.Stop();
     }
 
+    ///<Summary>
+    /// InvokeAsyncTestWith_504
+    ///</Summary>
     [Test]
     public async Task InvokeAsyncTestWith_504()
     {
@@ -346,12 +383,15 @@ public class ApiClientTests
         apiClient.ClientOptions.HttpMessageHandler = mockHttp;
 
         stopwatch = Stopwatch.StartNew();
-        RestResponse user = (RestResponse)await apiClient.CallApiAsync(path, method, queryParams, postBody, headerParams, formParams, fileParams, pathParams, contentType);
+        HttpResponse user = (HttpResponse)await apiClient.CallApiAsync(path, method, queryParams, postBody, headerParams, formParams, fileParams, pathParams, contentType);
         Assert.IsTrue(stopwatch.ElapsedMilliseconds >= 2000 && stopwatch.ElapsedMilliseconds < 2100, "It will wait for every 1 sec and retry for 2 times");
         Assert.AreEqual(504, (int)user.StatusCode);
         stopwatch.Stop();
     }
 
+    ///<Summary>
+    /// InvokeAsyncTestWith_504_And_No_MaxRetryTime
+    ///</Summary>
     [Test]
     public async Task InvokeAsyncTestWith_504_And_No_MaxRetryTime()
     {
@@ -373,14 +413,15 @@ public class ApiClientTests
         apiClient.ClientOptions.HttpMessageHandler = mockHttp;
 
         stopwatch = Stopwatch.StartNew();
-        RestResponse user = (RestResponse)await apiClient.CallApiAsync(path, method, queryParams, postBody, headerParams, formParams, fileParams, pathParams, contentType);
+        HttpResponse user = (HttpResponse)await apiClient.CallApiAsync(path, method, queryParams, postBody, headerParams, formParams, fileParams, pathParams, contentType);
         Assert.IsTrue(stopwatch.ElapsedMilliseconds >= 0 && stopwatch.ElapsedMilliseconds < 100, "Since maxRetryTime is not provided it will not retry even if the status code is 504");
         Assert.AreEqual(504, (int)user.StatusCode);
         stopwatch.Stop();
     }
 
-   
-
+    ///<Summary>
+    /// getRegion
+    ///</Summary>
     public Nullable<PureCloudRegionHosts> getRegion(String str = "http://api.mypurecloud.com")
     {
         switch (str)
@@ -407,6 +448,10 @@ public class ApiClientTests
                 return PureCloudRegionHosts.ap_south_1;
             case "use2.us-gov-pure.cloud":
                 return PureCloudRegionHosts.us_east_2;
+            case "mxc1.pure.cloud":
+                return PureCloudRegionHosts.mx_central_1;
+            case "apse1.pure.cloud":
+                return PureCloudRegionHosts.ap_southeast_1;
             default:
                 Console.WriteLine("Value does not exist in enum using default val");
                 return null;

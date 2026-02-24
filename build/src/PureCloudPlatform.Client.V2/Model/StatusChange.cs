@@ -220,10 +220,22 @@ namespace PureCloudPlatform.Client.V2.Model
             OutdatedSdkVersion,
             
             /// <summary>
+            /// Enum Workforcemanagementforecast for "workforce.management.forecast"
+            /// </summary>
+            [EnumMember(Value = "workforce.management.forecast")]
+            Workforcemanagementforecast,
+            
+            /// <summary>
             /// Enum Agentassistant for "agent.assistant"
             /// </summary>
             [EnumMember(Value = "agent.assistant")]
             Agentassistant,
+            
+            /// <summary>
+            /// Enum Agenticvirtualagents for "agentic.virtual.agents"
+            /// </summary>
+            [EnumMember(Value = "agentic.virtual.agents")]
+            Agenticvirtualagents,
             
             /// <summary>
             /// Enum Analyticsagents for "analytics.agents"
@@ -236,6 +248,12 @@ namespace PureCloudPlatform.Client.V2.Model
             /// </summary>
             [EnumMember(Value = "analytics.alerting")]
             Analyticsalerting,
+            
+            /// <summary>
+            /// Enum Analyticsdataextraction for "analytics.data.extraction"
+            /// </summary>
+            [EnumMember(Value = "analytics.data.extraction")]
+            Analyticsdataextraction,
             
             /// <summary>
             /// Enum Analytics for "analytics"
@@ -266,6 +284,12 @@ namespace PureCloudPlatform.Client.V2.Model
             /// </summary>
             [EnumMember(Value = "audiohook")]
             Audiohook,
+            
+            /// <summary>
+            /// Enum Audiohookmonitor for "audiohook.monitor"
+            /// </summary>
+            [EnumMember(Value = "audiohook.monitor")]
+            Audiohookmonitor,
             
             /// <summary>
             /// Enum Audit for "audit"
@@ -334,6 +358,12 @@ namespace PureCloudPlatform.Client.V2.Model
             Conversation,
             
             /// <summary>
+            /// Enum Copilot for "copilot"
+            /// </summary>
+            [EnumMember(Value = "copilot")]
+            Copilot,
+            
+            /// <summary>
             /// Enum Dataactions for "dataactions"
             /// </summary>
             [EnumMember(Value = "dataactions")]
@@ -350,6 +380,12 @@ namespace PureCloudPlatform.Client.V2.Model
             /// </summary>
             [EnumMember(Value = "directory")]
             Directory,
+            
+            /// <summary>
+            /// Enum Dsar for "dsar"
+            /// </summary>
+            [EnumMember(Value = "dsar")]
+            Dsar,
             
             /// <summary>
             /// Enum Email for "email"
@@ -376,6 +412,12 @@ namespace PureCloudPlatform.Client.V2.Model
             Externalcontacts,
             
             /// <summary>
+            /// Enum Externaleventsdataingestion for "external.events.data.ingestion"
+            /// </summary>
+            [EnumMember(Value = "external.events.data.ingestion")]
+            Externaleventsdataingestion,
+            
+            /// <summary>
             /// Enum Gamification for "gamification"
             /// </summary>
             [EnumMember(Value = "gamification")]
@@ -398,6 +440,12 @@ namespace PureCloudPlatform.Client.V2.Model
             /// </summary>
             [EnumMember(Value = "groups")]
             Groups,
+            
+            /// <summary>
+            /// Enum Guides for "guides"
+            /// </summary>
+            [EnumMember(Value = "guides")]
+            Guides,
             
             /// <summary>
             /// Enum Historicaladherence for "historical.adherence"
@@ -550,6 +598,12 @@ namespace PureCloudPlatform.Client.V2.Model
             Scim,
             
             /// <summary>
+            /// Enum Screenmonitoring for "screen.monitoring"
+            /// </summary>
+            [EnumMember(Value = "screen.monitoring")]
+            Screenmonitoring,
+            
+            /// <summary>
             /// Enum Search for "search"
             /// </summary>
             [EnumMember(Value = "search")]
@@ -616,6 +670,18 @@ namespace PureCloudPlatform.Client.V2.Model
             Users,
             
             /// <summary>
+            /// Enum Usersrules for "users.rules"
+            /// </summary>
+            [EnumMember(Value = "users.rules")]
+            Usersrules,
+            
+            /// <summary>
+            /// Enum Voicetranscription for "voice.transcription"
+            /// </summary>
+            [EnumMember(Value = "voice.transcription")]
+            Voicetranscription,
+            
+            /// <summary>
             /// Enum Webdeployments for "web.deployments"
             /// </summary>
             [EnumMember(Value = "web.deployments")]
@@ -640,16 +706,28 @@ namespace PureCloudPlatform.Client.V2.Model
             Webhooks,
             
             /// <summary>
-            /// Enum Workforcemanagementforecast for "workforce.management.forecast"
+            /// Enum Workforcemanagementagentavailability for "workforce.management.agent.availability"
             /// </summary>
-            [EnumMember(Value = "workforce.management.forecast")]
-            Workforcemanagementforecast,
+            [EnumMember(Value = "workforce.management.agent.availability")]
+            Workforcemanagementagentavailability,
             
             /// <summary>
             /// Enum Workforcemanagement for "workforce.management"
             /// </summary>
             [EnumMember(Value = "workforce.management")]
             Workforcemanagement,
+            
+            /// <summary>
+            /// Enum Workforcemanagementselfschedule for "workforce.management.self.schedule"
+            /// </summary>
+            [EnumMember(Value = "workforce.management.self.schedule")]
+            Workforcemanagementselfschedule,
+            
+            /// <summary>
+            /// Enum Workforcemanagementshifttrading for "workforce.management.shift.trading"
+            /// </summary>
+            [EnumMember(Value = "workforce.management.shift.trading")]
+            Workforcemanagementshifttrading,
             
             /// <summary>
             /// Enum System for "system"

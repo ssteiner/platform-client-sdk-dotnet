@@ -33,6 +33,12 @@ namespace PureCloudPlatform.Client.V2.Model
             OutdatedSdkVersion,
             
             /// <summary>
+            /// Enum Api for "api"
+            /// </summary>
+            [EnumMember(Value = "api")]
+            Api,
+            
+            /// <summary>
             /// Enum Dataactions for "data-actions"
             /// </summary>
             [EnumMember(Value = "data-actions")]
@@ -69,10 +75,10 @@ namespace PureCloudPlatform.Client.V2.Model
             Openmessaging,
             
             /// <summary>
-            /// Enum Api for "api"
+            /// Enum Ttsconnector for "tts-connector"
             /// </summary>
-            [EnumMember(Value = "api")]
-            Api,
+            [EnumMember(Value = "tts-connector")]
+            Ttsconnector,
             
             /// <summary>
             /// Enum Audioconnector for "audio-connector"
@@ -93,10 +99,49 @@ namespace PureCloudPlatform.Client.V2.Model
             Botconnector,
             
             /// <summary>
-            /// Enum Ttsconnector for "tts-connector"
+            /// Enum Byosmpp for "byo-smpp"
             /// </summary>
-            [EnumMember(Value = "tts-connector")]
-            Ttsconnector
+            [EnumMember(Value = "byo-smpp")]
+            Byosmpp,
+            
+            /// <summary>
+            /// Enum Encryption for "encryption"
+            /// </summary>
+            [EnumMember(Value = "encryption")]
+            Encryption
+        }
+        /// <summary>
+        /// The direction of traffic for the IP range from the perspective of Genesys Cloud (e.g. inbound to Genesys; outbound from Genesys)
+        /// </summary>
+        /// <value>The direction of traffic for the IP range from the perspective of Genesys Cloud (e.g. inbound to Genesys; outbound from Genesys)</value>
+        [JsonConverter(typeof(UpgradeSdkEnumConverter))]
+        public enum DirectionEnum
+        {
+            /// <summary>
+            /// Your SDK version is out of date and an unknown enum value was encountered. 
+            /// Please upgrade the SDK using the command "Upgrade-Package PureCloudApiSdk" 
+            /// in the Package Manager Console
+            /// </summary>
+            [EnumMember(Value = "OUTDATED_SDK_VERSION")]
+            OutdatedSdkVersion,
+            
+            /// <summary>
+            /// Enum Inbound for "inbound"
+            /// </summary>
+            [EnumMember(Value = "inbound")]
+            Inbound,
+            
+            /// <summary>
+            /// Enum Outbound for "outbound"
+            /// </summary>
+            [EnumMember(Value = "outbound")]
+            Outbound,
+            
+            /// <summary>
+            /// Enum Both for "both"
+            /// </summary>
+            [EnumMember(Value = "both")]
+            Both
         }
         /// <summary>
         /// Gets or Sets Service
@@ -104,16 +149,24 @@ namespace PureCloudPlatform.Client.V2.Model
         [DataMember(Name="service", EmitDefaultValue=false)]
         public ServiceEnum? Service { get; set; }
         /// <summary>
+        /// The direction of traffic for the IP range from the perspective of Genesys Cloud (e.g. inbound to Genesys; outbound from Genesys)
+        /// </summary>
+        /// <value>The direction of traffic for the IP range from the perspective of Genesys Cloud (e.g. inbound to Genesys; outbound from Genesys)</value>
+        [DataMember(Name="direction", EmitDefaultValue=false)]
+        public DirectionEnum? Direction { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="IpAddressRange" /> class.
         /// </summary>
         /// <param name="Cidr">Cidr.</param>
         /// <param name="Service">Service.</param>
         /// <param name="Region">Region.</param>
-        public IpAddressRange(string Cidr = null, ServiceEnum? Service = null, string Region = null)
+        /// <param name="Direction">The direction of traffic for the IP range from the perspective of Genesys Cloud (e.g. inbound to Genesys; outbound from Genesys).</param>
+        public IpAddressRange(string Cidr = null, ServiceEnum? Service = null, string Region = null, DirectionEnum? Direction = null)
         {
             this.Cidr = Cidr;
             this.Service = Service;
             this.Region = Region;
+            this.Direction = Direction;
             
         }
         
@@ -136,6 +189,8 @@ namespace PureCloudPlatform.Client.V2.Model
         public string Region { get; set; }
 
 
+
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -148,6 +203,7 @@ namespace PureCloudPlatform.Client.V2.Model
             sb.Append("  Cidr: ").Append(Cidr).Append("\n");
             sb.Append("  Service: ").Append(Service).Append("\n");
             sb.Append("  Region: ").Append(Region).Append("\n");
+            sb.Append("  Direction: ").Append(Direction).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -202,6 +258,11 @@ namespace PureCloudPlatform.Client.V2.Model
                     this.Region == other.Region ||
                     this.Region != null &&
                     this.Region.Equals(other.Region)
+                ) &&
+                (
+                    this.Direction == other.Direction ||
+                    this.Direction != null &&
+                    this.Direction.Equals(other.Direction)
                 );
         }
 
@@ -224,6 +285,9 @@ namespace PureCloudPlatform.Client.V2.Model
 
                 if (this.Region != null)
                     hash = hash * 59 + this.Region.GetHashCode();
+
+                if (this.Direction != null)
+                    hash = hash * 59 + this.Direction.GetHashCode();
 
                 return hash;
             }

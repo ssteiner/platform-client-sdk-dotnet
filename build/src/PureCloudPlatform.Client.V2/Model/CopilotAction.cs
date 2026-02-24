@@ -49,7 +49,19 @@ namespace PureCloudPlatform.Client.V2.Model
             /// Enum Script for "Script"
             /// </summary>
             [EnumMember(Value = "Script")]
-            Script
+            Script,
+            
+            /// <summary>
+            /// Enum Checklist for "Checklist"
+            /// </summary>
+            [EnumMember(Value = "Checklist")]
+            Checklist,
+            
+            /// <summary>
+            /// Enum Thirdpartyaction for "ThirdPartyAction"
+            /// </summary>
+            [EnumMember(Value = "ThirdPartyAction")]
+            Thirdpartyaction
         }
         /// <summary>
         /// Type of action.

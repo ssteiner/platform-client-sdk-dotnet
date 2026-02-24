@@ -37,7 +37,10 @@ namespace PureCloudPlatform.Client.V2.Model
         /// <param name="DocumentIds">IDs of documents associated with this coaching appointment..</param>
         /// <param name="WfmSchedule">The Workforce Management schedule the appointment is associated with..</param>
         /// <param name="ExternalLinks">The list of external links related to the appointment.</param>
-        public CreateCoachingAppointmentRequest(string Name = null, string Description = null, DateTime? DateStart = null, int? LengthInMinutes = null, string FacilitatorId = null, List<string> AttendeeIds = null, List<string> ConversationIds = null, List<string> DocumentIds = null, WfmScheduleReference WfmSchedule = null, List<string> ExternalLinks = null)
+        /// <param name="Location">The location of the appointment.</param>
+        /// <param name="ShareInsightsData">Whether to share the insight data.</param>
+        /// <param name="AddToSchedule">If True, adds the appointment to their schedule.</param>
+        public CreateCoachingAppointmentRequest(string Name = null, string Description = null, DateTime? DateStart = null, int? LengthInMinutes = null, string FacilitatorId = null, List<string> AttendeeIds = null, List<string> ConversationIds = null, List<string> DocumentIds = null, WfmScheduleReference WfmSchedule = null, List<string> ExternalLinks = null, string Location = null, bool? ShareInsightsData = null, bool? AddToSchedule = null)
         {
             this.Name = Name;
             this.Description = Description;
@@ -49,6 +52,9 @@ namespace PureCloudPlatform.Client.V2.Model
             this.DocumentIds = DocumentIds;
             this.WfmSchedule = WfmSchedule;
             this.ExternalLinks = ExternalLinks;
+            this.Location = Location;
+            this.ShareInsightsData = ShareInsightsData;
+            this.AddToSchedule = AddToSchedule;
             
         }
         
@@ -143,6 +149,33 @@ namespace PureCloudPlatform.Client.V2.Model
         public List<string> ExternalLinks { get; set; }
 
 
+
+        /// <summary>
+        /// The location of the appointment
+        /// </summary>
+        /// <value>The location of the appointment</value>
+        [DataMember(Name="location", EmitDefaultValue=false)]
+        public string Location { get; set; }
+
+
+
+        /// <summary>
+        /// Whether to share the insight data
+        /// </summary>
+        /// <value>Whether to share the insight data</value>
+        [DataMember(Name="shareInsightsData", EmitDefaultValue=false)]
+        public bool? ShareInsightsData { get; set; }
+
+
+
+        /// <summary>
+        /// If True, adds the appointment to their schedule
+        /// </summary>
+        /// <value>If True, adds the appointment to their schedule</value>
+        [DataMember(Name="addToSchedule", EmitDefaultValue=false)]
+        public bool? AddToSchedule { get; set; }
+
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -162,6 +195,9 @@ namespace PureCloudPlatform.Client.V2.Model
             sb.Append("  DocumentIds: ").Append(DocumentIds).Append("\n");
             sb.Append("  WfmSchedule: ").Append(WfmSchedule).Append("\n");
             sb.Append("  ExternalLinks: ").Append(ExternalLinks).Append("\n");
+            sb.Append("  Location: ").Append(Location).Append("\n");
+            sb.Append("  ShareInsightsData: ").Append(ShareInsightsData).Append("\n");
+            sb.Append("  AddToSchedule: ").Append(AddToSchedule).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -251,6 +287,21 @@ namespace PureCloudPlatform.Client.V2.Model
                     this.ExternalLinks == other.ExternalLinks ||
                     this.ExternalLinks != null &&
                     this.ExternalLinks.SequenceEqual(other.ExternalLinks)
+                ) &&
+                (
+                    this.Location == other.Location ||
+                    this.Location != null &&
+                    this.Location.Equals(other.Location)
+                ) &&
+                (
+                    this.ShareInsightsData == other.ShareInsightsData ||
+                    this.ShareInsightsData != null &&
+                    this.ShareInsightsData.Equals(other.ShareInsightsData)
+                ) &&
+                (
+                    this.AddToSchedule == other.AddToSchedule ||
+                    this.AddToSchedule != null &&
+                    this.AddToSchedule.Equals(other.AddToSchedule)
                 );
         }
 
@@ -294,6 +345,15 @@ namespace PureCloudPlatform.Client.V2.Model
 
                 if (this.ExternalLinks != null)
                     hash = hash * 59 + this.ExternalLinks.GetHashCode();
+
+                if (this.Location != null)
+                    hash = hash * 59 + this.Location.GetHashCode();
+
+                if (this.ShareInsightsData != null)
+                    hash = hash * 59 + this.ShareInsightsData.GetHashCode();
+
+                if (this.AddToSchedule != null)
+                    hash = hash * 59 + this.AddToSchedule.GetHashCode();
 
                 return hash;
             }

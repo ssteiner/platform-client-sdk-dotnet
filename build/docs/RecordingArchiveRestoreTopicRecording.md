@@ -10,9 +10,9 @@
 | **ConversationId** | **string** |  | [optional] |
 | **FileState** | **string** |  | [optional] |
 | **MediaUris** | [**List&lt;RecordingArchiveRestoreTopicMediaResult&gt;**](RecordingArchiveRestoreTopicMediaResult) |  | [optional] |
-| **EstimatedTranscodeTimeMs** | **int?** |  | [optional] |
-| **ActualTranscodeTimeMs** | **int?** |  | [optional] |
+| **EstimatedTranscodeTimeMs** | **long?** |  | [optional] |
+| **ActualTranscodeTimeMs** | **long?** |  | [optional] |
 
 
 
-_PureCloudPlatform.Client.V2 227.0.0_
+_PureCloudPlatform.Client.V2 257.0.0_

@@ -7,6 +7,7 @@
 |Name | Type | Description | Notes|
 |------------ | ------------- | ------------- | -------------|
 | **Id** | **string** |  | [optional] |
+| **ContextId** | **string** | An identifier for this question group that stays the same across versions of the form. | [optional] |
 | **Name** | **string** |  | [optional] |
 | **Type** | **string** |  | [optional] |
 | **DefaultAnswersToHighest** | **bool?** |  | [optional] |
@@ -16,7 +17,8 @@
 | **ManualWeight** | **bool?** |  | [optional] |
 | **Questions** | [**List&lt;EvaluationQuestion&gt;**](EvaluationQuestion) |  | [optional] |
 | **VisibilityCondition** | [**VisibilityCondition**](VisibilityCondition) |  | [optional] |
+| **DefaultAnswersTo** | [**DefaultAnswersTo**](DefaultAnswersTo) | Default scoring settings for the questions within this question group. | [optional] |
 
 
 
-_PureCloudPlatform.Client.V2 227.0.0_
+_PureCloudPlatform.Client.V2 257.0.0_

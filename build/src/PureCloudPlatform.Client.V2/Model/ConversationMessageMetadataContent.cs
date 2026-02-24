@@ -112,6 +112,54 @@ namespace PureCloudPlatform.Client.V2.Model
             Datepicker,
             
             /// <summary>
+            /// Enum Interactiveapplication for "InteractiveApplication"
+            /// </summary>
+            [EnumMember(Value = "InteractiveApplication")]
+            Interactiveapplication,
+            
+            /// <summary>
+            /// Enum Listpicker for "ListPicker"
+            /// </summary>
+            [EnumMember(Value = "ListPicker")]
+            Listpicker,
+            
+            /// <summary>
+            /// Enum Paymentrequest for "PaymentRequest"
+            /// </summary>
+            [EnumMember(Value = "PaymentRequest")]
+            Paymentrequest,
+            
+            /// <summary>
+            /// Enum Paymentresponse for "PaymentResponse"
+            /// </summary>
+            [EnumMember(Value = "PaymentResponse")]
+            Paymentresponse,
+            
+            /// <summary>
+            /// Enum Push for "Push"
+            /// </summary>
+            [EnumMember(Value = "Push")]
+            Push,
+            
+            /// <summary>
+            /// Enum Form for "Form"
+            /// </summary>
+            [EnumMember(Value = "Form")]
+            Form,
+            
+            /// <summary>
+            /// Enum Roadsideassistance for "RoadsideAssistance"
+            /// </summary>
+            [EnumMember(Value = "RoadsideAssistance")]
+            Roadsideassistance,
+            
+            /// <summary>
+            /// Enum Richlink for "RichLink"
+            /// </summary>
+            [EnumMember(Value = "RichLink")]
+            Richlink,
+            
+            /// <summary>
             /// Enum Unknown for "Unknown"
             /// </summary>
             [EnumMember(Value = "Unknown")]

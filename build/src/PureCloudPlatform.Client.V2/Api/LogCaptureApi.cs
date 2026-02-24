@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using RestSharp;
 using PureCloudPlatform.Client.V2.Client;
 using PureCloudPlatform.Client.V2.Model;
 
@@ -72,9 +71,9 @@ namespace PureCloudPlatform.Client.V2.Api
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The id of the user to get browser log capture configuration</param>
-        /// <returns>LogCaptureUserConfiguration</returns>
+        /// <returns>LogCaptureUserConfigurationResponse</returns>
         
-        LogCaptureUserConfiguration GetDiagnosticsLogcaptureBrowserUser (string userId);
+        LogCaptureUserConfigurationResponse GetDiagnosticsLogcaptureBrowserUser (string userId);
 
         /// <summary>
         /// Get log capture configuration for the user
@@ -84,9 +83,9 @@ namespace PureCloudPlatform.Client.V2.Api
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The id of the user to get browser log capture configuration</param>
-        /// <returns>ApiResponse of LogCaptureUserConfiguration</returns>
+        /// <returns>ApiResponse of LogCaptureUserConfigurationResponse</returns>
         
-        ApiResponse<LogCaptureUserConfiguration> GetDiagnosticsLogcaptureBrowserUserWithHttpInfo (string userId);
+        ApiResponse<LogCaptureUserConfigurationResponse> GetDiagnosticsLogcaptureBrowserUserWithHttpInfo (string userId);
 
         /// <summary>
         /// Get all log capture enabled users for an org
@@ -96,9 +95,9 @@ namespace PureCloudPlatform.Client.V2.Api
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="includeExpired">Include expired users with log captures still available for search or download (optional, default to false)</param>
-        /// <returns>PagelessEntityListing</returns>
+        /// <returns>LogCaptureUserConfigurationListing</returns>
         
-        PagelessEntityListing GetDiagnosticsLogcaptureBrowserUsers (bool? includeExpired = null);
+        LogCaptureUserConfigurationListing GetDiagnosticsLogcaptureBrowserUsers (bool? includeExpired = null);
 
         /// <summary>
         /// Get all log capture enabled users for an org
@@ -108,9 +107,9 @@ namespace PureCloudPlatform.Client.V2.Api
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="includeExpired">Include expired users with log captures still available for search or download (optional, default to false)</param>
-        /// <returns>ApiResponse of PagelessEntityListing</returns>
+        /// <returns>ApiResponse of LogCaptureUserConfigurationListing</returns>
         
-        ApiResponse<PagelessEntityListing> GetDiagnosticsLogcaptureBrowserUsersWithHttpInfo (bool? includeExpired = null);
+        ApiResponse<LogCaptureUserConfigurationListing> GetDiagnosticsLogcaptureBrowserUsersWithHttpInfo (bool? includeExpired = null);
 
         /// <summary>
         /// Creates an async download execution
@@ -143,13 +142,12 @@ namespace PureCloudPlatform.Client.V2.Api
         /// 
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="before">The cursor that points to the start of the set of entities that has been returned. (optional)</param>
         /// <param name="after">The cursor that points to the end of the set of entities that has been returned. (optional)</param>
         /// <param name="pageSize">Number of entities to return. Maximum of 200. (optional)</param>
         /// <param name="body"> (optional)</param>
         /// <returns>LogCaptureQueryResponse</returns>
         
-        LogCaptureQueryResponse PostDiagnosticsLogcaptureBrowserEntriesQuery (string before = null, string after = null, string pageSize = null, LogCaptureQueryRequest body = null);
+        LogCaptureQueryResponse PostDiagnosticsLogcaptureBrowserEntriesQuery (string after = null, string pageSize = null, LogCaptureQueryRequest body = null);
 
         /// <summary>
         /// Query collected log entries. It returns a limited amount of records, to get all records use download endpoint.
@@ -158,13 +156,12 @@ namespace PureCloudPlatform.Client.V2.Api
         /// 
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="before">The cursor that points to the start of the set of entities that has been returned. (optional)</param>
         /// <param name="after">The cursor that points to the end of the set of entities that has been returned. (optional)</param>
         /// <param name="pageSize">Number of entities to return. Maximum of 200. (optional)</param>
         /// <param name="body"> (optional)</param>
         /// <returns>ApiResponse of LogCaptureQueryResponse</returns>
         
-        ApiResponse<LogCaptureQueryResponse> PostDiagnosticsLogcaptureBrowserEntriesQueryWithHttpInfo (string before = null, string after = null, string pageSize = null, LogCaptureQueryRequest body = null);
+        ApiResponse<LogCaptureQueryResponse> PostDiagnosticsLogcaptureBrowserEntriesQueryWithHttpInfo (string after = null, string pageSize = null, LogCaptureQueryRequest body = null);
 
         /// <summary>
         /// Enable log capture for a user or update expiration
@@ -252,9 +249,9 @@ namespace PureCloudPlatform.Client.V2.Api
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The id of the user to get browser log capture configuration</param>
-        /// <returns>Task of LogCaptureUserConfiguration</returns>
+        /// <returns>Task of LogCaptureUserConfigurationResponse</returns>
         
-        System.Threading.Tasks.Task<LogCaptureUserConfiguration> GetDiagnosticsLogcaptureBrowserUserAsync (string userId);
+        System.Threading.Tasks.Task<LogCaptureUserConfigurationResponse> GetDiagnosticsLogcaptureBrowserUserAsync (string userId);
 
         /// <summary>
         /// Get log capture configuration for the user
@@ -264,9 +261,9 @@ namespace PureCloudPlatform.Client.V2.Api
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The id of the user to get browser log capture configuration</param>
-        /// <returns>Task of ApiResponse (LogCaptureUserConfiguration)</returns>
+        /// <returns>Task of ApiResponse (LogCaptureUserConfigurationResponse)</returns>
         
-        System.Threading.Tasks.Task<ApiResponse<LogCaptureUserConfiguration>> GetDiagnosticsLogcaptureBrowserUserAsyncWithHttpInfo (string userId);
+        System.Threading.Tasks.Task<ApiResponse<LogCaptureUserConfigurationResponse>> GetDiagnosticsLogcaptureBrowserUserAsyncWithHttpInfo (string userId);
 
         /// <summary>
         /// Get all log capture enabled users for an org
@@ -276,9 +273,9 @@ namespace PureCloudPlatform.Client.V2.Api
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="includeExpired">Include expired users with log captures still available for search or download (optional, default to false)</param>
-        /// <returns>Task of PagelessEntityListing</returns>
+        /// <returns>Task of LogCaptureUserConfigurationListing</returns>
         
-        System.Threading.Tasks.Task<PagelessEntityListing> GetDiagnosticsLogcaptureBrowserUsersAsync (bool? includeExpired = null);
+        System.Threading.Tasks.Task<LogCaptureUserConfigurationListing> GetDiagnosticsLogcaptureBrowserUsersAsync (bool? includeExpired = null);
 
         /// <summary>
         /// Get all log capture enabled users for an org
@@ -288,9 +285,9 @@ namespace PureCloudPlatform.Client.V2.Api
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="includeExpired">Include expired users with log captures still available for search or download (optional, default to false)</param>
-        /// <returns>Task of ApiResponse (PagelessEntityListing)</returns>
+        /// <returns>Task of ApiResponse (LogCaptureUserConfigurationListing)</returns>
         
-        System.Threading.Tasks.Task<ApiResponse<PagelessEntityListing>> GetDiagnosticsLogcaptureBrowserUsersAsyncWithHttpInfo (bool? includeExpired = null);
+        System.Threading.Tasks.Task<ApiResponse<LogCaptureUserConfigurationListing>> GetDiagnosticsLogcaptureBrowserUsersAsyncWithHttpInfo (bool? includeExpired = null);
 
         /// <summary>
         /// Creates an async download execution
@@ -323,13 +320,12 @@ namespace PureCloudPlatform.Client.V2.Api
         /// 
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="before">The cursor that points to the start of the set of entities that has been returned. (optional)</param>
         /// <param name="after">The cursor that points to the end of the set of entities that has been returned. (optional)</param>
         /// <param name="pageSize">Number of entities to return. Maximum of 200. (optional)</param>
         /// <param name="body"> (optional)</param>
         /// <returns>Task of LogCaptureQueryResponse</returns>
         
-        System.Threading.Tasks.Task<LogCaptureQueryResponse> PostDiagnosticsLogcaptureBrowserEntriesQueryAsync (string before = null, string after = null, string pageSize = null, LogCaptureQueryRequest body = null);
+        System.Threading.Tasks.Task<LogCaptureQueryResponse> PostDiagnosticsLogcaptureBrowserEntriesQueryAsync (string after = null, string pageSize = null, LogCaptureQueryRequest body = null);
 
         /// <summary>
         /// Query collected log entries. It returns a limited amount of records, to get all records use download endpoint.
@@ -338,13 +334,12 @@ namespace PureCloudPlatform.Client.V2.Api
         /// 
         /// </remarks>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="before">The cursor that points to the start of the set of entities that has been returned. (optional)</param>
         /// <param name="after">The cursor that points to the end of the set of entities that has been returned. (optional)</param>
         /// <param name="pageSize">Number of entities to return. Maximum of 200. (optional)</param>
         /// <param name="body"> (optional)</param>
         /// <returns>Task of ApiResponse (LogCaptureQueryResponse)</returns>
         
-        System.Threading.Tasks.Task<ApiResponse<LogCaptureQueryResponse>> PostDiagnosticsLogcaptureBrowserEntriesQueryAsyncWithHttpInfo (string before = null, string after = null, string pageSize = null, LogCaptureQueryRequest body = null);
+        System.Threading.Tasks.Task<ApiResponse<LogCaptureQueryResponse>> PostDiagnosticsLogcaptureBrowserEntriesQueryAsyncWithHttpInfo (string after = null, string pageSize = null, LogCaptureQueryRequest body = null);
 
         /// <summary>
         /// Enable log capture for a user or update expiration
@@ -492,11 +487,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'userId' when calling LogCaptureApi->DeleteDiagnosticsLogcaptureBrowserUser");
 
             var localVarPath = "/api/v2/diagnostics/logcapture/browser/users/{userId}";
+            var localVarHttpMethod = "Delete";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -540,20 +536,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling DeleteDiagnosticsLogcaptureBrowserUser: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -598,11 +587,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/diagnostics/logcapture/browser/users/{userId}";
+            var localVarHttpMethod = "Delete";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -646,20 +636,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling DeleteDiagnosticsLogcaptureBrowserUser: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -704,11 +687,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'jobId' when calling LogCaptureApi->GetDiagnosticsLogcaptureBrowserEntriesDownloadJob");
 
             var localVarPath = "/api/v2/diagnostics/logcapture/browser/entries/download/jobs/{jobId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -752,20 +736,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetDiagnosticsLogcaptureBrowserEntriesDownloadJob: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -811,11 +788,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/diagnostics/logcapture/browser/entries/download/jobs/{jobId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -859,20 +837,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetDiagnosticsLogcaptureBrowserEntriesDownloadJob: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -894,11 +865,11 @@ namespace PureCloudPlatform.Client.V2.Api
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The id of the user to get browser log capture configuration</param>
-        /// <returns>LogCaptureUserConfiguration</returns>
+        /// <returns>LogCaptureUserConfigurationResponse</returns>
         
-        public LogCaptureUserConfiguration GetDiagnosticsLogcaptureBrowserUser (string userId)
+        public LogCaptureUserConfigurationResponse GetDiagnosticsLogcaptureBrowserUser (string userId)
         {
-             ApiResponse<LogCaptureUserConfiguration> localVarResponse = GetDiagnosticsLogcaptureBrowserUserWithHttpInfo(userId);
+             ApiResponse<LogCaptureUserConfigurationResponse> localVarResponse = GetDiagnosticsLogcaptureBrowserUserWithHttpInfo(userId);
              return localVarResponse.Data;
         }
 
@@ -908,20 +879,21 @@ namespace PureCloudPlatform.Client.V2.Api
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The id of the user to get browser log capture configuration</param>
-        /// <returns>ApiResponse of LogCaptureUserConfiguration</returns>
+        /// <returns>ApiResponse of LogCaptureUserConfigurationResponse</returns>
         
-        public ApiResponse< LogCaptureUserConfiguration > GetDiagnosticsLogcaptureBrowserUserWithHttpInfo (string userId)
+        public ApiResponse< LogCaptureUserConfigurationResponse > GetDiagnosticsLogcaptureBrowserUserWithHttpInfo (string userId)
         { 
             // verify the required parameter 'userId' is set
             if (userId == null)
                 throw new ApiException(400, "Missing required parameter 'userId' when calling LogCaptureApi->GetDiagnosticsLogcaptureBrowserUser");
 
             var localVarPath = "/api/v2/diagnostics/logcapture/browser/users/{userId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -965,29 +937,22 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetDiagnosticsLogcaptureBrowserUser: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
             else if (localVarStatusCode == 0)
                 throw new ApiException (localVarStatusCode, "Error calling GetDiagnosticsLogcaptureBrowserUser: " + localVarResponse.ErrorMessage, localVarResponse.ErrorMessage);
 
-            return new ApiResponse<LogCaptureUserConfiguration>(localVarStatusCode,
+            return new ApiResponse<LogCaptureUserConfigurationResponse>(localVarStatusCode,
                 localVarHeaders,
-                (LogCaptureUserConfiguration) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(LogCaptureUserConfiguration)),
+                (LogCaptureUserConfigurationResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(LogCaptureUserConfigurationResponse)),
                 localVarResponse.Content,
                 localVarResponse.StatusDescription);
         }
@@ -999,11 +964,11 @@ namespace PureCloudPlatform.Client.V2.Api
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The id of the user to get browser log capture configuration</param>
-        /// <returns>Task of LogCaptureUserConfiguration</returns>
+        /// <returns>Task of LogCaptureUserConfigurationResponse</returns>
         
-        public async System.Threading.Tasks.Task<LogCaptureUserConfiguration> GetDiagnosticsLogcaptureBrowserUserAsync (string userId)
+        public async System.Threading.Tasks.Task<LogCaptureUserConfigurationResponse> GetDiagnosticsLogcaptureBrowserUserAsync (string userId)
         {
-             ApiResponse<LogCaptureUserConfiguration> localVarResponse = await GetDiagnosticsLogcaptureBrowserUserAsyncWithHttpInfo(userId);
+             ApiResponse<LogCaptureUserConfigurationResponse> localVarResponse = await GetDiagnosticsLogcaptureBrowserUserAsyncWithHttpInfo(userId);
              return localVarResponse.Data;
 
         }
@@ -1014,9 +979,9 @@ namespace PureCloudPlatform.Client.V2.Api
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The id of the user to get browser log capture configuration</param>
-        /// <returns>Task of ApiResponse (LogCaptureUserConfiguration)</returns>
+        /// <returns>Task of ApiResponse (LogCaptureUserConfigurationResponse)</returns>
         
-        public async System.Threading.Tasks.Task<ApiResponse<LogCaptureUserConfiguration>> GetDiagnosticsLogcaptureBrowserUserAsyncWithHttpInfo (string userId)
+        public async System.Threading.Tasks.Task<ApiResponse<LogCaptureUserConfigurationResponse>> GetDiagnosticsLogcaptureBrowserUserAsyncWithHttpInfo (string userId)
         { 
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -1024,11 +989,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/diagnostics/logcapture/browser/users/{userId}";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -1072,29 +1038,22 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetDiagnosticsLogcaptureBrowserUser: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
             else if (localVarStatusCode == 0)
                 throw new ApiException (localVarStatusCode, "Error calling GetDiagnosticsLogcaptureBrowserUser: " + localVarResponse.ErrorMessage, localVarResponse.ErrorMessage);
 
-            return new ApiResponse<LogCaptureUserConfiguration>(localVarStatusCode,
+            return new ApiResponse<LogCaptureUserConfigurationResponse>(localVarStatusCode,
                 localVarHeaders,
-                (LogCaptureUserConfiguration) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(LogCaptureUserConfiguration)),
+                (LogCaptureUserConfigurationResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(LogCaptureUserConfigurationResponse)),
                 localVarResponse.Content,
                 localVarResponse.StatusDescription);
         }
@@ -1107,11 +1066,11 @@ namespace PureCloudPlatform.Client.V2.Api
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="includeExpired">Include expired users with log captures still available for search or download (optional, default to false)</param>
-        /// <returns>PagelessEntityListing</returns>
+        /// <returns>LogCaptureUserConfigurationListing</returns>
         
-        public PagelessEntityListing GetDiagnosticsLogcaptureBrowserUsers (bool? includeExpired = null)
+        public LogCaptureUserConfigurationListing GetDiagnosticsLogcaptureBrowserUsers (bool? includeExpired = null)
         {
-             ApiResponse<PagelessEntityListing> localVarResponse = GetDiagnosticsLogcaptureBrowserUsersWithHttpInfo(includeExpired);
+             ApiResponse<LogCaptureUserConfigurationListing> localVarResponse = GetDiagnosticsLogcaptureBrowserUsersWithHttpInfo(includeExpired);
              return localVarResponse.Data;
         }
 
@@ -1121,17 +1080,18 @@ namespace PureCloudPlatform.Client.V2.Api
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="includeExpired">Include expired users with log captures still available for search or download (optional, default to false)</param>
-        /// <returns>ApiResponse of PagelessEntityListing</returns>
+        /// <returns>ApiResponse of LogCaptureUserConfigurationListing</returns>
         
-        public ApiResponse< PagelessEntityListing > GetDiagnosticsLogcaptureBrowserUsersWithHttpInfo (bool? includeExpired = null)
+        public ApiResponse< LogCaptureUserConfigurationListing > GetDiagnosticsLogcaptureBrowserUsersWithHttpInfo (bool? includeExpired = null)
         { 
 
             var localVarPath = "/api/v2/diagnostics/logcapture/browser/users";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -1175,29 +1135,22 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetDiagnosticsLogcaptureBrowserUsers: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
             else if (localVarStatusCode == 0)
                 throw new ApiException (localVarStatusCode, "Error calling GetDiagnosticsLogcaptureBrowserUsers: " + localVarResponse.ErrorMessage, localVarResponse.ErrorMessage);
 
-            return new ApiResponse<PagelessEntityListing>(localVarStatusCode,
+            return new ApiResponse<LogCaptureUserConfigurationListing>(localVarStatusCode,
                 localVarHeaders,
-                (PagelessEntityListing) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagelessEntityListing)),
+                (LogCaptureUserConfigurationListing) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(LogCaptureUserConfigurationListing)),
                 localVarResponse.Content,
                 localVarResponse.StatusDescription);
         }
@@ -1209,11 +1162,11 @@ namespace PureCloudPlatform.Client.V2.Api
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="includeExpired">Include expired users with log captures still available for search or download (optional, default to false)</param>
-        /// <returns>Task of PagelessEntityListing</returns>
+        /// <returns>Task of LogCaptureUserConfigurationListing</returns>
         
-        public async System.Threading.Tasks.Task<PagelessEntityListing> GetDiagnosticsLogcaptureBrowserUsersAsync (bool? includeExpired = null)
+        public async System.Threading.Tasks.Task<LogCaptureUserConfigurationListing> GetDiagnosticsLogcaptureBrowserUsersAsync (bool? includeExpired = null)
         {
-             ApiResponse<PagelessEntityListing> localVarResponse = await GetDiagnosticsLogcaptureBrowserUsersAsyncWithHttpInfo(includeExpired);
+             ApiResponse<LogCaptureUserConfigurationListing> localVarResponse = await GetDiagnosticsLogcaptureBrowserUsersAsyncWithHttpInfo(includeExpired);
              return localVarResponse.Data;
 
         }
@@ -1224,17 +1177,18 @@ namespace PureCloudPlatform.Client.V2.Api
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="includeExpired">Include expired users with log captures still available for search or download (optional, default to false)</param>
-        /// <returns>Task of ApiResponse (PagelessEntityListing)</returns>
+        /// <returns>Task of ApiResponse (LogCaptureUserConfigurationListing)</returns>
         
-        public async System.Threading.Tasks.Task<ApiResponse<PagelessEntityListing>> GetDiagnosticsLogcaptureBrowserUsersAsyncWithHttpInfo (bool? includeExpired = null)
+        public async System.Threading.Tasks.Task<ApiResponse<LogCaptureUserConfigurationListing>> GetDiagnosticsLogcaptureBrowserUsersAsyncWithHttpInfo (bool? includeExpired = null)
         { 
 
             var localVarPath = "/api/v2/diagnostics/logcapture/browser/users";
+            var localVarHttpMethod = "Get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -1278,29 +1232,22 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling GetDiagnosticsLogcaptureBrowserUsers: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
             else if (localVarStatusCode == 0)
                 throw new ApiException (localVarStatusCode, "Error calling GetDiagnosticsLogcaptureBrowserUsers: " + localVarResponse.ErrorMessage, localVarResponse.ErrorMessage);
 
-            return new ApiResponse<PagelessEntityListing>(localVarStatusCode,
+            return new ApiResponse<LogCaptureUserConfigurationListing>(localVarStatusCode,
                 localVarHeaders,
-                (PagelessEntityListing) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagelessEntityListing)),
+                (LogCaptureUserConfigurationListing) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(LogCaptureUserConfigurationListing)),
                 localVarResponse.Content,
                 localVarResponse.StatusDescription);
         }
@@ -1333,11 +1280,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/diagnostics/logcapture/browser/entries/download/jobs";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -1386,20 +1334,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostDiagnosticsLogcaptureBrowserEntriesDownloadJobs: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -1441,11 +1382,12 @@ namespace PureCloudPlatform.Client.V2.Api
         { 
 
             var localVarPath = "/api/v2/diagnostics/logcapture/browser/entries/download/jobs";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -1494,20 +1436,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostDiagnosticsLogcaptureBrowserEntriesDownloadJobs: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -1528,15 +1463,14 @@ namespace PureCloudPlatform.Client.V2.Api
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="before">The cursor that points to the start of the set of entities that has been returned. (optional)</param>
         /// <param name="after">The cursor that points to the end of the set of entities that has been returned. (optional)</param>
         /// <param name="pageSize">Number of entities to return. Maximum of 200. (optional)</param>
         /// <param name="body"> (optional)</param>
         /// <returns>LogCaptureQueryResponse</returns>
         
-        public LogCaptureQueryResponse PostDiagnosticsLogcaptureBrowserEntriesQuery (string before = null, string after = null, string pageSize = null, LogCaptureQueryRequest body = null)
+        public LogCaptureQueryResponse PostDiagnosticsLogcaptureBrowserEntriesQuery (string after = null, string pageSize = null, LogCaptureQueryRequest body = null)
         {
-             ApiResponse<LogCaptureQueryResponse> localVarResponse = PostDiagnosticsLogcaptureBrowserEntriesQueryWithHttpInfo(before, after, pageSize, body);
+             ApiResponse<LogCaptureQueryResponse> localVarResponse = PostDiagnosticsLogcaptureBrowserEntriesQueryWithHttpInfo(after, pageSize, body);
              return localVarResponse.Data;
         }
 
@@ -1545,21 +1479,21 @@ namespace PureCloudPlatform.Client.V2.Api
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="before">The cursor that points to the start of the set of entities that has been returned. (optional)</param>
         /// <param name="after">The cursor that points to the end of the set of entities that has been returned. (optional)</param>
         /// <param name="pageSize">Number of entities to return. Maximum of 200. (optional)</param>
         /// <param name="body"> (optional)</param>
         /// <returns>ApiResponse of LogCaptureQueryResponse</returns>
         
-        public ApiResponse< LogCaptureQueryResponse > PostDiagnosticsLogcaptureBrowserEntriesQueryWithHttpInfo (string before = null, string after = null, string pageSize = null, LogCaptureQueryRequest body = null)
+        public ApiResponse< LogCaptureQueryResponse > PostDiagnosticsLogcaptureBrowserEntriesQueryWithHttpInfo (string after = null, string pageSize = null, LogCaptureQueryRequest body = null)
         { 
 
             var localVarPath = "/api/v2/diagnostics/logcapture/browser/entries/query";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -1587,7 +1521,6 @@ namespace PureCloudPlatform.Client.V2.Api
             // Path params
 
             // Query params
-            if (before != null) localVarQueryParams.Add(new Tuple<string, string>("before", this.Configuration.ApiClient.ParameterToString(before)));
             if (after != null) localVarQueryParams.Add(new Tuple<string, string>("after", this.Configuration.ApiClient.ParameterToString(after)));
             if (pageSize != null) localVarQueryParams.Add(new Tuple<string, string>("pageSize", this.Configuration.ApiClient.ParameterToString(pageSize)));
 
@@ -1611,20 +1544,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostDiagnosticsLogcaptureBrowserEntriesQuery: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -1644,15 +1570,14 @@ namespace PureCloudPlatform.Client.V2.Api
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="before">The cursor that points to the start of the set of entities that has been returned. (optional)</param>
         /// <param name="after">The cursor that points to the end of the set of entities that has been returned. (optional)</param>
         /// <param name="pageSize">Number of entities to return. Maximum of 200. (optional)</param>
         /// <param name="body"> (optional)</param>
         /// <returns>Task of LogCaptureQueryResponse</returns>
         
-        public async System.Threading.Tasks.Task<LogCaptureQueryResponse> PostDiagnosticsLogcaptureBrowserEntriesQueryAsync (string before = null, string after = null, string pageSize = null, LogCaptureQueryRequest body = null)
+        public async System.Threading.Tasks.Task<LogCaptureQueryResponse> PostDiagnosticsLogcaptureBrowserEntriesQueryAsync (string after = null, string pageSize = null, LogCaptureQueryRequest body = null)
         {
-             ApiResponse<LogCaptureQueryResponse> localVarResponse = await PostDiagnosticsLogcaptureBrowserEntriesQueryAsyncWithHttpInfo(before, after, pageSize, body);
+             ApiResponse<LogCaptureQueryResponse> localVarResponse = await PostDiagnosticsLogcaptureBrowserEntriesQueryAsyncWithHttpInfo(after, pageSize, body);
              return localVarResponse.Data;
 
         }
@@ -1662,21 +1587,21 @@ namespace PureCloudPlatform.Client.V2.Api
         /// 
         /// </summary>
         /// <exception cref="PureCloudPlatform.Client.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="before">The cursor that points to the start of the set of entities that has been returned. (optional)</param>
         /// <param name="after">The cursor that points to the end of the set of entities that has been returned. (optional)</param>
         /// <param name="pageSize">Number of entities to return. Maximum of 200. (optional)</param>
         /// <param name="body"> (optional)</param>
         /// <returns>Task of ApiResponse (LogCaptureQueryResponse)</returns>
         
-        public async System.Threading.Tasks.Task<ApiResponse<LogCaptureQueryResponse>> PostDiagnosticsLogcaptureBrowserEntriesQueryAsyncWithHttpInfo (string before = null, string after = null, string pageSize = null, LogCaptureQueryRequest body = null)
+        public async System.Threading.Tasks.Task<ApiResponse<LogCaptureQueryResponse>> PostDiagnosticsLogcaptureBrowserEntriesQueryAsyncWithHttpInfo (string after = null, string pageSize = null, LogCaptureQueryRequest body = null)
         { 
 
             var localVarPath = "/api/v2/diagnostics/logcapture/browser/entries/query";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -1704,7 +1629,6 @@ namespace PureCloudPlatform.Client.V2.Api
             // Path params
 
             // Query params
-            if (before != null) localVarQueryParams.Add(new Tuple<string, string>("before", this.Configuration.ApiClient.ParameterToString(before)));
             if (after != null) localVarQueryParams.Add(new Tuple<string, string>("after", this.Configuration.ApiClient.ParameterToString(after)));
             if (pageSize != null) localVarQueryParams.Add(new Tuple<string, string>("pageSize", this.Configuration.ApiClient.ParameterToString(pageSize)));
 
@@ -1728,20 +1652,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostDiagnosticsLogcaptureBrowserEntriesQuery: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -1788,11 +1705,12 @@ namespace PureCloudPlatform.Client.V2.Api
                 throw new ApiException(400, "Missing required parameter 'userId' when calling LogCaptureApi->PostDiagnosticsLogcaptureBrowserUser");
 
             var localVarPath = "/api/v2/diagnostics/logcapture/browser/users/{userId}";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -1842,20 +1760,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = this.Configuration.ApiClient.CallApi(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostDiagnosticsLogcaptureBrowserUser: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);
@@ -1903,11 +1814,12 @@ namespace PureCloudPlatform.Client.V2.Api
             
 
             var localVarPath = "/api/v2/diagnostics/logcapture/browser/users/{userId}";
+            var localVarHttpMethod = "Post";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<Tuple<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
+            var localVarFileParams = new Dictionary<String, IFileParameter>();
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -1957,20 +1869,13 @@ namespace PureCloudPlatform.Client.V2.Api
             }
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+            IHttpResponse localVarResponse = await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                localVarHttpMethod, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType) as IHttpResponse;
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            Dictionary<string, string> localVarHeaders = localVarResponse.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>();
+            Dictionary<string, string> localVarHeaders = localVarResponse.Headers ?? new Dictionary<string, string>();
 
             if (localVarStatusCode >= 400)
                 throw new ApiException (localVarStatusCode, "Error calling PostDiagnosticsLogcaptureBrowserUser: " + localVarResponse.Content, localVarResponse.Content, localVarHeaders);

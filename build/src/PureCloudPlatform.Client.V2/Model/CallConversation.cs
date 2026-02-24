@@ -63,16 +63,20 @@ namespace PureCloudPlatform.Client.V2.Model
         /// <param name="OtherMediaUris">The list of other media channels involved in the conversation..</param>
         /// <param name="RecentTransfers">The list of the most recent 20 transfer commands applied to this conversation..</param>
         /// <param name="UtilizationLabelId">An optional label that categorizes the conversation.  Max-utilization settings can be configured at a per-label level.</param>
+        /// <param name="InactivityTimeout">The time in the future, after which this conversation would be considered inactive. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z.</param>
+        /// <param name="Divisions">Identifiers of divisions associated with this conversation..</param>
         /// <param name="RecordingState">RecordingState.</param>
         /// <param name="MaxParticipants">If this is a conference conversation, then this field indicates the maximum number of participants allowed to participant in the conference..</param>
         /// <param name="SecurePause">True when the recording of this conversation is in secure pause status..</param>
-        public CallConversation(string Name = null, List<CallMediaParticipant> Participants = null, List<string> OtherMediaUris = null, List<TransferResponse> RecentTransfers = null, string UtilizationLabelId = null, RecordingStateEnum? RecordingState = null, int? MaxParticipants = null, bool? SecurePause = null)
+        public CallConversation(string Name = null, List<CallMediaParticipant> Participants = null, List<string> OtherMediaUris = null, List<TransferResponse> RecentTransfers = null, string UtilizationLabelId = null, DateTime? InactivityTimeout = null, List<ConversationDivisionMembership> Divisions = null, RecordingStateEnum? RecordingState = null, int? MaxParticipants = null, bool? SecurePause = null)
         {
             this.Name = Name;
             this.Participants = Participants;
             this.OtherMediaUris = OtherMediaUris;
             this.RecentTransfers = RecentTransfers;
             this.UtilizationLabelId = UtilizationLabelId;
+            this.InactivityTimeout = InactivityTimeout;
+            this.Divisions = Divisions;
             this.RecordingState = RecordingState;
             this.MaxParticipants = MaxParticipants;
             this.SecurePause = SecurePause;
@@ -134,6 +138,24 @@ namespace PureCloudPlatform.Client.V2.Model
 
 
 
+        /// <summary>
+        /// The time in the future, after which this conversation would be considered inactive. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
+        /// </summary>
+        /// <value>The time in the future, after which this conversation would be considered inactive. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z</value>
+        [DataMember(Name="inactivityTimeout", EmitDefaultValue=false)]
+        public DateTime? InactivityTimeout { get; set; }
+
+
+
+        /// <summary>
+        /// Identifiers of divisions associated with this conversation.
+        /// </summary>
+        /// <value>Identifiers of divisions associated with this conversation.</value>
+        [DataMember(Name="divisions", EmitDefaultValue=false)]
+        public List<ConversationDivisionMembership> Divisions { get; set; }
+
+
+
 
 
         /// <summary>
@@ -177,6 +199,8 @@ namespace PureCloudPlatform.Client.V2.Model
             sb.Append("  OtherMediaUris: ").Append(OtherMediaUris).Append("\n");
             sb.Append("  RecentTransfers: ").Append(RecentTransfers).Append("\n");
             sb.Append("  UtilizationLabelId: ").Append(UtilizationLabelId).Append("\n");
+            sb.Append("  InactivityTimeout: ").Append(InactivityTimeout).Append("\n");
+            sb.Append("  Divisions: ").Append(Divisions).Append("\n");
             sb.Append("  RecordingState: ").Append(RecordingState).Append("\n");
             sb.Append("  MaxParticipants: ").Append(MaxParticipants).Append("\n");
             sb.Append("  SecurePause: ").Append(SecurePause).Append("\n");
@@ -252,6 +276,16 @@ namespace PureCloudPlatform.Client.V2.Model
                     this.UtilizationLabelId.Equals(other.UtilizationLabelId)
                 ) &&
                 (
+                    this.InactivityTimeout == other.InactivityTimeout ||
+                    this.InactivityTimeout != null &&
+                    this.InactivityTimeout.Equals(other.InactivityTimeout)
+                ) &&
+                (
+                    this.Divisions == other.Divisions ||
+                    this.Divisions != null &&
+                    this.Divisions.SequenceEqual(other.Divisions)
+                ) &&
+                (
                     this.RecordingState == other.RecordingState ||
                     this.RecordingState != null &&
                     this.RecordingState.Equals(other.RecordingState)
@@ -301,6 +335,12 @@ namespace PureCloudPlatform.Client.V2.Model
 
                 if (this.UtilizationLabelId != null)
                     hash = hash * 59 + this.UtilizationLabelId.GetHashCode();
+
+                if (this.InactivityTimeout != null)
+                    hash = hash * 59 + this.InactivityTimeout.GetHashCode();
+
+                if (this.Divisions != null)
+                    hash = hash * 59 + this.Divisions.GetHashCode();
 
                 if (this.RecordingState != null)
                     hash = hash * 59 + this.RecordingState.GetHashCode();

@@ -145,6 +145,12 @@ namespace PureCloudPlatform.Client.V2.Model
             Conference,
             
             /// <summary>
+            /// Enum Deliverypushed for "deliveryPushed"
+            /// </summary>
+            [EnumMember(Value = "deliveryPushed")]
+            Deliverypushed,
+            
+            /// <summary>
             /// Enum Deliverystatus for "deliveryStatus"
             /// </summary>
             [EnumMember(Value = "deliveryStatus")]
@@ -197,6 +203,12 @@ namespace PureCloudPlatform.Client.V2.Model
             /// </summary>
             [EnumMember(Value = "edgeId")]
             Edgeid,
+            
+            /// <summary>
+            /// Enum Engagementsource for "engagementSource"
+            /// </summary>
+            [EnumMember(Value = "engagementSource")]
+            Engagementsource,
             
             /// <summary>
             /// Enum Errorcode for "errorCode"
@@ -427,6 +439,12 @@ namespace PureCloudPlatform.Client.V2.Model
             Scoredagentid,
             
             /// <summary>
+            /// Enum Screenmonitoreduserid for "screenMonitoredUserId"
+            /// </summary>
+            [EnumMember(Value = "screenMonitoredUserId")]
+            Screenmonitoreduserid,
+            
+            /// <summary>
             /// Enum Screenrecording for "screenRecording"
             /// </summary>
             [EnumMember(Value = "screenRecording")]
@@ -461,6 +479,12 @@ namespace PureCloudPlatform.Client.V2.Model
             /// </summary>
             [EnumMember(Value = "sipResponseCode")]
             Sipresponsecode,
+            
+            /// <summary>
+            /// Enum Snippetrecording for "snippetRecording"
+            /// </summary>
+            [EnumMember(Value = "snippetRecording")]
+            Snippetrecording,
             
             /// <summary>
             /// Enum Subject for "subject"

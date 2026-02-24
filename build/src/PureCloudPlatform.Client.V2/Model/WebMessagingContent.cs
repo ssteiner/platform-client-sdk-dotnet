@@ -67,7 +67,19 @@ namespace PureCloudPlatform.Client.V2.Model
             /// Enum Carousel for "Carousel"
             /// </summary>
             [EnumMember(Value = "Carousel")]
-            Carousel
+            Carousel,
+            
+            /// <summary>
+            /// Enum Datepicker for "DatePicker"
+            /// </summary>
+            [EnumMember(Value = "DatePicker")]
+            Datepicker,
+            
+            /// <summary>
+            /// Enum Listpicker for "ListPicker"
+            /// </summary>
+            [EnumMember(Value = "ListPicker")]
+            Listpicker
         }
         /// <summary>
         /// Type of this content element. If contentType = \"Attachment\" only one item is allowed.
@@ -83,13 +95,17 @@ namespace PureCloudPlatform.Client.V2.Model
         /// <param name="Generic">Generic content (Deprecated)..</param>
         /// <param name="Card">Card content.</param>
         /// <param name="Carousel">Carousel content.</param>
-        public WebMessagingContent(WebMessagingQuickReply QuickReply = null, WebMessagingButtonResponse ButtonResponse = null, WebMessagingGeneric Generic = null, ContentCard Card = null, ContentCarousel Carousel = null)
+        /// <param name="DatePicker">DatePicker content.</param>
+        /// <param name="ListPicker">ListPicker content.</param>
+        public WebMessagingContent(WebMessagingQuickReply QuickReply = null, WebMessagingButtonResponse ButtonResponse = null, WebMessagingGeneric Generic = null, ContentCard Card = null, ContentCarousel Carousel = null, ContentDatePicker DatePicker = null, ConversationContentListPicker ListPicker = null)
         {
             this.QuickReply = QuickReply;
             this.ButtonResponse = ButtonResponse;
             this.Generic = Generic;
             this.Card = Card;
             this.Carousel = Carousel;
+            this.DatePicker = DatePicker;
+            this.ListPicker = ListPicker;
             
         }
         
@@ -150,6 +166,24 @@ namespace PureCloudPlatform.Client.V2.Model
         public ContentCarousel Carousel { get; set; }
 
 
+
+        /// <summary>
+        /// DatePicker content
+        /// </summary>
+        /// <value>DatePicker content</value>
+        [DataMember(Name="datePicker", EmitDefaultValue=false)]
+        public ContentDatePicker DatePicker { get; set; }
+
+
+
+        /// <summary>
+        /// ListPicker content
+        /// </summary>
+        /// <value>ListPicker content</value>
+        [DataMember(Name="listPicker", EmitDefaultValue=false)]
+        public ConversationContentListPicker ListPicker { get; set; }
+
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -166,6 +200,8 @@ namespace PureCloudPlatform.Client.V2.Model
             sb.Append("  Generic: ").Append(Generic).Append("\n");
             sb.Append("  Card: ").Append(Card).Append("\n");
             sb.Append("  Carousel: ").Append(Carousel).Append("\n");
+            sb.Append("  DatePicker: ").Append(DatePicker).Append("\n");
+            sb.Append("  ListPicker: ").Append(ListPicker).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -240,6 +276,16 @@ namespace PureCloudPlatform.Client.V2.Model
                     this.Carousel == other.Carousel ||
                     this.Carousel != null &&
                     this.Carousel.Equals(other.Carousel)
+                ) &&
+                (
+                    this.DatePicker == other.DatePicker ||
+                    this.DatePicker != null &&
+                    this.DatePicker.Equals(other.DatePicker)
+                ) &&
+                (
+                    this.ListPicker == other.ListPicker ||
+                    this.ListPicker != null &&
+                    this.ListPicker.Equals(other.ListPicker)
                 );
         }
 
@@ -274,6 +320,12 @@ namespace PureCloudPlatform.Client.V2.Model
 
                 if (this.Carousel != null)
                     hash = hash * 59 + this.Carousel.GetHashCode();
+
+                if (this.DatePicker != null)
+                    hash = hash * 59 + this.DatePicker.GetHashCode();
+
+                if (this.ListPicker != null)
+                    hash = hash * 59 + this.ListPicker.GetHashCode();
 
                 return hash;
             }

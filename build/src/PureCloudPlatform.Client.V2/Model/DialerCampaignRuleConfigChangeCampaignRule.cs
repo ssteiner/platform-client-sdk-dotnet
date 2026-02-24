@@ -23,7 +23,7 @@ namespace PureCloudPlatform.Client.V2.Model
         /// </summary>
         /// <param name="CampaignRuleEntities">CampaignRuleEntities.</param>
         /// <param name="CampaignRuleConditions">The list of conditions that will trigger this Campaign Rule.</param>
-        /// <param name="CampaignRuleActions">The list of actions that will be taken when this Campaign Rule's conditions are met.</param>
+        /// <param name="CampaignRuleActions">The list of actions that will be taken when this Campaign Rule&#39;s conditions are met.</param>
         /// <param name="MatchAnyConditions">Whether this Campaign Rule should match any conditions (inclusive OR) or match all conditions (ALL).</param>
         /// <param name="Enabled">Whether this campaign rule is enabled.</param>
         /// <param name="AdditionalProperties">AdditionalProperties.</param>
@@ -32,7 +32,8 @@ namespace PureCloudPlatform.Client.V2.Model
         /// <param name="DateCreated">Creation time of the entity.</param>
         /// <param name="DateModified">Last modified time of the entity.</param>
         /// <param name="Version">Required for updates, must match the version number of the most recent update.</param>
-        public DialerCampaignRuleConfigChangeCampaignRule(DialerCampaignRuleConfigChangeCampaignRuleEntities CampaignRuleEntities = null, List<DialerCampaignRuleConfigChangeCampaignRuleCondition> CampaignRuleConditions = null, List<DialerCampaignRuleConfigChangeCampaignRuleAction> CampaignRuleActions = null, bool? MatchAnyConditions = null, bool? Enabled = null, Dictionary<string, Object> AdditionalProperties = null, string Id = null, string Name = null, DateTime? DateCreated = null, DateTime? DateModified = null, int? Version = null)
+        /// <param name="GetAdditionalProperties">GetAdditionalProperties.</param>
+        public DialerCampaignRuleConfigChangeCampaignRule(DialerCampaignRuleConfigChangeCampaignRuleEntities CampaignRuleEntities = null, List<DialerCampaignRuleConfigChangeCampaignRuleCondition> CampaignRuleConditions = null, List<DialerCampaignRuleConfigChangeCampaignRuleAction> CampaignRuleActions = null, bool? MatchAnyConditions = null, bool? Enabled = null, Dictionary<string, Object> AdditionalProperties = null, string Id = null, string Name = null, DateTime? DateCreated = null, DateTime? DateModified = null, long? Version = null, Dictionary<string, Object> GetAdditionalProperties = null)
         {
             this.CampaignRuleEntities = CampaignRuleEntities;
             this.CampaignRuleConditions = CampaignRuleConditions;
@@ -45,6 +46,7 @@ namespace PureCloudPlatform.Client.V2.Model
             this.DateCreated = DateCreated;
             this.DateModified = DateModified;
             this.Version = Version;
+            this.GetAdditionalProperties = GetAdditionalProperties;
             
         }
         
@@ -68,9 +70,9 @@ namespace PureCloudPlatform.Client.V2.Model
 
 
         /// <summary>
-        /// The list of actions that will be taken when this Campaign Rule's conditions are met
+        /// The list of actions that will be taken when this Campaign Rule&#39;s conditions are met
         /// </summary>
-        /// <value>The list of actions that will be taken when this Campaign Rule's conditions are met</value>
+        /// <value>The list of actions that will be taken when this Campaign Rule&#39;s conditions are met</value>
         [DataMember(Name="campaignRuleActions", EmitDefaultValue=false)]
         public List<DialerCampaignRuleConfigChangeCampaignRuleAction> CampaignRuleActions { get; set; }
 
@@ -143,7 +145,15 @@ namespace PureCloudPlatform.Client.V2.Model
         /// </summary>
         /// <value>Required for updates, must match the version number of the most recent update</value>
         [DataMember(Name="version", EmitDefaultValue=false)]
-        public int? Version { get; set; }
+        public long? Version { get; set; }
+
+
+
+        /// <summary>
+        /// Gets or Sets GetAdditionalProperties
+        /// </summary>
+        [DataMember(Name="getAdditionalProperties", EmitDefaultValue=false)]
+        public Dictionary<string, Object> GetAdditionalProperties { get; set; }
 
 
         /// <summary>
@@ -166,6 +176,7 @@ namespace PureCloudPlatform.Client.V2.Model
             sb.Append("  DateCreated: ").Append(DateCreated).Append("\n");
             sb.Append("  DateModified: ").Append(DateModified).Append("\n");
             sb.Append("  Version: ").Append(Version).Append("\n");
+            sb.Append("  GetAdditionalProperties: ").Append(GetAdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -260,6 +271,11 @@ namespace PureCloudPlatform.Client.V2.Model
                     this.Version == other.Version ||
                     this.Version != null &&
                     this.Version.Equals(other.Version)
+                ) &&
+                (
+                    this.GetAdditionalProperties == other.GetAdditionalProperties ||
+                    this.GetAdditionalProperties != null &&
+                    this.GetAdditionalProperties.SequenceEqual(other.GetAdditionalProperties)
                 );
         }
 
@@ -306,6 +322,9 @@ namespace PureCloudPlatform.Client.V2.Model
 
                 if (this.Version != null)
                     hash = hash * 59 + this.Version.GetHashCode();
+
+                if (this.GetAdditionalProperties != null)
+                    hash = hash * 59 + this.GetAdditionalProperties.GetHashCode();
 
                 return hash;
             }

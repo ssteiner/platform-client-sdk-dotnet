@@ -144,7 +144,25 @@ namespace PureCloudPlatform.Client.V2.Model
             /// Enum DndTransfer for "DND_TRANSFER"
             /// </summary>
             [EnumMember(Value = "DND_TRANSFER")]
-            DndTransfer
+            DndTransfer,
+            
+            /// <summary>
+            /// Enum Inactivity for "INACTIVITY"
+            /// </summary>
+            [EnumMember(Value = "INACTIVITY")]
+            Inactivity,
+            
+            /// <summary>
+            /// Enum SessionExpired for "SESSION_EXPIRED"
+            /// </summary>
+            [EnumMember(Value = "SESSION_EXPIRED")]
+            SessionExpired,
+            
+            /// <summary>
+            /// Enum Takeover for "TAKEOVER"
+            /// </summary>
+            [EnumMember(Value = "TAKEOVER")]
+            Takeover
         }
         /// <summary>
         /// Gets or Sets MediaType
@@ -218,7 +236,13 @@ namespace PureCloudPlatform.Client.V2.Model
             /// Enum Internalmessage for "INTERNALMESSAGE"
             /// </summary>
             [EnumMember(Value = "INTERNALMESSAGE")]
-            Internalmessage
+            Internalmessage,
+            
+            /// <summary>
+            /// Enum Screenmonitoring for "SCREENMONITORING"
+            /// </summary>
+            [EnumMember(Value = "SCREENMONITORING")]
+            Screenmonitoring
         }
         /// <summary>
         /// Gets or Sets Direction
@@ -372,7 +396,7 @@ namespace PureCloudPlatform.Client.V2.Model
         /// <param name="ConversationExternalContactIds">ConversationExternalContactIds.</param>
         /// <param name="ConversationExternalOrganizationIds">ConversationExternalOrganizationIds.</param>
         /// <param name="DivisionId">DivisionId.</param>
-        public CustomerEndDetailEventTopicCustomerEndEvent(int? EventTime = null, string ConversationId = null, string ParticipantId = null, string SessionId = null, DisconnectTypeEnum? DisconnectType = null, MediaTypeEnum? MediaType = null, string ExternalOrganizationId = null, string ExternalContactId = null, string Provider = null, DirectionEnum? Direction = null, string Ani = null, string Dnis = null, string AddressTo = null, string AddressFrom = null, string CallbackUserName = null, List<string> CallbackNumbers = null, int? CallbackScheduledTime = null, string Subject = null, MessageTypeEnum? MessageType = null, int? InteractingDurationMs = null, List<string> ConversationExternalContactIds = null, List<string> ConversationExternalOrganizationIds = null, string DivisionId = null)
+        public CustomerEndDetailEventTopicCustomerEndEvent(long? EventTime = null, string ConversationId = null, string ParticipantId = null, string SessionId = null, DisconnectTypeEnum? DisconnectType = null, MediaTypeEnum? MediaType = null, string ExternalOrganizationId = null, string ExternalContactId = null, string Provider = null, DirectionEnum? Direction = null, string Ani = null, string Dnis = null, string AddressTo = null, string AddressFrom = null, string CallbackUserName = null, List<string> CallbackNumbers = null, long? CallbackScheduledTime = null, string Subject = null, MessageTypeEnum? MessageType = null, long? InteractingDurationMs = null, List<string> ConversationExternalContactIds = null, List<string> ConversationExternalOrganizationIds = null, string DivisionId = null)
         {
             this.EventTime = EventTime;
             this.ConversationId = ConversationId;
@@ -406,7 +430,7 @@ namespace PureCloudPlatform.Client.V2.Model
         /// Gets or Sets EventTime
         /// </summary>
         [DataMember(Name="eventTime", EmitDefaultValue=false)]
-        public int? EventTime { get; set; }
+        public long? EventTime { get; set; }
 
 
 
@@ -516,7 +540,7 @@ namespace PureCloudPlatform.Client.V2.Model
         /// Gets or Sets CallbackScheduledTime
         /// </summary>
         [DataMember(Name="callbackScheduledTime", EmitDefaultValue=false)]
-        public int? CallbackScheduledTime { get; set; }
+        public long? CallbackScheduledTime { get; set; }
 
 
 
@@ -534,7 +558,7 @@ namespace PureCloudPlatform.Client.V2.Model
         /// Gets or Sets InteractingDurationMs
         /// </summary>
         [DataMember(Name="interactingDurationMs", EmitDefaultValue=false)]
-        public int? InteractingDurationMs { get; set; }
+        public long? InteractingDurationMs { get; set; }
 
 
 

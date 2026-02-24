@@ -82,6 +82,12 @@ namespace PureCloudPlatform.Client.V2.Model
             Forwardtransfer,
             
             /// <summary>
+            /// Enum Inactivity for "inactivity"
+            /// </summary>
+            [EnumMember(Value = "inactivity")]
+            Inactivity,
+            
+            /// <summary>
             /// Enum Noanswertransfer for "noAnswerTransfer"
             /// </summary>
             [EnumMember(Value = "noAnswerTransfer")]
@@ -106,6 +112,12 @@ namespace PureCloudPlatform.Client.V2.Model
             Peer,
             
             /// <summary>
+            /// Enum Sessionexpired for "sessionExpired"
+            /// </summary>
+            [EnumMember(Value = "sessionExpired")]
+            Sessionexpired,
+            
+            /// <summary>
             /// Enum Spam for "spam"
             /// </summary>
             [EnumMember(Value = "spam")]
@@ -116,6 +128,12 @@ namespace PureCloudPlatform.Client.V2.Model
             /// </summary>
             [EnumMember(Value = "system")]
             System,
+            
+            /// <summary>
+            /// Enum Takeover for "takeover"
+            /// </summary>
+            [EnumMember(Value = "takeover")]
+            Takeover,
             
             /// <summary>
             /// Enum Timeout for "timeout"
@@ -239,6 +257,12 @@ namespace PureCloudPlatform.Client.V2.Model
             /// </summary>
             [EnumMember(Value = "scheduled")]
             Scheduled,
+            
+            /// <summary>
+            /// Enum Screenmonitoring for "screenmonitoring"
+            /// </summary>
+            [EnumMember(Value = "screenmonitoring")]
+            Screenmonitoring,
             
             /// <summary>
             /// Enum Sharing for "sharing"

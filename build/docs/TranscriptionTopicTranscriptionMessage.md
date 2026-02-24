@@ -10,11 +10,12 @@
 | **OrganizationId** | **string** |  | [optional] |
 | **ConversationId** | **string** |  | [optional] |
 | **CommunicationId** | **string** |  | [optional] |
-| **SessionStartTimeMs** | **int?** |  | [optional] |
-| **TranscriptionStartTimeMs** | **int?** |  | [optional] |
+| **SessionStartTimeMs** | **long?** |  | [optional] |
+| **TranscriptionStartTimeMs** | **long?** |  | [optional] |
 | **Transcripts** | [**List&lt;TranscriptionTopicTranscriptResult&gt;**](TranscriptionTopicTranscriptResult) |  | [optional] |
 | **Status** | [**TranscriptionTopicTranscriptionRequestStatus**](TranscriptionTopicTranscriptionRequestStatus) |  | [optional] |
+| **SpeechTextAnalyticsProgramId** | **string** |  | [optional] |
 
 
 
-_PureCloudPlatform.Client.V2 227.0.0_
+_PureCloudPlatform.Client.V2 257.0.0_

@@ -431,6 +431,15 @@ namespace PureCloudPlatform.Client.V2.Model
 
 
         /// <summary>
+        /// The date &amp; time the user was sent their welcome email. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
+        /// </summary>
+        /// <value>The date &amp; time the user was sent their welcome email. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z</value>
+        [DataMember(Name="dateWelcomeSent", EmitDefaultValue=false)]
+        public DateTime? DateWelcomeSent { get; private set; }
+
+
+
+        /// <summary>
         /// The PureCloud system date time.
         /// </summary>
         /// <value>The PureCloud system date time.</value>
@@ -440,9 +449,9 @@ namespace PureCloudPlatform.Client.V2.Model
 
 
         /// <summary>
-        /// Geolocation settings for user's organization.
+        /// Geolocation settings for user&#39;s organization.
         /// </summary>
-        /// <value>Geolocation settings for user's organization.</value>
+        /// <value>Geolocation settings for user&#39;s organization.</value>
         [DataMember(Name="geolocationSettings", EmitDefaultValue=false)]
         public GeolocationSettings GeolocationSettings { get; private set; }
 
@@ -458,9 +467,9 @@ namespace PureCloudPlatform.Client.V2.Model
 
 
         /// <summary>
-        /// The first 100 non-divisioned presence definitions for user's organization.
+        /// The first 100 non-divisioned presence definitions for user&#39;s organization.
         /// </summary>
-        /// <value>The first 100 non-divisioned presence definitions for user's organization.</value>
+        /// <value>The first 100 non-divisioned presence definitions for user&#39;s organization.</value>
         [DataMember(Name="presenceDefinitions", EmitDefaultValue=false)]
         public List<OrganizationPresence> PresenceDefinitions { get; private set; }
 
@@ -476,18 +485,18 @@ namespace PureCloudPlatform.Client.V2.Model
 
 
         /// <summary>
-        /// The first 100 site locations for user's organization
+        /// The first 100 site locations for user&#39;s organization
         /// </summary>
-        /// <value>The first 100 site locations for user's organization</value>
+        /// <value>The first 100 site locations for user&#39;s organization</value>
         [DataMember(Name="locationDefinitions", EmitDefaultValue=false)]
         public List<LocationDefinition> LocationDefinitions { get; private set; }
 
 
 
         /// <summary>
-        /// The first 100 organization roles, with applicable permission policies, for user's organization.
+        /// The first 100 organization roles, with applicable permission policies, for user&#39;s organization.
         /// </summary>
-        /// <value>The first 100 organization roles, with applicable permission policies, for user's organization.</value>
+        /// <value>The first 100 organization roles, with applicable permission policies, for user&#39;s organization.</value>
         [DataMember(Name="orgAuthorization", EmitDefaultValue=false)]
         public List<DomainOrganizationRole> OrgAuthorization { get; private set; }
 
@@ -530,18 +539,18 @@ namespace PureCloudPlatform.Client.V2.Model
 
 
         /// <summary>
-        /// The first 50 routing skills for user's organizations
+        /// The first 50 routing skills for user&#39;s organizations
         /// </summary>
-        /// <value>The first 50 routing skills for user's organizations</value>
+        /// <value>The first 50 routing skills for user&#39;s organizations</value>
         [DataMember(Name="routingSkills", EmitDefaultValue=false)]
         public List<RoutingSkill> RoutingSkills { get; private set; }
 
 
 
         /// <summary>
-        /// The field config for all entities types of user's organization
+        /// The field config for all entities types of user&#39;s organization
         /// </summary>
-        /// <value>The field config for all entities types of user's organization</value>
+        /// <value>The field config for all entities types of user&#39;s organization</value>
         [DataMember(Name="fieldConfigs", EmitDefaultValue=false)]
         public FieldConfigs FieldConfigs { get; private set; }
 
@@ -629,6 +638,7 @@ namespace PureCloudPlatform.Client.V2.Model
             sb.Append("  LanguagePreference: ").Append(LanguagePreference).Append("\n");
             sb.Append("  LastTokenIssued: ").Append(LastTokenIssued).Append("\n");
             sb.Append("  DateLastLogin: ").Append(DateLastLogin).Append("\n");
+            sb.Append("  DateWelcomeSent: ").Append(DateWelcomeSent).Append("\n");
             sb.Append("  Date: ").Append(Date).Append("\n");
             sb.Append("  GeolocationSettings: ").Append(GeolocationSettings).Append("\n");
             sb.Append("  Organization: ").Append(Organization).Append("\n");
@@ -877,6 +887,11 @@ namespace PureCloudPlatform.Client.V2.Model
                     this.DateLastLogin.Equals(other.DateLastLogin)
                 ) &&
                 (
+                    this.DateWelcomeSent == other.DateWelcomeSent ||
+                    this.DateWelcomeSent != null &&
+                    this.DateWelcomeSent.Equals(other.DateWelcomeSent)
+                ) &&
+                (
                     this.Date == other.Date ||
                     this.Date != null &&
                     this.Date.Equals(other.Date)
@@ -1087,6 +1102,9 @@ namespace PureCloudPlatform.Client.V2.Model
 
                 if (this.DateLastLogin != null)
                     hash = hash * 59 + this.DateLastLogin.GetHashCode();
+
+                if (this.DateWelcomeSent != null)
+                    hash = hash * 59 + this.DateWelcomeSent.GetHashCode();
 
                 if (this.Date != null)
                     hash = hash * 59 + this.Date.GetHashCode();

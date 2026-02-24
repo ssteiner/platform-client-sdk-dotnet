@@ -316,6 +316,12 @@ namespace PureCloudPlatform.Client.V2.Model
             Message,
             
             /// <summary>
+            /// Enum Screenmonitoring for "screenmonitoring"
+            /// </summary>
+            [EnumMember(Value = "screenmonitoring")]
+            Screenmonitoring,
+            
+            /// <summary>
             /// Enum Screenshare for "screenshare"
             /// </summary>
             [EnumMember(Value = "screenshare")]
@@ -526,7 +532,7 @@ namespace PureCloudPlatform.Client.V2.Model
         /// <param name="ActiveRouting">Active routing method.</param>
         /// <param name="AddressFrom">The address that initiated an action.</param>
         /// <param name="AddressTo">The address receiving an action.</param>
-        /// <param name="Ani">Automatic Number Identification (caller's number).</param>
+        /// <param name="Ani">Automatic Number Identification (caller&#39;s number).</param>
         /// <param name="ConversationId">Unique identifier for the conversation.</param>
         /// <param name="ConvertedFrom">Session media type that was converted from in case of a media type conversion.</param>
         /// <param name="ConvertedTo">Session media type that was converted to in case of a media type conversion.</param>
@@ -610,9 +616,9 @@ namespace PureCloudPlatform.Client.V2.Model
 
 
         /// <summary>
-        /// Automatic Number Identification (caller's number)
+        /// Automatic Number Identification (caller&#39;s number)
         /// </summary>
-        /// <value>Automatic Number Identification (caller's number)</value>
+        /// <value>Automatic Number Identification (caller&#39;s number)</value>
         [DataMember(Name="ani", EmitDefaultValue=false)]
         public string Ani { get; set; }
 

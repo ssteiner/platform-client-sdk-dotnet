@@ -8,7 +8,8 @@
 |------------ | ------------- | ------------- | -------------|
 | **UploadId** | **string** | Upload for the csv job | |
 | **SettingsId** | **string** | Settings for the csv job | |
+| **Division** | [**WritableStarrableDivision**](WritableStarrableDivision) | Division for the csv job | [optional] |
 
 
 
-_PureCloudPlatform.Client.V2 227.0.0_
+_PureCloudPlatform.Client.V2 257.0.0_

@@ -130,8 +130,8 @@ namespace PureCloudPlatform.Client.V2.Model
         /// Initializes a new instance of the <see cref="Organization" /> class.
         /// </summary>
         /// <param name="Name">Name.</param>
-        /// <param name="DefaultLanguage">The default language for this organization. Example: 'en'.</param>
-        /// <param name="DefaultCountryCode">The default country code for this organization. Example: 'US'.</param>
+        /// <param name="DefaultLanguage">The default language for this organization. Example: &#39;en&#39;.</param>
+        /// <param name="DefaultCountryCode">The default country code for this organization. Example: &#39;US&#39;.</param>
         /// <param name="ThirdPartyURI">ThirdPartyURI.</param>
         /// <param name="Domain">Domain.</param>
         /// <param name="Version">The current version of the organization. (required).</param>
@@ -174,18 +174,18 @@ namespace PureCloudPlatform.Client.V2.Model
 
 
         /// <summary>
-        /// The default language for this organization. Example: 'en'
+        /// The default language for this organization. Example: &#39;en&#39;
         /// </summary>
-        /// <value>The default language for this organization. Example: 'en'</value>
+        /// <value>The default language for this organization. Example: &#39;en&#39;</value>
         [DataMember(Name="defaultLanguage", EmitDefaultValue=false)]
         public string DefaultLanguage { get; set; }
 
 
 
         /// <summary>
-        /// The default country code for this organization. Example: 'US'
+        /// The default country code for this organization. Example: &#39;US&#39;
         /// </summary>
-        /// <value>The default country code for this organization. Example: 'US'</value>
+        /// <value>The default country code for this organization. Example: &#39;US&#39;</value>
         [DataMember(Name="defaultCountryCode", EmitDefaultValue=false)]
         public string DefaultCountryCode { get; set; }
 
@@ -213,6 +213,15 @@ namespace PureCloudPlatform.Client.V2.Model
         /// </summary>
         [DataMember(Name="domain", EmitDefaultValue=false)]
         public string Domain { get; set; }
+
+
+
+        /// <summary>
+        /// The state of features available for the organization.
+        /// </summary>
+        /// <value>The state of features available for the organization.</value>
+        [DataMember(Name="features", EmitDefaultValue=false)]
+        public Dictionary<string, bool?> Features { get; private set; }
 
 
 
@@ -262,15 +271,6 @@ namespace PureCloudPlatform.Client.V2.Model
         public string SelfUri { get; private set; }
 
 
-
-        /// <summary>
-        /// The state of features available for the organization.
-        /// </summary>
-        /// <value>The state of features available for the organization.</value>
-        [DataMember(Name="features", EmitDefaultValue=false)]
-        public Dictionary<string, bool?> Features { get; private set; }
-
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -287,6 +287,7 @@ namespace PureCloudPlatform.Client.V2.Model
             sb.Append("  ThirdPartyOrgName: ").Append(ThirdPartyOrgName).Append("\n");
             sb.Append("  ThirdPartyURI: ").Append(ThirdPartyURI).Append("\n");
             sb.Append("  Domain: ").Append(Domain).Append("\n");
+            sb.Append("  Features: ").Append(Features).Append("\n");
             sb.Append("  Version: ").Append(Version).Append("\n");
             sb.Append("  State: ").Append(State).Append("\n");
             sb.Append("  DefaultSiteId: ").Append(DefaultSiteId).Append("\n");
@@ -294,7 +295,6 @@ namespace PureCloudPlatform.Client.V2.Model
             sb.Append("  VoicemailEnabled: ").Append(VoicemailEnabled).Append("\n");
             sb.Append("  ProductPlatform: ").Append(ProductPlatform).Append("\n");
             sb.Append("  SelfUri: ").Append(SelfUri).Append("\n");
-            sb.Append("  Features: ").Append(Features).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -371,6 +371,11 @@ namespace PureCloudPlatform.Client.V2.Model
                     this.Domain.Equals(other.Domain)
                 ) &&
                 (
+                    this.Features == other.Features ||
+                    this.Features != null &&
+                    this.Features.SequenceEqual(other.Features)
+                ) &&
+                (
                     this.Version == other.Version ||
                     this.Version != null &&
                     this.Version.Equals(other.Version)
@@ -404,11 +409,6 @@ namespace PureCloudPlatform.Client.V2.Model
                     this.SelfUri == other.SelfUri ||
                     this.SelfUri != null &&
                     this.SelfUri.Equals(other.SelfUri)
-                ) &&
-                (
-                    this.Features == other.Features ||
-                    this.Features != null &&
-                    this.Features.SequenceEqual(other.Features)
                 );
         }
 
@@ -444,6 +444,9 @@ namespace PureCloudPlatform.Client.V2.Model
                 if (this.Domain != null)
                     hash = hash * 59 + this.Domain.GetHashCode();
 
+                if (this.Features != null)
+                    hash = hash * 59 + this.Features.GetHashCode();
+
                 if (this.Version != null)
                     hash = hash * 59 + this.Version.GetHashCode();
 
@@ -464,9 +467,6 @@ namespace PureCloudPlatform.Client.V2.Model
 
                 if (this.SelfUri != null)
                     hash = hash * 59 + this.SelfUri.GetHashCode();
-
-                if (this.Features != null)
-                    hash = hash * 59 + this.Features.GetHashCode();
 
                 return hash;
             }

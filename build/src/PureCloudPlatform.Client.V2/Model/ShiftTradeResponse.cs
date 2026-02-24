@@ -86,17 +86,18 @@ namespace PureCloudPlatform.Client.V2.Model
         /// <param name="InitiatingShiftId">The ID of the shift offered for trade by the initiating user.</param>
         /// <param name="InitiatingShiftStart">The start date/time of the shift being offered for trade. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z.</param>
         /// <param name="InitiatingShiftEnd">The end date/time of the shift being offered for trade. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z.</param>
-        /// <param name="ReceivingUser">The user matching the trade, or if the state is not 'Matched', the user to whom the trade request was sent.</param>
+        /// <param name="ReceivingWeekDate">The start week date of the receiving shift in yyyy-MM-dd format for a cross-week shift trade or null otherwise. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd.</param>
+        /// <param name="ReceivingUser">The user matching the trade, or if the state is not &#39;Matched&#39;, the user to whom the trade request was sent.</param>
         /// <param name="ReceivingShiftId">The ID of the shift being exchanged for the initiating shift, null if the receiving user is picking up a shift.</param>
         /// <param name="ReceivingShiftStart">The start date/time of the receiving shift. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z.</param>
         /// <param name="ReceivingShiftEnd">The end date/time of the receiving shift. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z.</param>
         /// <param name="Expiration">When this shift trade offer will expire if not matched or approved. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z.</param>
         /// <param name="OneSided">Whether this is a one-sided shift trade (e.g. the initiating user is not asking for a shift in return).</param>
         /// <param name="AcceptableIntervals">Time frames when the initiating user is willing to accept trades. Empty means giving up the shift. Intervals are represented as an ISO-8601 string. For example: YYYY-MM-DDThh:mm:ss/YYYY-MM-DDThh:mm:ss.</param>
-        /// <param name="ReviewedBy">The user who reviewed this shift trade.</param>
+        /// <param name="ReviewedBy">The user who reviewed this shift trade. The id may be &#39;System&#39; if it was an automated process.</param>
         /// <param name="ReviewedDate">The timestamp when this shift trade was reviewed. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z.</param>
         /// <param name="Metadata">Version data for this trade.</param>
-        public ShiftTradeResponse(string Id = null, String WeekDate = null, BuScheduleReferenceForMuRoute Schedule = null, StateEnum? State = null, UserReference InitiatingUser = null, string InitiatingShiftId = null, DateTime? InitiatingShiftStart = null, DateTime? InitiatingShiftEnd = null, UserReference ReceivingUser = null, string ReceivingShiftId = null, DateTime? ReceivingShiftStart = null, DateTime? ReceivingShiftEnd = null, DateTime? Expiration = null, bool? OneSided = null, List<string> AcceptableIntervals = null, UserReference ReviewedBy = null, DateTime? ReviewedDate = null, WfmVersionedEntityMetadata Metadata = null)
+        public ShiftTradeResponse(string Id = null, String WeekDate = null, BuScheduleReferenceForMuRoute Schedule = null, StateEnum? State = null, UserReference InitiatingUser = null, string InitiatingShiftId = null, DateTime? InitiatingShiftStart = null, DateTime? InitiatingShiftEnd = null, String ReceivingWeekDate = null, UserReference ReceivingUser = null, string ReceivingShiftId = null, DateTime? ReceivingShiftStart = null, DateTime? ReceivingShiftEnd = null, DateTime? Expiration = null, bool? OneSided = null, List<string> AcceptableIntervals = null, UserReference ReviewedBy = null, DateTime? ReviewedDate = null, WfmVersionedEntityMetadata Metadata = null)
         {
             this.Id = Id;
             this.WeekDate = WeekDate;
@@ -106,6 +107,7 @@ namespace PureCloudPlatform.Client.V2.Model
             this.InitiatingShiftId = InitiatingShiftId;
             this.InitiatingShiftStart = InitiatingShiftStart;
             this.InitiatingShiftEnd = InitiatingShiftEnd;
+            this.ReceivingWeekDate = ReceivingWeekDate;
             this.ReceivingUser = ReceivingUser;
             this.ReceivingShiftId = ReceivingShiftId;
             this.ReceivingShiftStart = ReceivingShiftStart;
@@ -187,9 +189,18 @@ namespace PureCloudPlatform.Client.V2.Model
 
 
         /// <summary>
-        /// The user matching the trade, or if the state is not 'Matched', the user to whom the trade request was sent
+        /// The start week date of the receiving shift in yyyy-MM-dd format for a cross-week shift trade or null otherwise. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
         /// </summary>
-        /// <value>The user matching the trade, or if the state is not 'Matched', the user to whom the trade request was sent</value>
+        /// <value>The start week date of the receiving shift in yyyy-MM-dd format for a cross-week shift trade or null otherwise. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd</value>
+        [DataMember(Name="receivingWeekDate", EmitDefaultValue=false)]
+        public String ReceivingWeekDate { get; set; }
+
+
+
+        /// <summary>
+        /// The user matching the trade, or if the state is not &#39;Matched&#39;, the user to whom the trade request was sent
+        /// </summary>
+        /// <value>The user matching the trade, or if the state is not &#39;Matched&#39;, the user to whom the trade request was sent</value>
         [DataMember(Name="receivingUser", EmitDefaultValue=false)]
         public UserReference ReceivingUser { get; set; }
 
@@ -250,9 +261,9 @@ namespace PureCloudPlatform.Client.V2.Model
 
 
         /// <summary>
-        /// The user who reviewed this shift trade
+        /// The user who reviewed this shift trade. The id may be &#39;System&#39; if it was an automated process
         /// </summary>
-        /// <value>The user who reviewed this shift trade</value>
+        /// <value>The user who reviewed this shift trade. The id may be &#39;System&#39; if it was an automated process</value>
         [DataMember(Name="reviewedBy", EmitDefaultValue=false)]
         public UserReference ReviewedBy { get; set; }
 
@@ -292,6 +303,7 @@ namespace PureCloudPlatform.Client.V2.Model
             sb.Append("  InitiatingShiftId: ").Append(InitiatingShiftId).Append("\n");
             sb.Append("  InitiatingShiftStart: ").Append(InitiatingShiftStart).Append("\n");
             sb.Append("  InitiatingShiftEnd: ").Append(InitiatingShiftEnd).Append("\n");
+            sb.Append("  ReceivingWeekDate: ").Append(ReceivingWeekDate).Append("\n");
             sb.Append("  ReceivingUser: ").Append(ReceivingUser).Append("\n");
             sb.Append("  ReceivingShiftId: ").Append(ReceivingShiftId).Append("\n");
             sb.Append("  ReceivingShiftStart: ").Append(ReceivingShiftStart).Append("\n");
@@ -383,6 +395,11 @@ namespace PureCloudPlatform.Client.V2.Model
                     this.InitiatingShiftEnd.Equals(other.InitiatingShiftEnd)
                 ) &&
                 (
+                    this.ReceivingWeekDate == other.ReceivingWeekDate ||
+                    this.ReceivingWeekDate != null &&
+                    this.ReceivingWeekDate.Equals(other.ReceivingWeekDate)
+                ) &&
+                (
                     this.ReceivingUser == other.ReceivingUser ||
                     this.ReceivingUser != null &&
                     this.ReceivingUser.Equals(other.ReceivingUser)
@@ -468,6 +485,9 @@ namespace PureCloudPlatform.Client.V2.Model
 
                 if (this.InitiatingShiftEnd != null)
                     hash = hash * 59 + this.InitiatingShiftEnd.GetHashCode();
+
+                if (this.ReceivingWeekDate != null)
+                    hash = hash * 59 + this.ReceivingWeekDate.GetHashCode();
 
                 if (this.ReceivingUser != null)
                     hash = hash * 59 + this.ReceivingUser.GetHashCode();

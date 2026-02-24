@@ -9,8 +9,10 @@ All URIs are relative to *https://api.mypurecloud.com*
 | [**DeleteAuthorizationDivision**](#DeleteAuthorizationDivision) | **Delete** /api/v2/authorization/divisions/{divisionId} | Delete a division. |
 | [**GetAuthorizationDivision**](#GetAuthorizationDivision) | **Get** /api/v2/authorization/divisions/{divisionId} | Returns an authorization division. |
 | [**GetAuthorizationDivisions**](#GetAuthorizationDivisions) | **Get** /api/v2/authorization/divisions | Retrieve a list of all divisions defined for the organization |
+| [**GetAuthorizationDivisionsDeleted**](#GetAuthorizationDivisionsDeleted) | **Get** /api/v2/authorization/divisions/deleted | Get a list of soft deleted divisions for the org |
 | [**GetAuthorizationDivisionsHome**](#GetAuthorizationDivisionsHome) | **Get** /api/v2/authorization/divisions/home | Retrieve the home division for the organization. |
 | [**GetAuthorizationDivisionsLimit**](#GetAuthorizationDivisionsLimit) | **Get** /api/v2/authorization/divisions/limit | Returns the maximum allowed number of divisions. |
+| [**GetAuthorizationDivisionsQuery**](#GetAuthorizationDivisionsQuery) | **Get** /api/v2/authorization/divisions/query | Retrieve a list of all divisions defined for the organization with cursor |
 | [**PostAuthorizationDivisionObject**](#PostAuthorizationDivisionObject) | **Post** /api/v2/authorization/divisions/{divisionId}/objects/{objectType} | Assign a list of objects to a division |
 | [**PostAuthorizationDivisionRestore**](#PostAuthorizationDivisionRestore) | **Post** /api/v2/authorization/divisions/{divisionId}/restore | Recreate a previously deleted division. |
 | [**PostAuthorizationDivisions**](#PostAuthorizationDivisions) | **Post** /api/v2/authorization/divisions | Create a division. |
@@ -52,7 +54,7 @@ namespace Example
 
             var apiInstance = new ObjectsApi();
             var divisionId = divisionId_example;  // string | Division ID
-            var force = true;  // bool? | Force delete this division as well as the grants and objects associated with it (optional)  (default to false)
+            var force = true;  // bool? | DEPRECATED -  Force delete this division. Warning: This option may cause any remaining objects in this division to be inaccessible. (optional)  (default to false)
 
             try
             { 
@@ -74,7 +76,7 @@ namespace Example
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **divisionId** | **string**| Division ID |  |
-| **force** | **bool?**| Force delete this division as well as the grants and objects associated with it | [optional] [default to false] |
+| **force** | **bool?**| DEPRECATED -  Force delete this division. Warning: This option may cause any remaining objects in this division to be inaccessible. | [optional] [default to false] |
 
 ### Return type
 
@@ -223,6 +225,70 @@ namespace Example
 [**AuthzDivisionEntityListing**](AuthzDivisionEntityListing)
 
 
+## GetAuthorizationDivisionsDeleted
+
+> [**AuthzDivisionEntityListing**](AuthzDivisionEntityListing) GetAuthorizationDivisionsDeleted (int? pageNumber = null, int? pageSize = null)
+
+
+Get a list of soft deleted divisions for the org
+
+Requires ANY permissions: 
+
+* authorization:divisionDeleted:view
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class GetAuthorizationDivisionsDeletedExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new ObjectsApi();
+            var pageNumber = 56;  // int? | Page number (optional)  (default to 1)
+            var pageSize = 56;  // int? | Page size (optional)  (default to 25)
+
+            try
+            { 
+                // Get a list of soft deleted divisions for the org
+                AuthzDivisionEntityListing result = apiInstance.GetAuthorizationDivisionsDeleted(pageNumber, pageSize);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ObjectsApi.GetAuthorizationDivisionsDeleted: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **pageNumber** | **int?**| Page number | [optional] [default to 1] |
+| **pageSize** | **int?**| Page size | [optional] [default to 25] |
+
+### Return type
+
+[**AuthzDivisionEntityListing**](AuthzDivisionEntityListing)
+
+
 ## GetAuthorizationDivisionsHome
 
 > [**AuthzDivision**](AuthzDivision) GetAuthorizationDivisionsHome ()
@@ -337,6 +403,77 @@ This endpoint does require any parameters.
 **int?**
 
 
+## GetAuthorizationDivisionsQuery
+
+> [**AuthzDivisionCursorListing**](AuthzDivisionCursorListing) GetAuthorizationDivisionsQuery (string before = null, string after = null, string pageSize = null, List<string> id = null, string name = null)
+
+
+Retrieve a list of all divisions defined for the organization with cursor
+
+Use \"after\" and \"before\" param to fetch next/previous page}
+
+Requires NO permissions: 
+
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class GetAuthorizationDivisionsQueryExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new ObjectsApi();
+            var before = before_example;  // string | The cursor that points to the start of the set of entities that has been returned. (optional) 
+            var after = after_example;  // string | The cursor that points to the end of the set of entities that has been returned. (optional) 
+            var pageSize = pageSize_example;  // string | Page size (max 200, default 25) (optional)  (default to "25")
+            var id = new List<string>(); // List<string> | Optionally request specific divisions by their IDs (optional) 
+            var name = name_example;  // string | Optionally request specific divisions by division name (optional) 
+
+            try
+            { 
+                // Retrieve a list of all divisions defined for the organization with cursor
+                AuthzDivisionCursorListing result = apiInstance.GetAuthorizationDivisionsQuery(before, after, pageSize, id, name);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ObjectsApi.GetAuthorizationDivisionsQuery: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **before** | **string**| The cursor that points to the start of the set of entities that has been returned. | [optional]  |
+| **after** | **string**| The cursor that points to the end of the set of entities that has been returned. | [optional]  |
+| **pageSize** | **string**| Page size (max 200, default 25) | [optional] [default to "25"] |
+| **id** | [**List<string>**](string)| Optionally request specific divisions by their IDs | [optional]  |
+| **name** | **string**| Optionally request specific divisions by division name | [optional]  |
+
+### Return type
+
+[**AuthzDivisionCursorListing**](AuthzDivisionCursorListing)
+
+
 ## PostAuthorizationDivisionObject
 
 > void PostAuthorizationDivisionObject (string divisionId, string objectType, List<string> body)
@@ -395,7 +532,7 @@ namespace Example
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **divisionId** | **string**| Division ID |  |
-| **objectType** | **string**| The type of the objects. Must be one of the valid object types | <br />**Values**: QUEUE, CAMPAIGN, CONTACTLIST, DNCLIST, EMAILCAMPAIGN, MESSAGINGCAMPAIGN, MANAGEMENTUNIT, BUSINESSUNIT, FLOW, FLOWMILESTONE, FLOWOUTCOME, USER, CALLROUTE, EMERGENCYGROUPS, ROUTINGSCHEDULES, ROUTINGSCHEDULEGROUPS, DATATABLES, TEAM, WORKBIN, WORKTYPE, EXTENSIONPOOL, SKILLGROUP, SCRIPT |
+| **objectType** | **string**| The type of the objects. Must be one of the valid object types | <br />**Values**: QUEUE, CAMPAIGN, CONTACTLIST, DNCLIST, EMAILCAMPAIGN, MESSAGINGCAMPAIGN, MANAGEMENTUNIT, BUSINESSUNIT, FLOW, FLOWMILESTONE, FLOWOUTCOME, USER, CALLROUTE, EMERGENCYGROUPS, ROUTINGSCHEDULES, ROUTINGSCHEDULEGROUPS, DATATABLES, TEAM, WORKBIN, WORKTYPE, EXTENSIONPOOL, SKILLGROUP, SCRIPT, LIBRARY |
 | **body** | [**List<string>**](string)| Object Id List |  |
 
 ### Return type
@@ -405,7 +542,7 @@ void (empty response body)
 
 ## PostAuthorizationDivisionRestore
 
-> [**AuthzDivision**](AuthzDivision) PostAuthorizationDivisionRestore (string divisionId, AuthzDivision body = null)
+> [**AuthzDivision**](AuthzDivision) PostAuthorizationDivisionRestore (string divisionId, AuthzDivision body)
 
 
 Recreate a previously deleted division.
@@ -437,7 +574,7 @@ namespace Example
 
             var apiInstance = new ObjectsApi();
             var divisionId = divisionId_example;  // string | Division ID
-            var body = new AuthzDivision(); // AuthzDivision | Recreated division data (optional) 
+            var body = new AuthzDivision(); // AuthzDivision | Recreated division data
 
             try
             { 
@@ -460,7 +597,7 @@ namespace Example
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **divisionId** | **string**| Division ID |  |
-| **body** | [**AuthzDivision**](AuthzDivision)| Recreated division data | [optional]  |
+| **body** | [**AuthzDivision**](AuthzDivision)| Recreated division data |  |
 
 ### Return type
 
@@ -594,4 +731,4 @@ namespace Example
 [**AuthzDivision**](AuthzDivision)
 
 
-_PureCloudPlatform.Client.V2 227.0.0_
+_PureCloudPlatform.Client.V2 257.0.0_

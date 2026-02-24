@@ -46,6 +46,12 @@ namespace PureCloudPlatform.Client.V2.Model
             Connected,
             
             /// <summary>
+            /// Enum Parked for "parked"
+            /// </summary>
+            [EnumMember(Value = "parked")]
+            Parked,
+            
+            /// <summary>
             /// Enum Disconnected for "disconnected"
             /// </summary>
             [EnumMember(Value = "disconnected")]
@@ -77,6 +83,12 @@ namespace PureCloudPlatform.Client.V2.Model
             /// </summary>
             [EnumMember(Value = "connected")]
             Connected,
+            
+            /// <summary>
+            /// Enum Parked for "parked"
+            /// </summary>
+            [EnumMember(Value = "parked")]
+            Parked,
             
             /// <summary>
             /// Enum Disconnected for "disconnected"
@@ -220,7 +232,25 @@ namespace PureCloudPlatform.Client.V2.Model
             /// Enum Uncallable for "uncallable"
             /// </summary>
             [EnumMember(Value = "uncallable")]
-            Uncallable
+            Uncallable,
+            
+            /// <summary>
+            /// Enum Inactivity for "inactivity"
+            /// </summary>
+            [EnumMember(Value = "inactivity")]
+            Inactivity,
+            
+            /// <summary>
+            /// Enum Sessionexpired for "session.expired"
+            /// </summary>
+            [EnumMember(Value = "session.expired")]
+            Sessionexpired,
+            
+            /// <summary>
+            /// Enum Takeover for "takeover"
+            /// </summary>
+            [EnumMember(Value = "takeover")]
+            Takeover
         }
         /// <summary>
         /// Indicates the type of message platform from which the message originated.
@@ -310,6 +340,224 @@ namespace PureCloudPlatform.Client.V2.Model
             Unknown
         }
         /// <summary>
+        /// Gets or Sets EngagementSource
+        /// </summary>
+        [JsonConverter(typeof(UpgradeSdkEnumConverter))]
+        public enum EngagementSourceEnum
+        {
+            /// <summary>
+            /// Your SDK version is out of date and an unknown enum value was encountered. 
+            /// Please upgrade the SDK using the command "Upgrade-Package PureCloudApiSdk" 
+            /// in the Package Manager Console
+            /// </summary>
+            [EnumMember(Value = "OUTDATED_SDK_VERSION")]
+            OutdatedSdkVersion,
+            
+            /// <summary>
+            /// Enum Applemessagesforbusiness for "AppleMessagesForBusiness"
+            /// </summary>
+            [EnumMember(Value = "AppleMessagesForBusiness")]
+            Applemessagesforbusiness,
+            
+            /// <summary>
+            /// Enum Discord for "Discord"
+            /// </summary>
+            [EnumMember(Value = "Discord")]
+            Discord,
+            
+            /// <summary>
+            /// Enum Email for "Email"
+            /// </summary>
+            [EnumMember(Value = "Email")]
+            Email,
+            
+            /// <summary>
+            /// Enum Facebook for "Facebook"
+            /// </summary>
+            [EnumMember(Value = "Facebook")]
+            Facebook,
+            
+            /// <summary>
+            /// Enum Facebookmessenger for "FacebookMessenger"
+            /// </summary>
+            [EnumMember(Value = "FacebookMessenger")]
+            Facebookmessenger,
+            
+            /// <summary>
+            /// Enum Glassdoor for "Glassdoor"
+            /// </summary>
+            [EnumMember(Value = "Glassdoor")]
+            Glassdoor,
+            
+            /// <summary>
+            /// Enum Googlebusinessprofile for "GoogleBusinessProfile"
+            /// </summary>
+            [EnumMember(Value = "GoogleBusinessProfile")]
+            Googlebusinessprofile,
+            
+            /// <summary>
+            /// Enum Instagram for "Instagram"
+            /// </summary>
+            [EnumMember(Value = "Instagram")]
+            Instagram,
+            
+            /// <summary>
+            /// Enum Kakaotalk for "KakaoTalk"
+            /// </summary>
+            [EnumMember(Value = "KakaoTalk")]
+            Kakaotalk,
+            
+            /// <summary>
+            /// Enum Line for "Line"
+            /// </summary>
+            [EnumMember(Value = "Line")]
+            Line,
+            
+            /// <summary>
+            /// Enum Linkedin for "LinkedIn"
+            /// </summary>
+            [EnumMember(Value = "LinkedIn")]
+            Linkedin,
+            
+            /// <summary>
+            /// Enum Microsoftteams for "MicrosoftTeams"
+            /// </summary>
+            [EnumMember(Value = "MicrosoftTeams")]
+            Microsoftteams,
+            
+            /// <summary>
+            /// Enum Mobilechat for "MobileChat"
+            /// </summary>
+            [EnumMember(Value = "MobileChat")]
+            Mobilechat,
+            
+            /// <summary>
+            /// Enum Other for "Other"
+            /// </summary>
+            [EnumMember(Value = "Other")]
+            Other,
+            
+            /// <summary>
+            /// Enum Qq for "QQ"
+            /// </summary>
+            [EnumMember(Value = "QQ")]
+            Qq,
+            
+            /// <summary>
+            /// Enum Reddit for "Reddit"
+            /// </summary>
+            [EnumMember(Value = "Reddit")]
+            Reddit,
+            
+            /// <summary>
+            /// Enum Servicenow for "ServiceNow"
+            /// </summary>
+            [EnumMember(Value = "ServiceNow")]
+            Servicenow,
+            
+            /// <summary>
+            /// Enum Sfdc for "SFDC"
+            /// </summary>
+            [EnumMember(Value = "SFDC")]
+            Sfdc,
+            
+            /// <summary>
+            /// Enum Sms for "SMS"
+            /// </summary>
+            [EnumMember(Value = "SMS")]
+            Sms,
+            
+            /// <summary>
+            /// Enum Snapchat for "Snapchat"
+            /// </summary>
+            [EnumMember(Value = "Snapchat")]
+            Snapchat,
+            
+            /// <summary>
+            /// Enum Telegram for "Telegram"
+            /// </summary>
+            [EnumMember(Value = "Telegram")]
+            Telegram,
+            
+            /// <summary>
+            /// Enum Threads for "Threads"
+            /// </summary>
+            [EnumMember(Value = "Threads")]
+            Threads,
+            
+            /// <summary>
+            /// Enum Trustpilot for "Trustpilot"
+            /// </summary>
+            [EnumMember(Value = "Trustpilot")]
+            Trustpilot,
+            
+            /// <summary>
+            /// Enum Unspecified for "Unspecified"
+            /// </summary>
+            [EnumMember(Value = "Unspecified")]
+            Unspecified,
+            
+            /// <summary>
+            /// Enum Viber for "Viber"
+            /// </summary>
+            [EnumMember(Value = "Viber")]
+            Viber,
+            
+            /// <summary>
+            /// Enum Webchat for "WebChat"
+            /// </summary>
+            [EnumMember(Value = "WebChat")]
+            Webchat,
+            
+            /// <summary>
+            /// Enum Wechat for "WeChat"
+            /// </summary>
+            [EnumMember(Value = "WeChat")]
+            Wechat,
+            
+            /// <summary>
+            /// Enum Weibo for "Weibo"
+            /// </summary>
+            [EnumMember(Value = "Weibo")]
+            Weibo,
+            
+            /// <summary>
+            /// Enum Whatsapp for "WhatsApp"
+            /// </summary>
+            [EnumMember(Value = "WhatsApp")]
+            Whatsapp,
+            
+            /// <summary>
+            /// Enum X for "X"
+            /// </summary>
+            [EnumMember(Value = "X")]
+            X,
+            
+            /// <summary>
+            /// Enum Yelp for "Yelp"
+            /// </summary>
+            [EnumMember(Value = "Yelp")]
+            Yelp,
+            
+            /// <summary>
+            /// Enum Youtube for "YouTube"
+            /// </summary>
+            [EnumMember(Value = "YouTube")]
+            Youtube,
+            
+            /// <summary>
+            /// Enum Zendesk for "Zendesk"
+            /// </summary>
+            [EnumMember(Value = "Zendesk")]
+            Zendesk,
+            
+            /// <summary>
+            /// Enum Openmessaging for "OpenMessaging"
+            /// </summary>
+            [EnumMember(Value = "OpenMessaging")]
+            Openmessaging
+        }
+        /// <summary>
         /// The connection state of this communication.
         /// </summary>
         /// <value>The connection state of this communication.</value>
@@ -340,13 +588,18 @@ namespace PureCloudPlatform.Client.V2.Model
         [DataMember(Name="type", EmitDefaultValue=false)]
         public TypeEnum? Type { get; set; }
         /// <summary>
+        /// Gets or Sets EngagementSource
+        /// </summary>
+        [DataMember(Name="engagementSource", EmitDefaultValue=false)]
+        public EngagementSourceEnum? EngagementSource { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="Message" /> class.
         /// </summary>
         /// <param name="State">The connection state of this communication..</param>
         /// <param name="InitialState">The initial connection state of this communication..</param>
         /// <param name="Id">A globally unique identifier for this communication..</param>
         /// <param name="Held">True if this call is held and the person on this side hears silence..</param>
-        /// <param name="Segments">The time line of the participant's message, divided into activity segments..</param>
+        /// <param name="Segments">The time line of the participant&#39;s message, divided into activity segments..</param>
         /// <param name="Direction">The direction of the message..</param>
         /// <param name="RecordingId">A globally unique identifier for the recording associated with this message..</param>
         /// <param name="ErrorInfo">ErrorInfo.</param>
@@ -365,14 +618,15 @@ namespace PureCloudPlatform.Client.V2.Model
         /// <param name="ToAddress">Address and name data for a call endpoint..</param>
         /// <param name="FromAddress">Address and name data for a call endpoint..</param>
         /// <param name="Messages">The messages sent on this communication channel..</param>
-        /// <param name="JourneyContext">A subset of the Journey System's data relevant to a part of a conversation (for external linkage and internal usage/context)..</param>
+        /// <param name="JourneyContext">A subset of the Journey System&#39;s data relevant to a part of a conversation (for external linkage and internal usage/context)..</param>
         /// <param name="Wrapup">Call wrap up or disposition data..</param>
         /// <param name="AfterCallWork">After-call work for the communication..</param>
         /// <param name="AfterCallWorkRequired">Indicates if after-call work is required for a communication. Only used when the ACW Setting is Agent Requested..</param>
         /// <param name="AgentAssistantId">UUID of virtual agent assistant that provide suggestions to the agent participant during the conversation..</param>
         /// <param name="ByoSmsIntegrationId">The internal id representing the customer supplied sms integration message..</param>
         /// <param name="QueueMediaSettings">Represents the queue settings for this media type..</param>
-        public Message(StateEnum? State = null, InitialStateEnum? InitialState = null, string Id = null, bool? Held = null, List<Segment> Segments = null, DirectionEnum? Direction = null, string RecordingId = null, ErrorBody ErrorInfo = null, DisconnectTypeEnum? DisconnectType = null, DateTime? StartHoldTime = null, DateTime? StartAlertingTime = null, DateTime? ConnectedTime = null, DateTime? DisconnectedTime = null, string Provider = null, bool? Authenticated = null, TypeEnum? Type = null, string RecipientCountry = null, string RecipientType = null, string ScriptId = null, string PeerId = null, Address ToAddress = null, Address FromAddress = null, List<MessageDetails> Messages = null, JourneyContext JourneyContext = null, Wrapup Wrapup = null, AfterCallWork AfterCallWork = null, bool? AfterCallWorkRequired = null, string AgentAssistantId = null, string ByoSmsIntegrationId = null, ConversationQueueMediaSettings QueueMediaSettings = null)
+        /// <param name="EngagementSource">EngagementSource.</param>
+        public Message(StateEnum? State = null, InitialStateEnum? InitialState = null, string Id = null, bool? Held = null, List<Segment> Segments = null, DirectionEnum? Direction = null, string RecordingId = null, ErrorBody ErrorInfo = null, DisconnectTypeEnum? DisconnectType = null, DateTime? StartHoldTime = null, DateTime? StartAlertingTime = null, DateTime? ConnectedTime = null, DateTime? DisconnectedTime = null, string Provider = null, bool? Authenticated = null, TypeEnum? Type = null, string RecipientCountry = null, string RecipientType = null, string ScriptId = null, string PeerId = null, Address ToAddress = null, Address FromAddress = null, List<MessageDetails> Messages = null, JourneyContext JourneyContext = null, Wrapup Wrapup = null, AfterCallWork AfterCallWork = null, bool? AfterCallWorkRequired = null, string AgentAssistantId = null, string ByoSmsIntegrationId = null, ConversationQueueMediaSettings QueueMediaSettings = null, EngagementSourceEnum? EngagementSource = null)
         {
             this.State = State;
             this.InitialState = InitialState;
@@ -404,6 +658,7 @@ namespace PureCloudPlatform.Client.V2.Model
             this.AgentAssistantId = AgentAssistantId;
             this.ByoSmsIntegrationId = ByoSmsIntegrationId;
             this.QueueMediaSettings = QueueMediaSettings;
+            this.EngagementSource = EngagementSource;
             
         }
         
@@ -432,9 +687,9 @@ namespace PureCloudPlatform.Client.V2.Model
 
 
         /// <summary>
-        /// The time line of the participant's message, divided into activity segments.
+        /// The time line of the participant&#39;s message, divided into activity segments.
         /// </summary>
-        /// <value>The time line of the participant's message, divided into activity segments.</value>
+        /// <value>The time line of the participant&#39;s message, divided into activity segments.</value>
         [DataMember(Name="segments", EmitDefaultValue=false)]
         public List<Segment> Segments { get; set; }
 
@@ -581,9 +836,9 @@ namespace PureCloudPlatform.Client.V2.Model
 
 
         /// <summary>
-        /// A subset of the Journey System's data relevant to a part of a conversation (for external linkage and internal usage/context).
+        /// A subset of the Journey System&#39;s data relevant to a part of a conversation (for external linkage and internal usage/context).
         /// </summary>
-        /// <value>A subset of the Journey System's data relevant to a part of a conversation (for external linkage and internal usage/context).</value>
+        /// <value>A subset of the Journey System&#39;s data relevant to a part of a conversation (for external linkage and internal usage/context).</value>
         [DataMember(Name="journeyContext", EmitDefaultValue=false)]
         public JourneyContext JourneyContext { get; set; }
 
@@ -642,6 +897,8 @@ namespace PureCloudPlatform.Client.V2.Model
         public ConversationQueueMediaSettings QueueMediaSettings { get; set; }
 
 
+
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -681,6 +938,7 @@ namespace PureCloudPlatform.Client.V2.Model
             sb.Append("  AgentAssistantId: ").Append(AgentAssistantId).Append("\n");
             sb.Append("  ByoSmsIntegrationId: ").Append(ByoSmsIntegrationId).Append("\n");
             sb.Append("  QueueMediaSettings: ").Append(QueueMediaSettings).Append("\n");
+            sb.Append("  EngagementSource: ").Append(EngagementSource).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -870,6 +1128,11 @@ namespace PureCloudPlatform.Client.V2.Model
                     this.QueueMediaSettings == other.QueueMediaSettings ||
                     this.QueueMediaSettings != null &&
                     this.QueueMediaSettings.Equals(other.QueueMediaSettings)
+                ) &&
+                (
+                    this.EngagementSource == other.EngagementSource ||
+                    this.EngagementSource != null &&
+                    this.EngagementSource.Equals(other.EngagementSource)
                 );
         }
 
@@ -973,6 +1236,9 @@ namespace PureCloudPlatform.Client.V2.Model
 
                 if (this.QueueMediaSettings != null)
                     hash = hash * 59 + this.QueueMediaSettings.GetHashCode();
+
+                if (this.EngagementSource != null)
+                    hash = hash * 59 + this.EngagementSource.GetHashCode();
 
                 return hash;
             }

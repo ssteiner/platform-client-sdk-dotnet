@@ -8,7 +8,8 @@
 |------------ | ------------- | ------------- | -------------|
 | **RootId** | **string** | The id of the root public message. | [optional] |
 | **ReplyToId** | **string** | The id of the message this public message is replying to. | [optional] |
+| **Url** | **string** | The URL of the social post on the native platform. | [optional] |
 
 
 
-_PureCloudPlatform.Client.V2 227.0.0_
+_PureCloudPlatform.Client.V2 257.0.0_

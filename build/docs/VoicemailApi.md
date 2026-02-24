@@ -643,6 +643,8 @@ namespace Example
 
 Get media playback URI for this voicemail message
 
+API should migrate to use GET api/v2/voicemail/messages/{messageId}/downloads
+
 Requires NO permissions: 
 
 
@@ -1083,8 +1085,10 @@ namespace Example
 
 Get a user's voicemail policy
 
-Requires NO permissions: 
+Requires ANY permissions: 
 
+* telephony:plugin:all
+* voicemail:userPolicy:viewOther
 
 ### Example
 ```{"language":"csharp"}
@@ -1335,8 +1339,10 @@ namespace Example
 
 Update a user's voicemail policy
 
-Requires NO permissions: 
+Requires ANY permissions: 
 
+* telephony:plugin:all
+* voicemail:userPolicy:viewOther
 
 ### Example
 ```{"language":"csharp"}
@@ -1647,9 +1653,10 @@ namespace Example
 
 Update a user's voicemail policy
 
-Requires ALL permissions: 
+Requires ANY permissions: 
 
 * telephony:plugin:all
+* voicemail:userPolicy:viewOther
 
 ### Example
 ```{"language":"csharp"}
@@ -1704,4 +1711,4 @@ namespace Example
 [**VoicemailUserPolicy**](VoicemailUserPolicy)
 
 
-_PureCloudPlatform.Client.V2 227.0.0_
+_PureCloudPlatform.Client.V2 257.0.0_

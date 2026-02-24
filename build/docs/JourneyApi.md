@@ -6,6 +6,7 @@ All URIs are relative to *https://api.mypurecloud.com*
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
+| [**DeleteAnalyticsJourneysAggregatesJob**](#DeleteAnalyticsJourneysAggregatesJob) | **Delete** /api/v2/analytics/journeys/aggregates/jobs/{jobId} | Delete/cancel an async request for journey aggregates |
 | [**DeleteJourneyActionmap**](#DeleteJourneyActionmap) | **Delete** /api/v2/journey/actionmaps/{actionMapId} | Delete single action map. |
 | [**DeleteJourneyActiontemplate**](#DeleteJourneyActiontemplate) | **Delete** /api/v2/journey/actiontemplates/{actionTemplateId} | Delete a single action template. |
 | [**DeleteJourneyOutcome**](#DeleteJourneyOutcome) | **Delete** /api/v2/journey/outcomes/{outcomeId} | Delete an outcome. |
@@ -15,6 +16,7 @@ All URIs are relative to *https://api.mypurecloud.com*
 | [**DeleteJourneyViewSchedules**](#DeleteJourneyViewSchedules) | **Delete** /api/v2/journey/views/{viewId}/schedules | Delete the Schedule of a JourneyView |
 | [**GetAnalyticsJourneysAggregatesJob**](#GetAnalyticsJourneysAggregatesJob) | **Get** /api/v2/analytics/journeys/aggregates/jobs/{jobId} | Get status for async query for journey aggregates |
 | [**GetAnalyticsJourneysAggregatesJobResults**](#GetAnalyticsJourneysAggregatesJobResults) | **Get** /api/v2/analytics/journeys/aggregates/jobs/{jobId}/results | Fetch a page of results for an async aggregates query |
+| [**GetExternalcontactsContactJourneySegments**](#GetExternalcontactsContactJourneySegments) | **Get** /api/v2/externalcontacts/contacts/{contactId}/journey/segments | Retrieve segment assignments by external contact ID. |
 | [**GetExternalcontactsContactJourneySessions**](#GetExternalcontactsContactJourneySessions) | **Get** /api/v2/externalcontacts/contacts/{contactId}/journey/sessions | Retrieve all sessions for a given external contact. |
 | [**GetJourneyActionmap**](#GetJourneyActionmap) | **Get** /api/v2/journey/actionmaps/{actionMapId} | Retrieve a single action map. |
 | [**GetJourneyActionmaps**](#GetJourneyActionmaps) | **Get** /api/v2/journey/actionmaps | Retrieve all action maps. |
@@ -50,6 +52,7 @@ All URIs are relative to *https://api.mypurecloud.com*
 | [**GetJourneyViewsEventdefinition**](#GetJourneyViewsEventdefinition) | **Get** /api/v2/journey/views/eventdefinitions/{eventDefinitionId} | Get an Event Definition |
 | [**GetJourneyViewsEventdefinitions**](#GetJourneyViewsEventdefinitions) | **Get** /api/v2/journey/views/eventdefinitions | Get a list of Event Definitions |
 | [**GetJourneyViewsJobs**](#GetJourneyViewsJobs) | **Get** /api/v2/journey/views/jobs | Get the jobs for an organization. |
+| [**GetJourneyViewsJobsMe**](#GetJourneyViewsJobsMe) | **Get** /api/v2/journey/views/jobs/me | Get my jobs |
 | [**GetJourneyViewsSchedules**](#GetJourneyViewsSchedules) | **Get** /api/v2/journey/views/schedules | Get the journey schedules for an organization. |
 | [**PatchJourneyActionmap**](#PatchJourneyActionmap) | **Patch** /api/v2/journey/actionmaps/{actionMapId} | Update single action map. |
 | [**PatchJourneyActiontarget**](#PatchJourneyActiontarget) | **Patch** /api/v2/journey/actiontargets/{actionTargetId} | Update a single action target. |
@@ -59,6 +62,7 @@ All URIs are relative to *https://api.mypurecloud.com*
 | [**PatchJourneyViewVersionJob**](#PatchJourneyViewVersionJob) | **Patch** /api/v2/journey/views/{viewId}/versions/{journeyVersionId}/jobs/{jobId} | Update the job for a journey view version. Only the status can be changed and only to Cancelled |
 | [**PostAnalyticsJourneysAggregatesJobs**](#PostAnalyticsJourneysAggregatesJobs) | **Post** /api/v2/analytics/journeys/aggregates/jobs | Query for journey aggregates asynchronously |
 | [**PostAnalyticsJourneysAggregatesQuery**](#PostAnalyticsJourneysAggregatesQuery) | **Post** /api/v2/analytics/journeys/aggregates/query | Query for journey aggregates |
+| [**PostExternalcontactsContactJourneySegments**](#PostExternalcontactsContactJourneySegments) | **Post** /api/v2/externalcontacts/contacts/{contactId}/journey/segments | Assign/Unassign up to 10 segments to/from an external contact or, if a segment is already assigned, update the expiry date of the segment assignment. Any unprocessed segment assignments are returned in the body for the client to retry, in the event of a partial success. |
 | [**PostJourneyActionmaps**](#PostJourneyActionmaps) | **Post** /api/v2/journey/actionmaps | Create an action map. |
 | [**PostJourneyActionmapsEstimatesJobs**](#PostJourneyActionmapsEstimatesJobs) | **Post** /api/v2/journey/actionmaps/estimates/jobs | Query for estimates |
 | [**PostJourneyActiontemplates**](#PostJourneyActiontemplates) | **Post** /api/v2/journey/actiontemplates | Create a single action template. |
@@ -78,6 +82,69 @@ All URIs are relative to *https://api.mypurecloud.com*
 | [**PutJourneyViewSchedules**](#PutJourneyViewSchedules) | **Put** /api/v2/journey/views/{viewId}/schedules | Update the Schedule for a JourneyView |
 | [**PutJourneyViewVersion**](#PutJourneyViewVersion) | **Put** /api/v2/journey/views/{viewId}/versions/{versionId} | Update a Journey View by ID and version |
 
+
+
+## DeleteAnalyticsJourneysAggregatesJob
+
+> void DeleteAnalyticsJourneysAggregatesJob (string jobId)
+
+
+Delete/cancel an async request for journey aggregates
+
+DeleteAnalyticsJourneysAggregatesJob is a preview method and is subject to both breaking and non-breaking changes at any time without notice
+
+Requires ANY permissions: 
+
+* analytics:journeyAggregate:view
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class DeleteAnalyticsJourneysAggregatesJobExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new JourneyApi();
+            var jobId = jobId_example;  // string | jobId
+
+            try
+            { 
+                // Delete/cancel an async request for journey aggregates
+                apiInstance.DeleteAnalyticsJourneysAggregatesJob(jobId);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling JourneyApi.DeleteAnalyticsJourneysAggregatesJob: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **jobId** | **string**| jobId |  |
+
+### Return type
+
+void (empty response body)
 
 
 ## DeleteJourneyActionmap
@@ -642,6 +709,72 @@ namespace Example
 [**JourneyAsyncAggregateQueryResponse**](JourneyAsyncAggregateQueryResponse)
 
 
+## GetExternalcontactsContactJourneySegments
+
+> [**SegmentAssignmentListing**](SegmentAssignmentListing) GetExternalcontactsContactJourneySegments (string contactId, bool? includeMerged = null, int? limit = null)
+
+
+Retrieve segment assignments by external contact ID.
+
+Requires ANY permissions: 
+
+* externalContacts:segmentAssignment:view
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class GetExternalcontactsContactJourneySegmentsExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new JourneyApi();
+            var contactId = contactId_example;  // string | ExternalContact ID
+            var includeMerged = true;  // bool? | Indicates whether to return segment assignments from all external contacts in the merge-set of the given one. (optional) 
+            var limit = 56;  // int? | Number of entities to return. Default of 25, maximum of 500. (optional) 
+
+            try
+            { 
+                // Retrieve segment assignments by external contact ID.
+                SegmentAssignmentListing result = apiInstance.GetExternalcontactsContactJourneySegments(contactId, includeMerged, limit);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling JourneyApi.GetExternalcontactsContactJourneySegments: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **contactId** | **string**| ExternalContact ID |  |
+| **includeMerged** | **bool?**| Indicates whether to return segment assignments from all external contacts in the merge-set of the given one. | [optional]  |
+| **limit** | **int?**| Number of entities to return. Default of 25, maximum of 500. | [optional]  |
+
+### Return type
+
+[**SegmentAssignmentListing**](SegmentAssignmentListing)
+
+
 ## GetExternalcontactsContactJourneySessions
 
 > [**SessionListing**](SessionListing) GetExternalcontactsContactJourneySessions (string contactId, string pageSize = null, string after = null, bool? includeMerged = null)
@@ -812,7 +945,7 @@ namespace Example
             var filterValue = filterValue_example;  // string | Value to filter by. Requires 'filterValue' to also be set. (optional) 
             var actionMapIds = new List<string>(); // List<string> | IDs of action maps to return. Use of this parameter is not compatible with pagination, filtering, sorting or querying. A maximum of 100 action maps are allowed per request. (optional) 
             var queryFields = new List<string>(); // List<string> | Action Map field(s) to query on. Requires 'queryValue' to also be set. (optional) 
-            var queryValue = queryValue_example;  // string | Value to query on. Requires 'queryFields' to also be set. (optional) 
+            var queryValue = queryValue_example;  // string | Value to query on using fuzzy matching. Requires 'queryFields' to also be set. (optional) 
 
             try
             { 
@@ -841,7 +974,7 @@ namespace Example
 | **filterValue** | **string**| Value to filter by. Requires &#39;filterValue&#39; to also be set. | [optional]  |
 | **actionMapIds** | [**List<string>**](string)| IDs of action maps to return. Use of this parameter is not compatible with pagination, filtering, sorting or querying. A maximum of 100 action maps are allowed per request. | [optional]  |
 | **queryFields** | [**List<string>**](string)| Action Map field(s) to query on. Requires &#39;queryValue&#39; to also be set. | [optional]  |
-| **queryValue** | **string**| Value to query on. Requires &#39;queryFields&#39; to also be set. | [optional]  |
+| **queryValue** | **string**| Value to query on using fuzzy matching. Requires &#39;queryFields&#39; to also be set. | [optional]  |
 
 ### Return type
 
@@ -1199,7 +1332,7 @@ namespace Example
             var mediaType = mediaType_example;  // string | Media type (optional) 
             var state = state_example;  // string | Action template state. (optional) 
             var queryFields = new List<string>(); // List<string> | ActionTemplate field(s) to query on. Requires 'queryValue' to also be set. (optional) 
-            var queryValue = queryValue_example;  // string | Value to query on. Requires 'queryFields' to also be set. (optional) 
+            var queryValue = queryValue_example;  // string | Value to query on using fuzzy matching. Requires 'queryFields' to also be set. (optional) 
 
             try
             { 
@@ -1227,7 +1360,7 @@ namespace Example
 | **mediaType** | **string**| Media type | [optional] <br />**Values**: webchat, webMessagingOffer, contentOffer, integrationAction, architectFlow, openAction |
 | **state** | **string**| Action template state. | [optional] <br />**Values**: Active, Inactive, Deleted |
 | **queryFields** | [**List<string>**](string)| ActionTemplate field(s) to query on. Requires &#39;queryValue&#39; to also be set. | [optional]  |
-| **queryValue** | **string**| Value to query on. Requires &#39;queryFields&#39; to also be set. | [optional]  |
+| **queryValue** | **string**| Value to query on using fuzzy matching. Requires &#39;queryFields&#39; to also be set. | [optional]  |
 
 ### Return type
 
@@ -1401,7 +1534,7 @@ namespace Example
             var sortBy = sortBy_example;  // string | Field(s) to sort by. The response can be sorted by any first level property on the Outcome response. Prefix with '-' for descending (e.g. sortBy=displayName,-createdDate). (optional) 
             var outcomeIds = new List<string>(); // List<string> | IDs of outcomes to return. Use of this parameter is not compatible with pagination, sorting or querying. A maximum of 20 outcomes are allowed per request. (optional) 
             var queryFields = new List<string>(); // List<string> | Outcome field(s) to query on. Requires 'queryValue' to also be set. (optional) 
-            var queryValue = queryValue_example;  // string | Value to query on. Requires 'queryFields' to also be set. (optional) 
+            var queryValue = queryValue_example;  // string | Value to query on using fuzzy matching. Requires 'queryFields' to also be set. (optional) 
 
             try
             { 
@@ -1428,7 +1561,7 @@ namespace Example
 | **sortBy** | **string**| Field(s) to sort by. The response can be sorted by any first level property on the Outcome response. Prefix with &#39;-&#39; for descending (e.g. sortBy&#x3D;displayName,-createdDate). | [optional]  |
 | **outcomeIds** | [**List<string>**](string)| IDs of outcomes to return. Use of this parameter is not compatible with pagination, sorting or querying. A maximum of 20 outcomes are allowed per request. | [optional]  |
 | **queryFields** | [**List<string>**](string)| Outcome field(s) to query on. Requires &#39;queryValue&#39; to also be set. | [optional]  |
-| **queryValue** | **string**| Value to query on. Requires &#39;queryFields&#39; to also be set. | [optional]  |
+| **queryValue** | **string**| Value to query on using fuzzy matching. Requires &#39;queryFields&#39; to also be set. | [optional]  |
 
 ### Return type
 
@@ -1783,7 +1916,7 @@ namespace Example
             var isActive = true;  // bool? | Determines whether or not to show only active segments. (optional) 
             var segmentIds = new List<string>(); // List<string> | IDs of segments to return. Use of this parameter is not compatible with pagination, sorting or querying. A maximum of 100 segments are allowed per request. (optional) 
             var queryFields = new List<string>(); // List<string> | Segment field(s) to query on. Requires 'queryValue' to also be set. (optional) 
-            var queryValue = queryValue_example;  // string | Value to query on. Requires 'queryFields' to also be set. (optional) 
+            var queryValue = queryValue_example;  // string | Value to query on using fuzzy matching. Requires 'queryFields' to also be set. (optional) 
 
             try
             { 
@@ -1811,7 +1944,7 @@ namespace Example
 | **isActive** | **bool?**| Determines whether or not to show only active segments. | [optional]  |
 | **segmentIds** | [**List<string>**](string)| IDs of segments to return. Use of this parameter is not compatible with pagination, sorting or querying. A maximum of 100 segments are allowed per request. | [optional]  |
 | **queryFields** | [**List<string>**](string)| Segment field(s) to query on. Requires &#39;queryValue&#39; to also be set. | [optional]  |
-| **queryValue** | **string**| Value to query on. Requires &#39;queryFields&#39; to also be set. | [optional]  |
+| **queryValue** | **string**| Value to query on using fuzzy matching. Requires &#39;queryFields&#39; to also be set. | [optional]  |
 
 ### Return type
 
@@ -2883,7 +3016,7 @@ namespace Example
             var pageNumber = 56;  // int? | The number of the page to return (optional)  (default to 1)
             var pageSize = 56;  // int? | Max number of entities to return (optional)  (default to 25)
             var interval = 2023-07-17T00:00:00Z/2023-07-18T00:00:00Z;  // string | An absolute timeframe for filtering the jobs, expressed as an ISO 8601 interval. (optional) 
-            var statuses = statuses&#x3D;Accepted,Executing,Complete,Failed;  // string | Job statuses to filter for (optional) 
+            var statuses = statuses&#x3D;Accepted,Executing,Complete,Failed,Scheduled;  // string | Job statuses to filter for (optional) 
 
             try
             { 
@@ -2894,6 +3027,74 @@ namespace Example
             catch (Exception e)
             {
                 Debug.Print("Exception when calling JourneyApi.GetJourneyViewsJobs: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **pageNumber** | **int?**| The number of the page to return | [optional] [default to 1] |
+| **pageSize** | **int?**| Max number of entities to return | [optional] [default to 25] |
+| **interval** | **string**| An absolute timeframe for filtering the jobs, expressed as an ISO 8601 interval. | [optional]  |
+| **statuses** | **string**| Job statuses to filter for | [optional]  |
+
+### Return type
+
+[**JourneyViewJobListing**](JourneyViewJobListing)
+
+
+## GetJourneyViewsJobsMe
+
+> [**JourneyViewJobListing**](JourneyViewJobListing) GetJourneyViewsJobsMe (int? pageNumber = null, int? pageSize = null, string interval = null, string statuses = null)
+
+
+Get my jobs
+
+Requires ALL permissions: 
+
+* journey:viewsJobs:view
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class GetJourneyViewsJobsMeExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new JourneyApi();
+            var pageNumber = 56;  // int? | The number of the page to return (optional)  (default to 1)
+            var pageSize = 56;  // int? | Max number of entities to return (optional)  (default to 25)
+            var interval = 2023-07-17T00:00:00Z/2023-07-18T00:00:00Z;  // string | An absolute timeframe for filtering the jobs, expressed as an ISO 8601 interval. (optional) 
+            var statuses = statuses&#x3D;Accepted,Executing,Complete,Failed,Scheduled;  // string | Job statuses to filter for (optional) 
+
+            try
+            { 
+                // Get my jobs
+                JourneyViewJobListing result = apiInstance.GetJourneyViewsJobsMe(pageNumber, pageSize, interval, statuses);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling JourneyApi.GetJourneyViewsJobsMe: " + e.Message );
             }
         }
     }
@@ -3491,6 +3692,71 @@ namespace Example
 ### Return type
 
 [**JourneyAggregateQueryResponse**](JourneyAggregateQueryResponse)
+
+
+## PostExternalcontactsContactJourneySegments
+
+> [**UpdateSegmentAssignmentResponse**](UpdateSegmentAssignmentResponse) PostExternalcontactsContactJourneySegments (string contactId, UpdateSegmentAssignmentRequest body = null)
+
+
+Assign/Unassign up to 10 segments to/from an external contact or, if a segment is already assigned, update the expiry date of the segment assignment. Any unprocessed segment assignments are returned in the body for the client to retry, in the event of a partial success.
+
+Requires ANY permissions: 
+
+* externalContacts:segmentAssignment:add
+* externalContacts:segmentAssignment:delete
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class PostExternalcontactsContactJourneySegmentsExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new JourneyApi();
+            var contactId = contactId_example;  // string | ExternalContact ID
+            var body = new UpdateSegmentAssignmentRequest(); // UpdateSegmentAssignmentRequest |  (optional) 
+
+            try
+            { 
+                // Assign/Unassign up to 10 segments to/from an external contact or, if a segment is already assigned, update the expiry date of the segment assignment. Any unprocessed segment assignments are returned in the body for the client to retry, in the event of a partial success.
+                UpdateSegmentAssignmentResponse result = apiInstance.PostExternalcontactsContactJourneySegments(contactId, body);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling JourneyApi.PostExternalcontactsContactJourneySegments: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **contactId** | **string**| ExternalContact ID |  |
+| **body** | [**UpdateSegmentAssignmentRequest**](UpdateSegmentAssignmentRequest)|  | [optional]  |
+
+### Return type
+
+[**UpdateSegmentAssignmentResponse**](UpdateSegmentAssignmentResponse)
 
 
 ## PostJourneyActionmaps
@@ -4613,4 +4879,4 @@ namespace Example
 [**JourneyView**](JourneyView)
 
 
-_PureCloudPlatform.Client.V2 227.0.0_
+_PureCloudPlatform.Client.V2 257.0.0_

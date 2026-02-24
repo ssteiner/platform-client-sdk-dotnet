@@ -27,9 +27,9 @@
 | **Attributes** | **Dictionary&lt;string, string&gt;** |  | [optional] |
 | **ErrorInfo** | [**QueueConversationMessageEventTopicErrorBody**](QueueConversationMessageEventTopicErrorBody) |  | [optional] |
 | **Script** | [**QueueConversationMessageEventTopicUriReference**](QueueConversationMessageEventTopicUriReference) |  | [optional] |
-| **WrapupTimeoutMs** | **int?** |  | [optional] |
+| **WrapupTimeoutMs** | **long?** |  | [optional] |
 | **WrapupSkipped** | **bool?** |  | [optional] |
-| **AlertingTimeoutMs** | **int?** |  | [optional] |
+| **AlertingTimeoutMs** | **long?** |  | [optional] |
 | **Provider** | **string** |  | [optional] |
 | **ExternalContact** | [**QueueConversationMessageEventTopicUriReference**](QueueConversationMessageEventTopicUriReference) |  | [optional] |
 | **ExternalContactInitialDivisionId** | **string** |  | [optional] |
@@ -51,8 +51,9 @@
 | **RecipientCountry** | **string** |  | [optional] |
 | **RecipientType** | **string** |  | [optional] |
 | **ByoSmsIntegrationId** | **string** |  | [optional] |
+| **EngagementSource** | **string** |  | [optional] |
 | **MonitoredParticipantId** | **string** |  | [optional] |
 
 
 
-_PureCloudPlatform.Client.V2 227.0.0_
+_PureCloudPlatform.Client.V2 257.0.0_

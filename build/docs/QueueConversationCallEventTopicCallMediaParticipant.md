@@ -27,9 +27,9 @@
 | **Attributes** | **Dictionary&lt;string, string&gt;** |  | [optional] |
 | **ErrorInfo** | [**QueueConversationCallEventTopicErrorBody**](QueueConversationCallEventTopicErrorBody) |  | [optional] |
 | **Script** | [**QueueConversationCallEventTopicUriReference**](QueueConversationCallEventTopicUriReference) |  | [optional] |
-| **WrapupTimeoutMs** | **int?** |  | [optional] |
+| **WrapupTimeoutMs** | **long?** |  | [optional] |
 | **WrapupSkipped** | **bool?** |  | [optional] |
-| **AlertingTimeoutMs** | **int?** |  | [optional] |
+| **AlertingTimeoutMs** | **long?** |  | [optional] |
 | **Provider** | **string** |  | [optional] |
 | **ExternalContact** | [**QueueConversationCallEventTopicUriReference**](QueueConversationCallEventTopicUriReference) |  | [optional] |
 | **ExternalContactInitialDivisionId** | **string** |  | [optional] |
@@ -50,6 +50,9 @@
 | **Confined** | **bool?** |  | [optional] |
 | **Recording** | **bool?** |  | [optional] |
 | **RecordingState** | **string** |  | [optional] |
+| **RecordersState** | [**QueueConversationCallEventTopicRecordersState**](QueueConversationCallEventTopicRecordersState) |  | [optional] |
+| **Disposition** | [**QueueConversationCallEventTopicDisposition**](QueueConversationCallEventTopicDisposition) |  | [optional] |
+| **TransferSource** | **string** |  | [optional] |
 | **SecurePause** | **bool?** |  | [optional] |
 | **Group** | [**QueueConversationCallEventTopicUriReference**](QueueConversationCallEventTopicUriReference) |  | [optional] |
 | **Ani** | **string** |  | [optional] |
@@ -64,4 +67,4 @@
 
 
 
-_PureCloudPlatform.Client.V2 227.0.0_
+_PureCloudPlatform.Client.V2 257.0.0_

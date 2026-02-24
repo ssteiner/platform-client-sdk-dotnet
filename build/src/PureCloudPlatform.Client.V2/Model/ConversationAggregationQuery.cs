@@ -575,6 +575,12 @@ namespace PureCloudPlatform.Client.V2.Model
             Nconsulttransferred,
             
             /// <summary>
+            /// Enum Nconversations for "nConversations"
+            /// </summary>
+            [EnumMember(Value = "nConversations")]
+            Nconversations,
+            
+            /// <summary>
             /// Enum Nerror for "nError"
             /// </summary>
             [EnumMember(Value = "nError")]
@@ -627,6 +633,18 @@ namespace PureCloudPlatform.Client.V2.Model
             /// </summary>
             [EnumMember(Value = "nTransferred")]
             Ntransferred,
+            
+            /// <summary>
+            /// Enum Oaudiomessagecount for "oAudioMessageCount"
+            /// </summary>
+            [EnumMember(Value = "oAudioMessageCount")]
+            Oaudiomessagecount,
+            
+            /// <summary>
+            /// Enum Oexternalaudiomessagecount for "oExternalAudioMessageCount"
+            /// </summary>
+            [EnumMember(Value = "oExternalAudioMessageCount")]
+            Oexternalaudiomessagecount,
             
             /// <summary>
             /// Enum Oexternalmediacount for "oExternalMediaCount"
@@ -707,6 +725,12 @@ namespace PureCloudPlatform.Client.V2.Model
             Tagentresponsetime,
             
             /// <summary>
+            /// Enum Tagentvideoconnected for "tAgentVideoConnected"
+            /// </summary>
+            [EnumMember(Value = "tAgentVideoConnected")]
+            Tagentvideoconnected,
+            
+            /// <summary>
             /// Enum Talert for "tAlert"
             /// </summary>
             [EnumMember(Value = "tAlert")]
@@ -717,6 +741,18 @@ namespace PureCloudPlatform.Client.V2.Model
             /// </summary>
             [EnumMember(Value = "tAnswered")]
             Tanswered,
+            
+            /// <summary>
+            /// Enum Taverageagentresponsetime for "tAverageAgentResponseTime"
+            /// </summary>
+            [EnumMember(Value = "tAverageAgentResponseTime")]
+            Taverageagentresponsetime,
+            
+            /// <summary>
+            /// Enum Taveragecustomerresponsetime for "tAverageCustomerResponseTime"
+            /// </summary>
+            [EnumMember(Value = "tAverageCustomerResponseTime")]
+            Taveragecustomerresponsetime,
             
             /// <summary>
             /// Enum Tbarging for "tBarging"
@@ -765,6 +801,18 @@ namespace PureCloudPlatform.Client.V2.Model
             /// </summary>
             [EnumMember(Value = "tFirstDial")]
             Tfirstdial,
+            
+            /// <summary>
+            /// Enum Tfirstengagement for "tFirstEngagement"
+            /// </summary>
+            [EnumMember(Value = "tFirstEngagement")]
+            Tfirstengagement,
+            
+            /// <summary>
+            /// Enum Tfirstresponse for "tFirstResponse"
+            /// </summary>
+            [EnumMember(Value = "tFirstResponse")]
+            Tfirstresponse,
             
             /// <summary>
             /// Enum Tflowout for "tFlowOut"
@@ -827,10 +875,22 @@ namespace PureCloudPlatform.Client.V2.Model
             Tparkcomplete,
             
             /// <summary>
+            /// Enum Tscreenmonitoring for "tScreenMonitoring"
+            /// </summary>
+            [EnumMember(Value = "tScreenMonitoring")]
+            Tscreenmonitoring,
+            
+            /// <summary>
             /// Enum Tshortabandon for "tShortAbandon"
             /// </summary>
             [EnumMember(Value = "tShortAbandon")]
             Tshortabandon,
+            
+            /// <summary>
+            /// Enum Tsnippetrecord for "tSnippetRecord"
+            /// </summary>
+            [EnumMember(Value = "tSnippetRecord")]
+            Tsnippetrecord,
             
             /// <summary>
             /// Enum Ttalk for "tTalk"
@@ -904,9 +964,9 @@ namespace PureCloudPlatform.Client.V2.Model
         /// <param name="GroupBy">Behaves like a SQL GROUPBY. Allows for multiple levels of grouping as a list of dimensions. Partitions resulting aggregate computations into distinct named subgroups rather than across the entire result set as if it were one group..</param>
         /// <param name="Filter">Behaves like a SQL WHERE clause. This is ANDed with the interval parameter. Expresses boolean logical predicates as well as dimensional filters.</param>
         /// <param name="Metrics">Behaves like a SQL SELECT clause. Only named metrics will be retrieved. (required).</param>
-        /// <param name="FlattenMultivaluedDimensions">Flattens any multivalued dimensions used in response groups (e.g. ['a','b','c']->'a,b,c').</param>
+        /// <param name="FlattenMultivaluedDimensions">Flattens any multivalued dimensions used in response groups (e.g. [&#39;a&#39;,&#39;b&#39;,&#39;c&#39;]-&gt;&#39;a,b,c&#39;).</param>
         /// <param name="Views">Custom derived metric views.</param>
-        /// <param name="AlternateTimeDimension">Dimension to use as the alternative timestamp for data in the aggregate.  Choosing \"eventTime\" uses the actual time of the data event..</param>
+        /// <param name="AlternateTimeDimension">Dimension to use as the alternative timestamp for data in the aggregate.  Choosing \&quot;eventTime\&quot; uses the actual time of the data event..</param>
         public ConversationAggregationQuery(string Interval = null, string Granularity = null, string TimeZone = null, List<GroupByEnum> GroupBy = null, ConversationAggregateQueryFilter Filter = null, List<MetricsEnum> Metrics = null, bool? FlattenMultivaluedDimensions = null, List<ConversationAggregationView> Views = null, AlternateTimeDimensionEnum? AlternateTimeDimension = null)
         {
             this.Interval = Interval;
@@ -978,9 +1038,9 @@ namespace PureCloudPlatform.Client.V2.Model
 
 
         /// <summary>
-        /// Flattens any multivalued dimensions used in response groups (e.g. ['a','b','c']->'a,b,c')
+        /// Flattens any multivalued dimensions used in response groups (e.g. [&#39;a&#39;,&#39;b&#39;,&#39;c&#39;]-&gt;&#39;a,b,c&#39;)
         /// </summary>
-        /// <value>Flattens any multivalued dimensions used in response groups (e.g. ['a','b','c']->'a,b,c')</value>
+        /// <value>Flattens any multivalued dimensions used in response groups (e.g. [&#39;a&#39;,&#39;b&#39;,&#39;c&#39;]-&gt;&#39;a,b,c&#39;)</value>
         [DataMember(Name="flattenMultivaluedDimensions", EmitDefaultValue=false)]
         public bool? FlattenMultivaluedDimensions { get; set; }
 

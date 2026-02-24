@@ -11,7 +11,8 @@
 | **Primary** | **bool?** |  | [optional] |
 | **Message** | **string** |  | [optional] |
 | **ModifiedDate** | **DateTime?** |  | [optional] |
+| **FuturePresenceDefinition** | [**PresenceEventOrganizationPresence**](PresenceEventOrganizationPresence) |  | [optional] |
 
 
 
-_PureCloudPlatform.Client.V2 227.0.0_
+_PureCloudPlatform.Client.V2 257.0.0_

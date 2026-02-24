@@ -13,6 +13,7 @@ All URIs are relative to *https://api.mypurecloud.com*
 | [**DeleteRoutingEmailOutboundDomain**](#DeleteRoutingEmailOutboundDomain) | **Delete** /api/v2/routing/email/outbound/domains/{domainId} | Delete an outbound domain |
 | [**DeleteRoutingLanguage**](#DeleteRoutingLanguage) | **Delete** /api/v2/routing/languages/{languageId} | Delete a routing language |
 | [**DeleteRoutingPredictor**](#DeleteRoutingPredictor) | **Delete** /api/v2/routing/predictors/{predictorId} | Delete single predictor. |
+| [**DeleteRoutingPredictorsKeyperformanceindicator**](#DeleteRoutingPredictorsKeyperformanceindicator) | **Delete** /api/v2/routing/predictors/keyperformanceindicators/{kpiId} | Delete a custom Key Performance Indicator. |
 | [**DeleteRoutingQueue**](#DeleteRoutingQueue) | **Delete** /api/v2/routing/queues/{queueId} | Delete a queue |
 | [**DeleteRoutingQueueMember**](#DeleteRoutingQueueMember) | **Delete** /api/v2/routing/queues/{queueId}/members/{memberId} | Delete a queue member. |
 | [**DeleteRoutingQueueUser**](#DeleteRoutingQueueUser) | **Delete** /api/v2/routing/queues/{queueId}/users/{memberId} | DEPRECATED: use DELETE /routing/queues/{queueId}/members/{memberId}.  Delete queue member. |
@@ -37,12 +38,15 @@ All URIs are relative to *https://api.mypurecloud.com*
 | [**GetRoutingAvailablemediatypes**](#GetRoutingAvailablemediatypes) | **Get** /api/v2/routing/availablemediatypes | Get available media types |
 | [**GetRoutingDirectroutingbackupSettingsMe**](#GetRoutingDirectroutingbackupSettingsMe) | **Get** /api/v2/routing/directroutingbackup/settings/me | Get the user&#39;s Direct Routing Backup settings. |
 | [**GetRoutingEmailDomain**](#GetRoutingEmailDomain) | **Get** /api/v2/routing/email/domains/{domainId} | Get domain |
+| [**GetRoutingEmailDomainDkim**](#GetRoutingEmailDomainDkim) | **Get** /api/v2/routing/email/domains/{domainId}/dkim | Get domain dkim settings |
+| [**GetRoutingEmailDomainMailfrom**](#GetRoutingEmailDomainMailfrom) | **Get** /api/v2/routing/email/domains/{domainId}/mailfrom | Get domain mail from settings |
 | [**GetRoutingEmailDomainRoute**](#GetRoutingEmailDomainRoute) | **Get** /api/v2/routing/email/domains/{domainName}/routes/{routeId} | Get a route |
+| [**GetRoutingEmailDomainRouteIdentityresolution**](#GetRoutingEmailDomainRouteIdentityresolution) | **Get** /api/v2/routing/email/domains/{domainName}/routes/{routeId}/identityresolution | Get a route identity resolution setting. |
 | [**GetRoutingEmailDomainRoutes**](#GetRoutingEmailDomainRoutes) | **Get** /api/v2/routing/email/domains/{domainName}/routes | Get routes |
+| [**GetRoutingEmailDomainVerification**](#GetRoutingEmailDomainVerification) | **Get** /api/v2/routing/email/domains/{domainId}/verification | Get domain verification settings |
 | [**GetRoutingEmailDomains**](#GetRoutingEmailDomains) | **Get** /api/v2/routing/email/domains | Get domains |
 | [**GetRoutingEmailOutboundDomain**](#GetRoutingEmailOutboundDomain) | **Get** /api/v2/routing/email/outbound/domains/{domainId} | Get domain |
 | [**GetRoutingEmailOutboundDomainActivation**](#GetRoutingEmailOutboundDomainActivation) | **Get** /api/v2/routing/email/outbound/domains/{domainId}/activation | Get activation status (cname + dkim) of an outbound domain |
-| [**GetRoutingEmailOutboundDomainSearch**](#GetRoutingEmailOutboundDomainSearch) | **Get** /api/v2/routing/email/outbound/domains/{domainId}/search | Search a domain across organizations |
 | [**GetRoutingEmailOutboundDomains**](#GetRoutingEmailOutboundDomains) | **Get** /api/v2/routing/email/outbound/domains | Get outbound domains |
 | [**GetRoutingEmailSetup**](#GetRoutingEmailSetup) | **Get** /api/v2/routing/email/setup | Get email setup |
 | [**GetRoutingLanguage**](#GetRoutingLanguage) | **Get** /api/v2/routing/languages/{languageId} | Get a routing language |
@@ -53,12 +57,15 @@ All URIs are relative to *https://api.mypurecloud.com*
 | [**GetRoutingPredictorModelFeatures**](#GetRoutingPredictorModelFeatures) | **Get** /api/v2/routing/predictors/{predictorId}/models/{modelId}/features | Retrieve Predictor Model Features. |
 | [**GetRoutingPredictorModels**](#GetRoutingPredictorModels) | **Get** /api/v2/routing/predictors/{predictorId}/models | Retrieve Predictor Models and Top Features. |
 | [**GetRoutingPredictors**](#GetRoutingPredictors) | **Get** /api/v2/routing/predictors | Retrieve all predictors. |
+| [**GetRoutingPredictorsKeyperformanceindicator**](#GetRoutingPredictorsKeyperformanceindicator) | **Get** /api/v2/routing/predictors/keyperformanceindicators/{kpiId} | Retrieve a single Key Performance Indicator. |
 | [**GetRoutingPredictorsKeyperformanceindicators**](#GetRoutingPredictorsKeyperformanceindicators) | **Get** /api/v2/routing/predictors/keyperformanceindicators | Get a list of Key Performance Indicators |
+| [**GetRoutingPredictorsKeyperformanceindicatortypes**](#GetRoutingPredictorsKeyperformanceindicatortypes) | **Get** /api/v2/routing/predictors/keyperformanceindicatortypes | Get a list of Key Performance Indicators Types available. |
 | [**GetRoutingQueue**](#GetRoutingQueue) | **Get** /api/v2/routing/queues/{queueId} | Get details about this queue. |
 | [**GetRoutingQueueAssistant**](#GetRoutingQueueAssistant) | **Get** /api/v2/routing/queues/{queueId}/assistant | Get an assistant associated with a queue. |
 | [**GetRoutingQueueComparisonperiod**](#GetRoutingQueueComparisonperiod) | **Get** /api/v2/routing/queues/{queueId}/comparisonperiods/{comparisonPeriodId} | Get a Comparison Period. |
 | [**GetRoutingQueueComparisonperiods**](#GetRoutingQueueComparisonperiods) | **Get** /api/v2/routing/queues/{queueId}/comparisonperiods | Get list of comparison periods |
 | [**GetRoutingQueueEstimatedwaittime**](#GetRoutingQueueEstimatedwaittime) | **Get** /api/v2/routing/queues/{queueId}/estimatedwaittime | Get Estimated Wait Time |
+| [**GetRoutingQueueIdentityresolution**](#GetRoutingQueueIdentityresolution) | **Get** /api/v2/routing/queues/{queueId}/identityresolution | Get Queue IdentityResolution Settings. |
 | [**GetRoutingQueueMediatypeEstimatedwaittime**](#GetRoutingQueueMediatypeEstimatedwaittime) | **Get** /api/v2/routing/queues/{queueId}/mediatypes/{mediaType}/estimatedwaittime | Get Estimated Wait Time |
 | [**GetRoutingQueueMembers**](#GetRoutingQueueMembers) | **Get** /api/v2/routing/queues/{queueId}/members | Get the members of this queue. |
 | [**GetRoutingQueueUsers**](#GetRoutingQueueUsers) | **Get** /api/v2/routing/queues/{queueId}/users | DEPRECATED: use GET /routing/queues/{queueId}/members.  Get the members of this queue. |
@@ -79,6 +86,7 @@ All URIs are relative to *https://api.mypurecloud.com*
 | [**GetRoutingSmsAddress**](#GetRoutingSmsAddress) | **Get** /api/v2/routing/sms/addresses/{addressId} | Get an Address by Id for SMS |
 | [**GetRoutingSmsAddresses**](#GetRoutingSmsAddresses) | **Get** /api/v2/routing/sms/addresses | Get a list of Addresses for SMS |
 | [**GetRoutingSmsAvailablephonenumbers**](#GetRoutingSmsAvailablephonenumbers) | **Get** /api/v2/routing/sms/availablephonenumbers | Get a list of available phone numbers for SMS provisioning. |
+| [**GetRoutingSmsIdentityresolutionPhonenumber**](#GetRoutingSmsIdentityresolutionPhonenumber) | **Get** /api/v2/routing/sms/identityresolution/phonenumbers/{addressId} | Get a SMS identity resolution settings. |
 | [**GetRoutingSmsPhonenumber**](#GetRoutingSmsPhonenumber) | **Get** /api/v2/routing/sms/phonenumbers/{phoneNumberId} | Get a phone number provisioned for SMS. |
 | [**GetRoutingSmsPhonenumbers**](#GetRoutingSmsPhonenumbers) | **Get** /api/v2/routing/sms/phonenumbers | Get a list of provisioned phone numbers. |
 | [**GetRoutingUserDirectroutingbackupSettings**](#GetRoutingUserDirectroutingbackupSettings) | **Get** /api/v2/routing/users/{userId}/directroutingbackup/settings | Get the user&#39;s Direct Routing Backup settings. |
@@ -101,14 +109,18 @@ All URIs are relative to *https://api.mypurecloud.com*
 | [**PatchRoutingConversation**](#PatchRoutingConversation) | **Patch** /api/v2/routing/conversations/{conversationId} | Update attributes of an in-queue conversation |
 | [**PatchRoutingEmailDomain**](#PatchRoutingEmailDomain) | **Patch** /api/v2/routing/email/domains/{domainId} | Update domain settings |
 | [**PatchRoutingEmailDomainValidate**](#PatchRoutingEmailDomainValidate) | **Patch** /api/v2/routing/email/domains/{domainId}/validate | Validate domain settings |
+| [**PatchRoutingEmailOutboundDomain**](#PatchRoutingEmailOutboundDomain) | **Patch** /api/v2/routing/email/outbound/domains/{domainId} | Update configurable settings for an email domain, such as changing the sending method (e.g., to or from SMTP). |
 | [**PatchRoutingPredictor**](#PatchRoutingPredictor) | **Patch** /api/v2/routing/predictors/{predictorId} | Update single predictor. |
+| [**PatchRoutingPredictorsKeyperformanceindicator**](#PatchRoutingPredictorsKeyperformanceindicator) | **Patch** /api/v2/routing/predictors/keyperformanceindicators/{kpiId} | Update a custom Key Performance Indicator. |
 | [**PatchRoutingQueueMember**](#PatchRoutingQueueMember) | **Patch** /api/v2/routing/queues/{queueId}/members/{memberId} | Update the ring number OR joined status for a queue member. |
 | [**PatchRoutingQueueMembers**](#PatchRoutingQueueMembers) | **Patch** /api/v2/routing/queues/{queueId}/members | Join or unjoin a set of up to 100 users for a queue |
 | [**PatchRoutingQueueUser**](#PatchRoutingQueueUser) | **Patch** /api/v2/routing/queues/{queueId}/users/{memberId} | DEPRECATED: use PATCH /routing/queues/{queueId}/members/{memberId}.  Update the ring number OR joined status for a User in a Queue. |
 | [**PatchRoutingQueueUsers**](#PatchRoutingQueueUsers) | **Patch** /api/v2/routing/queues/{queueId}/users | DEPRECATED: use PATCH /routing/queues/{queueId}/members.  Join or unjoin a set of users for a queue. |
 | [**PatchRoutingSettingsContactcenter**](#PatchRoutingSettingsContactcenter) | **Patch** /api/v2/routing/settings/contactcenter | Update Contact Center Settings |
 | [**PatchRoutingSettingsTranscription**](#PatchRoutingSettingsTranscription) | **Patch** /api/v2/routing/settings/transcription | Patch Transcription Settings |
+| [**PatchRoutingSkill**](#PatchRoutingSkill) | **Patch** /api/v2/routing/skills/{skillId} | Update Routing Skill Division |
 | [**PatchRoutingSkillgroup**](#PatchRoutingSkillgroup) | **Patch** /api/v2/routing/skillgroups/{skillGroupId} | Update skill group definition |
+| [**PatchRoutingSmsPhonenumber**](#PatchRoutingSmsPhonenumber) | **Patch** /api/v2/routing/sms/phonenumbers/{phoneNumberId} | Update a phone number provisioned for SMS. |
 | [**PatchUserQueue**](#PatchUserQueue) | **Patch** /api/v2/users/{userId}/queues/{queueId} | Join or unjoin a queue for a user |
 | [**PatchUserQueues**](#PatchUserQueues) | **Patch** /api/v2/users/{userId}/queues | Join or unjoin a set of queues for a user |
 | [**PatchUserRoutinglanguage**](#PatchUserRoutinglanguage) | **Patch** /api/v2/users/{userId}/routinglanguages/{languageId} | Update an assigned routing language&#39;s proficiency |
@@ -118,13 +130,18 @@ All URIs are relative to *https://api.mypurecloud.com*
 | [**PostAnalyticsRoutingActivityQuery**](#PostAnalyticsRoutingActivityQuery) | **Post** /api/v2/analytics/routing/activity/query | Query for user activity observations |
 | [**PostRoutingAssessments**](#PostRoutingAssessments) | **Post** /api/v2/routing/assessments | Create a benefit assessment. |
 | [**PostRoutingAssessmentsJobs**](#PostRoutingAssessmentsJobs) | **Post** /api/v2/routing/assessments/jobs | Create a benefit assessment job. |
+| [**PostRoutingEmailDomainDkim**](#PostRoutingEmailDomainDkim) | **Post** /api/v2/routing/email/domains/{domainId}/dkim | Restart domain dkim |
+| [**PostRoutingEmailDomainMailfrom**](#PostRoutingEmailDomainMailfrom) | **Post** /api/v2/routing/email/domains/{domainId}/mailfrom | Set domain mail from settings |
 | [**PostRoutingEmailDomainRoutes**](#PostRoutingEmailDomainRoutes) | **Post** /api/v2/routing/email/domains/{domainName}/routes | Create a route |
-| [**PostRoutingEmailDomainTestconnection**](#PostRoutingEmailDomainTestconnection) | **Post** /api/v2/routing/email/domains/{domainId}/testconnection | Tests the custom SMTP server integration connection set on this domain |
+| [**PostRoutingEmailDomainTestconnection**](#PostRoutingEmailDomainTestconnection) | **Post** /api/v2/routing/email/domains/{domainId}/testconnection | Tests the custom SMTP server integration connection set on this ACD domain |
+| [**PostRoutingEmailDomainVerification**](#PostRoutingEmailDomainVerification) | **Post** /api/v2/routing/email/domains/{domainId}/verification | Restart domain verification |
 | [**PostRoutingEmailDomains**](#PostRoutingEmailDomains) | **Post** /api/v2/routing/email/domains | Create a domain |
+| [**PostRoutingEmailOutboundDomainTestconnection**](#PostRoutingEmailOutboundDomainTestconnection) | **Post** /api/v2/routing/email/outbound/domains/{domainId}/testconnection | Tests the custom SMTP server integration connection set on this outbound domain |
 | [**PostRoutingEmailOutboundDomains**](#PostRoutingEmailOutboundDomains) | **Post** /api/v2/routing/email/outbound/domains | Create a domain |
 | [**PostRoutingEmailOutboundDomainsSimulated**](#PostRoutingEmailOutboundDomainsSimulated) | **Post** /api/v2/routing/email/outbound/domains/simulated | Create a simulated domain |
 | [**PostRoutingLanguages**](#PostRoutingLanguages) | **Post** /api/v2/routing/languages | Create Language |
 | [**PostRoutingPredictors**](#PostRoutingPredictors) | **Post** /api/v2/routing/predictors | Create a predictor. |
+| [**PostRoutingPredictorsKeyperformanceindicators**](#PostRoutingPredictorsKeyperformanceindicators) | **Post** /api/v2/routing/predictors/keyperformanceindicators | Create a custom Key Performance Indicator. |
 | [**PostRoutingQueueMembers**](#PostRoutingQueueMembers) | **Post** /api/v2/routing/queues/{queueId}/members | Bulk add or delete up to 100 queue members |
 | [**PostRoutingQueueUsers**](#PostRoutingQueueUsers) | **Post** /api/v2/routing/queues/{queueId}/users | DEPRECATED: use POST /routing/queues/{queueId}/members.  Bulk add or delete up to 100 queue members. |
 | [**PostRoutingQueueWrapupcodes**](#PostRoutingQueueWrapupcodes) | **Post** /api/v2/routing/queues/{queueId}/wrapupcodes | Add up to 100 wrap-up codes to a queue |
@@ -143,11 +160,14 @@ All URIs are relative to *https://api.mypurecloud.com*
 | [**PostUserRoutingskills**](#PostUserRoutingskills) | **Post** /api/v2/users/{userId}/routingskills | Assign a routing skill to a user |
 | [**PutRoutingDirectroutingbackupSettingsMe**](#PutRoutingDirectroutingbackupSettingsMe) | **Put** /api/v2/routing/directroutingbackup/settings/me | Update the user&#39;s Direct Routing Backup settings. |
 | [**PutRoutingEmailDomainRoute**](#PutRoutingEmailDomainRoute) | **Put** /api/v2/routing/email/domains/{domainName}/routes/{routeId} | Update a route |
+| [**PutRoutingEmailDomainRouteIdentityresolution**](#PutRoutingEmailDomainRouteIdentityresolution) | **Put** /api/v2/routing/email/domains/{domainName}/routes/{routeId}/identityresolution | Update identity resolution settings for a route. |
 | [**PutRoutingEmailOutboundDomainActivation**](#PutRoutingEmailOutboundDomainActivation) | **Put** /api/v2/routing/email/outbound/domains/{domainId}/activation | Request an activation status (cname + dkim) update of an outbound domain |
 | [**PutRoutingMessageRecipient**](#PutRoutingMessageRecipient) | **Put** /api/v2/routing/message/recipients/{recipientId} | Update a recipient |
 | [**PutRoutingQueue**](#PutRoutingQueue) | **Put** /api/v2/routing/queues/{queueId} | Update a queue |
+| [**PutRoutingQueueIdentityresolution**](#PutRoutingQueueIdentityresolution) | **Put** /api/v2/routing/queues/{queueId}/identityresolution | Update Queue IdentityResolution Settings. |
 | [**PutRoutingSettings**](#PutRoutingSettings) | **Put** /api/v2/routing/settings | Update an organization&#39;s routing settings |
 | [**PutRoutingSettingsTranscription**](#PutRoutingSettingsTranscription) | **Put** /api/v2/routing/settings/transcription | Update Transcription Settings |
+| [**PutRoutingSmsIdentityresolutionPhonenumber**](#PutRoutingSmsIdentityresolutionPhonenumber) | **Put** /api/v2/routing/sms/identityresolution/phonenumbers/{addressId} | Update an SMS identity resolution settings. |
 | [**PutRoutingUserDirectroutingbackupSettings**](#PutRoutingUserDirectroutingbackupSettings) | **Put** /api/v2/routing/users/{userId}/directroutingbackup/settings | Update the user&#39;s Direct Routing Backup settings. |
 | [**PutRoutingUserUtilization**](#PutRoutingUserUtilization) | **Put** /api/v2/routing/users/{userId}/utilization | Update the user&#39;s max utilization settings.  Include only those media types requiring custom configuration. |
 | [**PutRoutingUtilization**](#PutRoutingUtilization) | **Put** /api/v2/routing/utilization | Update the organization-wide max utilization settings.  Include only those media types requiring custom configuration. |
@@ -583,6 +603,69 @@ namespace Example
 void (empty response body)
 
 
+## DeleteRoutingPredictorsKeyperformanceindicator
+
+> void DeleteRoutingPredictorsKeyperformanceindicator (string kpiId)
+
+
+Delete a custom Key Performance Indicator.
+
+DeleteRoutingPredictorsKeyperformanceindicator is a preview method and is subject to both breaking and non-breaking changes at any time without notice
+
+Requires ANY permissions: 
+
+* routing:keyPerformanceIndicator:delete
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class DeleteRoutingPredictorsKeyperformanceindicatorExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new RoutingApi();
+            var kpiId = kpiId_example;  // string | Key Performance Indicator ID
+
+            try
+            { 
+                // Delete a custom Key Performance Indicator.
+                apiInstance.DeleteRoutingPredictorsKeyperformanceindicator(kpiId);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling RoutingApi.DeleteRoutingPredictorsKeyperformanceindicator: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **kpiId** | **string**| Key Performance Indicator ID |  |
+
+### Return type
+
+void (empty response body)
+
+
 ## DeleteRoutingQueue
 
 > void DeleteRoutingQueue (string queueId, bool? forceDelete = null)
@@ -903,9 +986,10 @@ void (empty response body)
 
 Delete Routing Skill
 
-Requires ALL permissions: 
+Requires ANY permissions: 
 
 * routing:skill:manage
+* routing:skill:delete
 
 ### Example
 ```{"language":"csharp"}
@@ -2006,14 +2090,15 @@ This endpoint does require any parameters.
 
 ## GetRoutingEmailDomain
 
-> [**InboundDomain**](InboundDomain) GetRoutingEmailDomain (string domainId)
+> [**InboundDomain**](InboundDomain) GetRoutingEmailDomain (string domainId, string expand = null)
 
 
 Get domain
 
-Requires ALL permissions: 
+Requires ANY permissions: 
 
 * routing:email:manage
+* routing:email:view
 
 ### Example
 ```{"language":"csharp"}
@@ -2038,11 +2123,12 @@ namespace Example
 
             var apiInstance = new RoutingApi();
             var domainId = domainId_example;  // string | domain ID
+            var expand = expand_example;  // string | Expand options. Valid values: settings (optional) 
 
             try
             { 
                 // Get domain
-                InboundDomain result = apiInstance.GetRoutingEmailDomain(domainId);
+                InboundDomain result = apiInstance.GetRoutingEmailDomain(domainId, expand);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -2060,15 +2146,140 @@ namespace Example
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **domainId** | **string**| domain ID |  |
+| **expand** | **string**| Expand options. Valid values: settings | [optional] <br />**Values**: settings |
 
 ### Return type
 
 [**InboundDomain**](InboundDomain)
 
 
+## GetRoutingEmailDomainDkim
+
+> [**VerificationResult**](VerificationResult) GetRoutingEmailDomainDkim (string domainId)
+
+
+Get domain dkim settings
+
+Requires ALL permissions: 
+
+* routing:email:manage
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class GetRoutingEmailDomainDkimExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new RoutingApi();
+            var domainId = domainId_example;  // string | domain ID
+
+            try
+            { 
+                // Get domain dkim settings
+                VerificationResult result = apiInstance.GetRoutingEmailDomainDkim(domainId);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling RoutingApi.GetRoutingEmailDomainDkim: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **domainId** | **string**| domain ID |  |
+
+### Return type
+
+[**VerificationResult**](VerificationResult)
+
+
+## GetRoutingEmailDomainMailfrom
+
+> [**MailFromResult**](MailFromResult) GetRoutingEmailDomainMailfrom (string domainId)
+
+
+Get domain mail from settings
+
+Requires ALL permissions: 
+
+* routing:email:manage
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class GetRoutingEmailDomainMailfromExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new RoutingApi();
+            var domainId = domainId_example;  // string | domain ID
+
+            try
+            { 
+                // Get domain mail from settings
+                MailFromResult result = apiInstance.GetRoutingEmailDomainMailfrom(domainId);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling RoutingApi.GetRoutingEmailDomainMailfrom: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **domainId** | **string**| domain ID |  |
+
+### Return type
+
+[**MailFromResult**](MailFromResult)
+
+
 ## GetRoutingEmailDomainRoute
 
-> [**InboundRoute**](InboundRoute) GetRoutingEmailDomainRoute (string domainName, string routeId)
+> [**InboundRoute**](InboundRoute) GetRoutingEmailDomainRoute (string domainName, string routeId, List<string> expand = null)
 
 
 Get a route
@@ -2101,11 +2312,12 @@ namespace Example
             var apiInstance = new RoutingApi();
             var domainName = domainName_example;  // string | email domain
             var routeId = routeId_example;  // string | route ID
+            var expand = new List<string>(); // List<string> | Which fields, if any, to expand (optional) 
 
             try
             { 
                 // Get a route
-                InboundRoute result = apiInstance.GetRoutingEmailDomainRoute(domainName, routeId);
+                InboundRoute result = apiInstance.GetRoutingEmailDomainRoute(domainName, routeId, expand);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -2124,15 +2336,81 @@ namespace Example
 |------------- | ------------- | ------------- | -------------|
 | **domainName** | **string**| email domain |  |
 | **routeId** | **string**| route ID |  |
+| **expand** | [**List<string>**](string)| Which fields, if any, to expand | [optional] <br />**Values**: identityresolution |
 
 ### Return type
 
 [**InboundRoute**](InboundRoute)
 
 
+## GetRoutingEmailDomainRouteIdentityresolution
+
+> [**RouteIdentityResolutionConfig**](RouteIdentityResolutionConfig) GetRoutingEmailDomainRouteIdentityresolution (string domainName, string routeId)
+
+
+Get a route identity resolution setting.
+
+Requires ALL permissions: 
+
+* routing:email:manage
+* routing:identityResolutionEmail:view
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class GetRoutingEmailDomainRouteIdentityresolutionExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new RoutingApi();
+            var domainName = domainName_example;  // string | email domain
+            var routeId = routeId_example;  // string | route ID
+
+            try
+            { 
+                // Get a route identity resolution setting.
+                RouteIdentityResolutionConfig result = apiInstance.GetRoutingEmailDomainRouteIdentityresolution(domainName, routeId);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling RoutingApi.GetRoutingEmailDomainRouteIdentityresolution: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **domainName** | **string**| email domain |  |
+| **routeId** | **string**| route ID |  |
+
+### Return type
+
+[**RouteIdentityResolutionConfig**](RouteIdentityResolutionConfig)
+
+
 ## GetRoutingEmailDomainRoutes
 
-> [**InboundRouteEntityListing**](InboundRouteEntityListing) GetRoutingEmailDomainRoutes (string domainName, int? pageSize = null, int? pageNumber = null, string pattern = null)
+> [**InboundRouteEntityListing**](InboundRouteEntityListing) GetRoutingEmailDomainRoutes (string domainName, int? pageSize = null, int? pageNumber = null, string pattern = null, List<string> expand = null)
 
 
 Get routes
@@ -2167,11 +2445,12 @@ namespace Example
             var pageSize = 56;  // int? | Page size (optional)  (default to 25)
             var pageNumber = 56;  // int? | Page number (optional)  (default to 1)
             var pattern = pattern_example;  // string | Filter routes by the route's pattern property (optional) 
+            var expand = new List<string>(); // List<string> | Which fields, if any, to expand (optional) 
 
             try
             { 
                 // Get routes
-                InboundRouteEntityListing result = apiInstance.GetRoutingEmailDomainRoutes(domainName, pageSize, pageNumber, pattern);
+                InboundRouteEntityListing result = apiInstance.GetRoutingEmailDomainRoutes(domainName, pageSize, pageNumber, pattern, expand);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -2192,15 +2471,78 @@ namespace Example
 | **pageSize** | **int?**| Page size | [optional] [default to 25] |
 | **pageNumber** | **int?**| Page number | [optional] [default to 1] |
 | **pattern** | **string**| Filter routes by the route&#39;s pattern property | [optional]  |
+| **expand** | [**List<string>**](string)| Which fields, if any, to expand | [optional] <br />**Values**: identityresolution |
 
 ### Return type
 
 [**InboundRouteEntityListing**](InboundRouteEntityListing)
 
 
+## GetRoutingEmailDomainVerification
+
+> [**VerificationResult**](VerificationResult) GetRoutingEmailDomainVerification (string domainId)
+
+
+Get domain verification settings
+
+Requires ALL permissions: 
+
+* routing:email:manage
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class GetRoutingEmailDomainVerificationExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new RoutingApi();
+            var domainId = domainId_example;  // string | domain ID
+
+            try
+            { 
+                // Get domain verification settings
+                VerificationResult result = apiInstance.GetRoutingEmailDomainVerification(domainId);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling RoutingApi.GetRoutingEmailDomainVerification: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **domainId** | **string**| domain ID |  |
+
+### Return type
+
+[**VerificationResult**](VerificationResult)
+
+
 ## GetRoutingEmailDomains
 
-> [**InboundDomainEntityListing**](InboundDomainEntityListing) GetRoutingEmailDomains (int? pageSize = null, int? pageNumber = null, bool? excludeStatus = null, string filter = null)
+> [**InboundDomainEntityListing**](InboundDomainEntityListing) GetRoutingEmailDomains (int? pageSize = null, int? pageNumber = null, bool? excludeStatus = null, string filter = null, string expand = null)
 
 
 Get domains
@@ -2234,12 +2576,13 @@ namespace Example
             var pageSize = 56;  // int? | Page size (optional)  (default to 25)
             var pageNumber = 56;  // int? | Page number (optional)  (default to 1)
             var excludeStatus = true;  // bool? | Exclude MX record data (optional)  (default to false)
-            var filter = filter_example;  // string | Optional search filter (optional) 
+            var filter = filter_example;  // string | Optional search filter that, if defined, use the **filter** syntax, eg: **mySearchedPattern**. Note that **** is considered no filter. (optional) 
+            var expand = expand_example;  // string | Expand options. Valid values: settings (optional) 
 
             try
             { 
                 // Get domains
-                InboundDomainEntityListing result = apiInstance.GetRoutingEmailDomains(pageSize, pageNumber, excludeStatus, filter);
+                InboundDomainEntityListing result = apiInstance.GetRoutingEmailDomains(pageSize, pageNumber, excludeStatus, filter, expand);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -2259,7 +2602,8 @@ namespace Example
 | **pageSize** | **int?**| Page size | [optional] [default to 25] |
 | **pageNumber** | **int?**| Page number | [optional] [default to 1] |
 | **excludeStatus** | **bool?**| Exclude MX record data | [optional] [default to false] |
-| **filter** | **string**| Optional search filter | [optional]  |
+| **filter** | **string**| Optional search filter that, if defined, use the **filter** syntax, eg: **mySearchedPattern**. Note that **** is considered no filter. | [optional]  |
+| **expand** | **string**| Expand options. Valid values: settings | [optional] <br />**Values**: settings |
 
 ### Return type
 
@@ -2268,14 +2612,15 @@ namespace Example
 
 ## GetRoutingEmailOutboundDomain
 
-> [**OutboundDomain**](OutboundDomain) GetRoutingEmailOutboundDomain (string domainId)
+> [**OutboundDomain**](OutboundDomain) GetRoutingEmailOutboundDomain (string domainId, string expand = null)
 
 
 Get domain
 
-Requires ALL permissions: 
+Requires ANY permissions: 
 
 * routing:email:manage
+* routing:email:view
 
 ### Example
 ```{"language":"csharp"}
@@ -2300,11 +2645,12 @@ namespace Example
 
             var apiInstance = new RoutingApi();
             var domainId = domainId_example;  // string | domain ID
+            var expand = expand_example;  // string | Expand options. Valid values: settings (optional) 
 
             try
             { 
                 // Get domain
-                OutboundDomain result = apiInstance.GetRoutingEmailOutboundDomain(domainId);
+                OutboundDomain result = apiInstance.GetRoutingEmailOutboundDomain(domainId, expand);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -2322,6 +2668,7 @@ namespace Example
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **domainId** | **string**| domain ID |  |
+| **expand** | **string**| Expand options. Valid values: settings | [optional] <br />**Values**: settings |
 
 ### Return type
 
@@ -2390,71 +2737,9 @@ namespace Example
 [**EmailOutboundDomainResult**](EmailOutboundDomainResult)
 
 
-## GetRoutingEmailOutboundDomainSearch
-
-> [**OutboundDomain**](OutboundDomain) GetRoutingEmailOutboundDomainSearch (string domainId)
-
-
-Search a domain across organizations
-
-Requires ALL permissions: 
-
-* routing:email:manage
-
-### Example
-```{"language":"csharp"}
-using System;
-using System.Diagnostics;
-using PureCloudPlatform.Client.V2.Api;
-using PureCloudPlatform.Client.V2.Client;
-using PureCloudPlatform.Client.V2.Model;
-
-namespace Example
-{
-    public class GetRoutingEmailOutboundDomainSearchExample
-    {
-        public void main()
-        { 
-            // Configure OAuth2 access token for authorization: PureCloud OAuth
-            // The following example is using the Authorization Code Grant
-            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
-                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
-                "http://redirecturi.com/",
-                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
-
-            var apiInstance = new RoutingApi();
-            var domainId = domainId_example;  // string | domain ID
-
-            try
-            { 
-                // Search a domain across organizations
-                OutboundDomain result = apiInstance.GetRoutingEmailOutboundDomainSearch(domainId);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling RoutingApi.GetRoutingEmailOutboundDomainSearch: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-
-|Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **domainId** | **string**| domain ID |  |
-
-### Return type
-
-[**OutboundDomain**](OutboundDomain)
-
-
 ## GetRoutingEmailOutboundDomains
 
-> [**OutboundDomainEntityListing**](OutboundDomainEntityListing) GetRoutingEmailOutboundDomains (string filter = null)
+> [**OutboundDomainEntityListing**](OutboundDomainEntityListing) GetRoutingEmailOutboundDomains (int? pageSize = null, int? pageNumber = null, string filter = null, string expand = null)
 
 
 Get outbound domains
@@ -2485,12 +2770,15 @@ namespace Example
                 "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
 
             var apiInstance = new RoutingApi();
-            var filter = filter_example;  // string | Optional search filter (optional) 
+            var pageSize = 56;  // int? | Page size (optional)  (default to 25)
+            var pageNumber = 56;  // int? | Page number (optional)  (default to 1)
+            var filter = filter_example;  // string | Optional search filter that, if defined, use the **filter** syntax, eg: **mySearchedPattern**. Note that **** is considered no filter. (optional) 
+            var expand = expand_example;  // string | Expand options. Valid values: settings (optional) 
 
             try
             { 
                 // Get outbound domains
-                OutboundDomainEntityListing result = apiInstance.GetRoutingEmailOutboundDomains(filter);
+                OutboundDomainEntityListing result = apiInstance.GetRoutingEmailOutboundDomains(pageSize, pageNumber, filter, expand);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -2507,7 +2795,10 @@ namespace Example
 
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **filter** | **string**| Optional search filter | [optional]  |
+| **pageSize** | **int?**| Page size | [optional] [default to 25] |
+| **pageNumber** | **int?**| Page number | [optional] [default to 1] |
+| **filter** | **string**| Optional search filter that, if defined, use the **filter** syntax, eg: **mySearchedPattern**. Note that **** is considered no filter. | [optional]  |
+| **expand** | **string**| Expand options. Valid values: settings | [optional] <br />**Values**: settings |
 
 ### Return type
 
@@ -3021,7 +3312,7 @@ namespace Example
 
 ## GetRoutingPredictors
 
-> [**PredictorListing**](PredictorListing) GetRoutingPredictors (string before = null, string after = null, string limit = null, string pageSize = null, List<string> queueId = null)
+> [**PredictorListing**](PredictorListing) GetRoutingPredictors (string before = null, string after = null, string limit = null, string pageSize = null, List<string> queueId = null, string kpiId = null, string state = null)
 
 
 Retrieve all predictors.
@@ -3058,11 +3349,13 @@ namespace Example
             var limit = limit_example;  // string | Number of entities to return. Maximum of 200. Deprecated in favour of pageSize (optional) 
             var pageSize = pageSize_example;  // string | Number of entities to return. Maximum of 200. (optional) 
             var queueId = new List<string>(); // List<string> | Comma-separated list of queue Ids to filter by. (optional) 
+            var kpiId = kpiId_example;  // string | Standard or custom KPI id used to filter predictors. (optional) 
+            var state = state_example;  // string | The state used to filter predictors. (optional) 
 
             try
             { 
                 // Retrieve all predictors.
-                PredictorListing result = apiInstance.GetRoutingPredictors(before, after, limit, pageSize, queueId);
+                PredictorListing result = apiInstance.GetRoutingPredictors(before, after, limit, pageSize, queueId, kpiId, state);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -3084,10 +3377,78 @@ namespace Example
 | **limit** | **string**| Number of entities to return. Maximum of 200. Deprecated in favour of pageSize | [optional]  |
 | **pageSize** | **string**| Number of entities to return. Maximum of 200. | [optional]  |
 | **queueId** | [**List<string>**](string)| Comma-separated list of queue Ids to filter by. | [optional]  |
+| **kpiId** | **string**| Standard or custom KPI id used to filter predictors. | [optional]  |
+| **state** | **string**| The state used to filter predictors. | [optional] <br />**Values**: Created, Error, Active |
 
 ### Return type
 
 [**PredictorListing**](PredictorListing)
+
+
+## GetRoutingPredictorsKeyperformanceindicator
+
+> [**KeyPerformanceIndicator**](KeyPerformanceIndicator) GetRoutingPredictorsKeyperformanceindicator (string kpiId, List<string> expand = null)
+
+
+Retrieve a single Key Performance Indicator.
+
+GetRoutingPredictorsKeyperformanceindicator is a preview method and is subject to both breaking and non-breaking changes at any time without notice
+
+Requires ANY permissions: 
+
+* routing:keyPerformanceIndicator:view
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class GetRoutingPredictorsKeyperformanceindicatorExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new RoutingApi();
+            var kpiId = kpiId_example;  // string | Key Performance Indicator ID
+            var expand = new List<string>(); // List<string> | Parameter to request additional data to return in KPI payload (optional) 
+
+            try
+            { 
+                // Retrieve a single Key Performance Indicator.
+                KeyPerformanceIndicator result = apiInstance.GetRoutingPredictorsKeyperformanceindicator(kpiId, expand);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling RoutingApi.GetRoutingPredictorsKeyperformanceindicator: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **kpiId** | **string**| Key Performance Indicator ID |  |
+| **expand** | [**List<string>**](string)| Parameter to request additional data to return in KPI payload | [optional] <br />**Values**: queues |
+
+### Return type
+
+[**KeyPerformanceIndicator**](KeyPerformanceIndicator)
 
 
 ## GetRoutingPredictorsKeyperformanceindicators
@@ -3154,9 +3515,68 @@ namespace Example
 [**List<KeyPerformanceIndicator>**](KeyPerformanceIndicator)
 
 
+## GetRoutingPredictorsKeyperformanceindicatortypes
+
+> [**List&lt;KeyPerformanceIndicatorType&gt;**](KeyPerformanceIndicatorType) GetRoutingPredictorsKeyperformanceindicatortypes ()
+
+
+Get a list of Key Performance Indicators Types available.
+
+GetRoutingPredictorsKeyperformanceindicatortypes is a preview method and is subject to both breaking and non-breaking changes at any time without notice
+
+Requires ANY permissions: 
+
+* routing:keyPerformanceIndicator:view
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class GetRoutingPredictorsKeyperformanceindicatortypesExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new RoutingApi();
+
+            try
+            { 
+                // Get a list of Key Performance Indicators Types available.
+                List<KeyPerformanceIndicatorType> result = apiInstance.GetRoutingPredictorsKeyperformanceindicatortypes();
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling RoutingApi.GetRoutingPredictorsKeyperformanceindicatortypes: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+This endpoint does require any parameters.
+
+### Return type
+
+[**List<KeyPerformanceIndicatorType>**](KeyPerformanceIndicatorType)
+
+
 ## GetRoutingQueue
 
-> [**Queue**](Queue) GetRoutingQueue (string queueId)
+> [**Queue**](Queue) GetRoutingQueue (string queueId, List<string> expand = null)
 
 
 Get details about this queue.
@@ -3188,11 +3608,12 @@ namespace Example
 
             var apiInstance = new RoutingApi();
             var queueId = queueId_example;  // string | Queue ID
+            var expand = new List<string>(); // List<string> | Which fields, if any, to expand (optional) 
 
             try
             { 
                 // Get details about this queue.
-                Queue result = apiInstance.GetRoutingQueue(queueId);
+                Queue result = apiInstance.GetRoutingQueue(queueId, expand);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -3210,6 +3631,7 @@ namespace Example
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **queueId** | **string**| Queue ID |  |
+| **expand** | [**List<string>**](string)| Which fields, if any, to expand | [optional] <br />**Values**: identityresolution |
 
 ### Return type
 
@@ -3218,7 +3640,7 @@ namespace Example
 
 ## GetRoutingQueueAssistant
 
-> [**AssistantQueue**](AssistantQueue) GetRoutingQueueAssistant (string queueId, string expand = null)
+> [**AssistantQueue**](AssistantQueue) GetRoutingQueueAssistant (string queueId, List<string> expand = null, string languageVariation = null, bool? fallbackToPrimaryAssistant = null)
 
 
 Get an assistant associated with a queue.
@@ -3250,12 +3672,14 @@ namespace Example
 
             var apiInstance = new RoutingApi();
             var queueId = queueId_example;  // string | Queue ID
-            var expand = expand_example;  // string | Which fields, if any, to expand. (optional) 
+            var expand = new List<string>(); // List<string> | Which fields, if any, to expand. (optional) 
+            var languageVariation = languageVariation_example;  // string | Language variation (optional) 
+            var fallbackToPrimaryAssistant = true;  // bool? | Fall back to primary assistant if specified variation is not found (optional) 
 
             try
             { 
                 // Get an assistant associated with a queue.
-                AssistantQueue result = apiInstance.GetRoutingQueueAssistant(queueId, expand);
+                AssistantQueue result = apiInstance.GetRoutingQueueAssistant(queueId, expand, languageVariation, fallbackToPrimaryAssistant);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -3273,7 +3697,9 @@ namespace Example
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **queueId** | **string**| Queue ID |  |
-| **expand** | **string**| Which fields, if any, to expand. | [optional] <br />**Values**: assistant |
+| **expand** | [**List<string>**](string)| Which fields, if any, to expand. | [optional] <br />**Values**: assistant, copilot |
+| **languageVariation** | **string**| Language variation | [optional]  |
+| **fallbackToPrimaryAssistant** | **bool?**| Fall back to primary assistant if specified variation is not found | [optional]  |
 
 ### Return type
 
@@ -3472,6 +3898,69 @@ namespace Example
 [**EstimatedWaitTimePredictions**](EstimatedWaitTimePredictions)
 
 
+## GetRoutingQueueIdentityresolution
+
+> [**IdentityResolutionQueueConfig**](IdentityResolutionQueueConfig) GetRoutingQueueIdentityresolution (string queueId)
+
+
+Get Queue IdentityResolution Settings.
+
+Requires ALL permissions: 
+
+* routing:queue:view
+* queue:identityResolution:view
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class GetRoutingQueueIdentityresolutionExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new RoutingApi();
+            var queueId = queueId_example;  // string | Queue ID
+
+            try
+            { 
+                // Get Queue IdentityResolution Settings.
+                IdentityResolutionQueueConfig result = apiInstance.GetRoutingQueueIdentityresolution(queueId);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling RoutingApi.GetRoutingQueueIdentityresolution: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **queueId** | **string**| Queue ID |  |
+
+### Return type
+
+[**IdentityResolutionQueueConfig**](IdentityResolutionQueueConfig)
+
+
 ## GetRoutingQueueMediatypeEstimatedwaittime
 
 > [**EstimatedWaitTimePredictions**](EstimatedWaitTimePredictions) GetRoutingQueueMediatypeEstimatedwaittime (string queueId, string mediaType, string labelId = null)
@@ -3612,7 +4101,7 @@ namespace Example
 | **pageNumber** | **int?**|  | [optional] [default to 1] |
 | **pageSize** | **int?**| Max value is 100 | [optional] [default to 25] |
 | **sortOrder** | **string**| Note: results are sorted by name. | [optional] [default to asc]<br />**Values**: asc, desc |
-| **expand** | [**List<string>**](string)| Which fields, if any, to expand. | [optional] <br />**Values**: routingStatus, presence, integrationPresence, conversationSummary, outOfOffice, geolocation, station, authorization, lasttokenissued, authorization.unusedRoles, team, workPlanBidRanks, externalContactsSettings, profileSkills, certifications, locations, groups, skills, languages, languagePreference, employerInfo, biography, dateLastLogin |
+| **expand** | [**List<string>**](string)| Which fields, if any, to expand. | [optional] <br />**Values**: routingStatus, presence, integrationPresence, conversationSummary, outOfOffice, geolocation, station, authorization, lasttokenissued, authorization.unusedRoles, team, workPlanBidRanks, externalContactsSettings, groups, customAttributes, profileSkills, certifications, locations, skills, languages, languagePreference, employerInfo, biography, dateLastLogin, dateWelcomeSent |
 | **name** | **string**| Filter by queue member name (contains-style search) | [optional]  |
 | **profileSkills** | [**List<string>**](string)| Filter by profile skill (contains-style search) | [optional]  |
 | **skills** | [**List<string>**](string)| Filter by skill (contains-style search) | [optional]  |
@@ -3701,7 +4190,7 @@ namespace Example
 | **pageNumber** | **int?**|  | [optional] [default to 1] |
 | **pageSize** | **int?**| Max value is 100 | [optional] [default to 25] |
 | **sortOrder** | **string**| Note: results are sorted by name. | [optional] [default to asc]<br />**Values**: asc, desc |
-| **expand** | [**List<string>**](string)| Which fields, if any, to expand. | [optional] <br />**Values**: routingStatus, presence, integrationPresence, conversationSummary, outOfOffice, geolocation, station, authorization, lasttokenissued, authorization.unusedRoles, team, workPlanBidRanks, externalContactsSettings, profileSkills, certifications, locations, groups, skills, languages, languagePreference, employerInfo, biography, dateLastLogin |
+| **expand** | [**List<string>**](string)| Which fields, if any, to expand. | [optional] <br />**Values**: routingStatus, presence, integrationPresence, conversationSummary, outOfOffice, geolocation, station, authorization, lasttokenissued, authorization.unusedRoles, team, workPlanBidRanks, externalContactsSettings, groups, customAttributes, profileSkills, certifications, locations, skills, languages, languagePreference, employerInfo, biography, dateLastLogin, dateWelcomeSent |
 | **joined** | **bool?**| Filter by joined status | [optional]  |
 | **name** | **string**| Filter by queue member name | [optional]  |
 | **profileSkills** | [**List<string>**](string)| Filter by profile skill | [optional]  |
@@ -3717,7 +4206,7 @@ namespace Example
 
 ## GetRoutingQueueWrapupcodes
 
-> [**WrapupCodeEntityListing**](WrapupCodeEntityListing) GetRoutingQueueWrapupcodes (string queueId, int? pageSize = null, int? pageNumber = null)
+> [**WrapupCodeEntityListing**](WrapupCodeEntityListing) GetRoutingQueueWrapupcodes (string queueId, int? pageSize = null, int? pageNumber = null, string name = null)
 
 
 Get the wrap-up codes for a queue
@@ -3751,11 +4240,12 @@ namespace Example
             var queueId = queueId_example;  // string | Queue ID
             var pageSize = 56;  // int? | Page size (optional)  (default to 25)
             var pageNumber = 56;  // int? | Page number (optional)  (default to 1)
+            var name = name_example;  // string | Wrapup code's name (trailing asterisks allowed) (optional) 
 
             try
             { 
                 // Get the wrap-up codes for a queue
-                WrapupCodeEntityListing result = apiInstance.GetRoutingQueueWrapupcodes(queueId, pageSize, pageNumber);
+                WrapupCodeEntityListing result = apiInstance.GetRoutingQueueWrapupcodes(queueId, pageSize, pageNumber, name);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -3775,6 +4265,7 @@ namespace Example
 | **queueId** | **string**| Queue ID |  |
 | **pageSize** | **int?**| Page size | [optional] [default to 25] |
 | **pageNumber** | **int?**| Page number | [optional] [default to 1] |
+| **name** | **string**| Wrapup code&#39;s name (trailing asterisks allowed) | [optional]  |
 
 ### Return type
 
@@ -3783,7 +4274,7 @@ namespace Example
 
 ## GetRoutingQueues
 
-> [**QueueEntityListing**](QueueEntityListing) GetRoutingQueues (int? pageNumber = null, int? pageSize = null, string sortOrder = null, string name = null, List<string> id = null, List<string> divisionId = null, List<string> peerId = null, string cannedResponseLibraryId = null, bool? hasPeer = null)
+> [**QueueEntityListing**](QueueEntityListing) GetRoutingQueues (int? pageNumber = null, int? pageSize = null, string sortOrder = null, string name = null, List<string> id = null, List<string> divisionId = null, List<string> peerId = null, string cannedResponseLibraryId = null, bool? hasPeer = null, List<string> expand = null)
 
 
 Get list of queues.
@@ -3823,11 +4314,12 @@ namespace Example
             var peerId = new List<string>(); // List<string> | Include only queues with the specified peer ID(s) (optional) 
             var cannedResponseLibraryId = cannedResponseLibraryId_example;  // string | Include only queues explicitly associated with the specified canned response library ID (optional) 
             var hasPeer = true;  // bool? | Include only queues with a peer ID (optional) 
+            var expand = new List<string>(); // List<string> | Which fields, if any, to expand (optional) 
 
             try
             { 
                 // Get list of queues.
-                QueueEntityListing result = apiInstance.GetRoutingQueues(pageNumber, pageSize, sortOrder, name, id, divisionId, peerId, cannedResponseLibraryId, hasPeer);
+                QueueEntityListing result = apiInstance.GetRoutingQueues(pageNumber, pageSize, sortOrder, name, id, divisionId, peerId, cannedResponseLibraryId, hasPeer, expand);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -3853,6 +4345,7 @@ namespace Example
 | **peerId** | [**List<string>**](string)| Include only queues with the specified peer ID(s) | [optional]  |
 | **cannedResponseLibraryId** | **string**| Include only queues explicitly associated with the specified canned response library ID | [optional]  |
 | **hasPeer** | **bool?**| Include only queues with a peer ID | [optional]  |
+| **expand** | [**List<string>**](string)| Which fields, if any, to expand | [optional] <br />**Values**: identityresolution |
 
 ### Return type
 
@@ -4829,6 +5322,69 @@ namespace Example
 [**SMSAvailablePhoneNumberEntityListing**](SMSAvailablePhoneNumberEntityListing)
 
 
+## GetRoutingSmsIdentityresolutionPhonenumber
+
+> [**SmsIdentityResolutionConfig**](SmsIdentityResolutionConfig) GetRoutingSmsIdentityresolutionPhonenumber (string addressId)
+
+
+Get a SMS identity resolution settings.
+
+Requires ALL permissions: 
+
+* sms:phoneNumber:view
+* sms:identityResolution:view
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class GetRoutingSmsIdentityresolutionPhonenumberExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new RoutingApi();
+            var addressId = addressId_example;  // string | Address ID
+
+            try
+            { 
+                // Get a SMS identity resolution settings.
+                SmsIdentityResolutionConfig result = apiInstance.GetRoutingSmsIdentityresolutionPhonenumber(addressId);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling RoutingApi.GetRoutingSmsIdentityresolutionPhonenumber: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **addressId** | **string**| Address ID |  |
+
+### Return type
+
+[**SmsIdentityResolutionConfig**](SmsIdentityResolutionConfig)
+
+
 ## GetRoutingSmsPhonenumber
 
 > [**SmsPhoneNumber**](SmsPhoneNumber) GetRoutingSmsPhonenumber (string phoneNumberId, string expand = null)
@@ -4895,7 +5451,7 @@ namespace Example
 
 ## GetRoutingSmsPhonenumbers
 
-> [**SmsPhoneNumberEntityListing**](SmsPhoneNumberEntityListing) GetRoutingSmsPhonenumbers (string phoneNumber = null, List<string> phoneNumberType = null, List<string> phoneNumberStatus = null, List<string> countryCode = null, int? pageSize = null, int? pageNumber = null, string sortBy = null, string sortOrder = null, string language = null, string integrationId = null, string supportedContentId = null)
+> [**SmsPhoneNumberEntityListing**](SmsPhoneNumberEntityListing) GetRoutingSmsPhonenumbers (string phoneNumber = null, List<string> phoneNumberType = null, List<string> phoneNumberStatus = null, List<string> countryCode = null, int? pageSize = null, int? pageNumber = null, string sortBy = null, string sortOrder = null, string language = null, string integrationId = null, string supportedContentId = null, List<string> expand = null)
 
 
 Get a list of provisioned phone numbers.
@@ -4937,11 +5493,12 @@ namespace Example
             var language = en-US;  // string | A language tag (which is sometimes referred to as a \"locale identifier\") to use to localize country field and sort operations (optional)  (default to "en-US")
             var integrationId = integrationId_example;  // string | Filter on the Genesys Cloud integration id to which the phone number belongs to (optional) 
             var supportedContentId = supportedContentId_example;  // string | Filter based on the supported content ID (optional) 
+            var expand = new List<string>(); // List<string> | Which fields, if any, to expand (optional) 
 
             try
             { 
                 // Get a list of provisioned phone numbers.
-                SmsPhoneNumberEntityListing result = apiInstance.GetRoutingSmsPhonenumbers(phoneNumber, phoneNumberType, phoneNumberStatus, countryCode, pageSize, pageNumber, sortBy, sortOrder, language, integrationId, supportedContentId);
+                SmsPhoneNumberEntityListing result = apiInstance.GetRoutingSmsPhonenumbers(phoneNumber, phoneNumberType, phoneNumberStatus, countryCode, pageSize, pageNumber, sortBy, sortOrder, language, integrationId, supportedContentId, expand);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -4969,6 +5526,7 @@ namespace Example
 | **language** | **string**| A language tag (which is sometimes referred to as a \&quot;locale identifier\&quot;) to use to localize country field and sort operations | [optional] [default to "en-US"] |
 | **integrationId** | **string**| Filter on the Genesys Cloud integration id to which the phone number belongs to | [optional]  |
 | **supportedContentId** | **string**| Filter based on the supported content ID | [optional]  |
+| **expand** | [**List<string>**](string)| Which fields, if any, to expand | [optional] <br />**Values**: identityresolution, supportedContent |
 
 ### Return type
 
@@ -6099,7 +6657,7 @@ namespace Example
 
 Update attributes of an in-queue conversation
 
-Returns an object indicating the updated values of all settable attributes. Supported attributes: skillIds, languageId, and priority.
+Returns an object indicating the updated values of all settable attributes. Supported attributes: skillIds, skillExpression, languageId, and priority.
 
 Requires ANY permissions: 
 
@@ -6286,6 +6844,70 @@ namespace Example
 [**InboundDomain**](InboundDomain)
 
 
+## PatchRoutingEmailOutboundDomain
+
+> [**OutboundDomain**](OutboundDomain) PatchRoutingEmailOutboundDomain (string domainId, OutboundDomainPatchRequest body)
+
+
+Update configurable settings for an email domain, such as changing the sending method (e.g., to or from SMTP).
+
+Requires ALL permissions: 
+
+* routing:email:manage
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class PatchRoutingEmailOutboundDomainExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new RoutingApi();
+            var domainId = domainId_example;  // string | domain ID
+            var body = new OutboundDomainPatchRequest(); // OutboundDomainPatchRequest | Domain settings
+
+            try
+            { 
+                // Update configurable settings for an email domain, such as changing the sending method (e.g., to or from SMTP).
+                OutboundDomain result = apiInstance.PatchRoutingEmailOutboundDomain(domainId, body);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling RoutingApi.PatchRoutingEmailOutboundDomain: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **domainId** | **string**| domain ID |  |
+| **body** | [**OutboundDomainPatchRequest**](OutboundDomainPatchRequest)| Domain settings |  |
+
+### Return type
+
+[**OutboundDomain**](OutboundDomain)
+
+
 ## PatchRoutingPredictor
 
 > [**Predictor**](Predictor) PatchRoutingPredictor (string predictorId, PatchPredictorRequest body = null)
@@ -6349,6 +6971,72 @@ namespace Example
 ### Return type
 
 [**Predictor**](Predictor)
+
+
+## PatchRoutingPredictorsKeyperformanceindicator
+
+> [**KeyPerformanceIndicator**](KeyPerformanceIndicator) PatchRoutingPredictorsKeyperformanceindicator (string kpiId, UpdateKpiRequest body = null)
+
+
+Update a custom Key Performance Indicator.
+
+PatchRoutingPredictorsKeyperformanceindicator is a preview method and is subject to both breaking and non-breaking changes at any time without notice
+
+Requires ANY permissions: 
+
+* routing:keyPerformanceIndicator:edit
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class PatchRoutingPredictorsKeyperformanceindicatorExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new RoutingApi();
+            var kpiId = kpiId_example;  // string | Key Performance Indicator ID
+            var body = new UpdateKpiRequest(); // UpdateKpiRequest |  (optional) 
+
+            try
+            { 
+                // Update a custom Key Performance Indicator.
+                KeyPerformanceIndicator result = apiInstance.PatchRoutingPredictorsKeyperformanceindicator(kpiId, body);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling RoutingApi.PatchRoutingPredictorsKeyperformanceindicator: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **kpiId** | **string**| Key Performance Indicator ID |  |
+| **body** | [**UpdateKpiRequest**](UpdateKpiRequest)|  | [optional]  |
+
+### Return type
+
+[**KeyPerformanceIndicator**](KeyPerformanceIndicator)
 
 
 ## PatchRoutingQueueMember
@@ -6423,6 +7111,8 @@ void (empty response body)
 
 
 Join or unjoin a set of up to 100 users for a queue
+
+Users can only be joined to queues where they have membership. Non-member user-queue pairs in the request will be disregarded. Note: This operation is processed asynchronously and the response data may not reflect the final state. Changes may take time to propagate. Query the GET endpoint after a delay to retrieve the current membership status.
 
 Requires ANY permissions: 
 
@@ -6742,6 +7432,70 @@ namespace Example
 [**TranscriptionSettings**](TranscriptionSettings)
 
 
+## PatchRoutingSkill
+
+> [**RoutingSkill**](RoutingSkill) PatchRoutingSkill (string skillId, UpdateSkillDivisionRequest body)
+
+
+Update Routing Skill Division
+
+Requires ANY permissions: 
+
+* routing:skill:update
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class PatchRoutingSkillExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new RoutingApi();
+            var skillId = skillId_example;  // string | Skill ID
+            var body = new UpdateSkillDivisionRequest(); // UpdateSkillDivisionRequest | updateSkillDivisionRequest
+
+            try
+            { 
+                // Update Routing Skill Division
+                RoutingSkill result = apiInstance.PatchRoutingSkill(skillId, body);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling RoutingApi.PatchRoutingSkill: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **skillId** | **string**| Skill ID |  |
+| **body** | [**UpdateSkillDivisionRequest**](UpdateSkillDivisionRequest)| updateSkillDivisionRequest |  |
+
+### Return type
+
+[**RoutingSkill**](RoutingSkill)
+
+
 ## PatchRoutingSkillgroup
 
 > [**SkillGroup**](SkillGroup) PatchRoutingSkillgroup (string skillGroupId, SkillGroup body)
@@ -6804,6 +7558,70 @@ namespace Example
 ### Return type
 
 [**SkillGroup**](SkillGroup)
+
+
+## PatchRoutingSmsPhonenumber
+
+> [**SmsPhoneNumber**](SmsPhoneNumber) PatchRoutingSmsPhonenumber (string phoneNumberId, SmsPhoneNumberPatchRequest body)
+
+
+Update a phone number provisioned for SMS.
+
+Requires ALL permissions: 
+
+* sms:phoneNumber:edit
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class PatchRoutingSmsPhonenumberExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new RoutingApi();
+            var phoneNumberId = phoneNumberId_example;  // string | phone number
+            var body = new SmsPhoneNumberPatchRequest(); // SmsPhoneNumberPatchRequest | SmsPhoneNumberPatchRequest
+
+            try
+            { 
+                // Update a phone number provisioned for SMS.
+                SmsPhoneNumber result = apiInstance.PatchRoutingSmsPhonenumber(phoneNumberId, body);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling RoutingApi.PatchRoutingSmsPhonenumber: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **phoneNumberId** | **string**| phone number |  |
+| **body** | [**SmsPhoneNumberPatchRequest**](SmsPhoneNumberPatchRequest)| SmsPhoneNumberPatchRequest |  |
+
+### Return type
+
+[**SmsPhoneNumber**](SmsPhoneNumber)
 
 
 ## PatchUserQueue
@@ -6879,6 +7697,8 @@ namespace Example
 
 
 Join or unjoin a set of queues for a user
+
+Users can only be joined to queues where they have membership. Non-member user-queue pairs in the request will be disregarded. Note: This operation is processed asynchronously and the response data may not reflect the final state. Changes may take time to propagate. Query the GET endpoint after a delay to retrieve the current membership status.
 
 Requires ANY permissions: 
 
@@ -7389,6 +8209,132 @@ namespace Example
 [**BenefitAssessmentJob**](BenefitAssessmentJob)
 
 
+## PostRoutingEmailDomainDkim
+
+> [**VerificationResult**](VerificationResult) PostRoutingEmailDomainDkim (string domainId)
+
+
+Restart domain dkim
+
+Requires ALL permissions: 
+
+* routing:email:manage
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class PostRoutingEmailDomainDkimExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new RoutingApi();
+            var domainId = domainId_example;  // string | domain ID
+
+            try
+            { 
+                // Restart domain dkim
+                VerificationResult result = apiInstance.PostRoutingEmailDomainDkim(domainId);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling RoutingApi.PostRoutingEmailDomainDkim: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **domainId** | **string**| domain ID |  |
+
+### Return type
+
+[**VerificationResult**](VerificationResult)
+
+
+## PostRoutingEmailDomainMailfrom
+
+> [**MailFromResult**](MailFromResult) PostRoutingEmailDomainMailfrom (string domainId, MailFromResult body)
+
+
+Set domain mail from settings
+
+Requires ALL permissions: 
+
+* routing:email:manage
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class PostRoutingEmailDomainMailfromExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new RoutingApi();
+            var domainId = domainId_example;  // string | domain ID
+            var body = new MailFromResult(); // MailFromResult | Mail From Settings
+
+            try
+            { 
+                // Set domain mail from settings
+                MailFromResult result = apiInstance.PostRoutingEmailDomainMailfrom(domainId, body);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling RoutingApi.PostRoutingEmailDomainMailfrom: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **domainId** | **string**| domain ID |  |
+| **body** | [**MailFromResult**](MailFromResult)| Mail From Settings |  |
+
+### Return type
+
+[**MailFromResult**](MailFromResult)
+
+
 ## PostRoutingEmailDomainRoutes
 
 > [**InboundRoute**](InboundRoute) PostRoutingEmailDomainRoutes (string domainName, InboundRoute body)
@@ -7458,9 +8404,9 @@ namespace Example
 > [**TestMessage**](TestMessage) PostRoutingEmailDomainTestconnection (string domainId, TestMessage body = null)
 
 
-Tests the custom SMTP server integration connection set on this domain
+Tests the custom SMTP server integration connection set on this ACD domain
 
-The request body is optional. If omitted, this endpoint will just test the connection of the Custom SMTP Server. If the body is specified, there will be an attempt to send an email message to the server.
+The request body is optional. If omitted, this endpoint will just test the connection of the Custom SMTP Server used by the ACD domain. If the body is specified, there will be an attempt to send an email message to the server.
 
 Requires ALL permissions: 
 
@@ -7493,7 +8439,7 @@ namespace Example
 
             try
             { 
-                // Tests the custom SMTP server integration connection set on this domain
+                // Tests the custom SMTP server integration connection set on this ACD domain
                 TestMessage result = apiInstance.PostRoutingEmailDomainTestconnection(domainId, body);
                 Debug.WriteLine(result);
             }
@@ -7519,9 +8465,71 @@ namespace Example
 [**TestMessage**](TestMessage)
 
 
+## PostRoutingEmailDomainVerification
+
+> [**VerificationResult**](VerificationResult) PostRoutingEmailDomainVerification (string domainId)
+
+
+Restart domain verification
+
+Requires ALL permissions: 
+
+* routing:email:manage
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class PostRoutingEmailDomainVerificationExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new RoutingApi();
+            var domainId = domainId_example;  // string | domain ID
+
+            try
+            { 
+                // Restart domain verification
+                VerificationResult result = apiInstance.PostRoutingEmailDomainVerification(domainId);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling RoutingApi.PostRoutingEmailDomainVerification: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **domainId** | **string**| domain ID |  |
+
+### Return type
+
+[**VerificationResult**](VerificationResult)
+
+
 ## PostRoutingEmailDomains
 
-> [**InboundDomain**](InboundDomain) PostRoutingEmailDomains (InboundDomain body)
+> [**InboundDomain**](InboundDomain) PostRoutingEmailDomains (InboundDomainCreateRequest body)
 
 
 Create a domain
@@ -7552,7 +8560,7 @@ namespace Example
                 "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
 
             var apiInstance = new RoutingApi();
-            var body = new InboundDomain(); // InboundDomain | Domain
+            var body = new InboundDomainCreateRequest(); // InboundDomainCreateRequest | Domain
 
             try
             { 
@@ -7574,16 +8582,82 @@ namespace Example
 
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **body** | [**InboundDomain**](InboundDomain)| Domain |  |
+| **body** | [**InboundDomainCreateRequest**](InboundDomainCreateRequest)| Domain |  |
 
 ### Return type
 
 [**InboundDomain**](InboundDomain)
 
 
+## PostRoutingEmailOutboundDomainTestconnection
+
+> [**TestMessage**](TestMessage) PostRoutingEmailOutboundDomainTestconnection (string domainId, TestMessage body = null)
+
+
+Tests the custom SMTP server integration connection set on this outbound domain
+
+The request body is optional. If omitted, this endpoint will just test the connection of the Custom SMTP Server for the outbound domain. If the body is specified, there will be an attempt to send an email message to the server.
+
+Requires ALL permissions: 
+
+* routing:email:manage
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class PostRoutingEmailOutboundDomainTestconnectionExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new RoutingApi();
+            var domainId = domainId_example;  // string | domain ID
+            var body = new TestMessage(); // TestMessage | TestMessage (optional) 
+
+            try
+            { 
+                // Tests the custom SMTP server integration connection set on this outbound domain
+                TestMessage result = apiInstance.PostRoutingEmailOutboundDomainTestconnection(domainId, body);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling RoutingApi.PostRoutingEmailOutboundDomainTestconnection: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **domainId** | **string**| domain ID |  |
+| **body** | [**TestMessage**](TestMessage)| TestMessage | [optional]  |
+
+### Return type
+
+[**TestMessage**](TestMessage)
+
+
 ## PostRoutingEmailOutboundDomains
 
-> [**EmailOutboundDomainResult**](EmailOutboundDomainResult) PostRoutingEmailOutboundDomains (OutboundDomain body)
+> [**EmailOutboundDomainResult**](EmailOutboundDomainResult) PostRoutingEmailOutboundDomains (OutboundDomainCreateRequest body)
 
 
 Create a domain
@@ -7614,7 +8688,7 @@ namespace Example
                 "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
 
             var apiInstance = new RoutingApi();
-            var body = new OutboundDomain(); // OutboundDomain | Domain
+            var body = new OutboundDomainCreateRequest(); // OutboundDomainCreateRequest | Domain
 
             try
             { 
@@ -7636,7 +8710,7 @@ namespace Example
 
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **body** | [**OutboundDomain**](OutboundDomain)| Domain |  |
+| **body** | [**OutboundDomainCreateRequest**](OutboundDomainCreateRequest)| Domain |  |
 
 ### Return type
 
@@ -7645,7 +8719,7 @@ namespace Example
 
 ## PostRoutingEmailOutboundDomainsSimulated
 
-> [**EmailOutboundDomainResult**](EmailOutboundDomainResult) PostRoutingEmailOutboundDomainsSimulated (OutboundDomain body)
+> [**EmailOutboundDomainResult**](EmailOutboundDomainResult) PostRoutingEmailOutboundDomainsSimulated (OutboundDomainCreateRequest body)
 
 
 Create a simulated domain
@@ -7676,7 +8750,7 @@ namespace Example
                 "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
 
             var apiInstance = new RoutingApi();
-            var body = new OutboundDomain(); // OutboundDomain | Domain
+            var body = new OutboundDomainCreateRequest(); // OutboundDomainCreateRequest | Domain
 
             try
             { 
@@ -7698,7 +8772,7 @@ namespace Example
 
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **body** | [**OutboundDomain**](OutboundDomain)| Domain |  |
+| **body** | [**OutboundDomainCreateRequest**](OutboundDomainCreateRequest)| Domain |  |
 
 ### Return type
 
@@ -7828,6 +8902,70 @@ namespace Example
 ### Return type
 
 [**Predictor**](Predictor)
+
+
+## PostRoutingPredictorsKeyperformanceindicators
+
+> [**KeyPerformanceIndicator**](KeyPerformanceIndicator) PostRoutingPredictorsKeyperformanceindicators (CreateKpiRequest body)
+
+
+Create a custom Key Performance Indicator.
+
+PostRoutingPredictorsKeyperformanceindicators is a preview method and is subject to both breaking and non-breaking changes at any time without notice
+
+Requires ANY permissions: 
+
+* routing:keyPerformanceIndicator:add
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class PostRoutingPredictorsKeyperformanceindicatorsExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new RoutingApi();
+            var body = new CreateKpiRequest(); // CreateKpiRequest | request
+
+            try
+            { 
+                // Create a custom Key Performance Indicator.
+                KeyPerformanceIndicator result = apiInstance.PostRoutingPredictorsKeyperformanceindicators(body);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling RoutingApi.PostRoutingPredictorsKeyperformanceindicators: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **body** | [**CreateKpiRequest**](CreateKpiRequest)| request |  |
+
+### Return type
+
+[**KeyPerformanceIndicator**](KeyPerformanceIndicator)
 
 
 ## PostRoutingQueueMembers
@@ -8218,7 +9356,7 @@ namespace Example
 
 ## PostRoutingSkills
 
-> [**RoutingSkill**](RoutingSkill) PostRoutingSkills (RoutingSkill body)
+> [**RoutingSkill**](RoutingSkill) PostRoutingSkills (CreateRoutingSkill body)
 
 
 Create Skill
@@ -8226,6 +9364,7 @@ Create Skill
 Requires ANY permissions: 
 
 * routing:skill:manage
+* routing:skill:create
 
 ### Example
 ```{"language":"csharp"}
@@ -8249,7 +9388,7 @@ namespace Example
                 "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
 
             var apiInstance = new RoutingApi();
-            var body = new RoutingSkill(); // RoutingSkill | Skill
+            var body = new CreateRoutingSkill(); // CreateRoutingSkill | Skill
 
             try
             { 
@@ -8271,7 +9410,7 @@ namespace Example
 
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **body** | [**RoutingSkill**](RoutingSkill)| Skill |  |
+| **body** | [**CreateRoutingSkill**](CreateRoutingSkill)| Skill |  |
 
 ### Return type
 
@@ -8973,6 +10112,73 @@ namespace Example
 [**InboundRoute**](InboundRoute)
 
 
+## PutRoutingEmailDomainRouteIdentityresolution
+
+> [**RouteIdentityResolutionConfig**](RouteIdentityResolutionConfig) PutRoutingEmailDomainRouteIdentityresolution (string domainName, string routeId, RouteIdentityResolutionConfig body)
+
+
+Update identity resolution settings for a route.
+
+Requires ALL permissions: 
+
+* routing:email:manage
+* routing:identityResolutionEmail:edit
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class PutRoutingEmailDomainRouteIdentityresolutionExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new RoutingApi();
+            var domainName = domainName_example;  // string | email domain
+            var routeId = routeId_example;  // string | route ID
+            var body = new RouteIdentityResolutionConfig(); // RouteIdentityResolutionConfig | 
+
+            try
+            { 
+                // Update identity resolution settings for a route.
+                RouteIdentityResolutionConfig result = apiInstance.PutRoutingEmailDomainRouteIdentityresolution(domainName, routeId, body);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling RoutingApi.PutRoutingEmailDomainRouteIdentityresolution: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **domainName** | **string**| email domain |  |
+| **routeId** | **string**| route ID |  |
+| **body** | [**RouteIdentityResolutionConfig**](RouteIdentityResolutionConfig)|  |  |
+
+### Return type
+
+[**RouteIdentityResolutionConfig**](RouteIdentityResolutionConfig)
+
+
 ## PutRoutingEmailOutboundDomainActivation
 
 > [**EmailOutboundDomainResult**](EmailOutboundDomainResult) PutRoutingEmailOutboundDomainActivation (string domainId)
@@ -9163,6 +10369,71 @@ namespace Example
 [**Queue**](Queue)
 
 
+## PutRoutingQueueIdentityresolution
+
+> [**IdentityResolutionQueueConfig**](IdentityResolutionQueueConfig) PutRoutingQueueIdentityresolution (string queueId, IdentityResolutionQueueConfig body)
+
+
+Update Queue IdentityResolution Settings.
+
+Requires ALL permissions: 
+
+* routing:queue:edit
+* queue:identityResolution:edit
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class PutRoutingQueueIdentityresolutionExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new RoutingApi();
+            var queueId = queueId_example;  // string | Queue ID
+            var body = new IdentityResolutionQueueConfig(); // IdentityResolutionQueueConfig | 
+
+            try
+            { 
+                // Update Queue IdentityResolution Settings.
+                IdentityResolutionQueueConfig result = apiInstance.PutRoutingQueueIdentityresolution(queueId, body);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling RoutingApi.PutRoutingQueueIdentityresolution: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **queueId** | **string**| Queue ID |  |
+| **body** | [**IdentityResolutionQueueConfig**](IdentityResolutionQueueConfig)|  |  |
+
+### Return type
+
+[**IdentityResolutionQueueConfig**](IdentityResolutionQueueConfig)
+
+
 ## PutRoutingSettings
 
 > [**RoutingSettings**](RoutingSettings) PutRoutingSettings (RoutingSettings body)
@@ -9285,6 +10556,71 @@ namespace Example
 ### Return type
 
 [**TranscriptionSettings**](TranscriptionSettings)
+
+
+## PutRoutingSmsIdentityresolutionPhonenumber
+
+> [**SmsIdentityResolutionConfig**](SmsIdentityResolutionConfig) PutRoutingSmsIdentityresolutionPhonenumber (string addressId, SmsIdentityResolutionConfig body)
+
+
+Update an SMS identity resolution settings.
+
+Requires ALL permissions: 
+
+* sms:phoneNumber:edit
+* sms:identityResolution:edit
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class PutRoutingSmsIdentityresolutionPhonenumberExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new RoutingApi();
+            var addressId = addressId_example;  // string | Address ID
+            var body = new SmsIdentityResolutionConfig(); // SmsIdentityResolutionConfig | 
+
+            try
+            { 
+                // Update an SMS identity resolution settings.
+                SmsIdentityResolutionConfig result = apiInstance.PutRoutingSmsIdentityresolutionPhonenumber(addressId, body);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling RoutingApi.PutRoutingSmsIdentityresolutionPhonenumber: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **addressId** | **string**| Address ID |  |
+| **body** | [**SmsIdentityResolutionConfig**](SmsIdentityResolutionConfig)|  |  |
+
+### Return type
+
+[**SmsIdentityResolutionConfig**](SmsIdentityResolutionConfig)
 
 
 ## PutRoutingUserDirectroutingbackupSettings
@@ -9735,4 +11071,4 @@ namespace Example
 [**UserSkillEntityListing**](UserSkillEntityListing)
 
 
-_PureCloudPlatform.Client.V2 227.0.0_
+_PureCloudPlatform.Client.V2 257.0.0_

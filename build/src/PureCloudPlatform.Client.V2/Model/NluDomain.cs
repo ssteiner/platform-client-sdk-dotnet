@@ -28,7 +28,7 @@ namespace PureCloudPlatform.Client.V2.Model
         /// Initializes a new instance of the <see cref="NluDomain" /> class.
         /// </summary>
         /// <param name="Name">The name of the NLU domain. (required).</param>
-        /// <param name="Language">The language culture of the NLU domain, e.g. `en-us`, `de-de`..</param>
+        /// <param name="Language">The language culture of the NLU domain, e.g. &#x60;en-us&#x60;, &#x60;de-de&#x60;..</param>
         /// <param name="EngineVersion">The version of the NLU engine to use..</param>
         public NluDomain(string Name = null, string Language = null, string EngineVersion = null)
         {
@@ -59,9 +59,9 @@ namespace PureCloudPlatform.Client.V2.Model
 
 
         /// <summary>
-        /// The language culture of the NLU domain, e.g. `en-us`, `de-de`.
+        /// The language culture of the NLU domain, e.g. &#x60;en-us&#x60;, &#x60;de-de&#x60;.
         /// </summary>
-        /// <value>The language culture of the NLU domain, e.g. `en-us`, `de-de`.</value>
+        /// <value>The language culture of the NLU domain, e.g. &#x60;en-us&#x60;, &#x60;de-de&#x60;.</value>
         [DataMember(Name="language", EmitDefaultValue=false)]
         public string Language { get; set; }
 
@@ -72,7 +72,7 @@ namespace PureCloudPlatform.Client.V2.Model
         /// </summary>
         /// <value>The draft version of that NLU domain.</value>
         [DataMember(Name="draftVersion", EmitDefaultValue=false)]
-        public NluDomainVersion DraftVersion { get; private set; }
+        public NluDomainVersionReference DraftVersion { get; private set; }
 
 
 
@@ -81,7 +81,7 @@ namespace PureCloudPlatform.Client.V2.Model
         /// </summary>
         /// <value>The last published version of that NLU domain.</value>
         [DataMember(Name="lastPublishedVersion", EmitDefaultValue=false)]
-        public NluDomainVersion LastPublishedVersion { get; private set; }
+        public NluDomainVersionReference LastPublishedVersion { get; private set; }
 
 
 

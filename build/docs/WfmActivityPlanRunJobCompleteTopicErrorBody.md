@@ -6,11 +6,11 @@
 
 |Name | Type | Description | Notes|
 |------------ | ------------- | ------------- | -------------|
-| **Status** | **int?** |  | [optional] |
+| **Status** | **long?** |  | [optional] |
 | **Code** | **string** |  | [optional] |
 | **Message** | **string** |  | [optional] |
 | **MessageParams** | **Dictionary&lt;string, string&gt;** |  | [optional] |
 
 
 
-_PureCloudPlatform.Client.V2 227.0.0_
+_PureCloudPlatform.Client.V2 257.0.0_

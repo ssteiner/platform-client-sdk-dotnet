@@ -61,34 +61,39 @@ namespace PureCloudPlatform.Client.V2.Model
         /// Initializes a new instance of the <see cref="ExternalContact" /> class.
         /// </summary>
         /// <param name="Id">The globally unique identifier for the object..</param>
-        /// <param name="FirstName">The first name of the contact..</param>
-        /// <param name="MiddleName">MiddleName.</param>
-        /// <param name="LastName">The last name of the contact..</param>
-        /// <param name="Salutation">Salutation.</param>
-        /// <param name="Title">Title.</param>
+        /// <param name="Division">The division to which this entity belongs..</param>
+        /// <param name="FirstName">The first name of the contact. Max: 1000 characters. Leading and trailing whitespace stripped..</param>
+        /// <param name="MiddleName">The middle name of the contact. Max: 1000 characters. Leading and trailing whitespace stripped..</param>
+        /// <param name="LastName">The last name of the contact. Max: 1000 characters. Leading and trailing whitespace stripped..</param>
+        /// <param name="Salutation">The salutation of the contact. Max: 1000 characters. Leading and trailing whitespace stripped..</param>
+        /// <param name="Title">The title of the contact. Max: 1000 characters. Leading and trailing whitespace stripped..</param>
         /// <param name="WorkPhone">WorkPhone.</param>
         /// <param name="CellPhone">CellPhone.</param>
         /// <param name="HomePhone">HomePhone.</param>
         /// <param name="OtherPhone">OtherPhone.</param>
-        /// <param name="WorkEmail">WorkEmail.</param>
-        /// <param name="PersonalEmail">PersonalEmail.</param>
-        /// <param name="OtherEmail">OtherEmail.</param>
+        /// <param name="WorkEmail">The work email of the contact. Max: 256 characters. Leading and trailing whitespace stripped. Valid email format.</param>
+        /// <param name="PersonalEmail">The personal email of the contact. Max: 256 characters. Leading and trailing whitespace stripped. Valid email format.</param>
+        /// <param name="OtherEmail">The other email of the contact. Max: 256 characters. Leading and trailing whitespace stripped. Valid email format.</param>
         /// <param name="Address">Address.</param>
-        /// <param name="TwitterId">TwitterId.</param>
+        /// <param name="TwitterId">User information for a Twitter account.</param>
         /// <param name="LineId">LineId.</param>
-        /// <param name="WhatsAppId">WhatsAppId.</param>
-        /// <param name="FacebookId">FacebookId.</param>
-        /// <param name="ExternalIds">A list of external identifiers that identify this contact in an external system.</param>
+        /// <param name="WhatsAppId">User information for a WhatsApp account.</param>
+        /// <param name="FacebookId">User information for a Facebook account.</param>
+        /// <param name="InstagramId">User information for an Instagram account.</param>
+        /// <param name="AppleOpaqueIds">User information for an Apple account. Max: 10 ids.</param>
+        /// <param name="ExternalIds">A list of external identifiers that identify this contact in an external system. Max: 10 ids.</param>
+        /// <param name="Identifiers">Identifiers claimed by this contact.</param>
         /// <param name="ModifyDate">Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z.</param>
         /// <param name="CreateDate">Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z.</param>
         /// <param name="ExternalOrganization">ExternalOrganization.</param>
         /// <param name="SurveyOptOut">SurveyOptOut.</param>
-        /// <param name="ExternalSystemUrl">A string that identifies an external system-of-record resource that may have more detailed information on the contact. It should be a valid URL (including the http/https protocol, port, and path [if any]). The value is automatically trimmed of any leading and trailing whitespace..</param>
+        /// <param name="ExternalSystemUrl">A string that identifies an external system-of-record resource that may have more detailed information on the contact. Should be a valid URL (including the http/https protocol, port, and path [if any]). Leading and trailing whitespace stripped. Max 1000 characters..</param>
         /// <param name="Schema">The schema defining custom fields for this contact.</param>
         /// <param name="CustomFields">Custom fields defined in the schema referenced by schemaId and schemaVersion..</param>
-        public ExternalContact(string Id = null, string FirstName = null, string MiddleName = null, string LastName = null, string Salutation = null, string Title = null, PhoneNumber WorkPhone = null, PhoneNumber CellPhone = null, PhoneNumber HomePhone = null, PhoneNumber OtherPhone = null, string WorkEmail = null, string PersonalEmail = null, string OtherEmail = null, ContactAddress Address = null, TwitterId TwitterId = null, LineId LineId = null, WhatsAppId WhatsAppId = null, FacebookId FacebookId = null, List<ExternalId> ExternalIds = null, DateTime? ModifyDate = null, DateTime? CreateDate = null, ExternalOrganization ExternalOrganization = null, bool? SurveyOptOut = null, string ExternalSystemUrl = null, DataSchema Schema = null, Dictionary<string, Object> CustomFields = null)
+        public ExternalContact(string Id = null, WritableStarrableDivision Division = null, string FirstName = null, string MiddleName = null, string LastName = null, string Salutation = null, string Title = null, PhoneNumber WorkPhone = null, PhoneNumber CellPhone = null, PhoneNumber HomePhone = null, PhoneNumber OtherPhone = null, string WorkEmail = null, string PersonalEmail = null, string OtherEmail = null, ContactAddress Address = null, TwitterId TwitterId = null, LineId LineId = null, WhatsAppId WhatsAppId = null, FacebookId FacebookId = null, InstagramId InstagramId = null, List<AppleOpaqueId> AppleOpaqueIds = null, List<ExternalId> ExternalIds = null, List<ContactIdentifier> Identifiers = null, DateTime? ModifyDate = null, DateTime? CreateDate = null, ExternalOrganization ExternalOrganization = null, bool? SurveyOptOut = null, string ExternalSystemUrl = null, DataSchema Schema = null, Dictionary<string, Object> CustomFields = null)
         {
             this.Id = Id;
+            this.Division = Division;
             this.FirstName = FirstName;
             this.MiddleName = MiddleName;
             this.LastName = LastName;
@@ -106,7 +111,10 @@ namespace PureCloudPlatform.Client.V2.Model
             this.LineId = LineId;
             this.WhatsAppId = WhatsAppId;
             this.FacebookId = FacebookId;
+            this.InstagramId = InstagramId;
+            this.AppleOpaqueIds = AppleOpaqueIds;
             this.ExternalIds = ExternalIds;
+            this.Identifiers = Identifiers;
             this.ModifyDate = ModifyDate;
             this.CreateDate = CreateDate;
             this.ExternalOrganization = ExternalOrganization;
@@ -129,42 +137,54 @@ namespace PureCloudPlatform.Client.V2.Model
 
 
         /// <summary>
-        /// The first name of the contact.
+        /// The division to which this entity belongs.
         /// </summary>
-        /// <value>The first name of the contact.</value>
+        /// <value>The division to which this entity belongs.</value>
+        [DataMember(Name="division", EmitDefaultValue=false)]
+        public WritableStarrableDivision Division { get; set; }
+
+
+
+        /// <summary>
+        /// The first name of the contact. Max: 1000 characters. Leading and trailing whitespace stripped.
+        /// </summary>
+        /// <value>The first name of the contact. Max: 1000 characters. Leading and trailing whitespace stripped.</value>
         [DataMember(Name="firstName", EmitDefaultValue=false)]
         public string FirstName { get; set; }
 
 
 
         /// <summary>
-        /// Gets or Sets MiddleName
+        /// The middle name of the contact. Max: 1000 characters. Leading and trailing whitespace stripped.
         /// </summary>
+        /// <value>The middle name of the contact. Max: 1000 characters. Leading and trailing whitespace stripped.</value>
         [DataMember(Name="middleName", EmitDefaultValue=false)]
         public string MiddleName { get; set; }
 
 
 
         /// <summary>
-        /// The last name of the contact.
+        /// The last name of the contact. Max: 1000 characters. Leading and trailing whitespace stripped.
         /// </summary>
-        /// <value>The last name of the contact.</value>
+        /// <value>The last name of the contact. Max: 1000 characters. Leading and trailing whitespace stripped.</value>
         [DataMember(Name="lastName", EmitDefaultValue=false)]
         public string LastName { get; set; }
 
 
 
         /// <summary>
-        /// Gets or Sets Salutation
+        /// The salutation of the contact. Max: 1000 characters. Leading and trailing whitespace stripped.
         /// </summary>
+        /// <value>The salutation of the contact. Max: 1000 characters. Leading and trailing whitespace stripped.</value>
         [DataMember(Name="salutation", EmitDefaultValue=false)]
         public string Salutation { get; set; }
 
 
 
         /// <summary>
-        /// Gets or Sets Title
+        /// The title of the contact. Max: 1000 characters. Leading and trailing whitespace stripped.
         /// </summary>
+        /// <value>The title of the contact. Max: 1000 characters. Leading and trailing whitespace stripped.</value>
         [DataMember(Name="title", EmitDefaultValue=false)]
         public string Title { get; set; }
 
@@ -203,24 +223,27 @@ namespace PureCloudPlatform.Client.V2.Model
 
 
         /// <summary>
-        /// Gets or Sets WorkEmail
+        /// The work email of the contact. Max: 256 characters. Leading and trailing whitespace stripped. Valid email format
         /// </summary>
+        /// <value>The work email of the contact. Max: 256 characters. Leading and trailing whitespace stripped. Valid email format</value>
         [DataMember(Name="workEmail", EmitDefaultValue=false)]
         public string WorkEmail { get; set; }
 
 
 
         /// <summary>
-        /// Gets or Sets PersonalEmail
+        /// The personal email of the contact. Max: 256 characters. Leading and trailing whitespace stripped. Valid email format
         /// </summary>
+        /// <value>The personal email of the contact. Max: 256 characters. Leading and trailing whitespace stripped. Valid email format</value>
         [DataMember(Name="personalEmail", EmitDefaultValue=false)]
         public string PersonalEmail { get; set; }
 
 
 
         /// <summary>
-        /// Gets or Sets OtherEmail
+        /// The other email of the contact. Max: 256 characters. Leading and trailing whitespace stripped. Valid email format
         /// </summary>
+        /// <value>The other email of the contact. Max: 256 characters. Leading and trailing whitespace stripped. Valid email format</value>
         [DataMember(Name="otherEmail", EmitDefaultValue=false)]
         public string OtherEmail { get; set; }
 
@@ -235,8 +258,9 @@ namespace PureCloudPlatform.Client.V2.Model
 
 
         /// <summary>
-        /// Gets or Sets TwitterId
+        /// User information for a Twitter account
         /// </summary>
+        /// <value>User information for a Twitter account</value>
         [DataMember(Name="twitterId", EmitDefaultValue=false)]
         public TwitterId TwitterId { get; set; }
 
@@ -251,27 +275,56 @@ namespace PureCloudPlatform.Client.V2.Model
 
 
         /// <summary>
-        /// Gets or Sets WhatsAppId
+        /// User information for a WhatsApp account
         /// </summary>
+        /// <value>User information for a WhatsApp account</value>
         [DataMember(Name="whatsAppId", EmitDefaultValue=false)]
         public WhatsAppId WhatsAppId { get; set; }
 
 
 
         /// <summary>
-        /// Gets or Sets FacebookId
+        /// User information for a Facebook account
         /// </summary>
+        /// <value>User information for a Facebook account</value>
         [DataMember(Name="facebookId", EmitDefaultValue=false)]
         public FacebookId FacebookId { get; set; }
 
 
 
         /// <summary>
-        /// A list of external identifiers that identify this contact in an external system
+        /// User information for an Instagram account
         /// </summary>
-        /// <value>A list of external identifiers that identify this contact in an external system</value>
+        /// <value>User information for an Instagram account</value>
+        [DataMember(Name="instagramId", EmitDefaultValue=false)]
+        public InstagramId InstagramId { get; set; }
+
+
+
+        /// <summary>
+        /// User information for an Apple account. Max: 10 ids
+        /// </summary>
+        /// <value>User information for an Apple account. Max: 10 ids</value>
+        [DataMember(Name="appleOpaqueIds", EmitDefaultValue=false)]
+        public List<AppleOpaqueId> AppleOpaqueIds { get; set; }
+
+
+
+        /// <summary>
+        /// A list of external identifiers that identify this contact in an external system. Max: 10 ids
+        /// </summary>
+        /// <value>A list of external identifiers that identify this contact in an external system. Max: 10 ids</value>
         [DataMember(Name="externalIds", EmitDefaultValue=false)]
         public List<ExternalId> ExternalIds { get; set; }
+
+
+
+        /// <summary>
+        /// Identifiers claimed by this contact
+        /// </summary>
+        /// <value>Identifiers claimed by this contact</value>
+        [DataMember(Name="identifiers", EmitDefaultValue=false)]
+        public List<ContactIdentifier> Identifiers { get; set; }
 
 
 
@@ -310,9 +363,9 @@ namespace PureCloudPlatform.Client.V2.Model
 
 
         /// <summary>
-        /// A string that identifies an external system-of-record resource that may have more detailed information on the contact. It should be a valid URL (including the http/https protocol, port, and path [if any]). The value is automatically trimmed of any leading and trailing whitespace.
+        /// A string that identifies an external system-of-record resource that may have more detailed information on the contact. Should be a valid URL (including the http/https protocol, port, and path [if any]). Leading and trailing whitespace stripped. Max 1000 characters.
         /// </summary>
-        /// <value>A string that identifies an external system-of-record resource that may have more detailed information on the contact. It should be a valid URL (including the http/https protocol, port, and path [if any]). The value is automatically trimmed of any leading and trailing whitespace.</value>
+        /// <value>A string that identifies an external system-of-record resource that may have more detailed information on the contact. Should be a valid URL (including the http/https protocol, port, and path [if any]). Leading and trailing whitespace stripped. Max 1000 characters.</value>
         [DataMember(Name="externalSystemUrl", EmitDefaultValue=false)]
         public string ExternalSystemUrl { get; set; }
 
@@ -366,9 +419,27 @@ namespace PureCloudPlatform.Client.V2.Model
 
 
         /// <summary>
-        /// Information about the merge history of this contact. If null, this contact is not a part of any merge.
+        /// The input contacts from the merge operation.
         /// </summary>
-        /// <value>Information about the merge history of this contact. If null, this contact is not a part of any merge.</value>
+        /// <value>The input contacts from the merge operation.</value>
+        [DataMember(Name="mergedFrom", EmitDefaultValue=false)]
+        public List<ContactAddressableEntityRef> MergedFrom { get; private set; }
+
+
+
+        /// <summary>
+        /// The output contact from the merge operation.
+        /// </summary>
+        /// <value>The output contact from the merge operation.</value>
+        [DataMember(Name="mergedTo", EmitDefaultValue=false)]
+        public ContactAddressableEntityRef MergedTo { get; private set; }
+
+
+
+        /// <summary>
+        /// (Deprecated: use mergedTo and mergedFrom instead) Information about the merge history of this contact. If null, this contact is not a part of any merge.
+        /// </summary>
+        /// <value>(Deprecated: use mergedTo and mergedFrom instead) Information about the merge history of this contact. If null, this contact is not a part of any merge.</value>
         [DataMember(Name="mergeOperation", EmitDefaultValue=false)]
         public MergeOperation MergeOperation { get; private set; }
 
@@ -392,6 +463,7 @@ namespace PureCloudPlatform.Client.V2.Model
             sb.Append("class ExternalContact {\n");
 
             sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  Division: ").Append(Division).Append("\n");
             sb.Append("  FirstName: ").Append(FirstName).Append("\n");
             sb.Append("  MiddleName: ").Append(MiddleName).Append("\n");
             sb.Append("  LastName: ").Append(LastName).Append("\n");
@@ -409,7 +481,10 @@ namespace PureCloudPlatform.Client.V2.Model
             sb.Append("  LineId: ").Append(LineId).Append("\n");
             sb.Append("  WhatsAppId: ").Append(WhatsAppId).Append("\n");
             sb.Append("  FacebookId: ").Append(FacebookId).Append("\n");
+            sb.Append("  InstagramId: ").Append(InstagramId).Append("\n");
+            sb.Append("  AppleOpaqueIds: ").Append(AppleOpaqueIds).Append("\n");
             sb.Append("  ExternalIds: ").Append(ExternalIds).Append("\n");
+            sb.Append("  Identifiers: ").Append(Identifiers).Append("\n");
             sb.Append("  ModifyDate: ").Append(ModifyDate).Append("\n");
             sb.Append("  CreateDate: ").Append(CreateDate).Append("\n");
             sb.Append("  ExternalOrganization: ").Append(ExternalOrganization).Append("\n");
@@ -421,6 +496,8 @@ namespace PureCloudPlatform.Client.V2.Model
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  CanonicalContact: ").Append(CanonicalContact).Append("\n");
             sb.Append("  MergeSet: ").Append(MergeSet).Append("\n");
+            sb.Append("  MergedFrom: ").Append(MergedFrom).Append("\n");
+            sb.Append("  MergedTo: ").Append(MergedTo).Append("\n");
             sb.Append("  MergeOperation: ").Append(MergeOperation).Append("\n");
             sb.Append("  SelfUri: ").Append(SelfUri).Append("\n");
             sb.Append("}\n");
@@ -467,6 +544,11 @@ namespace PureCloudPlatform.Client.V2.Model
                     this.Id == other.Id ||
                     this.Id != null &&
                     this.Id.Equals(other.Id)
+                ) &&
+                (
+                    this.Division == other.Division ||
+                    this.Division != null &&
+                    this.Division.Equals(other.Division)
                 ) &&
                 (
                     this.FirstName == other.FirstName ||
@@ -554,9 +636,24 @@ namespace PureCloudPlatform.Client.V2.Model
                     this.FacebookId.Equals(other.FacebookId)
                 ) &&
                 (
+                    this.InstagramId == other.InstagramId ||
+                    this.InstagramId != null &&
+                    this.InstagramId.Equals(other.InstagramId)
+                ) &&
+                (
+                    this.AppleOpaqueIds == other.AppleOpaqueIds ||
+                    this.AppleOpaqueIds != null &&
+                    this.AppleOpaqueIds.SequenceEqual(other.AppleOpaqueIds)
+                ) &&
+                (
                     this.ExternalIds == other.ExternalIds ||
                     this.ExternalIds != null &&
                     this.ExternalIds.SequenceEqual(other.ExternalIds)
+                ) &&
+                (
+                    this.Identifiers == other.Identifiers ||
+                    this.Identifiers != null &&
+                    this.Identifiers.SequenceEqual(other.Identifiers)
                 ) &&
                 (
                     this.ModifyDate == other.ModifyDate ||
@@ -614,6 +711,16 @@ namespace PureCloudPlatform.Client.V2.Model
                     this.MergeSet.SequenceEqual(other.MergeSet)
                 ) &&
                 (
+                    this.MergedFrom == other.MergedFrom ||
+                    this.MergedFrom != null &&
+                    this.MergedFrom.SequenceEqual(other.MergedFrom)
+                ) &&
+                (
+                    this.MergedTo == other.MergedTo ||
+                    this.MergedTo != null &&
+                    this.MergedTo.Equals(other.MergedTo)
+                ) &&
+                (
                     this.MergeOperation == other.MergeOperation ||
                     this.MergeOperation != null &&
                     this.MergeOperation.Equals(other.MergeOperation)
@@ -638,6 +745,9 @@ namespace PureCloudPlatform.Client.V2.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.Id != null)
                     hash = hash * 59 + this.Id.GetHashCode();
+
+                if (this.Division != null)
+                    hash = hash * 59 + this.Division.GetHashCode();
 
                 if (this.FirstName != null)
                     hash = hash * 59 + this.FirstName.GetHashCode();
@@ -690,8 +800,17 @@ namespace PureCloudPlatform.Client.V2.Model
                 if (this.FacebookId != null)
                     hash = hash * 59 + this.FacebookId.GetHashCode();
 
+                if (this.InstagramId != null)
+                    hash = hash * 59 + this.InstagramId.GetHashCode();
+
+                if (this.AppleOpaqueIds != null)
+                    hash = hash * 59 + this.AppleOpaqueIds.GetHashCode();
+
                 if (this.ExternalIds != null)
                     hash = hash * 59 + this.ExternalIds.GetHashCode();
+
+                if (this.Identifiers != null)
+                    hash = hash * 59 + this.Identifiers.GetHashCode();
 
                 if (this.ModifyDate != null)
                     hash = hash * 59 + this.ModifyDate.GetHashCode();
@@ -725,6 +844,12 @@ namespace PureCloudPlatform.Client.V2.Model
 
                 if (this.MergeSet != null)
                     hash = hash * 59 + this.MergeSet.GetHashCode();
+
+                if (this.MergedFrom != null)
+                    hash = hash * 59 + this.MergedFrom.GetHashCode();
+
+                if (this.MergedTo != null)
+                    hash = hash * 59 + this.MergedTo.GetHashCode();
 
                 if (this.MergeOperation != null)
                     hash = hash * 59 + this.MergeOperation.GetHashCode();

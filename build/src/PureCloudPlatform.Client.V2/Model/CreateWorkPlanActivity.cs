@@ -26,15 +26,16 @@ namespace PureCloudPlatform.Client.V2.Model
         /// <param name="LengthMinutes">Length of the activity in minutes.</param>
         /// <param name="StartTimeIsRelativeToShiftStart">Whether the start time of the activity is relative to the start time of the shift it belongs to.</param>
         /// <param name="FlexibleStartTime">Whether the start time of the activity is flexible.</param>
-        /// <param name="EarliestStartTimeMinutes">Earliest activity start in offset minutes relative to shift start time if startTimeIsRelativeToShiftStart == true else its based on midnight. Used if flexibleStartTime == true.</param>
-        /// <param name="LatestStartTimeMinutes">Latest activity start in offset minutes relative to shift start time if startTimeIsRelativeToShiftStart == true else its based on midnight. Used if flexibleStartTime == true.</param>
-        /// <param name="ExactStartTimeMinutes">Exact activity start in offset minutes relative to shift start time if startTimeIsRelativeToShiftStart == true else its based on midnight. Used if flexibleStartTime == false.</param>
+        /// <param name="EarliestStartTimeMinutes">Earliest activity start in offset minutes relative to shift start time if startTimeIsRelativeToShiftStart &#x3D;&#x3D; true else its based on midnight. Used if flexibleStartTime &#x3D;&#x3D; true.</param>
+        /// <param name="LatestStartTimeMinutes">Latest activity start in offset minutes relative to shift start time if startTimeIsRelativeToShiftStart &#x3D;&#x3D; true else its based on midnight. Used if flexibleStartTime &#x3D;&#x3D; true.</param>
+        /// <param name="ExactStartTimeMinutes">Exact activity start in offset minutes relative to shift start time if startTimeIsRelativeToShiftStart &#x3D;&#x3D; true else its based on midnight. Used if flexibleStartTime &#x3D;&#x3D; false.</param>
         /// <param name="StartTimeIncrementMinutes">Increment in offset minutes that would contribute to different possible start times for the activity.</param>
         /// <param name="CountsAsPaidTime">Whether the activity is paid.</param>
         /// <param name="CountsAsContiguousWorkTime">Whether the activity duration is counted towards contiguous work time.</param>
         /// <param name="MinimumLengthFromShiftStartMinutes">The minimum duration between shift start and shift item (e.g., break or meal) start in minutes.</param>
         /// <param name="MinimumLengthFromShiftEndMinutes">The minimum duration between shift item (e.g., break or meal) end and shift end in minutes.</param>
-        public CreateWorkPlanActivity(string ActivityCodeId = null, string Description = null, int? LengthMinutes = null, bool? StartTimeIsRelativeToShiftStart = null, bool? FlexibleStartTime = null, int? EarliestStartTimeMinutes = null, int? LatestStartTimeMinutes = null, int? ExactStartTimeMinutes = null, int? StartTimeIncrementMinutes = null, bool? CountsAsPaidTime = null, bool? CountsAsContiguousWorkTime = null, int? MinimumLengthFromShiftStartMinutes = null, int? MinimumLengthFromShiftEndMinutes = null)
+        /// <param name="MaximumLengthFromShiftEndMinutes">The maximum duration between shift item (e.g., break or meal) end and shift end in minutes.</param>
+        public CreateWorkPlanActivity(string ActivityCodeId = null, string Description = null, int? LengthMinutes = null, bool? StartTimeIsRelativeToShiftStart = null, bool? FlexibleStartTime = null, int? EarliestStartTimeMinutes = null, int? LatestStartTimeMinutes = null, int? ExactStartTimeMinutes = null, int? StartTimeIncrementMinutes = null, bool? CountsAsPaidTime = null, bool? CountsAsContiguousWorkTime = null, int? MinimumLengthFromShiftStartMinutes = null, int? MinimumLengthFromShiftEndMinutes = null, int? MaximumLengthFromShiftEndMinutes = null)
         {
             this.ActivityCodeId = ActivityCodeId;
             this.Description = Description;
@@ -49,6 +50,7 @@ namespace PureCloudPlatform.Client.V2.Model
             this.CountsAsContiguousWorkTime = CountsAsContiguousWorkTime;
             this.MinimumLengthFromShiftStartMinutes = MinimumLengthFromShiftStartMinutes;
             this.MinimumLengthFromShiftEndMinutes = MinimumLengthFromShiftEndMinutes;
+            this.MaximumLengthFromShiftEndMinutes = MaximumLengthFromShiftEndMinutes;
             
         }
         
@@ -100,27 +102,27 @@ namespace PureCloudPlatform.Client.V2.Model
 
 
         /// <summary>
-        /// Earliest activity start in offset minutes relative to shift start time if startTimeIsRelativeToShiftStart == true else its based on midnight. Used if flexibleStartTime == true
+        /// Earliest activity start in offset minutes relative to shift start time if startTimeIsRelativeToShiftStart &#x3D;&#x3D; true else its based on midnight. Used if flexibleStartTime &#x3D;&#x3D; true
         /// </summary>
-        /// <value>Earliest activity start in offset minutes relative to shift start time if startTimeIsRelativeToShiftStart == true else its based on midnight. Used if flexibleStartTime == true</value>
+        /// <value>Earliest activity start in offset minutes relative to shift start time if startTimeIsRelativeToShiftStart &#x3D;&#x3D; true else its based on midnight. Used if flexibleStartTime &#x3D;&#x3D; true</value>
         [DataMember(Name="earliestStartTimeMinutes", EmitDefaultValue=false)]
         public int? EarliestStartTimeMinutes { get; set; }
 
 
 
         /// <summary>
-        /// Latest activity start in offset minutes relative to shift start time if startTimeIsRelativeToShiftStart == true else its based on midnight. Used if flexibleStartTime == true
+        /// Latest activity start in offset minutes relative to shift start time if startTimeIsRelativeToShiftStart &#x3D;&#x3D; true else its based on midnight. Used if flexibleStartTime &#x3D;&#x3D; true
         /// </summary>
-        /// <value>Latest activity start in offset minutes relative to shift start time if startTimeIsRelativeToShiftStart == true else its based on midnight. Used if flexibleStartTime == true</value>
+        /// <value>Latest activity start in offset minutes relative to shift start time if startTimeIsRelativeToShiftStart &#x3D;&#x3D; true else its based on midnight. Used if flexibleStartTime &#x3D;&#x3D; true</value>
         [DataMember(Name="latestStartTimeMinutes", EmitDefaultValue=false)]
         public int? LatestStartTimeMinutes { get; set; }
 
 
 
         /// <summary>
-        /// Exact activity start in offset minutes relative to shift start time if startTimeIsRelativeToShiftStart == true else its based on midnight. Used if flexibleStartTime == false
+        /// Exact activity start in offset minutes relative to shift start time if startTimeIsRelativeToShiftStart &#x3D;&#x3D; true else its based on midnight. Used if flexibleStartTime &#x3D;&#x3D; false
         /// </summary>
-        /// <value>Exact activity start in offset minutes relative to shift start time if startTimeIsRelativeToShiftStart == true else its based on midnight. Used if flexibleStartTime == false</value>
+        /// <value>Exact activity start in offset minutes relative to shift start time if startTimeIsRelativeToShiftStart &#x3D;&#x3D; true else its based on midnight. Used if flexibleStartTime &#x3D;&#x3D; false</value>
         [DataMember(Name="exactStartTimeMinutes", EmitDefaultValue=false)]
         public int? ExactStartTimeMinutes { get; set; }
 
@@ -170,6 +172,15 @@ namespace PureCloudPlatform.Client.V2.Model
         public int? MinimumLengthFromShiftEndMinutes { get; set; }
 
 
+
+        /// <summary>
+        /// The maximum duration between shift item (e.g., break or meal) end and shift end in minutes
+        /// </summary>
+        /// <value>The maximum duration between shift item (e.g., break or meal) end and shift end in minutes</value>
+        [DataMember(Name="maximumLengthFromShiftEndMinutes", EmitDefaultValue=false)]
+        public int? MaximumLengthFromShiftEndMinutes { get; set; }
+
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -192,6 +203,7 @@ namespace PureCloudPlatform.Client.V2.Model
             sb.Append("  CountsAsContiguousWorkTime: ").Append(CountsAsContiguousWorkTime).Append("\n");
             sb.Append("  MinimumLengthFromShiftStartMinutes: ").Append(MinimumLengthFromShiftStartMinutes).Append("\n");
             sb.Append("  MinimumLengthFromShiftEndMinutes: ").Append(MinimumLengthFromShiftEndMinutes).Append("\n");
+            sb.Append("  MaximumLengthFromShiftEndMinutes: ").Append(MaximumLengthFromShiftEndMinutes).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -296,6 +308,11 @@ namespace PureCloudPlatform.Client.V2.Model
                     this.MinimumLengthFromShiftEndMinutes == other.MinimumLengthFromShiftEndMinutes ||
                     this.MinimumLengthFromShiftEndMinutes != null &&
                     this.MinimumLengthFromShiftEndMinutes.Equals(other.MinimumLengthFromShiftEndMinutes)
+                ) &&
+                (
+                    this.MaximumLengthFromShiftEndMinutes == other.MaximumLengthFromShiftEndMinutes ||
+                    this.MaximumLengthFromShiftEndMinutes != null &&
+                    this.MaximumLengthFromShiftEndMinutes.Equals(other.MaximumLengthFromShiftEndMinutes)
                 );
         }
 
@@ -348,6 +365,9 @@ namespace PureCloudPlatform.Client.V2.Model
 
                 if (this.MinimumLengthFromShiftEndMinutes != null)
                     hash = hash * 59 + this.MinimumLengthFromShiftEndMinutes.GetHashCode();
+
+                if (this.MaximumLengthFromShiftEndMinutes != null)
+                    hash = hash * 59 + this.MaximumLengthFromShiftEndMinutes.GetHashCode();
 
                 return hash;
             }

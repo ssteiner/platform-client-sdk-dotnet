@@ -51,6 +51,18 @@ namespace PureCloudPlatform.Client.V2.Model
             Acdwrapupcode,
             
             /// <summary>
+            /// Enum Agenticvirtualagent for "AGENTICVIRTUALAGENT"
+            /// </summary>
+            [EnumMember(Value = "AGENTICVIRTUALAGENT")]
+            Agenticvirtualagent,
+            
+            /// <summary>
+            /// Enum Agenticvirtualagentversion for "AGENTICVIRTUALAGENTVERSION"
+            /// </summary>
+            [EnumMember(Value = "AGENTICVIRTUALAGENTVERSION")]
+            Agenticvirtualagentversion,
+            
+            /// <summary>
             /// Enum Audioconnectorbot for "AUDIOCONNECTORBOT"
             /// </summary>
             [EnumMember(Value = "AUDIOCONNECTORBOT")]
@@ -99,6 +111,12 @@ namespace PureCloudPlatform.Client.V2.Model
             Contactlist,
             
             /// <summary>
+            /// Enum Conversationcustomattributeschema for "CONVERSATIONCUSTOMATTRIBUTESCHEMA"
+            /// </summary>
+            [EnumMember(Value = "CONVERSATIONCUSTOMATTRIBUTESCHEMA")]
+            Conversationcustomattributeschema,
+            
+            /// <summary>
             /// Enum Dataaction for "DATAACTION"
             /// </summary>
             [EnumMember(Value = "DATAACTION")]
@@ -141,10 +159,34 @@ namespace PureCloudPlatform.Client.V2.Model
             Dialogflowcxagent,
             
             /// <summary>
+            /// Enum Digitalaudio for "DIGITALAUDIO"
+            /// </summary>
+            [EnumMember(Value = "DIGITALAUDIO")]
+            Digitalaudio,
+            
+            /// <summary>
+            /// Enum Digitalbotconnector for "DIGITALBOTCONNECTOR"
+            /// </summary>
+            [EnumMember(Value = "DIGITALBOTCONNECTOR")]
+            Digitalbotconnector,
+            
+            /// <summary>
+            /// Enum Digitalbotconnectorintegration for "DIGITALBOTCONNECTORINTEGRATION"
+            /// </summary>
+            [EnumMember(Value = "DIGITALBOTCONNECTORINTEGRATION")]
+            Digitalbotconnectorintegration,
+            
+            /// <summary>
             /// Enum Digitalbotflow for "DIGITALBOTFLOW"
             /// </summary>
             [EnumMember(Value = "DIGITALBOTFLOW")]
             Digitalbotflow,
+            
+            /// <summary>
+            /// Enum Division for "DIVISION"
+            /// </summary>
+            [EnumMember(Value = "DIVISION")]
+            Division,
             
             /// <summary>
             /// Enum Emailroute for "EMAILROUTE"
@@ -157,6 +199,12 @@ namespace PureCloudPlatform.Client.V2.Model
             /// </summary>
             [EnumMember(Value = "EMERGENCYGROUP")]
             Emergencygroup,
+            
+            /// <summary>
+            /// Enum File for "FILE"
+            /// </summary>
+            [EnumMember(Value = "FILE")]
+            File,
             
             /// <summary>
             /// Enum Flowaction for "FLOWACTION"
@@ -193,6 +241,18 @@ namespace PureCloudPlatform.Client.V2.Model
             /// </summary>
             [EnumMember(Value = "GROUP")]
             Group,
+            
+            /// <summary>
+            /// Enum Guide for "GUIDE"
+            /// </summary>
+            [EnumMember(Value = "GUIDE")]
+            Guide,
+            
+            /// <summary>
+            /// Enum Guideversion for "GUIDEVERSION"
+            /// </summary>
+            [EnumMember(Value = "GUIDEVERSION")]
+            Guideversion,
             
             /// <summary>
             /// Enum Image for "IMAGE"
@@ -259,6 +319,12 @@ namespace PureCloudPlatform.Client.V2.Model
             /// </summary>
             [EnumMember(Value = "KNOWLEDGEBASEDOCUMENT")]
             Knowledgebasedocument,
+            
+            /// <summary>
+            /// Enum Knowledgesetting for "KNOWLEDGESETTING"
+            /// </summary>
+            [EnumMember(Value = "KNOWLEDGESETTING")]
+            Knowledgesetting,
             
             /// <summary>
             /// Enum Language for "LANGUAGE"
@@ -337,6 +403,12 @@ namespace PureCloudPlatform.Client.V2.Model
             /// </summary>
             [EnumMember(Value = "RESPONSE")]
             Response,
+            
+            /// <summary>
+            /// Enum Responseasset for "RESPONSEASSET"
+            /// </summary>
+            [EnumMember(Value = "RESPONSEASSET")]
+            Responseasset,
             
             /// <summary>
             /// Enum Schedule for "SCHEDULE"
@@ -421,6 +493,12 @@ namespace PureCloudPlatform.Client.V2.Model
             /// </summary>
             [EnumMember(Value = "UTILIZATIONLABEL")]
             Utilizationlabel,
+            
+            /// <summary>
+            /// Enum Video for "VIDEO"
+            /// </summary>
+            [EnumMember(Value = "VIDEO")]
+            Video,
             
             /// <summary>
             /// Enum Voiceflow for "VOICEFLOW"

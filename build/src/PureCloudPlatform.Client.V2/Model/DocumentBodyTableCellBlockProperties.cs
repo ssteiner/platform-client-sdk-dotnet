@@ -266,20 +266,22 @@ namespace PureCloudPlatform.Client.V2.Model
         /// </summary>
         /// <param name="CellType">The type of the table cell..</param>
         /// <param name="Width">The width of the table cell converted to em unit..</param>
+        /// <param name="WidthWithUnit">The width of the table cell in the specified unit..</param>
         /// <param name="Height">The height for the table cell..</param>
         /// <param name="HorizontalAlign">The horizontal alignment for the table cell..</param>
         /// <param name="VerticalAlign">The vertical alignment for the table cell..</param>
-        /// <param name="BorderWidth">The border width for the table cell. The valid values in 'em'.</param>
+        /// <param name="BorderWidth">The border width for the table cell. The valid values in &#39;em&#39;.</param>
         /// <param name="BorderStyle">The border style for the table cell..</param>
         /// <param name="BorderColor">The border color for the table cell. For example black color - #000000.</param>
         /// <param name="BackgroundColor">The background color for the table cell. For example black color - #000000.</param>
         /// <param name="Scope">The scope for the table cell..</param>
         /// <param name="ColSpan">The colSpan for the table cell..</param>
         /// <param name="RowSpan">The rowSpan for the table cell..</param>
-        public DocumentBodyTableCellBlockProperties(CellTypeEnum? CellType = null, float? Width = null, float? Height = null, HorizontalAlignEnum? HorizontalAlign = null, VerticalAlignEnum? VerticalAlign = null, float? BorderWidth = null, BorderStyleEnum? BorderStyle = null, string BorderColor = null, string BackgroundColor = null, ScopeEnum? Scope = null, int? ColSpan = null, int? RowSpan = null)
+        public DocumentBodyTableCellBlockProperties(CellTypeEnum? CellType = null, float? Width = null, DocumentElementLength WidthWithUnit = null, float? Height = null, HorizontalAlignEnum? HorizontalAlign = null, VerticalAlignEnum? VerticalAlign = null, float? BorderWidth = null, BorderStyleEnum? BorderStyle = null, string BorderColor = null, string BackgroundColor = null, ScopeEnum? Scope = null, int? ColSpan = null, int? RowSpan = null)
         {
             this.CellType = CellType;
             this.Width = Width;
+            this.WidthWithUnit = WidthWithUnit;
             this.Height = Height;
             this.HorizontalAlign = HorizontalAlign;
             this.VerticalAlign = VerticalAlign;
@@ -307,6 +309,15 @@ namespace PureCloudPlatform.Client.V2.Model
 
 
         /// <summary>
+        /// The width of the table cell in the specified unit.
+        /// </summary>
+        /// <value>The width of the table cell in the specified unit.</value>
+        [DataMember(Name="widthWithUnit", EmitDefaultValue=false)]
+        public DocumentElementLength WidthWithUnit { get; set; }
+
+
+
+        /// <summary>
         /// The height for the table cell.
         /// </summary>
         /// <value>The height for the table cell.</value>
@@ -320,9 +331,9 @@ namespace PureCloudPlatform.Client.V2.Model
 
 
         /// <summary>
-        /// The border width for the table cell. The valid values in 'em'
+        /// The border width for the table cell. The valid values in &#39;em&#39;
         /// </summary>
-        /// <value>The border width for the table cell. The valid values in 'em'</value>
+        /// <value>The border width for the table cell. The valid values in &#39;em&#39;</value>
         [DataMember(Name="borderWidth", EmitDefaultValue=false)]
         public float? BorderWidth { get; set; }
 
@@ -378,6 +389,7 @@ namespace PureCloudPlatform.Client.V2.Model
 
             sb.Append("  CellType: ").Append(CellType).Append("\n");
             sb.Append("  Width: ").Append(Width).Append("\n");
+            sb.Append("  WidthWithUnit: ").Append(WidthWithUnit).Append("\n");
             sb.Append("  Height: ").Append(Height).Append("\n");
             sb.Append("  HorizontalAlign: ").Append(HorizontalAlign).Append("\n");
             sb.Append("  VerticalAlign: ").Append(VerticalAlign).Append("\n");
@@ -437,6 +449,11 @@ namespace PureCloudPlatform.Client.V2.Model
                     this.Width == other.Width ||
                     this.Width != null &&
                     this.Width.Equals(other.Width)
+                ) &&
+                (
+                    this.WidthWithUnit == other.WidthWithUnit ||
+                    this.WidthWithUnit != null &&
+                    this.WidthWithUnit.Equals(other.WidthWithUnit)
                 ) &&
                 (
                     this.Height == other.Height ||
@@ -506,6 +523,9 @@ namespace PureCloudPlatform.Client.V2.Model
 
                 if (this.Width != null)
                     hash = hash * 59 + this.Width.GetHashCode();
+
+                if (this.WidthWithUnit != null)
+                    hash = hash * 59 + this.WidthWithUnit.GetHashCode();
 
                 if (this.Height != null)
                     hash = hash * 59 + this.Height.GetHashCode();

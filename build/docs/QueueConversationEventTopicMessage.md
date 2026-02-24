@@ -31,9 +31,12 @@
 | **AfterCallWork** | [**QueueConversationEventTopicAfterCallWork**](QueueConversationEventTopicAfterCallWork) | A communication&#39;s after-call work data. | [optional] |
 | **AfterCallWorkRequired** | **bool?** | Indicates if after-call is required for a communication. Only used when the ACW Setting is Agent Requested. | [optional] |
 | **AgentAssistantId** | **string** | UUID of virtual agent assistant that provide suggestions to the agent participant during the conversation. | [optional] |
+| **EngagementSource** | **string** | Provide more visibility into what integrations customers are creating with Open Messaging. String values are defined in the Constants.java named ENGAGEMENT_SOURCE_* | [optional] |
 | **ByoSmsIntegrationId** | **string** |  | [optional] |
 | **QueueMediaSettings** | [**QueueConversationEventTopicQueueMediaSettings**](QueueConversationEventTopicQueueMediaSettings) | Represents the queue setting for this media. | [optional] |
+| **ResumeTime** | **DateTime?** | The time when a parked message should resume. | [optional] |
+| **ParkTime** | **DateTime?** | The time when an  parked message was parked. | [optional] |
 
 
 
-_PureCloudPlatform.Client.V2 227.0.0_
+_PureCloudPlatform.Client.V2 257.0.0_

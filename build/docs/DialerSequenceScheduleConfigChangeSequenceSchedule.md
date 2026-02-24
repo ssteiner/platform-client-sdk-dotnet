@@ -15,8 +15,9 @@
 | **Name** | **string** | The UI-visible name of the object | [optional] |
 | **DateCreated** | **DateTime?** | Creation time of the entity | [optional] |
 | **DateModified** | **DateTime?** | Last modified time of the entity | [optional] |
-| **Version** | **int?** | Required for updates, must match the version number of the most recent update | [optional] |
+| **Version** | **long?** | Required for updates, must match the version number of the most recent update | [optional] |
+| **GetAdditionalProperties** | **Dictionary&lt;string, Object&gt;** |  | [optional] |
 
 
 
-_PureCloudPlatform.Client.V2 227.0.0_
+_PureCloudPlatform.Client.V2 257.0.0_

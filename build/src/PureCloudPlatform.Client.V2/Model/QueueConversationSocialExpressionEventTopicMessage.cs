@@ -48,7 +48,13 @@ namespace PureCloudPlatform.Client.V2.Model
             /// Enum Disconnected for "disconnected"
             /// </summary>
             [EnumMember(Value = "disconnected")]
-            Disconnected
+            Disconnected,
+            
+            /// <summary>
+            /// Enum Parked for "parked"
+            /// </summary>
+            [EnumMember(Value = "parked")]
+            Parked
         }
         /// <summary>
         /// Gets or Sets InitialState
@@ -80,7 +86,13 @@ namespace PureCloudPlatform.Client.V2.Model
             /// Enum Disconnected for "disconnected"
             /// </summary>
             [EnumMember(Value = "disconnected")]
-            Disconnected
+            Disconnected,
+            
+            /// <summary>
+            /// Enum Parked for "parked"
+            /// </summary>
+            [EnumMember(Value = "parked")]
+            Parked
         }
         /// <summary>
         /// Whether a message is inbound or outbound.
@@ -230,7 +242,19 @@ namespace PureCloudPlatform.Client.V2.Model
             /// Enum Uncallable for "uncallable"
             /// </summary>
             [EnumMember(Value = "uncallable")]
-            Uncallable
+            Uncallable,
+            
+            /// <summary>
+            /// Enum Inactivity for "inactivity"
+            /// </summary>
+            [EnumMember(Value = "inactivity")]
+            Inactivity,
+            
+            /// <summary>
+            /// Enum Sessionexpired for "session.expired"
+            /// </summary>
+            [EnumMember(Value = "session.expired")]
+            Sessionexpired
         }
         /// <summary>
         /// Indicates the type of message platform from which the message originated.
@@ -382,14 +406,17 @@ namespace PureCloudPlatform.Client.V2.Model
         /// <param name="Type">Indicates the type of message platform from which the message originated..</param>
         /// <param name="RecipientCountry">Indicates the country where the recipient is associated in ISO 3166-1 alpha-2 format..</param>
         /// <param name="RecipientType">The type of the recipient. Eg: Provisioned phoneNumber is the recipient for sms message type..</param>
-        /// <param name="JourneyContext">A subset of the Journey System's data relevant to a part of a conversation (for external linkage and internal usage/context)..</param>
+        /// <param name="JourneyContext">A subset of the Journey System&#39;s data relevant to a part of a conversation (for external linkage and internal usage/context)..</param>
         /// <param name="Wrapup">Call wrap up or disposition data..</param>
-        /// <param name="AfterCallWork">A communication's after-call work data..</param>
+        /// <param name="AfterCallWork">A communication&#39;s after-call work data..</param>
         /// <param name="AfterCallWorkRequired">Indicates if after-call is required for a communication. Only used when the ACW Setting is Agent Requested..</param>
         /// <param name="AgentAssistantId">UUID of virtual agent assistant that provide suggestions to the agent participant during the conversation..</param>
+        /// <param name="EngagementSource">Provide more visibility into what integrations customers are creating with Open Messaging. String values are defined in the Constants.java named ENGAGEMENT_SOURCE_*.</param>
         /// <param name="ByoSmsIntegrationId">ByoSmsIntegrationId.</param>
         /// <param name="QueueMediaSettings">Represents the queue setting for this media..</param>
-        public QueueConversationSocialExpressionEventTopicMessage(string Id = null, StateEnum? State = null, InitialStateEnum? InitialState = null, DirectionEnum? Direction = null, bool? Held = null, QueueConversationSocialExpressionEventTopicErrorDetails ErrorInfo = null, string Provider = null, string ScriptId = null, string PeerId = null, DisconnectTypeEnum? DisconnectType = null, DateTime? StartHoldTime = null, DateTime? ConnectedTime = null, DateTime? DisconnectedTime = null, QueueConversationSocialExpressionEventTopicAddress ToAddress = null, QueueConversationSocialExpressionEventTopicAddress FromAddress = null, List<QueueConversationSocialExpressionEventTopicMessageDetails> Messages = null, string MessagesTranscriptUri = null, TypeEnum? Type = null, string RecipientCountry = null, string RecipientType = null, QueueConversationSocialExpressionEventTopicJourneyContext JourneyContext = null, QueueConversationSocialExpressionEventTopicWrapup Wrapup = null, QueueConversationSocialExpressionEventTopicAfterCallWork AfterCallWork = null, bool? AfterCallWorkRequired = null, string AgentAssistantId = null, string ByoSmsIntegrationId = null, QueueConversationSocialExpressionEventTopicQueueMediaSettings QueueMediaSettings = null)
+        /// <param name="ResumeTime">The time when a parked message should resume..</param>
+        /// <param name="ParkTime">The time when an  parked message was parked..</param>
+        public QueueConversationSocialExpressionEventTopicMessage(string Id = null, StateEnum? State = null, InitialStateEnum? InitialState = null, DirectionEnum? Direction = null, bool? Held = null, QueueConversationSocialExpressionEventTopicErrorDetails ErrorInfo = null, string Provider = null, string ScriptId = null, string PeerId = null, DisconnectTypeEnum? DisconnectType = null, DateTime? StartHoldTime = null, DateTime? ConnectedTime = null, DateTime? DisconnectedTime = null, QueueConversationSocialExpressionEventTopicAddress ToAddress = null, QueueConversationSocialExpressionEventTopicAddress FromAddress = null, List<QueueConversationSocialExpressionEventTopicMessageDetails> Messages = null, string MessagesTranscriptUri = null, TypeEnum? Type = null, string RecipientCountry = null, string RecipientType = null, QueueConversationSocialExpressionEventTopicJourneyContext JourneyContext = null, QueueConversationSocialExpressionEventTopicWrapup Wrapup = null, QueueConversationSocialExpressionEventTopicAfterCallWork AfterCallWork = null, bool? AfterCallWorkRequired = null, string AgentAssistantId = null, string EngagementSource = null, string ByoSmsIntegrationId = null, QueueConversationSocialExpressionEventTopicQueueMediaSettings QueueMediaSettings = null, DateTime? ResumeTime = null, DateTime? ParkTime = null)
         {
             this.Id = Id;
             this.State = State;
@@ -416,8 +443,11 @@ namespace PureCloudPlatform.Client.V2.Model
             this.AfterCallWork = AfterCallWork;
             this.AfterCallWorkRequired = AfterCallWorkRequired;
             this.AgentAssistantId = AgentAssistantId;
+            this.EngagementSource = EngagementSource;
             this.ByoSmsIntegrationId = ByoSmsIntegrationId;
             this.QueueMediaSettings = QueueMediaSettings;
+            this.ResumeTime = ResumeTime;
+            this.ParkTime = ParkTime;
             
         }
         
@@ -569,9 +599,9 @@ namespace PureCloudPlatform.Client.V2.Model
 
 
         /// <summary>
-        /// A subset of the Journey System's data relevant to a part of a conversation (for external linkage and internal usage/context).
+        /// A subset of the Journey System&#39;s data relevant to a part of a conversation (for external linkage and internal usage/context).
         /// </summary>
-        /// <value>A subset of the Journey System's data relevant to a part of a conversation (for external linkage and internal usage/context).</value>
+        /// <value>A subset of the Journey System&#39;s data relevant to a part of a conversation (for external linkage and internal usage/context).</value>
         [DataMember(Name="journeyContext", EmitDefaultValue=false)]
         public QueueConversationSocialExpressionEventTopicJourneyContext JourneyContext { get; set; }
 
@@ -587,9 +617,9 @@ namespace PureCloudPlatform.Client.V2.Model
 
 
         /// <summary>
-        /// A communication's after-call work data.
+        /// A communication&#39;s after-call work data.
         /// </summary>
-        /// <value>A communication's after-call work data.</value>
+        /// <value>A communication&#39;s after-call work data.</value>
         [DataMember(Name="afterCallWork", EmitDefaultValue=false)]
         public QueueConversationSocialExpressionEventTopicAfterCallWork AfterCallWork { get; set; }
 
@@ -614,6 +644,15 @@ namespace PureCloudPlatform.Client.V2.Model
 
 
         /// <summary>
+        /// Provide more visibility into what integrations customers are creating with Open Messaging. String values are defined in the Constants.java named ENGAGEMENT_SOURCE_*
+        /// </summary>
+        /// <value>Provide more visibility into what integrations customers are creating with Open Messaging. String values are defined in the Constants.java named ENGAGEMENT_SOURCE_*</value>
+        [DataMember(Name="engagementSource", EmitDefaultValue=false)]
+        public string EngagementSource { get; set; }
+
+
+
+        /// <summary>
         /// Gets or Sets ByoSmsIntegrationId
         /// </summary>
         [DataMember(Name="byoSmsIntegrationId", EmitDefaultValue=false)]
@@ -627,6 +666,24 @@ namespace PureCloudPlatform.Client.V2.Model
         /// <value>Represents the queue setting for this media.</value>
         [DataMember(Name="queueMediaSettings", EmitDefaultValue=false)]
         public QueueConversationSocialExpressionEventTopicQueueMediaSettings QueueMediaSettings { get; set; }
+
+
+
+        /// <summary>
+        /// The time when a parked message should resume.
+        /// </summary>
+        /// <value>The time when a parked message should resume.</value>
+        [DataMember(Name="resumeTime", EmitDefaultValue=false)]
+        public DateTime? ResumeTime { get; set; }
+
+
+
+        /// <summary>
+        /// The time when an  parked message was parked.
+        /// </summary>
+        /// <value>The time when an  parked message was parked.</value>
+        [DataMember(Name="parkTime", EmitDefaultValue=false)]
+        public DateTime? ParkTime { get; set; }
 
 
         /// <summary>
@@ -663,8 +720,11 @@ namespace PureCloudPlatform.Client.V2.Model
             sb.Append("  AfterCallWork: ").Append(AfterCallWork).Append("\n");
             sb.Append("  AfterCallWorkRequired: ").Append(AfterCallWorkRequired).Append("\n");
             sb.Append("  AgentAssistantId: ").Append(AgentAssistantId).Append("\n");
+            sb.Append("  EngagementSource: ").Append(EngagementSource).Append("\n");
             sb.Append("  ByoSmsIntegrationId: ").Append(ByoSmsIntegrationId).Append("\n");
             sb.Append("  QueueMediaSettings: ").Append(QueueMediaSettings).Append("\n");
+            sb.Append("  ResumeTime: ").Append(ResumeTime).Append("\n");
+            sb.Append("  ParkTime: ").Append(ParkTime).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -831,6 +891,11 @@ namespace PureCloudPlatform.Client.V2.Model
                     this.AgentAssistantId.Equals(other.AgentAssistantId)
                 ) &&
                 (
+                    this.EngagementSource == other.EngagementSource ||
+                    this.EngagementSource != null &&
+                    this.EngagementSource.Equals(other.EngagementSource)
+                ) &&
+                (
                     this.ByoSmsIntegrationId == other.ByoSmsIntegrationId ||
                     this.ByoSmsIntegrationId != null &&
                     this.ByoSmsIntegrationId.Equals(other.ByoSmsIntegrationId)
@@ -839,6 +904,16 @@ namespace PureCloudPlatform.Client.V2.Model
                     this.QueueMediaSettings == other.QueueMediaSettings ||
                     this.QueueMediaSettings != null &&
                     this.QueueMediaSettings.Equals(other.QueueMediaSettings)
+                ) &&
+                (
+                    this.ResumeTime == other.ResumeTime ||
+                    this.ResumeTime != null &&
+                    this.ResumeTime.Equals(other.ResumeTime)
+                ) &&
+                (
+                    this.ParkTime == other.ParkTime ||
+                    this.ParkTime != null &&
+                    this.ParkTime.Equals(other.ParkTime)
                 );
         }
 
@@ -928,11 +1003,20 @@ namespace PureCloudPlatform.Client.V2.Model
                 if (this.AgentAssistantId != null)
                     hash = hash * 59 + this.AgentAssistantId.GetHashCode();
 
+                if (this.EngagementSource != null)
+                    hash = hash * 59 + this.EngagementSource.GetHashCode();
+
                 if (this.ByoSmsIntegrationId != null)
                     hash = hash * 59 + this.ByoSmsIntegrationId.GetHashCode();
 
                 if (this.QueueMediaSettings != null)
                     hash = hash * 59 + this.QueueMediaSettings.GetHashCode();
+
+                if (this.ResumeTime != null)
+                    hash = hash * 59 + this.ResumeTime.GetHashCode();
+
+                if (this.ParkTime != null)
+                    hash = hash * 59 + this.ParkTime.GetHashCode();
 
                 return hash;
             }

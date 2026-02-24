@@ -22,13 +22,15 @@ namespace PureCloudPlatform.Client.V2.Model
         /// Initializes a new instance of the <see cref="DialerCampaignConfigChangePhoneColumn" /> class.
         /// </summary>
         /// <param name="ColumnName">The name of the phone column.</param>
-        /// <param name="Type">The type of the phone column, for example, 'cell' or 'home'.</param>
+        /// <param name="Type">The type of the phone column, for example, &#39;cell&#39; or &#39;home&#39;.</param>
         /// <param name="AdditionalProperties">AdditionalProperties.</param>
-        public DialerCampaignConfigChangePhoneColumn(string ColumnName = null, string Type = null, Dictionary<string, Object> AdditionalProperties = null)
+        /// <param name="GetAdditionalProperties">GetAdditionalProperties.</param>
+        public DialerCampaignConfigChangePhoneColumn(string ColumnName = null, string Type = null, Dictionary<string, Object> AdditionalProperties = null, Dictionary<string, Object> GetAdditionalProperties = null)
         {
             this.ColumnName = ColumnName;
             this.Type = Type;
             this.AdditionalProperties = AdditionalProperties;
+            this.GetAdditionalProperties = GetAdditionalProperties;
             
         }
         
@@ -44,9 +46,9 @@ namespace PureCloudPlatform.Client.V2.Model
 
 
         /// <summary>
-        /// The type of the phone column, for example, 'cell' or 'home'
+        /// The type of the phone column, for example, &#39;cell&#39; or &#39;home&#39;
         /// </summary>
-        /// <value>The type of the phone column, for example, 'cell' or 'home'</value>
+        /// <value>The type of the phone column, for example, &#39;cell&#39; or &#39;home&#39;</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 
@@ -57,6 +59,14 @@ namespace PureCloudPlatform.Client.V2.Model
         /// </summary>
         [DataMember(Name="additionalProperties", EmitDefaultValue=false)]
         public Dictionary<string, Object> AdditionalProperties { get; set; }
+
+
+
+        /// <summary>
+        /// Gets or Sets GetAdditionalProperties
+        /// </summary>
+        [DataMember(Name="getAdditionalProperties", EmitDefaultValue=false)]
+        public Dictionary<string, Object> GetAdditionalProperties { get; set; }
 
 
         /// <summary>
@@ -71,6 +81,7 @@ namespace PureCloudPlatform.Client.V2.Model
             sb.Append("  ColumnName: ").Append(ColumnName).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
+            sb.Append("  GetAdditionalProperties: ").Append(GetAdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -125,6 +136,11 @@ namespace PureCloudPlatform.Client.V2.Model
                     this.AdditionalProperties == other.AdditionalProperties ||
                     this.AdditionalProperties != null &&
                     this.AdditionalProperties.SequenceEqual(other.AdditionalProperties)
+                ) &&
+                (
+                    this.GetAdditionalProperties == other.GetAdditionalProperties ||
+                    this.GetAdditionalProperties != null &&
+                    this.GetAdditionalProperties.SequenceEqual(other.GetAdditionalProperties)
                 );
         }
 
@@ -147,6 +163,9 @@ namespace PureCloudPlatform.Client.V2.Model
 
                 if (this.AdditionalProperties != null)
                     hash = hash * 59 + this.AdditionalProperties.GetHashCode();
+
+                if (this.GetAdditionalProperties != null)
+                    hash = hash * 59 + this.GetAdditionalProperties.GetHashCode();
 
                 return hash;
             }

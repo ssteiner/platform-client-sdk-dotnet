@@ -37,7 +37,25 @@ namespace PureCloudPlatform.Client.V2.Model
             /// Enum Twitter for "TWITTER"
             /// </summary>
             [EnumMember(Value = "TWITTER")]
-            Twitter
+            Twitter,
+            
+            /// <summary>
+            /// Enum Instagram for "INSTAGRAM"
+            /// </summary>
+            [EnumMember(Value = "INSTAGRAM")]
+            Instagram,
+            
+            /// <summary>
+            /// Enum Facebook for "FACEBOOK"
+            /// </summary>
+            [EnumMember(Value = "FACEBOOK")]
+            Facebook,
+            
+            /// <summary>
+            /// Enum AppleMessages for "APPLE_MESSAGES"
+            /// </summary>
+            [EnumMember(Value = "APPLE_MESSAGES")]
+            AppleMessages
         }
         /// <summary>
         /// Social Handle Type

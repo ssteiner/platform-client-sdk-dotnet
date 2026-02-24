@@ -307,7 +307,7 @@ namespace PureCloudPlatform.Client.V2.Model
         /// <param name="PublishedBy">PublishedBy.</param>
         /// <param name="CurrentOperation">CurrentOperation.</param>
         /// <param name="WorktypeId">WorktypeId.</param>
-        /// <param name="VirtualAgentEnabled">VirtualAgentEnabled.</param>
+        /// <param name="VirtualAgentEnabled">Indicates whether virtual agent is enabled for this flow..</param>
         public Flow(string Id = null, string Name = null, WritableDivision Division = null, string Description = null, TypeEnum? Type = null, User LockedUser = null, DomainEntityRef LockedClient = null, bool? Active = null, bool? System = null, bool? Deleted = null, FlowVersion PublishedVersion = null, FlowVersion SavedVersion = null, Object InputSchema = null, Object OutputSchema = null, FlowVersion CheckedInVersion = null, FlowVersion DebugVersion = null, User PublishedBy = null, Operation CurrentOperation = null, string WorktypeId = null, bool? VirtualAgentEnabled = null)
         {
             this.Id = Id;
@@ -516,8 +516,9 @@ namespace PureCloudPlatform.Client.V2.Model
 
 
         /// <summary>
-        /// Gets or Sets VirtualAgentEnabled
+        /// Indicates whether virtual agent is enabled for this flow.
         /// </summary>
+        /// <value>Indicates whether virtual agent is enabled for this flow.</value>
         [DataMember(Name="virtualAgentEnabled", EmitDefaultValue=false)]
         public bool? VirtualAgentEnabled { get; set; }
 

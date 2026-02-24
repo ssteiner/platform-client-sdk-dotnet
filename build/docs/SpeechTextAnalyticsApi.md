@@ -9,6 +9,7 @@ All URIs are relative to *https://api.mypurecloud.com*
 | [**DeleteSpeechandtextanalyticsCategory**](#DeleteSpeechandtextanalyticsCategory) | **Delete** /api/v2/speechandtextanalytics/categories/{categoryId} | Delete a Speech &amp; Text Analytics category by ID |
 | [**DeleteSpeechandtextanalyticsDictionaryfeedbackDictionaryFeedbackId**](#DeleteSpeechandtextanalyticsDictionaryfeedbackDictionaryFeedbackId) | **Delete** /api/v2/speechandtextanalytics/dictionaryfeedback/{dictionaryFeedbackId} | Delete a Speech &amp; Text Analytics DictionaryFeedback by Id |
 | [**DeleteSpeechandtextanalyticsProgram**](#DeleteSpeechandtextanalyticsProgram) | **Delete** /api/v2/speechandtextanalytics/programs/{programId} | Delete a Speech &amp; Text Analytics program by id |
+| [**DeleteSpeechandtextanalyticsReprocessingJob**](#DeleteSpeechandtextanalyticsReprocessingJob) | **Delete** /api/v2/speechandtextanalytics/reprocessing/jobs/{jobId} | Delete a Speech &amp; Text Analytics Reprocessing job by Id |
 | [**DeleteSpeechandtextanalyticsSentimentfeedback**](#DeleteSpeechandtextanalyticsSentimentfeedback) | **Delete** /api/v2/speechandtextanalytics/sentimentfeedback | Delete All Speech &amp; Text Analytics SentimentFeedback |
 | [**DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackId**](#DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackId) | **Delete** /api/v2/speechandtextanalytics/sentimentfeedback/{sentimentFeedbackId} | Delete a Speech &amp; Text Analytics SentimentFeedback by Id |
 | [**DeleteSpeechandtextanalyticsTopic**](#DeleteSpeechandtextanalyticsTopic) | **Delete** /api/v2/speechandtextanalytics/topics/{topicId} | Delete a Speech &amp; Text Analytics topic by id |
@@ -18,6 +19,7 @@ All URIs are relative to *https://api.mypurecloud.com*
 | [**GetSpeechandtextanalyticsConversationCategories**](#GetSpeechandtextanalyticsConversationCategories) | **Get** /api/v2/speechandtextanalytics/conversations/{conversationId}/categories | Get the list of detected Speech and Text Analytics categories of conversation |
 | [**GetSpeechandtextanalyticsConversationCommunicationTranscripturl**](#GetSpeechandtextanalyticsConversationCommunicationTranscripturl) | **Get** /api/v2/speechandtextanalytics/conversations/{conversationId}/communications/{communicationId}/transcripturl | Get the pre-signed S3 URL for the transcript of a specific communication of a conversation |
 | [**GetSpeechandtextanalyticsConversationCommunicationTranscripturls**](#GetSpeechandtextanalyticsConversationCommunicationTranscripturls) | **Get** /api/v2/speechandtextanalytics/conversations/{conversationId}/communications/{communicationId}/transcripturls | Get the list of pre-signed S3 URL for the transcripts of a specific communication of a conversation |
+| [**GetSpeechandtextanalyticsConversationSentiments**](#GetSpeechandtextanalyticsConversationSentiments) | **Get** /api/v2/speechandtextanalytics/conversations/{conversationId}/sentiments | Get sentiment data |
 | [**GetSpeechandtextanalyticsConversationSummaries**](#GetSpeechandtextanalyticsConversationSummaries) | **Get** /api/v2/speechandtextanalytics/conversations/{conversationId}/summaries | Get conversation summaries by conversation id. |
 | [**GetSpeechandtextanalyticsDictionaryfeedback**](#GetSpeechandtextanalyticsDictionaryfeedback) | **Get** /api/v2/speechandtextanalytics/dictionaryfeedback | Get the list of Speech &amp; Text Analytics dictionary feedbacks |
 | [**GetSpeechandtextanalyticsDictionaryfeedbackDictionaryFeedbackId**](#GetSpeechandtextanalyticsDictionaryfeedbackDictionaryFeedbackId) | **Get** /api/v2/speechandtextanalytics/dictionaryfeedback/{dictionaryFeedbackId} | Get a Speech &amp; Text Analytics dictionary feedback by id |
@@ -30,8 +32,12 @@ All URIs are relative to *https://api.mypurecloud.com*
 | [**GetSpeechandtextanalyticsProgramsMappings**](#GetSpeechandtextanalyticsProgramsMappings) | **Get** /api/v2/speechandtextanalytics/programs/mappings | Get the list of Speech &amp; Text Analytics programs mappings to queues and flows |
 | [**GetSpeechandtextanalyticsProgramsPublishjob**](#GetSpeechandtextanalyticsProgramsPublishjob) | **Get** /api/v2/speechandtextanalytics/programs/publishjobs/{jobId} | Get a Speech &amp; Text Analytics publish programs job by id |
 | [**GetSpeechandtextanalyticsProgramsSettingsInsights**](#GetSpeechandtextanalyticsProgramsSettingsInsights) | **Get** /api/v2/speechandtextanalytics/programs/settings/insights | Get the list of program AI Insights settings for the organization |
+| [**GetSpeechandtextanalyticsProgramsTopiclinksJob**](#GetSpeechandtextanalyticsProgramsTopiclinksJob) | **Get** /api/v2/speechandtextanalytics/programs/topiclinks/jobs/{jobId} | Get a Speech &amp; Text Analytics program-topic links job by id |
 | [**GetSpeechandtextanalyticsProgramsTranscriptionenginesDialects**](#GetSpeechandtextanalyticsProgramsTranscriptionenginesDialects) | **Get** /api/v2/speechandtextanalytics/programs/transcriptionengines/dialects | Get supported dialects for each transcription engine |
 | [**GetSpeechandtextanalyticsProgramsUnpublished**](#GetSpeechandtextanalyticsProgramsUnpublished) | **Get** /api/v2/speechandtextanalytics/programs/unpublished | Get the list of Speech &amp; Text Analytics unpublished programs |
+| [**GetSpeechandtextanalyticsReprocessingJob**](#GetSpeechandtextanalyticsReprocessingJob) | **Get** /api/v2/speechandtextanalytics/reprocessing/jobs/{jobId} | Get a Speech &amp; Text Analytics reprocess job by id |
+| [**GetSpeechandtextanalyticsReprocessingJobInteractions**](#GetSpeechandtextanalyticsReprocessingJobInteractions) | **Get** /api/v2/speechandtextanalytics/reprocessing/jobs/{jobId}/interactions | Get a Speech &amp; Text Analytics Reprocessing interactions statuses by job id |
+| [**GetSpeechandtextanalyticsReprocessingJobs**](#GetSpeechandtextanalyticsReprocessingJobs) | **Get** /api/v2/speechandtextanalytics/reprocessing/jobs | Get the list of Speech &amp; Text Analytics reprocess jobs |
 | [**GetSpeechandtextanalyticsSentimentDialects**](#GetSpeechandtextanalyticsSentimentDialects) | **Get** /api/v2/speechandtextanalytics/sentiment/dialects | Get the list of Speech &amp; Text Analytics sentiment supported dialects |
 | [**GetSpeechandtextanalyticsSentimentfeedback**](#GetSpeechandtextanalyticsSentimentfeedback) | **Get** /api/v2/speechandtextanalytics/sentimentfeedback | Get the list of Speech &amp; Text Analytics SentimentFeedback |
 | [**GetSpeechandtextanalyticsSettings**](#GetSpeechandtextanalyticsSettings) | **Get** /api/v2/speechandtextanalytics/settings | Get Speech And Text Analytics Settings |
@@ -41,6 +47,7 @@ All URIs are relative to *https://api.mypurecloud.com*
 | [**GetSpeechandtextanalyticsTopicsGeneral**](#GetSpeechandtextanalyticsTopicsGeneral) | **Get** /api/v2/speechandtextanalytics/topics/general | Get the Speech &amp; Text Analytics general topics for a given dialect |
 | [**GetSpeechandtextanalyticsTopicsGeneralStatus**](#GetSpeechandtextanalyticsTopicsGeneralStatus) | **Get** /api/v2/speechandtextanalytics/topics/general/status | Get the list of general topics from the org and the system with their current status |
 | [**GetSpeechandtextanalyticsTopicsPublishjob**](#GetSpeechandtextanalyticsTopicsPublishjob) | **Get** /api/v2/speechandtextanalytics/topics/publishjobs/{jobId} | Get a Speech &amp; Text Analytics publish topics job by id |
+| [**GetSpeechandtextanalyticsTopicsTestphraseJob**](#GetSpeechandtextanalyticsTopicsTestphraseJob) | **Get** /api/v2/speechandtextanalytics/topics/testphrase/jobs/{jobId} | Get a Speech &amp; Text Analytics test topics phrase job by id |
 | [**GetSpeechandtextanalyticsTranslationsLanguageConversation**](#GetSpeechandtextanalyticsTranslationsLanguageConversation) | **Get** /api/v2/speechandtextanalytics/translations/languages/{languageId}/conversations/{conversationId} | Translate a single interaction recording (or an email conversation) |
 | [**GetSpeechandtextanalyticsTranslationsLanguages**](#GetSpeechandtextanalyticsTranslationsLanguages) | **Get** /api/v2/speechandtextanalytics/translations/languages | Get supported translation languages |
 | [**PatchSpeechandtextanalyticsSettings**](#PatchSpeechandtextanalyticsSettings) | **Patch** /api/v2/speechandtextanalytics/settings | Patch Speech And Text Analytics Settings |
@@ -49,9 +56,11 @@ All URIs are relative to *https://api.mypurecloud.com*
 | [**PostSpeechandtextanalyticsPrograms**](#PostSpeechandtextanalyticsPrograms) | **Post** /api/v2/speechandtextanalytics/programs | Create new Speech &amp; Text Analytics program |
 | [**PostSpeechandtextanalyticsProgramsGeneralJobs**](#PostSpeechandtextanalyticsProgramsGeneralJobs) | **Post** /api/v2/speechandtextanalytics/programs/general/jobs | Create new Speech &amp; Text Analytics general program job |
 | [**PostSpeechandtextanalyticsProgramsPublishjobs**](#PostSpeechandtextanalyticsProgramsPublishjobs) | **Post** /api/v2/speechandtextanalytics/programs/publishjobs | Create new Speech &amp; Text Analytics publish programs job |
+| [**PostSpeechandtextanalyticsReprocessingJobs**](#PostSpeechandtextanalyticsReprocessingJobs) | **Post** /api/v2/speechandtextanalytics/reprocessing/jobs | Create a Speech &amp; Text Analytics reprocess job. |
 | [**PostSpeechandtextanalyticsSentimentfeedback**](#PostSpeechandtextanalyticsSentimentfeedback) | **Post** /api/v2/speechandtextanalytics/sentimentfeedback | Create a Speech &amp; Text Analytics SentimentFeedback |
 | [**PostSpeechandtextanalyticsTopics**](#PostSpeechandtextanalyticsTopics) | **Post** /api/v2/speechandtextanalytics/topics | Create new Speech &amp; Text Analytics topic |
 | [**PostSpeechandtextanalyticsTopicsPublishjobs**](#PostSpeechandtextanalyticsTopicsPublishjobs) | **Post** /api/v2/speechandtextanalytics/topics/publishjobs | Create new Speech &amp; Text Analytics publish topics job |
+| [**PostSpeechandtextanalyticsTopicsTestphraseJobs**](#PostSpeechandtextanalyticsTopicsTestphraseJobs) | **Post** /api/v2/speechandtextanalytics/topics/testphrase/jobs | Create new Speech &amp; Text Analytics publish topics job |
 | [**PostSpeechandtextanalyticsTranscriptsSearch**](#PostSpeechandtextanalyticsTranscriptsSearch) | **Post** /api/v2/speechandtextanalytics/transcripts/search | Search resources. |
 | [**PutSpeechandtextanalyticsCategory**](#PutSpeechandtextanalyticsCategory) | **Put** /api/v2/speechandtextanalytics/categories/{categoryId} | Update a Speech &amp; Text Analytics category by ID |
 | [**PutSpeechandtextanalyticsDictionaryfeedbackDictionaryFeedbackId**](#PutSpeechandtextanalyticsDictionaryfeedbackDictionaryFeedbackId) | **Put** /api/v2/speechandtextanalytics/dictionaryfeedback/{dictionaryFeedbackId} | Update existing Speech &amp; Text Analytics dictionary feedback by id |
@@ -248,6 +257,69 @@ namespace Example
 ### Return type
 
 [**DeleteProgramResponse**](DeleteProgramResponse)
+
+
+## DeleteSpeechandtextanalyticsReprocessingJob
+
+> void DeleteSpeechandtextanalyticsReprocessingJob (string jobId)
+
+
+Delete a Speech & Text Analytics Reprocessing job by Id
+
+DeleteSpeechandtextanalyticsReprocessingJob is a preview method and is subject to both breaking and non-breaking changes at any time without notice
+
+Requires ALL permissions: 
+
+* speechAndTextAnalytics:reprocessInteractions:delete
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class DeleteSpeechandtextanalyticsReprocessingJobExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new SpeechTextAnalyticsApi();
+            var jobId = jobId_example;  // string | The Id of the Reprocessing job
+
+            try
+            { 
+                // Delete a Speech & Text Analytics Reprocessing job by Id
+                apiInstance.DeleteSpeechandtextanalyticsReprocessingJob(jobId);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling SpeechTextAnalyticsApi.DeleteSpeechandtextanalyticsReprocessingJob: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **jobId** | **string**| The Id of the Reprocessing job |  |
+
+### Return type
+
+void (empty response body)
 
 
 ## DeleteSpeechandtextanalyticsSentimentfeedback
@@ -821,6 +893,71 @@ namespace Example
 [**TranscriptUrls**](TranscriptUrls)
 
 
+## GetSpeechandtextanalyticsConversationSentiments
+
+> [**SentimentData**](SentimentData) GetSpeechandtextanalyticsConversationSentiments (string conversationId)
+
+
+Get sentiment data
+
+Requires ALL permissions: 
+
+* speechAndTextAnalytics:sentimentData:view
+* speechAndTextAnalytics:data:view
+* recording:recording:view
+* recording:recording:viewSensitiveData
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class GetSpeechandtextanalyticsConversationSentimentsExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new SpeechTextAnalyticsApi();
+            var conversationId = conversationId_example;  // string | The conversation ID of the sentiment data
+
+            try
+            { 
+                // Get sentiment data
+                SentimentData result = apiInstance.GetSpeechandtextanalyticsConversationSentiments(conversationId);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling SpeechTextAnalyticsApi.GetSpeechandtextanalyticsConversationSentiments: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **conversationId** | **string**| The conversation ID of the sentiment data |  |
+
+### Return type
+
+[**SentimentData**](SentimentData)
+
+
 ## GetSpeechandtextanalyticsConversationSummaries
 
 > [**SpeechTextAnalyticsConversationSummaryListing**](SpeechTextAnalyticsConversationSummaryListing) GetSpeechandtextanalyticsConversationSummaries (string conversationId)
@@ -887,7 +1024,7 @@ namespace Example
 
 ## GetSpeechandtextanalyticsDictionaryfeedback
 
-> [**DictionaryFeedbackEntityListing**](DictionaryFeedbackEntityListing) GetSpeechandtextanalyticsDictionaryfeedback (string dialect = null, string nextPage = null, int? pageSize = null)
+> [**DictionaryFeedbackEntityListing**](DictionaryFeedbackEntityListing) GetSpeechandtextanalyticsDictionaryfeedback (string dialect = null, string transcriptionEngine = null, string nextPage = null, int? pageSize = null)
 
 
 Get the list of Speech & Text Analytics dictionary feedbacks
@@ -919,13 +1056,14 @@ namespace Example
 
             var apiInstance = new SpeechTextAnalyticsApi();
             var dialect = en-US;  // string | The key for filter the listing by dialect, dialect format is {language}-{country} where language follows ISO 639-1 standard and country follows ISO 3166-1 alpha 2 standard (optional) 
+            var transcriptionEngine = transcriptionEngine_example;  // string | Filter by transcription engine, If not provided, all transcription engines will be considered (optional) 
             var nextPage = nextPage_example;  // string | The key for listing the next page (optional) 
             var pageSize = 56;  // int? | The page size for the listing (optional)  (default to 500)
 
             try
             { 
                 // Get the list of Speech & Text Analytics dictionary feedbacks
-                DictionaryFeedbackEntityListing result = apiInstance.GetSpeechandtextanalyticsDictionaryfeedback(dialect, nextPage, pageSize);
+                DictionaryFeedbackEntityListing result = apiInstance.GetSpeechandtextanalyticsDictionaryfeedback(dialect, transcriptionEngine, nextPage, pageSize);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -943,6 +1081,7 @@ namespace Example
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **dialect** | **string**| The key for filter the listing by dialect, dialect format is {language}-{country} where language follows ISO 639-1 standard and country follows ISO 3166-1 alpha 2 standard | [optional]  |
+| **transcriptionEngine** | **string**| Filter by transcription engine, If not provided, all transcription engines will be considered | [optional] <br />**Values**: Genesys, GenesysExtended |
 | **nextPage** | **string**| The key for listing the next page | [optional]  |
 | **pageSize** | **int?**| The page size for the listing | [optional] [default to 500] |
 
@@ -1077,7 +1216,7 @@ namespace Example
 
 ## GetSpeechandtextanalyticsProgramMappings
 
-> [**ProgramMappings**](ProgramMappings) GetSpeechandtextanalyticsProgramMappings (string programId)
+> [**TopicsDefinitionsProgramMappings**](TopicsDefinitionsProgramMappings) GetSpeechandtextanalyticsProgramMappings (string programId)
 
 
 Get Speech & Text Analytics program mappings to queues and flows by id
@@ -1113,7 +1252,7 @@ namespace Example
             try
             { 
                 // Get Speech & Text Analytics program mappings to queues and flows by id
-                ProgramMappings result = apiInstance.GetSpeechandtextanalyticsProgramMappings(programId);
+                TopicsDefinitionsProgramMappings result = apiInstance.GetSpeechandtextanalyticsProgramMappings(programId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -1134,7 +1273,7 @@ namespace Example
 
 ### Return type
 
-[**ProgramMappings**](ProgramMappings)
+[**TopicsDefinitionsProgramMappings**](TopicsDefinitionsProgramMappings)
 
 
 ## GetSpeechandtextanalyticsProgramSettingsInsights
@@ -1264,7 +1403,7 @@ namespace Example
 
 ## GetSpeechandtextanalyticsPrograms
 
-> [**ProgramsEntityListing**](ProgramsEntityListing) GetSpeechandtextanalyticsPrograms (string nextPage = null, int? pageSize = null, string state = null)
+> [**ProgramsEntityListing**](ProgramsEntityListing) GetSpeechandtextanalyticsPrograms (string nextPage = null, int? pageSize = null, string state = null, string name = null, string sortBy = null, string sortOrder = null)
 
 
 Get the list of Speech & Text Analytics programs
@@ -1298,11 +1437,14 @@ namespace Example
             var nextPage = nextPage_example;  // string | The key for listing the next page (optional) 
             var pageSize = 56;  // int? | The page size for the listing (optional)  (default to 20)
             var state = state_example;  // string | Program state. Defaults to Latest (optional) 
+            var name = name_example;  // string | Case insensitive partial name to filter by (optional) 
+            var sortBy = sortBy_example;  // string | Sort results by. Defaults to name (optional) 
+            var sortOrder = sortOrder_example;  // string | Sort order. Defaults to asc (optional) 
 
             try
             { 
                 // Get the list of Speech & Text Analytics programs
-                ProgramsEntityListing result = apiInstance.GetSpeechandtextanalyticsPrograms(nextPage, pageSize, state);
+                ProgramsEntityListing result = apiInstance.GetSpeechandtextanalyticsPrograms(nextPage, pageSize, state, name, sortBy, sortOrder);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -1322,6 +1464,9 @@ namespace Example
 | **nextPage** | **string**| The key for listing the next page | [optional]  |
 | **pageSize** | **int?**| The page size for the listing | [optional] [default to 20] |
 | **state** | **string**| Program state. Defaults to Latest | [optional] <br />**Values**: Latest, Published |
+| **name** | **string**| Case insensitive partial name to filter by | [optional]  |
+| **sortBy** | **string**| Sort results by. Defaults to name | [optional] <br />**Values**: name |
+| **sortOrder** | **string**| Sort order. Defaults to asc | [optional] <br />**Values**: asc, desc |
 
 ### Return type
 
@@ -1395,7 +1540,7 @@ namespace Example
 
 ## GetSpeechandtextanalyticsProgramsMappings
 
-> [**ProgramsMappingsEntityListing**](ProgramsMappingsEntityListing) GetSpeechandtextanalyticsProgramsMappings (string nextPage = null, int? pageSize = null)
+> [**TopicsDefinitionsProgramsMappingsEntityListing**](TopicsDefinitionsProgramsMappingsEntityListing) GetSpeechandtextanalyticsProgramsMappings (string nextPage = null, int? pageSize = null)
 
 
 Get the list of Speech & Text Analytics programs mappings to queues and flows
@@ -1432,7 +1577,7 @@ namespace Example
             try
             { 
                 // Get the list of Speech & Text Analytics programs mappings to queues and flows
-                ProgramsMappingsEntityListing result = apiInstance.GetSpeechandtextanalyticsProgramsMappings(nextPage, pageSize);
+                TopicsDefinitionsProgramsMappingsEntityListing result = apiInstance.GetSpeechandtextanalyticsProgramsMappings(nextPage, pageSize);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -1454,7 +1599,7 @@ namespace Example
 
 ### Return type
 
-[**ProgramsMappingsEntityListing**](ProgramsMappingsEntityListing)
+[**TopicsDefinitionsProgramsMappingsEntityListing**](TopicsDefinitionsProgramsMappingsEntityListing)
 
 
 ## GetSpeechandtextanalyticsProgramsPublishjob
@@ -1586,6 +1731,68 @@ namespace Example
 [**ProgramInsightsSettingsEntityListing**](ProgramInsightsSettingsEntityListing)
 
 
+## GetSpeechandtextanalyticsProgramsTopiclinksJob
+
+> [**ProgramTopicLinksJob**](ProgramTopicLinksJob) GetSpeechandtextanalyticsProgramsTopiclinksJob (string jobId)
+
+
+Get a Speech & Text Analytics program-topic links job by id
+
+Requires ALL permissions: 
+
+* speechAndTextAnalytics:program:view
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class GetSpeechandtextanalyticsProgramsTopiclinksJobExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new SpeechTextAnalyticsApi();
+            var jobId = jobId_example;  // string | The id of the program-topic links job
+
+            try
+            { 
+                // Get a Speech & Text Analytics program-topic links job by id
+                ProgramTopicLinksJob result = apiInstance.GetSpeechandtextanalyticsProgramsTopiclinksJob(jobId);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling SpeechTextAnalyticsApi.GetSpeechandtextanalyticsProgramsTopiclinksJob: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **jobId** | **string**| The id of the program-topic links job |  |
+
+### Return type
+
+[**ProgramTopicLinksJob**](ProgramTopicLinksJob)
+
+
 ## GetSpeechandtextanalyticsProgramsTranscriptionenginesDialects
 
 > [**SupportedDialectsEntityListing**](SupportedDialectsEntityListing) GetSpeechandtextanalyticsProgramsTranscriptionenginesDialects ()
@@ -1704,6 +1911,204 @@ namespace Example
 ### Return type
 
 [**UnpublishedProgramsEntityListing**](UnpublishedProgramsEntityListing)
+
+
+## GetSpeechandtextanalyticsReprocessingJob
+
+> [**ReprocessJobResponse**](ReprocessJobResponse) GetSpeechandtextanalyticsReprocessingJob (string jobId)
+
+
+Get a Speech & Text Analytics reprocess job by id
+
+GetSpeechandtextanalyticsReprocessingJob is a preview method and is subject to both breaking and non-breaking changes at any time without notice
+
+Requires ALL permissions: 
+
+* speechAndTextAnalytics:reprocessInteractions:view
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class GetSpeechandtextanalyticsReprocessingJobExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new SpeechTextAnalyticsApi();
+            var jobId = jobId_example;  // string | The Id of the Reprocessing job
+
+            try
+            { 
+                // Get a Speech & Text Analytics reprocess job by id
+                ReprocessJobResponse result = apiInstance.GetSpeechandtextanalyticsReprocessingJob(jobId);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling SpeechTextAnalyticsApi.GetSpeechandtextanalyticsReprocessingJob: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **jobId** | **string**| The Id of the Reprocessing job |  |
+
+### Return type
+
+[**ReprocessJobResponse**](ReprocessJobResponse)
+
+
+## GetSpeechandtextanalyticsReprocessingJobInteractions
+
+> [**ReprocessInteractionsByJobIdResponse**](ReprocessInteractionsByJobIdResponse) GetSpeechandtextanalyticsReprocessingJobInteractions (string jobId)
+
+
+Get a Speech & Text Analytics Reprocessing interactions statuses by job id
+
+GetSpeechandtextanalyticsReprocessingJobInteractions is a preview method and is subject to both breaking and non-breaking changes at any time without notice
+
+Requires ALL permissions: 
+
+* speechAndTextAnalytics:reprocessInteractions:view
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class GetSpeechandtextanalyticsReprocessingJobInteractionsExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new SpeechTextAnalyticsApi();
+            var jobId = jobId_example;  // string | The Id of the Reprocessing job
+
+            try
+            { 
+                // Get a Speech & Text Analytics Reprocessing interactions statuses by job id
+                ReprocessInteractionsByJobIdResponse result = apiInstance.GetSpeechandtextanalyticsReprocessingJobInteractions(jobId);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling SpeechTextAnalyticsApi.GetSpeechandtextanalyticsReprocessingJobInteractions: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **jobId** | **string**| The Id of the Reprocessing job |  |
+
+### Return type
+
+[**ReprocessInteractionsByJobIdResponse**](ReprocessInteractionsByJobIdResponse)
+
+
+## GetSpeechandtextanalyticsReprocessingJobs
+
+> [**ReprocessJobEntityListingResponse**](ReprocessJobEntityListingResponse) GetSpeechandtextanalyticsReprocessingJobs (int? pageSize = null, int? pageNumber = null, string sortOrder = null, string name = null)
+
+
+Get the list of Speech & Text Analytics reprocess jobs
+
+GetSpeechandtextanalyticsReprocessingJobs is a preview method and is subject to both breaking and non-breaking changes at any time without notice
+
+Requires ALL permissions: 
+
+* speechAndTextAnalytics:reprocessInteractions:view
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class GetSpeechandtextanalyticsReprocessingJobsExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new SpeechTextAnalyticsApi();
+            var pageSize = 56;  // int? | The page size for the listing. The max that will be returned is 100. Default is 25. (optional) 
+            var pageNumber = 56;  // int? | The page number for the listing. Defaults to 1. (optional) 
+            var sortOrder = sortOrder_example;  // string | Results are sorted by dateCreated. Please choose the sort order. The default is descending (desc). (optional) 
+            var name = name_example;  // string | Case insensitive partial name to filter by. (optional) 
+
+            try
+            { 
+                // Get the list of Speech & Text Analytics reprocess jobs
+                ReprocessJobEntityListingResponse result = apiInstance.GetSpeechandtextanalyticsReprocessingJobs(pageSize, pageNumber, sortOrder, name);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling SpeechTextAnalyticsApi.GetSpeechandtextanalyticsReprocessingJobs: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **pageSize** | **int?**| The page size for the listing. The max that will be returned is 100. Default is 25. | [optional]  |
+| **pageNumber** | **int?**| The page number for the listing. Defaults to 1. | [optional]  |
+| **sortOrder** | **string**| Results are sorted by dateCreated. Please choose the sort order. The default is descending (desc). | [optional] <br />**Values**: asc, desc |
+| **name** | **string**| Case insensitive partial name to filter by. | [optional]  |
+
+### Return type
+
+[**ReprocessJobEntityListingResponse**](ReprocessJobEntityListingResponse)
 
 
 ## GetSpeechandtextanalyticsSentimentDialects
@@ -1945,7 +2350,7 @@ namespace Example
 
 ## GetSpeechandtextanalyticsTopics
 
-> [**TopicsEntityListing**](TopicsEntityListing) GetSpeechandtextanalyticsTopics (string nextPage = null, int? pageSize = null, string state = null, string name = null, List<string> ids = null, List<string> dialects = null, string sortBy = null, string sortOrder = null)
+> [**TopicsEntityListing**](TopicsEntityListing) GetSpeechandtextanalyticsTopics (string nextPage = null, int? pageSize = null, int? pageNumber = null, string state = null, string name = null, List<string> ids = null, List<string> dialects = null, string sortBy = null, string sortOrder = null)
 
 
 Get the list of Speech & Text Analytics topics
@@ -1978,6 +2383,7 @@ namespace Example
             var apiInstance = new SpeechTextAnalyticsApi();
             var nextPage = nextPage_example;  // string | The key for listing the next page (optional) 
             var pageSize = 56;  // int? | The page size for the listing. The max that will be returned is 500. (optional)  (default to 20)
+            var pageNumber = 56;  // int? | The page number for the listing (optional) 
             var state = state_example;  // string | Topic state. Defaults to latest (optional) 
             var name = name_example;  // string | Case insensitive partial name to filter by (optional) 
             var ids = new List<string>(); // List<string> | Comma separated Topic IDs to filter by. Cannot be used with other filters. Maximum of 50 IDs allowed. (optional) 
@@ -1988,7 +2394,7 @@ namespace Example
             try
             { 
                 // Get the list of Speech & Text Analytics topics
-                TopicsEntityListing result = apiInstance.GetSpeechandtextanalyticsTopics(nextPage, pageSize, state, name, ids, dialects, sortBy, sortOrder);
+                TopicsEntityListing result = apiInstance.GetSpeechandtextanalyticsTopics(nextPage, pageSize, pageNumber, state, name, ids, dialects, sortBy, sortOrder);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -2007,11 +2413,12 @@ namespace Example
 |------------- | ------------- | ------------- | -------------|
 | **nextPage** | **string**| The key for listing the next page | [optional]  |
 | **pageSize** | **int?**| The page size for the listing. The max that will be returned is 500. | [optional] [default to 20] |
+| **pageNumber** | **int?**| The page number for the listing | [optional]  |
 | **state** | **string**| Topic state. Defaults to latest | [optional] <br />**Values**: latest, published |
 | **name** | **string**| Case insensitive partial name to filter by | [optional]  |
 | **ids** | [**List<string>**](string)| Comma separated Topic IDs to filter by. Cannot be used with other filters. Maximum of 50 IDs allowed. | [optional]  |
 | **dialects** | [**List<string>**](string)| Comma separated dialect strings to filter by. Maximum of 15 dialects allowed. | [optional] <br />**Values**: en-US, es-US, en-AU, en-GB, en-ZA, es-ES, en-IN, fr-FR, fr-CA, it-IT, de-DE, pt-BR, pl-PL, pt-PT, nl-NL, ko-KR |
-| **sortBy** | **string**| Sort results by. Defaults to name | [optional] <br />**Values**: name |
+| **sortBy** | **string**| Sort results by. Defaults to name | [optional] <br />**Values**: name, matchingType |
 | **sortOrder** | **string**| Sort order. Defaults to asc | [optional] <br />**Values**: asc, desc |
 
 ### Return type
@@ -2130,7 +2537,7 @@ namespace Example
 
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **dialect** | **string**| The dialect of the general topics, dialect format is {language}-{country} where language follows ISO 639-1 standard and country follows ISO 3166-1 alpha 2 standard | [optional] <br />**Values**: ar-001, ar-AE, ar-BH, ar-EG, ar-IL, ar-SA, ar-TN, da-DK, de-CH, de-DE, en-AU, en-GB, en-HK, en-IE, en-IN, en-NZ, en-SG, en-US, en-ZA, es-ES, es-US, fi-FI, fr-CA, fr-FR, he-IL, hi-IN, it-IT, ja-JP, ko-KR, nb-NO, nl-NL, pl-PL, pt-BR, pt-PT, sv-SE |
+| **dialect** | **string**| The dialect of the general topics, dialect format is {language}-{country} where language follows ISO 639-1 standard and country follows ISO 3166-1 alpha 2 standard | [optional] <br />**Values**: ar-001, ar-AE, ar-BH, ar-EG, ar-IL, ar-SA, ar-TN, da-DK, de-CH, de-DE, en-AU, en-GB, en-HK, en-IE, en-IN, en-NZ, en-SG, en-US, en-ZA, es-ES, es-US, fi-FI, fr-CA, fr-FR, he-IL, hi-IN, it-IT, ja-JP, ko-KR, nb-NO, nl-NL, pl-PL, pt-BR, pt-PT, sv-SE, tr-TR, zh-CN, zh-HK, zh-TW, zu-ZA |
 
 ### Return type
 
@@ -2192,7 +2599,7 @@ namespace Example
 
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **dialect** | **string**| The dialect of the general topics, dialect format is {language}-{country} where language follows ISO 639-1 standard and country follows ISO 3166-1 alpha 2 standard | [optional] <br />**Values**: ar-001, ar-AE, ar-BH, ar-EG, ar-IL, ar-SA, ar-TN, da-DK, de-CH, de-DE, en-AU, en-GB, en-HK, en-IE, en-IN, en-NZ, en-SG, en-US, en-ZA, es-ES, es-US, fi-FI, fr-CA, fr-FR, he-IL, hi-IN, it-IT, ja-JP, ko-KR, nb-NO, nl-NL, pl-PL, pt-BR, pt-PT, sv-SE |
+| **dialect** | **string**| The dialect of the general topics, dialect format is {language}-{country} where language follows ISO 639-1 standard and country follows ISO 3166-1 alpha 2 standard | [optional] <br />**Values**: ar-001, ar-AE, ar-BH, ar-EG, ar-IL, ar-SA, ar-TN, da-DK, de-CH, de-DE, en-AU, en-GB, en-HK, en-IE, en-IN, en-NZ, en-SG, en-US, en-ZA, es-ES, es-US, fi-FI, fr-CA, fr-FR, he-IL, hi-IN, it-IT, ja-JP, ko-KR, nb-NO, nl-NL, pl-PL, pt-BR, pt-PT, sv-SE, tr-TR, zh-CN, zh-HK, zh-TW, zu-ZA |
 
 ### Return type
 
@@ -2261,14 +2668,74 @@ namespace Example
 [**TopicJob**](TopicJob)
 
 
+## GetSpeechandtextanalyticsTopicsTestphraseJob
+
+> [**TestTopicPhraseJob**](TestTopicPhraseJob) GetSpeechandtextanalyticsTopicsTestphraseJob (string jobId)
+
+
+Get a Speech & Text Analytics test topics phrase job by id
+
+Requires ALL permissions: 
+
+* speechAndTextAnalytics:topic:testPhrase
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class GetSpeechandtextanalyticsTopicsTestphraseJobExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new SpeechTextAnalyticsApi();
+            var jobId = jobId_example;  // string | the id of the test topic phrase job
+
+            try
+            { 
+                // Get a Speech & Text Analytics test topics phrase job by id
+                TestTopicPhraseJob result = apiInstance.GetSpeechandtextanalyticsTopicsTestphraseJob(jobId);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling SpeechTextAnalyticsApi.GetSpeechandtextanalyticsTopicsTestphraseJob: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **jobId** | **string**| the id of the test topic phrase job |  |
+
+### Return type
+
+[**TestTopicPhraseJob**](TestTopicPhraseJob)
+
+
 ## GetSpeechandtextanalyticsTranslationsLanguageConversation
 
 > [**CommunicationTranslationList**](CommunicationTranslationList) GetSpeechandtextanalyticsTranslationsLanguageConversation (string languageId, string conversationId, string communicationId = null, string recordingId = null)
 
 
 Translate a single interaction recording (or an email conversation)
-
-GetSpeechandtextanalyticsTranslationsLanguageConversation is a preview method and is subject to both breaking and non-breaking changes at any time without notice
 
 Requires ALL permissions: 
 
@@ -2337,8 +2804,6 @@ namespace Example
 
 
 Get supported translation languages
-
-GetSpeechandtextanalyticsTranslationsLanguages is a preview method and is subject to both breaking and non-breaking changes at any time without notice
 
 Requires ALL permissions: 
 
@@ -2765,6 +3230,70 @@ namespace Example
 [**ProgramJob**](ProgramJob)
 
 
+## PostSpeechandtextanalyticsReprocessingJobs
+
+> [**ReprocessJobResponse**](ReprocessJobResponse) PostSpeechandtextanalyticsReprocessingJobs (CreateReprocessJobRequest body)
+
+
+Create a Speech & Text Analytics reprocess job.
+
+PostSpeechandtextanalyticsReprocessingJobs is a preview method and is subject to both breaking and non-breaking changes at any time without notice
+
+Requires ALL permissions: 
+
+* speechAndTextAnalytics:reprocessInteractions:add
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class PostSpeechandtextanalyticsReprocessingJobsExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new SpeechTextAnalyticsApi();
+            var body = new CreateReprocessJobRequest(); // CreateReprocessJobRequest | The ReprocessJob to create
+
+            try
+            { 
+                // Create a Speech & Text Analytics reprocess job.
+                ReprocessJobResponse result = apiInstance.PostSpeechandtextanalyticsReprocessingJobs(body);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling SpeechTextAnalyticsApi.PostSpeechandtextanalyticsReprocessingJobs: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **body** | [**CreateReprocessJobRequest**](CreateReprocessJobRequest)| The ReprocessJob to create |  |
+
+### Return type
+
+[**ReprocessJobResponse**](ReprocessJobResponse)
+
+
 ## PostSpeechandtextanalyticsSentimentfeedback
 
 > [**SentimentFeedback**](SentimentFeedback) PostSpeechandtextanalyticsSentimentfeedback (SentimentFeedback body)
@@ -2951,6 +3480,68 @@ namespace Example
 [**TopicJob**](TopicJob)
 
 
+## PostSpeechandtextanalyticsTopicsTestphraseJobs
+
+> [**TestTopicPhraseJobs**](TestTopicPhraseJobs) PostSpeechandtextanalyticsTopicsTestphraseJobs (TestTopicPhraseJobRequest body)
+
+
+Create new Speech & Text Analytics publish topics job
+
+Requires ALL permissions: 
+
+* speechAndTextAnalytics:topic:testPhrase
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class PostSpeechandtextanalyticsTopicsTestphraseJobsExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new SpeechTextAnalyticsApi();
+            var body = new TestTopicPhraseJobRequest(); // TestTopicPhraseJobRequest | The publish test topic phrase job to create
+
+            try
+            { 
+                // Create new Speech & Text Analytics publish topics job
+                TestTopicPhraseJobs result = apiInstance.PostSpeechandtextanalyticsTopicsTestphraseJobs(body);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling SpeechTextAnalyticsApi.PostSpeechandtextanalyticsTopicsTestphraseJobs: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **body** | [**TestTopicPhraseJobRequest**](TestTopicPhraseJobRequest)| The publish test topic phrase job to create |  |
+
+### Return type
+
+[**TestTopicPhraseJobs**](TestTopicPhraseJobs)
+
+
 ## PostSpeechandtextanalyticsTranscriptsSearch
 
 > [**JsonSearchResponse**](JsonSearchResponse) PostSpeechandtextanalyticsTranscriptsSearch (TranscriptSearchRequest body)
@@ -2962,6 +3553,7 @@ Requires ANY permissions:
 
 * analytics:conversationDetail:view
 * recording:recording:view
+* recording:recordingSegment:view
 
 ### Example
 ```{"language":"csharp"}
@@ -3208,7 +3800,7 @@ namespace Example
 
 ## PutSpeechandtextanalyticsProgramMappings
 
-> [**ProgramMappings**](ProgramMappings) PutSpeechandtextanalyticsProgramMappings (string programId, ProgramMappingsRequest body)
+> [**TopicsDefinitionsProgramMappings**](TopicsDefinitionsProgramMappings) PutSpeechandtextanalyticsProgramMappings (string programId, ProgramMappingsRequest body)
 
 
 Set Speech & Text Analytics program mappings to queues and flows
@@ -3245,7 +3837,7 @@ namespace Example
             try
             { 
                 // Set Speech & Text Analytics program mappings to queues and flows
-                ProgramMappings result = apiInstance.PutSpeechandtextanalyticsProgramMappings(programId, body);
+                TopicsDefinitionsProgramMappings result = apiInstance.PutSpeechandtextanalyticsProgramMappings(programId, body);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -3267,7 +3859,7 @@ namespace Example
 
 ### Return type
 
-[**ProgramMappings**](ProgramMappings)
+[**TopicsDefinitionsProgramMappings**](TopicsDefinitionsProgramMappings)
 
 
 ## PutSpeechandtextanalyticsProgramSettingsInsights
@@ -3525,4 +4117,4 @@ namespace Example
 [**Topic**](Topic)
 
 
-_PureCloudPlatform.Client.V2 227.0.0_
+_PureCloudPlatform.Client.V2 257.0.0_

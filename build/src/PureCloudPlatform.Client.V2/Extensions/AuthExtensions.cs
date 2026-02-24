@@ -6,32 +6,46 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using PureCloudPlatform.Client.V2.Client;
 using PureCloudPlatform.Client.V2.Extensions;
-using RestSharp;
 using System.Security.Cryptography;
 
 namespace PureCloudPlatform.Client.V2.Extensions
 {
+    /// <summary>
+    /// Extensions for Authorization processing
+    /// </summary>
     public static class AuthExtensions
     {
         /// <summary>
-        /// 
+        /// Performs the Client Credentials or Code Authorization and returns Token Information
         /// </summary>
         /// <param name="apiClient"></param>
         /// <param name="clientId"></param>
         /// <param name="clientSecret"></param>
         /// <param name="redirectUri"></param>
         /// <param name="authorizationCode"></param>
-        /// <returns></returns>
+        /// <param name="isRefreshRequest"></param>
+        /// <returns>AuthTokenInfo</returns>
         public static AuthTokenInfo PostToken(this ApiClient apiClient, string clientId, string clientSecret,string redirectUri = "", string authorizationCode = "", bool isRefreshRequest = false)
         {
             var response = apiClient.PostTokenWithHttpInfo(clientId, clientSecret, redirectUri, authorizationCode, isRefreshRequest);
             return response.Data;
         }
 
+        ///<Summary>
+        /// Performs the Client Credentials or Code Authorization and returns ApiResponse with Token Information
+        ///</Summary>
+        /// <param name="apiClient"></param>
+        /// <param name="clientId"></param>
+        /// <param name="clientSecret"></param>
+        /// <param name="redirectUri"></param>
+        /// <param name="authorizationCode"></param>
+        /// <param name="isRefreshRequest"></param>
+        /// <returns>ApiResponse with AuthTokenInfo</returns>
         public static ApiResponse<AuthTokenInfo> PostTokenWithHttpInfo(this ApiClient apiClient, string clientId,
             string clientSecret, string redirectUri = "", string authorizationCode = "", bool isRefreshRequest = false)
         {
             var path_ = "/oauth/token";
+            var method = "POST";
 
             // This may be uninitialized if no API classes have been constructed yet
             if (apiClient.Configuration == null)
@@ -51,10 +65,10 @@ namespace PureCloudPlatform.Client.V2.Extensions
             }
 
             var pathParams = new Dictionary<String, String>();
-            var queryParams = new Dictionary<String, String>();
+            var queryParams = new List<Tuple<String, String>>();
             var headerParams = new Dictionary<String, String>(apiClient.Configuration.DefaultHeader);
             var formParams = new Dictionary<String, String>();
-            var fileParams = new Dictionary<String, FileParameter>();
+            var fileParams = new Dictionary<String, IFileParameter>();
             Object postBody = null;
 
             // to determine the Content-Type header
@@ -92,8 +106,8 @@ namespace PureCloudPlatform.Client.V2.Extensions
             headerParams["Authorization"] = "Basic " + basicAuth;
 
             // make the HTTP request
-            RestResponse response = (RestResponse)CallTokenApi(apiClient, path_,
-                Method.Post, queryParams, postBody, headerParams, formParams, fileParams,
+            HttpResponse response = (HttpResponse)CallTokenApi(apiClient, path_,
+                method, queryParams, postBody, headerParams, formParams, fileParams,
                 pathParams, httpContentType);
 
             int statusCode = (int) response.StatusCode;
@@ -108,44 +122,51 @@ namespace PureCloudPlatform.Client.V2.Extensions
             apiClient.Configuration.AuthTokenInfo = authTokenInfo;
 
             return new ApiResponse<AuthTokenInfo>(statusCode,
-                response.Headers
-                 .GroupBy(header =>header?.Name)
-                 .Select(header => new { Name = header?.FirstOrDefault()?.Name, Value = header.Select(x => x?.Value)?.ToList() })
-                                    .ToDictionary(header => header.Name.ToString(), header => String.Join(", ", header?.Value?.ToArray())),
+                response.Headers,
                 authTokenInfo,
                 response.Content,
                 response.StatusDescription);
         }
 
         /// <summary>
-        /// 
+        /// Performs the Saml2 Bearer Authorization and returns Token Information
         /// </summary>
         /// <param name="apiClient"></param>
         /// <param name="clientId"></param>
         /// <param name="clientSecret"></param>
         /// <param name="orgName"></param>
         /// <param name="assertion"></param>
-        /// <returns></returns>
+        /// <returns>AuthTokenInfo</returns>
         public static AuthTokenInfo PostTokenSaml2Bearer(this ApiClient apiClient, string clientId, string clientSecret,string orgName, string assertion)
         {
             var response = apiClient.PostTokenWithHttpInfoSaml2Bearer(clientId, clientSecret, orgName, assertion);
             return response.Data;
         }
 
+        /// <summary>
+        /// Performs the Saml2 Bearer Authorization and returns ApiResponse with Token Information
+        /// </summary>
+        /// <param name="apiClient"></param>
+        /// <param name="clientId"></param>
+        /// <param name="clientSecret"></param>
+        /// <param name="orgName"></param>
+        /// <param name="assertion"></param>
+        /// <returns>ApiResponse with AuthTokenInfo</returns>
         public static ApiResponse<AuthTokenInfo> PostTokenWithHttpInfoSaml2Bearer(this ApiClient apiClient, string clientId,
             string clientSecret, string orgName, string assertion)
         {
             var path_ = "/oauth/token";
+            var method = "POST";
 
             // This may be uninitialized if no API classes have been constructed yet
             if (apiClient.Configuration == null)
                 apiClient.Configuration = new Configuration(apiClient);
 
             var pathParams = new Dictionary<String, String>();
-            var queryParams = new Dictionary<String, String>();
+            var queryParams = new List<Tuple<String, String>>();
             var headerParams = new Dictionary<String, String>(apiClient.Configuration.DefaultHeader);
             var formParams = new Dictionary<String, String>();
-            var fileParams = new Dictionary<String, FileParameter>();
+            var fileParams = new Dictionary<String, IFileParameter>();
             Object postBody = null;
 
             // to determine the Content-Type header
@@ -175,8 +196,8 @@ namespace PureCloudPlatform.Client.V2.Extensions
             headerParams["Authorization"] = "Basic " + basicAuth;
 
             // make the HTTP request
-            RestResponse response = (RestResponse)CallTokenApi(apiClient, path_,
-                Method.Post, queryParams, postBody, headerParams, formParams, fileParams,
+            HttpResponse response = (HttpResponse)CallTokenApi(apiClient, path_,
+                method, queryParams, postBody, headerParams, formParams, fileParams,
                 pathParams, httpContentType);
 
             int statusCode = (int) response.StatusCode;
@@ -191,10 +212,7 @@ namespace PureCloudPlatform.Client.V2.Extensions
             apiClient.Configuration.AuthTokenInfo = authTokenInfo;
 
             return new ApiResponse<AuthTokenInfo>(statusCode,
-                response.Headers
-                 .GroupBy(header => header?.Name)
-                 .Select(header => new { Name = header?.FirstOrDefault()?.Name, Value = header.Select(x => x?.Value)?.ToList() })
-                                    .ToDictionary(header => header.Name.ToString(), header => String.Join(", ", header?.Value?.ToArray())),
+                response.Headers,
                 authTokenInfo,
                 response.Content,
                 response.StatusDescription);
@@ -205,7 +223,7 @@ namespace PureCloudPlatform.Client.V2.Extensions
         /// </summary>
         /// <param name="apiClient"></param>
         /// <param name="length"></param>
-        /// <returns></returns>
+        /// <returns>String</returns>
         public static string GeneratePKCECodeVerifier(this ApiClient apiClient, int length)
         {
             if (length < 43 || length > 128)
@@ -230,7 +248,7 @@ namespace PureCloudPlatform.Client.V2.Extensions
         /// </summary>
         /// <param name="apiClient"></param>
         /// <param name="code"></param>
-        /// <returns></returns>
+        /// <returns>String</returns>
         public static string ComputePKCECodeChallenge(this ApiClient apiClient, string code)
         {
             if (code.Length < 43 || code.Length > 128)
@@ -247,33 +265,43 @@ namespace PureCloudPlatform.Client.V2.Extensions
         }
 
         /// <summary>
-        /// Completes the PKCE Code Authorization.
+        /// Completes the PKCE Code Authorization and returns Token Information
         /// </summary>
         /// <param name="apiClient"></param>
         /// <param name="clientId"></param>
         /// <param name="redirectUri"></param>
         /// <param name="codeVerifier"></param>
         /// <param name="authorizationCode"></param>
-        /// <returns></returns>
+        /// <returns>AuthTokenInfo</returns>
         public static AuthTokenInfo PostTokenPKCE(this ApiClient apiClient, string clientId, string redirectUri, string codeVerifier, string authorizationCode)
         {
             var response = apiClient.PostTokenWithHttpInfoPKCE(clientId, redirectUri, codeVerifier, authorizationCode);
             return response.Data;
         }
 
+        /// <summary>
+        /// Completes the PKCE Code Authorization and returns ApiResponse with Token Information
+        /// </summary>
+        /// <param name="apiClient"></param>
+        /// <param name="clientId"></param>
+        /// <param name="redirectUri"></param>
+        /// <param name="codeVerifier"></param>
+        /// <param name="authorizationCode"></param>
+        /// <returns>ApiResponse with AuthTokenInfo</returns>
         public static ApiResponse<AuthTokenInfo> PostTokenWithHttpInfoPKCE(this ApiClient apiClient, string clientId, string redirectUri, string codeVerifier, string authorizationCode)
         {
             var path_ = "/oauth/token";
+            var method = "POST";
 
             // This may be uninitialized if no API classes have been constructed yet
             if (apiClient.Configuration == null)
                 apiClient.Configuration = new Configuration(apiClient);
 
             var pathParams = new Dictionary<String, String>();
-            var queryParams = new Dictionary<String, String>();
+            var queryParams = new List<Tuple<String, String>>();
             var headerParams = new Dictionary<String, String>(apiClient.Configuration.DefaultHeader);
             var formParams = new Dictionary<String, String>();
-            var fileParams = new Dictionary<String, FileParameter>();
+            var fileParams = new Dictionary<String, IFileParameter>();
             Object postBody = null;
 
             // to determine the Content-Type header
@@ -300,8 +328,8 @@ namespace PureCloudPlatform.Client.V2.Extensions
             formParams.Add("redirect_uri", apiClient.ParameterToString(redirectUri));
 
             // make the HTTP request
-            RestResponse response = (RestResponse)CallTokenApi(apiClient, path_,
-                Method.Post, queryParams, postBody, headerParams, formParams, fileParams,
+            HttpResponse response = (HttpResponse)CallTokenApi(apiClient, path_,
+                method, queryParams, postBody, headerParams, formParams, fileParams,
                 pathParams, httpContentType);
 
             int statusCode = (int) response.StatusCode;
@@ -316,108 +344,44 @@ namespace PureCloudPlatform.Client.V2.Extensions
             apiClient.Configuration.AuthTokenInfo = authTokenInfo;
 
             return new ApiResponse<AuthTokenInfo>(statusCode,
-                response.Headers
-                 .GroupBy(header => header?.Name)
-                 .Select(header => new { Name = header?.FirstOrDefault()?.Name, Value = header.Select(x => x?.Value)?.ToList() })
-                                    .ToDictionary(header => header.Name.ToString(), header => String.Join(", ", header?.Value?.ToArray())),
+                response.Headers,
                 authTokenInfo,
                 response.Content,
                 response.StatusDescription);
         }
 
         private static Object CallTokenApi(ApiClient apiClient,
-            String path, RestSharp.Method method, Dictionary<String, String> queryParams, Object postBody,
+            String path, String method, List<Tuple<String, String>> queryParams, Object postBody,
             Dictionary<String, String> headerParams, Dictionary<String, String> formParams,
-            Dictionary<String, FileParameter> fileParams, Dictionary<String, String> pathParams,
+            Dictionary<String, IFileParameter> fileParams, Dictionary<String, String> pathParams,
             String contentType)
         {
-            var authUri = apiClient.GetConfUri("login", apiClient.ClientOptions.BaseUrl);
-            var options = new RestClientOptions(authUri);
-            
-            if (apiClient.ClientOptions != null && apiClient.ClientOptions.Proxy != null)
-            {
-                options = new RestClientOptions(authUri)
-                {
-                    Proxy = apiClient.ClientOptions.Proxy
-                };
-               
-            }
-            
-            var restClient = new RestClient(options);
+            apiClient.ClientOptions.Prefix = "login";
 
-            var request = PrepareTokenRequest(
-                path, method, queryParams, postBody, headerParams, formParams, fileParams,
-                pathParams, contentType);
+            var httpClient = new DefaultHttpClient(apiClient.ClientOptions, apiClient.Configuration);
 
-            var response = restClient.Execute(request);
+            var requestOptions = new HttpRequestOptions(
+                path, 
+                method, 
+                queryParams, 
+                headerParams, 
+                formParams, 
+                fileParams,
+                pathParams, 
+                postBody, 
+                contentType
+            );
+
+            var response = httpClient.Execute(requestOptions);
             
             int statusCode = (int)response.StatusCode;
-            var fullUrl = restClient.BuildUri(request);
-            string url = fullUrl == null ? path : fullUrl.ToString();
-            apiClient.Configuration.Logger.Trace(method.ToString(), url, postBody, statusCode, headerParams, response.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>());
-            apiClient.Configuration.Logger.Debug(method.ToString(), url, postBody, statusCode, headerParams);
-
+            apiClient.Configuration.Logger.Trace(method, path, postBody, statusCode, headerParams, response.Headers ?? new Dictionary<string, string>());
+            apiClient.Configuration.Logger.Debug(method, path, postBody, statusCode, headerParams);
+            
             if (statusCode >= 400 || statusCode == 0)
-                
-                apiClient.Configuration.Logger.Error(method.ToString(), url, postBody, response.Content, statusCode, headerParams, response.Headers?
-                                                             .GroupBy(header => header?.Name)
-                                                             .Select(header => new
-                                                         {
-                                                            Name = header?.FirstOrDefault()?.Name,
-                                                            Value = header.Select(x => x?.Value)?.ToList()
-                                                            }).ToDictionary(header => header?.Name?.ToString(), header => String.Join(", ", header?.Value?.ToArray())) 
-                                                        ?? new Dictionary<string, string>());
+                apiClient.Configuration.Logger.Error(method, path, postBody, response.Content, statusCode, headerParams, response.Headers ?? new Dictionary<string, string>());
+
             return (Object) response;
-        }
-
-        private static RestRequest PrepareTokenRequest(
-            String path, RestSharp.Method method, Dictionary<String, String> queryParams, Object postBody,
-            Dictionary<String, String> headerParams, Dictionary<String, String> formParams,
-            Dictionary<String, FileParameter> fileParams, Dictionary<String, String> pathParams,
-            String contentType)
-        {
-            var request = new RestRequest(path, method);
-
-            // add path parameter, if any
-            foreach (var param in pathParams)
-                request.AddParameter(param.Key, param.Value, ParameterType.UrlSegment);
-
-            // add header parameter, if any
-            foreach (var param in headerParams)
-                request.AddHeader(param.Key, param.Value);
-
-            // add query parameter, if any
-            foreach (var param in queryParams)
-                request.AddQueryParameter(param.Key, param.Value);
-
-            // add form parameter, if any
-            foreach (var param in formParams)
-                request.AddParameter(param.Key, param.Value);
-
-            // add file parameter, if any
-            foreach (var param in fileParams)
-                request.AddFile(param.Value.Name, param.Value.GetFile, param.Value.FileName, param.Value.ContentType);
-
-            if (postBody != null) // http body (model or byte[]) parameter
-            {
-                if (postBody.GetType() == typeof (String))
-                {
-                    request.AddParameter("application/json", postBody, ParameterType.RequestBody);
-                }
-                else if (postBody.GetType() == typeof (byte[]))
-                {
-                    request.AddParameter(contentType, postBody, ParameterType.RequestBody);
-                }
-            }
-
-            return request;
         }
     }
 }

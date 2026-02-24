@@ -9,7 +9,8 @@
 | **Id** | **string** |  | [optional] |
 | **Name** | **string** |  | [optional] |
 | **SelfUri** | **string** |  | [optional] |
+| **Division** | [**DivisionReference**](DivisionReference) | The division this entity belongs to. | [optional] |
 
 
 
-_PureCloudPlatform.Client.V2 227.0.0_
+_PureCloudPlatform.Client.V2 257.0.0_

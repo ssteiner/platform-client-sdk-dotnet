@@ -6,9 +6,9 @@
 
 |Name | Type | Description | Notes|
 |------------ | ------------- | ------------- | -------------|
-| **SmsContentTemplateId** | **string** | A string of sms contentTemplateId. | |
-| **EmailContentTemplateId** | **string** | A string of email contentTemplateId. | |
+| **SmsContentTemplateId** | **string** | A String containing the SMS contentTemplateId. | |
+| **EmailContentTemplateId** | **string** | A String containing the Email contentTemplateId. | |
 
 
 
-_PureCloudPlatform.Client.V2 227.0.0_
+_PureCloudPlatform.Client.V2 257.0.0_

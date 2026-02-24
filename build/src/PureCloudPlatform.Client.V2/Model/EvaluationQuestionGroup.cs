@@ -31,7 +31,8 @@ namespace PureCloudPlatform.Client.V2.Model
         /// <param name="ManualWeight">ManualWeight.</param>
         /// <param name="Questions">Questions.</param>
         /// <param name="VisibilityCondition">VisibilityCondition.</param>
-        public EvaluationQuestionGroup(string Id = null, string Name = null, string Type = null, bool? DefaultAnswersToHighest = null, bool? DefaultAnswersToNA = null, bool? NaEnabled = null, float? Weight = null, bool? ManualWeight = null, List<EvaluationQuestion> Questions = null, VisibilityCondition VisibilityCondition = null)
+        /// <param name="DefaultAnswersTo">Default scoring settings for the questions within this question group..</param>
+        public EvaluationQuestionGroup(string Id = null, string Name = null, string Type = null, bool? DefaultAnswersToHighest = null, bool? DefaultAnswersToNA = null, bool? NaEnabled = null, float? Weight = null, bool? ManualWeight = null, List<EvaluationQuestion> Questions = null, VisibilityCondition VisibilityCondition = null, DefaultAnswersTo DefaultAnswersTo = null)
         {
             this.Id = Id;
             this.Name = Name;
@@ -43,6 +44,7 @@ namespace PureCloudPlatform.Client.V2.Model
             this.ManualWeight = ManualWeight;
             this.Questions = Questions;
             this.VisibilityCondition = VisibilityCondition;
+            this.DefaultAnswersTo = DefaultAnswersTo;
             
         }
         
@@ -53,6 +55,15 @@ namespace PureCloudPlatform.Client.V2.Model
         /// </summary>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public string Id { get; set; }
+
+
+
+        /// <summary>
+        /// An identifier for this question group that stays the same across versions of the form.
+        /// </summary>
+        /// <value>An identifier for this question group that stays the same across versions of the form.</value>
+        [DataMember(Name="contextId", EmitDefaultValue=false)]
+        public string ContextId { get; private set; }
 
 
 
@@ -127,6 +138,15 @@ namespace PureCloudPlatform.Client.V2.Model
         public VisibilityCondition VisibilityCondition { get; set; }
 
 
+
+        /// <summary>
+        /// Default scoring settings for the questions within this question group.
+        /// </summary>
+        /// <value>Default scoring settings for the questions within this question group.</value>
+        [DataMember(Name="defaultAnswersTo", EmitDefaultValue=false)]
+        public DefaultAnswersTo DefaultAnswersTo { get; set; }
+
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -137,6 +157,7 @@ namespace PureCloudPlatform.Client.V2.Model
             sb.Append("class EvaluationQuestionGroup {\n");
 
             sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  ContextId: ").Append(ContextId).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  DefaultAnswersToHighest: ").Append(DefaultAnswersToHighest).Append("\n");
@@ -146,6 +167,7 @@ namespace PureCloudPlatform.Client.V2.Model
             sb.Append("  ManualWeight: ").Append(ManualWeight).Append("\n");
             sb.Append("  Questions: ").Append(Questions).Append("\n");
             sb.Append("  VisibilityCondition: ").Append(VisibilityCondition).Append("\n");
+            sb.Append("  DefaultAnswersTo: ").Append(DefaultAnswersTo).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -192,6 +214,11 @@ namespace PureCloudPlatform.Client.V2.Model
                     this.Id.Equals(other.Id)
                 ) &&
                 (
+                    this.ContextId == other.ContextId ||
+                    this.ContextId != null &&
+                    this.ContextId.Equals(other.ContextId)
+                ) &&
+                (
                     this.Name == other.Name ||
                     this.Name != null &&
                     this.Name.Equals(other.Name)
@@ -235,6 +262,11 @@ namespace PureCloudPlatform.Client.V2.Model
                     this.VisibilityCondition == other.VisibilityCondition ||
                     this.VisibilityCondition != null &&
                     this.VisibilityCondition.Equals(other.VisibilityCondition)
+                ) &&
+                (
+                    this.DefaultAnswersTo == other.DefaultAnswersTo ||
+                    this.DefaultAnswersTo != null &&
+                    this.DefaultAnswersTo.Equals(other.DefaultAnswersTo)
                 );
         }
 
@@ -251,6 +283,9 @@ namespace PureCloudPlatform.Client.V2.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.Id != null)
                     hash = hash * 59 + this.Id.GetHashCode();
+
+                if (this.ContextId != null)
+                    hash = hash * 59 + this.ContextId.GetHashCode();
 
                 if (this.Name != null)
                     hash = hash * 59 + this.Name.GetHashCode();
@@ -278,6 +313,9 @@ namespace PureCloudPlatform.Client.V2.Model
 
                 if (this.VisibilityCondition != null)
                     hash = hash * 59 + this.VisibilityCondition.GetHashCode();
+
+                if (this.DefaultAnswersTo != null)
+                    hash = hash * 59 + this.DefaultAnswersTo.GetHashCode();
 
                 return hash;
             }

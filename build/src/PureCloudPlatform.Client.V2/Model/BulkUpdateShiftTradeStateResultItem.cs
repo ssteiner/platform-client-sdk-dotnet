@@ -103,6 +103,12 @@ namespace PureCloudPlatform.Client.V2.Model
             Initiatingagentshiftnotfound,
             
             /// <summary>
+            /// Enum Initiatingexternalactivityoutsidereceivingshift for "InitiatingExternalActivityOutsideReceivingShift"
+            /// </summary>
+            [EnumMember(Value = "InitiatingExternalActivityOutsideReceivingShift")]
+            Initiatingexternalactivityoutsidereceivingshift,
+            
+            /// <summary>
             /// Enum Receivingagentnotfound for "ReceivingAgentNotFound"
             /// </summary>
             [EnumMember(Value = "ReceivingAgentNotFound")]
@@ -125,6 +131,12 @@ namespace PureCloudPlatform.Client.V2.Model
             /// </summary>
             [EnumMember(Value = "ReceivingAgentShiftNotFound")]
             Receivingagentshiftnotfound,
+            
+            /// <summary>
+            /// Enum Receivingexternalactivityoutsideinitiatingshift for "ReceivingExternalActivityOutsideInitiatingShift"
+            /// </summary>
+            [EnumMember(Value = "ReceivingExternalActivityOutsideInitiatingShift")]
+            Receivingexternalactivityoutsideinitiatingshift,
             
             /// <summary>
             /// Enum Schedulenotpublished for "ScheduleNotPublished"
@@ -154,7 +166,7 @@ namespace PureCloudPlatform.Client.V2.Model
         /// Initializes a new instance of the <see cref="BulkUpdateShiftTradeStateResultItem" /> class.
         /// </summary>
         /// <param name="State">The state of the shift trade after the update request is processed.</param>
-        /// <param name="ReviewedBy">The user who reviewed the request, if applicable.</param>
+        /// <param name="ReviewedBy">The user who reviewed the request, if applicable. The id may be &#39;System&#39; if it was an automated process.</param>
         /// <param name="ReviewedDate">The date the request was reviewed, if applicable. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z.</param>
         /// <param name="FailureReason">The reason the update failed, if applicable.</param>
         /// <param name="Metadata">Version metadata for the shift trade.</param>
@@ -182,9 +194,9 @@ namespace PureCloudPlatform.Client.V2.Model
 
 
         /// <summary>
-        /// The user who reviewed the request, if applicable
+        /// The user who reviewed the request, if applicable. The id may be &#39;System&#39; if it was an automated process
         /// </summary>
-        /// <value>The user who reviewed the request, if applicable</value>
+        /// <value>The user who reviewed the request, if applicable. The id may be &#39;System&#39; if it was an automated process</value>
         [DataMember(Name="reviewedBy", EmitDefaultValue=false)]
         public UserReference ReviewedBy { get; set; }
 

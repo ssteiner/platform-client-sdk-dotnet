@@ -226,6 +226,12 @@ namespace PureCloudPlatform.Client.V2.Model
             Paidtimenotmetbyshiftstartstop,
             
             /// <summary>
+            /// Enum Planningperiodmaxworkingweekendscannotbemet for "PlanningPeriodMaxWorkingWeekendsCannotBeMet"
+            /// </summary>
+            [EnumMember(Value = "PlanningPeriodMaxWorkingWeekendsCannotBeMet")]
+            Planningperiodmaxworkingweekendscannotbemet,
+            
+            /// <summary>
             /// Enum Shiftdaysselectmorethanminworkingdays for "ShiftDaysSelectMoreThanMinWorkingDays"
             /// </summary>
             [EnumMember(Value = "ShiftDaysSelectMoreThanMinWorkingDays")]
@@ -236,6 +242,18 @@ namespace PureCloudPlatform.Client.V2.Model
             /// </summary>
             [EnumMember(Value = "ShiftStopEarlierThanStart")]
             Shiftstopearlierthanstart,
+            
+            /// <summary>
+            /// Enum Shiftmaxcountperplanningperiodcannotbemet for "ShiftMaxCountPerPlanningPeriodCannotBeMet"
+            /// </summary>
+            [EnumMember(Value = "ShiftMaxCountPerPlanningPeriodCannotBeMet")]
+            Shiftmaxcountperplanningperiodcannotbemet,
+            
+            /// <summary>
+            /// Enum Shiftmincountperplanningperiodcannotbemet for "ShiftMinCountPerPlanningPeriodCannotBeMet"
+            /// </summary>
+            [EnumMember(Value = "ShiftMinCountPerPlanningPeriodCannotBeMet")]
+            Shiftmincountperplanningperiodcannotbemet,
             
             /// <summary>
             /// Enum Shiftvariancecannotbemet for "ShiftVarianceCannotBeMet"
@@ -299,7 +317,7 @@ namespace PureCloudPlatform.Client.V2.Model
         /// </summary>
         /// <param name="Type">Type of configuration violation message for this work plan.</param>
         /// <param name="Arguments">Arguments of the message that provide information about the misconfigured value or the threshold that is exceeded by the misconfigured value.</param>
-        /// <param name="Severity">Severity of the message. A message with Error severity indicates the scheduler won't be able to produce schedules and thus the work plan is invalid..</param>
+        /// <param name="Severity">Severity of the message. A message with Error severity indicates the scheduler won&#39;t be able to produce schedules and thus the work plan is invalid..</param>
         public WorkPlanConfigurationViolationMessage(TypeEnum? Type = null, List<WorkPlanValidationMessageArgument> Arguments = null, SeverityEnum? Severity = null)
         {
             this.Type = Type;

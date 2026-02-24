@@ -13,9 +13,6 @@ All URIs are relative to *https://api.mypurecloud.com*
 | [**DeleteKnowledgeKnowledgebaseExportJob**](#DeleteKnowledgeKnowledgebaseExportJob) | **Delete** /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/export/jobs/{exportJobId} | Delete export job |
 | [**DeleteKnowledgeKnowledgebaseImportJob**](#DeleteKnowledgeKnowledgebaseImportJob) | **Delete** /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/import/jobs/{importJobId} | Delete import job |
 | [**DeleteKnowledgeKnowledgebaseLabel**](#DeleteKnowledgeKnowledgebaseLabel) | **Delete** /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/labels/{labelId} | Delete label |
-| [**DeleteKnowledgeKnowledgebaseLanguageCategory**](#DeleteKnowledgeKnowledgebaseLanguageCategory) | **Delete** /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/categories/{categoryId} | Delete category |
-| [**DeleteKnowledgeKnowledgebaseLanguageDocument**](#DeleteKnowledgeKnowledgebaseLanguageDocument) | **Delete** /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/documents/{documentId} | Delete document |
-| [**DeleteKnowledgeKnowledgebaseLanguageDocumentsImport**](#DeleteKnowledgeKnowledgebaseLanguageDocumentsImport) | **Delete** /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/documents/imports/{importId} | Delete import operation |
 | [**DeleteKnowledgeKnowledgebaseSourcesSalesforceSourceId**](#DeleteKnowledgeKnowledgebaseSourcesSalesforceSourceId) | **Delete** /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/sources/salesforce/{sourceId} | Delete Salesforce Knowledge integration source |
 | [**DeleteKnowledgeKnowledgebaseSourcesServicenowSourceId**](#DeleteKnowledgeKnowledgebaseSourcesServicenowSourceId) | **Delete** /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/sources/servicenow/{sourceId} | Delete ServiceNow Knowledge integration source |
 | [**DeleteKnowledgeKnowledgebaseSynchronizeJob**](#DeleteKnowledgeKnowledgebaseSynchronizeJob) | **Delete** /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/synchronize/jobs/{syncJobId} | Delete synchronization job |
@@ -40,14 +37,6 @@ All URIs are relative to *https://api.mypurecloud.com*
 | [**GetKnowledgeKnowledgebaseImportJob**](#GetKnowledgeKnowledgebaseImportJob) | **Get** /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/import/jobs/{importJobId} | Get import job report |
 | [**GetKnowledgeKnowledgebaseLabel**](#GetKnowledgeKnowledgebaseLabel) | **Get** /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/labels/{labelId} | Get label |
 | [**GetKnowledgeKnowledgebaseLabels**](#GetKnowledgeKnowledgebaseLabels) | **Get** /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/labels | Get labels |
-| [**GetKnowledgeKnowledgebaseLanguageCategories**](#GetKnowledgeKnowledgebaseLanguageCategories) | **Get** /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/categories | Get categories |
-| [**GetKnowledgeKnowledgebaseLanguageCategory**](#GetKnowledgeKnowledgebaseLanguageCategory) | **Get** /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/categories/{categoryId} | Get category |
-| [**GetKnowledgeKnowledgebaseLanguageDocument**](#GetKnowledgeKnowledgebaseLanguageDocument) | **Get** /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/documents/{documentId} | Get document |
-| [**GetKnowledgeKnowledgebaseLanguageDocumentUpload**](#GetKnowledgeKnowledgebaseLanguageDocumentUpload) | **Get** /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/documents/{documentId}/uploads/{uploadId} | Get document content upload status |
-| [**GetKnowledgeKnowledgebaseLanguageDocuments**](#GetKnowledgeKnowledgebaseLanguageDocuments) | **Get** /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/documents | Get documents |
-| [**GetKnowledgeKnowledgebaseLanguageDocumentsImport**](#GetKnowledgeKnowledgebaseLanguageDocumentsImport) | **Get** /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/documents/imports/{importId} | Get import operation report |
-| [**GetKnowledgeKnowledgebaseLanguageTraining**](#GetKnowledgeKnowledgebaseLanguageTraining) | **Get** /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/trainings/{trainingId} | Get training detail |
-| [**GetKnowledgeKnowledgebaseLanguageTrainings**](#GetKnowledgeKnowledgebaseLanguageTrainings) | **Get** /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/trainings | Get all trainings information for a knowledgebase |
 | [**GetKnowledgeKnowledgebaseOperations**](#GetKnowledgeKnowledgebaseOperations) | **Get** /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/operations | Get operations |
 | [**GetKnowledgeKnowledgebaseOperationsUsersQuery**](#GetKnowledgeKnowledgebaseOperationsUsersQuery) | **Get** /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/operations/users/query | Get ids of operation creator users and oauth clients |
 | [**GetKnowledgeKnowledgebaseParseJob**](#GetKnowledgeKnowledgebaseParseJob) | **Get** /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/parse/jobs/{parseJobId} | Get parse job report |
@@ -63,16 +52,13 @@ All URIs are relative to *https://api.mypurecloud.com*
 | [**PatchKnowledgeGuestSessionDocumentsSearchSearchId**](#PatchKnowledgeGuestSessionDocumentsSearchSearchId) | **Patch** /api/v2/knowledge/guest/sessions/{sessionId}/documents/search/{searchId} | Update search result. |
 | [**PatchKnowledgeKnowledgebase**](#PatchKnowledgeKnowledgebase) | **Patch** /api/v2/knowledge/knowledgebases/{knowledgeBaseId} | Update knowledge base |
 | [**PatchKnowledgeKnowledgebaseCategory**](#PatchKnowledgeKnowledgebaseCategory) | **Patch** /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/categories/{categoryId} | Update category |
+| [**PatchKnowledgeKnowledgebaseChunksSearchSearchId**](#PatchKnowledgeKnowledgebaseChunksSearchSearchId) | **Patch** /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/chunks/search/{searchId} | Register chunk search result. |
 | [**PatchKnowledgeKnowledgebaseDocument**](#PatchKnowledgeKnowledgebaseDocument) | **Patch** /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId} | Update document. |
 | [**PatchKnowledgeKnowledgebaseDocumentFeedbackFeedbackId**](#PatchKnowledgeKnowledgebaseDocumentFeedbackFeedbackId) | **Patch** /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/feedback/{feedbackId} | Update feedback on a document |
 | [**PatchKnowledgeKnowledgebaseDocumentVariation**](#PatchKnowledgeKnowledgebaseDocumentVariation) | **Patch** /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/variations/{documentVariationId} | Update a variation for a document. |
 | [**PatchKnowledgeKnowledgebaseDocumentsSearchSearchId**](#PatchKnowledgeKnowledgebaseDocumentsSearchSearchId) | **Patch** /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/search/{searchId} | Update search result. |
 | [**PatchKnowledgeKnowledgebaseImportJob**](#PatchKnowledgeKnowledgebaseImportJob) | **Patch** /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/import/jobs/{importJobId} | Start import job |
 | [**PatchKnowledgeKnowledgebaseLabel**](#PatchKnowledgeKnowledgebaseLabel) | **Patch** /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/labels/{labelId} | Update label |
-| [**PatchKnowledgeKnowledgebaseLanguageCategory**](#PatchKnowledgeKnowledgebaseLanguageCategory) | **Patch** /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/categories/{categoryId} | Update category |
-| [**PatchKnowledgeKnowledgebaseLanguageDocument**](#PatchKnowledgeKnowledgebaseLanguageDocument) | **Patch** /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/documents/{documentId} | Update document |
-| [**PatchKnowledgeKnowledgebaseLanguageDocuments**](#PatchKnowledgeKnowledgebaseLanguageDocuments) | **Patch** /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/documents | Update documents collection |
-| [**PatchKnowledgeKnowledgebaseLanguageDocumentsImport**](#PatchKnowledgeKnowledgebaseLanguageDocumentsImport) | **Patch** /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/documents/imports/{importId} | Start import operation |
 | [**PatchKnowledgeKnowledgebaseParseJob**](#PatchKnowledgeKnowledgebaseParseJob) | **Patch** /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/parse/jobs/{parseJobId} | Send update to the parse operation |
 | [**PatchKnowledgeKnowledgebaseSynchronizeJob**](#PatchKnowledgeKnowledgebaseSynchronizeJob) | **Patch** /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/synchronize/jobs/{syncJobId} | Update synchronization job |
 | [**PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroup**](#PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroup) | **Patch** /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/unanswered/groups/{groupId}/phrasegroups/{phraseGroupId} | Update a Knowledge base unanswered phrase group |
@@ -86,6 +72,7 @@ All URIs are relative to *https://api.mypurecloud.com*
 | [**PostKnowledgeGuestSessionDocumentsSearchSuggestions**](#PostKnowledgeGuestSessionDocumentsSearchSuggestions) | **Post** /api/v2/knowledge/guest/sessions/{sessionId}/documents/search/suggestions | Query the knowledge documents to provide suggestions for auto completion. |
 | [**PostKnowledgeGuestSessions**](#PostKnowledgeGuestSessions) | **Post** /api/v2/knowledge/guest/sessions | Create guest session |
 | [**PostKnowledgeKnowledgebaseCategories**](#PostKnowledgeKnowledgebaseCategories) | **Post** /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/categories | Create new category |
+| [**PostKnowledgeKnowledgebaseChunksSearch**](#PostKnowledgeKnowledgebaseChunksSearch) | **Post** /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/chunks/search | Search for chunks in a knowledge base |
 | [**PostKnowledgeKnowledgebaseDocumentCopies**](#PostKnowledgeKnowledgebaseDocumentCopies) | **Post** /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/copies | Indicate that the document was copied by the user. |
 | [**PostKnowledgeKnowledgebaseDocumentFeedback**](#PostKnowledgeKnowledgebaseDocumentFeedback) | **Post** /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/feedback | Give feedback on a document |
 | [**PostKnowledgeKnowledgebaseDocumentVariations**](#PostKnowledgeKnowledgebaseDocumentVariations) | **Post** /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/variations | Create a variation for a document. |
@@ -103,15 +90,8 @@ All URIs are relative to *https://api.mypurecloud.com*
 | [**PostKnowledgeKnowledgebaseExportJobs**](#PostKnowledgeKnowledgebaseExportJobs) | **Post** /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/export/jobs | Create export job |
 | [**PostKnowledgeKnowledgebaseImportJobs**](#PostKnowledgeKnowledgebaseImportJobs) | **Post** /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/import/jobs | Create import job |
 | [**PostKnowledgeKnowledgebaseLabels**](#PostKnowledgeKnowledgebaseLabels) | **Post** /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/labels | Create new label |
-| [**PostKnowledgeKnowledgebaseLanguageCategories**](#PostKnowledgeKnowledgebaseLanguageCategories) | **Post** /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/categories | Create new category |
-| [**PostKnowledgeKnowledgebaseLanguageDocumentUploads**](#PostKnowledgeKnowledgebaseLanguageDocumentUploads) | **Post** /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/documents/{documentId}/uploads | Upload Article Content |
-| [**PostKnowledgeKnowledgebaseLanguageDocuments**](#PostKnowledgeKnowledgebaseLanguageDocuments) | **Post** /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/documents | Create document |
-| [**PostKnowledgeKnowledgebaseLanguageDocumentsImports**](#PostKnowledgeKnowledgebaseLanguageDocumentsImports) | **Post** /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/documents/imports | Create import operation |
-| [**PostKnowledgeKnowledgebaseLanguageTrainingPromote**](#PostKnowledgeKnowledgebaseLanguageTrainingPromote) | **Post** /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/trainings/{trainingId}/promote | Promote trained documents from draft state to active. |
-| [**PostKnowledgeKnowledgebaseLanguageTrainings**](#PostKnowledgeKnowledgebaseLanguageTrainings) | **Post** /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/trainings | Trigger training |
 | [**PostKnowledgeKnowledgebaseParseJobImport**](#PostKnowledgeKnowledgebaseParseJobImport) | **Post** /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/parse/jobs/{parseJobId}/import | Import the parsed articles |
 | [**PostKnowledgeKnowledgebaseParseJobs**](#PostKnowledgeKnowledgebaseParseJobs) | **Post** /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/parse/jobs | Create parse job |
-| [**PostKnowledgeKnowledgebaseSearch**](#PostKnowledgeKnowledgebaseSearch) | **Post** /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/search | Search Documents |
 | [**PostKnowledgeKnowledgebaseSourcesSalesforce**](#PostKnowledgeKnowledgebaseSourcesSalesforce) | **Post** /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/sources/salesforce | Create Salesforce Knowledge integration source |
 | [**PostKnowledgeKnowledgebaseSourcesSalesforceSourceIdSync**](#PostKnowledgeKnowledgebaseSourcesSalesforceSourceIdSync) | **Post** /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/sources/salesforce/{sourceId}/sync | Start sync on Salesforce Knowledge integration source |
 | [**PostKnowledgeKnowledgebaseSourcesServicenow**](#PostKnowledgeKnowledgebaseSourcesServicenow) | **Post** /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/sources/servicenow | Create ServiceNow Knowledge integration source |
@@ -567,212 +547,6 @@ namespace Example
 ### Return type
 
 [**LabelResponse**](LabelResponse)
-
-
-## DeleteKnowledgeKnowledgebaseLanguageCategory
-
-> [**KnowledgeCategory**](KnowledgeCategory) DeleteKnowledgeKnowledgebaseLanguageCategory (string categoryId, string knowledgeBaseId, string languageCode)
-
-:::{"alert":"warning","title":"Deprecated","collapsible":false,"autoCollapse":false}
-This resource has been deprecated
-:::
-
-Delete category
-
-Requires ALL permissions: 
-
-* knowledge:category:delete
-
-### Example
-```{"language":"csharp"}
-using System;
-using System.Diagnostics;
-using PureCloudPlatform.Client.V2.Api;
-using PureCloudPlatform.Client.V2.Client;
-using PureCloudPlatform.Client.V2.Model;
-
-namespace Example
-{
-    public class DeleteKnowledgeKnowledgebaseLanguageCategoryExample
-    {
-        public void main()
-        { 
-            // Configure OAuth2 access token for authorization: PureCloud OAuth
-            // The following example is using the Authorization Code Grant
-            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
-                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
-                "http://redirecturi.com/",
-                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
-
-            var apiInstance = new KnowledgeApi();
-            var categoryId = categoryId_example;  // string | Category ID
-            var knowledgeBaseId = knowledgeBaseId_example;  // string | Knowledge base ID
-            var languageCode = en-US;  // string | Language code, format: iso2-LOCALE
-
-            try
-            { 
-                // Delete category
-                KnowledgeCategory result = apiInstance.DeleteKnowledgeKnowledgebaseLanguageCategory(categoryId, knowledgeBaseId, languageCode);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling KnowledgeApi.DeleteKnowledgeKnowledgebaseLanguageCategory: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-
-|Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **categoryId** | **string**| Category ID |  |
-| **knowledgeBaseId** | **string**| Knowledge base ID |  |
-| **languageCode** | **string**| Language code, format: iso2-LOCALE | <br />**Values**: en-US, en-UK, en-AU, en-CA, en-HK, en-IN, en-IE, en-NZ, en-PH, en-SG, en-ZA, de-DE, de-AT, de-CH, es-AR, es-CO, es-MX, es-US, es-ES, fr-FR, fr-BE, fr-CA, fr-CH, pt-BR, pt-PT, nl-NL, nl-BE, it-IT, ca-ES, tr-TR, sv-SE, fi-FI, nb-NO, da-DK, ja-JP, ar-AE, zh-CN, zh-TW, zh-HK, ko-KR, pl-PL, hi-IN, th-TH, hu-HU, vi-VN, uk-UA |
-
-### Return type
-
-[**KnowledgeCategory**](KnowledgeCategory)
-
-
-## DeleteKnowledgeKnowledgebaseLanguageDocument
-
-> [**KnowledgeDocument**](KnowledgeDocument) DeleteKnowledgeKnowledgebaseLanguageDocument (string documentId, string knowledgeBaseId, string languageCode)
-
-:::{"alert":"warning","title":"Deprecated","collapsible":false,"autoCollapse":false}
-This resource has been deprecated
-:::
-
-Delete document
-
-Requires ALL permissions: 
-
-* knowledge:document:delete
-
-### Example
-```{"language":"csharp"}
-using System;
-using System.Diagnostics;
-using PureCloudPlatform.Client.V2.Api;
-using PureCloudPlatform.Client.V2.Client;
-using PureCloudPlatform.Client.V2.Model;
-
-namespace Example
-{
-    public class DeleteKnowledgeKnowledgebaseLanguageDocumentExample
-    {
-        public void main()
-        { 
-            // Configure OAuth2 access token for authorization: PureCloud OAuth
-            // The following example is using the Authorization Code Grant
-            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
-                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
-                "http://redirecturi.com/",
-                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
-
-            var apiInstance = new KnowledgeApi();
-            var documentId = documentId_example;  // string | Document ID
-            var knowledgeBaseId = knowledgeBaseId_example;  // string | Knowledge base ID
-            var languageCode = en-US;  // string | Language code, format: iso2-LOCALE
-
-            try
-            { 
-                // Delete document
-                KnowledgeDocument result = apiInstance.DeleteKnowledgeKnowledgebaseLanguageDocument(documentId, knowledgeBaseId, languageCode);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling KnowledgeApi.DeleteKnowledgeKnowledgebaseLanguageDocument: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-
-|Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **documentId** | **string**| Document ID |  |
-| **knowledgeBaseId** | **string**| Knowledge base ID |  |
-| **languageCode** | **string**| Language code, format: iso2-LOCALE | <br />**Values**: en-US, en-UK, en-AU, en-CA, en-HK, en-IN, en-IE, en-NZ, en-PH, en-SG, en-ZA, de-DE, de-AT, de-CH, es-AR, es-CO, es-MX, es-US, es-ES, fr-FR, fr-BE, fr-CA, fr-CH, pt-BR, pt-PT, nl-NL, nl-BE, it-IT, ca-ES, tr-TR, sv-SE, fi-FI, nb-NO, da-DK, ja-JP, ar-AE, zh-CN, zh-TW, zh-HK, ko-KR, pl-PL, hi-IN, th-TH, hu-HU, vi-VN, uk-UA |
-
-### Return type
-
-[**KnowledgeDocument**](KnowledgeDocument)
-
-
-## DeleteKnowledgeKnowledgebaseLanguageDocumentsImport
-
-> void DeleteKnowledgeKnowledgebaseLanguageDocumentsImport (string knowledgeBaseId, string languageCode, string importId)
-
-:::{"alert":"warning","title":"Deprecated","collapsible":false,"autoCollapse":false}
-This resource has been deprecated
-:::
-
-Delete import operation
-
-Requires ALL permissions: 
-
-* knowledge:document:add
-
-### Example
-```{"language":"csharp"}
-using System;
-using System.Diagnostics;
-using PureCloudPlatform.Client.V2.Api;
-using PureCloudPlatform.Client.V2.Client;
-using PureCloudPlatform.Client.V2.Model;
-
-namespace Example
-{
-    public class DeleteKnowledgeKnowledgebaseLanguageDocumentsImportExample
-    {
-        public void main()
-        { 
-            // Configure OAuth2 access token for authorization: PureCloud OAuth
-            // The following example is using the Authorization Code Grant
-            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
-                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
-                "http://redirecturi.com/",
-                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
-
-            var apiInstance = new KnowledgeApi();
-            var knowledgeBaseId = knowledgeBaseId_example;  // string | Knowledge base ID
-            var languageCode = en-US;  // string | Language code, format: iso2-LOCALE
-            var importId = importId_example;  // string | Import ID
-
-            try
-            { 
-                // Delete import operation
-                apiInstance.DeleteKnowledgeKnowledgebaseLanguageDocumentsImport(knowledgeBaseId, languageCode, importId);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling KnowledgeApi.DeleteKnowledgeKnowledgebaseLanguageDocumentsImport: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-
-|Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **knowledgeBaseId** | **string**| Knowledge base ID |  |
-| **languageCode** | **string**| Language code, format: iso2-LOCALE | <br />**Values**: en-US, en-UK, en-AU, en-CA, en-HK, en-IN, en-IE, en-NZ, en-PH, en-SG, en-ZA, de-DE, de-AT, de-CH, es-AR, es-CO, es-MX, es-US, es-ES, fr-FR, fr-BE, fr-CA, fr-CH, pt-BR, pt-PT, nl-NL, nl-BE, it-IT, ca-ES, tr-TR, sv-SE, fi-FI, nb-NO, da-DK, ja-JP, ar-AE, zh-CN, zh-TW, zh-HK, ko-KR, pl-PL, hi-IN, th-TH, hu-HU, vi-VN, uk-UA |
-| **importId** | **string**| Import ID |  |
-
-### Return type
-
-void (empty response body)
 
 
 ## DeleteKnowledgeKnowledgebaseSourcesSalesforceSourceId
@@ -1567,7 +1341,7 @@ namespace Example
 | **documentVersionId** | **string**| Document version ID to filter by. Supported only if onlyCommented&#x3D;true is set. | [optional]  |
 | **documentVariationId** | **string**| Document variation ID to filter by. Supported only if onlyCommented&#x3D;true is set. | [optional]  |
 | **appType** | **string**| Application type to filter by. Supported only if onlyCommented&#x3D;true is set. | [optional] <br />**Values**: Assistant, BotFlow, MessengerKnowledgeApp, SmartAdvisor, SupportCenter |
-| **queryType** | **string**| Query type to filter by. Supported only if onlyCommented&#x3D;true is set. | [optional] <br />**Values**: Unknown, Article, AutoSearch, Category, ManualSearch, Recommendation, Suggestion |
+| **queryType** | **string**| Query type to filter by. Supported only if onlyCommented&#x3D;true is set. | [optional] <br />**Values**: Unknown, Article, AutoSearch, Category, ManualSearch, Recommendation, Suggestion, ExpandedArticle |
 | **userId** | **string**| The ID of the user, who created the feedback, to filter by. Supported only if onlyCommented&#x3D;true is set. | [optional]  |
 | **queueId** | **string**| Queue ID to filter by. Supported only if onlyCommented&#x3D;true is set. | [optional]  |
 | **state** | **string**| State to filter by. Supported only if onlyCommented&#x3D;true is set. Default: Final | [optional] <br />**Values**: All, Draft, Final |
@@ -2143,7 +1917,7 @@ namespace Example
 | **includeSubcategories** | **bool?**| Works along with &#39;categoryId&#39; query parameter. If specified, retrieves documents associated with category ids and its children categories. | [optional]  |
 | **includeDrafts** | **bool?**| If includeDrafts is true, Documents in the draft state are also returned in the response. | [optional]  |
 | **labelIds** | [**List<string>**](string)| If specified, retrieves documents associated with label ids, comma separated values expected. | [optional]  |
-| **expand** | [**List<string>**](string)| The specified entity attributes will be filled. Comma separated values expected. | [optional] <br />**Values**: category, labels, variations |
+| **expand** | [**List<string>**](string)| The specified entity attributes will be filled. Comma separated values expected. | [optional] <br />**Values**: category, labels |
 | **externalIds** | [**List<string>**](string)| If specified, retrieves documents associated with external ids, comma separated values expected. | [optional]  |
 
 ### Return type
@@ -2417,594 +2191,6 @@ namespace Example
 [**LabelListing**](LabelListing)
 
 
-## GetKnowledgeKnowledgebaseLanguageCategories
-
-> [**CategoryListing**](CategoryListing) GetKnowledgeKnowledgebaseLanguageCategories (string knowledgeBaseId, string languageCode, string before = null, string after = null, string limit = null, string pageSize = null, string name = null)
-
-:::{"alert":"warning","title":"Deprecated","collapsible":false,"autoCollapse":false}
-This resource has been deprecated
-:::
-
-Get categories
-
-Requires ALL permissions: 
-
-* knowledge:category:view
-
-### Example
-```{"language":"csharp"}
-using System;
-using System.Diagnostics;
-using PureCloudPlatform.Client.V2.Api;
-using PureCloudPlatform.Client.V2.Client;
-using PureCloudPlatform.Client.V2.Model;
-
-namespace Example
-{
-    public class GetKnowledgeKnowledgebaseLanguageCategoriesExample
-    {
-        public void main()
-        { 
-            // Configure OAuth2 access token for authorization: PureCloud OAuth
-            // The following example is using the Authorization Code Grant
-            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
-                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
-                "http://redirecturi.com/",
-                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
-
-            var apiInstance = new KnowledgeApi();
-            var knowledgeBaseId = knowledgeBaseId_example;  // string | Knowledge base ID
-            var languageCode = en-US;  // string | Language code, format: iso2-LOCALE
-            var before = before_example;  // string | The cursor that points to the start of the set of entities that has been returned. (optional) 
-            var after = after_example;  // string | The cursor that points to the end of the set of entities that has been returned. (optional) 
-            var limit = limit_example;  // string | Number of entities to return. Maximum of 200. Deprecated in favour of pageSize (optional) 
-            var pageSize = pageSize_example;  // string | Number of entities to return. Maximum of 200. (optional) 
-            var name = name_example;  // string | Filter to return the categories that starts with the given category name. (optional) 
-
-            try
-            { 
-                // Get categories
-                CategoryListing result = apiInstance.GetKnowledgeKnowledgebaseLanguageCategories(knowledgeBaseId, languageCode, before, after, limit, pageSize, name);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling KnowledgeApi.GetKnowledgeKnowledgebaseLanguageCategories: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-
-|Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **knowledgeBaseId** | **string**| Knowledge base ID |  |
-| **languageCode** | **string**| Language code, format: iso2-LOCALE | <br />**Values**: en-US, en-UK, en-AU, en-CA, en-HK, en-IN, en-IE, en-NZ, en-PH, en-SG, en-ZA, de-DE, de-AT, de-CH, es-AR, es-CO, es-MX, es-US, es-ES, fr-FR, fr-BE, fr-CA, fr-CH, pt-BR, pt-PT, nl-NL, nl-BE, it-IT, ca-ES, tr-TR, sv-SE, fi-FI, nb-NO, da-DK, ja-JP, ar-AE, zh-CN, zh-TW, zh-HK, ko-KR, pl-PL, hi-IN, th-TH, hu-HU, vi-VN, uk-UA |
-| **before** | **string**| The cursor that points to the start of the set of entities that has been returned. | [optional]  |
-| **after** | **string**| The cursor that points to the end of the set of entities that has been returned. | [optional]  |
-| **limit** | **string**| Number of entities to return. Maximum of 200. Deprecated in favour of pageSize | [optional]  |
-| **pageSize** | **string**| Number of entities to return. Maximum of 200. | [optional]  |
-| **name** | **string**| Filter to return the categories that starts with the given category name. | [optional]  |
-
-### Return type
-
-[**CategoryListing**](CategoryListing)
-
-
-## GetKnowledgeKnowledgebaseLanguageCategory
-
-> [**KnowledgeExtendedCategory**](KnowledgeExtendedCategory) GetKnowledgeKnowledgebaseLanguageCategory (string categoryId, string knowledgeBaseId, string languageCode)
-
-:::{"alert":"warning","title":"Deprecated","collapsible":false,"autoCollapse":false}
-This resource has been deprecated
-:::
-
-Get category
-
-Requires ALL permissions: 
-
-* knowledge:category:view
-
-### Example
-```{"language":"csharp"}
-using System;
-using System.Diagnostics;
-using PureCloudPlatform.Client.V2.Api;
-using PureCloudPlatform.Client.V2.Client;
-using PureCloudPlatform.Client.V2.Model;
-
-namespace Example
-{
-    public class GetKnowledgeKnowledgebaseLanguageCategoryExample
-    {
-        public void main()
-        { 
-            // Configure OAuth2 access token for authorization: PureCloud OAuth
-            // The following example is using the Authorization Code Grant
-            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
-                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
-                "http://redirecturi.com/",
-                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
-
-            var apiInstance = new KnowledgeApi();
-            var categoryId = categoryId_example;  // string | Category ID
-            var knowledgeBaseId = knowledgeBaseId_example;  // string | Knowledge base ID
-            var languageCode = en-US;  // string | Language code, format: iso2-LOCALE
-
-            try
-            { 
-                // Get category
-                KnowledgeExtendedCategory result = apiInstance.GetKnowledgeKnowledgebaseLanguageCategory(categoryId, knowledgeBaseId, languageCode);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling KnowledgeApi.GetKnowledgeKnowledgebaseLanguageCategory: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-
-|Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **categoryId** | **string**| Category ID |  |
-| **knowledgeBaseId** | **string**| Knowledge base ID |  |
-| **languageCode** | **string**| Language code, format: iso2-LOCALE | <br />**Values**: en-US, en-UK, en-AU, en-CA, en-HK, en-IN, en-IE, en-NZ, en-PH, en-SG, en-ZA, de-DE, de-AT, de-CH, es-AR, es-CO, es-MX, es-US, es-ES, fr-FR, fr-BE, fr-CA, fr-CH, pt-BR, pt-PT, nl-NL, nl-BE, it-IT, ca-ES, tr-TR, sv-SE, fi-FI, nb-NO, da-DK, ja-JP, ar-AE, zh-CN, zh-TW, zh-HK, ko-KR, pl-PL, hi-IN, th-TH, hu-HU, vi-VN, uk-UA |
-
-### Return type
-
-[**KnowledgeExtendedCategory**](KnowledgeExtendedCategory)
-
-
-## GetKnowledgeKnowledgebaseLanguageDocument
-
-> [**KnowledgeDocument**](KnowledgeDocument) GetKnowledgeKnowledgebaseLanguageDocument (string documentId, string knowledgeBaseId, string languageCode)
-
-:::{"alert":"warning","title":"Deprecated","collapsible":false,"autoCollapse":false}
-This resource has been deprecated
-:::
-
-Get document
-
-Requires ALL permissions: 
-
-* knowledge:document:view
-
-### Example
-```{"language":"csharp"}
-using System;
-using System.Diagnostics;
-using PureCloudPlatform.Client.V2.Api;
-using PureCloudPlatform.Client.V2.Client;
-using PureCloudPlatform.Client.V2.Model;
-
-namespace Example
-{
-    public class GetKnowledgeKnowledgebaseLanguageDocumentExample
-    {
-        public void main()
-        { 
-            // Configure OAuth2 access token for authorization: PureCloud OAuth
-            // The following example is using the Authorization Code Grant
-            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
-                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
-                "http://redirecturi.com/",
-                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
-
-            var apiInstance = new KnowledgeApi();
-            var documentId = documentId_example;  // string | Document ID
-            var knowledgeBaseId = knowledgeBaseId_example;  // string | Knowledge base ID
-            var languageCode = en-US;  // string | Language code, format: iso2-LOCALE
-
-            try
-            { 
-                // Get document
-                KnowledgeDocument result = apiInstance.GetKnowledgeKnowledgebaseLanguageDocument(documentId, knowledgeBaseId, languageCode);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling KnowledgeApi.GetKnowledgeKnowledgebaseLanguageDocument: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-
-|Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **documentId** | **string**| Document ID |  |
-| **knowledgeBaseId** | **string**| Knowledge base ID |  |
-| **languageCode** | **string**| Language code, format: iso2-LOCALE | <br />**Values**: en-US, en-UK, en-AU, en-CA, en-HK, en-IN, en-IE, en-NZ, en-PH, en-SG, en-ZA, de-DE, de-AT, de-CH, es-AR, es-CO, es-MX, es-US, es-ES, fr-FR, fr-BE, fr-CA, fr-CH, pt-BR, pt-PT, nl-NL, nl-BE, it-IT, ca-ES, tr-TR, sv-SE, fi-FI, nb-NO, da-DK, ja-JP, ar-AE, zh-CN, zh-TW, zh-HK, ko-KR, pl-PL, hi-IN, th-TH, hu-HU, vi-VN, uk-UA |
-
-### Return type
-
-[**KnowledgeDocument**](KnowledgeDocument)
-
-
-## GetKnowledgeKnowledgebaseLanguageDocumentUpload
-
-> [**KnowledgeDocumentContentUpload**](KnowledgeDocumentContentUpload) GetKnowledgeKnowledgebaseLanguageDocumentUpload (string documentId, string knowledgeBaseId, string languageCode, string uploadId)
-
-:::{"alert":"warning","title":"Deprecated","collapsible":false,"autoCollapse":false}
-This resource has been deprecated
-:::
-
-Get document content upload status
-
-GetKnowledgeKnowledgebaseLanguageDocumentUpload is a preview method and is subject to both breaking and non-breaking changes at any time without notice
-
-Requires ALL permissions: 
-
-* knowledge:document:edit
-
-### Example
-```{"language":"csharp"}
-using System;
-using System.Diagnostics;
-using PureCloudPlatform.Client.V2.Api;
-using PureCloudPlatform.Client.V2.Client;
-using PureCloudPlatform.Client.V2.Model;
-
-namespace Example
-{
-    public class GetKnowledgeKnowledgebaseLanguageDocumentUploadExample
-    {
-        public void main()
-        { 
-            // Configure OAuth2 access token for authorization: PureCloud OAuth
-            // The following example is using the Authorization Code Grant
-            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
-                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
-                "http://redirecturi.com/",
-                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
-
-            var apiInstance = new KnowledgeApi();
-            var documentId = documentId_example;  // string | Document ID
-            var knowledgeBaseId = knowledgeBaseId_example;  // string | Knowledge base ID
-            var languageCode = en-US;  // string | Language code, format: iso2-LOCALE
-            var uploadId = uploadId_example;  // string | UploadId
-
-            try
-            { 
-                // Get document content upload status
-                KnowledgeDocumentContentUpload result = apiInstance.GetKnowledgeKnowledgebaseLanguageDocumentUpload(documentId, knowledgeBaseId, languageCode, uploadId);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling KnowledgeApi.GetKnowledgeKnowledgebaseLanguageDocumentUpload: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-
-|Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **documentId** | **string**| Document ID |  |
-| **knowledgeBaseId** | **string**| Knowledge base ID |  |
-| **languageCode** | **string**| Language code, format: iso2-LOCALE | <br />**Values**: en-US, en-UK, en-AU, en-CA, en-HK, en-IN, en-IE, en-NZ, en-PH, en-SG, en-ZA, de-DE, de-AT, de-CH, es-AR, es-CO, es-MX, es-US, es-ES, fr-FR, fr-BE, fr-CA, fr-CH, pt-BR, pt-PT, nl-NL, nl-BE, it-IT, ca-ES, tr-TR, sv-SE, fi-FI, nb-NO, da-DK, ja-JP, ar-AE, zh-CN, zh-TW, zh-HK, ko-KR, pl-PL, hi-IN, th-TH, hu-HU, vi-VN, uk-UA |
-| **uploadId** | **string**| UploadId |  |
-
-### Return type
-
-[**KnowledgeDocumentContentUpload**](KnowledgeDocumentContentUpload)
-
-
-## GetKnowledgeKnowledgebaseLanguageDocuments
-
-> [**DocumentListing**](DocumentListing) GetKnowledgeKnowledgebaseLanguageDocuments (string knowledgeBaseId, string languageCode, string before = null, string after = null, string limit = null, string pageSize = null, string categories = null, string title = null, string sortBy = null, string sortOrder = null, List<string> documentIds = null)
-
-:::{"alert":"warning","title":"Deprecated","collapsible":false,"autoCollapse":false}
-This resource has been deprecated
-:::
-
-Get documents
-
-Requires ALL permissions: 
-
-* knowledge:document:view
-
-### Example
-```{"language":"csharp"}
-using System;
-using System.Diagnostics;
-using PureCloudPlatform.Client.V2.Api;
-using PureCloudPlatform.Client.V2.Client;
-using PureCloudPlatform.Client.V2.Model;
-
-namespace Example
-{
-    public class GetKnowledgeKnowledgebaseLanguageDocumentsExample
-    {
-        public void main()
-        { 
-            // Configure OAuth2 access token for authorization: PureCloud OAuth
-            // The following example is using the Authorization Code Grant
-            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
-                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
-                "http://redirecturi.com/",
-                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
-
-            var apiInstance = new KnowledgeApi();
-            var knowledgeBaseId = knowledgeBaseId_example;  // string | Knowledge base ID
-            var languageCode = en-US;  // string | Language code, format: iso2-LOCALE
-            var before = before_example;  // string | The cursor that points to the start of the set of entities that has been returned. (optional) 
-            var after = after_example;  // string | The cursor that points to the end of the set of entities that has been returned. (optional) 
-            var limit = limit_example;  // string | Number of entities to return. Maximum of 200. Deprecated in favour of pageSize (optional) 
-            var pageSize = pageSize_example;  // string | Number of entities to return. Maximum of 200. (optional) 
-            var categories = categories_example;  // string | Filter by categories ids, comma separated values expected. (optional) 
-            var title = title_example;  // string | Filter by document title. (optional) 
-            var sortBy = sortBy_example;  // string | Sort by. (optional) 
-            var sortOrder = sortOrder_example;  // string | Sort Order. (optional) 
-            var documentIds = new List<string>(); // List<string> | Comma-separated list of document identifiers to fetch by. (optional) 
-
-            try
-            { 
-                // Get documents
-                DocumentListing result = apiInstance.GetKnowledgeKnowledgebaseLanguageDocuments(knowledgeBaseId, languageCode, before, after, limit, pageSize, categories, title, sortBy, sortOrder, documentIds);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling KnowledgeApi.GetKnowledgeKnowledgebaseLanguageDocuments: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-
-|Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **knowledgeBaseId** | **string**| Knowledge base ID |  |
-| **languageCode** | **string**| Language code, format: iso2-LOCALE | <br />**Values**: en-US, en-UK, en-AU, en-CA, en-HK, en-IN, en-IE, en-NZ, en-PH, en-SG, en-ZA, de-DE, de-AT, de-CH, es-AR, es-CO, es-MX, es-US, es-ES, fr-FR, fr-BE, fr-CA, fr-CH, pt-BR, pt-PT, nl-NL, nl-BE, it-IT, ca-ES, tr-TR, sv-SE, fi-FI, nb-NO, da-DK, ja-JP, ar-AE, zh-CN, zh-TW, zh-HK, ko-KR, pl-PL, hi-IN, th-TH, hu-HU, vi-VN, uk-UA |
-| **before** | **string**| The cursor that points to the start of the set of entities that has been returned. | [optional]  |
-| **after** | **string**| The cursor that points to the end of the set of entities that has been returned. | [optional]  |
-| **limit** | **string**| Number of entities to return. Maximum of 200. Deprecated in favour of pageSize | [optional]  |
-| **pageSize** | **string**| Number of entities to return. Maximum of 200. | [optional]  |
-| **categories** | **string**| Filter by categories ids, comma separated values expected. | [optional]  |
-| **title** | **string**| Filter by document title. | [optional]  |
-| **sortBy** | **string**| Sort by. | [optional] <br />**Values**: Title, Date |
-| **sortOrder** | **string**| Sort Order. | [optional] <br />**Values**: ASC, ascending, DESC, descending |
-| **documentIds** | [**List<string>**](string)| Comma-separated list of document identifiers to fetch by. | [optional]  |
-
-### Return type
-
-[**DocumentListing**](DocumentListing)
-
-
-## GetKnowledgeKnowledgebaseLanguageDocumentsImport
-
-> [**KnowledgeImport**](KnowledgeImport) GetKnowledgeKnowledgebaseLanguageDocumentsImport (string knowledgeBaseId, string languageCode, string importId)
-
-:::{"alert":"warning","title":"Deprecated","collapsible":false,"autoCollapse":false}
-This resource has been deprecated
-:::
-
-Get import operation report
-
-Requires ALL permissions: 
-
-* knowledge:document:add
-
-### Example
-```{"language":"csharp"}
-using System;
-using System.Diagnostics;
-using PureCloudPlatform.Client.V2.Api;
-using PureCloudPlatform.Client.V2.Client;
-using PureCloudPlatform.Client.V2.Model;
-
-namespace Example
-{
-    public class GetKnowledgeKnowledgebaseLanguageDocumentsImportExample
-    {
-        public void main()
-        { 
-            // Configure OAuth2 access token for authorization: PureCloud OAuth
-            // The following example is using the Authorization Code Grant
-            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
-                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
-                "http://redirecturi.com/",
-                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
-
-            var apiInstance = new KnowledgeApi();
-            var knowledgeBaseId = knowledgeBaseId_example;  // string | Knowledge base ID
-            var languageCode = en-US;  // string | Language code, format: iso2-LOCALE
-            var importId = importId_example;  // string | Import ID
-
-            try
-            { 
-                // Get import operation report
-                KnowledgeImport result = apiInstance.GetKnowledgeKnowledgebaseLanguageDocumentsImport(knowledgeBaseId, languageCode, importId);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling KnowledgeApi.GetKnowledgeKnowledgebaseLanguageDocumentsImport: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-
-|Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **knowledgeBaseId** | **string**| Knowledge base ID |  |
-| **languageCode** | **string**| Language code, format: iso2-LOCALE | <br />**Values**: en-US, en-UK, en-AU, en-CA, en-HK, en-IN, en-IE, en-NZ, en-PH, en-SG, en-ZA, de-DE, de-AT, de-CH, es-AR, es-CO, es-MX, es-US, es-ES, fr-FR, fr-BE, fr-CA, fr-CH, pt-BR, pt-PT, nl-NL, nl-BE, it-IT, ca-ES, tr-TR, sv-SE, fi-FI, nb-NO, da-DK, ja-JP, ar-AE, zh-CN, zh-TW, zh-HK, ko-KR, pl-PL, hi-IN, th-TH, hu-HU, vi-VN, uk-UA |
-| **importId** | **string**| Import ID |  |
-
-### Return type
-
-[**KnowledgeImport**](KnowledgeImport)
-
-
-## GetKnowledgeKnowledgebaseLanguageTraining
-
-> [**KnowledgeTraining**](KnowledgeTraining) GetKnowledgeKnowledgebaseLanguageTraining (string knowledgeBaseId, string languageCode, string trainingId)
-
-:::{"alert":"warning","title":"Deprecated","collapsible":false,"autoCollapse":false}
-This resource has been deprecated
-:::
-
-Get training detail
-
-Requires ALL permissions: 
-
-* knowledge:training:view
-
-### Example
-```{"language":"csharp"}
-using System;
-using System.Diagnostics;
-using PureCloudPlatform.Client.V2.Api;
-using PureCloudPlatform.Client.V2.Client;
-using PureCloudPlatform.Client.V2.Model;
-
-namespace Example
-{
-    public class GetKnowledgeKnowledgebaseLanguageTrainingExample
-    {
-        public void main()
-        { 
-            // Configure OAuth2 access token for authorization: PureCloud OAuth
-            // The following example is using the Authorization Code Grant
-            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
-                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
-                "http://redirecturi.com/",
-                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
-
-            var apiInstance = new KnowledgeApi();
-            var knowledgeBaseId = knowledgeBaseId_example;  // string | Knowledge base ID
-            var languageCode = en-US;  // string | Language code, format: iso2-LOCALE
-            var trainingId = trainingId_example;  // string | Training ID
-
-            try
-            { 
-                // Get training detail
-                KnowledgeTraining result = apiInstance.GetKnowledgeKnowledgebaseLanguageTraining(knowledgeBaseId, languageCode, trainingId);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling KnowledgeApi.GetKnowledgeKnowledgebaseLanguageTraining: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-
-|Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **knowledgeBaseId** | **string**| Knowledge base ID |  |
-| **languageCode** | **string**| Language code, format: iso2-LOCALE | <br />**Values**: en-US, en-UK, en-AU, en-CA, en-HK, en-IN, en-IE, en-NZ, en-PH, en-SG, en-ZA, de-DE, de-AT, de-CH, es-AR, es-CO, es-MX, es-US, es-ES, fr-FR, fr-BE, fr-CA, fr-CH, pt-BR, pt-PT, nl-NL, nl-BE, it-IT, ca-ES, tr-TR, sv-SE, fi-FI, nb-NO, da-DK, ja-JP, ar-AE, zh-CN, zh-TW, zh-HK, ko-KR, pl-PL, hi-IN, th-TH, hu-HU, vi-VN, uk-UA |
-| **trainingId** | **string**| Training ID |  |
-
-### Return type
-
-[**KnowledgeTraining**](KnowledgeTraining)
-
-
-## GetKnowledgeKnowledgebaseLanguageTrainings
-
-> [**TrainingListing**](TrainingListing) GetKnowledgeKnowledgebaseLanguageTrainings (string knowledgeBaseId, string languageCode, string before = null, string after = null, string limit = null, string pageSize = null, string knowledgeDocumentsState = null)
-
-:::{"alert":"warning","title":"Deprecated","collapsible":false,"autoCollapse":false}
-This resource has been deprecated
-:::
-
-Get all trainings information for a knowledgebase
-
-Requires ALL permissions: 
-
-* knowledge:training:view
-
-### Example
-```{"language":"csharp"}
-using System;
-using System.Diagnostics;
-using PureCloudPlatform.Client.V2.Api;
-using PureCloudPlatform.Client.V2.Client;
-using PureCloudPlatform.Client.V2.Model;
-
-namespace Example
-{
-    public class GetKnowledgeKnowledgebaseLanguageTrainingsExample
-    {
-        public void main()
-        { 
-            // Configure OAuth2 access token for authorization: PureCloud OAuth
-            // The following example is using the Authorization Code Grant
-            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
-                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
-                "http://redirecturi.com/",
-                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
-
-            var apiInstance = new KnowledgeApi();
-            var knowledgeBaseId = knowledgeBaseId_example;  // string | Knowledge base ID
-            var languageCode = en-US;  // string | Language code, format: iso2-LOCALE
-            var before = before_example;  // string | The cursor that points to the start of the set of entities that has been returned. (optional) 
-            var after = after_example;  // string | The cursor that points to the end of the set of entities that has been returned. (optional) 
-            var limit = limit_example;  // string | Number of entities to return. Maximum of 200. Deprecated in favour of pageSize (optional) 
-            var pageSize = pageSize_example;  // string | Number of entities to return. Maximum of 200. (optional) 
-            var knowledgeDocumentsState = knowledgeDocumentsState_example;  // string | Return the training with the specified state of the trained documents. (optional) 
-
-            try
-            { 
-                // Get all trainings information for a knowledgebase
-                TrainingListing result = apiInstance.GetKnowledgeKnowledgebaseLanguageTrainings(knowledgeBaseId, languageCode, before, after, limit, pageSize, knowledgeDocumentsState);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling KnowledgeApi.GetKnowledgeKnowledgebaseLanguageTrainings: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-
-|Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **knowledgeBaseId** | **string**| Knowledge base ID |  |
-| **languageCode** | **string**| Language code, format: iso2-LOCALE | <br />**Values**: en-US, en-UK, en-AU, en-CA, en-HK, en-IN, en-IE, en-NZ, en-PH, en-SG, en-ZA, de-DE, de-AT, de-CH, es-AR, es-CO, es-MX, es-US, es-ES, fr-FR, fr-BE, fr-CA, fr-CH, pt-BR, pt-PT, nl-NL, nl-BE, it-IT, ca-ES, tr-TR, sv-SE, fi-FI, nb-NO, da-DK, ja-JP, ar-AE, zh-CN, zh-TW, zh-HK, ko-KR, pl-PL, hi-IN, th-TH, hu-HU, vi-VN, uk-UA |
-| **before** | **string**| The cursor that points to the start of the set of entities that has been returned. | [optional]  |
-| **after** | **string**| The cursor that points to the end of the set of entities that has been returned. | [optional]  |
-| **limit** | **string**| Number of entities to return. Maximum of 200. Deprecated in favour of pageSize | [optional]  |
-| **pageSize** | **string**| Number of entities to return. Maximum of 200. | [optional]  |
-| **knowledgeDocumentsState** | **string**| Return the training with the specified state of the trained documents. | [optional] <br />**Values**: Draft, Active, Discarded, Archived |
-
-### Return type
-
-[**TrainingListing**](TrainingListing)
-
-
 ## GetKnowledgeKnowledgebaseOperations
 
 > [**OperationListing**](OperationListing) GetKnowledgeKnowledgebaseOperations (string knowledgeBaseId, string before = null, string after = null, string pageSize = null, List<string> userId = null, List<string> type = null, List<string> status = null, string interval = null, List<string> sourceId = null)
@@ -3151,8 +2337,6 @@ namespace Example
 
 
 Get parse job report
-
-GetKnowledgeKnowledgebaseParseJob is a preview method and is subject to both breaking and non-breaking changes at any time without notice
 
 Requires ALL permissions: 
 
@@ -3694,8 +2878,6 @@ namespace Example
 
 Get content upload from URL job status
 
-GetKnowledgeKnowledgebaseUploadsUrlsJob is a preview method and is subject to both breaking and non-breaking changes at any time without notice
-
 Requires ALL permissions: 
 
 * knowledge:uploadSourceUrlJob:view
@@ -3821,7 +3003,7 @@ namespace Example
 | **limit** | **string**| Number of entities to return. Maximum of 100. Deprecated in favour of pageSize | [optional]  |
 | **pageSize** | **string**| Number of entities to return. Maximum of 100. | [optional]  |
 | **name** | **string**| Filter by Name. | [optional]  |
-| **coreLanguage** | **string**| Filter by core language. | [optional] <br />**Values**: en-US, en-UK, en-AU, en-CA, en-HK, en-IN, en-IE, en-NZ, en-PH, en-SG, en-ZA, de-DE, de-AT, de-CH, es-AR, es-CO, es-MX, es-US, es-ES, fr-FR, fr-BE, fr-CA, fr-CH, pt-BR, pt-PT, nl-NL, nl-BE, it-IT, ca-ES, tr-TR, sv-SE, fi-FI, nb-NO, da-DK, ja-JP, ar-AE, zh-CN, zh-TW, zh-HK, ko-KR, pl-PL, hi-IN, th-TH, hu-HU, vi-VN, uk-UA |
+| **coreLanguage** | **string**| Filter by core language. | [optional] <br />**Values**: en-US, en-UK, en-AU, en-CA, en-HK, en-IN, en-IE, en-NZ, en-PH, en-SG, en-ZA, de-DE, de-AT, de-CH, es-AR, es-CO, es-MX, es-US, es-ES, fr-FR, fr-BE, fr-CA, fr-CH, pt-BR, pt-PT, nl-NL, nl-BE, it-IT, ca-ES, tr-TR, sv-SE, fi-FI, nb-NO, da-DK, ja-JP, ar-AE, zh-CN, zh-TW, zh-HK, ko-KR, pl-PL, hi-IN, th-TH, hu-HU, vi-VN, uk-UA, cs-CZ, fil-PH, ms-MY, he-IL, el-GR |
 | **published** | **bool?**| Filter by published status. | [optional]  |
 | **sortBy** | **string**| Sort by. | [optional] <br />**Values**: Name, Date |
 | **sortOrder** | **string**| Sort Order. | [optional] <br />**Values**: ASC, ascending, DESC, descending |
@@ -4017,6 +3199,71 @@ namespace Example
 ### Return type
 
 [**CategoryResponse**](CategoryResponse)
+
+
+## PatchKnowledgeKnowledgebaseChunksSearchSearchId
+
+> void PatchKnowledgeKnowledgebaseChunksSearchSearchId (string knowledgeBaseId, string searchId, ChunkSearchRegisterRequest body = null)
+
+
+Register chunk search result.
+
+Requires ALL permissions: 
+
+* knowledge:knowledgebase:search
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class PatchKnowledgeKnowledgebaseChunksSearchSearchIdExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new KnowledgeApi();
+            var knowledgeBaseId = knowledgeBaseId_example;  // string | Knowledge Base ID
+            var searchId = searchId_example;  // string | Unique identifier of search request
+            var body = new ChunkSearchRegisterRequest(); // ChunkSearchRegisterRequest |  (optional) 
+
+            try
+            { 
+                // Register chunk search result.
+                apiInstance.PatchKnowledgeKnowledgebaseChunksSearchSearchId(knowledgeBaseId, searchId, body);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling KnowledgeApi.PatchKnowledgeKnowledgebaseChunksSearchSearchId: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **knowledgeBaseId** | **string**| Knowledge Base ID |  |
+| **searchId** | **string**| Unique identifier of search request |  |
+| **body** | [**ChunkSearchRegisterRequest**](ChunkSearchRegisterRequest)|  | [optional]  |
+
+### Return type
+
+void (empty response body)
 
 
 ## PatchKnowledgeKnowledgebaseDocument
@@ -4418,297 +3665,12 @@ namespace Example
 [**LabelResponse**](LabelResponse)
 
 
-## PatchKnowledgeKnowledgebaseLanguageCategory
-
-> [**KnowledgeExtendedCategory**](KnowledgeExtendedCategory) PatchKnowledgeKnowledgebaseLanguageCategory (string categoryId, string knowledgeBaseId, string languageCode, KnowledgeCategoryRequest body)
-
-:::{"alert":"warning","title":"Deprecated","collapsible":false,"autoCollapse":false}
-This resource has been deprecated
-:::
-
-Update category
-
-Requires ALL permissions: 
-
-* knowledge:category:edit
-
-### Example
-```{"language":"csharp"}
-using System;
-using System.Diagnostics;
-using PureCloudPlatform.Client.V2.Api;
-using PureCloudPlatform.Client.V2.Client;
-using PureCloudPlatform.Client.V2.Model;
-
-namespace Example
-{
-    public class PatchKnowledgeKnowledgebaseLanguageCategoryExample
-    {
-        public void main()
-        { 
-            // Configure OAuth2 access token for authorization: PureCloud OAuth
-            // The following example is using the Authorization Code Grant
-            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
-                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
-                "http://redirecturi.com/",
-                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
-
-            var apiInstance = new KnowledgeApi();
-            var categoryId = categoryId_example;  // string | Category ID
-            var knowledgeBaseId = knowledgeBaseId_example;  // string | Knowledge base ID
-            var languageCode = en-US;  // string | Language code, format: iso2-LOCALE
-            var body = new KnowledgeCategoryRequest(); // KnowledgeCategoryRequest | 
-
-            try
-            { 
-                // Update category
-                KnowledgeExtendedCategory result = apiInstance.PatchKnowledgeKnowledgebaseLanguageCategory(categoryId, knowledgeBaseId, languageCode, body);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling KnowledgeApi.PatchKnowledgeKnowledgebaseLanguageCategory: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-
-|Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **categoryId** | **string**| Category ID |  |
-| **knowledgeBaseId** | **string**| Knowledge base ID |  |
-| **languageCode** | **string**| Language code, format: iso2-LOCALE | <br />**Values**: en-US, en-UK, en-AU, en-CA, en-HK, en-IN, en-IE, en-NZ, en-PH, en-SG, en-ZA, de-DE, de-AT, de-CH, es-AR, es-CO, es-MX, es-US, es-ES, fr-FR, fr-BE, fr-CA, fr-CH, pt-BR, pt-PT, nl-NL, nl-BE, it-IT, ca-ES, tr-TR, sv-SE, fi-FI, nb-NO, da-DK, ja-JP, ar-AE, zh-CN, zh-TW, zh-HK, ko-KR, pl-PL, hi-IN, th-TH, hu-HU, vi-VN, uk-UA |
-| **body** | [**KnowledgeCategoryRequest**](KnowledgeCategoryRequest)|  |  |
-
-### Return type
-
-[**KnowledgeExtendedCategory**](KnowledgeExtendedCategory)
-
-
-## PatchKnowledgeKnowledgebaseLanguageDocument
-
-> [**KnowledgeDocument**](KnowledgeDocument) PatchKnowledgeKnowledgebaseLanguageDocument (string documentId, string knowledgeBaseId, string languageCode, KnowledgeDocumentRequest body)
-
-:::{"alert":"warning","title":"Deprecated","collapsible":false,"autoCollapse":false}
-This resource has been deprecated
-:::
-
-Update document
-
-Requires ALL permissions: 
-
-* knowledge:document:edit
-
-### Example
-```{"language":"csharp"}
-using System;
-using System.Diagnostics;
-using PureCloudPlatform.Client.V2.Api;
-using PureCloudPlatform.Client.V2.Client;
-using PureCloudPlatform.Client.V2.Model;
-
-namespace Example
-{
-    public class PatchKnowledgeKnowledgebaseLanguageDocumentExample
-    {
-        public void main()
-        { 
-            // Configure OAuth2 access token for authorization: PureCloud OAuth
-            // The following example is using the Authorization Code Grant
-            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
-                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
-                "http://redirecturi.com/",
-                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
-
-            var apiInstance = new KnowledgeApi();
-            var documentId = documentId_example;  // string | Document ID
-            var knowledgeBaseId = knowledgeBaseId_example;  // string | Knowledge base ID
-            var languageCode = en-US;  // string | Language code, format: iso2-LOCALE
-            var body = new KnowledgeDocumentRequest(); // KnowledgeDocumentRequest | 
-
-            try
-            { 
-                // Update document
-                KnowledgeDocument result = apiInstance.PatchKnowledgeKnowledgebaseLanguageDocument(documentId, knowledgeBaseId, languageCode, body);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling KnowledgeApi.PatchKnowledgeKnowledgebaseLanguageDocument: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-
-|Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **documentId** | **string**| Document ID |  |
-| **knowledgeBaseId** | **string**| Knowledge base ID |  |
-| **languageCode** | **string**| Language code, format: iso2-LOCALE | <br />**Values**: en-US, en-UK, en-AU, en-CA, en-HK, en-IN, en-IE, en-NZ, en-PH, en-SG, en-ZA, de-DE, de-AT, de-CH, es-AR, es-CO, es-MX, es-US, es-ES, fr-FR, fr-BE, fr-CA, fr-CH, pt-BR, pt-PT, nl-NL, nl-BE, it-IT, ca-ES, tr-TR, sv-SE, fi-FI, nb-NO, da-DK, ja-JP, ar-AE, zh-CN, zh-TW, zh-HK, ko-KR, pl-PL, hi-IN, th-TH, hu-HU, vi-VN, uk-UA |
-| **body** | [**KnowledgeDocumentRequest**](KnowledgeDocumentRequest)|  |  |
-
-### Return type
-
-[**KnowledgeDocument**](KnowledgeDocument)
-
-
-## PatchKnowledgeKnowledgebaseLanguageDocuments
-
-> [**DocumentListing**](DocumentListing) PatchKnowledgeKnowledgebaseLanguageDocuments (string knowledgeBaseId, string languageCode, List<KnowledgeDocumentBulkRequest> body)
-
-:::{"alert":"warning","title":"Deprecated","collapsible":false,"autoCollapse":false}
-This resource has been deprecated
-:::
-
-Update documents collection
-
-Requires ALL permissions: 
-
-* knowledge:document:edit
-
-### Example
-```{"language":"csharp"}
-using System;
-using System.Diagnostics;
-using PureCloudPlatform.Client.V2.Api;
-using PureCloudPlatform.Client.V2.Client;
-using PureCloudPlatform.Client.V2.Model;
-
-namespace Example
-{
-    public class PatchKnowledgeKnowledgebaseLanguageDocumentsExample
-    {
-        public void main()
-        { 
-            // Configure OAuth2 access token for authorization: PureCloud OAuth
-            // The following example is using the Authorization Code Grant
-            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
-                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
-                "http://redirecturi.com/",
-                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
-
-            var apiInstance = new KnowledgeApi();
-            var knowledgeBaseId = knowledgeBaseId_example;  // string | Knowledge base ID
-            var languageCode = en-US;  // string | Language code, format: iso2-LOCALE
-            var body = new List<KnowledgeDocumentBulkRequest>(); // List<KnowledgeDocumentBulkRequest> | 
-
-            try
-            { 
-                // Update documents collection
-                DocumentListing result = apiInstance.PatchKnowledgeKnowledgebaseLanguageDocuments(knowledgeBaseId, languageCode, body);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling KnowledgeApi.PatchKnowledgeKnowledgebaseLanguageDocuments: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-
-|Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **knowledgeBaseId** | **string**| Knowledge base ID |  |
-| **languageCode** | **string**| Language code, format: iso2-LOCALE | <br />**Values**: en-US, en-UK, en-AU, en-CA, en-HK, en-IN, en-IE, en-NZ, en-PH, en-SG, en-ZA, de-DE, de-AT, de-CH, es-AR, es-CO, es-MX, es-US, es-ES, fr-FR, fr-BE, fr-CA, fr-CH, pt-BR, pt-PT, nl-NL, nl-BE, it-IT, ca-ES, tr-TR, sv-SE, fi-FI, nb-NO, da-DK, ja-JP, ar-AE, zh-CN, zh-TW, zh-HK, ko-KR, pl-PL, hi-IN, th-TH, hu-HU, vi-VN, uk-UA |
-| **body** | [**List<KnowledgeDocumentBulkRequest>**](KnowledgeDocumentBulkRequest)|  |  |
-
-### Return type
-
-[**DocumentListing**](DocumentListing)
-
-
-## PatchKnowledgeKnowledgebaseLanguageDocumentsImport
-
-> [**KnowledgeImport**](KnowledgeImport) PatchKnowledgeKnowledgebaseLanguageDocumentsImport (string knowledgeBaseId, string languageCode, string importId, ImportStatusRequest body)
-
-:::{"alert":"warning","title":"Deprecated","collapsible":false,"autoCollapse":false}
-This resource has been deprecated
-:::
-
-Start import operation
-
-Requires ALL permissions: 
-
-* knowledge:document:edit
-* knowledge:document:add
-
-### Example
-```{"language":"csharp"}
-using System;
-using System.Diagnostics;
-using PureCloudPlatform.Client.V2.Api;
-using PureCloudPlatform.Client.V2.Client;
-using PureCloudPlatform.Client.V2.Model;
-
-namespace Example
-{
-    public class PatchKnowledgeKnowledgebaseLanguageDocumentsImportExample
-    {
-        public void main()
-        { 
-            // Configure OAuth2 access token for authorization: PureCloud OAuth
-            // The following example is using the Authorization Code Grant
-            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
-                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
-                "http://redirecturi.com/",
-                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
-
-            var apiInstance = new KnowledgeApi();
-            var knowledgeBaseId = knowledgeBaseId_example;  // string | Knowledge base ID
-            var languageCode = en-US;  // string | Language code, format: iso2-LOCALE
-            var importId = importId_example;  // string | Import ID
-            var body = new ImportStatusRequest(); // ImportStatusRequest | 
-
-            try
-            { 
-                // Start import operation
-                KnowledgeImport result = apiInstance.PatchKnowledgeKnowledgebaseLanguageDocumentsImport(knowledgeBaseId, languageCode, importId, body);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling KnowledgeApi.PatchKnowledgeKnowledgebaseLanguageDocumentsImport: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-
-|Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **knowledgeBaseId** | **string**| Knowledge base ID |  |
-| **languageCode** | **string**| Language code, format: iso2-LOCALE | <br />**Values**: en-US, en-UK, en-AU, en-CA, en-HK, en-IN, en-IE, en-NZ, en-PH, en-SG, en-ZA, de-DE, de-AT, de-CH, es-AR, es-CO, es-MX, es-US, es-ES, fr-FR, fr-BE, fr-CA, fr-CH, pt-BR, pt-PT, nl-NL, nl-BE, it-IT, ca-ES, tr-TR, sv-SE, fi-FI, nb-NO, da-DK, ja-JP, ar-AE, zh-CN, zh-TW, zh-HK, ko-KR, pl-PL, hi-IN, th-TH, hu-HU, vi-VN, uk-UA |
-| **importId** | **string**| Import ID |  |
-| **body** | [**ImportStatusRequest**](ImportStatusRequest)|  |  |
-
-### Return type
-
-[**KnowledgeImport**](KnowledgeImport)
-
-
 ## PatchKnowledgeKnowledgebaseParseJob
 
 > void PatchKnowledgeKnowledgebaseParseJob (string knowledgeBaseId, string parseJobId, KnowledgeParseJobRequestPatch body)
 
 
 Send update to the parse operation
-
-PatchKnowledgeKnowledgebaseParseJob is a preview method and is subject to both breaking and non-breaking changes at any time without notice
 
 Requires ALL permissions: 
 
@@ -5488,6 +4450,70 @@ namespace Example
 [**CategoryResponse**](CategoryResponse)
 
 
+## PostKnowledgeKnowledgebaseChunksSearch
+
+> [**KnowledgeDocumentChunkResponse**](KnowledgeDocumentChunkResponse) PostKnowledgeKnowledgebaseChunksSearch (string knowledgeBaseId, KnowledgeDocumentChunkRequest body = null)
+
+
+Search for chunks in a knowledge base
+
+Requires ALL permissions: 
+
+* knowledge:knowledgebase:search
+
+### Example
+```{"language":"csharp"}
+using System;
+using System.Diagnostics;
+using PureCloudPlatform.Client.V2.Api;
+using PureCloudPlatform.Client.V2.Client;
+using PureCloudPlatform.Client.V2.Model;
+
+namespace Example
+{
+    public class PostKnowledgeKnowledgebaseChunksSearchExample
+    {
+        public void main()
+        { 
+            // Configure OAuth2 access token for authorization: PureCloud OAuth
+            // The following example is using the Authorization Code Grant
+            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
+                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
+                "http://redirecturi.com/",
+                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
+
+            var apiInstance = new KnowledgeApi();
+            var knowledgeBaseId = knowledgeBaseId_example;  // string | Knowledge Base ID
+            var body = new KnowledgeDocumentChunkRequest(); // KnowledgeDocumentChunkRequest |  (optional) 
+
+            try
+            { 
+                // Search for chunks in a knowledge base
+                KnowledgeDocumentChunkResponse result = apiInstance.PostKnowledgeKnowledgebaseChunksSearch(knowledgeBaseId, body);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling KnowledgeApi.PostKnowledgeKnowledgebaseChunksSearch: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **knowledgeBaseId** | **string**| Knowledge Base ID |  |
+| **body** | [**KnowledgeDocumentChunkRequest**](KnowledgeDocumentChunkRequest)|  | [optional]  |
+
+### Return type
+
+[**KnowledgeDocumentChunkResponse**](KnowledgeDocumentChunkResponse)
+
+
 ## PostKnowledgeKnowledgebaseDocumentCopies
 
 > void PostKnowledgeKnowledgebaseDocumentCopies (string knowledgeBaseId, string documentId, KnowledgeDocumentCopy body = null)
@@ -5953,8 +4979,6 @@ namespace Example
 
 Bulk remove documents.
 
-PostKnowledgeKnowledgebaseDocumentsBulkRemove is a preview method and is subject to both breaking and non-breaking changes at any time without notice
-
 Requires ALL permissions: 
 
 * knowledge:document:delete
@@ -6018,8 +5042,6 @@ namespace Example
 
 
 Bulk update documents.
-
-PostKnowledgeKnowledgebaseDocumentsBulkUpdate is a preview method and is subject to both breaking and non-breaking changes at any time without notice
 
 Requires ALL permissions: 
 
@@ -6199,7 +5221,7 @@ namespace Example
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **knowledgeBaseId** | **string**| Knowledge Base ID |  |
-| **expand** | [**List<string>**](string)| Fields, if any, to expand for each document in the search result matching the query. | [optional] <br />**Values**: documentVariations, documentAlternatives, knowledgeBaseLanguageCode |
+| **expand** | [**List<string>**](string)| Fields, if any, to expand for each document in the search result matching the query. | [optional] <br />**Values**: documentVariations, documentAlternatives, knowledgeBaseLanguageCode, variationChunks |
 | **body** | [**KnowledgeDocumentQuery**](KnowledgeDocumentQuery)|  | [optional]  |
 
 ### Return type
@@ -6265,7 +5287,7 @@ namespace Example
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **knowledgeBaseId** | **string**| The ID of knowledge base containing the documents to query. |  |
-| **expand** | [**List<string>**](string)| Fields, if any, to expand for each document in the search result matching the query. | [optional] <br />**Values**: documentVariations, documentAlternatives, knowledgeBaseLanguageCode |
+| **expand** | [**List<string>**](string)| Fields, if any, to expand for each document in the search result matching the query. | [optional] <br />**Values**: documentVariations, documentAlternatives, knowledgeBaseLanguageCode, variationChunks |
 | **body** | [**KnowledgeDocumentSearchRequest**](KnowledgeDocumentSearchRequest)|  | [optional]  |
 
 ### Return type
@@ -6343,8 +5365,6 @@ namespace Example
 
 
 Bulk add document versions.
-
-PostKnowledgeKnowledgebaseDocumentsVersionsBulkAdd is a preview method and is subject to both breaking and non-breaking changes at any time without notice
 
 Requires ALL permissions: 
 
@@ -6595,430 +5615,12 @@ namespace Example
 [**LabelResponse**](LabelResponse)
 
 
-## PostKnowledgeKnowledgebaseLanguageCategories
-
-> [**KnowledgeExtendedCategory**](KnowledgeExtendedCategory) PostKnowledgeKnowledgebaseLanguageCategories (string knowledgeBaseId, string languageCode, KnowledgeCategoryRequest body)
-
-:::{"alert":"warning","title":"Deprecated","collapsible":false,"autoCollapse":false}
-This resource has been deprecated
-:::
-
-Create new category
-
-Requires ALL permissions: 
-
-* knowledge:category:add
-
-### Example
-```{"language":"csharp"}
-using System;
-using System.Diagnostics;
-using PureCloudPlatform.Client.V2.Api;
-using PureCloudPlatform.Client.V2.Client;
-using PureCloudPlatform.Client.V2.Model;
-
-namespace Example
-{
-    public class PostKnowledgeKnowledgebaseLanguageCategoriesExample
-    {
-        public void main()
-        { 
-            // Configure OAuth2 access token for authorization: PureCloud OAuth
-            // The following example is using the Authorization Code Grant
-            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
-                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
-                "http://redirecturi.com/",
-                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
-
-            var apiInstance = new KnowledgeApi();
-            var knowledgeBaseId = knowledgeBaseId_example;  // string | Knowledge base ID
-            var languageCode = en-US;  // string | Language code, format: iso2-LOCALE
-            var body = new KnowledgeCategoryRequest(); // KnowledgeCategoryRequest | 
-
-            try
-            { 
-                // Create new category
-                KnowledgeExtendedCategory result = apiInstance.PostKnowledgeKnowledgebaseLanguageCategories(knowledgeBaseId, languageCode, body);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling KnowledgeApi.PostKnowledgeKnowledgebaseLanguageCategories: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-
-|Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **knowledgeBaseId** | **string**| Knowledge base ID |  |
-| **languageCode** | **string**| Language code, format: iso2-LOCALE | <br />**Values**: en-US, en-UK, en-AU, en-CA, en-HK, en-IN, en-IE, en-NZ, en-PH, en-SG, en-ZA, de-DE, de-AT, de-CH, es-AR, es-CO, es-MX, es-US, es-ES, fr-FR, fr-BE, fr-CA, fr-CH, pt-BR, pt-PT, nl-NL, nl-BE, it-IT, ca-ES, tr-TR, sv-SE, fi-FI, nb-NO, da-DK, ja-JP, ar-AE, zh-CN, zh-TW, zh-HK, ko-KR, pl-PL, hi-IN, th-TH, hu-HU, vi-VN, uk-UA |
-| **body** | [**KnowledgeCategoryRequest**](KnowledgeCategoryRequest)|  |  |
-
-### Return type
-
-[**KnowledgeExtendedCategory**](KnowledgeExtendedCategory)
-
-
-## PostKnowledgeKnowledgebaseLanguageDocumentUploads
-
-> [**KnowledgeDocumentContentUpload**](KnowledgeDocumentContentUpload) PostKnowledgeKnowledgebaseLanguageDocumentUploads (string documentId, string knowledgeBaseId, string languageCode, KnowledgeDocumentContentUpload body)
-
-:::{"alert":"warning","title":"Deprecated","collapsible":false,"autoCollapse":false}
-This resource has been deprecated
-:::
-
-Upload Article Content
-
-PostKnowledgeKnowledgebaseLanguageDocumentUploads is a preview method and is subject to both breaking and non-breaking changes at any time without notice
-
-Requires ALL permissions: 
-
-* knowledge:document:edit
-
-### Example
-```{"language":"csharp"}
-using System;
-using System.Diagnostics;
-using PureCloudPlatform.Client.V2.Api;
-using PureCloudPlatform.Client.V2.Client;
-using PureCloudPlatform.Client.V2.Model;
-
-namespace Example
-{
-    public class PostKnowledgeKnowledgebaseLanguageDocumentUploadsExample
-    {
-        public void main()
-        { 
-            // Configure OAuth2 access token for authorization: PureCloud OAuth
-            // The following example is using the Authorization Code Grant
-            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
-                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
-                "http://redirecturi.com/",
-                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
-
-            var apiInstance = new KnowledgeApi();
-            var documentId = documentId_example;  // string | Document ID
-            var knowledgeBaseId = knowledgeBaseId_example;  // string | Knowledge base ID
-            var languageCode = en-US;  // string | Language code, format: iso2-LOCALE
-            var body = new KnowledgeDocumentContentUpload(); // KnowledgeDocumentContentUpload | 
-
-            try
-            { 
-                // Upload Article Content
-                KnowledgeDocumentContentUpload result = apiInstance.PostKnowledgeKnowledgebaseLanguageDocumentUploads(documentId, knowledgeBaseId, languageCode, body);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling KnowledgeApi.PostKnowledgeKnowledgebaseLanguageDocumentUploads: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-
-|Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **documentId** | **string**| Document ID |  |
-| **knowledgeBaseId** | **string**| Knowledge base ID |  |
-| **languageCode** | **string**| Language code, format: iso2-LOCALE | <br />**Values**: en-US, en-UK, en-AU, en-CA, en-HK, en-IN, en-IE, en-NZ, en-PH, en-SG, en-ZA, de-DE, de-AT, de-CH, es-AR, es-CO, es-MX, es-US, es-ES, fr-FR, fr-BE, fr-CA, fr-CH, pt-BR, pt-PT, nl-NL, nl-BE, it-IT, ca-ES, tr-TR, sv-SE, fi-FI, nb-NO, da-DK, ja-JP, ar-AE, zh-CN, zh-TW, zh-HK, ko-KR, pl-PL, hi-IN, th-TH, hu-HU, vi-VN, uk-UA |
-| **body** | [**KnowledgeDocumentContentUpload**](KnowledgeDocumentContentUpload)|  |  |
-
-### Return type
-
-[**KnowledgeDocumentContentUpload**](KnowledgeDocumentContentUpload)
-
-
-## PostKnowledgeKnowledgebaseLanguageDocuments
-
-> [**KnowledgeDocument**](KnowledgeDocument) PostKnowledgeKnowledgebaseLanguageDocuments (string knowledgeBaseId, string languageCode, KnowledgeDocumentRequest body)
-
-:::{"alert":"warning","title":"Deprecated","collapsible":false,"autoCollapse":false}
-This resource has been deprecated
-:::
-
-Create document
-
-Requires ALL permissions: 
-
-* knowledge:document:add
-
-### Example
-```{"language":"csharp"}
-using System;
-using System.Diagnostics;
-using PureCloudPlatform.Client.V2.Api;
-using PureCloudPlatform.Client.V2.Client;
-using PureCloudPlatform.Client.V2.Model;
-
-namespace Example
-{
-    public class PostKnowledgeKnowledgebaseLanguageDocumentsExample
-    {
-        public void main()
-        { 
-            // Configure OAuth2 access token for authorization: PureCloud OAuth
-            // The following example is using the Authorization Code Grant
-            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
-                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
-                "http://redirecturi.com/",
-                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
-
-            var apiInstance = new KnowledgeApi();
-            var knowledgeBaseId = knowledgeBaseId_example;  // string | Knowledge base ID
-            var languageCode = en-US;  // string | Language code, format: iso2-LOCALE
-            var body = new KnowledgeDocumentRequest(); // KnowledgeDocumentRequest | 
-
-            try
-            { 
-                // Create document
-                KnowledgeDocument result = apiInstance.PostKnowledgeKnowledgebaseLanguageDocuments(knowledgeBaseId, languageCode, body);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling KnowledgeApi.PostKnowledgeKnowledgebaseLanguageDocuments: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-
-|Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **knowledgeBaseId** | **string**| Knowledge base ID |  |
-| **languageCode** | **string**| Language code, format: iso2-LOCALE | <br />**Values**: en-US, en-UK, en-AU, en-CA, en-HK, en-IN, en-IE, en-NZ, en-PH, en-SG, en-ZA, de-DE, de-AT, de-CH, es-AR, es-CO, es-MX, es-US, es-ES, fr-FR, fr-BE, fr-CA, fr-CH, pt-BR, pt-PT, nl-NL, nl-BE, it-IT, ca-ES, tr-TR, sv-SE, fi-FI, nb-NO, da-DK, ja-JP, ar-AE, zh-CN, zh-TW, zh-HK, ko-KR, pl-PL, hi-IN, th-TH, hu-HU, vi-VN, uk-UA |
-| **body** | [**KnowledgeDocumentRequest**](KnowledgeDocumentRequest)|  |  |
-
-### Return type
-
-[**KnowledgeDocument**](KnowledgeDocument)
-
-
-## PostKnowledgeKnowledgebaseLanguageDocumentsImports
-
-> [**KnowledgeImport**](KnowledgeImport) PostKnowledgeKnowledgebaseLanguageDocumentsImports (string knowledgeBaseId, string languageCode, KnowledgeImport body)
-
-:::{"alert":"warning","title":"Deprecated","collapsible":false,"autoCollapse":false}
-This resource has been deprecated
-:::
-
-Create import operation
-
-Requires ALL permissions: 
-
-* knowledge:document:add
-
-### Example
-```{"language":"csharp"}
-using System;
-using System.Diagnostics;
-using PureCloudPlatform.Client.V2.Api;
-using PureCloudPlatform.Client.V2.Client;
-using PureCloudPlatform.Client.V2.Model;
-
-namespace Example
-{
-    public class PostKnowledgeKnowledgebaseLanguageDocumentsImportsExample
-    {
-        public void main()
-        { 
-            // Configure OAuth2 access token for authorization: PureCloud OAuth
-            // The following example is using the Authorization Code Grant
-            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
-                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
-                "http://redirecturi.com/",
-                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
-
-            var apiInstance = new KnowledgeApi();
-            var knowledgeBaseId = knowledgeBaseId_example;  // string | Knowledge base ID
-            var languageCode = en-US;  // string | Language code, format: iso2-LOCALE
-            var body = new KnowledgeImport(); // KnowledgeImport | 
-
-            try
-            { 
-                // Create import operation
-                KnowledgeImport result = apiInstance.PostKnowledgeKnowledgebaseLanguageDocumentsImports(knowledgeBaseId, languageCode, body);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling KnowledgeApi.PostKnowledgeKnowledgebaseLanguageDocumentsImports: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-
-|Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **knowledgeBaseId** | **string**| Knowledge base ID |  |
-| **languageCode** | **string**| Language code, format: iso2-LOCALE | <br />**Values**: en-US, en-UK, en-AU, en-CA, en-HK, en-IN, en-IE, en-NZ, en-PH, en-SG, en-ZA, de-DE, de-AT, de-CH, es-AR, es-CO, es-MX, es-US, es-ES, fr-FR, fr-BE, fr-CA, fr-CH, pt-BR, pt-PT, nl-NL, nl-BE, it-IT, ca-ES, tr-TR, sv-SE, fi-FI, nb-NO, da-DK, ja-JP, ar-AE, zh-CN, zh-TW, zh-HK, ko-KR, pl-PL, hi-IN, th-TH, hu-HU, vi-VN, uk-UA |
-| **body** | [**KnowledgeImport**](KnowledgeImport)|  |  |
-
-### Return type
-
-[**KnowledgeImport**](KnowledgeImport)
-
-
-## PostKnowledgeKnowledgebaseLanguageTrainingPromote
-
-> [**KnowledgeTraining**](KnowledgeTraining) PostKnowledgeKnowledgebaseLanguageTrainingPromote (string knowledgeBaseId, string languageCode, string trainingId)
-
-:::{"alert":"warning","title":"Deprecated","collapsible":false,"autoCollapse":false}
-This resource has been deprecated
-:::
-
-Promote trained documents from draft state to active.
-
-Requires ALL permissions: 
-
-* knowledge:training:edit
-
-### Example
-```{"language":"csharp"}
-using System;
-using System.Diagnostics;
-using PureCloudPlatform.Client.V2.Api;
-using PureCloudPlatform.Client.V2.Client;
-using PureCloudPlatform.Client.V2.Model;
-
-namespace Example
-{
-    public class PostKnowledgeKnowledgebaseLanguageTrainingPromoteExample
-    {
-        public void main()
-        { 
-            // Configure OAuth2 access token for authorization: PureCloud OAuth
-            // The following example is using the Authorization Code Grant
-            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
-                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
-                "http://redirecturi.com/",
-                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
-
-            var apiInstance = new KnowledgeApi();
-            var knowledgeBaseId = knowledgeBaseId_example;  // string | Knowledge base ID
-            var languageCode = en-US;  // string | Language code, format: iso2-LOCALE
-            var trainingId = trainingId_example;  // string | Training ID
-
-            try
-            { 
-                // Promote trained documents from draft state to active.
-                KnowledgeTraining result = apiInstance.PostKnowledgeKnowledgebaseLanguageTrainingPromote(knowledgeBaseId, languageCode, trainingId);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling KnowledgeApi.PostKnowledgeKnowledgebaseLanguageTrainingPromote: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-
-|Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **knowledgeBaseId** | **string**| Knowledge base ID |  |
-| **languageCode** | **string**| Language code, format: iso2-LOCALE | <br />**Values**: en-US, en-UK, en-AU, en-CA, en-HK, en-IN, en-IE, en-NZ, en-PH, en-SG, en-ZA, de-DE, de-AT, de-CH, es-AR, es-CO, es-MX, es-US, es-ES, fr-FR, fr-BE, fr-CA, fr-CH, pt-BR, pt-PT, nl-NL, nl-BE, it-IT, ca-ES, tr-TR, sv-SE, fi-FI, nb-NO, da-DK, ja-JP, ar-AE, zh-CN, zh-TW, zh-HK, ko-KR, pl-PL, hi-IN, th-TH, hu-HU, vi-VN, uk-UA |
-| **trainingId** | **string**| Training ID |  |
-
-### Return type
-
-[**KnowledgeTraining**](KnowledgeTraining)
-
-
-## PostKnowledgeKnowledgebaseLanguageTrainings
-
-> [**KnowledgeTraining**](KnowledgeTraining) PostKnowledgeKnowledgebaseLanguageTrainings (string knowledgeBaseId, string languageCode)
-
-:::{"alert":"warning","title":"Deprecated","collapsible":false,"autoCollapse":false}
-This resource has been deprecated
-:::
-
-Trigger training
-
-Requires ALL permissions: 
-
-* knowledge:training:create
-
-### Example
-```{"language":"csharp"}
-using System;
-using System.Diagnostics;
-using PureCloudPlatform.Client.V2.Api;
-using PureCloudPlatform.Client.V2.Client;
-using PureCloudPlatform.Client.V2.Model;
-
-namespace Example
-{
-    public class PostKnowledgeKnowledgebaseLanguageTrainingsExample
-    {
-        public void main()
-        { 
-            // Configure OAuth2 access token for authorization: PureCloud OAuth
-            // The following example is using the Authorization Code Grant
-            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
-                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
-                "http://redirecturi.com/",
-                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
-
-            var apiInstance = new KnowledgeApi();
-            var knowledgeBaseId = knowledgeBaseId_example;  // string | Knowledge base ID
-            var languageCode = en-US;  // string | Language code, format: iso2-LOCALE
-
-            try
-            { 
-                // Trigger training
-                KnowledgeTraining result = apiInstance.PostKnowledgeKnowledgebaseLanguageTrainings(knowledgeBaseId, languageCode);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling KnowledgeApi.PostKnowledgeKnowledgebaseLanguageTrainings: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-
-|Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **knowledgeBaseId** | **string**| Knowledge base ID |  |
-| **languageCode** | **string**| Language code, format: iso2-LOCALE | <br />**Values**: en-US, en-UK, en-AU, en-CA, en-HK, en-IN, en-IE, en-NZ, en-PH, en-SG, en-ZA, de-DE, de-AT, de-CH, es-AR, es-CO, es-MX, es-US, es-ES, fr-FR, fr-BE, fr-CA, fr-CH, pt-BR, pt-PT, nl-NL, nl-BE, it-IT, ca-ES, tr-TR, sv-SE, fi-FI, nb-NO, da-DK, ja-JP, ar-AE, zh-CN, zh-TW, zh-HK, ko-KR, pl-PL, hi-IN, th-TH, hu-HU, vi-VN, uk-UA |
-
-### Return type
-
-[**KnowledgeTraining**](KnowledgeTraining)
-
-
 ## PostKnowledgeKnowledgebaseParseJobImport
 
 > void PostKnowledgeKnowledgebaseParseJobImport (string knowledgeBaseId, string parseJobId, KnowledgeParseJobRequestImport body)
 
 
 Import the parsed articles
-
-PostKnowledgeKnowledgebaseParseJobImport is a preview method and is subject to both breaking and non-breaking changes at any time without notice
 
 Requires ALL permissions: 
 
@@ -7085,8 +5687,6 @@ void (empty response body)
 
 Create parse job
 
-PostKnowledgeKnowledgebaseParseJobs is a preview method and is subject to both breaking and non-breaking changes at any time without notice
-
 Requires ALL permissions: 
 
 * knowledge:importJob:add
@@ -7142,73 +5742,6 @@ namespace Example
 ### Return type
 
 [**KnowledgeParseJobResponse**](KnowledgeParseJobResponse)
-
-
-## PostKnowledgeKnowledgebaseSearch
-
-> [**KnowledgeSearchResponse**](KnowledgeSearchResponse) PostKnowledgeKnowledgebaseSearch (string knowledgeBaseId, KnowledgeSearchRequest body = null)
-
-:::{"alert":"warning","title":"Deprecated","collapsible":false,"autoCollapse":false}
-This resource has been deprecated
-:::
-
-Search Documents
-
-Requires ALL permissions: 
-
-* knowledge:knowledgebase:search
-
-### Example
-```{"language":"csharp"}
-using System;
-using System.Diagnostics;
-using PureCloudPlatform.Client.V2.Api;
-using PureCloudPlatform.Client.V2.Client;
-using PureCloudPlatform.Client.V2.Model;
-
-namespace Example
-{
-    public class PostKnowledgeKnowledgebaseSearchExample
-    {
-        public void main()
-        { 
-            // Configure OAuth2 access token for authorization: PureCloud OAuth
-            // The following example is using the Authorization Code Grant
-            var accessTokenInfo = Configuration.Default.ApiClient.PostToken("18a4c365-7ea3-4f0g-9fb7-884fb4d2e9c6",
-                "M7FfdYQyL5TA6BdbEZ8M9-Wx4uZai1rNQ7jcuFdcJJo",
-                "http://redirecturi.com/",
-                "6Zxcb0oASMBI55wQJ6bVmOmO57k8CxXBKgzDKtYXbtk");
-
-            var apiInstance = new KnowledgeApi();
-            var knowledgeBaseId = knowledgeBaseId_example;  // string | Knowledge base ID
-            var body = new KnowledgeSearchRequest(); // KnowledgeSearchRequest |  (optional) 
-
-            try
-            { 
-                // Search Documents
-                KnowledgeSearchResponse result = apiInstance.PostKnowledgeKnowledgebaseSearch(knowledgeBaseId, body);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling KnowledgeApi.PostKnowledgeKnowledgebaseSearch: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-
-|Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **knowledgeBaseId** | **string**| Knowledge base ID |  |
-| **body** | [**KnowledgeSearchRequest**](KnowledgeSearchRequest)|  | [optional]  |
-
-### Return type
-
-[**KnowledgeSearchResponse**](KnowledgeSearchResponse)
 
 
 ## PostKnowledgeKnowledgebaseSourcesSalesforce
@@ -7277,7 +5810,7 @@ namespace Example
 
 ## PostKnowledgeKnowledgebaseSourcesSalesforceSourceIdSync
 
-> [**SourceSyncResponse**](SourceSyncResponse) PostKnowledgeKnowledgebaseSourcesSalesforceSourceIdSync (string knowledgeBaseId, string sourceId)
+> [**SourceSyncResponse**](SourceSyncResponse) PostKnowledgeKnowledgebaseSourcesSalesforceSourceIdSync (string knowledgeBaseId, string sourceId, Object body = null)
 
 
 Start sync on Salesforce Knowledge integration source
@@ -7310,11 +5843,12 @@ namespace Example
             var apiInstance = new KnowledgeApi();
             var knowledgeBaseId = knowledgeBaseId_example;  // string | Knowledge base ID
             var sourceId = sourceId_example;  // string | Source ID
+            var body = ;  // Object |  (optional) 
 
             try
             { 
                 // Start sync on Salesforce Knowledge integration source
-                SourceSyncResponse result = apiInstance.PostKnowledgeKnowledgebaseSourcesSalesforceSourceIdSync(knowledgeBaseId, sourceId);
+                SourceSyncResponse result = apiInstance.PostKnowledgeKnowledgebaseSourcesSalesforceSourceIdSync(knowledgeBaseId, sourceId, body);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -7333,6 +5867,7 @@ namespace Example
 |------------- | ------------- | ------------- | -------------|
 | **knowledgeBaseId** | **string**| Knowledge base ID |  |
 | **sourceId** | **string**| Source ID |  |
+| **body** | **Object**|  | [optional]  |
 
 ### Return type
 
@@ -7405,7 +5940,7 @@ namespace Example
 
 ## PostKnowledgeKnowledgebaseSourcesServicenowSourceIdSync
 
-> [**SourceSyncResponse**](SourceSyncResponse) PostKnowledgeKnowledgebaseSourcesServicenowSourceIdSync (string knowledgeBaseId, string sourceId)
+> [**SourceSyncResponse**](SourceSyncResponse) PostKnowledgeKnowledgebaseSourcesServicenowSourceIdSync (string knowledgeBaseId, string sourceId, Object body = null)
 
 
 Start synchronization on ServiceNow Knowledge integration source
@@ -7438,11 +5973,12 @@ namespace Example
             var apiInstance = new KnowledgeApi();
             var knowledgeBaseId = knowledgeBaseId_example;  // string | Knowledge base ID
             var sourceId = sourceId_example;  // string | Source ID
+            var body = ;  // Object |  (optional) 
 
             try
             { 
                 // Start synchronization on ServiceNow Knowledge integration source
-                SourceSyncResponse result = apiInstance.PostKnowledgeKnowledgebaseSourcesServicenowSourceIdSync(knowledgeBaseId, sourceId);
+                SourceSyncResponse result = apiInstance.PostKnowledgeKnowledgebaseSourcesServicenowSourceIdSync(knowledgeBaseId, sourceId, body);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -7461,6 +5997,7 @@ namespace Example
 |------------- | ------------- | ------------- | -------------|
 | **knowledgeBaseId** | **string**| Knowledge base ID |  |
 | **sourceId** | **string**| Source ID |  |
+| **body** | **Object**|  | [optional]  |
 
 ### Return type
 
@@ -7537,8 +6074,6 @@ namespace Example
 
 
 Create content upload from URL job
-
-PostKnowledgeKnowledgebaseUploadsUrlsJobs is a preview method and is subject to both breaking and non-breaking changes at any time without notice
 
 Requires ALL permissions: 
 
@@ -7791,4 +6326,4 @@ namespace Example
 [**ServiceNowSourceResponse**](ServiceNowSourceResponse)
 
 
-_PureCloudPlatform.Client.V2 227.0.0_
+_PureCloudPlatform.Client.V2 257.0.0_
