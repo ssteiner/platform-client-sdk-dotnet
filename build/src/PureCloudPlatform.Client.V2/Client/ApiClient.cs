@@ -268,6 +268,10 @@ namespace PureCloudPlatform.Client.V2.Client
         /// OUuth Client Secret
         ///</Summary>
         public string ClientSecret { get; set; }
+        /// <summary>
+        /// Defines if Client credential Authorization is used
+        /// </summary>
+        public bool UsingClientCredentials { get; set; }
 
         private void HandleExpiredAccessToken()
         {
@@ -421,6 +425,9 @@ namespace PureCloudPlatform.Client.V2.Client
                     return await CallApiAsync(path, method, queryParams, postBody, headerParams, formParams, fileParams, pathParams, contentType);
                 }
             }
+
+            if ((int)response.StatusCode < 200 || (int)response.StatusCode >= 300)
+                Configuration.Logger.Error(method, path, postBody, response.Content, (int)response.StatusCode, headerParams, response.Headers ?? new Dictionary<string, string>());
 
             return (Object)response;
         }
